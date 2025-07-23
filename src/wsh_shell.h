@@ -1,8 +1,8 @@
 /**
  * @file wsh_shell.h
  * @brief User object definition and API's
+ * 
  * @author Whoosh Embedded Team
- *
  * @copyright Copyright (c) 2024
  */
 
@@ -15,28 +15,6 @@
 #include "wsh_shell_io.h"
 #include "wsh_shell_types.h"
 #include "wsh_shell_user.h"
-
-/* clang-format off */
-#if WSH_SHELL_PRINT_INFO_ENABLE
-#define WSH_SHELL_PRINT_INFO(_f_, ...) WSH_SHELL_PRINT(WSH_SHELL_COLOR_INFO _f_ WSH_SHELL_ESC_RESET_STYLE, ##__VA_ARGS__)
-#else /* WSH_SHELL_PRINT_INFO */
-#define WSH_SHELL_PRINT_INFO(_f_, ...)
-#endif /* WSH_SHELL_PRINT_INFO */
-
-#if WSH_SHELL_PRINT_WARN_ENABLE
-#define WSH_SHELL_PRINT_WARN(_f_, ...) WSH_SHELL_PRINT(WSH_SHELL_COLOR_WARN _f_ WSH_SHELL_ESC_RESET_STYLE, ##__VA_ARGS__);
-#else /* WSH_SHELL_PRINT_WARN_ENABLE */
-#define WSH_SHELL_PRINT_WARN(_f_, ...)
-#endif /* WSH_SHELL_PRINT_WARN_ENABLE */
-
-#if WSH_SHELL_PRINT_ERR_ENABLE
-#define WSH_SHELL_PRINT_ERR(_f_, ...) WSH_SHELL_PRINT(WSH_SHELL_COLOR_ERROR _f_ WSH_SHELL_ESC_RESET_STYLE, ##__VA_ARGS__);
-#else /* WSH_SHELL_PRINT_ERR_ENABLE */
-#define WSH_SHELL_PRINT_ERR(_f_, ...)
-#endif /* WSH_SHELL_PRINT_ERR_ENABLE */
-
-#define WSH_SHELL_PRINT_INTRO() WSH_SHELL_PRINT(WSH_SHELL_COLOR_INTRO WSH_SHELL_INTRO WSH_SHELL_ESC_RESET_STYLE)
-/* clang-format on */
 
 /**
  * @ingroup WshShell

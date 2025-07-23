@@ -1,8 +1,15 @@
 #ifndef __WSH_SHELL_CFG_H
 #define __WSH_SHELL_CFG_H
 
+#include "wsh_shell_types.h"
+
 #define WSH_SHELL_HISTORY 1
 
+#define WSH_SHELL_AUTOCOMPLETE         1
+#define WSH_SHELL_AUTOCOMPLETE_PAD_LEN 32
+#define WSH_SHELL_AUTOCOMPLETE_PAD_SYM '.'
+
+#define WSH_SHELL_PRINT_SYS_ENABLE  1
 #define WSH_SHELL_PRINT_INFO_ENABLE 1
 #define WSH_SHELL_PRINT_WARN_ENABLE 1
 #define WSH_SHELL_PRINT_ERR_ENABLE  1
@@ -19,7 +26,7 @@
 \r\n"
 /* clang-format on */
 
-#define WSH_SHELL_DEVICE_NAME "Y0UR-D4V1CE"
+#define SHELL_RX_BUFF_LEN 128
 
 #define WSH_SHELL_COLOR_INFO  WSH_SHELL_COLOR_WHITE
 #define WSH_SHELL_COLOR_SYS   WSH_SHELL_COLOR_CYAN
@@ -27,9 +34,6 @@
 #define WSH_SHELL_COLOR_WARN  WSH_SHELL_COLOR_YELLOW
 #define WSH_SHELL_COLOR_ERROR WSH_SHELL_COLOR_RED
 #define WSH_SHELL_COLOR_INTRO WSH_SHELL_COLOR_PURPLE
-
-// It should have 3 string placeholder for device name, username and state of interactive command
-#define WSH_SHELL_PROMPT_FMT WSH_SHELL_COLOR_PURPLE WSH_SHELL_ECS_SET_MODE_BOLD "%s@%s[%s]$ " WSH_SHELL_ESC_RESET_STYLE
 
 #define WSH_SHELL_PRINT(_f_, ...)   \
     do {                            \
@@ -81,7 +85,7 @@
  * @brief Max amount of arguments for passing in command.
  */
 #ifndef WSH_SHELL_CMD_ARGS_MAX_NUM
-    #define WSH_SHELL_CMD_ARGS_MAX_NUM 20
+    #define WSH_SHELL_CMD_ARGS_MAX_NUM 16
 #endif /* WSH_SHELL_CMD_ARGS_MAX_NUM */
 
 /**
@@ -89,7 +93,7 @@
  * @brief Max amount of founded options in command call string.
  */
 #ifndef WSH_SHELL_CMD_OPTIONS_MAX_NUM
-    #define WSH_SHELL_CMD_OPTIONS_MAX_NUM 20
+    #define WSH_SHELL_CMD_OPTIONS_MAX_NUM 16
 #endif /* WSH_SHELL_CMD_OPTIONS_MAX_NUM */
 
 /**@} */
@@ -117,20 +121,20 @@
 /**@{ */
 
 /**
- * @def WSH_SHELL_USER_LOGIN_MAX_LEN
+ * @def WSH_SHELL_LOGIN_MAX_LEN
  * @brief Max length of a user name
  */
-#ifndef WSH_SHELL_USER_LOGIN_MAX_LEN
-    #define WSH_SHELL_USER_LOGIN_MAX_LEN 32
-#endif /* WSH_SHELL_USER_LOGIN_MAX_LEN */
+#ifndef WSH_SHELL_LOGIN_MAX_LEN
+    #define WSH_SHELL_LOGIN_MAX_LEN 32
+#endif /* WSH_SHELL_LOGIN_MAX_LEN */
 
 /**
- * @def WSH_SHELL_USER_PASS_MAX_LEN
+ * @def WSH_SHELL_PASS_MAX_LEN
  * @brief Max length of a user password
  */
-#ifndef WSH_SHELL_USER_PASS_MAX_LEN
-    #define WSH_SHELL_USER_PASS_MAX_LEN 32
-#endif /* WSH_SHELL_USER_PASS_MAX_LEN */
+#ifndef WSH_SHELL_PASS_MAX_LEN
+    #define WSH_SHELL_PASS_MAX_LEN 32
+#endif /* WSH_SHELL_PASS_MAX_LEN */
 
 /**@} */
 
@@ -145,7 +149,7 @@
  * @brief Interactive buffer size.
  */
 #ifndef WSH_SHELL_INTR_BUFF_SIZE
-    #define WSH_SHELL_INTR_BUFF_SIZE 96
+    #define WSH_SHELL_INTR_BUFF_SIZE 64
 #endif /* WSH_SHELL_INTR_BUFF_SIZE */
 
 /**
@@ -193,6 +197,10 @@
     #define WSH_SHELL_MEMCMP(pD, pS, sz) memcmp((pD), (pS), (sz))
 #endif /* WSH_SHELL_MEMCPY */
 
+#ifndef WSH_SHELL_STRCPY
+    #define WSH_SHELL_STRCPY(pD, pS) strcpy((pD), (pS))
+#endif /* WSH_SHELL_STRCPY */
+
 #ifndef WSH_SHELL_STRNCPY
     #define WSH_SHELL_STRNCPY(pD, pS, sz) strncpy((pD), (pS), (sz))
 #endif /* WSH_SHELL_STRNCPY */
@@ -201,8 +209,12 @@
     #define WSH_SHELL_STRLEN(pS) strlen((pS))
 #endif /* WSH_SHELL_STRLEN */
 
+#ifndef WSH_SHELL_STRNLEN
+    #define WSH_SHELL_STRNLEN(pS, len) strnlen((pS), (len))
+#endif /* WSH_SHELL_STRNLEN */
+
 #ifndef WSH_SHELL_STRNCMP
-    #define WSH_SHELL_STRNCMP(pS1, pS2, cnt) strncmp((pS1), (pS2), cnt)
+    #define WSH_SHELL_STRNCMP(pS1, pS2, len) strncmp((pS1), (pS2), (len))
 #endif /* WSH_SHELL_STRNCMP */
 
 #ifndef WSH_SHELL_STRTOL
@@ -212,5 +224,31 @@
 #ifndef WSH_SHELL_STRTOF
     #define WSH_SHELL_STRTOF(pN, pE) strtof((pN), (pE))
 #endif /* WSH_SHELL_STRTOF */
+
+// Project-to-shell enum mapping table
+#define RET_STATE_MAP_TABLE()                            \
+    X_MAP_ENTRY(true, WSH_SHELL_RET_STATE_SUCCESS)       \
+    X_MAP_ENTRY(true, WSH_SHELL_RET_STATE_WARNING)       \
+    X_MAP_ENTRY(false, WSH_SHELL_RET_STATE_ERROR)        \
+    X_MAP_ENTRY(false, WSH_SHELL_RET_STATE_ERR_EMPTY)    \
+    X_MAP_ENTRY(false, WSH_SHELL_RET_STATE_ERR_PARAM)    \
+    X_MAP_ENTRY(false, WSH_SHELL_RET_STATE_ERR_BUSY)     \
+    X_MAP_ENTRY(false, WSH_SHELL_RET_STATE_ERR_OVERFLOW) \
+    X_MAP_ENTRY(false, WSH_SHELL_RET_STATE_ERR_MEMORY)   \
+    X_MAP_ENTRY(false, WSH_SHELL_RET_STATE_ERR_TIMEOUT)  \
+    X_MAP_ENTRY(false, WSH_SHELL_RET_STATE_ERR_CRC)      \
+    X_MAP_ENTRY(false, WSH_SHELL_RET_STATE_UNDEF)
+
+static inline bool WshShellRetState_TranslateToProject(WSH_SHELL_RET_STATE_t state) {
+    switch (state) {
+#define X_MAP_ENTRY(proj, shell) \
+    case shell:                  \
+        return proj;
+        RET_STATE_MAP_TABLE()
+#undef X_MAP_ENTRY
+        default:
+            return false;
+    }
+}
 
 #endif /* __WSH_SHELL_CFG_H */
