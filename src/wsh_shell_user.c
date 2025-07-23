@@ -42,8 +42,8 @@ bool WshShellUser_CheckCredentials(WshShell_Size_t UserID, const char* pLogin, c
         return false;
 
     bool result = false;
-    if (WSH_SHELL_STRNCMP(UserTable.pUser[UserID].pLogin, pLogin, WSH_SHELL_USER_LOGIN_MAX_LEN) == 0 &&
-        WSH_SHELL_STRNCMP(UserTable.pUser[UserID].pPwd, pPassword, WSH_SHELL_USER_PASS_MAX_LEN) == 0) {
+    if (WSH_SHELL_STRNCMP(UserTable.pUser[UserID].pLogin, pLogin, WSH_SHELL_LOGIN_MAX_LEN) == 0 &&
+        WSH_SHELL_STRNCMP(UserTable.pUser[UserID].pPwd, pPassword, WSH_SHELL_PASS_MAX_LEN) == 0) {
         result = true;
     }
 

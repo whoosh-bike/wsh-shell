@@ -250,8 +250,8 @@ void WshShell_Auth(const char* pLogin, const char* pPwd) {
             break;
         }
     }
-    WSH_SHELL_MEMSET(pShell->pLogin, 0, WSH_SHELL_USER_LOGIN_MAX_LEN);
-    WSH_SHELL_MEMSET(pShell->pPwd, 0, WSH_SHELL_USER_PASS_MAX_LEN);
+    WSH_SHELL_MEMSET(pShell->pLogin, 0, WSH_SHELL_LOGIN_MAX_LEN);
+    WSH_SHELL_MEMSET(pShell->pPwd, 0, WSH_SHELL_PASS_MAX_LEN);
 }
 
 bool WshShell_IsAuth(void) {
