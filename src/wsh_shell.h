@@ -27,8 +27,8 @@ typedef struct {
     WshShell_Size_t CursorPos;                      /**< Cursor position. */
     const WshShellUser_t* pUser;                    /**< Current active user */
     const WshShellCmd_t* pIntCmd;                   /**< Current active interactive command */
-    char pLogin[WSH_SHELL_USER_LOGIN_MAX_LEN];      /**< Login buffer for authentication */
-    char pPwd[WSH_SHELL_USER_PASS_MAX_LEN];         /**< Password buffer for authentication */
+    char pLogin[WSH_SHELL_LOGIN_MAX_LEN];           /**< Login buffer for authentication */
+    char pPwd[WSH_SHELL_PASS_MAX_LEN];              /**< Password buffer for authentication */
     WshShell_Size_t EscCnt;                         /**< Counter for escape sequence characters */
     char EscBuff[WSH_SHELL_ESC_BUFF_LEN];           /**< Buffer for escape sequence characters */
 } WshShell_t;
