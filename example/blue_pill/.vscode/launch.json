@@ -1,0 +1,37 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Debug basic (LLDB)",
+            "type": "lldb",
+            "request": "launch",
+            "program": "${workspaceFolder}/example/basic/build/basic",
+            "args": [],
+            "cwd": "${workspaceFolder}",
+        },
+        {
+            "name": "Debug blue_pill (OpenOCD-STLink)",
+            "presentation": {
+                "group": "Local"
+            },
+            "type": "cortex-debug",
+            "request": "launch",
+            "executable": "${workspaceFolder}/debug/fw.elf",
+            "svdFile": "${workspaceFolder}/platform/m0/stm32h7x3.svd",
+            "gdbPath": "/Users/katbert/Library/arm-gnu-toolchain-13.3.rel1-darwin-arm64-arm-none-eabi/bin/arm-none-eabi-gdb",
+            "showDevDebugOutput": "raw",
+            "servertype": "openocd",
+            "serverpath": "/opt/homebrew/bin/openocd",
+            "interface": "swd",
+            "configFiles": [
+                "${workspaceFolder}/stlink.cfg",
+                "${workspaceFolder}/platform/m0/stm32h7x.cfg"
+            ],
+            "preLaunchCommands": [
+                "monitor init",
+                "monitor reset init",
+                "monitor flash write_image debug/fw.elf"
+            ]
+        },
+    ]
+}

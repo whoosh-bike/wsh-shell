@@ -1,0 +1,30 @@
+{
+    "configurations": [
+        {
+            "name": "blue_pill",
+            "compilerPath": "${config:compiler_path}/arm-none-eabi-gcc",
+            "includePath": [
+                "${workspaceFolder}/src",
+                "${workspaceFolder}/example/blue_pill/system",
+                "${workspaceFolder}/example/blue_pill/platform",
+                "${workspaceFolder}/example/blue_pill/STM32CubeF1",
+                "${workspaceFolder}/example/blue_pill/STM32CubeF1/Drivers",
+                "${workspaceFolder}/example/blue_pill/STM32CubeF1/Drivers/CMSIS/Include",
+                "${workspaceFolder}/example/blue_pill/STM32CubeF1/Drivers/CMSIS/Device/ST/STM32F1xx/Include",
+                "${workspaceFolder}/example/blue_pill/STM32CubeF1/Drivers/STM32F1xx_HAL_Driver/Inc",
+                "${workspaceFolder}/example/blue_pill/STM32CubeF1/Drivers/STM32F1xx_HAL_Driver/Inc/Legacy"
+            ],
+            "defines": [
+                "STM32F103xB",
+                "USE_FULL_LL_DRIVER",
+                "USE_FULL_ASSERT",
+                "USE_HAL_DRIVER"
+            ],
+            "cStandard": "c11",
+            "cppStandard": "c++17",
+            "intelliSenseMode": "linux-gcc-arm",
+            "configurationProvider": "ms-vscode.makefile-tools"
+        }
+    ],
+    "version": 4
+}
