@@ -1,0 +1,32 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Debug basic (LLDB)",
+            "type": "lldb",
+            "request": "launch",
+            "program": "${workspaceFolder}/example/basic/build/basic",
+            "args": [],
+            "cwd": "${workspaceFolder}"
+        },
+        {
+            "name": "Debug blue_pill (OpenOCD-STLink)",
+            "presentation": {
+                "group": "Local"
+            },
+            "type": "cortex-debug",
+            "request": "launch",
+            "executable": "${workspaceFolder}/example/blue_pill/build/blue_pill.elf",
+            "svdFile": "${workspaceFolder}/example/blue_pill/stm32f103.svd",
+            "gdbPath": "{{ GDB_PATH }}",
+            "showDevDebugOutput": "raw",
+            "servertype": "openocd",
+            "serverpath": "{{ OPENOCD_PATH }}",
+            "interface": "swd",
+            "configFiles": [
+                "${workspaceFolder}/example/blue_pill/stlink.cfg",
+                "${workspaceFolder}/example/blue_pill/stm32f1x_blue_pill_cn.cfg"
+            ]
+        }
+    ]
+}
