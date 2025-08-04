@@ -22,7 +22,7 @@
             ],
             "cStandard": "c11",
             "cppStandard": "c++17",
-            "intelliSenseMode": "linux-gcc-arm",
+            "intelliSenseMode": "gcc-arm",
             "configurationProvider": "ms-vscode.makefile-tools"
         }
     ],

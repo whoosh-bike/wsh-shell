@@ -17,7 +17,7 @@
             "type": "cortex-debug",
             "request": "launch",
             "executable": "${workspaceFolder}/example/blue_pill/build/blue_pill.elf",
-            "svdFile": "${workspaceFolder}/example/blue_pill/stm32f103.svd",
+            "svdFile": "${workspaceFolder}/example/blue_pill/platform/stm32f103.svd",
             "gdbPath": "{{ GDB_PATH }}",
             "showDevDebugOutput": "raw",
             "servertype": "openocd",
