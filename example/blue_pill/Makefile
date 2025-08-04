@@ -71,7 +71,7 @@ else
 endif
 
 # ===== Targets =====
-.PHONY: all clean
+.PHONY: all clean flash
 
 all: $(BUILD_DIR)/$(TARGET)
 
@@ -103,6 +103,10 @@ $(OBJ_DIR)/src/%.o: $(CORE_DIR)/%.c
 clean:
 	@echo "[CLEAN] Removing build directory"
 	@$(RM) $(BUILD_DIR)
+
+flash:
+	@echo "[FLASH] Programming device with OpenOCD"
+	@openocd -f ./stlink.cfg -f ./stm32f1x_blue_pill_cn.cfg -c "program $(BUILD_DIR)/$(TARGET).elf verify reset exit"
 
 # ===== Include Dependencies =====
 -include $(DEPS)
