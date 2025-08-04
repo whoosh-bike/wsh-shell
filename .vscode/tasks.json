@@ -32,7 +32,17 @@
 			"problemMatcher": []
 		},
 		{
-			"label": "build blue_pill",
+			"label": "build blue_pill: release",
+			"type": "shell",
+			"command": "make blue_pill BUILD=Release",
+			"group": {
+				"kind": "build",
+				"isDefault": true
+			},
+			"problemMatcher": []
+		},
+		{
+			"label": "build blue_pill: debug",
 			"type": "shell",
 			"command": "make blue_pill",
 			"group": {

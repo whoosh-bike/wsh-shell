@@ -50,7 +50,7 @@ CPU_FLAGS := -mcpu=cortex-m3 -mfloat-abi=soft -mthumb -DSTM32F103xB -DUSE_FULL_L
 
 LINKER_FLAGS += -Wl,-cref
 LINKER_FLAGS += -Wl,-u,Reset_Handler
-LINKER_FLAGS += -Wl,-Map=${TARGET}.map
+LINKER_FLAGS += -Wl,-Map=$(BUILD_DIR)/$(TARGET).map
 LINKER_FLAGS += -specs=nano.specs
 LINKER_FLAGS += -specs=nosys.specs
 LINKER_FLAGS += -u _printf_float
