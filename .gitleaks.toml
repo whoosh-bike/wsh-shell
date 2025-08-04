@@ -1,0 +1,17 @@
+title = "Strict Secrets Detection"
+extends = ["gitleaks:default"]
+
+[[rules]]
+id = "simple-aws-key"
+description = "Simple AWS Secret Access Key"
+regex = '''AWS_SECRET_ACCESS_KEY\s*=\s*['"]?[A-Za-z0-9]+['"]?'''
+
+[[rules]]
+id = "generic-password"
+description = "Generic password"
+regex = '''password\s*=\s*['"].+['"]'''
+
+[[rules]]
+id = "generic-api-key"
+description = "Generic API key"
+regex = '''api_key\s*=\s*['"].+['"]'''

@@ -1,0 +1,37 @@
+#ifndef __WSH_SHELL_IO_H
+#define __WSH_SHELL_IO_H
+
+#define WSH_SHELL_SYM_BACKSPACE '\b'
+#define WSH_SHELL_SYM_DELETE    0x7f
+#define WSH_SHELL_SYM_TAB       '\t'
+#define WSH_SHELL_SYM_EXIT      0x03  // ctrl + c
+
+#define WSH_SHELL_SPACE_TAB "    "
+#define WSH_SHELL_END_LINE  "\r\n"
+
+#define WSH_SHELL_ESC_SAVE_CURSOR           "\0337"
+#define WSH_SHELL_ESC_RESTORE_CURSOR        "\0338"
+#define WSH_SHELL_ESC_CLEAR_RIGHT_FROM_CURS "\033[0K"
+#define WSH_SHELL_ESC_ARROW_RIGHT           "\033[C"
+#define WSH_SHELL_ESC_ARROW_LEFT            "\033[D"
+#define WSH_SHELL_ESC_ARROW_UP              "\033[A"
+#define WSH_SHELL_ESC_ARROW_DOWN            "\033[B"
+
+#define WSH_SHELL_ESC_RESET_STYLE "\033[0m"
+#define WSH_SHELL_ECS_CLR_SCREEN  "\033[1;1H\033[2J"
+
+#define WSH_SHELL_ECS_SET_MODE_BOLD     "\033[1m"
+#define WSH_SHELL_ECS_RESET_MODE_BOLD   "\033[22m"
+#define WSH_SHELL_ECS_SET_MODE_ITALIC   "\033[3m"
+#define WSH_SHELL_ECS_RESET_MODE_ITALIC "\033[23m"
+
+#define WSH_SHELL_COLOR_BLACK  "\033[30m"
+#define WSH_SHELL_COLOR_RED    "\033[31m"
+#define WSH_SHELL_COLOR_GREEN  "\033[32m"
+#define WSH_SHELL_COLOR_YELLOW "\033[33m"
+#define WSH_SHELL_COLOR_BLUE   "\033[34m"
+#define WSH_SHELL_COLOR_PURPLE "\033[35m"
+#define WSH_SHELL_COLOR_CYAN   "\033[36m"
+#define WSH_SHELL_COLOR_WHITE  "\033[37m"
+
+#endif /* __WSH_SHELL_IO_H */
