@@ -17,7 +17,8 @@ BUILD_DIR := build
 OBJ_DIR := $(BUILD_DIR)/obj/$(SRC_DIR)
 TEST_DIR := test
 TEST_BUILD_DIR := $(BUILD_DIR)/obj/$(TEST_DIR)
-EXAMPLE_DIR := example/basic
+BASIC_EXAMPLE_DIR := example/basic
+BLUE_PILL_EXAMPLE_DIR := example/blue_pill
 
 # ===== Source Files =====
 SRCS := $(wildcard $(SRC_DIR)/*.c)
@@ -33,7 +34,12 @@ INC_FLAGS := $(addprefix -I, $(shell find $(SRC_DIR) -type d))
 TEST_INC := -Iet/Embedded-Test/et -I$(TEST_DIR)
 
 # ===== Compiler Flags =====
-COMMON_FLAGS := $(INC_FLAGS) -MMD -Wall -Wextra -Wpedantic -Wno-gnu-zero-variadic-macro-arguments -Wno-format
+COMMON_FLAGS := $(INC_FLAGS) -MMD -Wall -Wextra -Wpedantic -Wno-unused-parameter -Wno-format
+
+ifeq ($(findstring clang,$(CC)),clang)
+    COMMON_FLAGS += -Wno-gnu-zero-variadic-macro-arguments
+endif
+
 ifeq ($(BUILD),Debug)
     CFLAGS := $(COMMON_FLAGS) -O0 -g -DWSH_SHELL_ASSERT_ENABLE
 else
@@ -45,7 +51,7 @@ $(shell git submodule update --init --recursive)
 ET_SRCS := $(wildcard et/Embedded-Test/et/*.c)
 
 # ===== Targets =====
-.PHONY: all clean test basic format cppcheck
+.PHONY: all clean test basic blue_pill format cppcheck
 
 all: $(BUILD_DIR)/lib$(TARGET).a
 
@@ -76,16 +82,21 @@ $(BUILD_DIR)/test/%_bin: $(TEST_DIR)/%.c $(ET_SRCS) $(SRCS)
 
 basic:
 	@echo "[MAKE] Building example: basic"
-	@$(MAKE) -C $(EXAMPLE_DIR)
+	@$(MAKE) -C $(BASIC_EXAMPLE_DIR)
+
+blue_pill:
+	@echo "[MAKE] Building example: blue_pill"
+	@$(MAKE) -C $(BLUE_PILL_EXAMPLE_DIR)
 
 clean:
 	@echo "[CLEAN] Removing build artifacts"
 	@$(RM) $(BUILD_DIR)
-	@$(MAKE) -C $(EXAMPLE_DIR) clean
+	@$(MAKE) -C $(BASIC_EXAMPLE_DIR) clean
+	@$(MAKE) -C $(BLUE_PILL_EXAMPLE_DIR) clean
 
 format:
 	@echo "[FORMAT] Running clang-format"
-	@clang-format --style=file -i $(SRC_DIR)/*.[ch] $(EXAMPLE_DIR)/main.c
+	@clang-format --style=file -i $(SRC_DIR)/*.[ch] $(BASIC_EXAMPLE_DIR)/main.c
 
 cppcheck:
 	@echo "[CHECK] Running cppcheck"

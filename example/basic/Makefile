@@ -16,7 +16,7 @@ BUILD_DIR := build
 OBJ_DIR := $(BUILD_DIR)/obj
 
 # ===== Source Files =====
-SRCS := $(wildcard *.c)
+SRCS := main.c
 CORE_SRCS := $(wildcard $(CORE_DIR)/*.c)
 
 OBJS := $(SRCS:%.c=$(OBJ_DIR)/%.o)
@@ -28,9 +28,13 @@ DEPS := $(ALL_OBJS:.o=.d)
 INC_FLAGS := -I$(SRC_DIR) -I$(CORE_DIR)
 
 # ===== Compiler Flags =====
-COMMON_FLAGS := $(INC_FLAGS) -MMD -Wall -Wextra -Wpedantic -Wno-gnu-zero-variadic-macro-arguments -Wno-format
+COMMON_FLAGS := $(INC_FLAGS) -MMD -Wall -Wextra -Wpedantic -Wno-unused-parameter -Wno-format
 DEBUG_FLAGS := -O0 -g -DWSH_SHELL_ASSERT_ENABLE
 RELEASE_FLAGS := -O2 -DNDEBUG
+
+ifeq ($(findstring clang,$(CC)),clang)
+    COMMON_FLAGS += -Wno-gnu-zero-variadic-macro-arguments
+endif
 
 ifeq ($(BUILD),Debug)
     CFLAGS := $(COMMON_FLAGS) $(DEBUG_FLAGS)
