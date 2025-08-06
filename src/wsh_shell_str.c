@@ -101,7 +101,7 @@ void WshShellStr_GroupBitsToStr(WshShell_Size_t group, WshShell_Char_t* pOutStr)
     *pOutStr = '\0';
 }
 
-#if WSH_SHELL_CUSTOM_PROMPT
+#if WSH_SHELL_PROMPT_CUSTOM
 
 static const WshShell_Char_t* WshShellStr_ColorMap[] = {
     WSH_SHELL_COLOR_BLACK,   // %c0
@@ -122,6 +122,7 @@ void WshShellStr_GeneratePrompt(WshShell_Char_t* pPrompt, WshShellStr_PromptData
     const WshShell_Size_t colorMapSize = WSH_SHELL_ARR_LEN(WshShellStr_ColorMap);
     WshShell_Char_t* pOut              = pPrompt;
     const WshShell_Char_t* pcIn        = WSH_SHELL_PROMPT_TEMPLATE;
+    const WshShell_Char_t* pcCurrColor = "";
 
     while (*pcIn && WSH_PROMPT_SPACE_LEFT(pOut, pPrompt)) {
         if (*pcIn == '%') {
@@ -130,17 +131,21 @@ void WshShellStr_GeneratePrompt(WshShell_Char_t* pPrompt, WshShellStr_PromptData
                 break;
 
             if (*pcIn == 'u') {  // User name
-                while (*pPromptData->UserName && WSH_PROMPT_SPACE_LEFT(pOut, pPrompt))
-                    *pOut++ = *pPromptData->UserName++;
+                const WshShell_Char_t* pcUser = pPromptData->UserName;
+                while (*pcUser && WSH_PROMPT_SPACE_LEFT(pOut, pPrompt))
+                    *pOut++ = *pcUser++;
             } else if (*pcIn == 'd') {  // Device name
-                while (*pPromptData->DevName && WSH_PROMPT_SPACE_LEFT(pOut, pPrompt))
-                    *pOut++ = *pPromptData->DevName++;
+                const WshShell_Char_t* pcDev = pPromptData->DevName;
+                while (*pcDev && WSH_PROMPT_SPACE_LEFT(pOut, pPrompt))
+                    *pOut++ = *pcDev++;
             } else if (*pcIn == 'c') {  // Color choice
                 ++pcIn;
                 if (*pcIn >= '0' && *pcIn <= '9') {  // Valid colors range
                     WshShell_Size_t idx = *pcIn - '0';
                     const WshShell_Char_t* pcColor =
                         (idx < colorMapSize) ? WshShellStr_ColorMap[idx] : "";
+
+                    pcCurrColor = pcColor;
 
                     while (*pcColor && WSH_PROMPT_SPACE_LEFT(pOut, pPrompt))
                         *pOut++ = *pcColor++;
@@ -158,12 +163,24 @@ void WshShellStr_GeneratePrompt(WshShell_Char_t* pPrompt, WshShellStr_PromptData
                     if (WSH_PROMPT_SPACE_LEFT(pOut, pPrompt))
                         *pOut++ = ' ';
 
+                    const WshShell_Char_t* pcWhite = WSH_SHELL_COLOR_WHITE;
+                    while (*pcWhite && WSH_PROMPT_SPACE_LEFT(pOut, pPrompt))
+                        *pOut++ = *pcWhite++;
+
                     if (WSH_PROMPT_SPACE_LEFT(pOut, pPrompt))
                         *pOut++ = '(';
+
+                    const WshShell_Char_t* pcColor = pcCurrColor;
+                    while (*pcColor && WSH_PROMPT_SPACE_LEFT(pOut, pPrompt))
+                        *pOut++ = *pcColor++;
 
                     const WshShell_Char_t* pcInter = pPromptData->InterCmdName;
                     while (*pcInter && WSH_PROMPT_SPACE_LEFT(pOut, pPrompt))
                         *pOut++ = *pcInter++;
+
+                    pcWhite = WSH_SHELL_COLOR_WHITE;
+                    while (*pcWhite && WSH_PROMPT_SPACE_LEFT(pOut, pPrompt))
+                        *pOut++ = *pcWhite++;
 
                     if (WSH_PROMPT_SPACE_LEFT(pOut, pPrompt))
                         *pOut++ = ')';
@@ -183,18 +200,30 @@ void WshShellStr_GeneratePrompt(WshShell_Char_t* pPrompt, WshShellStr_PromptData
     *pOut = '\0';
 }
 
-#else /* WSH_SHELL_CUSTOM_PROMPT */
+#else /* WSH_SHELL_PROMPT_CUSTOM */
 
 void WshShellStr_GeneratePrompt(WshShell_Char_t* pPrompt, WshShellStr_PromptData_t* pPromptData) {
     WSH_SHELL_ASSERT(pPrompt && pPromptData->UserName && pPromptData->DevName);
     if (!pPrompt || !pPromptData->UserName || !pPromptData->DevName)
         return;
 
+    const WshShell_Char_t* pcInterCmd = "";
+
+    if (pPromptData->InterCmdName && *pPromptData->InterCmdName) {
+        static WshShell_Char_t interCmdBuff[2 * WSH_SHELL_CMD_NAME_LEN];
+        WSH_SHELL_SNPRINTF(interCmdBuff, sizeof(interCmdBuff),
+                           WSH_SHELL_COLOR_WHITE " (" WSH_SHELL_COLOR_GREEN
+                                                 "%s" WSH_SHELL_COLOR_WHITE ")",
+                           pPromptData->InterCmdName);
+        pcInterCmd = interCmdBuff;
+    }
+
     WSH_SHELL_SNPRINTF(pPrompt, WSH_SHELL_PROMPT_MAX_LEN,
                        WSH_SHELL_ESC_RESET_STYLE WSH_SHELL_ECS_SET_MODE_BOLD WSH_SHELL_COLOR_CYAN
-                       "%s" WSH_SHELL_COLOR_WHITE "@" WSH_SHELL_COLOR_PURPLE
-                       "%s" WSH_SHELL_COLOR_WHITE " > " WSH_SHELL_ESC_RESET_STYLE,
-                       pPromptData->UserName, pPromptData->DevName);
+                       "%s" WSH_SHELL_COLOR_WHITE "@" WSH_SHELL_COLOR_PURPLE "%s"
+                       "%s"  // pcInterCmd
+                       WSH_SHELL_COLOR_WHITE " > " WSH_SHELL_ESC_RESET_STYLE,
+                       pPromptData->UserName, pPromptData->DevName, pcInterCmd);
 }
 
-#endif /* WSH_SHELL_CUSTOM_PROMPT */
+#endif /* WSH_SHELL_PROMPT_CUSTOM */

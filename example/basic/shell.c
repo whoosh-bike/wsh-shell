@@ -57,6 +57,8 @@ void Shell_Init(const char* pcHostName) {
     }
 
     WshShellHistory_Init(&Shell.HistoryIO, WshShellHistory_Read, WshShellHistory_Write);
+
+    // WshShell_Auth(&Shell, "root", "1234"); For quick auth
 }
 
 void Shell_SendChar(char ch) {

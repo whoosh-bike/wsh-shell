@@ -54,11 +54,6 @@ int main(void) {
         if (symbol == EOF)
             continue;
 
-        if (symbol == 3) {
-            printf("Exit from shell");
-            break;
-        }
-
         Shell_SendChar((char)symbol);
     }
 
