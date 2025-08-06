@@ -1,8 +1,5 @@
 #include "wsh_shell_cmd_def.h"
 #include "wsh_shell.h"
-#include "wsh_shell_cfg.h"
-#include "wsh_shell_cmd.h"
-#include "wsh_shell_history.h"
 
 /**
  * @def WSH_SHELL_CMD_DEF_OPT_TABLE

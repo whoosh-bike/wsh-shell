@@ -5,7 +5,7 @@ TARGET := wsh_shell
 BUILD ?= Debug
 
 # ===== Toolchain =====
-CC := clang
+CC := gcc
 AR := ar
 CP := cp
 MKDIR := mkdir -p

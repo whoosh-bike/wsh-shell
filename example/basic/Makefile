@@ -5,7 +5,7 @@ TARGET := basic
 BUILD ?= Debug
 
 # ===== Toolchain =====
-CC := clang
+CC := gcc
 MKDIR := mkdir -p
 RM := rm -rf
 
