@@ -2,234 +2,329 @@
 
 #if WSH_SHELL_HISTORY
 
-static WshShell_U32_t WshShellHistory_CRC32(const WshShell_U8_t* pBuff, size_t len) {
-    WshShell_U32_t crc_table[256];
-    WshShell_U32_t crc;
+/**
+ * Jenkins hash function
+ * https://en.wikipedia.org/wiki/Jenkins_hash_function
+ */
+static WshShell_U32_t WshShellHistory_CalcHash(const WshShell_U8_t* pBuff, WshShell_Size_t len) {
+    WSH_SHELL_ASSERT(pBuff);
 
-    for (WshShell_S32_t i = 0; i < 256; i++) {
-        crc = i;
-        for (WshShell_S32_t j = 0; j < 8; j++)
-            crc = crc & 1 ? (crc >> 1) ^ 0xEDB88320UL : crc >> 1;
-        crc_table[i] = crc;
-    };
-
-    crc = 0xFFFFFFFFUL;
-
-    while (len--)
-        crc = crc_table[(crc ^ *pBuff++) & 0xFF] ^ (crc >> 8);
-
-    return crc ^ 0xFFFFFFFFUL;
-}
-
-__attribute__((weak)) void WshShellHistory_Write(WshShellHistory_t history) {
-}
-
-__attribute__((weak)) WshShellHistory_t WshShellHistory_Read(void) {
-    WshShellHistory_t localHistory = {0};
-
-    return localHistory;
-}
-
-void WshShellHistory_Init(void) {
-    WshShellHistory_t extHistory = WshShellHistory_Read();
-    WshShell_U32_t extCrc =
-        WshShellHistory_CRC32((WshShell_U8_t*)&extHistory.Data.pBuffer, WSH_SHELL_HISTORY_BUFF_SIZE);
-    if (extCrc != extHistory.CRC) {
-        WshShellHistory_t localHistory = {0};
-        localHistory.CRC =
-            WshShellHistory_CRC32((WshShell_U8_t*)&localHistory.Data.pBuffer, WSH_SHELL_HISTORY_BUFF_SIZE);
-        WshShellHistory_Write(localHistory);
+    WshShell_U32_t hash = 0;
+    for (WshShell_Size_t idx = 0; idx < len; idx++) {
+        hash += pBuff[idx];
+        hash += hash << 10;
+        hash ^= hash >> 6;
     }
+
+    hash += hash << 3;
+    hash ^= hash >> 11;
+    hash += hash << 15;
+
+    return hash;
 }
 
-static void WshShellHistory_IncrIdx(WshShell_Size_t* pDataIdx) {
-    if (++(*pDataIdx) > WSH_SHELL_HISTORY_BUFF_SIZE - 1)
-        *pDataIdx = 0;
+static void WshShellHistory_CalcHashAndWrite(WshShellHistory_IO_t* pHistIO,
+                                             WshShellHistory_t history) {
+    WSH_SHELL_ASSERT(pHistIO);
+
+    history.Hash = WshShellHistory_CalcHash((WshShell_U8_t*)&history.Data, sizeof(history.Data));
+    pHistIO->Write(history);
+    // WSH_SHELL_PRINT("\r\nh %d, t %d, l %d\r\n", history.Data.HeadIdx, history.Data.TailIdx,
+    //                 history.Data.LastSavedCmdIdx);
 }
 
-static void WshShellHistory_DecrIdx(WshShell_Size_t* pDataIdx) {
-    if (--(*pDataIdx) < 0)
-        *pDataIdx = WSH_SHELL_HISTORY_BUFF_SIZE - 1;
+void WshShellHistory_Init(WshShellHistory_IO_t* pHistIO, WshShellHistory_Read_t readFn,
+                          WshShellHistory_Write_t writeFn) {
+    WSH_SHELL_ASSERT(pHistIO && readFn && writeFn);
+    if (!pHistIO || !readFn || !writeFn)
+        return;
+
+    pHistIO->Read  = readFn;
+    pHistIO->Write = writeFn;
+
+    WshShellHistory_t extHistory = pHistIO->Read();
+    WshShell_U32_t extHash =
+        WshShellHistory_CalcHash((WshShell_U8_t*)&extHistory.Data, sizeof(extHistory.Data));
+
+    if (extHash != extHistory.Hash)
+        WshShellHistory_CalcHashAndWrite(pHistIO, (WshShellHistory_t){0});
 }
 
-static void WshShellHistory_GetTokenFromBuffer(char* pWriteBuff, const char* pReadBuff, WshShell_Size_t startIdx,
-                                               WshShell_Size_t charsToRead) {
-    WshShell_Size_t readIdx  = startIdx;
-    WshShell_Size_t writeIdx = 0;
-    while (writeIdx < charsToRead) {
-        pWriteBuff[writeIdx] = pReadBuff[readIdx];
+static void WshShellHistory_IncrIdx(WshShell_Size_t* pIdx) {
+    WSH_SHELL_ASSERT(pIdx);
+
+    if (++(*pIdx) >= WSH_SHELL_HISTORY_BUFF_SIZE)
+        *pIdx = 0;
+}
+
+static void WshShellHistory_DecrIdx(WshShell_Size_t* pIdx) {
+    WSH_SHELL_ASSERT(pIdx);
+
+    *pIdx = *pIdx == 0 ? WSH_SHELL_HISTORY_BUFF_SIZE - 1 : *pIdx - 1;
+}
+
+static void WshShellHistory_GetTokenFromBuffer(WshShell_Char_t* pDst, const WshShell_Char_t* pсSrc,
+                                               WshShell_Size_t tokStartIdx,
+                                               WshShell_Size_t tokLen) {
+    WSH_SHELL_ASSERT(pDst && pсSrc && tokLen > 0);
+
+    WshShell_Size_t readIdx = tokStartIdx;
+    for (WshShell_Size_t tokIdx = 0; tokIdx < tokLen; tokIdx++) {
+        pDst[tokIdx] = pсSrc[readIdx];
         WshShellHistory_IncrIdx(&readIdx);
-        writeIdx++;
     }
-    pWriteBuff[writeIdx] = '\0';
+    pDst[tokLen] = '\0';
 }
 
-void WshShellHistory_SaveCmd(const char* pCmdStr, WshShell_Size_t cmdStrLen) {
-    WSH_SHELL_ASSERT(cmdStrLen != 0);
-    WSH_SHELL_ASSERT(pCmdStr != NULL);
-    if (pCmdStr == NULL || cmdStrLen == 0)
+void WshShellHistory_SaveCmd(WshShellHistory_IO_t* pHistIO, const WshShell_Char_t* pcCmdStr,
+                             WshShell_Size_t cmdStrLen) {
+    WSH_SHELL_ASSERT(pcCmdStr && cmdStrLen < WSH_SHELL_HISTORY_BUFF_SIZE);
+    if (!pcCmdStr || cmdStrLen == 0 || cmdStrLen >= WSH_SHELL_HISTORY_BUFF_SIZE)
         return;
 
-    WshShellHistory_t localHistory = WshShellHistory_Read();
+    WshShellHistory_t locHist = pHistIO->Read();
 
-    /* If there was exact same command called previously => return */
-    if (WSH_SHELL_STRNCMP(pCmdStr, &localHistory.Data.pBuffer[localHistory.Data.LastSavedCmdIdx], cmdStrLen) == 0)
+    /* Skip duplicate command */
+    WshShell_Char_t* pHistCmd = &locHist.Data.StorageBuff[locHist.Data.LastSavedCmdIdx];
+    if (WSH_SHELL_STRNCMP(pcCmdStr, pHistCmd, cmdStrLen) == 0) {
+        /* Reset history rollback on cmd execution */
+        locHist.Data.TailIdx = locHist.Data.HeadIdx;
+        WshShellHistory_CalcHashAndWrite(pHistIO, locHist);
+
+        return;
+    }
+
+    locHist.Data.LastSavedCmdIdx = locHist.Data.HeadIdx;
+
+    for (WshShell_Size_t strIdx = 0; strIdx < cmdStrLen; strIdx++) {
+        WSH_SHELL_ASSERT(WshShellStr_IsPrintableAscii(pcCmdStr[strIdx]));
+        locHist.Data.StorageBuff[locHist.Data.HeadIdx] = pcCmdStr[strIdx];
+        WshShellHistory_IncrIdx(&locHist.Data.HeadIdx);
+    }
+
+    /* Null-terminate and update tail */
+    locHist.Data.StorageBuff[locHist.Data.HeadIdx] = '\0';
+    WshShellHistory_IncrIdx(&locHist.Data.HeadIdx);
+    locHist.Data.TailIdx = locHist.Data.HeadIdx;
+
+    WshShellHistory_CalcHashAndWrite(pHistIO, locHist);
+}
+
+static WshShell_Size_t WshShellHistory_GetPrevToken(WshShellHistory_Data_t* pHistData,
+                                                    WshShell_Size_t* pTokenIdx) {
+    WSH_SHELL_ASSERT(pHistData && pTokenIdx);
+
+    const WshShell_Char_t* pBuff = pHistData->StorageBuff;
+    WshShell_Size_t head         = pHistData->HeadIdx;
+    WshShell_Size_t tail         = pHistData->TailIdx;
+
+    WshShellHistory_DecrIdx(&tail);
+    while (pBuff[tail] == '\0') {
+        if (tail == head)
+            return 0;
+
+        WshShellHistory_DecrIdx(&tail);
+    }
+
+    WshShell_Size_t tokLen = 0;
+    while (pBuff[tail] != '\0') {
+        if (tail == head)
+            return 0;
+
+        WshShellHistory_DecrIdx(&tail);
+        tokLen++;
+    }
+
+    WshShellHistory_IncrIdx(&tail);
+    pHistData->TailIdx = tail;
+    *pTokenIdx         = tail;
+
+    return tokLen;
+}
+
+static WshShell_Size_t WshShellHistory_GetNextToken(WshShellHistory_Data_t* pHistData,
+                                                    WshShell_Size_t* pTokenIdx) {
+    WSH_SHELL_ASSERT(pHistData && pTokenIdx);
+
+    WshShell_Size_t tail = pHistData->TailIdx;
+    if (tail == pHistData->HeadIdx)
+        return 0;  // If tail reached head, no more commands
+
+    *pTokenIdx = tail;
+
+    WshShell_Size_t tokLen       = 0;
+    const WshShell_Char_t* pBuff = pHistData->StorageBuff;
+    while (pBuff[tail] != '\0') {
+        if (tail == pHistData->HeadIdx)
+            return 0;
+
+        WshShellHistory_IncrIdx(&tail);
+        tokLen++;
+    }
+
+    WshShellHistory_IncrIdx(&tail);
+    pHistData->TailIdx = tail;
+    return tokLen;
+}
+
+static WshShell_Size_t WshShellHistory_GetCmd(WshShellHistory_IO_t* pHistIO,
+                                              WshShell_Char_t* pOutBuff,
+                                              WshShell_Size_t outBuffSize,
+                                              WSH_SHELL_HIST_CMD_DIR_t dir) {
+    WSH_SHELL_ASSERT(pHistIO && pOutBuff && outBuffSize > 0);
+    if (!pHistIO || !pOutBuff || outBuffSize == 0)
+        return 0;
+
+    WshShellHistory_t hist = pHistIO->Read();
+    if (hist.Data.HeadIdx == 0 && hist.Data.TailIdx == 0 && hist.Data.LastSavedCmdIdx == 0)
+        return 0;
+
+    WshShell_Size_t tokIdx = 0;
+    WshShell_Size_t tokLen = 0;
+
+    if (dir == WSH_SHELL_HIST_CMD_PREV) {
+        tokLen = WshShellHistory_GetPrevToken(&hist.Data, &tokIdx);
+        if (hist.Data.PrevDir == WSH_SHELL_HIST_CMD_NEXT && !hist.Data.LimitIsReached)
+            tokLen = WshShellHistory_GetPrevToken(&hist.Data, &tokIdx);
+    } else {
+        tokLen = WshShellHistory_GetNextToken(&hist.Data, &tokIdx);
+        if (hist.Data.PrevDir == WSH_SHELL_HIST_CMD_PREV && !hist.Data.LimitIsReached)
+            tokLen = WshShellHistory_GetNextToken(&hist.Data, &tokIdx);
+    }
+
+    if (tokLen != 0 && tokLen + 1 < outBuffSize) {
+        hist.Data.LimitIsReached = false;
+        WshShellHistory_GetTokenFromBuffer(pOutBuff, hist.Data.StorageBuff, tokIdx, tokLen);
+    } else {
+        hist.Data.LimitIsReached = true;
+        WSH_SHELL_MEMSET(pOutBuff, 0, outBuffSize);
+    }
+
+    hist.Data.PrevDir = dir;
+    WshShellHistory_CalcHashAndWrite(pHistIO, hist);
+    return tokLen;
+}
+
+WshShell_Size_t WshShellHistory_GetPrevCmd(WshShellHistory_IO_t* pHistIO, WshShell_Char_t* pOutBuff,
+                                           WshShell_Size_t outBuffSize) {
+    return WshShellHistory_GetCmd(pHistIO, pOutBuff, outBuffSize, WSH_SHELL_HIST_CMD_PREV);
+}
+
+WshShell_Size_t WshShellHistory_GetNextCmd(WshShellHistory_IO_t* pHistIO, WshShell_Char_t* pOutBuff,
+                                           WshShell_Size_t outBuffSize) {
+    return WshShellHistory_GetCmd(pHistIO, pOutBuff, outBuffSize, WSH_SHELL_HIST_CMD_NEXT);
+}
+
+WshShell_Size_t WshShellHistory_GetTokenNum(WshShellHistory_IO_t* pHistIO) {
+    WSH_SHELL_ASSERT(pHistIO);
+    if (!pHistIO)
+        return 0;
+
+    WshShellHistory_t hist        = pHistIO->Read();
+    WshShellHistory_Data_t* pHist = &hist.Data;
+    pHist->TailIdx                = pHist->LastSavedCmdIdx;
+
+    WshShell_Size_t dummyTokIdx = 0;
+    WshShell_Size_t count       = 0;
+
+    while (WshShellHistory_GetPrevToken(pHist, &dummyTokIdx))
+        count++;
+
+    return count;
+}
+
+WshShell_Size_t WshShellHistory_GetTokenByIndex(WshShellHistory_IO_t* pHistIO,
+                                                WshShell_Char_t* pOutBuff,
+                                                WshShell_Size_t outBuffSize,
+                                                WshShell_Size_t index) {
+    WSH_SHELL_ASSERT(pHistIO && pOutBuff && outBuffSize > 0);
+    if (!pHistIO || !pOutBuff || outBuffSize == 0)
+        return 0;
+
+    WshShellHistory_t hist        = pHistIO->Read();
+    WshShellHistory_Data_t* pHist = &hist.Data;
+
+    /* Set start position on last cmd for search */
+    pHist->TailIdx = pHist->LastSavedCmdIdx;
+
+    WshShell_Size_t tokIdx = 0;
+    WshShell_Size_t tokLen = 0;
+
+    for (WshShell_Size_t idx = 0; idx <= index; idx++) {
+        tokLen = WshShellHistory_GetPrevToken(pHist, &tokIdx);
+        if (tokLen == 0)
+            return 0;
+    }
+
+    if (tokLen + 1 >= outBuffSize)
+        return 0;
+
+    WshShellHistory_GetTokenFromBuffer(pOutBuff, pHist->StorageBuff, tokIdx, tokLen);
+    return tokLen;
+}
+
+void WshShellHistory_Flush(WshShellHistory_IO_t* pHistIO) {
+    WSH_SHELL_ASSERT(pHistIO);
+    if (!pHistIO)
         return;
 
-    localHistory.Data.LastSavedCmdIdx = localHistory.Data.HeadIdx;
-    for (WshShell_Size_t i = 0; i < cmdStrLen; i++) {
-        localHistory.Data.pBuffer[localHistory.Data.HeadIdx] = pCmdStr[i];
-        WshShellHistory_IncrIdx(&localHistory.Data.HeadIdx);
-    }
-    localHistory.Data.pBuffer[localHistory.Data.HeadIdx] = '\0';
-    WshShellHistory_IncrIdx(&localHistory.Data.HeadIdx);
-    localHistory.Data.TailIdx = localHistory.Data.HeadIdx;
-    WshShellHistory_Write(localHistory);
+    WshShellHistory_CalcHashAndWrite(pHistIO, (WshShellHistory_t){0});
 }
 
-static WshShell_Size_t WshShellHistory_GetPrevToken(WshShellHistory_t* pHistory, WshShell_Size_t* pTokenIdx) {
-    WshShell_Size_t localTail = pHistory->Data.TailIdx;
+#else /* WSH_SHELL_HISTORY */
 
-    /*
-	 * One step back and check two conditions:
-	 * 1) There must be '\0' because command tokens are separated by this symbol
-	 * 2) It does not equals to head of our buffer.
-	 * If it does => we have performed a loop so there are no more saved commands.
-	 */
-    WshShellHistory_DecrIdx(&localTail);
-    if (pHistory->Data.pBuffer[localTail] != '\0' || localTail == pHistory->Data.HeadIdx)
-        return 0;
-
-    /*
-	 * One more step back and check two conditions:
-	 * 1) There SHOULDN'T be '\0' because. If it does => we have reached the end of the buffer.
-	 * 2) It does not equals to head of our buffer.
-	 */
-    WshShellHistory_DecrIdx(&localTail);
-    if (pHistory->Data.pBuffer[localTail] == '\0' || localTail == pHistory->Data.HeadIdx)
-        return 0;
-
-    /*
-	 * Token can be placed at the end or beginnig of ur buffer.
-	 * That means that we can't use strlen => we need to count size manualy.
-	 */
-    WshShell_Size_t tokenSize = 0;
-
-    /*
-	 * Now we know that there can be at least one more token.
-	 * Lets try to step back to its beginning.
-	 */
-    while (pHistory->Data.pBuffer[localTail] != '\0') {
-        WshShellHistory_DecrIdx(&localTail);
-        tokenSize++;
-        if (localTail == pHistory->Data.HeadIdx)
-            return 0;
-    }
-    WshShellHistory_IncrIdx(&localTail);
-
-    /*
-	 * From know we know that there IS a valid token and pLocalTail points to its beginning.
-	 */
-    pHistory->Data.TailIdx = localTail;
-    *pTokenIdx             = localTail;
-    return tokenSize;
+void WshShellHistory_Init(WshShellHistory_IO_t* pHistIO, WshShellHistory_Read_t readFn,
+                          WshShellHistory_Write_t writeFn) {
+    (void)(pHistIO);
+    (void)(readFn);
+    (void)(writeFn);
 }
 
-static WshShell_Size_t WshShellHistory_GetNextToken(WshShellHistory_t* pHistory, WshShell_Size_t* pTokenIdx) {
-    WshShell_Size_t localTail = pHistory->Data.TailIdx;
-    WshShell_Size_t startIdx  = pHistory->Data.TailIdx;
-    WshShell_Size_t tokenSize = 0;
-    if (localTail == pHistory->Data.HeadIdx)
-        return tokenSize;
-
-    /*
-	 * If pTail != pHead then there should be at least one token.
-	 * Lets try to reach it.
-	 */
-    while (pHistory->Data.pBuffer[localTail] != '\0') {
-        WshShellHistory_IncrIdx(&localTail);
-        tokenSize++;
-        if (localTail == pHistory->Data.HeadIdx)
-            return 0;
-    }
-
-    WshShellHistory_IncrIdx(&localTail);
-    tokenSize++;
-    // if (localTail == pHistory->Data.HeadIdx)
-    //     return 0;
-
-    /*
-	 * From know we know that there IS a valid token and pLocalTail points to its beginning.
-	 */
-    pHistory->Data.TailIdx = localTail;
-    *pTokenIdx             = startIdx;
-    return tokenSize;
+void WshShellHistory_SaveCmd(WshShellHistory_IO_t* pHistIO, const WshShell_Char_t* pcCmdStr,
+                             WshShell_Size_t cmdStrLen) {
+    (void)(pHistIO);
+    (void)(pcCmdStr);
+    (void)(cmdStrLen);
 }
 
-/*                                          locTail == CmdHistoryTail -> moving right to 0 if incrIsForward
-											  |*|       ->      {*}
-CmdHistoryBuffer: |c|m|d| 0 |p|r|e|v|c|m|d| 0 |t|a|i|l|c|m|d| 0 |n|e|x|t|c|m|d| 0 |
-							{*}   <-    |*|
-	 moving left if !incrIsForward <- locTail
-*/
-WshShell_Size_t WshShellHistory_GetPrevCmd(char* pOutBuff, WshShell_Size_t buffSize) {
-    WSH_SHELL_ASSERT(buffSize != 0);
-    WSH_SHELL_ASSERT(pOutBuff != NULL);
-    if (buffSize == 0 || pOutBuff == NULL)
-        return 0;
+WshShell_Size_t WshShellHistory_GetPrevCmd(WshShellHistory_IO_t* pHistIO, WshShell_Char_t* pOutBuff,
+                                           WshShell_Size_t outBuffSize) {
+    (void)(pHistIO);
+    (void)(pOutBuff);
+    (void)(outBuffSize);
 
-    WshShellHistory_t localHistory = WshShellHistory_Read();
-    WshShell_Size_t prevCmdIdx     = 0;
-    WshShell_Size_t prevCmdStrLen  = WshShellHistory_GetPrevToken(&localHistory, &prevCmdIdx);
-
-    if (prevCmdStrLen != 0 && prevCmdStrLen + 1 < buffSize)
-        WshShellHistory_GetTokenFromBuffer(pOutBuff, localHistory.Data.pBuffer, prevCmdIdx, prevCmdStrLen);
-    WshShellHistory_Write(localHistory);
-
-    return prevCmdStrLen;
-}
-
-WshShell_Size_t WshShellHistory_GetNextCmd(char* pOutBuff, WshShell_Size_t buffSize) {
-    WSH_SHELL_ASSERT(buffSize != 0);
-    WSH_SHELL_ASSERT(pOutBuff != NULL);
-    if (buffSize == 0 || pOutBuff == NULL)
-        return 0;
-
-    WshShellHistory_t localHistory = WshShellHistory_Read();
-    WshShell_Size_t nextCmdIdx     = 0;
-    WshShell_Size_t nextCmdStrLen  = WshShellHistory_GetNextToken(&localHistory, &nextCmdIdx);
-
-    if (nextCmdStrLen != 0 && nextCmdStrLen + 1 < buffSize)
-        WshShellHistory_GetTokenFromBuffer(pOutBuff, localHistory.Data.pBuffer, nextCmdIdx, nextCmdStrLen);
-    else
-        WSH_SHELL_MEMSET(pOutBuff, '\0', buffSize);
-    WshShellHistory_Write(localHistory);
-
-    return nextCmdStrLen;
-}
-
-void WshShellHistory_Flush(void) {
-    WshShellHistory_t localHistory = (WshShellHistory_t){0};
-    localHistory.CRC = WshShellHistory_CRC32((WshShell_U8_t*)&localHistory.Data.pBuffer, WSH_SHELL_HISTORY_BUFF_SIZE);
-    WshShellHistory_Write(localHistory);
-}
-
-#else  /* WSH_SHELL_HISTORY */
-
-void WshShellHistory_Init(void) {
-}
-
-void WshShellHistory_SaveCmd(const char* pCmdStr, WshShell_Size_t cmdStrLen) {
-}
-
-WshShell_Size_t WshShellHistory_GetPrevCmd(char* pOutBuff, WshShell_Size_t buffSize) {
     return 0;
 }
 
-WshShell_Size_t WshShellHistory_GetNextCmd(char* pOutBuff, WshShell_Size_t buffSize) {
+WshShell_Size_t WshShellHistory_GetNextCmd(WshShellHistory_IO_t* pHistIO, WshShell_Char_t* pOutBuff,
+                                           WshShell_Size_t outBuffSize) {
+    (void)(pHistIO);
+    (void)(pOutBuff);
+    (void)(outBuffSize);
+
     return 0;
 }
 
-void WshShellHistory_Flush(void) {
+WshShell_Size_t WshShellHistory_GetTokenNum(WshShellHistory_IO_t* pHistIO) {
+    (void)(pHistIO);
+
+    return 0;
 }
+
+WshShell_Size_t WshShellHistory_GetTokenByIndex(WshShellHistory_IO_t* pHistIO,
+                                                WshShell_Char_t* pOutBuff,
+                                                WshShell_Size_t outBuffSize,
+                                                WshShell_Size_t index) {
+    (void)(pHistIO);
+    (void)(pOutBuff);
+    (void)(outBuffSize);
+    (void)(index);
+
+    return 0;
+}
+
+void WshShellHistory_Flush(WshShellHistory_IO_t* pHistIO) {
+    (void)(pHistIO);
+}
+
 #endif /* WSH_SHELL_HISTORY */

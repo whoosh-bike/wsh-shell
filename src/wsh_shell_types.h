@@ -1,3 +1,22 @@
+/**
+ * @file wsh_shell_types.h
+ * @brief Basic type definitions and return state enumeration for WshShell.
+ * 
+ * This header defines common typedefs for basic data types used throughout the
+ * WshShell project, improving code readability and portability.
+ * It also defines the enumeration for return states used by shell functions,
+ * along with utility functions to convert return codes to human-readable strings.
+ * 
+ * The file includes:
+ * - Boolean, character, and integer typedefs with explicit sizes.
+ * - Macro for calculating array length.
+ * - Enumeration of return states for consistent error and status reporting.
+ * - Inline helper to get string representation of return states.
+ * 
+ * @author Whoosh Embedded Team
+ * @copyright Copyright (c) 2024
+ */
+
 #ifndef __WSH_SHELL_TYPES_H
 #define __WSH_SHELL_TYPES_H
 
@@ -8,6 +27,10 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+
+#ifdef __cplusplus
+extern "C" {
+#endif
 
 typedef bool WshShell_Bool_t;  // just for better readability
 typedef char WshShell_Char_t;  // and common perception
@@ -34,19 +57,27 @@ typedef size_t WshShell_Size_t;
     X_ENTRY(WSH_SHELL_RET_STATE_ERR_TIMEOUT, "ERR_TIMEOUT")   \
     X_ENTRY(WSH_SHELL_RET_STATE_ERR_CRC, "ERR_CRC")
 
+typedef enum {
 #define X_ENTRY(en, str) en,
-typedef enum { WSH_SHELL_RET_STATE_TABLE() WSH_SHELL_RET_STATE_ENUM_SIZE } WSH_SHELL_RET_STATE_t;
+    WSH_SHELL_RET_STATE_TABLE() WSH_SHELL_RET_STATE_ENUM_SIZE
 #undef X_ENTRY
+} WSH_SHELL_RET_STATE_t;
 
+static const WshShell_Char_t* RetStateBuff[] = {
 #define X_ENTRY(en, str) str,
-static const WshShell_Char_t* RetStateBuff[] = {WSH_SHELL_RET_STATE_TABLE()};
+    WSH_SHELL_RET_STATE_TABLE()
 #undef X_ENTRY
+};
 
-static inline const WshShell_Char_t* WshShell_RetStateStr_Get(WSH_SHELL_RET_STATE_t retState) {
+static inline const WshShell_Char_t* WshShell_GetRetStateStr(WSH_SHELL_RET_STATE_t retState) {
     if (retState >= WSH_SHELL_RET_STATE_ENUM_SIZE)
         retState = WSH_SHELL_RET_STATE_UNDEF;
 
     return RetStateBuff[retState];
 }
+
+#ifdef __cplusplus
+}
+#endif
 
 #endif /* __WSH_SHELL_TYPES_H */
