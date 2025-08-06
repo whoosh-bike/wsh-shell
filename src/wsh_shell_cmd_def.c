@@ -163,14 +163,14 @@ WSH_SHELL_RET_STATE_t WshShellCmdDef_Executable(const WshShellCmd_t* pcCmd, WshS
                 break;
 
             case WSH_SHELL_DEF_OPT_HIST_PRINT: {
-                WshShell_Char_t cmdBuff[64];
+                WshShell_Char_t cmdBuff[WSH_SHELL_INTR_BUFF_LEN];
                 WshShell_Size_t cmdNum = WshShellHistory_GetTokenNum(&(pParentShell->HistoryIO));
 
-                WSH_SHELL_PRINT("History len: %d\r\n", cmdNum - 1);
-                for (WshShell_Size_t cmdIdx = 0; cmdIdx < cmdNum; cmdIdx++) {
+                WSH_SHELL_PRINT("History len: %d\r\n", cmdNum);
+                for (WshShell_Size_t cmdIdx = cmdNum; cmdIdx > 0; cmdIdx--) {
                     if (WshShellHistory_GetTokenByIndex(&(pParentShell->HistoryIO), cmdBuff,
-                                                        sizeof(cmdBuff), cmdNum - cmdIdx)) {
-                        WSH_SHELL_PRINT("  hist[%2d]: %s\r\n", cmdIdx, cmdBuff);
+                                                        sizeof(cmdBuff), cmdIdx - 1)) {
+                        WSH_SHELL_PRINT("  hist[%2d]: %s\r\n", cmdNum - cmdIdx + 1, cmdBuff);
                     }
                 }
             } break;

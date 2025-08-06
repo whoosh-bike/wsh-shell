@@ -222,7 +222,7 @@ WshShell_Size_t WshShellHistory_GetTokenNum(WshShellHistory_IO_t* pHistIO) {
 
     WshShellHistory_t hist        = pHistIO->Read();
     WshShellHistory_Data_t* pHist = &hist.Data;
-    pHist->TailIdx                = pHist->LastSavedCmdIdx;
+    pHist->TailIdx                = pHist->HeadIdx;
 
     WshShell_Size_t dummyTokIdx = 0;
     WshShell_Size_t count       = 0;
@@ -245,7 +245,7 @@ WshShell_Size_t WshShellHistory_GetTokenByIndex(WshShellHistory_IO_t* pHistIO,
     WshShellHistory_Data_t* pHist = &hist.Data;
 
     /* Set start position on last cmd for search */
-    pHist->TailIdx = pHist->LastSavedCmdIdx;
+    pHist->TailIdx = pHist->HeadIdx;
 
     WshShell_Size_t tokIdx = 0;
     WshShell_Size_t tokLen = 0;

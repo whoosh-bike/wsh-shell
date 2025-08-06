@@ -33,7 +33,7 @@
  * ───────────────────────────────────────────── 
  */
 #define WSH_SHELL_PROMPT_CUSTOM   1
-#define WSH_SHELL_PROMPT_TEMPLATE "%r%b%c6%d%c7@%c5%u%c2%i%r %c7> "
+#define WSH_SHELL_PROMPT_TEMPLATE "%r%b%c6%d%c7@%c5%u%c2%i %c7> %r%c7"
 #define WSH_SHELL_PROMPT_MAX_LEN  128
 
 /* 
