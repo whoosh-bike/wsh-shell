@@ -1,92 +1,148 @@
 /**
  * @file wsh_shell_user.h
- * @brief User object definition and API's
- * @author Whoosh Embedded Team
+ * @brief Shell user management API
  * 
+ * @author Whoosh Embedded Team
  * @copyright Copyright (c) 2024
  */
 
 #ifndef __WSH_SHELL_USER_H
 #define __WSH_SHELL_USER_H
 
+#include "wsh_shell_cfg.h"
 #include "wsh_shell_types.h"
 
-#define WSH_SHELL_USER_UNDEF_ID ((WshShell_Size_t)(~0U))
+#ifdef __cplusplus
+extern "C" {
+#endif
 
 /**
- * @defgroup ShellUser User
- * @brief User object definition and API's
+ * @defgroup WshShellUser Shell User Management
+ * @brief Functionality for managing user authentication and access rights.
  * @{
  */
 
 /**
- * @struct WshShellUser_t wsh_shell_user.h "wsh_shell_user.h"
- * @brief Structure implementation of User object
+ * @brief User object definition.
+ * 
+ * This structure represents a shell user with login, password,
+ * and associated access groups and rights.
  */
 typedef struct {
-    const char* pLogin;     /**< Array for storing login string. */
-    const char* pPwd;       /**< Array for storing password string. */
-    WshShell_Size_t Groups; /**< Command groups that are accessible for user. */
-    WshShell_Size_t Rights; /**< Command execution right for accessible for user. */
+    const WshShell_Char_t* Login; /**< Pointer to login string. */
+    const WshShell_Char_t* Pass;  /**< Pointer to password string. */
+    WshShell_Size_t Groups;       /**< Bitmask of accessible command groups. */
+    WshShell_Size_t Rights;       /**< Bitmask of execution rights. */
 } WshShellUser_t;
 
 /**
- * @defgroup PublicUserFunctions Public functions
- * @brief Public functions for interaction with user objects.
+ * @brief Table of registered shell users.
+ * 
+ * This structure contains a list of shell users and total count.
+ */
+typedef struct {
+    const WshShellUser_t* List; /**< Pointer to an array of user objects. */
+    WshShell_Size_t Num;        /**< Number of users in the list. */
+} WshShellUser_Table_t;
+
+/**
+ * @defgroup WshShellUserAPI Public API
+ * @brief Public functions for managing shell users.
  * @{
  */
 
 /**
- * @brief Initialize table of users for shell object to use.
+ * @brief Initialize the shell user table.
  * 
- * @param[in] pUserTable: Pointer to an array with defined users.
- * @param[in] usersNum: Number of users in table.
+ * Registers a static user table for the shell instance.
+ * 
+ * @param[out] pShellUsers Pointer to the shell's user table.
+ * @param[in]  pcUserTable Pointer to the static array of user records.
+ * @param[in]  userNum    Number of users in the array.
+ * 
+ * @retval WSH_SHELL_RET_STATE_SUCCESS   Initialization succeeded.
+ * @retval WSH_SHELL_RET_STATE_ERR_PARAM Invalid input arguments.
+ * @retval WSH_SHELL_RET_STATE_ERR_BUSY  Table was already initialized.
+ */
+WSH_SHELL_RET_STATE_t WshShellUser_Attach(WshShellUser_Table_t* pShellUsers,
+                                          const WshShellUser_t* pcUserTable,
+                                          WshShell_Size_t userNum);
+
+/**
+ * @brief Destroy the user table.
+ * 
+ * Resets the user list and count to zero.
+ * 
+ * @param[in,out] pShellUsers Pointer to the user table to reset.
+ */
+void WshShellUser_DeAttach(WshShellUser_Table_t* pShellUsers);
+
+/**
+ * @brief Get the number of users registered in the shell.
+ * 
+ * @param[in] pShellUsers Pointer to the user table.
+ * 
+ * @return Number of users, or 0 if uninitialized or NULL.
+ */
+WshShell_Size_t WshShellUser_GetUsersNum(WshShellUser_Table_t* pShellUsers);
+
+/**
+ * @brief Retrieve a user by index.
+ * 
+ * @param[in] pShellUsers Pointer to the user table.
+ * @param[in] idx         Index of the user.
+ * 
+ * @return Pointer to the user object, or NULL if invalid.
+ */
+const WshShellUser_t* WshShellUser_GetUserByIndex(WshShellUser_Table_t* pShellUsers,
+                                                  WshShell_Size_t idx);
+
+/**
+ * @brief Verify login credentials of a user.
+ * 
+ * Validates login and password against the given user index.
+ * 
+ * @param[in] pShellUsers Pointer to the user table.
+ * @param[in] UserID      Index of the user to validate.
+ * @param[in] pcLogin     Pointer to the login string.
+ * @param[in] pcPassword  Pointer to the password string.
+ * 
+ * @retval true  If credentials match.
+ * @retval false If mismatch or error.
+ */
+WshShell_Bool_t WshShellUser_CheckCredentials(WshShellUser_Table_t* pShellUsers,
+                                              WshShell_Size_t UserID,
+                                              const WshShell_Char_t* pcLogin,
+                                              const WshShell_Char_t* pcPassword);
+
+/**
+ * @brief Finds a user by login and password credentials.
  *
- * @retval WSH_SHELL_RET_STATE_ERR_PARAM: Something wrong with input arguments.
- * @retval WSH_SHELL_RET_STATE_SUCCESS: Success.
- */
-WSH_SHELL_RET_STATE_t WshShellUser_Init(const WshShellUser_t* pUserTable, WshShell_Size_t usersNum);
-
-/**
- * @brief Get number of available users.
- * 
- * @retval WshShellSize_t: Amount of available users.
- */
-WshShell_Size_t WshShellUser_GetUsersNum(void);
-
-/**
- * @brief Get user by it's id in users table
- * 
- * @param[in] id: Index of user in table.
+ * Searches the given user table for a user whose login and password match
+ * the provided credentials. Comparison is done using the `WshShellUser_CheckCredentials` function.
  *
- * @retval const WshShellUser_t*: Const pointer to user object.
- * @retval NULL: No user with such ID.
- */
-const WshShellUser_t* WshShellUser_GetUserByIndex(WshShell_Size_t id);
-
-/**
- * @brief Check if user credentials are equal to input strings.
- * 
- * @param[in] UserID: Index of a user.
- * @param[in] pLogin: Pointer to a string with user login.
- * @param[in] pPassword: Pointer to a string with user password.
+ * @param[in] pShellUsers Pointer to the user table.
+ * @param[in] pcLogin     Pointer to the login string.
+ * @param[in] pcPass      Pointer to the password string.
  *
- * @retval true: Input strings are equal to user credentials.
- * @retval false: Input strings are not equal to user credentials.
+ * @return Pointer to the matching user object if found; NULL otherwise.
+ *
+ * @note Returns NULL if any input pointer is NULL or if the user table is empty.
  */
-bool WshShellUser_CheckCredentials(WshShell_Size_t UserID, const char* pLogin, const char* pPassword);
+const WshShellUser_t* WshShellUser_FindByCredentials(WshShellUser_Table_t* pShellUsers,
+                                                     const WshShell_Char_t* pcLogin,
+                                                     const WshShell_Char_t* pcPass);
 
 /**
- * @brief Froget current users table.
- */
-void WshShellUser_Destroy(void);
-
-/**
- * @}
+ * @} // end of WshShellUserAPI
  */
 
 /**
- * @}
+ * @} // end of WshShellUser
  */
+
+#ifdef __cplusplus
+}
+#endif
 
 #endif /* __WSH_SHELL_USER_H */

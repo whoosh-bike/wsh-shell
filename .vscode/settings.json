@@ -1,0 +1,52 @@
+{
+    //User defined args
+
+    "files.associations": {
+        "*.h": "c",
+        "*.c": "c",
+    },
+
+    // C/C++
+    "[c]": {
+        "editor.formatOnSave": true,
+    },
+
+    // Python
+    "[python]": {
+        "editor.defaultFormatter": "ms-python.black-formatter",
+        "editor.formatOnSave": true,
+        "editor.codeActionsOnSave": {
+        "source.organizeImports": "always"
+        },
+    },
+    "black-formatter.args": [
+        "--line-length", "100",
+        "--target-version", "py39",
+        "--target-version", "py310",
+        "--target-version", "py311",
+        "--target-version", "py312"],
+    "isort.args": ["--profile", "black"],
+
+    // Markdown
+    "markdownlint.run": "onSave",
+    "markdownlint.config": {
+        "no-duplicate-heading": {
+            "siblings_only": true
+        },
+        "no-hard-tabs": {
+            "spaces_per_tab": 4
+        }
+    },
+
+    "[markdown]": {
+        "editor.codeActionsOnSave": {
+            "source.fixAll.markdownlint": "always"
+        },
+    },
+
+    // Cortex debug
+    "cortex-debug.variableUseNaturalFormat": true,
+    "cmake.ignoreCMakeListsMissing": true,
+    "python-envs.defaultEnvManager": "ms-python.python:system",
+    "python-envs.pythonProjects": []
+}

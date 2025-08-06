@@ -1,8 +1,11 @@
 /**
  * @file wsh_shell_history.h
- * @brief File that contains history operations.
- * @author Whoosh Embedded Team
+ * @brief Shell history management API
  * 
+ * This module provides functionality for storing, navigating, and persisting
+ * command history in an embedded shell environment.
+ * 
+ * @author Whoosh Embedded Team
  * @copyright Copyright (c) 2024
  */
 
@@ -10,94 +13,172 @@
 #define __WSH_SHELL_HISTORY_H
 
 #include "wsh_shell_cfg.h"
+#include "wsh_shell_str.h"
 #include "wsh_shell_types.h"
 
+#ifdef __cplusplus
+extern "C" {
+#endif
+
 /**
- * @defgroup WshShellHistory History
- * @brief Functionality for context save.
+ * @defgroup WshShellHistory Shell Command History
+ * @brief Functionality for storing and navigating command history.
  * @{
  */
 
 /**
- * @ingroup WshShellHistory
- * @struct WshShellHistory_Data_t
- * @brief History buffer
+ * @brief Direction for history navigation.
+ */
+typedef enum {
+    WSH_SHELL_HIST_CMD_PREV = 0, /**< Navigate to the previous command. */
+    WSH_SHELL_HIST_CMD_NEXT      /**< Navigate to the next command. */
+} WSH_SHELL_HIST_CMD_DIR_t;
+
+/**
+ * @brief Internal structure for storing command history buffer.
  * 
- * Actual history data buffer that contains string tokens of the called commands.
- * Each token represents one command that have been called previously.
+ * This structure contains the command history as a raw character buffer and related metadata
+ * for navigation and storage management.
  */
 typedef struct {
-    char pBuffer[WSH_SHELL_HISTORY_BUFF_SIZE]; /**< Array for storing command strings. */
-    WshShell_Size_t HeadIdx;                   /**< Pointer to a buffer begining. */
-    WshShell_Size_t TailIdx;                   /**< Pointer to a buffer end. */
-    WshShell_Size_t LastSavedCmdIdx;           /**< Pointer to a last saved command. */
+    WshShell_Char_t StorageBuff[WSH_SHELL_HISTORY_BUFF_SIZE]; /**< Circular buffer for commands. */
+    WshShell_Size_t HeadIdx;                                  /**< Index of the buffer start. */
+    WshShell_Size_t TailIdx;                                  /**< Index of the buffer end. */
+    WshShell_Size_t LastSavedCmdIdx;  /**< Index of the last saved command. */
+    WSH_SHELL_HIST_CMD_DIR_t PrevDir; /**< Last direction of history navigation. */
+    WshShell_Bool_t LimitIsReached;   /**< Flag indicating buffer search boundary reached. */
 } WshShellHistory_Data_t;
 
 /**
- * @ingroup WshShellHistory
- * @struct WshShellHistory_DataStorage_t
- * @brief History buffer
+ * @brief Shell history structure with integrity check.
  * 
- * Structure for storing history data and calculated CRC for data validation.
+ * This structure wraps the command history data along with a hash (CRC) for validation.
  */
 typedef struct {
-    WshShell_U32_t CRC;          /**< CRC32 sum for checking of history buffer validness. */
-    WshShellHistory_Data_t Data; /**< Data structure. */
+    WshShell_U32_t Hash;         /**< Hash for integrity verification. */
+    WshShellHistory_Data_t Data; /**< Command history buffer. */
 } WshShellHistory_t;
 
 /**
- * @defgroup PublicHistoryFunc Public functions
- * @brief Public functions for interaction with WshShellHistory_t object.
+ * @brief Function pointer type for reading shell history from persistent storage.
+ */
+typedef WshShellHistory_t (*WshShellHistory_Read_t)(void);
+
+/**
+ * @brief Function pointer type for writing shell history to persistent storage.
+ */
+typedef void (*WshShellHistory_Write_t)(WshShellHistory_t);
+
+/**
+ * @brief Structure holding function pointers for history persistence I/O.
+ *
+ * This allows the shell history system to remain storage-agnostic by delegating
+ * read/write responsibilities to external code (e.g., flash drivers, NVM emulation).
+ */
+typedef struct {
+    WshShellHistory_Read_t Read;   /**< Callback for loading saved history. */
+    WshShellHistory_Write_t Write; /**< Callback for saving current history. */
+} WshShellHistory_IO_t;
+
+/**
+ * @defgroup WshShellHistoryAPI Public API
+ * @brief Public functions for managing shell history.
  * @{
  */
 
-__attribute__((weak)) void WshShellHistory_Write(WshShellHistory_t history);
-__attribute__((weak)) WshShellHistory_t WshShellHistory_Read(void);
-
 /**
- * @brief Create histroy tracking object.
- */
-void WshShellHistory_Init(void);
-
-/**
- * @brief Function for saving command string.
+ * @brief Initialize the shell history system with custom I/O functions.
  * 
- * @param[in] pCmdStr: Pointer to a command string.
- * @param[in] cmdStrLen: Length of the command string without EOL symbol.
- */
-void WshShellHistory_SaveCmd(const char* pCmdStr, WshShell_Size_t cmdStrLen);
-
-/**
- * @brief Get command previous to current command string.
+ * This function sets up the internal history system and loads existing history
+ * using the provided read/write callbacks.
  * 
- * @param[out] pOutBuff: Pointer to a buffer for command string writing.
- * @param[in] buffSize: Size of output buffer.
+ * @param[in,out] pHistIO Pointer to the I/O structure used for read/write access.
+ * @param[in]     readFn  Callback to read saved history data.
+ * @param[in]     writeFn Callback to persist current history data.
+ */
+void WshShellHistory_Init(WshShellHistory_IO_t* pHistIO, WshShellHistory_Read_t readFn,
+                          WshShellHistory_Write_t writeFn);
+
+/**
+ * @brief Save a new command to the history buffer.
  * 
- * @return WshShell_Size_t: Length of the command line.
+ * @param[in] pHistIO    Pointer to the I/O structure.
+ * @param[in] pcCmdStr   Pointer to the command string (without EOL).
+ * @param[in] cmdStrLen  Length of the command string.
  */
-WshShell_Size_t WshShellHistory_GetPrevCmd(char* pOutBuff, WshShell_Size_t buffSize);
+void WshShellHistory_SaveCmd(WshShellHistory_IO_t* pHistIO, const WshShell_Char_t* pcCmdStr,
+                             WshShell_Size_t cmdStrLen);
 
 /**
- * @brief Get command next to current command string.
+ * @brief Retrieve the previous command from history.
  * 
- * @param[out] pOutBuff: Pointer to a buffer for command string writing.
- * @param[in] buffSize: Size of output buffer.
+ * @param[in]  pHistIO     Pointer to the I/O structure.
+ * @param[out] pOutBuff    Buffer to store the command string.
+ * @param[in]  outBuffSize Size of the output buffer.
  * 
- * @return WshShell_Size_t: Length of the command line.
+ * @return Length of the retrieved command.
  */
-WshShell_Size_t WshShellHistory_GetNextCmd(char* pOutBuff, WshShell_Size_t buffSize);
+WshShell_Size_t WshShellHistory_GetPrevCmd(WshShellHistory_IO_t* pHistIO, WshShell_Char_t* pOutBuff,
+                                           WshShell_Size_t outBuffSize);
 
 /**
- * @brief Erase all saved command strings.
+ * @brief Retrieve the next command from history.
+ * 
+ * @param[in]  pHistIO     Pointer to the I/O structure.
+ * @param[out] pOutBuff    Buffer to store the command string.
+ * @param[in]  outBuffSize Size of the output buffer.
+ * 
+ * @return Length of the retrieved command.
  */
-void WshShellHistory_Flush(void);
+WshShell_Size_t WshShellHistory_GetNextCmd(WshShellHistory_IO_t* pHistIO, WshShell_Char_t* pOutBuff,
+                                           WshShell_Size_t outBuffSize);
 
 /**
- * @}
+ * @brief Get the total number of commands stored in history.
+ * 
+ * Starts from the most recently saved command and iterates backwards 
+ * through the history buffer to count all stored commands.
+ * 
+ * @param[in] pHistIO Pointer to the I/O structure.
+ * 
+ * @return Number of stored commands in history.
+ */
+WshShell_Size_t WshShellHistory_GetTokenNum(WshShellHistory_IO_t* pHistIO);
+
+/**
+ * @brief Retrieve a command from history by its index.
+ * 
+ * Index 0 corresponds to the most recently saved command,
+ * index 1 to the previous one, and so on.
+ * 
+ * @param[in]  pHistIO     Pointer to the I/O structure.
+ * @param[out] pOutBuff    Buffer to store the retrieved command.
+ * @param[in]  outBuffSize Size of the output buffer.
+ * @param[in]  index       Index of the command to retrieve (0 = latest).
+ * 
+ * @return Length of the retrieved command, or 0 if not found or buffer too small.
+ */
+WshShell_Size_t WshShellHistory_GetTokenByIndex(WshShellHistory_IO_t* pHistIO,
+                                                WshShell_Char_t* pOutBuff,
+                                                WshShell_Size_t outBuffSize, WshShell_Size_t index);
+
+/**
+ * @brief Clear the command history buffer.
+ * 
+ * @param[in] pHistIO Pointer to the I/O structure.
+ */
+void WshShellHistory_Flush(WshShellHistory_IO_t* pHistIO);
+
+/**
+ * @} // end of WshShellHistoryAPI
  */
 
 /**
- * @}
+ * @} // end of WshShellHistory
  */
+
+#ifdef __cplusplus
+}
+#endif
 
 #endif /* __WSH_SHELL_HISTORY_H */

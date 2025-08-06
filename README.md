@@ -6,14 +6,12 @@
 
 ## Components
 
-We have built `wsh-shell` using **CMake**, **Make**, **Ninja**, **Doxygen** and **GCC**.
+We have built `wsh-shell` using **Make**, **Doxygen** and **GCC**.
 So we higly recommend you to install this components and add them to your system's environment variable.
 Before heading forward check instalation of all components using:
 
 ```bash
 make --version
-cmake --version
-ninja --version
 doxygen --version
 gcc --version
 ```
@@ -32,9 +30,9 @@ make
 By default project is build with *Debug* preset. If you want to build project with *Release* preset you shoud call:
 
 ```bash
-make CMAKE_BUILD_TYPE=Release
+make BUILD=Release
 ```
- To check if everything is built properly you can run tests using:
+ To check if everything is built properly you can build and run tests using:
 
  ```bash
  make test
@@ -46,12 +44,6 @@ To clean builded files run:
 make clean
 ```
 
-If you want to delete all build files and CMake cache consider running:
-
-```shell
-make purge
-```
-
 ## Examples
 
 Each example is a separate project. So for proper interaction with example you need to navigate to it's directory.
@@ -60,6 +52,13 @@ Each example is a separate project. So for proper interaction with example you n
 
 The basic example contains minimum code to run a functional shell on the PC. Build procedure is similar to *Simple build*:
 So to build and run *basic* example you should:
+
+```
+make basic
+./example/basic/build/basic
+```
+
+or
 
 ```
 cd example/basic

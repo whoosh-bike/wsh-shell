@@ -1,4 +1,5 @@
 ---
+# DisableFormat: true
 BasedOnStyle: LLVM
 UseTab: Never
 TabWidth: 4

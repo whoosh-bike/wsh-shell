@@ -1,53 +1,95 @@
-ifeq ($(OS),Windows_NT)
-	CMAKE := cmake
-	CMAKE_GENERATOR := Ninja
-else
-	CMAKE := $(shell (command -v cmake3 || command -v cmake || echo cmake))
-	CMAKE_GENERATOR ?= "$(shell (command -v ninja > /dev/null 2>&1 && echo "Ninja") || echo "Unix Makefiles")"
-endif
+### Makefile (Top-level) ###
 
+# ===== Project Configuration =====
+TARGET := wsh_shell
+BUILD ?= Debug
+
+# ===== Toolchain =====
+CC := gcc
+AR := ar
+CP := cp
 MKDIR := mkdir -p
 RM := rm -rf
-CP := cp
-SRCS := $(wildcard src/*.c)
-CMAKE_C_COMPILER := gcc
-CMAKE_BUILD_TYPE ?= Debug
 
-ifneq ("$(wildcard .env)","")
-	include .env
+# ===== Paths =====
+SRC_DIR := src
+BUILD_DIR := build
+OBJ_DIR := $(BUILD_DIR)/obj/$(SRC_DIR)
+TEST_DIR := test
+TEST_BUILD_DIR := $(BUILD_DIR)/obj/$(TEST_DIR)
+EXAMPLE_DIR := example/basic
+
+# ===== Source Files =====
+SRCS := $(wildcard $(SRC_DIR)/*.c)
+OBJS := $(SRCS:$(SRC_DIR)/%.c=$(OBJ_DIR)/%.o)
+DEPS := $(OBJS:.o=.d)
+
+# ===== Test Sources =====
+TEST_SRCS := $(wildcard $(TEST_DIR)/test_*.c)
+TEST_BINS := $(TEST_SRCS:$(TEST_DIR)/%.c=$(BUILD_DIR)/test/%_bin)
+
+# ===== Include Paths =====
+INC_FLAGS := $(addprefix -I, $(shell find $(SRC_DIR) -type d))
+TEST_INC := -Iet/Embedded-Test/et -I$(TEST_DIR)
+
+# ===== Compiler Flags =====
+COMMON_FLAGS := $(INC_FLAGS) -MMD -Wall -Wextra -Wpedantic -Wno-gnu-zero-variadic-macro-arguments -Wno-format
+ifeq ($(BUILD),Debug)
+    CFLAGS := $(COMMON_FLAGS) -O0 -g -DWSH_SHELL_ASSERT_ENABLE
+else
+    CFLAGS := $(COMMON_FLAGS) -O2 -DNDEBUG
 endif
 
-.PHONY: clean purge test cppcheck format
+# ===== Submodules =====
+$(shell git submodule update --init --recursive)
+ET_SRCS := $(wildcard et/Embedded-Test/et/*.c)
 
-all: src/wsh_shell_cfg.h 
-	@$(MKDIR) build
-	$(CMAKE) -B build -G $(CMAKE_GENERATOR) --preset $(CMAKE_BUILD_TYPE) -DCMAKE_C_COMPILER=$(CMAKE_C_COMPILER)
-	$(CMAKE) --build build
+# ===== Targets =====
+.PHONY: all clean test basic format cppcheck
+
+all: $(BUILD_DIR)/lib$(TARGET).a
+
+$(BUILD_DIR)/lib$(TARGET).a: src/wsh_shell_cfg.h $(OBJS)
+	@echo "[AR] Creating static library: $@"
+	@$(MKDIR) $(dir $@)
+	@$(AR) rcs $@ $(OBJS)
+
+$(OBJ_DIR)/%.o: $(SRC_DIR)/%.c
+	@echo "[CC] $<"
+	@$(MKDIR) $(dir $@)
+	@$(CC) $(CFLAGS) -c $< -o $@
 
 src/wsh_shell_cfg.h:
-	$(CP) src/wsh_shell_cfg_def.h src/wsh_shell_cfg.h
+	@echo "[GEN] $@ from default"
+	@$(CP) src/wsh_shell_cfg_def.h $@
+
+test: $(TEST_BINS)
+	@for test_exec in $(TEST_BINS); do \
+		echo "[RUN] $$test_exec"; \
+		$$test_exec || exit 1; \
+	done
+
+$(BUILD_DIR)/test/%_bin: $(TEST_DIR)/%.c $(ET_SRCS) $(SRCS)
+	@echo "[TEST_CC] $<"
+	@$(MKDIR) $(dir $@)
+	@$(CC) $(CFLAGS) $(TEST_INC) $^ -o $@
+
+basic:
+	@echo "[MAKE] Building example: basic"
+	@$(MAKE) -C $(EXAMPLE_DIR)
 
 clean:
-ifneq ($(wildcard build),)
-	@$(CMAKE) --build build --target clean
-endif
-
-purge:
-ifneq ($(wildcard build),)
-	@$(RM) build/*
-endif
-
-test:
-	@ctest --output-on-failure --test-dir ./build/
-
-cppcheck:
-	@cppcheck \
-	--quiet \
-	--enable=all \
-	--error-exitcode=1 \
-	--check-level=exhaustive \
-	-Isrc \
-	$(SRCS)
+	@echo "[CLEAN] Removing build artifacts"
+	@$(RM) $(BUILD_DIR)
+	@$(MAKE) -C $(EXAMPLE_DIR) clean
 
 format:
-	@clang-format -i -- src/*.c src/*.h
+	@echo "[FORMAT] Running clang-format"
+	@clang-format --style=file -i $(SRC_DIR)/*.[ch] $(EXAMPLE_DIR)/main.c
+
+cppcheck:
+	@echo "[CHECK] Running cppcheck"
+	@cppcheck --quiet --enable=all --error-exitcode=1 --check-level=exhaustive $(INC_FLAGS) $(SRCS)
+
+# ===== Include Dependencies =====
+-include $(DEPS)
