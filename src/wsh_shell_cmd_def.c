@@ -22,6 +22,7 @@
     X_CMD_ENTRY(WSH_SHELL_DEF_OPT_HIST_CLEAR, WSH_SHELL_OPT_WO_PARAM(WSH_SHELL_OPT_ACCESS_ANY, "-r", "--histrst", "Reset history storage")) \
     X_CMD_ENTRY(WSH_SHELL_DEF_OPT_HIST_PRINT, WSH_SHELL_OPT_WO_PARAM(WSH_SHELL_OPT_ACCESS_ANY, "-p", "--histprint", "Print history storage")) \
     X_CMD_ENTRY(WSH_SHELL_DEF_OPT_DEAUTH, WSH_SHELL_OPT_WO_PARAM(WSH_SHELL_OPT_ACCESS_ANY, "-d", "--deauth", "DeAuth and destroy history")) \
+    X_CMD_ENTRY(WSH_SHELL_DEF_OPT_INTERACT, WSH_SHELL_OPT_INTERACT()) \
     X_CMD_ENTRY(WSH_SHELL_DEF_OPT_END, WSH_SHELL_OPT_END())
 /* clang-format on */
 
@@ -36,6 +37,12 @@ typedef enum {
     WSH_SHELL_CMD_DEF_OPT_TABLE() WSH_SHELL_CMD_DEF_OPT_ENUM_SIZE
 #undef X_CMD_ENTRY
 } WSH_SHELL_DEF_OPT_t;
+
+static void shell_cmd_def__interactive(WshShellIO_CommandLine_t* pInter) {
+    WshShellInteract_AppendLineBreak(pInter);
+
+    WSH_SHELL_PRINT("Just echo of interactive command: %s", pInter->Buff);
+}
 
 WSH_SHELL_RET_STATE_t WshShellCmdDef_Executable(const WshShellCmd_t* pcCmd, WshShell_Size_t argc,
                                                 const WshShell_Char_t* pArgv[], void* pCtx) {
@@ -62,6 +69,11 @@ WSH_SHELL_RET_STATE_t WshShellCmdDef_Executable(const WshShellCmd_t* pcCmd, WshS
                 WSH_SHELL_PRINT("Ver: %s\r\n", pParentShell->Version);
                 WSH_SHELL_PRINT("Device name: %s\r\n", pParentShell->DeviceName);
                 WSH_SHELL_PRINT("User: %s\r\n", pParentShell->CurrUser->Login);
+                break;
+
+            case WSH_SHELL_DEF_OPT_INTERACT:
+                WshShellInteract_Attach(&(pParentShell->Interact), pcCmd->Name,
+                                        shell_cmd_def__interactive);
                 break;
 
             case WSH_SHELL_DEF_OPT_EXEC: {
