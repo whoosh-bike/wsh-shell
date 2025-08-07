@@ -1,11 +1,6 @@
 #include "shell.h"
 
 #include "wsh_shell.h"
-#include "wsh_shell_cmd.h"
-#include "wsh_shell_cmd_def.h"
-#include "wsh_shell_history.h"
-#include "wsh_shell_types.h"
-#include "wsh_shell_user.h"
 
 static WshShell_t Shell = {0};
 
