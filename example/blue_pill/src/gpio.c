@@ -45,6 +45,7 @@ void GPIO_UsartInit(void) {
     gpioInitStruct.Pull       = LL_GPIO_PULL_UP;
     LL_GPIO_Init(USART_GPIO_PORT, &gpioInitStruct);
 
-    gpioInitStruct.Pin = USART_RX_PIN;
+    gpioInitStruct.Pin  = USART_RX_PIN;
+    gpioInitStruct.Mode = LL_GPIO_MODE_FLOATING;
     LL_GPIO_Init(USART_GPIO_PORT, &gpioInitStruct);
 }
