@@ -1,5 +1,6 @@
 {
     "version": "2.0.0",
+    "problemMatcher": "$gcc",
     "tasks": [
                 {
             "label": "clean",
@@ -8,8 +9,7 @@
             "group": {
                 "kind": "build",
                 "isDefault": true
-            },
-            "problemMatcher": []
+            }
         },
         {
             "label": "build all",
@@ -18,8 +18,7 @@
             "group": {
                 "kind": "build",
                 "isDefault": true
-            },
-            "problemMatcher": []
+            }
         },
         {
             "label": "build basic",
@@ -28,8 +27,7 @@
             "group": {
                 "kind": "build",
                 "isDefault": true
-            },
-            "problemMatcher": []
+            }
         },
         {
             "label": "build blue_pill: release",
@@ -38,8 +36,7 @@
             "group": {
                 "kind": "build",
                 "isDefault": true
-            },
-            "problemMatcher": []
+            }
         },
         {
             "label": "build blue_pill: debug",
@@ -48,8 +45,7 @@
             "group": {
                 "kind": "build",
                 "isDefault": true
-            },
-            "problemMatcher": []
+            }
         },
         {
             "label": "flash blue_pill",
@@ -63,8 +59,7 @@
             "group": {
                 "kind": "build",
                 "isDefault": true
-            },
-            "problemMatcher": []
+            }
         }
     ]
 }

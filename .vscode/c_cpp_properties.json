@@ -5,14 +5,15 @@
             "compilerPath": "${config:compiler_path}/arm-none-eabi-gcc",
             "includePath": [
                 "${workspaceFolder}/src",
-                "${workspaceFolder}/example/blue_pill/system",
                 "${workspaceFolder}/example/blue_pill/platform",
-                "${workspaceFolder}/example/blue_pill/STM32CubeF1",
-                "${workspaceFolder}/example/blue_pill/STM32CubeF1/Drivers",
-                "${workspaceFolder}/example/blue_pill/STM32CubeF1/Drivers/CMSIS/Include",
-                "${workspaceFolder}/example/blue_pill/STM32CubeF1/Drivers/CMSIS/Device/ST/STM32F1xx/Include",
-                "${workspaceFolder}/example/blue_pill/STM32CubeF1/Drivers/STM32F1xx_HAL_Driver/Inc",
-                "${workspaceFolder}/example/blue_pill/STM32CubeF1/Drivers/STM32F1xx_HAL_Driver/Inc/Legacy"
+                "${workspaceFolder}/example/blue_pill/platform/STM32CubeF1",
+                "${workspaceFolder}/example/blue_pill/platform/STM32CubeF1/Drivers",
+                "${workspaceFolder}/example/blue_pill/platform/STM32CubeF1/Drivers/CMSIS/Include",
+                "${workspaceFolder}/example/blue_pill/platform/STM32CubeF1/Drivers/CMSIS/Device/ST/STM32F1xx/Include",
+                "${workspaceFolder}/example/blue_pill/platform/STM32CubeF1/Drivers/STM32F1xx_HAL_Driver/Inc",
+                "${workspaceFolder}/example/blue_pill/platform/STM32CubeF1/Drivers/STM32F1xx_HAL_Driver/Inc/Legacy",
+                "${workspaceFolder}/example/blue_pill/src",
+                "${workspaceFolder}/example/blue_pill/system"
             ],
             "defines": [
                 "STM32F103xB",

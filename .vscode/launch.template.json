@@ -25,7 +25,7 @@
             "interface": "swd",
             "configFiles": [
                 "${workspaceFolder}/example/blue_pill/stlink.cfg",
-                "${workspaceFolder}/example/blue_pill/stm32f1x_blue_pill_cn.cfg"
+                "${workspaceFolder}/example/blue_pill/stm32f1x.cfg"
             ]
         }
     ]
