@@ -8,6 +8,6 @@ void GPIO_LedToggle(void);
 void GPIO_LedOn(void);
 void GPIO_LedOff(void);
 uint32_t GPIO_LedIsOn(void);
-void GPIO_USART_Init(void);
+void GPIO_UsartInit(void);
 
 #endif /* GPIO_H */
