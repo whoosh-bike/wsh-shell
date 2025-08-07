@@ -16,7 +16,7 @@ BUILD_DIR := build
 OBJ_DIR := $(BUILD_DIR)/obj
 
 # ===== Source Files =====
-SRCS := main.c
+SRCS := $(wildcard *.c)
 CORE_SRCS := $(wildcard $(CORE_DIR)/*.c)
 
 OBJS := $(SRCS:%.c=$(OBJ_DIR)/%.o)
