@@ -56,8 +56,8 @@ typedef struct {
  */
 typedef struct {
     WshShell_Char_t* Version;                           /**< Version string. */
-    WshShell_Char_t DeviceName[WSH_SHELL_DEV_NAME_LEN]; /**< Device name (used in prompt). */
-    WshShell_Char_t Prompt[WSH_SHELL_PROMPT_MAX_LEN];   /**< Cached prompt string. */
+    WshShell_Char_t DeviceName[WSH_SHELL_DEV_NAME_LEN]; /**< Device name (used in PS1 and more). */
+    WshShell_Char_t PS1[WSH_SHELL_PS1_MAX_LEN];         /**< Cached PS1 string. */
     WshShellIO_CommandLine_t CommandLine;               /**< Terminal input/output interface. */
     WshShell_Interact_t Interact;                       /**< Interactive command interface. */
     const WshShellUser_t* CurrUser;                     /**< Currently authenticated user. */

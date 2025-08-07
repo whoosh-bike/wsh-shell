@@ -5,6 +5,7 @@
             "compilerPath": "${config:compiler_path}/arm-none-eabi-gcc",
             "includePath": [
                 "${workspaceFolder}/src",
+                "${workspaceFolder}/example/blue_pill",
                 "${workspaceFolder}/example/blue_pill/platform",
                 "${workspaceFolder}/example/blue_pill/platform/STM32CubeF1",
                 "${workspaceFolder}/example/blue_pill/platform/STM32CubeF1/Drivers",

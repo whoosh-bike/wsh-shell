@@ -29,12 +29,12 @@
 
 /* 
  * ─────────────────────────────────────────────
- * Prompt configuration
+ * PS1 line configuration
  * ───────────────────────────────────────────── 
  */
-#define WSH_SHELL_PROMPT_CUSTOM   1
-#define WSH_SHELL_PROMPT_TEMPLATE "%r%b%c6%d%c7@%c5%u%c2%i %c7> %r%c7"
-#define WSH_SHELL_PROMPT_MAX_LEN  128
+#define WSH_SHELL_PS1_CUSTOM   1
+#define WSH_SHELL_PS1_TEMPLATE "%r%b%c6%d%c7@%c5%u%c2%i %c7> %r%c7"
+#define WSH_SHELL_PS1_MAX_LEN  128
 
 /* 
  * ─────────────────────────────────────────────

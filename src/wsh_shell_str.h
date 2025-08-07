@@ -22,7 +22,7 @@ typedef struct {
     const WshShell_Char_t* UserName;
     const WshShell_Char_t* DevName;
     WshShell_Char_t* InterCmdName;
-} WshShellStr_PromptData_t;
+} WshShellStr_PS1Data_t;
 
 /**
  * @defgroup ShellStr String operations
@@ -128,9 +128,9 @@ void WshShellStr_AccessBitsToStr(WshShell_Size_t access, WshShell_Char_t* pOutSt
 void WshShellStr_GroupBitsToStr(WshShell_Size_t group, WshShell_Char_t* pOutStr);
 
 /**
- * @brief Applies the prompt template and generates the final prompt string.
+ * @brief Applies the PS1 template and generates the final PS1 string.
  *
- * Expands a predefined prompt template (`WSH_SHELL_PROMPT_TEMPLATE`) into a complete prompt
+ * Expands a predefined PS1 template (`WSH_SHELL_PS1_TEMPLATE`) into a complete PS1
  * string, substituting special format specifiers with runtime values like username, device name,
  * and ANSI escape sequences for styling (colors, bold, reset).
  *
@@ -142,15 +142,14 @@ void WshShellStr_GroupBitsToStr(WshShell_Size_t group, WshShell_Char_t* pOutStr)
  * - `%r` — ANSI escape sequence to reset all styles
  * - Any unknown `%` sequence is copied verbatim as `%X`.
  *
- * The output is truncated if it would exceed `WSH_SHELL_PROMPT_MAX_LEN - 1`.
+ * The output is truncated if it would exceed `WSH_SHELL_PS1_MAX_LEN - 1`.
  * The result is always null-terminated.
  *
- * @param[out] pcPrompt Output buffer for the final prompt string.
- *                     Must be at least `WSH_SHELL_PROMPT_MAX_LEN` in size.
- * @param[in]  pcUserName   Pointer to the user name string.
- * @param[in]  pcDevName Pointer to the device name string.
+ * @param[out] pPS1 Output buffer for the final PS1 string.
+ *                  Must be at least `WSH_SHELL_PS1_MAX_LEN` in size.
+ * @param[in]  pPS1Data   Pointer to the user name, divice name or other strings.
  */
-void WshShellStr_GeneratePrompt(WshShell_Char_t* pPrompt, WshShellStr_PromptData_t* pPromptData);
+void WshShellStr_GeneratePS1(WshShell_Char_t* pPS1, WshShellStr_PS1Data_t* pPS1Data);
 
 /**
  * @} 

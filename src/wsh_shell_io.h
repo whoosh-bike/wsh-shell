@@ -6,7 +6,7 @@
  * - Common control characters (e.g. backspace, delete, tab).
  * - ANSI escape sequences for terminal control (cursor movement, screen clearing, text style).
  * - Colorized print macros for various log levels (system/info/warning/error).
- * - Prompt and newline formatting helpers.
+ * - PS1 and newline formatting helpers.
  * - I/O buffer structure and utility functions for handling user input.
  *
  * These utilities support consistent terminal behavior and shell interaction flow.
@@ -34,7 +34,7 @@ extern "C" {
 #define WSH_SHELL_SYM_SOUND     0x07 /**< Bell character (alert) */
 ///@}
 
-/** @name Formatting and prompts */
+/** @name Formatting and PS1 */
 ///@{
 #define WSH_SHELL_CHAR_CR  '\r'   /**< Carriage return */
 #define WSH_SHELL_CHAR_LF  '\n'   /**< Line feed */

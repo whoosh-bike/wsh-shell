@@ -20,7 +20,7 @@ static void WshShell_InvitationPrint(WshShell_t* pShell) {
         return;
     }
 
-    WSH_SHELL_PRINT(pShell->Prompt);
+    WSH_SHELL_PRINT(pShell->PS1);
 }
 
 WSH_SHELL_RET_STATE_t WshShell_Init(WshShell_t* pShell, const WshShell_Char_t* pcDevName,
@@ -86,12 +86,12 @@ WshShell_Bool_t WshShell_Auth(WshShell_t* pShell, const WshShell_Char_t* pcLogin
 
     pShell->CurrUser = WshShellUser_FindByCredentials(&(pShell->Users), pcLogin, pcPass);
     if (WSH_SHELL_USER_IS_AUTH()) {
-        WshShellStr_PromptData_t data = {
+        WshShellStr_PS1Data_t data = {
             .UserName     = pShell->CurrUser->Login,
             .DevName      = pShell->DeviceName,
             .InterCmdName = NULL,
         };
-        WshShellStr_GeneratePrompt(pShell->Prompt, &data);
+        WshShellStr_GeneratePS1(pShell->PS1, &data);
         pShell->ExtCallbacks.Auth(NULL);
         WSH_SHELL_PRINT("%c", WSH_SHELL_SYM_SOUND);
     }
@@ -181,12 +181,12 @@ static void WshShell_StringHandler(WshShell_t* pShell) {
         WSH_SHELL_RET_STATE_t retState = cmdToExec(pcCmd, argc, pсArgv, pShell);
 
         if (WSH_SHELL_INTER_CMD_EXISTS()) {
-            WshShellStr_PromptData_t data = {
+            WshShellStr_PS1Data_t data = {
                 .UserName     = pShell->CurrUser->Login,
                 .DevName      = pShell->DeviceName,
                 .InterCmdName = pShell->Interact.CmdName,
             };
-            WshShellStr_GeneratePrompt(pShell->Prompt, &data);
+            WshShellStr_GeneratePS1(pShell->PS1, &data);
         }
 
         if (retState != WSH_SHELL_RET_STATE_SUCCESS) {
@@ -204,12 +204,12 @@ static void WshShell_SymbolHandler(WshShell_t* pShell, const WshShell_Char_t sym
             if (WSH_SHELL_INTER_CMD_EXISTS()) {
                 WshShellInteract_Flush(&(pShell->Interact));
 
-                WshShellStr_PromptData_t data = {
+                WshShellStr_PS1Data_t data = {
                     .UserName     = pShell->CurrUser->Login,
                     .DevName      = pShell->DeviceName,
                     .InterCmdName = NULL,
                 };
-                WshShellStr_GeneratePrompt(pShell->Prompt, &data);
+                WshShellStr_GeneratePS1(pShell->PS1, &data);
             } else
                 WshShell_DeAuth(pShell);
 
