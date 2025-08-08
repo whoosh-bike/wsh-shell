@@ -5,16 +5,6 @@
 #include "stm32f1xx_ll_system.h"
 #include "stm32f1xx_ll_utils.h"
 
-volatile uint32_t SysTickCnt = 0;
-
-void SysTick_Handler(void) {
-    SysTickCnt++;
-}
-
-uint32_t Sysclk_TickGet(void) {
-    return SysTickCnt;
-}
-
 void Sysclk_Init(void) {
     NVIC_SetPriority(SysTick_IRQn, 0);
     NVIC_EnableIRQ(SysTick_IRQn);
