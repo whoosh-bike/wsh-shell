@@ -6,7 +6,7 @@
  * command history in an embedded shell environment.
  * 
  * @author Whoosh Embedded Team
- * @copyright Copyright (c) 2024
+ * @copyright Copyright (c) 2025
  */
 
 #ifndef __WSH_SHELL_HISTORY_H
@@ -62,12 +62,12 @@ typedef struct {
 /**
  * @brief Function pointer type for reading shell history from persistent storage.
  */
-typedef WshShellHistory_t (*WshShellHistory_Read_t)(void);
+typedef WshShellHistory_t (*WshShellHistory_ReadHandler_t)(void);
 
 /**
  * @brief Function pointer type for writing shell history to persistent storage.
  */
-typedef void (*WshShellHistory_Write_t)(WshShellHistory_t);
+typedef void (*WshShellHistory_WriteHandler_t)(WshShellHistory_t);
 
 /**
  * @brief Structure holding function pointers for history persistence I/O.
@@ -76,8 +76,8 @@ typedef void (*WshShellHistory_Write_t)(WshShellHistory_t);
  * read/write responsibilities to external code (e.g., flash drivers, NVM emulation).
  */
 typedef struct {
-    WshShellHistory_Read_t Read;   /**< Callback for loading saved history. */
-    WshShellHistory_Write_t Write; /**< Callback for saving current history. */
+    WshShellHistory_ReadHandler_t Read;   /**< Callback for loading saved history. */
+    WshShellHistory_WriteHandler_t Write; /**< Callback for saving current history. */
 } WshShellHistory_IO_t;
 
 /**
@@ -96,8 +96,8 @@ typedef struct {
  * @param[in]     readFn  Callback to read saved history data.
  * @param[in]     writeFn Callback to persist current history data.
  */
-void WshShellHistory_Init(WshShellHistory_IO_t* pHistIO, WshShellHistory_Read_t readFn,
-                          WshShellHistory_Write_t writeFn);
+void WshShellHistory_Init(WshShellHistory_IO_t* pHistIO, WshShellHistory_ReadHandler_t readFn,
+                          WshShellHistory_WriteHandler_t writeFn);
 
 /**
  * @brief Save a new command to the history buffer.

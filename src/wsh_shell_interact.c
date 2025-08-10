@@ -1,7 +1,7 @@
 #include "wsh_shell_interact.h"
 
 void WshShellInteract_Attach(WshShell_Interact_t* pInteract, const WshShell_Char_t* pcName,
-                             InteractiveCmdHandler_t handler) {
+                             WshShellInteractive_CmdHandler_t handler) {
     WSH_SHELL_ASSERT(pInteract && pcName && handler);
     if (!pInteract || !pcName || !handler)
         return;

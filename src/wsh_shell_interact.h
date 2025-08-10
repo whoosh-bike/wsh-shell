@@ -29,7 +29,7 @@ extern "C" {
  * This type defines the prototype for interactive command callbacks,
  * which are invoked with a pointer to the current command line buffer.
  */
-typedef void (*InteractiveCmdHandler_t)(WshShellIO_CommandLine_t* pInter);
+typedef void (*WshShellInteractive_CmdHandler_t)(WshShellIO_CommandLine_t* pInter);
 
 /**
  * @brief Interactive command registration structure.
@@ -37,7 +37,7 @@ typedef void (*InteractiveCmdHandler_t)(WshShellIO_CommandLine_t* pInter);
  * Stores the name of the interactive command and the corresponding execution function.
  */
 typedef struct {
-    InteractiveCmdHandler_t Handler; /**< Function to be executed in interactive mode. */
+    WshShellInteractive_CmdHandler_t Handler; /**< Function to be executed in interactive mode. */
     WshShell_Char_t CmdName[WSH_SHELL_CMD_NAME_LEN]; /**< Name of the interactive command. */
 } WshShell_Interact_t;
 
@@ -52,7 +52,7 @@ typedef struct {
  * @param[in]  handler   Function pointer to be called when the command is executed.
  */
 void WshShellInteract_Attach(WshShell_Interact_t* pInteract, const WshShell_Char_t* pcName,
-                             InteractiveCmdHandler_t handler);
+                             WshShellInteractive_CmdHandler_t handler);
 
 /**
  * @brief Appends a CRLF (`\r\n`) sequence to the interaction buffer.
