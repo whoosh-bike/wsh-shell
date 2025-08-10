@@ -150,7 +150,7 @@ WSH_SHELL_RET_STATE_t WshShellCmd_GetOptValue(WshShellOption_Context_t* pOptCtx,
 
     WshShell_Size_t valIdx = pOptCtx->TokenPos + 1;
     if (valIdx >= argc)
-        return WSH_SHELL_RET_STATE_ERR_OVERFLOW;
+        return WSH_SHELL_RET_STATE_ERR_OVERFLOW;  //FIXME ?
 
     switch (pOptCtx->Option->Type) {
         case WSH_SHELL_OPTION_STR:
