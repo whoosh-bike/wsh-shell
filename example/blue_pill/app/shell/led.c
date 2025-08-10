@@ -136,5 +136,5 @@ const WshShellCmd_t Shell_LedCmd = {
     .Descr   = "PC13 pin LED management",
     .Options = LedOptArr,
     .OptNum  = CMD_LED_OPT_ENUM_SIZE,
-    .Exec    = shell_cmd_led,
+    .Handler = shell_cmd_led,
 };

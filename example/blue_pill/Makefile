@@ -125,7 +125,7 @@ clean:
 
 flash:
 	@echo "[FLASH] Programming device with OpenOCD"
-	@openocd -f ./stlink.cfg -f ./stm32f1x_blue_pill_cn.cfg -c "program $(BUILD_DIR)/$(TARGET).elf verify reset exit"
+	@openocd -f ./stlink.cfg -f ./stm32f1x.cfg -c "program $(BUILD_DIR)/$(TARGET).elf verify reset exit"
 
 # ===== Include Dependencies =====
 -include $(DEPS)

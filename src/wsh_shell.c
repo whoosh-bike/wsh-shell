@@ -7,7 +7,7 @@ void WshShell_Stub_ExtClbk(void* pCtx) {
 #define WSH_SHELL_USER_IS_AUTH()       (pShell->CurrUser != NULL)
 #define WSH_SHELL_TMP_LOGIN_IS_EMPTY() (pShell->TmpAuth.Login[0] == 0)
 #define WSH_SHELL_TMP_PASS_IS_EMPTY()  (pShell->TmpAuth.Pass[0] == 0)
-#define WSH_SHELL_INTER_CMD_EXISTS()   (pShell->Interact.Exec != NULL)
+#define WSH_SHELL_INTER_CMD_EXISTS()   (pShell->Interact.Handler != NULL)
 
 static void WshShell_InvitationPrint(WshShell_t* pShell) {
     if (!WSH_SHELL_USER_IS_AUTH()) {
@@ -161,24 +161,24 @@ static void WshShell_StringHandler(WshShell_t* pShell) {
 
     WshShellHistory_SaveCmd(&(pShell->HistoryIO), pcCmdStr, WSH_SHELL_STRLEN(pcCmdStr));
 
-    const WshShellCmd_t* pcCmd   = WshShellDefCmd_GetPtr();
-    WshShellCmd_Exec_t cmdToExec = NULL;
+    const WshShellCmd_t* pcCmd      = WshShellDefCmd_GetPtr();
+    WshShellCmdHandler_t cmdHandler = NULL;
 
     if (WSH_SHELL_STRNCMP(pcCmd->Name, pсArgv[0], WSH_SHELL_CMD_NAME_LEN) == 0) {
-        cmdToExec = pcCmd->Exec;
+        cmdHandler = pcCmd->Handler;
     } else {
         pcCmd = WshShellCmd_SearchCmd(&(pShell->Commands), pсArgv[0]);
         if (pcCmd == NULL) {
             WSH_SHELL_PRINT_WARN("Command \"%s\" not found!\r\n", pcCmdStr);
         } else if ((pShell->CurrUser->Groups & pcCmd->Groups) != 0) {
-            cmdToExec = pcCmd->Exec;
+            cmdHandler = pcCmd->Handler;
         } else {
             WSH_SHELL_PRINT_WARN("Access denied for command \"%s\"\r\n", pсArgv[0]);
         }
     }
 
-    if (cmdToExec) {
-        WSH_SHELL_RET_STATE_t retState = cmdToExec(pcCmd, argc, pсArgv, pShell);
+    if (cmdHandler) {
+        WSH_SHELL_RET_STATE_t retState = cmdHandler(pcCmd, argc, pсArgv, pShell);
 
         if (WSH_SHELL_INTER_CMD_EXISTS()) {
             WshShellStr_PS1Data_t data = {
@@ -190,7 +190,7 @@ static void WshShell_StringHandler(WshShell_t* pShell) {
         }
 
         if (retState != WSH_SHELL_RET_STATE_SUCCESS) {
-            WSH_SHELL_PRINT_ERR("Command exec internal error: %s\r\n",
+            WSH_SHELL_PRINT_ERR("Command handler internal error: %s\r\n",
                                 WshShell_GetRetStateStr(retState));
         }
     }
@@ -269,7 +269,7 @@ void WshShell_InsertChar(WshShell_t* pShell, const WshShell_Char_t symbol) {
         }
 
         if (WSH_SHELL_INTER_CMD_EXISTS()) {
-            pShell->Interact.Exec(&(pShell->CommandLine));
+            pShell->Interact.Handler(&(pShell->CommandLine));
             WshShellIO_ClearInterBuff(&(pShell->CommandLine));
         } else
             WshShell_StringHandler(pShell);
