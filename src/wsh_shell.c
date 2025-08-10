@@ -12,9 +12,9 @@ void WshShell_Stub_ExtClbk(void* pCtx) {
 static void WshShell_InvitationPrint(WshShell_t* pShell) {
     if (!WSH_SHELL_USER_IS_AUTH()) {
         if (WSH_SHELL_TMP_LOGIN_IS_EMPTY()) {
-            WSH_SHELL_PRINT("Login: ");
+            WSH_SHELL_PRINT_SYS("Login: ");
         } else if (WSH_SHELL_TMP_PASS_IS_EMPTY()) {
-            WSH_SHELL_PRINT("Password: ");
+            WSH_SHELL_PRINT_SYS("Password: ");
         }
 
         return;
@@ -71,9 +71,11 @@ WSH_SHELL_RET_STATE_t WshShell_Init(WshShell_t* pShell, const WshShell_Char_t* p
     WSH_SHELL_PRINT(pcCustomHeader ? pcCustomHeader : WSH_SHELL_HEADER);
     WSH_SHELL_PRINT(WSH_SHELL_ESC_RESET_STYLE WSH_SHELL_COLOR_CYAN
                     "Serial Shell Service (wsh-shell v%s) started on device (%s)\r\n"
-                    "Press <enter> to log in...",
+                    "Press <Enter> to log in... \r\n",
                     pShell->Version, pShell->DeviceName);
     WSH_SHELL_PRINT(WSH_SHELL_ESC_RESET_STYLE);
+
+    WshShellPromptWait_Attach(&(pShell->PromptWait), WshShellPromptWait_Enter, NULL);
 
     return WSH_SHELL_RET_STATE_SUCCESS;
 }
@@ -258,6 +260,11 @@ void WshShell_InsertChar(WshShell_t* pShell, const WshShell_Char_t symbol) {
         return;
 
     pShell->ExtCallbacks.SymbolIn(NULL);
+
+    WSH_SHELL_RET_STATE_t promptWaitRes = WshShellPromptWait_Handle(&(pShell->PromptWait), symbol);
+    if (promptWaitRes == WSH_SHELL_RET_STATE_ERR_BUSY) {
+        return;
+    }
 
     if (symbol == WSH_SHELL_CHAR_CR || symbol == WSH_SHELL_CHAR_LF) {
         WSH_SHELL_PRINT(WSH_SHELL_END_LINE);
