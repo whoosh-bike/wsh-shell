@@ -4,7 +4,7 @@
 
 static WshShell_t Shell = {0};
 
-static const WshShellUser_t UserTable[] = {
+static const WshShellUser_t Shell_UserTable[] = {
     {
         .Login  = "root",
         .Pass   = "1234",
@@ -15,11 +15,11 @@ static const WshShellUser_t UserTable[] = {
 
 static WshShellHistory_t Shell_HistoryStorage;
 
-WshShellHistory_t WshShellHistory_Read(void) {
+static WshShellHistory_t WshShellHistory_Read(void) {
     return Shell_HistoryStorage;
 }
 
-void WshShellHistory_Write(WshShellHistory_t history) {
+static void WshShellHistory_Write(WshShellHistory_t history) {
     memcpy((void*)&Shell_HistoryStorage, (void*)&history, sizeof(WshShellHistory_t));
 }
 
@@ -41,12 +41,12 @@ static WshShell_ExtCallbacks_t Shell_Callbacks = {
     .SymbolIn = Shell_SymInClbk,
 };
 
-void Shell_Init(const char* pcHostName) {
+bool Shell_Init(const char* pcHostName) {
     if (WshShell_Init(&Shell, pcHostName, NULL, &Shell_Callbacks) != WSH_SHELL_RET_STATE_SUCCESS) {
         return;
     }
 
-    if (WshShellUser_Attach(&(Shell.Users), UserTable, WSH_SHELL_ARR_LEN(UserTable)) !=
+    if (WshShellUser_Attach(&(Shell.Users), Shell_UserTable, WSH_SHELL_ARR_LEN(Shell_UserTable)) !=
         WSH_SHELL_RET_STATE_SUCCESS) {
         return;
     }

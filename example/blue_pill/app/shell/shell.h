@@ -3,7 +3,7 @@
 
 #include "main.h"
 
-void Shell_Init(const char* pcHostName);
+bool Shell_Init(const char* pcHostName);
 void Shell_SendChar(char ch);
 
 #endif /* __SHELL_H */

@@ -1,7 +1,8 @@
 #include "wsh_shell_cmd.h"
 
 WSH_SHELL_RET_STATE_t WshShellCmd_Attach(WshShellCmd_Table_t* pShellCommands,
-                                         const WshShellCmd_t* pcCmdTable, WshShell_Size_t cmdNum) {
+                                         const WshShellCmd_t* pcCmdTable[],
+                                         WshShell_Size_t cmdNum) {
     WSH_SHELL_ASSERT(pShellCommands && pcCmdTable && cmdNum > 0);
     if (!pShellCommands || !pcCmdTable || cmdNum == 0)
         return WSH_SHELL_RET_STATE_ERR_PARAM;
@@ -39,7 +40,7 @@ const WshShellCmd_t* WshShellCmd_GetCmdByIndex(WshShellCmd_Table_t* pShellComman
 
     WSH_SHELL_ASSERT(idx < pShellCommands->Num);
 
-    return idx < pShellCommands->Num ? &pShellCommands->List[idx] : NULL;
+    return idx < pShellCommands->Num ? pShellCommands->List[idx] : NULL;
 }
 
 const WshShellCmd_t* WshShellCmd_SearchCmd(WshShellCmd_Table_t* pShellCommands,
@@ -207,7 +208,7 @@ void WshShellCmd_PrintInfo(const WshShellCmd_t* pcCmd) {
         if (pcOpt->Type == WSH_SHELL_OPTION_NO || pcOpt->Type == WSH_SHELL_OPTION_WAITS_INPUT)
             continue;
 
-        WshShell_Char_t accessRow[16];
+        WshShell_Char_t accessRow[8];
         WshShellStr_AccessBitsToStr(pcOpt->Access, accessRow);
         WSH_SHELL_PRINT(rowTemplate, pcOpt->ShortName, pcOpt->LongName,
                         WshShell_OptTypeStr_Get(pcOpt->Type), accessRow, pcOpt->Descr);

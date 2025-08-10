@@ -54,8 +54,8 @@ typedef struct WshShellCmd {
  * @brief Table of shell commands.
  */
 typedef struct {
-    const WshShellCmd_t* List; /**< Pointer to the array of commands. */
-    WshShell_Size_t Num;       /**< Number of commands in the table. */
+    const WshShellCmd_t** List; /**< Pointer to the array of pointers to commands. */
+    WshShell_Size_t Num;        /**< Number of commands in the table. */
 } WshShellCmd_Table_t;
 
 /**
@@ -68,7 +68,7 @@ typedef struct {
  * @return WSH_SHELL_RET_STATE_SUCCESS on success.
  */
 WSH_SHELL_RET_STATE_t WshShellCmd_Attach(WshShellCmd_Table_t* pShellCommands,
-                                         const WshShellCmd_t* pcCmdTable, WshShell_Size_t cmdNum);
+                                         const WshShellCmd_t* pcCmdTable[], WshShell_Size_t cmdNum);
 
 /**
  * @brief Frees or resets the command table.
