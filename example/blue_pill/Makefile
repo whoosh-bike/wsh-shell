@@ -14,10 +14,10 @@ RM := rm -rf
 
 # ===== Paths =====
 SRC_DIR := -I.
+SRC_DIR += -I./app
+SRC_DIR += -I./app/shell
+SRC_DIR += -I./app/usb
 SRC_DIR += -I./platform
-SRC_DIR += -I./src
-SRC_DIR += -I./src/usb
-SRC_DIR += -I./system
 SRC_DIR += -I./platform/STM32CubeF1
 SRC_DIR += -I./platform/STM32CubeF1/Drivers
 SRC_DIR += -I./platform/STM32CubeF1/Drivers/STM32F1xx_HAL_Driver
@@ -27,17 +27,18 @@ SRC_DIR += -I./platform/STM32CubeF1/Drivers/STM32F1xx_HAL_Driver/Src
 SRC_DIR += -I./platform/STM32CubeF1/Drivers/STM32F1xx_HAL_Driver/Src/Legacy
 SRC_DIR += -I./platform/STM32CubeF1/Middlewares/ST/STM32_USB_Device_Library/Core/Inc
 SRC_DIR += -I./platform/STM32CubeF1/Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc
+SRC_DIR += -I./system
 
 CORE_DIR := ../../src
 BUILD_DIR := build
 OBJ_DIR := $(BUILD_DIR)/obj
 
 # ===== Source Files =====
-SRCS := $(wildcard src/*.c)
-SRCS += $(wildcard src/usb/*.c)
-SRCS += ./system/stm32f1xx_it.c
-SRCS += ./system/system_stm32f1xx.c
-SRCS += ./system/syscalls.c
+SRCS := 
+SRCS += $(wildcard app/*.c)
+SRCS += $(wildcard app/shell/*.c)
+SRCS += $(wildcard app/usb/*.c)
+SRCS += $(wildcard platform/*.c)
 SRCS += ./platform/STM32CubeF1/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_ll_usb.c
 SRCS += ./platform/STM32CubeF1/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal.c
 SRCS += ./platform/STM32CubeF1/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_gpio.c
@@ -52,6 +53,7 @@ SRCS += ./platform/STM32CubeF1/Middlewares/ST/STM32_USB_Device_Library/Core/Src/
 SRCS += ./platform/STM32CubeF1/Middlewares/ST/STM32_USB_Device_Library/Core/Src/usbd_ctlreq.c
 SRCS += ./platform/STM32CubeF1/Middlewares/ST/STM32_USB_Device_Library/Core/Src/usbd_ioreq.c
 SRCS += ./platform/STM32CubeF1/Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Src/usbd_cdc.c
+SRCS += ./system/syscalls.c
 
 SRCS += ./platform/startup_stm32f103xb.s
 CORE_SRCS := $(wildcard $(CORE_DIR)/*.c)
