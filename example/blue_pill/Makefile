@@ -14,29 +14,48 @@ RM := rm -rf
 
 # ===== Paths =====
 SRC_DIR := -I.
+SRC_DIR += -I./app
+SRC_DIR += -I./app/shell
+SRC_DIR += -I./app/usb
 SRC_DIR += -I./platform
-SRC_DIR += -I./src
+SRC_DIR += -I./platform/STM32CubeF1
+SRC_DIR += -I./platform/STM32CubeF1/Drivers
+SRC_DIR += -I./platform/STM32CubeF1/Drivers/STM32F1xx_HAL_Driver
+SRC_DIR += -I./platform/STM32CubeF1/Drivers/STM32F1xx_HAL_Driver/Inc
+SRC_DIR += -I./platform/STM32CubeF1/Drivers/STM32F1xx_HAL_Driver/Inc/Legacy
+SRC_DIR += -I./platform/STM32CubeF1/Drivers/STM32F1xx_HAL_Driver/Src
+SRC_DIR += -I./platform/STM32CubeF1/Drivers/STM32F1xx_HAL_Driver/Src/Legacy
+SRC_DIR += -I./platform/STM32CubeF1/Middlewares/ST/STM32_USB_Device_Library/Core/Inc
+SRC_DIR += -I./platform/STM32CubeF1/Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc
 SRC_DIR += -I./system
-SRC_DIR += -I./STM32CubeF1
-SRC_DIR += -I./STM32CubeF1/Drivers
-SRC_DIR += -I./STM32CubeF1/Drivers/STM32F1xx_HAL_Driver
-SRC_DIR += -I./STM32CubeF1/Drivers/STM32F1xx_HAL_Driver/Inc
-SRC_DIR += -I./STM32CubeF1/Drivers/STM32F1xx_HAL_Driver/Inc/Legacy
-SRC_DIR += -I./STM32CubeF1/Drivers/STM32F1xx_HAL_Driver/Src
-SRC_DIR += -I./STM32CubeF1/Drivers/STM32F1xx_HAL_Driver/Src/Legacy
+
 CORE_DIR := ../../src
 BUILD_DIR := build
 OBJ_DIR := $(BUILD_DIR)/obj
 
 # ===== Source Files =====
-SRCS := $(wildcard src/*.c)
-SRCS += ./system/stm32f1xx_it.c
-SRCS += ./system/system_stm32f1xx.c
+SRCS := 
+SRCS += $(wildcard app/*.c)
+SRCS += $(wildcard app/shell/*.c)
+SRCS += $(wildcard app/usb/*.c)
+SRCS += $(wildcard platform/*.c)
+SRCS += ./platform/STM32CubeF1/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_ll_usb.c
+SRCS += ./platform/STM32CubeF1/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal.c
+SRCS += ./platform/STM32CubeF1/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_gpio.c
+SRCS += ./platform/STM32CubeF1/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc.c
+SRCS += ./platform/STM32CubeF1/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc_ex.c
+SRCS += ./platform/STM32CubeF1/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_cortex.c
+SRCS += ./platform/STM32CubeF1/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_flash.c
+# SRCS += ./platform/STM32CubeF1/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_pwr.c
+SRCS += ./platform/STM32CubeF1/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_pcd.c
+SRCS += ./platform/STM32CubeF1/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_pcd_ex.c
+SRCS += ./platform/STM32CubeF1/Middlewares/ST/STM32_USB_Device_Library/Core/Src/usbd_core.c
+SRCS += ./platform/STM32CubeF1/Middlewares/ST/STM32_USB_Device_Library/Core/Src/usbd_ctlreq.c
+SRCS += ./platform/STM32CubeF1/Middlewares/ST/STM32_USB_Device_Library/Core/Src/usbd_ioreq.c
+SRCS += ./platform/STM32CubeF1/Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Src/usbd_cdc.c
 SRCS += ./system/syscalls.c
+
 SRCS += ./platform/startup_stm32f103xb.s
-SRCS += ./STM32CubeF1/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_ll_gpio.c
-SRCS += ./STM32CubeF1/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_ll_rcc.c
-SRCS += ./STM32CubeF1/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_ll_utils.c
 CORE_SRCS := $(wildcard $(CORE_DIR)/*.c)
 
 OBJS := $(SRCS:%=$(OBJ_DIR)/%.o)
@@ -50,7 +69,7 @@ CPU_FLAGS := -mcpu=cortex-m3 -mfloat-abi=soft -mthumb -DSTM32F103xB -DUSE_FULL_L
 
 LINKER_FLAGS += -Wl,-cref
 LINKER_FLAGS += -Wl,-u,Reset_Handler
-LINKER_FLAGS += -Wl,-Map=${TARGET}.map
+LINKER_FLAGS += -Wl,-Map=$(BUILD_DIR)/$(TARGET).map
 LINKER_FLAGS += -specs=nano.specs
 LINKER_FLAGS += -specs=nosys.specs
 LINKER_FLAGS += -u _printf_float
@@ -71,7 +90,7 @@ else
 endif
 
 # ===== Targets =====
-.PHONY: all clean
+.PHONY: all clean flash
 
 all: $(BUILD_DIR)/$(TARGET)
 
@@ -103,6 +122,10 @@ $(OBJ_DIR)/src/%.o: $(CORE_DIR)/%.c
 clean:
 	@echo "[CLEAN] Removing build directory"
 	@$(RM) $(BUILD_DIR)
+
+flash:
+	@echo "[FLASH] Programming device with OpenOCD"
+	@openocd -f ./stlink.cfg -f ./stm32f1x.cfg -c "program $(BUILD_DIR)/$(TARGET).elf verify reset exit"
 
 # ===== Include Dependencies =====
 -include $(DEPS)

@@ -33,8 +33,8 @@ static void WshShellHistory_CalcHashAndWrite(WshShellHistory_IO_t* pHistIO,
     //                 history.Data.LastSavedCmdIdx);
 }
 
-void WshShellHistory_Init(WshShellHistory_IO_t* pHistIO, WshShellHistory_Read_t readFn,
-                          WshShellHistory_Write_t writeFn) {
+void WshShellHistory_Init(WshShellHistory_IO_t* pHistIO, WshShellHistory_ReadHandler_t readFn,
+                          WshShellHistory_WriteHandler_t writeFn) {
     WSH_SHELL_ASSERT(pHistIO && readFn && writeFn);
     if (!pHistIO || !readFn || !writeFn)
         return;
@@ -273,8 +273,8 @@ void WshShellHistory_Flush(WshShellHistory_IO_t* pHistIO) {
 
 #else /* WSH_SHELL_HISTORY */
 
-void WshShellHistory_Init(WshShellHistory_IO_t* pHistIO, WshShellHistory_Read_t readFn,
-                          WshShellHistory_Write_t writeFn) {
+void WshShellHistory_Init(WshShellHistory_IO_t* pHistIO, WshShellHistory_ReadHandler_t readFn,
+                          WshShellHistory_WriteHandler_t writeFn) {
     (void)(pHistIO);
     (void)(readFn);
     (void)(writeFn);

@@ -29,12 +29,12 @@
 
 /* 
  * ─────────────────────────────────────────────
- * Prompt configuration
+ * PS1 line configuration
  * ───────────────────────────────────────────── 
  */
-#define WSH_SHELL_PROMPT_CUSTOM   1
-#define WSH_SHELL_PROMPT_TEMPLATE "%r%b%c6%d%c7@%c5%u%c2%i %c7> %r%c7"
-#define WSH_SHELL_PROMPT_MAX_LEN  128
+#define WSH_SHELL_PS1_CUSTOM   1
+#define WSH_SHELL_PS1_TEMPLATE "%r%b%c6%d%c7@%c5%u%c2%i %c7> %r%c7"
+#define WSH_SHELL_PS1_MAX_LEN  128
 
 /* 
  * ─────────────────────────────────────────────
@@ -154,6 +154,10 @@
 #ifndef WSH_SHELL_STRNLEN
     #define WSH_SHELL_STRNLEN(pS, len) strnlen((pS), (len))
 #endif /* WSH_SHELL_STRNLEN */
+
+#ifndef WSH_SHELL_STRCMP
+    #define WSH_SHELL_STRCMP(pS1, pS2) strcmp((pS1), (pS2))
+#endif /* WSH_SHELL_STRCMP */
 
 #ifndef WSH_SHELL_STRNCMP
     #define WSH_SHELL_STRNCMP(pS1, pS2, len) strncmp((pS1), (pS2), (len))

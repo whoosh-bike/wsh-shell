@@ -6,7 +6,7 @@
  * and interact with shell history and input buffer.
  *
  * @author Whoosh Embedded Team
- * @copyright Copyright (c) 2024
+ * @copyright Copyright (c) 2025
  */
 
 #ifndef __WSH_SHELL_ESC_H

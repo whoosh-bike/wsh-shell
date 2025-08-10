@@ -66,3 +66,5 @@ compile_commands.json
 doc/html/
 wsh_shell_cfg.h
 *.DS_Store
+
+.vscode/launch.json

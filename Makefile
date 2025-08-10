@@ -88,6 +88,10 @@ blue_pill:
 	@echo "[MAKE] Building example: blue_pill"
 	@$(MAKE) -C $(BLUE_PILL_EXAMPLE_DIR)
 
+blue_pill_flash:
+	@echo "[MAKE] Flashing: blue_pill"
+	@$(MAKE) -C $(BLUE_PILL_EXAMPLE_DIR) flash
+
 clean:
 	@echo "[CLEAN] Removing build artifacts"
 	@$(RM) $(BUILD_DIR)

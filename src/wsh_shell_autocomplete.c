@@ -24,8 +24,9 @@ WshShell_Bool_t WshShellAutocomplete_Try(WshShell_Char_t* pInBuff, WshShell_Size
 
     // Check default command first
     if (WSH_SHELL_STRNCMP(pcInputCopyTrimmed, pcDefCmd->Name, inputCopyTrimmedLen) == 0) {
-        WSH_SHELL_STRNCPY(candidates[matchCount], pcDefCmd->Name, WSH_SHELL_CMD_NAME_LEN);
-        pcCmdMatch = pcDefCmd;
+        WSH_SHELL_STRNCPY(candidates[matchCount], pcDefCmd->Name, WSH_SHELL_CMD_NAME_LEN - 1);
+        candidates[matchCount][WSH_SHELL_CMD_NAME_LEN - 1] = '\0';  // safety null-term
+        pcCmdMatch                                         = pcDefCmd;
         matchCount++;
     }
 
@@ -75,8 +76,10 @@ WshShell_Bool_t WshShellAutocomplete_Try(WshShell_Char_t* pInBuff, WshShell_Size
             return false;
         }
 
-        WSH_SHELL_STRNCPY(pInBuff, candidates[0], WSH_SHELL_CMD_NAME_LEN);
-        pInBuff[WSH_SHELL_CMD_NAME_LEN - 1] = '\0';
+        WshShell_Size_t candLen  = WSH_SHELL_STRLEN(candidates[0]);
+        candidates[0][candLen++] = ' ';  //add extra space if command found
+        WSH_SHELL_STRNCPY(pInBuff, candidates[0], candLen);
+        pInBuff[candLen] = '\0';
         return true;
     }
 

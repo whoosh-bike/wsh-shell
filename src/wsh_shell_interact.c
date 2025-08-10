@@ -1,12 +1,12 @@
 #include "wsh_shell_interact.h"
 
 void WshShellInteract_Attach(WshShell_Interact_t* pInteract, const WshShell_Char_t* pcName,
-                             InteractiveCmd_t exec) {
-    WSH_SHELL_ASSERT(pInteract && pcName && exec);
-    if (!pInteract || !pcName || !exec)
+                             WshShellInteractive_CmdHandler_t handler) {
+    WSH_SHELL_ASSERT(pInteract && pcName && handler);
+    if (!pInteract || !pcName || !handler)
         return;
 
-    pInteract->Exec = exec;
+    pInteract->Handler = handler;
 
     WshShell_Size_t bufSize = sizeof(pInteract->CmdName);
     WshShell_Size_t len     = WSH_SHELL_STRLEN(pcName);
@@ -38,6 +38,6 @@ void WshShellInteract_Flush(WshShell_Interact_t* pInteract) {
     if (!pInteract)
         return;
 
-    pInteract->Exec = NULL;
+    pInteract->Handler = NULL;
     WSH_SHELL_MEMSET((void*)pInteract->CmdName, 0, sizeof(pInteract->CmdName));
 }

@@ -15,7 +15,7 @@
  * Autocompletion improves user experience and reduces typing effort in shell environments.
  * 
  * @author Whoosh Embedded Team
- * @copyright Copyright (c) 2024
+ * @copyright Copyright (c) 2025
  */
 
 #ifndef __WSH_SHELL_AUTOCOMPLETE_H

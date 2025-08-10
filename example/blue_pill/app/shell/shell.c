@@ -1,5 +1,5 @@
 #include "shell.h"
-
+#include "commands.h"
 #include "wsh_shell.h"
 
 static WshShell_t Shell = {0};
@@ -15,11 +15,11 @@ static const WshShellUser_t Shell_UserTable[] = {
 
 static WshShellHistory_t Shell_HistoryStorage;
 
-static WshShellHistory_t WshShellHistory_Read(void) {
+static WshShellHistory_t Shell_HistoryRead(void) {
     return Shell_HistoryStorage;
 }
 
-static void WshShellHistory_Write(WshShellHistory_t history) {
+static void Shell_HistoryWrite(WshShellHistory_t history) {
     memcpy((void*)&Shell_HistoryStorage, (void*)&history, sizeof(WshShellHistory_t));
 }
 
@@ -51,7 +51,10 @@ bool Shell_Init(const char* pcHostName) {
         return false;
     }
 
-    WshShellHistory_Init(&Shell.HistoryIO, WshShellHistory_Read, WshShellHistory_Write);
+    WshShellHistory_Init(&Shell.HistoryIO, Shell_HistoryRead, Shell_HistoryWrite);
+
+    if (!Shell_CmdTable_Init(&Shell))
+        return false;
 
     // WshShell_Auth(&Shell, Shell_UserTable[0].Login, Shell_UserTable[0].Pass);  //For quick auth
 

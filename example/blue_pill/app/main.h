@@ -1,6 +1,7 @@
-#ifndef __SHELL_H
-#define __SHELL_H
+#ifndef __MAIN_H
+#define __MAIN_H
 
+#include "stm32f1xx_hal.h"
 #include <stdarg.h>
 #include <stdbool.h>
 #include <stddef.h>
@@ -9,7 +10,6 @@
 #include <stdlib.h>
 #include <string.h>
 
-bool Shell_Init(const char* pcHostName);
-void Shell_SendChar(char ch);
+void Error_Handler(void);
 
-#endif /* __SHELL_H */
+#endif /* __MAIN_H */

@@ -34,9 +34,9 @@ struct WshShellCmd;
  *
  * @return Command execution result (success, error, etc.).
  */
-typedef WSH_SHELL_RET_STATE_t (*WshShellCmd_Exec_t)(const struct WshShellCmd* pcCmd,
-                                                    WshShell_Size_t argc,
-                                                    const WshShell_Char_t* pArgv[], void* pCtx);
+typedef WSH_SHELL_RET_STATE_t (*WshShellCmdHandler_t)(const struct WshShellCmd* pcCmd,
+                                                      WshShell_Size_t argc,
+                                                      const WshShell_Char_t* pArgv[], void* pCtx);
 
 /**
  * @brief Descriptor for a shell command.
@@ -47,15 +47,15 @@ typedef struct WshShellCmd {
     WshShell_Size_t Groups; /**< Command group bitmask for access control or categorization. */
     const WshShellOption_t* Options; /**< Pointer to the command's options array. */
     WshShell_Size_t OptNum;          /**< Number of defined options. */
-    WshShellCmd_Exec_t Exec;         /**< Execution callback function. */
+    WshShellCmdHandler_t Handler;    /**< Execution callback function. */
 } WshShellCmd_t;
 
 /**
  * @brief Table of shell commands.
  */
 typedef struct {
-    const WshShellCmd_t* List; /**< Pointer to the array of commands. */
-    WshShell_Size_t Num;       /**< Number of commands in the table. */
+    const WshShellCmd_t** List; /**< Pointer to the array of pointers to commands. */
+    WshShell_Size_t Num;        /**< Number of commands in the table. */
 } WshShellCmd_Table_t;
 
 /**
@@ -68,7 +68,7 @@ typedef struct {
  * @return WSH_SHELL_RET_STATE_SUCCESS on success.
  */
 WSH_SHELL_RET_STATE_t WshShellCmd_Attach(WshShellCmd_Table_t* pShellCommands,
-                                         const WshShellCmd_t* pcCmdTable, WshShell_Size_t cmdNum);
+                                         const WshShellCmd_t* pcCmdTable[], WshShell_Size_t cmdNum);
 
 /**
  * @brief Frees or resets the command table.

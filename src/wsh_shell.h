@@ -20,6 +20,7 @@
 #include "wsh_shell_history.h"
 #include "wsh_shell_interact.h"
 #include "wsh_shell_io.h"
+#include "wsh_shell_promptwait.h"
 #include "wsh_shell_str.h"
 #include "wsh_shell_types.h"
 #include "wsh_shell_user.h"
@@ -56,17 +57,23 @@ typedef struct {
  */
 typedef struct {
     WshShell_Char_t* Version;                           /**< Version string. */
-    WshShell_Char_t DeviceName[WSH_SHELL_DEV_NAME_LEN]; /**< Device name (used in prompt). */
-    WshShell_Char_t Prompt[WSH_SHELL_PROMPT_MAX_LEN];   /**< Cached prompt string. */
-    WshShellIO_CommandLine_t CommandLine;               /**< Terminal input/output interface. */
-    WshShell_Interact_t Interact;                       /**< Interactive command interface. */
-    const WshShellUser_t* CurrUser;                     /**< Currently authenticated user. */
-    WshShell_AuthContext_t TmpAuth;                     /**< Temporary auth input storage. */
-    WshShell_ExtCallbacks_t ExtCallbacks;               /**< Optional external auth callbacks. */
-    WshShellUser_Table_t Users;                         /**< Table of available users. */
-    WshShellCmd_Table_t Commands;                       /**< Registered command table. */
-    WshShellHistory_IO_t HistoryIO;                     /**< Command history buffer and ops. */
-    WshShellEsc_Storage_t EscStorage;                   /**< Escape sequence state storage. */
+    WshShell_Char_t DeviceName[WSH_SHELL_DEV_NAME_LEN]; /**< Device name (used in PS1 and more). */
+    WshShell_Char_t PS1[WSH_SHELL_PS1_MAX_LEN];         /**< Cached PS1 string. */
+
+    WshShellIO_CommandLine_t CommandLine; /**< Terminal input/output interface. */
+    const WshShellUser_t* CurrUser;       /**< Currently authenticated user. */
+    WshShell_AuthContext_t TmpAuth;       /**< Temporary auth input storage. */
+    WshShellEsc_Storage_t EscStorage;     /**< Escape sequence state storage. */
+
+    WshShellUser_Table_t Users;   /**< Table of available users. */
+    WshShellCmd_Table_t Commands; /**< Registered command table. */
+
+    WshShellHistory_IO_t HistoryIO; /**< Command history buffer and ops. */
+    WshShell_Interact_t Interact;   /**< Interactive command interface. */
+    WshShellPromptWait_t PromptWait;
+
+    WshShell_ExtCallbacks_t ExtCallbacks; /**< Optional external auth callbacks. */
+
 } WshShell_t;
 
 /**

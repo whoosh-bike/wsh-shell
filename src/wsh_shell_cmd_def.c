@@ -41,8 +41,8 @@ static void shell_cmd_def__interactive(WshShellIO_CommandLine_t* pInter) {
     WSH_SHELL_PRINT("Just echo of interactive command: %s", pInter->Buff);
 }
 
-WSH_SHELL_RET_STATE_t WshShellCmdDef_Executable(const WshShellCmd_t* pcCmd, WshShell_Size_t argc,
-                                                const WshShell_Char_t* pArgv[], void* pCtx) {
+WSH_SHELL_RET_STATE_t WshShellCmdDef(const WshShellCmd_t* pcCmd, WshShell_Size_t argc,
+                                     const WshShell_Char_t* pArgv[], void* pCtx) {
     if ((argc > 0 && pArgv == NULL) || pcCmd == NULL)
         return WSH_SHELL_RET_STATE_ERROR;
 
@@ -198,7 +198,7 @@ static const WshShellCmd_t WshShellDefCmd = {
     .Descr   = "Configuring and querying the shell interface",
     .Options = OptArr,
     .OptNum  = WSH_SHELL_ARR_LEN(OptArr),
-    .Exec    = WshShellCmdDef_Executable,
+    .Handler = WshShellCmdDef,
 };
 
 const WshShellCmd_t* WshShellDefCmd_GetPtr(void) {
