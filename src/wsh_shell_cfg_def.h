@@ -155,6 +155,10 @@
     #define WSH_SHELL_STRNLEN(pS, len) strnlen((pS), (len))
 #endif /* WSH_SHELL_STRNLEN */
 
+#ifndef WSH_SHELL_STRCMP
+    #define WSH_SHELL_STRCMP(pS1, pS2) strcmp((pS1), (pS2))
+#endif /* WSH_SHELL_STRCMP */
+
 #ifndef WSH_SHELL_STRNCMP
     #define WSH_SHELL_STRNCMP(pS1, pS2, len) strncmp((pS1), (pS2), (len))
 #endif /* WSH_SHELL_STRNCMP */

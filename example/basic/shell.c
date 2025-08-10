@@ -43,17 +43,19 @@ static WshShell_ExtCallbacks_t Shell_Callbacks = {
 
 bool Shell_Init(const char* pcHostName) {
     if (WshShell_Init(&Shell, pcHostName, NULL, &Shell_Callbacks) != WSH_SHELL_RET_STATE_SUCCESS) {
-        return;
+        return false;
     }
 
     if (WshShellUser_Attach(&(Shell.Users), Shell_UserTable, WSH_SHELL_ARR_LEN(Shell_UserTable)) !=
         WSH_SHELL_RET_STATE_SUCCESS) {
-        return;
+        return false;
     }
 
     WshShellHistory_Init(&Shell.HistoryIO, WshShellHistory_Read, WshShellHistory_Write);
 
-    // WshShell_Auth(&Shell, "root", "1234"); For quick auth
+    // WshShell_Auth(&Shell, Shell_UserTable[0].Login, Shell_UserTable[0].Pass);  //For quick auth
+
+    return true;
 }
 
 void Shell_SendChar(char ch) {

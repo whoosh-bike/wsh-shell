@@ -9,7 +9,7 @@ int _read(int file, char* ptr, int len) {
     while (CDC_GetRxBufferBytesAvailable_FS() == 0) {
     }
 
-    if (CDC_ReadRxBuffer_FS(&c, 1) == USB_CDC_RX_BUFFER_OK) {
+    if (CDC_ReadRxBuffer_FS((uint8_t*)&c, 1) == USB_CDC_RX_BUFFER_OK) {
         *ptr++ = c;
         return 1;
     }
@@ -21,7 +21,7 @@ int _write(int file, char* ptr, int len) {
     (void)file;
     for (int i = 0; i < len; i++) {
         char c = (char)(*ptr++);
-        while (CDC_Transmit_FS(&c, 1) == USBD_BUSY) {
+        while (CDC_Transmit_FS((uint8_t*)&c, 1) == USBD_BUSY) {
         }
     }
 
