@@ -1,82 +1,62 @@
-#include "stdio.h"
-#include "wsh_shell.h"
-#include "wsh_shell_cmd.h"
-#include "wsh_shell_cmd_def.h"
-#include "wsh_shell_types.h"
-#include "wsh_shell_user.h"
+#include <limits.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <termios.h>
+#include <unistd.h>
 
-static const WshShellUser_t UserArr[] = {{
-    .pLogin = "root",
-    .pPwd   = "root",
-    .Groups = WSH_SHELL_CMD_GROUP_ALL,
-    .Rights = WSH_SHELL_ACCESS_ANY,
-}};
+#include "shell.h"
 
-#define X(en, m) {en, m},
-static const WshShellOption_t HelpOptArr[] = {WSH_SHELL_HELP_OPT_TABLE()};
-#undef X
+#ifndef HOST_NAME_MAX
+    #ifdef _POSIX_HOST_NAME_MAX
+        #define HOST_NAME_MAX _POSIX_HOST_NAME_MAX
+    #else
+        #define HOST_NAME_MAX 255
+    #endif
+#endif
 
-#define X(en, m) {en, m},
-static const WshShellOption_t ClsOptArr[] = {WSH_SHELL_CLS_OPT_TABLE()};
-#undef X
+static struct termios orig_termios;
 
-#define X(en, m) {en, m},
-static const WshShellOption_t EchoOptArr[] = {WSH_SHELL_ECHO_OPT_TABLE()};
-#undef X
+void ResetTermios(void) {
+    tcsetattr(STDIN_FILENO, TCSANOW, &orig_termios);
+}
 
-#define X(en, m) {en, m},
-static const WshShellOption_t ExitOptArr[] = {WSH_SHELL_EXIT_OPT_TABLE()};
-#undef X
+void SetRawTermios(void) {
+    tcgetattr(STDIN_FILENO, &orig_termios);
+    atexit(ResetTermios);
 
-static const WshShellCmd_t CmdArr[] = {
-    {
-        .pName    = "help",
-        .pHelp    = "List available commands",
-        .Group    = WSH_SHELL_CMD_GROUP_ALL,
-        .pOptions = HelpOptArr,
-        .OptNum   = WSH_SHELL_HELP_OPT_ENUM_SIZE,
-        .Exec     = WshShellCmdDef_Help_Executable,
-    },
-    {
-        .pName    = "cls",
-        .pHelp    = "Clear screen",
-        .Group    = WSH_SHELL_CMD_GROUP_ALL,
-        .pOptions = ClsOptArr,
-        .OptNum   = WSH_SHELL_CLS_OPT_ENUM_SIZE,
-        .Exec     = WshShellCmdDef_Cls_Executable,
-    },
-    {
-        .pName    = "echo",
-        .pHelp    = "Echo input",
-        .Group    = WSH_SHELL_CMD_GROUP_ALL,
-        .pOptions = EchoOptArr,
-        .OptNum   = WSH_SHELL_ECHO_OPT_ENUM_SIZE,
-        .Exec     = WshShellCmdDef_Echo_Executable,
-    },
-    {
-        .pName    = "exit",
-        .pHelp    = "Exit from curren user session",
-        .Group    = WSH_SHELL_CMD_GROUP_ALL,
-        .pOptions = ExitOptArr,
-        .OptNum   = WSH_SHELL_EXIT_OPT_ENUM_SIZE,
-        .Exec     = WshShellCmdDef_Exit_Executable,
-    },
-};
+    struct termios raw = orig_termios;
+    raw.c_lflag &= ~(ICANON | ECHO);  // выключаем канонический режим и эхо
+    raw.c_lflag |= ISIG;              // оставляем обработку Ctrl+C
+    raw.c_iflag &= ~(IXON | ICRNL);   // отключаем Ctrl-S/Q и перевод \r в \n
+    raw.c_cc[VMIN]  = 1;
+    raw.c_cc[VTIME] = 0;
 
-#define DEVICE_NAME
+    tcsetattr(STDIN_FILENO, TCSAFLUSH, &raw);
+}
+
 int main(void) {
-    WshShell_t Shell = {0};
-    WshShellCmd_Init(CmdArr, WSH_SHELL_ARR_LEN(CmdArr));
-    WshShellUser_Init(UserArr, WSH_SHELL_ARR_LEN(UserArr));
-    WshShell_Init(&Shell);
-    int symbol = 0;
-    WSH_SHELL_PRINT_INTRO();
-    WshShell_InvitationPrint();
-    for (;;) {
-        symbol = getchar();
-        WshShell_InsertChar(symbol);
-        symbol = 0;
+    SetRawTermios();
+
+    char hostname[HOST_NAME_MAX + 1];
+    if (gethostname(hostname, sizeof(hostname)) == 0) {
+        hostname[sizeof(hostname) - 1] = '\0';
+    } else {
+        perror("gethostname");
+        return 1;
     }
 
+    Shell_Init(hostname);
+
+    for (;;) {
+        int symbol = getchar();
+        // printf("key: %d (0x%02X)\n", symbol, (unsigned char)symbol);
+
+        if (symbol == EOF)
+            continue;
+
+        Shell_SendChar((char)symbol);
+    }
+
+    ResetTermios();
     return 0;
 }

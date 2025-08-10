@@ -1,168 +1,167 @@
 #include "wsh_shell_cmd.h"
-#include "wsh_shell.h"
-#include "wsh_shell_option.h"
-#include "wsh_shell_types.h"
 
-typedef struct {
-    const WshShellCmd_t* pCmd;
-    WshShell_Size_t Num;
-} WshShellCmd_Table_t;
-
-static WshShellCmd_Table_t CmdTable = {0};
-
-WSH_SHELL_RET_STATE_t WshShellCmd_Init(const WshShellCmd_t* pCmdTable, WshShell_Size_t cmdNum) {
-    WSH_SHELL_ASSERT(pCmdTable != NULL);
-    WSH_SHELL_ASSERT(cmdNum != 0);
-    WSH_SHELL_ASSERT(CmdTable.pCmd == NULL);
-
-    if (pCmdTable == NULL || cmdNum == 0 || CmdTable.pCmd != NULL)
+WSH_SHELL_RET_STATE_t WshShellCmd_Attach(WshShellCmd_Table_t* pShellCommands,
+                                         const WshShellCmd_t* pcCmdTable, WshShell_Size_t cmdNum) {
+    WSH_SHELL_ASSERT(pShellCommands && pcCmdTable && cmdNum > 0);
+    if (!pShellCommands || !pcCmdTable || cmdNum == 0)
         return WSH_SHELL_RET_STATE_ERR_PARAM;
 
-    CmdTable.pCmd = pCmdTable;
-    CmdTable.Num  = cmdNum;
+    if (pShellCommands->List != NULL)
+        return WSH_SHELL_RET_STATE_ERR_BUSY;  // Already inited
+
+    pShellCommands->List = pcCmdTable;
+    pShellCommands->Num  = cmdNum;
+
     return WSH_SHELL_RET_STATE_SUCCESS;
 }
 
-void WshShellCmd_Destroy(void) {
-    CmdTable = (WshShellCmd_Table_t){0};
+void WshShellCmd_DeAttach(WshShellCmd_Table_t* pShellCommands) {
+    WSH_SHELL_ASSERT(pShellCommands);
+
+    if (pShellCommands)
+        *pShellCommands = (WshShellCmd_Table_t){0};
 }
 
-WshShell_Size_t WshShellCmd_GetCmdNum(void) {
-    return CmdTable.Num;
+WshShell_Size_t WshShellCmd_GetCmdNum(WshShellCmd_Table_t* pShellCommands) {
+    WSH_SHELL_ASSERT(pShellCommands);
+
+    if (!pShellCommands || !pShellCommands->List)
+        return 0;
+
+    return pShellCommands->Num;
 }
 
-const WshShellCmd_t* WshShellCmd_GetCmdByIndex(WshShell_Size_t id) {
-    WSH_SHELL_ASSERT(id < CmdTable.Num);
-    return id < CmdTable.Num ? &CmdTable.pCmd[id] : NULL;
+const WshShellCmd_t* WshShellCmd_GetCmdByIndex(WshShellCmd_Table_t* pShellCommands,
+                                               WshShell_Size_t idx) {
+    WSH_SHELL_ASSERT(pShellCommands);
+    if (!pShellCommands || !pShellCommands->List)
+        return NULL;
+
+    WSH_SHELL_ASSERT(idx < pShellCommands->Num);
+
+    return idx < pShellCommands->Num ? &pShellCommands->List[idx] : NULL;
 }
 
-void WshShellCmd_PrintInfo(const WshShellCmd_t* pCmd) {
-    WSH_SHELL_ASSERT(pCmd != NULL);
-    if (pCmd == NULL)
-        return;
+const WshShellCmd_t* WshShellCmd_SearchCmd(WshShellCmd_Table_t* pShellCommands,
+                                           const WshShell_Char_t* pcCmdName) {
+    WSH_SHELL_ASSERT(pcCmdName);
+    if (!pcCmdName)
+        return NULL;
 
-    WSH_SHELL_PRINT("%s : %s\r\n", pCmd->pName, pCmd->pHelp);
-    WSH_SHELL_PRINT("Options : \r\n");
-    for (const WshShellOption_t* pOpt = pCmd->pOptions; pOpt->Type != WSH_SHELL_OPTION_END; pOpt++) {
-        if (pOpt->Type == WSH_SHELL_OPTION_NO || pOpt->Type == WSH_SHELL_OPTION_WAITS_INPUT)
-            continue;
-        WSH_SHELL_PRINT(WSH_SHELL_SPACE_TAB "[%s], [%s]: %s\r\n", pOpt->pLongName, pOpt->pShortName, pOpt->pHelp);
+    for (WshShell_Size_t cmd = 0; cmd < WshShellCmd_GetCmdNum(pShellCommands); cmd++) {
+        const WshShellCmd_t* pcCmd = WshShellCmd_GetCmdByIndex(pShellCommands, cmd);
+        if (WSH_SHELL_STRNCMP(pcCmd->Name, pcCmdName, WSH_SHELL_CMD_NAME_LEN) == 0)
+            return pcCmd;
     }
+
+    return NULL;
 }
 
-/**
- * @brief Find option in command instance by its name.
- *
- * @param[in] pCmd: Handle of a command instance.
- * @param[in] strLen: Length of a option name string.
- * @param[in] pStr: Pointer to a string with option name.
- *
- * @retval NULL: Option not found.
- * @retval WshShellOption_Handle_t: Handle of a founded option instance.
- */
-static const WshShellOption_t* WshShellCmd_FindOpt(const WshShellCmd_t* pCmd, const char* pStr,
+static const WshShellOption_t* WshShellCmd_FindOpt(const WshShellCmd_t* pcCmd,
+                                                   const WshShell_Char_t* pcStr,
                                                    WshShell_Size_t strLen) {
-    const WshShellOption_t* waitsInputHandle = NULL;
-    for (const WshShellOption_t* pOpt = pCmd->pOptions; pOpt->Type != WSH_SHELL_OPTION_END; pOpt++) {
-        WSH_SHELL_OPTION_TYPE_t optType = pOpt->Type;
+    WSH_SHELL_ASSERT(pcCmd && pcStr);
+    if (!pcCmd || !pcCmd)
+        return NULL;
 
-        // If we are here -> there are options -> we ignore NO_OPTIONS case
-        if (optType == WSH_SHELL_OPTION_NO)
-            continue;
+    const WshShellOption_t* pcWaitsInputOpt = NULL;
 
-        // command is waiting for multiple NON_OPTION input
-        if (optType == WSH_SHELL_OPTION_WAITS_INPUT) {
-            waitsInputHandle = pOpt;
-            continue;
+    const WshShellOption_t* pcOpt = pcCmd->Options;
+    for (; pcOpt->Type != WSH_SHELL_OPTION_END; pcOpt++) {
+        switch (pcOpt->Type) {
+            case WSH_SHELL_OPTION_NO:
+                continue;
+
+            case WSH_SHELL_OPTION_WAITS_INPUT:
+                pcWaitsInputOpt = pcOpt;
+                continue;
+
+            default: {
+                const WshShell_Char_t* pRefStr = (strLen == WSH_SHELL_OPTION_SHORT_NAME_LEN)
+                                                     ? pcOpt->ShortName
+                                                     : pcOpt->LongName;
+                WshShell_Size_t cmpLen         = (strLen == WSH_SHELL_OPTION_SHORT_NAME_LEN)
+                                                     ? WSH_SHELL_OPTION_SHORT_NAME_LEN
+                                                     : WSH_SHELL_OPTION_LONG_NAME_LEN;
+
+                if (WSH_SHELL_STRNCMP(pRefStr, pcStr, cmpLen) == 0)
+                    return pcOpt;
+            }
         }
-
-        int result = -1;
-        if (strLen == WSH_SHELL_OPTION_SHORT_NAME_LEN) {
-            result = WSH_SHELL_STRNCMP(pOpt->pShortName, pStr, WSH_SHELL_OPTION_SHORT_NAME_LEN);
-        } else {
-            result = WSH_SHELL_STRNCMP(pOpt->pLongName, pStr, WSH_SHELL_OPTION_LONG_NAME_LEN);
-        }
-
-        if (result == 0)
-            return pOpt;
     }
 
-    return waitsInputHandle;
+    return pcWaitsInputOpt;
 }
 
-WshShellCmd_OptDescr_t WshShellCmd_ParseOpt(const WshShellCmd_t* pCmd, WshShell_Size_t argc, const char* pArgv[],
-                                            WshShell_Size_t* pTokenPos) {
-    WSH_SHELL_ASSERT(pCmd != NULL);
-    WSH_SHELL_ASSERT(pArgv != NULL);
-    WSH_SHELL_ASSERT(argc != 0);
-    WSH_SHELL_ASSERT(pTokenPos != NULL);
-    WSH_SHELL_ASSERT(CmdTable.pCmd != NULL);
+WshShellOption_Context_t WshShellCmd_ParseOpt(const WshShellCmd_t* pcCmd, WshShell_Size_t argc,
+                                              const WshShell_Char_t* pArgv[],
+                                              WshShell_Size_t* pTokenPos) {
+    WSH_SHELL_ASSERT(pcCmd && pArgv && argc > 0 && pTokenPos);
+    WshShellOption_Context_t optCtx = {0};
+    if (!pcCmd || !pArgv || argc == 0 || !pTokenPos || *pTokenPos >= argc)
+        return optCtx;
 
-    WshShellCmd_OptDescr_t optDescr = {0};
-
-    if (pCmd == NULL || pArgv == NULL || argc == 0 || pTokenPos == NULL || CmdTable.pCmd == NULL || *pTokenPos >= argc)
-        return optDescr;
-
-    // If we got only command we need to check if command can be called without any options
-    if (argc == 1) {
-        // Let's search
-        for (const WshShellOption_t* pOpt = pCmd->pOptions; pOpt->Type != WSH_SHELL_OPTION_END; pOpt++) {
-            if (pOpt->Type == WSH_SHELL_OPTION_NO) {
-                optDescr.pOpt = pOpt;
+    if (argc == 1) {  // Only command without options
+        const WshShellOption_t* pcOpt = pcCmd->Options;
+        for (; pcOpt->Type != WSH_SHELL_OPTION_END; pcOpt++) {
+            if (pcOpt->Type == WSH_SHELL_OPTION_NO) {
+                optCtx.Option = pcOpt;
                 break;
             }
         }
-    } else {
-        // If there are options => we need to parse them
-        if (*pTokenPos == 0)
-            *pTokenPos += 1;
-        const char* pStr             = pArgv[*pTokenPos];
-        WshShell_Size_t strLen       = WSH_SHELL_STRLEN(pArgv[*pTokenPos]);
-        const WshShellOption_t* pOpt = WshShellCmd_FindOpt(pCmd, pStr, strLen);
-        if (pOpt != NULL) {
-            optDescr.pOpt     = pOpt;
-            optDescr.TokenPos = *pTokenPos;
-            // skip option argument if exists
-            if (pOpt->Type == WSH_SHELL_OPTION_WAITS_INPUT) {
-                *pTokenPos = argc;
-            } else {
-                *pTokenPos += pOpt->ArgNum;
-            }
+
+        (*pTokenPos)++;
+        return optCtx;
+    }
+
+    if (*pTokenPos == 0)  // Skip command token if not yet skipped
+        (*pTokenPos)++;
+
+    const WshShell_Char_t* pcStr  = pArgv[*pTokenPos];
+    WshShell_Size_t strLen        = WSH_SHELL_STRLEN(pcStr);
+    const WshShellOption_t* pcOpt = WshShellCmd_FindOpt(pcCmd, pcStr, strLen);
+
+    if (pcOpt) {
+        optCtx.Option   = pcOpt;
+        optCtx.TokenPos = *pTokenPos;
+
+        if (pcOpt->Type == WSH_SHELL_OPTION_WAITS_INPUT) {
+            // Consume all remaining arguments
+            *pTokenPos = argc;
+        } else {
+            *pTokenPos += pcOpt->ArgNum;
         }
     }
-    *pTokenPos += 1;
 
-    return optDescr;
+    (*pTokenPos)++;
+    return optCtx;
 }
 
-WSH_SHELL_RET_STATE_t WshShellCmd_GetOptValue(WshShellCmd_OptDescr_t* pOptDescr, WshShell_Size_t argc,
-                                              const char* pArgv[], WshShell_Size_t valueSize, WshShell_Size_t* pValue) {
-    WSH_SHELL_ASSERT(pArgv != NULL);
-    WSH_SHELL_ASSERT(pOptDescr != NULL);
-    WSH_SHELL_ASSERT(valueSize != 0);
-    WSH_SHELL_ASSERT(pValue != NULL);
-    WSH_SHELL_ASSERT(CmdTable.pCmd != NULL);
-
-    if (pArgv == NULL || pOptDescr == NULL || valueSize == 0 || pValue == NULL || CmdTable.pCmd == NULL)
+WSH_SHELL_RET_STATE_t WshShellCmd_GetOptValue(WshShellOption_Context_t* pOptCtx,
+                                              WshShell_Size_t argc, const WshShell_Char_t* pArgv[],
+                                              WshShell_Size_t valueSize, void* pValue) {
+    WSH_SHELL_ASSERT(pOptCtx && pOptCtx->Option && pArgv && pValue && valueSize);
+    if (!pOptCtx || !pOptCtx->Option || !pArgv || !pValue || valueSize == 0)
         return WSH_SHELL_RET_STATE_ERR_PARAM;
 
-    if (argc < 2 || pOptDescr->TokenPos == 0)
+    if (argc < 2 || pOptCtx->TokenPos == 0)
         return WSH_SHELL_RET_STATE_ERR_EMPTY;
 
-    if (pOptDescr->TokenPos + 1 >= argc)
+    WshShell_Size_t valIdx = pOptCtx->TokenPos + 1;
+    if (valIdx >= argc)
         return WSH_SHELL_RET_STATE_ERR_OVERFLOW;
 
-    switch (pOptDescr->pOpt->Type) {
+    switch (pOptCtx->Option->Type) {
         case WSH_SHELL_OPTION_STR:
-            WSH_SHELL_STRNCPY((char*)pValue, pArgv[pOptDescr->TokenPos + 1], valueSize);
+            WSH_SHELL_STRNCPY((WshShell_Char_t*)pValue, pArgv[valIdx], valueSize);
             break;
 
         case WSH_SHELL_OPTION_INT:
-            *((WshShell_Size_t*)pValue) = WSH_SHELL_STRTOL(pArgv[pOptDescr->TokenPos + 1], NULL, 10);
+            *((WshShell_Size_t*)pValue) = WSH_SHELL_STRTOL(pArgv[valIdx], NULL, 10);
             break;
 
         case WSH_SHELL_OPTION_FLOAT:
-            *((float*)pValue) = WSH_SHELL_STRTOF(pArgv[pOptDescr->TokenPos + 1], NULL);
+            *((float*)pValue) = WSH_SHELL_STRTOF(pArgv[valIdx], NULL);
             break;
 
         case WSH_SHELL_OPTION_NO:
@@ -174,8 +173,43 @@ WSH_SHELL_RET_STATE_t WshShellCmd_GetOptValue(WshShellCmd_OptDescr_t* pOptDescr,
         case WSH_SHELL_OPTION_ENUM_SIZE:
         default:
             return WSH_SHELL_RET_STATE_ERR_EMPTY;
-            break;
     }
 
     return WSH_SHELL_RET_STATE_SUCCESS;
+}
+
+void WshShellCmd_PrintInfo(const WshShellCmd_t* pcCmd) {
+    WSH_SHELL_ASSERT(pcCmd);
+    if (!pcCmd)
+        return;
+
+    WSH_SHELL_PRINT("%s\r\nOptions overview:\r\n", pcCmd->Descr);
+
+    const WshShell_Size_t shortNameMaxLen = WSH_SHELL_OPTION_SHORT_NAME_LEN + 5;
+    const WshShell_Size_t longNameMaxLen  = WSH_SHELL_OPTION_LONG_NAME_LEN;
+    const WshShell_Size_t typeMaxLen      = 10;
+    const WshShell_Size_t accessMaxLen    = 6;
+
+    WshShell_Char_t headTemplate[64];
+    WSH_SHELL_SNPRINTF(headTemplate, sizeof(headTemplate),
+                       WSH_SHELL_COLOR_SYS
+                       "  %%-%ds %%-%ds %%-%ds %%-%ds %%s\r\n" WSH_SHELL_ESC_RESET_STYLE,
+                       shortNameMaxLen, longNameMaxLen, typeMaxLen, accessMaxLen);
+
+    WSH_SHELL_PRINT(headTemplate, "Short", "Long", "Type", "Access", "Descr");
+
+    WshShell_Char_t rowTemplate[64];
+    WSH_SHELL_SNPRINTF(rowTemplate, sizeof(rowTemplate), "  %%-%ds %%-%ds %%-%ds %%-%ds %%s\r\n",
+                       shortNameMaxLen, longNameMaxLen, typeMaxLen, accessMaxLen);
+
+    const WshShellOption_t* pcOpt = pcCmd->Options;
+    for (; pcOpt->Type != WSH_SHELL_OPTION_END; pcOpt++) {
+        if (pcOpt->Type == WSH_SHELL_OPTION_NO || pcOpt->Type == WSH_SHELL_OPTION_WAITS_INPUT)
+            continue;
+
+        WshShell_Char_t accessRow[16];
+        WshShellStr_AccessBitsToStr(pcOpt->Access, accessRow);
+        WSH_SHELL_PRINT(rowTemplate, pcOpt->ShortName, pcOpt->LongName,
+                        WshShell_OptTypeStr_Get(pcOpt->Type), accessRow, pcOpt->Descr);
+    }
 }

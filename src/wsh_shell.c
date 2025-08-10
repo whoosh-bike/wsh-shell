@@ -1,322 +1,288 @@
 #include "wsh_shell.h"
-#include "wsh_shell_cfg.h"
-#include "wsh_shell_cmd.h"
-#include "wsh_shell_history.h"
-#include "wsh_shell_io.h"
-#include "wsh_shell_str.h"
-#include "wsh_shell_types.h"
-#include "wsh_shell_user.h"
 
-typedef struct {
-    const char* Entry;
-    void (*Func)(void);
-} WshShell_EscAction_t;
-
-static WshShell_t* pShell = NULL;
-
-static void WshShell_RefreshConsoleFromInterBuff(void);
-
-static void WshShell_ArrowUp(void) {
-    WshShellHistory_GetPrevCmd(pShell->InteractiveBuff, WSH_SHELL_INTR_BUFF_SIZE);
-    WshShell_RefreshConsoleFromInterBuff();
+void WshShell_Stub_ExtClbk(void* pCtx) {
+    (void)pCtx;
 }
 
-static void WshShell_ArrowDown(void) {
-    WshShellHistory_GetNextCmd(pShell->InteractiveBuff, WSH_SHELL_INTR_BUFF_SIZE);
-    WshShell_RefreshConsoleFromInterBuff();
-}
+#define WSH_SHELL_USER_IS_AUTH()       (pShell->CurrUser != NULL)
+#define WSH_SHELL_TMP_LOGIN_IS_EMPTY() (pShell->TmpAuth.Login[0] == 0)
+#define WSH_SHELL_TMP_PASS_IS_EMPTY()  (pShell->TmpAuth.Pass[0] == 0)
+#define WSH_SHELL_INTER_CMD_EXISTS()   (pShell->Interact.Exec != NULL)
 
-static void WshShell_ArrowRight(void) {
-    if (pShell->CursorPos < pShell->InterLineLength) {
-        WSH_SHELL_PRINT(WSH_SHELL_ESC_ARROW_RIGHT);
-        WshShellStr_IncrInterCnt(&pShell->CursorPos, WSH_SHELL_INTR_BUFF_SIZE);
+static void WshShell_InvitationPrint(WshShell_t* pShell) {
+    if (!WSH_SHELL_USER_IS_AUTH()) {
+        if (WSH_SHELL_TMP_LOGIN_IS_EMPTY()) {
+            WSH_SHELL_PRINT("Login: ");
+        } else if (WSH_SHELL_TMP_PASS_IS_EMPTY()) {
+            WSH_SHELL_PRINT("Password: ");
+        }
+
+        return;
     }
+
+    WSH_SHELL_PRINT(pShell->Prompt);
 }
 
-static void WshShell_ArrowLeft(void) {
-    if (pShell->CursorPos > 0) {
-        WSH_SHELL_PRINT(WSH_SHELL_ESC_ARROW_LEFT);
-        WshShellStr_DecrInterCnt(&pShell->CursorPos);
-    }
-}
-
-/* clang-format off */
-static WshShell_EscAction_t EscArray[] = {
-	{ WSH_SHELL_ESC_ARROW_UP,       WshShell_ArrowUp    },
-	{ WSH_SHELL_ESC_ARROW_DOWN,     WshShell_ArrowDown  },
-	{ WSH_SHELL_ESC_ARROW_LEFT,     WshShell_ArrowLeft  },
-	{ WSH_SHELL_ESC_ARROW_RIGHT,    WshShell_ArrowRight },
-};
-/* clang-format on */
-
-static void WshShell_ClearInterBuff(void) {
-    WSH_SHELL_MEMSET(pShell->InteractiveBuff, 0, sizeof(char) * WSH_SHELL_INTR_BUFF_SIZE);
-    pShell->InterLineLength = 0;
-    pShell->CursorPos       = 0;
-}
-
-static void WshShell_WriteToInterBuff(char symbol) {
-    pShell->InteractiveBuff[pShell->CursorPos] = symbol;
-    WshShellStr_IncrInterCnt(&pShell->CursorPos, WSH_SHELL_INTR_BUFF_SIZE);
-    WshShellStr_IncrInterCnt(&pShell->InterLineLength, WSH_SHELL_INTR_BUFF_SIZE);
-}
-
-static void WshShell_RefreshConsoleFromInterBuff(void) {
-    for (WshShell_Size_t i = pShell->CursorPos; i > 0; i--)
-        WSH_SHELL_PRINT("%c", WSH_SHELL_SYM_BACKSPACE);  //Move crs left 1 char
-    // Clear str rigth from crs
-    WSH_SHELL_PRINT(WSH_SHELL_ESC_CLEAR_RIGHT_FROM_CURS);
-    pShell->InterLineLength = WSH_SHELL_STRLEN(pShell->InteractiveBuff);
-    pShell->CursorPos       = pShell->InterLineLength;
-    WSH_SHELL_PRINT("%s", &pShell->InteractiveBuff[0]);
-}
-
-WSH_SHELL_RET_STATE_t WshShell_Init(WshShell_t* pShellStorage) {
-    WSH_SHELL_ASSERT(pShellStorage != NULL);
-    WSH_SHELL_ASSERT(pShell == NULL);
-    if (pShellStorage == NULL || pShell != NULL)
+WSH_SHELL_RET_STATE_t WshShell_Init(WshShell_t* pShell, const WshShell_Char_t* pcDevName,
+                                    const WshShell_Char_t* pcCustomHeader,
+                                    WshShell_ExtCallbacks_t* pExtClbks) {
+    WSH_SHELL_ASSERT(pShell && pcDevName);
+    if (!pShell || !pcDevName)
         return WSH_SHELL_RET_STATE_ERR_PARAM;
 
-    pShell = pShellStorage;
-    WSH_SHELL_MEMSET(pShell, 0, sizeof(WshShell_t));
+    WSH_SHELL_MEMSET((void*)pShell, 0, sizeof(WshShell_t));
+
+    /**
+     * Init
+     */
+
+    WshShell_Size_t bufSize = sizeof(pShell->DeviceName);
+    WshShell_Size_t len     = WSH_SHELL_STRLEN(pcDevName);
+    if (len >= bufSize)
+        len = bufSize - 1;
+
+    WSH_SHELL_MEMCPY(pShell->DeviceName, pcDevName, len);
+    pShell->DeviceName[len] = '\0';
+
+    pShell->Version = WSH_SHELL_VERSION_STR;
+
+    const WshShell_Size_t numClbks = sizeof(pShell->ExtCallbacks) / sizeof(WshShell_ExtClbk_t);
+    WshShell_ExtClbk_t* pClbkArr   = (WshShell_ExtClbk_t*)&pShell->ExtCallbacks;
+
+    if (!pExtClbks) {
+        // Fill all with stub
+        for (WshShell_Size_t clbk = 0; clbk < numClbks; clbk++) {
+            pClbkArr[clbk] = WshShell_Stub_ExtClbk;
+        }
+    } else {
+        // Fill from provided struct
+        WshShell_ExtClbk_t* pInputArr = (WshShell_ExtClbk_t*)pExtClbks;
+        for (WshShell_Size_t clbk = 0; clbk < numClbks; clbk++) {
+            pClbkArr[clbk] = pInputArr[clbk] ? pInputArr[clbk] : WshShell_Stub_ExtClbk;
+        }
+    }
+
+    /**
+     * First out
+     */
+
+    WSH_SHELL_PRINT("%c", WSH_SHELL_SYM_SOUND);
+    WSH_SHELL_PRINT(WSH_SHELL_COLOR_PURPLE);
+    WSH_SHELL_PRINT(pcCustomHeader ? pcCustomHeader : WSH_SHELL_HEADER);
+    WSH_SHELL_PRINT(WSH_SHELL_ESC_RESET_STYLE WSH_SHELL_COLOR_CYAN
+                    "Serial Shell Service (wsh-shell v%s) started on device (%s)\r\n"
+                    "Press <enter> to log in...",
+                    pShell->Version, pShell->DeviceName);
+    WSH_SHELL_PRINT(WSH_SHELL_ESC_RESET_STYLE);
+
     return WSH_SHELL_RET_STATE_SUCCESS;
 }
 
-static const WshShellCmd_t* WshShell_SearchCmd(const char* pName) {
-    for (WshShell_Size_t i = 0; i < WshShellCmd_GetCmdNum(); i++) {
-        const WshShellCmd_t* pCmd = WshShellCmd_GetCmdByIndex(i);
-        if (WSH_SHELL_STRNCMP(pCmd->pName, pName, WSH_SHELL_CMD_MAX_NAME_LEN) == 0)
-            return pCmd;
+WshShell_Bool_t WshShell_Auth(WshShell_t* pShell, const WshShell_Char_t* pcLogin,
+                              const WshShell_Char_t* pcPass) {
+    WSH_SHELL_ASSERT(pShell && pcLogin && pcPass);
+    if (!pShell || !pcLogin || !pcPass)
+        return false;
+
+    pShell->CurrUser = WshShellUser_FindByCredentials(&(pShell->Users), pcLogin, pcPass);
+    if (WSH_SHELL_USER_IS_AUTH()) {
+        WshShellStr_PromptData_t data = {
+            .UserName     = pShell->CurrUser->Login,
+            .DevName      = pShell->DeviceName,
+            .InterCmdName = NULL,
+        };
+        WshShellStr_GeneratePrompt(pShell->Prompt, &data);
+        pShell->ExtCallbacks.Auth(NULL);
+        WSH_SHELL_PRINT("%c", WSH_SHELL_SYM_SOUND);
     }
-    return NULL;
+
+    WSH_SHELL_MEMSET((void*)pShell->TmpAuth.Login, 0, WSH_SHELL_LOGIN_LEN);
+    WSH_SHELL_MEMSET((void*)pShell->TmpAuth.Pass, 0, WSH_SHELL_PASS_LEN);
+
+    return WSH_SHELL_USER_IS_AUTH();
 }
 
-static void WshShell_StringHandler(void) {
-    pShell->InteractiveBuff[pShell->InterLineLength] = 0;
+WshShell_Bool_t WshShell_IsAuth(WshShell_t* pShell) {
+    WSH_SHELL_ASSERT(pShell);
+    if (!pShell)
+        return false;
 
-    char* pCmdStr                         = WshShellStr_TrimString(pShell->InteractiveBuff, pShell->InterLineLength);
-    char cmdStr[WSH_SHELL_INTR_BUFF_SIZE] = {0};
-    WSH_SHELL_STRNCPY(cmdStr, pCmdStr, WSH_SHELL_INTR_BUFF_SIZE - 1);
-    WshShell_Size_t argc                          = 0;
-    const char* pArgv[WSH_SHELL_CMD_ARGS_MAX_NUM] = {0};
-    if (pShell->pIntCmd != NULL) {
-        pArgv[0] = pShell->pIntCmd->pName;
-        WshShellStr_ParseToArgcArgv(cmdStr, &argc, &pArgv[1]);
-        argc++;
-    } else
-        WshShellStr_ParseToArgcArgv(cmdStr, &argc, pArgv);
+    return (bool)WSH_SHELL_USER_IS_AUTH();
+}
+
+void WshShell_DeAuth(WshShell_t* pShell) {
+    WSH_SHELL_ASSERT(pShell);
+    if (!pShell)
+        return;
+
+    pShell->CurrUser = NULL;
+    pShell->ExtCallbacks.DeAuth(NULL);
+    WshShellHistory_Flush(&(pShell->HistoryIO));
+}
+
+static void WshShell_AuthHandler(WshShell_t* pShell) {
+    WshShell_Size_t len = pShell->CommandLine.Len;
+    if (len >= WSH_SHELL_LOGIN_LEN)
+        len = WSH_SHELL_LOGIN_LEN - 1;
+
+    if (WSH_SHELL_TMP_LOGIN_IS_EMPTY()) {
+        WSH_SHELL_MEMCPY(pShell->TmpAuth.Login, pShell->CommandLine.Buff, len);
+        pShell->TmpAuth.Login[len] = '\0';
+    } else if (WSH_SHELL_TMP_PASS_IS_EMPTY()) {
+        WSH_SHELL_MEMCPY(pShell->TmpAuth.Pass, pShell->CommandLine.Buff, len);
+        pShell->TmpAuth.Pass[len] = '\0';
+    }
+
+    if (!WSH_SHELL_TMP_LOGIN_IS_EMPTY() && !WSH_SHELL_TMP_PASS_IS_EMPTY()) {
+        WshShell_Bool_t isAuthOk =
+            WshShell_Auth(pShell, pShell->TmpAuth.Login, pShell->TmpAuth.Pass);
+
+        if (!isAuthOk)
+            WSH_SHELL_PRINT("%c", WSH_SHELL_SYM_SOUND);
+    }
+
+    WshShellIO_ClearInterBuff(&(pShell->CommandLine));
+}
+
+static void WshShell_StringHandler(WshShell_t* pShell) {
+    pShell->CommandLine.Buff[pShell->CommandLine.Len] = 0;
+
+    const WshShell_Char_t* pcCmdStr =
+        WshShellStr_TrimString(pShell->CommandLine.Buff, pShell->CommandLine.Len);
+    WshShell_Char_t cmdStr[WSH_SHELL_INTR_BUFF_LEN] = {0};
+    WSH_SHELL_STRNCPY(cmdStr, pcCmdStr, WSH_SHELL_INTR_BUFF_LEN - 1);
+
+    WshShell_Size_t argc                                      = 0;
+    const WshShell_Char_t* pсArgv[WSH_SHELL_CMD_ARGS_MAX_NUM] = {0};
+
+    WshShellStr_ParseToArgcArgv(cmdStr, &argc, pсArgv, WSH_SHELL_CMD_ARGS_MAX_NUM);
     if (argc == 0)
         return;
 
-    WshShellHistory_SaveCmd(pCmdStr, WSH_SHELL_STRLEN(pCmdStr));
+    WshShellHistory_SaveCmd(&(pShell->HistoryIO), pcCmdStr, WSH_SHELL_STRLEN(pcCmdStr));
 
-    const WshShellCmd_t* pCmd = WshShell_SearchCmd(pArgv[0]);
-    if (pCmd != NULL) {
-        if (pShell->pUser->Groups & pCmd->Group) {
-            WSH_SHELL_RET_STATE_t retState = pCmd->Exec(pCmd, argc, pArgv);
-            if (retState != WSH_SHELL_RET_STATE_SUCCESS)
-                WSH_SHELL_PRINT_ERR("Command: %s\r\nError: %s\r\n", pCmdStr, WshShell_RetStateStr_Get(retState));
-        }
+    const WshShellCmd_t* pcCmd   = WshShellDefCmd_GetPtr();
+    WshShellCmd_Exec_t cmdToExec = NULL;
+
+    if (WSH_SHELL_STRNCMP(pcCmd->Name, pсArgv[0], WSH_SHELL_CMD_NAME_LEN) == 0) {
+        cmdToExec = pcCmd->Exec;
     } else {
-        WSH_SHELL_PRINT_WARN("\"%s\" command not found!\r\n", pCmdStr);
-    }
-
-    WshShell_ClearInterBuff();
-}
-
-static void WshShell_EscHandler(const char symbol) {
-    pShell->EscBuff[pShell->EscCnt++] = symbol;
-    for (WshShell_Size_t i = 0; i < WSH_SHELL_ARR_LEN(EscArray); i++) {
-        if (WSH_SHELL_STRNCMP(EscArray[i].Entry, pShell->EscBuff, WSH_SHELL_ESC_BUFF_LEN) == 0) {
-            EscArray[i].Func();
-            WSH_SHELL_MEMSET(pShell->EscBuff, 0, WSH_SHELL_ESC_BUFF_LEN);
-            pShell->EscCnt = 0;
+        pcCmd = WshShellCmd_SearchCmd(&(pShell->Commands), pсArgv[0]);
+        if (pcCmd == NULL) {
+            WSH_SHELL_PRINT_WARN("Command \"%s\" not found!\r\n", pcCmdStr);
+        } else if ((pShell->CurrUser->Groups & pcCmd->Groups) != 0) {
+            cmdToExec = pcCmd->Exec;
+        } else {
+            WSH_SHELL_PRINT_WARN("Access denied for command \"%s\"\r\n", pсArgv[0]);
         }
     }
-}
 
-static void WshShell_Autocomplete(void) {
-    char cmdStr[WSH_SHELL_INTR_BUFF_SIZE] = {0};
-    WSH_SHELL_STRNCPY(cmdStr, pShell->InteractiveBuff, pShell->InterLineLength);
-    const WshShellCmd_t* pFoundedCmd = NULL;
-    for (WshShell_Size_t i = 0; i < WshShellCmd_GetCmdNum(); i++) {
-        const WshShellCmd_t* pCmd = WshShellCmd_GetCmdByIndex(i);
-        if (WSH_SHELL_STRNCMP(cmdStr, pCmd->pName, WSH_SHELL_STRLEN(cmdStr)) == 0) {
-            pFoundedCmd = pCmd;
-            break;
+    if (cmdToExec) {
+        WSH_SHELL_RET_STATE_t retState = cmdToExec(pcCmd, argc, pсArgv, pShell);
+
+        if (WSH_SHELL_INTER_CMD_EXISTS()) {
+            WshShellStr_PromptData_t data = {
+                .UserName     = pShell->CurrUser->Login,
+                .DevName      = pShell->DeviceName,
+                .InterCmdName = pShell->Interact.CmdName,
+            };
+            WshShellStr_GeneratePrompt(pShell->Prompt, &data);
+        }
+
+        if (retState != WSH_SHELL_RET_STATE_SUCCESS) {
+            WSH_SHELL_PRINT_ERR("Command exec internal error: %s\r\n",
+                                WshShell_GetRetStateStr(retState));
         }
     }
-    if (pFoundedCmd != NULL) {
-        WSH_SHELL_STRNCPY(pShell->InteractiveBuff, pFoundedCmd->pName, WSH_SHELL_CMD_MAX_NAME_LEN);
-        WshShell_RefreshConsoleFromInterBuff();
-    }
+
+    WshShellIO_ClearInterBuff(&(pShell->CommandLine));
 }
 
-static void WshShell_SymbolHandler(const char symbol) {
+static void WshShell_SymbolHandler(WshShell_t* pShell, const WshShell_Char_t symbol) {
     switch (symbol) {
         case WSH_SHELL_SYM_EXIT:
-            WshShell_Exit();
+            if (WSH_SHELL_INTER_CMD_EXISTS()) {
+                WshShellInteract_Flush(&(pShell->Interact));
+
+                WshShellStr_PromptData_t data = {
+                    .UserName     = pShell->CurrUser->Login,
+                    .DevName      = pShell->DeviceName,
+                    .InterCmdName = NULL,
+                };
+                WshShellStr_GeneratePrompt(pShell->Prompt, &data);
+            } else
+                WshShell_DeAuth(pShell);
+
             WSH_SHELL_PRINT(WSH_SHELL_END_LINE);
-            WshShell_InvitationPrint();
+            WshShell_InvitationPrint(pShell);
             break;
 
         case WSH_SHELL_SYM_BACKSPACE:
-            if (pShell->CursorPos > 0) {
-                if (pShell->CursorPos <= pShell->InterLineLength) {
-                    for (WshShell_Size_t i = --pShell->CursorPos; i <= pShell->InterLineLength; i++)
-                        pShell->InteractiveBuff[i] = pShell->InteractiveBuff[i + 1];
-                    WshShellStr_DecrInterCnt(&pShell->InterLineLength);
-                    WSH_SHELL_PRINT("%c%s%s%s%s", WSH_SHELL_SYM_BACKSPACE, WSH_SHELL_ESC_SAVE_CURSOR,
-                                    WSH_SHELL_ESC_CLEAR_RIGHT_FROM_CURS, &pShell->InteractiveBuff[pShell->CursorPos],
-                                    WSH_SHELL_ESC_RESTORE_CURSOR);
-                } else {
-                    WSH_SHELL_PRINT("%c", WSH_SHELL_SYM_BACKSPACE);
-                    pShell->CursorPos--;
-                }
-            }
+        case WSH_SHELL_SYM_DELETE:
+            WshShellIO_RemoveLeftSymbol(&(pShell->CommandLine));
             break;
 
         case WSH_SHELL_SYM_TAB:
-            WshShell_Autocomplete();
+            if (!WSH_SHELL_USER_IS_AUTH())
+                break;
+
+            if (WshShellAutocomplete_Try(pShell->CommandLine.Buff, pShell->CommandLine.Len,
+                                         &(pShell->Commands))) {
+                WshShellIO_RefreshConsoleFromInterBuff(&(pShell->CommandLine));
+            } else {
+                WshShell_InvitationPrint(pShell);
+                WshShellIO_PrintInterBuff(&(pShell->CommandLine));
+            }
             break;
 
-        case '\033':
-            pShell->EscCnt     = 1;
-            pShell->EscBuff[0] = '\033';
+        case WSH_SHELL_ESC_SEQ_START_CHAR:
+            WshShellEsc_StartSeq(&(pShell->EscStorage));
             break;
 
         default:
-            if (symbol >= ' ') {
-                // If cursor isn't at the end of line we need to add new characters while
-                // keeping old ones
-                if (pShell->CursorPos < pShell->InterLineLength) {
-                    for (WshShell_Size_t i = pShell->InterLineLength; i > pShell->CursorPos; i--)
-                        pShell->InteractiveBuff[i] = pShell->InteractiveBuff[i - 1];
-
-                    WshShell_WriteToInterBuff(symbol);
-                    // Save and Clear str rigth from crs
-                    if (pShell->pUser == NULL && pShell->pLogin[0] != 0)
-                        break;
-                    WSH_SHELL_PRINT(WSH_SHELL_ESC_SAVE_CURSOR WSH_SHELL_ESC_CLEAR_RIGHT_FROM_CURS
-                                    "%s" WSH_SHELL_ESC_RESTORE_CURSOR WSH_SHELL_ESC_ARROW_RIGHT,
-                                    pShell->InteractiveBuff + pShell->CursorPos - 1);
-                } else {
-                    // If cursor is at the end of line just add symbol to the end
-                    WshShell_WriteToInterBuff(symbol);
-                    if (pShell->pUser == NULL && pShell->pLogin[0] != 0)
-                        break;
-                    WSH_SHELL_PRINT("%c", symbol);
-                }
+            if (!WshShellStr_IsPrintableAscii(symbol)) {
+                WSH_SHELL_PRINT("%c", WSH_SHELL_SYM_SOUND);
+                return;
             }
+
+            WshShell_Bool_t starsOrChars =
+                (bool)(!WSH_SHELL_USER_IS_AUTH() && !WSH_SHELL_TMP_LOGIN_IS_EMPTY());
+            WshShellIO_InsertSymbol(&(pShell->CommandLine), symbol, starsOrChars);
             break;
     }
 }
 
-void WshShell_InvitationPrint(void) {
-    WSH_SHELL_ASSERT(pShell != NULL);
-    if (pShell == NULL)
+void WshShell_InsertChar(WshShell_t* pShell, const WshShell_Char_t symbol) {
+    WSH_SHELL_ASSERT(pShell);
+    if (!pShell)
         return;
 
-    if (pShell->pUser == NULL) {
-        if (pShell->pLogin[0] == 0) {
-            WSH_SHELL_PRINT("Login: ");
-        } else if (pShell->pPwd[0] == 0) {
-            WSH_SHELL_PRINT("Password: ");
-        }
-    } else {
-        WSH_SHELL_PRINT(WSH_SHELL_PROMPT_FMT, pShell->pUser->pLogin, WSH_SHELL_DEVICE_NAME,
-                        pShell->pIntCmd == NULL ? "" : pShell->pIntCmd->pName);
-    }
-}
+    pShell->ExtCallbacks.SymbolIn(NULL);
 
-void WshShell_SetIntCmd(const WshShellCmd_t* pCmd) {
-    WSH_SHELL_ASSERT(pShell != NULL);
-    WSH_SHELL_ASSERT(pCmd != NULL);
-    if (pShell == NULL || pCmd == NULL)
-        return;
-
-    pShell->pIntCmd = pCmd;
-}
-
-void WshShell_Auth(const char* pLogin, const char* pPwd) {
-    WSH_SHELL_ASSERT(pShell != NULL);
-    WSH_SHELL_ASSERT(pLogin != NULL);
-    WSH_SHELL_ASSERT(pPwd != NULL);
-    if (pShell == NULL || pLogin == NULL || pPwd == NULL)
-        return;
-
-    for (WshShell_Size_t i = 0; i < WshShellUser_GetUsersNum(); i++) {
-        if (WshShellUser_CheckCredentials(i, pLogin, pPwd)) {
-            pShell->pUser = WshShellUser_GetUserByIndex(i);
-            break;
-        }
-    }
-    WSH_SHELL_MEMSET(pShell->pLogin, 0, WSH_SHELL_USER_LOGIN_MAX_LEN);
-    WSH_SHELL_MEMSET(pShell->pPwd, 0, WSH_SHELL_USER_PASS_MAX_LEN);
-}
-
-bool WshShell_IsAuth(void) {
-    WSH_SHELL_ASSERT(pShell != NULL);
-    if (pShell == NULL)
-        return false;
-    return pShell->pUser == NULL ? false : true;
-}
-
-bool WshShell_CheckUserAccess(const WshShellCmd_OptDescr_t* pOptDescr) {
-    WSH_SHELL_ASSERT(pShell != NULL);
-    WSH_SHELL_ASSERT(pOptDescr != NULL);
-    if (pShell == NULL || pOptDescr == NULL)
-        return false;
-
-    if (pOptDescr->pOpt == NULL || !WshShell_IsAuth())
-        return false;
-    return (pShell->pUser->Rights & pOptDescr->pOpt->AccessBits);
-}
-
-void WshShell_Exit(void) {
-    WSH_SHELL_ASSERT(pShell != NULL);
-    if (pShell == NULL)
-        return;
-
-    if (pShell->pIntCmd != NULL)
-        pShell->pIntCmd = NULL;
-    else {
-        pShell->pUser = NULL;
-        WshShellHistory_Flush();
-    }
-}
-
-static void WshShell_AuthHandler(void) {
-    if (pShell->pLogin[0] == 0)
-        WSH_SHELL_STRNCPY(pShell->pLogin, pShell->InteractiveBuff, pShell->InterLineLength);
-    else if (pShell->pPwd[0] == 0)
-        WSH_SHELL_STRNCPY(pShell->pPwd, pShell->InteractiveBuff, pShell->InterLineLength);
-
-    if (pShell->pLogin[0] != 0 && pShell->pPwd[0] != 0)
-        WshShell_Auth(pShell->pLogin, pShell->pPwd);
-
-    WshShell_ClearInterBuff();
-}
-
-void WshShell_InsertChar(char symbol) {
-    if (symbol == 0)
-        return;
-
-    if (symbol == '\r' || symbol == '\n') {
+    if (symbol == WSH_SHELL_CHAR_CR || symbol == WSH_SHELL_CHAR_LF) {
         WSH_SHELL_PRINT(WSH_SHELL_END_LINE);
-        if (pShell->pUser == NULL)
-            WshShell_AuthHandler();
-        else
-            WshShell_StringHandler();
-        WshShell_InvitationPrint();
-    } else {
-        if (pShell->EscBuff[0] == '\033')
-            WshShell_EscHandler(symbol);
-        else
-            WshShell_SymbolHandler(symbol);
-    }
-}
 
-void WshShell_Destroy(void) {
-    pShell = NULL;
+        if (!WSH_SHELL_USER_IS_AUTH()) {
+            WshShell_AuthHandler(pShell);
+            WshShell_InvitationPrint(pShell);
+            return;
+        }
+
+        if (WSH_SHELL_INTER_CMD_EXISTS()) {
+            pShell->Interact.Exec(&(pShell->CommandLine));
+            WshShellIO_ClearInterBuff(&(pShell->CommandLine));
+        } else
+            WshShell_StringHandler(pShell);
+
+        WshShell_InvitationPrint(pShell);
+        return;
+    }
+
+    if (WshShellEsc_IsSeqStarted(&(pShell->EscStorage))) {
+        WshShellEsc_Handler(&(pShell->HistoryIO), &(pShell->CommandLine), &(pShell->EscStorage),
+                            symbol);
+        return;
+    }
+
+    WshShell_SymbolHandler(pShell, symbol);
 }
