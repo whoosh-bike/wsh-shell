@@ -1,0 +1,911 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="wsh__shell_8c" kind="file" language="C++">
+    <compoundname>wsh_shell.c</compoundname>
+    <includes refid="wsh__shell_8h" local="yes">wsh_shell.h</includes>
+    <incdepgraph>
+      <node id="22">
+        <label>wsh_shell_user.h</label>
+        <link refid="wsh__shell__user_8h"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+      </node>
+      <node id="11">
+        <label>stdbool.h</label>
+      </node>
+      <node id="10">
+        <label>stdarg.h</label>
+      </node>
+      <node id="7">
+        <label>wsh_shell_str.h</label>
+        <link refid="wsh__shell__str_8h"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+      </node>
+      <node id="21">
+        <label>wsh_shell_promptwait.h</label>
+        <link refid="wsh__shell__promptwait_8h"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+      </node>
+      <node id="13">
+        <label>stdint.h</label>
+      </node>
+      <node id="15">
+        <label>stdlib.h</label>
+      </node>
+      <node id="4">
+        <label>wsh_shell_cfg.h</label>
+      </node>
+      <node id="12">
+        <label>stddef.h</label>
+      </node>
+      <node id="8">
+        <label>wsh_shell_option.h</label>
+        <link refid="wsh__shell__option_8h"/>
+        <childnode refid="9" relation="include">
+        </childnode>
+      </node>
+      <node id="6">
+        <label>wsh_shell_io.h</label>
+        <link refid="wsh__shell__io_8h"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+      </node>
+      <node id="16">
+        <label>string.h</label>
+      </node>
+      <node id="9">
+        <label>wsh_shell_types.h</label>
+        <link refid="wsh__shell__types_8h"/>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+        <childnode refid="15" relation="include">
+        </childnode>
+        <childnode refid="16" relation="include">
+        </childnode>
+      </node>
+      <node id="18">
+        <label>wsh_shell_history.h</label>
+        <link refid="wsh__shell__history_8h"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+      </node>
+      <node id="17">
+        <label>wsh_shell_cmd_def.h</label>
+        <link refid="wsh__shell__cmd__def_8h"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="18" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>src/wsh_shell.c</label>
+        <link refid="wsh__shell_8c"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>wsh_shell.h</label>
+        <link refid="wsh__shell_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="17" relation="include">
+        </childnode>
+        <childnode refid="19" relation="include">
+        </childnode>
+        <childnode refid="18" relation="include">
+        </childnode>
+        <childnode refid="20" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="21" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="22" relation="include">
+        </childnode>
+        <childnode refid="23" relation="include">
+        </childnode>
+      </node>
+      <node id="20">
+        <label>wsh_shell_interact.h</label>
+        <link refid="wsh__shell__interact_8h"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+      </node>
+      <node id="23">
+        <label>wsh_shell_version.h</label>
+        <link refid="wsh__shell__version_8h_source"/>
+      </node>
+      <node id="5">
+        <label>wsh_shell_cmd.h</label>
+        <link refid="wsh__shell__cmd_8h"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+      </node>
+      <node id="19">
+        <label>wsh_shell_esc.h</label>
+        <link refid="wsh__shell__esc_8h"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="18" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>wsh_shell_autocomplete.h</label>
+        <link refid="wsh__shell__autocomplete_8h"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="17" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+      </node>
+      <node id="14">
+        <label>stdio.h</label>
+      </node>
+    </incdepgraph>
+      <sectiondef kind="define">
+      <memberdef kind="define" id="wsh__shell_8c_1af1f17028fc1df49816f426b9701623e7" prot="public" static="no">
+        <name>WSH_SHELL_USER_IS_AUTH</name>
+        <param></param>
+        <initializer>(pShell-&gt;CurrUser != NULL)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/wsh_shell.c" line="7" column="9" bodyfile="src/wsh_shell.c" bodystart="7" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="wsh__shell_8c_1a9e07a359b2ed63d869c02daa6a7f1a2a" prot="public" static="no">
+        <name>WSH_SHELL_TMP_LOGIN_IS_EMPTY</name>
+        <param></param>
+        <initializer>(pShell-&gt;TmpAuth.Login[0] == 0)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/wsh_shell.c" line="8" column="9" bodyfile="src/wsh_shell.c" bodystart="8" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="wsh__shell_8c_1a292087537076375127d7ba338df40116" prot="public" static="no">
+        <name>WSH_SHELL_TMP_PASS_IS_EMPTY</name>
+        <param></param>
+        <initializer>(pShell-&gt;TmpAuth.Pass[0] == 0)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/wsh_shell.c" line="9" column="9" bodyfile="src/wsh_shell.c" bodystart="9" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="wsh__shell_8c_1a763e5be394406b16801cf55615da0749" prot="public" static="no">
+        <name>WSH_SHELL_INTER_CMD_EXISTS</name>
+        <param></param>
+        <initializer>(pShell-&gt;Interact.Handler != NULL)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/wsh_shell.c" line="10" column="9" bodyfile="src/wsh_shell.c" bodystart="10" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="wsh__shell_8c_1ae4b7726ad12587f1c9e9405f09474a4a" prot="public" static="no">
+        <name>SHELL_SAVE_PREV_AND_RETURN</name>
+        <param><defname>pShell</defname></param>
+        <param><defname>sym</defname></param>
+        <initializer>    do {                                        \
+        (pShell)-&gt;PrevSym = (sym);              \
+        return;                                 \
+    } while (0)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/wsh_shell.c" line="260" column="9" bodyfile="src/wsh_shell.c" bodystart="260" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="wsh__shell_8c_1a4e188f224f29da40c242e75c168852a8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void WshShell_Stub_ExtClbk</definition>
+        <argsstring>(void *pCtx)</argsstring>
+        <name>WshShell_Stub_ExtClbk</name>
+        <param>
+          <type>void *</type>
+          <declname>pCtx</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/wsh_shell.c" line="3" column="6" bodyfile="src/wsh_shell.c" bodystart="3" bodyend="5"/>
+      </memberdef>
+      <memberdef kind="function" id="wsh__shell_8c_1a537de0de6654584f9075b33f523d000f" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>static void WshShell_InvitationPrint</definition>
+        <argsstring>(WshShell_t *pShell)</argsstring>
+        <name>WshShell_InvitationPrint</name>
+        <param>
+          <type><ref refid="structWshShell__t" kindref="compound">WshShell_t</ref> *</type>
+          <declname>pShell</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/wsh_shell.c" line="12" column="13" bodyfile="src/wsh_shell.c" bodystart="12" bodyend="24"/>
+      </memberdef>
+      <memberdef kind="function" id="wsh__shell_8c_1a90b21ffe631e62fdce47691786645383" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>WSH_SHELL_RET_STATE_t</type>
+        <definition>WSH_SHELL_RET_STATE_t WshShell_Init</definition>
+        <argsstring>(WshShell_t *pShell, const WshShell_Char_t *pcDevName, const WshShell_Char_t *pcCustomHeader, WshShell_ExtCallbacks_t *pExtClbks)</argsstring>
+        <name>WshShell_Init</name>
+        <param>
+          <type><ref refid="structWshShell__t" kindref="compound">WshShell_t</ref> *</type>
+          <declname>pShell</declname>
+        </param>
+        <param>
+          <type>const WshShell_Char_t *</type>
+          <declname>pcDevName</declname>
+        </param>
+        <param>
+          <type>const WshShell_Char_t *</type>
+          <declname>pcCustomHeader</declname>
+        </param>
+        <param>
+          <type><ref refid="structWshShell__ExtCallbacks__t" kindref="compound">WshShell_ExtCallbacks_t</ref> *</type>
+          <declname>pExtClbks</declname>
+        </param>
+        <briefdescription>
+<para>Initialize a shell instance. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Initializes internal subsystems, assigns device name and optional header, and installs optional external callbacks.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>pShell</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the shell instance. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>pcDevName</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Device name (e.g., &quot;ttyS0&quot; or &quot;shell0&quot;). </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>pcCustomHeader</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Optional header string (can be NULL). </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>pExtClbks</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to external callback structure (can be NULL). </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Initialization status code. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+<para>Init</para>
+<para>First out</para>
+        </inbodydescription>
+        <location file="src/wsh_shell.c" line="26" column="23" bodyfile="src/wsh_shell.c" bodystart="26" bodyend="79"/>
+      </memberdef>
+      <memberdef kind="function" id="wsh__shell_8c_1ab27020809267df0016455a90c03d6f63" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>WshShell_Bool_t</type>
+        <definition>WshShell_Bool_t WshShell_Auth</definition>
+        <argsstring>(WshShell_t *pShell, const WshShell_Char_t *pcLogin, const WshShell_Char_t *pcPass)</argsstring>
+        <name>WshShell_Auth</name>
+        <param>
+          <type><ref refid="structWshShell__t" kindref="compound">WshShell_t</ref> *</type>
+          <declname>pShell</declname>
+        </param>
+        <param>
+          <type>const WshShell_Char_t *</type>
+          <declname>pcLogin</declname>
+        </param>
+        <param>
+          <type>const WshShell_Char_t *</type>
+          <declname>pcPass</declname>
+        </param>
+        <briefdescription>
+<para>Attempt to authenticate a user with given login credentials. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Updates the current user context on success, or leaves it unchanged on failure.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>pShell</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Shell instance. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>pcLogin</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>User name. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>pcPass</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Password. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Is auth OK? </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/wsh_shell.c" line="81" column="17" bodyfile="src/wsh_shell.c" bodystart="81" bodyend="103"/>
+      </memberdef>
+      <memberdef kind="function" id="wsh__shell_8c_1a68eefe18055efabdbcd86c9081ef456e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>WshShell_Bool_t</type>
+        <definition>WshShell_Bool_t WshShell_IsAuth</definition>
+        <argsstring>(WshShell_t *pShell)</argsstring>
+        <name>WshShell_IsAuth</name>
+        <param>
+          <type><ref refid="structWshShell__t" kindref="compound">WshShell_t</ref> *</type>
+          <declname>pShell</declname>
+        </param>
+        <briefdescription>
+<para>Check if a user is currently authenticated. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>pShell</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Shell instance. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para><computeroutput>WSH_SHELL_TRUE</computeroutput> if a user is authenticated, <computeroutput>WSH_SHELL_FALSE</computeroutput> otherwise. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/wsh_shell.c" line="105" column="17" bodyfile="src/wsh_shell.c" bodystart="105" bodyend="111"/>
+      </memberdef>
+      <memberdef kind="function" id="wsh__shell_8c_1a0273d5c96a995ee6439c2a7d650aef52" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void WshShell_DeAuth</definition>
+        <argsstring>(WshShell_t *pShell, const WshShell_Char_t *pcReason)</argsstring>
+        <name>WshShell_DeAuth</name>
+        <param>
+          <type><ref refid="structWshShell__t" kindref="compound">WshShell_t</ref> *</type>
+          <declname>pShell</declname>
+        </param>
+        <param>
+          <type>const WshShell_Char_t *</type>
+          <declname>pcReason</declname>
+        </param>
+        <briefdescription>
+<para>De-authenticate the currently logged-in user. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Resets the user context and optionally triggers the DeAuth callback.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>pShell</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Shell instance. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>pcReason</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Reason or source of deauth. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/wsh_shell.c" line="113" column="6" bodyfile="src/wsh_shell.c" bodystart="113" bodyend="127"/>
+      </memberdef>
+      <memberdef kind="function" id="wsh__shell_8c_1a732f755c2387429293a09d4dfa6490e1" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>static void WshShell_AuthHandler</definition>
+        <argsstring>(WshShell_t *pShell)</argsstring>
+        <name>WshShell_AuthHandler</name>
+        <param>
+          <type><ref refid="structWshShell__t" kindref="compound">WshShell_t</ref> *</type>
+          <declname>pShell</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/wsh_shell.c" line="129" column="13" bodyfile="src/wsh_shell.c" bodystart="129" bodyend="151"/>
+      </memberdef>
+      <memberdef kind="function" id="wsh__shell_8c_1a8be86336558b002a181bb2281f08b061" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>static void WshShell_StringHandler</definition>
+        <argsstring>(WshShell_t *pShell)</argsstring>
+        <name>WshShell_StringHandler</name>
+        <param>
+          <type><ref refid="structWshShell__t" kindref="compound">WshShell_t</ref> *</type>
+          <declname>pShell</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/wsh_shell.c" line="153" column="13" bodyfile="src/wsh_shell.c" bodystart="153" bodyend="205"/>
+      </memberdef>
+      <memberdef kind="function" id="wsh__shell_8c_1a44d234fcd36557e6af016a89e7a97fd4" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>static void WshShell_SymbolHandler</definition>
+        <argsstring>(WshShell_t *pShell, const WshShell_Char_t symbol)</argsstring>
+        <name>WshShell_SymbolHandler</name>
+        <param>
+          <type><ref refid="structWshShell__t" kindref="compound">WshShell_t</ref> *</type>
+          <declname>pShell</declname>
+        </param>
+        <param>
+          <type>const WshShell_Char_t</type>
+          <declname>symbol</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/wsh_shell.c" line="207" column="13" bodyfile="src/wsh_shell.c" bodystart="207" bodyend="258"/>
+      </memberdef>
+      <memberdef kind="function" id="wsh__shell_8c_1a3e1b413a08637a56173ae77a25899226" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void WshShell_InsertChar</definition>
+        <argsstring>(WshShell_t *pShell, const WshShell_Char_t symbol)</argsstring>
+        <name>WshShell_InsertChar</name>
+        <param>
+          <type><ref refid="structWshShell__t" kindref="compound">WshShell_t</ref> *</type>
+          <declname>pShell</declname>
+        </param>
+        <param>
+          <type>const WshShell_Char_t</type>
+          <declname>symbol</declname>
+        </param>
+        <briefdescription>
+<para>Process a new character entered by the user. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Handles interactive editing, history navigation, or command execution if input is complete.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>pShell</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Shell instance. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>symbol</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Character to insert. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/wsh_shell.c" line="266" column="6" bodyfile="src/wsh_shell.c" bodystart="266" bodyend="316"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="preprocessor">#include<sp/>&quot;<ref refid="wsh__shell_8h" kindref="compound">wsh_shell.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>WshShell_Stub_ExtClbk(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">*<sp/>pCtx)<sp/>{</highlight></codeline>
+<codeline lineno="4"><highlight class="normal"><sp/><sp/><sp/><sp/>(void)pCtx;</highlight></codeline>
+<codeline lineno="5"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>WSH_SHELL_USER_IS_AUTH()<sp/><sp/><sp/><sp/><sp/><sp/><sp/>(pShell-&gt;CurrUser<sp/>!=<sp/>NULL)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>WSH_SHELL_TMP_LOGIN_IS_EMPTY()<sp/>(pShell-&gt;TmpAuth.Login[0]<sp/>==<sp/>0)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>WSH_SHELL_TMP_PASS_IS_EMPTY()<sp/><sp/>(pShell-&gt;TmpAuth.Pass[0]<sp/>==<sp/>0)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>WSH_SHELL_INTER_CMD_EXISTS()<sp/><sp/><sp/>(pShell-&gt;Interact.Handler<sp/>!=<sp/>NULL)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>WshShell_InvitationPrint(<ref refid="structWshShell__t" kindref="compound">WshShell_t</ref>*<sp/>pShell)<sp/>{</highlight></codeline>
+<codeline lineno="13"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(!WSH_SHELL_USER_IS_AUTH())<sp/>{</highlight></codeline>
+<codeline lineno="14"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(WSH_SHELL_TMP_LOGIN_IS_EMPTY())<sp/>{</highlight></codeline>
+<codeline lineno="15"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>WSH_SHELL_PRINT_SYS(</highlight><highlight class="stringliteral">&quot;Login:<sp/>&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="16"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}<sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(WSH_SHELL_TMP_PASS_IS_EMPTY())<sp/>{</highlight></codeline>
+<codeline lineno="17"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>WSH_SHELL_PRINT_SYS(</highlight><highlight class="stringliteral">&quot;Password:<sp/>&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="18"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="19"><highlight class="normal"></highlight></codeline>
+<codeline lineno="20"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="21"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="22"><highlight class="normal"></highlight></codeline>
+<codeline lineno="23"><highlight class="normal"><sp/><sp/><sp/><sp/>WSH_SHELL_PRINT(pShell-&gt;<ref refid="structWshShell__t_1ad803062fc1744830dfc78d2169823724" kindref="member">PS1</ref>);</highlight></codeline>
+<codeline lineno="24"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="25"><highlight class="normal"></highlight></codeline>
+<codeline lineno="26"><highlight class="normal">WSH_SHELL_RET_STATE_t<sp/><ref refid="wsh__shell_8h_1a90b21ffe631e62fdce47691786645383" kindref="member">WshShell_Init</ref>(<ref refid="structWshShell__t" kindref="compound">WshShell_t</ref>*<sp/>pShell,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>WshShell_Char_t*<sp/>pcDevName,</highlight></codeline>
+<codeline lineno="27"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>WshShell_Char_t*<sp/>pcCustomHeader,</highlight></codeline>
+<codeline lineno="28"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="structWshShell__ExtCallbacks__t" kindref="compound">WshShell_ExtCallbacks_t</ref>*<sp/>pExtClbks)<sp/>{</highlight></codeline>
+<codeline lineno="29"><highlight class="normal"><sp/><sp/><sp/><sp/>WSH_SHELL_ASSERT(pShell<sp/>&amp;&amp;<sp/>pcDevName);</highlight></codeline>
+<codeline lineno="30"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(!pShell<sp/>||<sp/>!pcDevName)</highlight></codeline>
+<codeline lineno="31"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>WSH_SHELL_RET_STATE_ERR_PARAM;</highlight></codeline>
+<codeline lineno="32"><highlight class="normal"></highlight></codeline>
+<codeline lineno="33"><highlight class="normal"><sp/><sp/><sp/><sp/>WSH_SHELL_MEMSET((</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">*)pShell,<sp/>0,<sp/></highlight><highlight class="keyword">sizeof</highlight><highlight class="normal">(<ref refid="structWshShell__t" kindref="compound">WshShell_t</ref>));</highlight></codeline>
+<codeline lineno="34"><highlight class="normal"></highlight></codeline>
+<codeline lineno="39"><highlight class="normal"><sp/><sp/><sp/><sp/>WshShell_Size_t<sp/>bufSize<sp/>=<sp/></highlight><highlight class="keyword">sizeof</highlight><highlight class="normal">(pShell-&gt;DeviceName);</highlight></codeline>
+<codeline lineno="40"><highlight class="normal"><sp/><sp/><sp/><sp/>WshShell_Size_t<sp/>len<sp/><sp/><sp/><sp/><sp/>=<sp/>WSH_SHELL_STRLEN(pcDevName);</highlight></codeline>
+<codeline lineno="41"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(len<sp/>&gt;=<sp/>bufSize)</highlight></codeline>
+<codeline lineno="42"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>len<sp/>=<sp/>bufSize<sp/>-<sp/>1;</highlight></codeline>
+<codeline lineno="43"><highlight class="normal"></highlight></codeline>
+<codeline lineno="44"><highlight class="normal"><sp/><sp/><sp/><sp/>WSH_SHELL_MEMCPY(pShell-&gt;DeviceName,<sp/>pcDevName,<sp/>len);</highlight></codeline>
+<codeline lineno="45"><highlight class="normal"><sp/><sp/><sp/><sp/>pShell-&gt;DeviceName[len]<sp/>=<sp/></highlight><highlight class="charliteral">&apos;\0&apos;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="46"><highlight class="normal"></highlight></codeline>
+<codeline lineno="47"><highlight class="normal"><sp/><sp/><sp/><sp/>pShell-&gt;Version<sp/>=<sp/>WSH_SHELL_VERSION_STR;</highlight></codeline>
+<codeline lineno="48"><highlight class="normal"></highlight></codeline>
+<codeline lineno="49"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>WshShell_Size_t<sp/>numClbks<sp/>=<sp/></highlight><highlight class="keyword">sizeof</highlight><highlight class="normal">(pShell-&gt;ExtCallbacks)<sp/>/<sp/></highlight><highlight class="keyword">sizeof</highlight><highlight class="normal">(<ref refid="wsh__shell_8h_1a31ac89f2d478911c46e3e6c2142c1ac1" kindref="member">WshShell_ExtClbk_t</ref>);</highlight></codeline>
+<codeline lineno="50"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="wsh__shell_8h_1a31ac89f2d478911c46e3e6c2142c1ac1" kindref="member">WshShell_ExtClbk_t</ref>*<sp/>pClbkArr<sp/><sp/><sp/>=<sp/>(<ref refid="wsh__shell_8h_1a31ac89f2d478911c46e3e6c2142c1ac1" kindref="member">WshShell_ExtClbk_t</ref>*)&amp;pShell-&gt;ExtCallbacks;</highlight></codeline>
+<codeline lineno="51"><highlight class="normal"></highlight></codeline>
+<codeline lineno="52"><highlight class="normal"><sp/><sp/><sp/><sp/>if<sp/>(!pExtClbks)<sp/>{</highlight></codeline>
+<codeline lineno="53"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Fill<sp/>all<sp/>with<sp/>stub</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="54"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(WshShell_Size_t<sp/>clbk<sp/>=<sp/>0;<sp/>clbk<sp/>&lt;<sp/>numClbks;<sp/>clbk++)<sp/>{</highlight></codeline>
+<codeline lineno="55"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>pClbkArr[clbk]<sp/>=<sp/>WshShell_Stub_ExtClbk;</highlight></codeline>
+<codeline lineno="56"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="57"><highlight class="normal"><sp/><sp/><sp/><sp/>}<sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline lineno="58"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Fill<sp/>from<sp/>provided<sp/>struct</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="59"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="wsh__shell_8h_1a31ac89f2d478911c46e3e6c2142c1ac1" kindref="member">WshShell_ExtClbk_t</ref>*<sp/>pInputArr<sp/>=<sp/>(<ref refid="wsh__shell_8h_1a31ac89f2d478911c46e3e6c2142c1ac1" kindref="member">WshShell_ExtClbk_t</ref>*)pExtClbks;</highlight></codeline>
+<codeline lineno="60"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(WshShell_Size_t<sp/>clbk<sp/>=<sp/>0;<sp/>clbk<sp/>&lt;<sp/>numClbks;<sp/>clbk++)<sp/>{</highlight></codeline>
+<codeline lineno="61"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>pClbkArr[clbk]<sp/>=<sp/>pInputArr[clbk]<sp/>?<sp/>pInputArr[clbk]<sp/>:<sp/>WshShell_Stub_ExtClbk;</highlight></codeline>
+<codeline lineno="62"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="63"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="64"><highlight class="normal"></highlight></codeline>
+<codeline lineno="69"><highlight class="normal"><sp/><sp/><sp/><sp/>WSH_SHELL_PRINT(</highlight><highlight class="stringliteral">&quot;%c&quot;</highlight><highlight class="normal">,<sp/><ref refid="wsh__shell__io_8h_1aada0009e1c61c8108bc32ad2755d9337" kindref="member">WSH_SHELL_SYM_SOUND</ref>);</highlight></codeline>
+<codeline lineno="70"><highlight class="normal"><sp/><sp/><sp/><sp/>WSH_SHELL_PRINT(WSH_SHELL_COLOR_PURPLE);</highlight></codeline>
+<codeline lineno="71"><highlight class="normal"><sp/><sp/><sp/><sp/>WSH_SHELL_PRINT(pcCustomHeader<sp/>?<sp/>pcCustomHeader<sp/>:<sp/>WSH_SHELL_HEADER);</highlight></codeline>
+<codeline lineno="72"><highlight class="normal"><sp/><sp/><sp/><sp/>WSH_SHELL_PRINT_SYS(</highlight><highlight class="stringliteral">&quot;Serial<sp/>Shell<sp/>Service<sp/>(wsh-shell<sp/>v%s)<sp/>started<sp/>on<sp/>device<sp/>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="73"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;(%s)\r\n&quot;</highlight><highlight class="normal"><sp/>WSH_SHELL_PRESS_ENTER_TO_LOG_IN_STR<sp/></highlight><highlight class="stringliteral">&quot;\r\n&quot;</highlight><highlight class="normal">,</highlight></codeline>
+<codeline lineno="74"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>pShell-&gt;Version,<sp/>pShell-&gt;DeviceName);</highlight></codeline>
+<codeline lineno="75"><highlight class="normal"></highlight></codeline>
+<codeline lineno="76"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="wsh__shell__promptwait_8h_1a43d800c65924a700804695ce86f08fb0" kindref="member">WshShellPromptWait_Attach</ref>(&amp;(pShell-&gt;PromptWait),<sp/><ref refid="wsh__shell__promptwait_8h_1a99b79f24add7ec6e2f404a6888373b6f" kindref="member">WshShellPromptWait_Enter</ref>,<sp/>NULL);</highlight></codeline>
+<codeline lineno="77"><highlight class="normal"></highlight></codeline>
+<codeline lineno="78"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>WSH_SHELL_RET_STATE_SUCCESS;</highlight></codeline>
+<codeline lineno="79"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="80"><highlight class="normal"></highlight></codeline>
+<codeline lineno="81"><highlight class="normal">WshShell_Bool_t<sp/><ref refid="wsh__shell_8h_1ab27020809267df0016455a90c03d6f63" kindref="member">WshShell_Auth</ref>(<ref refid="structWshShell__t" kindref="compound">WshShell_t</ref>*<sp/>pShell,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>WshShell_Char_t*<sp/>pcLogin,</highlight></codeline>
+<codeline lineno="82"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>WshShell_Char_t*<sp/>pcPass)<sp/>{</highlight></codeline>
+<codeline lineno="83"><highlight class="normal"><sp/><sp/><sp/><sp/>WSH_SHELL_ASSERT(pShell<sp/>&amp;&amp;<sp/>pcLogin<sp/>&amp;&amp;<sp/>pcPass);</highlight></codeline>
+<codeline lineno="84"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(!pShell<sp/>||<sp/>!pcLogin<sp/>||<sp/>!pcPass)</highlight></codeline>
+<codeline lineno="85"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="86"><highlight class="normal"></highlight></codeline>
+<codeline lineno="87"><highlight class="normal"><sp/><sp/><sp/><sp/>pShell-&gt;<ref refid="structWshShell__t_1a3e5bcf2149fe8274b17914d5fdd1d20a" kindref="member">CurrUser</ref><sp/>=<sp/><ref refid="wsh__shell__user_8h_1aeb6134783fd1a2d6d887de0d174b80f3" kindref="member">WshShellUser_FindByCredentials</ref>(&amp;(pShell-&gt;<ref refid="structWshShell__t_1a9c531d31246a1f50fee3a956d06dfab0" kindref="member">Users</ref>),<sp/>pcLogin,<sp/>pcPass);</highlight></codeline>
+<codeline lineno="88"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(WSH_SHELL_USER_IS_AUTH())<sp/>{</highlight></codeline>
+<codeline lineno="89"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="structWshShellStr__PS1Data__t" kindref="compound">WshShellStr_PS1Data_t</ref><sp/>data<sp/>=<sp/>{</highlight></codeline>
+<codeline lineno="90"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.UserName<sp/><sp/><sp/><sp/><sp/>=<sp/>pShell-&gt;<ref refid="structWshShell__t_1a3e5bcf2149fe8274b17914d5fdd1d20a" kindref="member">CurrUser</ref>-&gt;<ref refid="structWshShellUser__t_1a8820ed2911a83f57ef77bffe2166027d" kindref="member">Login</ref>,</highlight></codeline>
+<codeline lineno="91"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.DevName<sp/><sp/><sp/><sp/><sp/><sp/>=<sp/>pShell-&gt;<ref refid="structWshShell__t_1a465834dce871f37473a41e0cda7205cc" kindref="member">DeviceName</ref>,</highlight></codeline>
+<codeline lineno="92"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.InterCmdName<sp/>=<sp/>WSH_SHELL_INTER_CMD_EXISTS()<sp/>?<sp/>pShell-&gt;<ref refid="structWshShell__t_1adcf54d0d820296e96c8f7c0b78f4f346" kindref="member">Interact</ref>.<ref refid="structWshShell__Interact__t_1a9ba12ecd5cb74beb9443284ca23ef8ff" kindref="member">CmdName</ref><sp/>:<sp/>NULL,</highlight></codeline>
+<codeline lineno="93"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>};</highlight></codeline>
+<codeline lineno="94"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="wsh__shell__str_8h_1afdbc7488bc3b39b644c1ce3f4a978408" kindref="member">WshShellStr_GeneratePS1</ref>(pShell-&gt;<ref refid="structWshShell__t_1ad803062fc1744830dfc78d2169823724" kindref="member">PS1</ref>,<sp/>&amp;data);</highlight></codeline>
+<codeline lineno="95"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>pShell-&gt;<ref refid="structWshShell__t_1a9b39a6d10daf9781ffff84d3eaddd3f1" kindref="member">ExtCallbacks</ref>.<ref refid="structWshShell__ExtCallbacks__t_1a0b03edf67c931680283cbaba80cb7872" kindref="member">Auth</ref>(NULL);</highlight></codeline>
+<codeline lineno="96"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>WSH_SHELL_PRINT(</highlight><highlight class="stringliteral">&quot;%c&quot;</highlight><highlight class="normal">,<sp/><ref refid="wsh__shell__io_8h_1aada0009e1c61c8108bc32ad2755d9337" kindref="member">WSH_SHELL_SYM_SOUND</ref>);</highlight></codeline>
+<codeline lineno="97"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="98"><highlight class="normal"></highlight></codeline>
+<codeline lineno="99"><highlight class="normal"><sp/><sp/><sp/><sp/>WSH_SHELL_MEMSET((</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">*)pShell-&gt;<ref refid="structWshShell__t_1ad96327b2f5beff8fb3dd3a94ab5e9f97" kindref="member">TmpAuth</ref>.<ref refid="structWshShell__AuthContext__t_1aa817cc98c00092e09ae6b3227cb12a9f" kindref="member">Login</ref>,<sp/>0,<sp/>WSH_SHELL_LOGIN_LEN);</highlight></codeline>
+<codeline lineno="100"><highlight class="normal"><sp/><sp/><sp/><sp/>WSH_SHELL_MEMSET((</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">*)pShell-&gt;<ref refid="structWshShell__t_1ad96327b2f5beff8fb3dd3a94ab5e9f97" kindref="member">TmpAuth</ref>.<ref refid="structWshShell__AuthContext__t_1a521ca67b6cc9ddc125ceed039ee02a40" kindref="member">Pass</ref>,<sp/>0,<sp/>WSH_SHELL_PASS_LEN);</highlight></codeline>
+<codeline lineno="101"><highlight class="normal"></highlight></codeline>
+<codeline lineno="102"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>WSH_SHELL_USER_IS_AUTH();</highlight></codeline>
+<codeline lineno="103"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="104"><highlight class="normal"></highlight></codeline>
+<codeline lineno="105"><highlight class="normal">WshShell_Bool_t<sp/><ref refid="wsh__shell_8h_1a68eefe18055efabdbcd86c9081ef456e" kindref="member">WshShell_IsAuth</ref>(<ref refid="structWshShell__t" kindref="compound">WshShell_t</ref>*<sp/>pShell)<sp/>{</highlight></codeline>
+<codeline lineno="106"><highlight class="normal"><sp/><sp/><sp/><sp/>WSH_SHELL_ASSERT(pShell);</highlight></codeline>
+<codeline lineno="107"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(!pShell)</highlight></codeline>
+<codeline lineno="108"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="109"><highlight class="normal"></highlight></codeline>
+<codeline lineno="110"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">bool</highlight><highlight class="normal">)WSH_SHELL_USER_IS_AUTH();</highlight></codeline>
+<codeline lineno="111"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="112"><highlight class="normal"></highlight></codeline>
+<codeline lineno="113"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="wsh__shell_8h_1a0273d5c96a995ee6439c2a7d650aef52" kindref="member">WshShell_DeAuth</ref>(<ref refid="structWshShell__t" kindref="compound">WshShell_t</ref>*<sp/>pShell,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>WshShell_Char_t*<sp/>pcReason)<sp/>{</highlight></codeline>
+<codeline lineno="114"><highlight class="normal"><sp/><sp/><sp/><sp/>WSH_SHELL_ASSERT(pShell<sp/>&amp;&amp;<sp/>pcReason);</highlight></codeline>
+<codeline lineno="115"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(!pShell<sp/>||<sp/>!pcReason)</highlight></codeline>
+<codeline lineno="116"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="117"><highlight class="normal"></highlight></codeline>
+<codeline lineno="118"><highlight class="normal"><sp/><sp/><sp/><sp/>pShell-&gt;<ref refid="structWshShell__t_1a3e5bcf2149fe8274b17914d5fdd1d20a" kindref="member">CurrUser</ref><sp/>=<sp/>NULL;</highlight></codeline>
+<codeline lineno="119"><highlight class="normal"><sp/><sp/><sp/><sp/>pShell-&gt;<ref refid="structWshShell__t_1a9b39a6d10daf9781ffff84d3eaddd3f1" kindref="member">ExtCallbacks</ref>.<ref refid="structWshShell__ExtCallbacks__t_1ac6085f9f20e72db0b2bf065803b05ac2" kindref="member">DeAuth</ref>(NULL);</highlight></codeline>
+<codeline lineno="120"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="wsh__shell__history_8h_1aee963c89139b4ea9419b13dfdc6b64a1" kindref="member">WshShellHistory_Flush</ref>(&amp;(pShell-&gt;<ref refid="structWshShell__t_1ad0fac6af46e913be00b4a5076d2ce820" kindref="member">HistoryIO</ref>));</highlight></codeline>
+<codeline lineno="121"><highlight class="normal"></highlight></codeline>
+<codeline lineno="122"><highlight class="normal"><sp/><sp/><sp/><sp/>WSH_SHELL_PRINT(</highlight><highlight class="stringliteral">&quot;%c&quot;</highlight><highlight class="normal">,<sp/><ref refid="wsh__shell__io_8h_1aada0009e1c61c8108bc32ad2755d9337" kindref="member">WSH_SHELL_SYM_SOUND</ref>);</highlight></codeline>
+<codeline lineno="123"><highlight class="normal"><sp/><sp/><sp/><sp/>WSH_SHELL_PRINT_ERR(</highlight><highlight class="stringliteral">&quot;Shell<sp/>deAuthed<sp/>by<sp/>`%s`!\r\n&quot;</highlight><highlight class="normal">,<sp/>pcReason);</highlight></codeline>
+<codeline lineno="124"><highlight class="normal"><sp/><sp/><sp/><sp/>WSH_SHELL_PRINT_SYS(WSH_SHELL_PRESS_ENTER_TO_LOG_IN_STR<sp/></highlight><highlight class="stringliteral">&quot;\r\n&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="125"><highlight class="normal"></highlight></codeline>
+<codeline lineno="126"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="wsh__shell__promptwait_8h_1a43d800c65924a700804695ce86f08fb0" kindref="member">WshShellPromptWait_Attach</ref>(&amp;(pShell-&gt;PromptWait),<sp/><ref refid="wsh__shell__promptwait_8h_1a99b79f24add7ec6e2f404a6888373b6f" kindref="member">WshShellPromptWait_Enter</ref>,<sp/>NULL);</highlight></codeline>
+<codeline lineno="127"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="128"><highlight class="normal"></highlight></codeline>
+<codeline lineno="129"><highlight class="normal"></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>WshShell_AuthHandler(<ref refid="structWshShell__t" kindref="compound">WshShell_t</ref>*<sp/>pShell)<sp/>{</highlight></codeline>
+<codeline lineno="130"><highlight class="normal"><sp/><sp/><sp/><sp/>WshShell_Size_t<sp/>len<sp/>=<sp/>pShell-&gt;<ref refid="structWshShell__t_1a0c0a582384d2b2e147478850f4ddf459" kindref="member">CommandLine</ref>.<ref refid="structWshShellIO__CommandLine__t_1a9ceb70baa2d64af07f92632dd95f750d" kindref="member">Len</ref>;</highlight></codeline>
+<codeline lineno="131"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(len<sp/>&gt;=<sp/>WSH_SHELL_LOGIN_LEN)</highlight></codeline>
+<codeline lineno="132"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>len<sp/>=<sp/>WSH_SHELL_LOGIN_LEN<sp/>-<sp/>1;</highlight></codeline>
+<codeline lineno="133"><highlight class="normal"></highlight></codeline>
+<codeline lineno="134"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(WSH_SHELL_TMP_LOGIN_IS_EMPTY())<sp/>{</highlight></codeline>
+<codeline lineno="135"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>WSH_SHELL_MEMCPY(pShell-&gt;<ref refid="structWshShell__t_1ad96327b2f5beff8fb3dd3a94ab5e9f97" kindref="member">TmpAuth</ref>.<ref refid="structWshShell__AuthContext__t_1aa817cc98c00092e09ae6b3227cb12a9f" kindref="member">Login</ref>,<sp/>pShell-&gt;<ref refid="structWshShell__t_1a0c0a582384d2b2e147478850f4ddf459" kindref="member">CommandLine</ref>.<ref refid="structWshShellIO__CommandLine__t_1a74b52cba6bcd35c578f8e1eeefe11b76" kindref="member">Buff</ref>,<sp/>len);</highlight></codeline>
+<codeline lineno="136"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>pShell-&gt;<ref refid="structWshShell__t_1ad96327b2f5beff8fb3dd3a94ab5e9f97" kindref="member">TmpAuth</ref>.<ref refid="structWshShell__AuthContext__t_1aa817cc98c00092e09ae6b3227cb12a9f" kindref="member">Login</ref>[len]<sp/>=<sp/></highlight><highlight class="charliteral">&apos;\0&apos;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="137"><highlight class="normal"><sp/><sp/><sp/><sp/>}<sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(WSH_SHELL_TMP_PASS_IS_EMPTY())<sp/>{</highlight></codeline>
+<codeline lineno="138"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>WSH_SHELL_MEMCPY(pShell-&gt;<ref refid="structWshShell__t_1ad96327b2f5beff8fb3dd3a94ab5e9f97" kindref="member">TmpAuth</ref>.<ref refid="structWshShell__AuthContext__t_1a521ca67b6cc9ddc125ceed039ee02a40" kindref="member">Pass</ref>,<sp/>pShell-&gt;<ref refid="structWshShell__t_1a0c0a582384d2b2e147478850f4ddf459" kindref="member">CommandLine</ref>.<ref refid="structWshShellIO__CommandLine__t_1a74b52cba6bcd35c578f8e1eeefe11b76" kindref="member">Buff</ref>,<sp/>len);</highlight></codeline>
+<codeline lineno="139"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>pShell-&gt;<ref refid="structWshShell__t_1ad96327b2f5beff8fb3dd3a94ab5e9f97" kindref="member">TmpAuth</ref>.<ref refid="structWshShell__AuthContext__t_1a521ca67b6cc9ddc125ceed039ee02a40" kindref="member">Pass</ref>[len]<sp/>=<sp/></highlight><highlight class="charliteral">&apos;\0&apos;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="140"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="141"><highlight class="normal"></highlight></codeline>
+<codeline lineno="142"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(!WSH_SHELL_TMP_LOGIN_IS_EMPTY()<sp/>&amp;&amp;<sp/>!WSH_SHELL_TMP_PASS_IS_EMPTY())<sp/>{</highlight></codeline>
+<codeline lineno="143"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>WshShell_Bool_t<sp/>isAuthOk<sp/>=</highlight></codeline>
+<codeline lineno="144"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="wsh__shell_8h_1ab27020809267df0016455a90c03d6f63" kindref="member">WshShell_Auth</ref>(pShell,<sp/>pShell-&gt;<ref refid="structWshShell__t_1ad96327b2f5beff8fb3dd3a94ab5e9f97" kindref="member">TmpAuth</ref>.<ref refid="structWshShell__AuthContext__t_1aa817cc98c00092e09ae6b3227cb12a9f" kindref="member">Login</ref>,<sp/>pShell-&gt;<ref refid="structWshShell__t_1ad96327b2f5beff8fb3dd3a94ab5e9f97" kindref="member">TmpAuth</ref>.<ref refid="structWshShell__AuthContext__t_1a521ca67b6cc9ddc125ceed039ee02a40" kindref="member">Pass</ref>);</highlight></codeline>
+<codeline lineno="145"><highlight class="normal"></highlight></codeline>
+<codeline lineno="146"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(!isAuthOk)</highlight></codeline>
+<codeline lineno="147"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>WSH_SHELL_PRINT(</highlight><highlight class="stringliteral">&quot;%c&quot;</highlight><highlight class="normal">,<sp/><ref refid="wsh__shell__io_8h_1aada0009e1c61c8108bc32ad2755d9337" kindref="member">WSH_SHELL_SYM_SOUND</ref>);</highlight></codeline>
+<codeline lineno="148"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="149"><highlight class="normal"></highlight></codeline>
+<codeline lineno="150"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="wsh__shell__io_8h_1aec1f06269e94c4db764fd11b07a93600" kindref="member">WshShellIO_ClearInterBuff</ref>(&amp;(pShell-&gt;<ref refid="structWshShell__t_1a0c0a582384d2b2e147478850f4ddf459" kindref="member">CommandLine</ref>));</highlight></codeline>
+<codeline lineno="151"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="152"><highlight class="normal"></highlight></codeline>
+<codeline lineno="153"><highlight class="normal"></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>WshShell_StringHandler(<ref refid="structWshShell__t" kindref="compound">WshShell_t</ref>*<sp/>pShell)<sp/>{</highlight></codeline>
+<codeline lineno="154"><highlight class="normal"><sp/><sp/><sp/><sp/>pShell-&gt;<ref refid="structWshShell__t_1a0c0a582384d2b2e147478850f4ddf459" kindref="member">CommandLine</ref>.<ref refid="structWshShellIO__CommandLine__t_1a74b52cba6bcd35c578f8e1eeefe11b76" kindref="member">Buff</ref>[pShell-&gt;<ref refid="structWshShell__t_1a0c0a582384d2b2e147478850f4ddf459" kindref="member">CommandLine</ref>.<ref refid="structWshShellIO__CommandLine__t_1a9ceb70baa2d64af07f92632dd95f750d" kindref="member">Len</ref>]<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="155"><highlight class="normal"></highlight></codeline>
+<codeline lineno="156"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>WshShell_Char_t*<sp/>pcCmdStr<sp/>=</highlight></codeline>
+<codeline lineno="157"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="wsh__shell__str_8h_1a75fcab509bbc6e57796fb144edfadcaa" kindref="member">WshShellStr_TrimString</ref>(pShell-&gt;<ref refid="structWshShell__t_1a0c0a582384d2b2e147478850f4ddf459" kindref="member">CommandLine</ref>.<ref refid="structWshShellIO__CommandLine__t_1a74b52cba6bcd35c578f8e1eeefe11b76" kindref="member">Buff</ref>,<sp/>pShell-&gt;<ref refid="structWshShell__t_1a0c0a582384d2b2e147478850f4ddf459" kindref="member">CommandLine</ref>.<ref refid="structWshShellIO__CommandLine__t_1a9ceb70baa2d64af07f92632dd95f750d" kindref="member">Len</ref>);</highlight></codeline>
+<codeline lineno="158"><highlight class="normal"><sp/><sp/><sp/><sp/>WshShell_Char_t<sp/>cmdStr[WSH_SHELL_INTR_BUFF_LEN]<sp/>=<sp/>{0};</highlight></codeline>
+<codeline lineno="159"><highlight class="normal"><sp/><sp/><sp/><sp/>WSH_SHELL_STRNCPY(cmdStr,<sp/>pcCmdStr,<sp/>WSH_SHELL_INTR_BUFF_LEN<sp/>-<sp/>1);</highlight></codeline>
+<codeline lineno="160"><highlight class="normal"></highlight></codeline>
+<codeline lineno="161"><highlight class="normal"><sp/><sp/><sp/><sp/>WshShell_Size_t<sp/>argc<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="162"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>WshShell_Char_t*<sp/>pсArgv[WSH_SHELL_CMD_ARGS_MAX_NUM]<sp/>=<sp/>{0};</highlight></codeline>
+<codeline lineno="163"><highlight class="normal"></highlight></codeline>
+<codeline lineno="164"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="wsh__shell__str_8h_1afa52b0f22a788ba56269460dfe7f09b3" kindref="member">WshShellStr_ParseToArgcArgv</ref>(cmdStr,<sp/>&amp;argc,<sp/>pсArgv,<sp/>WSH_SHELL_CMD_ARGS_MAX_NUM);</highlight></codeline>
+<codeline lineno="165"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(argc<sp/>==<sp/>0)</highlight></codeline>
+<codeline lineno="166"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="167"><highlight class="normal"></highlight></codeline>
+<codeline lineno="168"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="wsh__shell__history_8h_1a67a10560defd9e51aa9caa17fc974b99" kindref="member">WshShellHistory_SaveCmd</ref>(&amp;(pShell-&gt;<ref refid="structWshShell__t_1ad0fac6af46e913be00b4a5076d2ce820" kindref="member">HistoryIO</ref>),<sp/>pcCmdStr,<sp/>WSH_SHELL_STRLEN(pcCmdStr));</highlight></codeline>
+<codeline lineno="169"><highlight class="normal"></highlight></codeline>
+<codeline lineno="170"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="structWshShellCmd" kindref="compound">WshShellCmd_t</ref>*<sp/>pcCmd<sp/><sp/><sp/><sp/><sp/><sp/>=<sp/><ref refid="wsh__shell__cmd__def_8h_1a4b41924893e19aa40ea20bee8f0c6fef" kindref="member">WshShellDefCmd_GetPtr</ref>();</highlight></codeline>
+<codeline lineno="171"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="wsh__shell__cmd_8h_1aa35fd0f2220510a8eb2896cf3f471f20" kindref="member">WshShellCmdHandler_t</ref><sp/>cmdHandler<sp/>=<sp/>NULL;</highlight></codeline>
+<codeline lineno="172"><highlight class="normal"></highlight></codeline>
+<codeline lineno="173"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(WSH_SHELL_STRNCMP(pcCmd-&gt;<ref refid="structWshShellCmd_1aa3f13d3d7a3fe30c89ea635528662672" kindref="member">Name</ref>,<sp/>pсArgv[0],<sp/>WSH_SHELL_CMD_NAME_LEN)<sp/>==<sp/>0)<sp/>{</highlight></codeline>
+<codeline lineno="174"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>cmdHandler<sp/>=<sp/>pcCmd-&gt;<ref refid="structWshShellCmd_1a67ee124125be63a4c00d3152560155c1" kindref="member">Handler</ref>;</highlight></codeline>
+<codeline lineno="175"><highlight class="normal"><sp/><sp/><sp/><sp/>}<sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline lineno="176"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>pcCmd<sp/>=<sp/><ref refid="wsh__shell__cmd_8h_1ae1d7f86e741ddb91641fbfcaef422a57" kindref="member">WshShellCmd_SearchCmd</ref>(&amp;(pShell-&gt;<ref refid="structWshShell__t_1ab76826113e0cae0cb5e48c36e82d988d" kindref="member">Commands</ref>),<sp/>pсArgv[0]);</highlight></codeline>
+<codeline lineno="177"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(pcCmd<sp/>==<sp/>NULL)<sp/>{</highlight></codeline>
+<codeline lineno="178"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>WSH_SHELL_PRINT_WARN(</highlight><highlight class="stringliteral">&quot;Command<sp/>\&quot;%s\&quot;<sp/>not<sp/>found!\r\n&quot;</highlight><highlight class="normal">,<sp/>pcCmdStr);</highlight></codeline>
+<codeline lineno="179"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}<sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>((pShell-&gt;<ref refid="structWshShell__t_1a3e5bcf2149fe8274b17914d5fdd1d20a" kindref="member">CurrUser</ref>-&gt;<ref refid="structWshShellUser__t_1a982fe8c361a9b40d69cc943a7653ecc5" kindref="member">Groups</ref><sp/>&amp;<sp/>pcCmd-&gt;<ref refid="structWshShellCmd_1a0545d6ea9332223f6e6a5d81a43c38c4" kindref="member">Groups</ref>)<sp/>!=<sp/>0)<sp/>{</highlight></codeline>
+<codeline lineno="180"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>cmdHandler<sp/>=<sp/>pcCmd-&gt;<ref refid="structWshShellCmd_1a67ee124125be63a4c00d3152560155c1" kindref="member">Handler</ref>;</highlight></codeline>
+<codeline lineno="181"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}<sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline lineno="182"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>WSH_SHELL_PRINT_WARN(</highlight><highlight class="stringliteral">&quot;Access<sp/>denied<sp/>for<sp/>command<sp/>\&quot;%s\&quot;\r\n&quot;</highlight><highlight class="normal">,<sp/>pсArgv[0]);</highlight></codeline>
+<codeline lineno="183"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="184"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="185"><highlight class="normal"></highlight></codeline>
+<codeline lineno="186"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(cmdHandler)<sp/>{</highlight></codeline>
+<codeline lineno="187"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>WSH_SHELL_RET_STATE_t<sp/>retState<sp/>=<sp/>cmdHandler(pcCmd,<sp/>argc,<sp/>pсArgv,<sp/>pShell);</highlight></codeline>
+<codeline lineno="188"><highlight class="normal"></highlight></codeline>
+<codeline lineno="189"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(WSH_SHELL_INTER_CMD_EXISTS())<sp/>{</highlight></codeline>
+<codeline lineno="190"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="structWshShellStr__PS1Data__t" kindref="compound">WshShellStr_PS1Data_t</ref><sp/>data<sp/>=<sp/>{</highlight></codeline>
+<codeline lineno="191"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.UserName<sp/><sp/><sp/><sp/><sp/>=<sp/>pShell-&gt;<ref refid="structWshShell__t_1a3e5bcf2149fe8274b17914d5fdd1d20a" kindref="member">CurrUser</ref>-&gt;<ref refid="structWshShellUser__t_1a8820ed2911a83f57ef77bffe2166027d" kindref="member">Login</ref>,</highlight></codeline>
+<codeline lineno="192"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.DevName<sp/><sp/><sp/><sp/><sp/><sp/>=<sp/>pShell-&gt;<ref refid="structWshShell__t_1a465834dce871f37473a41e0cda7205cc" kindref="member">DeviceName</ref>,</highlight></codeline>
+<codeline lineno="193"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.InterCmdName<sp/>=<sp/>pShell-&gt;<ref refid="structWshShell__t_1adcf54d0d820296e96c8f7c0b78f4f346" kindref="member">Interact</ref>.<ref refid="structWshShell__Interact__t_1a9ba12ecd5cb74beb9443284ca23ef8ff" kindref="member">CmdName</ref>,</highlight></codeline>
+<codeline lineno="194"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>};</highlight></codeline>
+<codeline lineno="195"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="wsh__shell__str_8h_1afdbc7488bc3b39b644c1ce3f4a978408" kindref="member">WshShellStr_GeneratePS1</ref>(pShell-&gt;<ref refid="structWshShell__t_1ad803062fc1744830dfc78d2169823724" kindref="member">PS1</ref>,<sp/>&amp;data);</highlight></codeline>
+<codeline lineno="196"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="197"><highlight class="normal"></highlight></codeline>
+<codeline lineno="198"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(retState<sp/>!=<sp/>WSH_SHELL_RET_STATE_SUCCESS)<sp/>{</highlight></codeline>
+<codeline lineno="199"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>WSH_SHELL_PRINT_ERR(</highlight><highlight class="stringliteral">&quot;Command<sp/>handler<sp/>internal<sp/>error:<sp/>%s\r\n&quot;</highlight><highlight class="normal">,</highlight></codeline>
+<codeline lineno="200"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>WshShell_GetRetStateStr(retState));</highlight></codeline>
+<codeline lineno="201"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="202"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="203"><highlight class="normal"></highlight></codeline>
+<codeline lineno="204"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="wsh__shell__io_8h_1aec1f06269e94c4db764fd11b07a93600" kindref="member">WshShellIO_ClearInterBuff</ref>(&amp;(pShell-&gt;<ref refid="structWshShell__t_1a0c0a582384d2b2e147478850f4ddf459" kindref="member">CommandLine</ref>));</highlight></codeline>
+<codeline lineno="205"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="206"><highlight class="normal"></highlight></codeline>
+<codeline lineno="207"><highlight class="normal"></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>WshShell_SymbolHandler(<ref refid="structWshShell__t" kindref="compound">WshShell_t</ref>*<sp/>pShell,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>WshShell_Char_t<sp/>symbol)<sp/>{</highlight></codeline>
+<codeline lineno="208"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">switch</highlight><highlight class="normal"><sp/>(symbol)<sp/>{</highlight></codeline>
+<codeline lineno="209"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">case</highlight><highlight class="normal"><sp/><ref refid="wsh__shell__io_8h_1a6017e38274918863cc206eda77a21d06" kindref="member">WSH_SHELL_SYM_EXIT</ref>:</highlight></codeline>
+<codeline lineno="210"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(WSH_SHELL_INTER_CMD_EXISTS())<sp/>{</highlight></codeline>
+<codeline lineno="211"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="wsh__shell__interact_8h_1acd711b0ad63230451db53ebca04c7e32" kindref="member">WshShellInteract_Flush</ref>(&amp;(pShell-&gt;<ref refid="structWshShell__t_1adcf54d0d820296e96c8f7c0b78f4f346" kindref="member">Interact</ref>));</highlight></codeline>
+<codeline lineno="212"><highlight class="normal"></highlight></codeline>
+<codeline lineno="213"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="structWshShellStr__PS1Data__t" kindref="compound">WshShellStr_PS1Data_t</ref><sp/>data<sp/>=<sp/>{</highlight></codeline>
+<codeline lineno="214"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.UserName<sp/><sp/><sp/><sp/><sp/>=<sp/>pShell-&gt;<ref refid="structWshShell__t_1a3e5bcf2149fe8274b17914d5fdd1d20a" kindref="member">CurrUser</ref>-&gt;<ref refid="structWshShellUser__t_1a8820ed2911a83f57ef77bffe2166027d" kindref="member">Login</ref>,</highlight></codeline>
+<codeline lineno="215"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.DevName<sp/><sp/><sp/><sp/><sp/><sp/>=<sp/>pShell-&gt;<ref refid="structWshShell__t_1a465834dce871f37473a41e0cda7205cc" kindref="member">DeviceName</ref>,</highlight></codeline>
+<codeline lineno="216"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.InterCmdName<sp/>=<sp/>NULL,</highlight></codeline>
+<codeline lineno="217"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>};</highlight></codeline>
+<codeline lineno="218"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="wsh__shell__str_8h_1afdbc7488bc3b39b644c1ce3f4a978408" kindref="member">WshShellStr_GeneratePS1</ref>(pShell-&gt;<ref refid="structWshShell__t_1ad803062fc1744830dfc78d2169823724" kindref="member">PS1</ref>,<sp/>&amp;data);</highlight></codeline>
+<codeline lineno="219"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>WSH_SHELL_PRINT(<ref refid="wsh__shell__io_8h_1a714fb5eb74817250a9d30193dd82eda1" kindref="member">WSH_SHELL_END_LINE</ref>);</highlight></codeline>
+<codeline lineno="220"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>WshShell_InvitationPrint(pShell);</highlight></codeline>
+<codeline lineno="221"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}<sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="222"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="wsh__shell_8h_1a0273d5c96a995ee6439c2a7d650aef52" kindref="member">WshShell_DeAuth</ref>(pShell,<sp/></highlight><highlight class="stringliteral">&quot;Ctrl+D&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="223"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">break</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="224"><highlight class="normal"></highlight></codeline>
+<codeline lineno="225"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">case</highlight><highlight class="normal"><sp/><ref refid="wsh__shell__io_8h_1ae07dd34e9a42f6ff703776223885aa6b" kindref="member">WSH_SHELL_SYM_BACKSPACE</ref>:</highlight></codeline>
+<codeline lineno="226"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">case</highlight><highlight class="normal"><sp/><ref refid="wsh__shell__io_8h_1a26be59e16e84ca290927cf46189b502c" kindref="member">WSH_SHELL_SYM_DELETE</ref>:</highlight></codeline>
+<codeline lineno="227"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="wsh__shell__io_8h_1afd0ae76eae883ef80c73fc8e1c25197d" kindref="member">WshShellIO_RemoveLeftSymbol</ref>(&amp;(pShell-&gt;<ref refid="structWshShell__t_1a0c0a582384d2b2e147478850f4ddf459" kindref="member">CommandLine</ref>));</highlight></codeline>
+<codeline lineno="228"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">break</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="229"><highlight class="normal"></highlight></codeline>
+<codeline lineno="230"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">case</highlight><highlight class="normal"><sp/><ref refid="wsh__shell__io_8h_1a220b70734c4b430fedc9c08067a284e8" kindref="member">WSH_SHELL_SYM_TAB</ref>:</highlight></codeline>
+<codeline lineno="231"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(!WSH_SHELL_USER_IS_AUTH())</highlight></codeline>
+<codeline lineno="232"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">break</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="233"><highlight class="normal"></highlight></codeline>
+<codeline lineno="234"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<ref refid="wsh__shell__autocomplete_8h_1a975094abed880791f1202ca19c01684d" kindref="member">WshShellAutocomplete_Try</ref>(pShell-&gt;<ref refid="structWshShell__t_1a0c0a582384d2b2e147478850f4ddf459" kindref="member">CommandLine</ref>.<ref refid="structWshShellIO__CommandLine__t_1a74b52cba6bcd35c578f8e1eeefe11b76" kindref="member">Buff</ref>,<sp/>pShell-&gt;<ref refid="structWshShell__t_1a0c0a582384d2b2e147478850f4ddf459" kindref="member">CommandLine</ref>.<ref refid="structWshShellIO__CommandLine__t_1a9ceb70baa2d64af07f92632dd95f750d" kindref="member">Len</ref>,</highlight></codeline>
+<codeline lineno="235"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&amp;(pShell-&gt;<ref refid="structWshShell__t_1ab76826113e0cae0cb5e48c36e82d988d" kindref="member">Commands</ref>)))<sp/>{</highlight></codeline>
+<codeline lineno="236"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="wsh__shell__io_8h_1a504d8205168991de62227d30a6b360f9" kindref="member">WshShellIO_RefreshConsoleFromInterBuff</ref>(&amp;(pShell-&gt;<ref refid="structWshShell__t_1a0c0a582384d2b2e147478850f4ddf459" kindref="member">CommandLine</ref>));</highlight></codeline>
+<codeline lineno="237"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}<sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline lineno="238"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>WshShell_InvitationPrint(pShell);</highlight></codeline>
+<codeline lineno="239"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="wsh__shell__io_8h_1a8d4e26bec84a173c570dcff0e646894c" kindref="member">WshShellIO_PrintInterBuff</ref>(&amp;(pShell-&gt;<ref refid="structWshShell__t_1a0c0a582384d2b2e147478850f4ddf459" kindref="member">CommandLine</ref>));</highlight></codeline>
+<codeline lineno="240"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="241"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">break</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="242"><highlight class="normal"></highlight></codeline>
+<codeline lineno="243"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">case</highlight><highlight class="normal"><sp/><ref refid="wsh__shell__io_8h_1a3f1525da63d1f221ef0ca4dfaf1e5ead" kindref="member">WSH_SHELL_ESC_SEQ_START_CHAR</ref>:</highlight></codeline>
+<codeline lineno="244"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="wsh__shell__esc_8h_1a31c8a37296536f7e7a16070945416b35" kindref="member">WshShellEsc_StartSeq</ref>(&amp;(pShell-&gt;<ref refid="structWshShell__t_1aafe47c977357679bcbf2a720b6c06ebc" kindref="member">EscStorage</ref>));</highlight></codeline>
+<codeline lineno="245"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">break</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="246"><highlight class="normal"></highlight></codeline>
+<codeline lineno="247"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">default</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="248"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(!<ref refid="wsh__shell__str_8h_1a9d35c0fc6d620aab2c92d6c9bf6ba804" kindref="member">WshShellStr_IsPrintableAscii</ref>(symbol))<sp/>{</highlight></codeline>
+<codeline lineno="249"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>WSH_SHELL_PRINT(</highlight><highlight class="stringliteral">&quot;%c&quot;</highlight><highlight class="normal">,<sp/><ref refid="wsh__shell__io_8h_1aada0009e1c61c8108bc32ad2755d9337" kindref="member">WSH_SHELL_SYM_SOUND</ref>);</highlight></codeline>
+<codeline lineno="250"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="251"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="252"><highlight class="normal"></highlight></codeline>
+<codeline lineno="253"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>WshShell_Bool_t<sp/>starsOrChars<sp/>=</highlight></codeline>
+<codeline lineno="254"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(bool)(!WSH_SHELL_USER_IS_AUTH()<sp/>&amp;&amp;<sp/>!WSH_SHELL_TMP_LOGIN_IS_EMPTY());</highlight></codeline>
+<codeline lineno="255"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="wsh__shell__io_8h_1aff3bd3d1200458c97969a00125051ca4" kindref="member">WshShellIO_InsertSymbol</ref>(&amp;(pShell-&gt;<ref refid="structWshShell__t_1a0c0a582384d2b2e147478850f4ddf459" kindref="member">CommandLine</ref>),<sp/>symbol,<sp/>starsOrChars);</highlight></codeline>
+<codeline lineno="256"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">break</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="257"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="258"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="259"><highlight class="normal"></highlight></codeline>
+<codeline lineno="260"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>SHELL_SAVE_PREV_AND_RETURN(pShell,<sp/>sym)<sp/>\</highlight></codeline>
+<codeline lineno="261"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>do<sp/>{<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>\</highlight></codeline>
+<codeline lineno="262"><highlight class="preprocessor"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(pShell)-&gt;PrevSym<sp/>=<sp/>(sym);<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>\</highlight></codeline>
+<codeline lineno="263"><highlight class="preprocessor"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>return;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>\</highlight></codeline>
+<codeline lineno="264"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>}<sp/>while<sp/>(0)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="265"><highlight class="normal"></highlight></codeline>
+<codeline lineno="266"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="wsh__shell_8h_1a3e1b413a08637a56173ae77a25899226" kindref="member">WshShell_InsertChar</ref>(<ref refid="structWshShell__t" kindref="compound">WshShell_t</ref>*<sp/>pShell,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>WshShell_Char_t<sp/>symbol)<sp/>{</highlight></codeline>
+<codeline lineno="267"><highlight class="normal"><sp/><sp/><sp/><sp/>WSH_SHELL_ASSERT(pShell);</highlight></codeline>
+<codeline lineno="268"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(!pShell)</highlight></codeline>
+<codeline lineno="269"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="270"><highlight class="normal"></highlight></codeline>
+<codeline lineno="271"><highlight class="normal"><sp/><sp/><sp/><sp/>pShell-&gt;<ref refid="structWshShell__t_1a9b39a6d10daf9781ffff84d3eaddd3f1" kindref="member">ExtCallbacks</ref>.<ref refid="structWshShell__ExtCallbacks__t_1a3d7c3cefe86078e837e5a6a21751a3ed" kindref="member">SymbolIn</ref>(NULL);</highlight></codeline>
+<codeline lineno="272"><highlight class="normal"></highlight></codeline>
+<codeline lineno="273"><highlight class="normal"><sp/><sp/><sp/><sp/>WshShell_Bool_t<sp/>isEnterPressed<sp/>=<sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="274"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(symbol<sp/>==<sp/><ref refid="wsh__shell__io_8h_1a15503df83f204f0f678487a0dfa580a3" kindref="member">WSH_SHELL_CHAR_CR</ref><sp/>||<sp/>symbol<sp/>==<sp/><ref refid="wsh__shell__io_8h_1aec016682590697d0bb64bbf49558c234" kindref="member">WSH_SHELL_CHAR_LF</ref>)<sp/>{</highlight></codeline>
+<codeline lineno="275"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(pShell-&gt;<ref refid="structWshShell__t_1a202bd37b1883d36b4af8c9a3a4bfffd9" kindref="member">PrevSym</ref><sp/>==<sp/><ref refid="wsh__shell__io_8h_1a15503df83f204f0f678487a0dfa580a3" kindref="member">WSH_SHELL_CHAR_CR</ref><sp/>&amp;&amp;<sp/>symbol<sp/>==<sp/><ref refid="wsh__shell__io_8h_1aec016682590697d0bb64bbf49558c234" kindref="member">WSH_SHELL_CHAR_LF</ref>)<sp/>{</highlight></codeline>
+<codeline lineno="276"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>SHELL_SAVE_PREV_AND_RETURN(pShell,<sp/>symbol);</highlight></codeline>
+<codeline lineno="277"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="278"><highlight class="normal"></highlight></codeline>
+<codeline lineno="279"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>isEnterPressed<sp/>=<sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="280"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="281"><highlight class="normal"></highlight></codeline>
+<codeline lineno="282"><highlight class="normal"><sp/><sp/><sp/><sp/>WSH_SHELL_RET_STATE_t<sp/>promptWaitRes<sp/>=<sp/><ref refid="wsh__shell__promptwait_8h_1a77a4f37e3ae313fe5291c5e28addd451" kindref="member">WshShellPromptWait_Handle</ref>(&amp;(pShell-&gt;PromptWait),<sp/>symbol);</highlight></codeline>
+<codeline lineno="283"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(promptWaitRes<sp/>==<sp/>WSH_SHELL_RET_STATE_ERR_BUSY)<sp/>{</highlight></codeline>
+<codeline lineno="284"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>SHELL_SAVE_PREV_AND_RETURN(pShell,<sp/>symbol);</highlight></codeline>
+<codeline lineno="285"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="286"><highlight class="normal"></highlight></codeline>
+<codeline lineno="287"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(isEnterPressed)<sp/>{</highlight></codeline>
+<codeline lineno="288"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>WSH_SHELL_PRINT(<ref refid="wsh__shell__io_8h_1a714fb5eb74817250a9d30193dd82eda1" kindref="member">WSH_SHELL_END_LINE</ref>);</highlight></codeline>
+<codeline lineno="289"><highlight class="normal"></highlight></codeline>
+<codeline lineno="290"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(!WSH_SHELL_USER_IS_AUTH())<sp/>{</highlight></codeline>
+<codeline lineno="291"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>WshShell_AuthHandler(pShell);</highlight></codeline>
+<codeline lineno="292"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>WshShell_InvitationPrint(pShell);</highlight></codeline>
+<codeline lineno="293"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>SHELL_SAVE_PREV_AND_RETURN(pShell,<sp/>symbol);</highlight></codeline>
+<codeline lineno="294"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="295"><highlight class="normal"></highlight></codeline>
+<codeline lineno="296"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(WSH_SHELL_INTER_CMD_EXISTS())<sp/>{</highlight></codeline>
+<codeline lineno="297"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>pShell-&gt;<ref refid="structWshShell__t_1adcf54d0d820296e96c8f7c0b78f4f346" kindref="member">Interact</ref>.<ref refid="structWshShell__Interact__t_1ad2a2c2639c19852b31e839ac6253ee89" kindref="member">Handler</ref>(&amp;(pShell-&gt;<ref refid="structWshShell__t_1a0c0a582384d2b2e147478850f4ddf459" kindref="member">CommandLine</ref>));</highlight></codeline>
+<codeline lineno="298"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="wsh__shell__io_8h_1aec1f06269e94c4db764fd11b07a93600" kindref="member">WshShellIO_ClearInterBuff</ref>(&amp;(pShell-&gt;<ref refid="structWshShell__t_1a0c0a582384d2b2e147478850f4ddf459" kindref="member">CommandLine</ref>));</highlight></codeline>
+<codeline lineno="299"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}<sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="300"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>WshShell_StringHandler(pShell);</highlight></codeline>
+<codeline lineno="301"><highlight class="normal"></highlight></codeline>
+<codeline lineno="302"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<ref refid="wsh__shell_8h_1a68eefe18055efabdbcd86c9081ef456e" kindref="member">WshShell_IsAuth</ref>(pShell))</highlight></codeline>
+<codeline lineno="303"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>WshShell_InvitationPrint(pShell);</highlight></codeline>
+<codeline lineno="304"><highlight class="normal"></highlight></codeline>
+<codeline lineno="305"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>SHELL_SAVE_PREV_AND_RETURN(pShell,<sp/>symbol);</highlight></codeline>
+<codeline lineno="306"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="307"><highlight class="normal"></highlight></codeline>
+<codeline lineno="308"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<ref refid="wsh__shell__esc_8h_1a07c38fd3528e0db9ad60440514f8c22a" kindref="member">WshShellEsc_IsSeqStarted</ref>(&amp;(pShell-&gt;<ref refid="structWshShell__t_1aafe47c977357679bcbf2a720b6c06ebc" kindref="member">EscStorage</ref>)))<sp/>{</highlight></codeline>
+<codeline lineno="309"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="wsh__shell__esc_8h_1af4bcf72f65829cd0ac65da2ab6985f99" kindref="member">WshShellEsc_Handler</ref>(&amp;(pShell-&gt;<ref refid="structWshShell__t_1ad0fac6af46e913be00b4a5076d2ce820" kindref="member">HistoryIO</ref>),<sp/>&amp;(pShell-&gt;<ref refid="structWshShell__t_1a0c0a582384d2b2e147478850f4ddf459" kindref="member">CommandLine</ref>),<sp/>&amp;(pShell-&gt;<ref refid="structWshShell__t_1aafe47c977357679bcbf2a720b6c06ebc" kindref="member">EscStorage</ref>),</highlight></codeline>
+<codeline lineno="310"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>symbol);</highlight></codeline>
+<codeline lineno="311"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>SHELL_SAVE_PREV_AND_RETURN(pShell,<sp/>symbol);</highlight></codeline>
+<codeline lineno="312"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="313"><highlight class="normal"></highlight></codeline>
+<codeline lineno="314"><highlight class="normal"><sp/><sp/><sp/><sp/>WshShell_SymbolHandler(pShell,<sp/>symbol);</highlight></codeline>
+<codeline lineno="315"><highlight class="normal"><sp/><sp/><sp/><sp/>SHELL_SAVE_PREV_AND_RETURN(pShell,<sp/>symbol);</highlight></codeline>
+<codeline lineno="316"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="src/wsh_shell.c"/>
+  </compounddef>
+</doxygen>

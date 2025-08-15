@@ -1,0 +1,62 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="structWshShell__ExtCallbacks__t" kind="struct" language="C++" prot="public">
+    <compoundname>WshShell_ExtCallbacks_t</compoundname>
+    <includes refid="wsh__shell_8h" local="no">wsh_shell.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structWshShell__ExtCallbacks__t_1a0b03edf67c931680283cbaba80cb7872" prot="public" static="no" mutable="no">
+        <type><ref refid="wsh__shell_8h_1a31ac89f2d478911c46e3e6c2142c1ac1" kindref="member">WshShell_ExtClbk_t</ref></type>
+        <definition>WshShell_ExtClbk_t WshShell_ExtCallbacks_t::Auth</definition>
+        <argsstring></argsstring>
+        <name>Auth</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Called when a user successfully authenticates. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/wsh_shell.h" line="42" column="24" bodyfile="src/wsh_shell.h" bodystart="42" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structWshShell__ExtCallbacks__t_1ac6085f9f20e72db0b2bf065803b05ac2" prot="public" static="no" mutable="no">
+        <type><ref refid="wsh__shell_8h_1a31ac89f2d478911c46e3e6c2142c1ac1" kindref="member">WshShell_ExtClbk_t</ref></type>
+        <definition>WshShell_ExtClbk_t WshShell_ExtCallbacks_t::DeAuth</definition>
+        <argsstring></argsstring>
+        <name>DeAuth</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Called when a user is de-authenticated or logs out. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/wsh_shell.h" line="43" column="24" bodyfile="src/wsh_shell.h" bodystart="43" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structWshShell__ExtCallbacks__t_1a3d7c3cefe86078e837e5a6a21751a3ed" prot="public" static="no" mutable="no">
+        <type><ref refid="wsh__shell_8h_1a31ac89f2d478911c46e3e6c2142c1ac1" kindref="member">WshShell_ExtClbk_t</ref></type>
+        <definition>WshShell_ExtClbk_t WshShell_ExtCallbacks_t::SymbolIn</definition>
+        <argsstring></argsstring>
+        <name>SymbolIn</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Called when a sybol was received and inserted </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/wsh_shell.h" line="44" column="24" bodyfile="src/wsh_shell.h" bodystart="44" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Optional external callbacks invoked on user session changes. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="src/wsh_shell.h" line="41" column="1" bodyfile="src/wsh_shell.h" bodystart="41" bodyend="45"/>
+    <listofallmembers>
+      <member refid="structWshShell__ExtCallbacks__t_1a0b03edf67c931680283cbaba80cb7872" prot="public" virt="non-virtual"><scope>WshShell_ExtCallbacks_t</scope><name>Auth</name></member>
+      <member refid="structWshShell__ExtCallbacks__t_1ac6085f9f20e72db0b2bf065803b05ac2" prot="public" virt="non-virtual"><scope>WshShell_ExtCallbacks_t</scope><name>DeAuth</name></member>
+      <member refid="structWshShell__ExtCallbacks__t_1a3d7c3cefe86078e837e5a6a21751a3ed" prot="public" virt="non-virtual"><scope>WshShell_ExtCallbacks_t</scope><name>SymbolIn</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

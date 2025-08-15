@@ -1,0 +1,108 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="structWshShellHistory__Data__t" kind="struct" language="C++" prot="public">
+    <compoundname>WshShellHistory_Data_t</compoundname>
+    <includes refid="wsh__shell__history_8h" local="no">wsh_shell_history.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structWshShellHistory__Data__t_1a7129dd84fb22ab789be8f41c63356896" prot="public" static="no" mutable="no">
+        <type>WshShell_Char_t</type>
+        <definition>WshShell_Char_t WshShellHistory_Data_t::StorageBuff[WSH_SHELL_HISTORY_BUFF_SIZE]</definition>
+        <argsstring>[WSH_SHELL_HISTORY_BUFF_SIZE]</argsstring>
+        <name>StorageBuff</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Circular buffer for commands. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/wsh_shell_history.h" line="38" column="21" bodyfile="src/wsh_shell_history.h" bodystart="38" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structWshShellHistory__Data__t_1a851b9a6e347f02cc621e6d3f04948b0b" prot="public" static="no" mutable="no">
+        <type>WshShell_Size_t</type>
+        <definition>WshShell_Size_t WshShellHistory_Data_t::HeadIdx</definition>
+        <argsstring></argsstring>
+        <name>HeadIdx</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Index of the buffer start. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/wsh_shell_history.h" line="39" column="21" bodyfile="src/wsh_shell_history.h" bodystart="39" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structWshShellHistory__Data__t_1aab55966490d20d635e3c8a305cb4055f" prot="public" static="no" mutable="no">
+        <type>WshShell_Size_t</type>
+        <definition>WshShell_Size_t WshShellHistory_Data_t::TailIdx</definition>
+        <argsstring></argsstring>
+        <name>TailIdx</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Index of the buffer end. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/wsh_shell_history.h" line="40" column="21" bodyfile="src/wsh_shell_history.h" bodystart="40" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structWshShellHistory__Data__t_1a6c24a791a4709beffc2719ad30b0e028" prot="public" static="no" mutable="no">
+        <type>WshShell_Size_t</type>
+        <definition>WshShell_Size_t WshShellHistory_Data_t::LastSavedCmdIdx</definition>
+        <argsstring></argsstring>
+        <name>LastSavedCmdIdx</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Index of the last saved command. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/wsh_shell_history.h" line="41" column="21" bodyfile="src/wsh_shell_history.h" bodystart="41" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structWshShellHistory__Data__t_1a03c83742c1d136dc5f2fc8c61bc8636a" prot="public" static="no" mutable="no">
+        <type><ref refid="wsh__shell__history_8h_1a036107f17cb0ba9105b8832cd7a91e25" kindref="member">WSH_SHELL_HIST_CMD_DIR_t</ref></type>
+        <definition>WSH_SHELL_HIST_CMD_DIR_t WshShellHistory_Data_t::PrevDir</definition>
+        <argsstring></argsstring>
+        <name>PrevDir</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Last direction of history navigation. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/wsh_shell_history.h" line="42" column="30" bodyfile="src/wsh_shell_history.h" bodystart="42" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structWshShellHistory__Data__t_1ae0e19b90028ead2731d3d9c1636b7a39" prot="public" static="no" mutable="no">
+        <type>WshShell_Bool_t</type>
+        <definition>WshShell_Bool_t WshShellHistory_Data_t::LimitIsReached</definition>
+        <argsstring></argsstring>
+        <name>LimitIsReached</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Flag indicating buffer search boundary reached. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/wsh_shell_history.h" line="43" column="21" bodyfile="src/wsh_shell_history.h" bodystart="43" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Internal structure for storing command history buffer. </para>
+    </briefdescription>
+    <detaileddescription>
+<para>This structure contains the command history as a raw character buffer and related metadata for navigation and storage management. </para>
+    </detaileddescription>
+    <location file="src/wsh_shell_history.h" line="37" column="1" bodyfile="src/wsh_shell_history.h" bodystart="37" bodyend="44"/>
+    <listofallmembers>
+      <member refid="structWshShellHistory__Data__t_1a851b9a6e347f02cc621e6d3f04948b0b" prot="public" virt="non-virtual"><scope>WshShellHistory_Data_t</scope><name>HeadIdx</name></member>
+      <member refid="structWshShellHistory__Data__t_1a6c24a791a4709beffc2719ad30b0e028" prot="public" virt="non-virtual"><scope>WshShellHistory_Data_t</scope><name>LastSavedCmdIdx</name></member>
+      <member refid="structWshShellHistory__Data__t_1ae0e19b90028ead2731d3d9c1636b7a39" prot="public" virt="non-virtual"><scope>WshShellHistory_Data_t</scope><name>LimitIsReached</name></member>
+      <member refid="structWshShellHistory__Data__t_1a03c83742c1d136dc5f2fc8c61bc8636a" prot="public" virt="non-virtual"><scope>WshShellHistory_Data_t</scope><name>PrevDir</name></member>
+      <member refid="structWshShellHistory__Data__t_1a7129dd84fb22ab789be8f41c63356896" prot="public" virt="non-virtual"><scope>WshShellHistory_Data_t</scope><name>StorageBuff</name></member>
+      <member refid="structWshShellHistory__Data__t_1aab55966490d20d635e3c8a305cb4055f" prot="public" virt="non-virtual"><scope>WshShellHistory_Data_t</scope><name>TailIdx</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

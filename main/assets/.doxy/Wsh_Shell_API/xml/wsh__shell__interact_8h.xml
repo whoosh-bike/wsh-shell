@@ -1,0 +1,277 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="wsh__shell__interact_8h" kind="file" language="C++">
+    <compoundname>wsh_shell_interact.h</compoundname>
+    <includes local="yes">wsh_shell_cfg.h</includes>
+    <includes refid="wsh__shell__io_8h" local="yes">wsh_shell_io.h</includes>
+    <includedby refid="wsh__shell_8h" local="yes">src/wsh_shell.h</includedby>
+    <includedby refid="wsh__shell__interact_8c" local="yes">src/wsh_shell_interact.c</includedby>
+    <incdepgraph>
+      <node id="8">
+        <label>stdbool.h</label>
+      </node>
+      <node id="7">
+        <label>stdarg.h</label>
+      </node>
+      <node id="4">
+        <label>wsh_shell_str.h</label>
+        <link refid="wsh__shell__str_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+      </node>
+      <node id="10">
+        <label>stdint.h</label>
+      </node>
+      <node id="12">
+        <label>stdlib.h</label>
+      </node>
+      <node id="2">
+        <label>wsh_shell_cfg.h</label>
+      </node>
+      <node id="9">
+        <label>stddef.h</label>
+      </node>
+      <node id="5">
+        <label>wsh_shell_option.h</label>
+        <link refid="wsh__shell__option_8h"/>
+        <childnode refid="6" relation="include">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>wsh_shell_io.h</label>
+        <link refid="wsh__shell__io_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+      </node>
+      <node id="13">
+        <label>string.h</label>
+      </node>
+      <node id="6">
+        <label>wsh_shell_types.h</label>
+        <link refid="wsh__shell__types_8h"/>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>src/wsh_shell_interact.h</label>
+        <link refid="wsh__shell__interact_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="11">
+        <label>stdio.h</label>
+      </node>
+    </incdepgraph>
+    <invincdepgraph>
+      <node id="2">
+        <label>src/wsh_shell.h</label>
+        <link refid="wsh__shell_8h"/>
+      </node>
+      <node id="1">
+        <label>src/wsh_shell_interact.h</label>
+        <link refid="wsh__shell__interact_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+    </invincdepgraph>
+    <innerclass refid="structWshShell__Interact__t" prot="public">WshShell_Interact_t</innerclass>
+      <sectiondef kind="typedef">
+      <memberdef kind="typedef" id="wsh__shell__interact_8h_1a35ab4479cd1af794ef9f06de445b2d86" prot="public" static="no">
+        <type>void(*</type>
+        <definition>typedef void(* WshShellInteractive_CmdHandler_t) (WshShellIO_CommandLine_t *pCommandLine)</definition>
+        <argsstring>)(WshShellIO_CommandLine_t *pCommandLine)</argsstring>
+        <name>WshShellInteractive_CmdHandler_t</name>
+        <briefdescription>
+<para>Function pointer type for an interactive shell command. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>This type defines the prototype for interactive command callbacks, which are invoked with a pointer to the current command line buffer. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/wsh_shell_interact.h" line="32" column="9" bodyfile="src/wsh_shell_interact.h" bodystart="32" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="wsh__shell__interact_8h_1a5f248670e419f7a14026e1266fda5a56" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void WshShellInteract_Attach</definition>
+        <argsstring>(WshShell_Interact_t *pInteract, const WshShell_Char_t *pcName, WshShellInteractive_CmdHandler_t handler)</argsstring>
+        <name>WshShellInteract_Attach</name>
+        <param>
+          <type><ref refid="structWshShell__Interact__t" kindref="compound">WshShell_Interact_t</ref> *</type>
+          <declname>pInteract</declname>
+        </param>
+        <param>
+          <type>const WshShell_Char_t *</type>
+          <declname>pcName</declname>
+        </param>
+        <param>
+          <type><ref refid="wsh__shell__interact_8h_1a35ab4479cd1af794ef9f06de445b2d86" kindref="member">WshShellInteractive_CmdHandler_t</ref></type>
+          <declname>handler</declname>
+        </param>
+        <briefdescription>
+<para>Registers an interactive command. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Attaches a named command and its execution function to the given interact structure. The command name is truncated if it exceeds the internal buffer size.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="out">pInteract</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the interact object to initialize. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">pcName</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Null-terminated name of the interactive command. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">handler</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Function pointer to be called when the command is executed. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/wsh_shell_interact.h" line="54" column="6" bodyfile="src/wsh_shell_interact.c" bodystart="49" bodyend="56" declfile="src/wsh_shell_interact.h" declline="54" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="wsh__shell__interact_8h_1a8afddd69a9e0d737f5e24935037f9b60" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void WshShellInteract_AppendLineBreak</definition>
+        <argsstring>(WshShellIO_CommandLine_t *pCommandLine)</argsstring>
+        <name>WshShellInteract_AppendLineBreak</name>
+        <param>
+          <type><ref refid="structWshShellIO__CommandLine__t" kindref="compound">WshShellIO_CommandLine_t</ref> *</type>
+          <declname>pCommandLine</declname>
+        </param>
+        <briefdescription>
+<para>Appends a CRLF (<computeroutput>\r\n</computeroutput>) sequence to the interaction buffer. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Adds a carriage return and line feed to the end of the current input buffer, if there is enough space. This is typically used to terminate user input lines.</para>
+<para>If the buffer is too full to append both characters, an error is printed.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="inout">pCommandLine</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the interaction buffer (command line). </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/wsh_shell_interact.h" line="67" column="6" bodyfile="src/wsh_shell_interact.c" bodystart="58" bodyend="60" declfile="src/wsh_shell_interact.h" declline="67" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="wsh__shell__interact_8h_1acd711b0ad63230451db53ebca04c7e32" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void WshShellInteract_Flush</definition>
+        <argsstring>(WshShell_Interact_t *pInteract)</argsstring>
+        <name>WshShellInteract_Flush</name>
+        <param>
+          <type><ref refid="structWshShell__Interact__t" kindref="compound">WshShell_Interact_t</ref> *</type>
+          <declname>pInteract</declname>
+        </param>
+        <briefdescription>
+<para>Clears the contents of an interactive command slot. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Resets the execution function pointer to <computeroutput>NULL</computeroutput> and clears the command name buffer. This effectively &quot;removes&quot; the interactive command from the shell registry.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="inout">pInteract</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the interact structure to flush. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/wsh_shell_interact.h" line="77" column="6" bodyfile="src/wsh_shell_interact.c" bodystart="62" bodyend="64" declfile="src/wsh_shell_interact.h" declline="77" declcolumn="6"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Interactive command registration and line editing utilities for WshShell. </para>
+    </briefdescription>
+    <detaileddescription>
+<para>This module provides an interface for attaching interactive commands and for modifying the user input buffer, such as appending carriage return and line feed sequences (<computeroutput>\r\n</computeroutput>) at the end of the command line.</para>
+<para>It is used internally by the shell to register interactive commands and manage the formatting of user-entered command lines.</para>
+<para><simplesect kind="author"><para>Whoosh Embedded Team </para>
+</simplesect>
+<simplesect kind="copyright"><para>Copyright (c) 2024 </para>
+</simplesect>
+</para>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="normal"></highlight></codeline>
+<codeline lineno="16"><highlight class="normal"></highlight><highlight class="preprocessor">#ifndef<sp/>__WSH_SHELL_INTERACT_H</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="17"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>__WSH_SHELL_INTERACT_H</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="18"><highlight class="normal"></highlight></codeline>
+<codeline lineno="19"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;wsh_shell_cfg.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="20"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="wsh__shell__io_8h" kindref="compound">wsh_shell_io.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="21"><highlight class="normal"></highlight></codeline>
+<codeline lineno="22"><highlight class="normal"></highlight><highlight class="preprocessor">#ifdef<sp/>__cplusplus</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="23"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/></highlight><highlight class="stringliteral">&quot;C&quot;</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline lineno="24"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="25"><highlight class="normal"></highlight></codeline>
+<codeline lineno="32" refid="wsh__shell__interact_8h_1a35ab4479cd1af794ef9f06de445b2d86" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/>void<sp/>(*<ref refid="wsh__shell__interact_8h_1a35ab4479cd1af794ef9f06de445b2d86" kindref="member">WshShellInteractive_CmdHandler_t</ref>)(<ref refid="structWshShellIO__CommandLine__t" kindref="compound">WshShellIO_CommandLine_t</ref>*<sp/>pCommandLine);</highlight></codeline>
+<codeline lineno="33"><highlight class="normal"></highlight></codeline>
+<codeline lineno="39" refid="structWshShell__Interact__t" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="40" refid="structWshShell__Interact__t_1ad2a2c2639c19852b31e839ac6253ee89" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="wsh__shell__interact_8h_1a35ab4479cd1af794ef9f06de445b2d86" kindref="member">WshShellInteractive_CmdHandler_t</ref><sp/><ref refid="structWshShell__Interact__t_1ad2a2c2639c19852b31e839ac6253ee89" kindref="member">Handler</ref>;<sp/></highlight></codeline>
+<codeline lineno="41" refid="structWshShell__Interact__t_1a9ba12ecd5cb74beb9443284ca23ef8ff" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>WshShell_Char_t<sp/>CmdName[WSH_SHELL_CMD_NAME_LEN];<sp/></highlight></codeline>
+<codeline lineno="42"><highlight class="normal">}<sp/><ref refid="structWshShell__Interact__t" kindref="compound">WshShell_Interact_t</ref>;</highlight></codeline>
+<codeline lineno="43"><highlight class="normal"></highlight></codeline>
+<codeline lineno="54"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="wsh__shell__interact_8h_1a5f248670e419f7a14026e1266fda5a56" kindref="member">WshShellInteract_Attach</ref>(<ref refid="structWshShell__Interact__t" kindref="compound">WshShell_Interact_t</ref>*<sp/>pInteract,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>WshShell_Char_t*<sp/>pcName,</highlight></codeline>
+<codeline lineno="55"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="wsh__shell__interact_8h_1a35ab4479cd1af794ef9f06de445b2d86" kindref="member">WshShellInteractive_CmdHandler_t</ref><sp/>handler);</highlight></codeline>
+<codeline lineno="56"><highlight class="normal"></highlight></codeline>
+<codeline lineno="67"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="wsh__shell__interact_8h_1a8afddd69a9e0d737f5e24935037f9b60" kindref="member">WshShellInteract_AppendLineBreak</ref>(<ref refid="structWshShellIO__CommandLine__t" kindref="compound">WshShellIO_CommandLine_t</ref>*<sp/>pCommandLine);</highlight></codeline>
+<codeline lineno="68"><highlight class="normal"></highlight></codeline>
+<codeline lineno="77"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="wsh__shell__interact_8h_1acd711b0ad63230451db53ebca04c7e32" kindref="member">WshShellInteract_Flush</ref>(<ref refid="structWshShell__Interact__t" kindref="compound">WshShell_Interact_t</ref>*<sp/>pInteract);</highlight></codeline>
+<codeline lineno="78"><highlight class="normal"></highlight></codeline>
+<codeline lineno="79"><highlight class="normal"></highlight><highlight class="preprocessor">#ifdef<sp/>__cplusplus</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="80"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="81"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="82"><highlight class="normal"></highlight></codeline>
+<codeline lineno="83"><highlight class="normal"></highlight><highlight class="preprocessor">#endif<sp/></highlight><highlight class="comment">/*<sp/>__WSH_SHELL_INTERACT_H<sp/>*/</highlight><highlight class="preprocessor"></highlight></codeline>
+    </programlisting>
+    <location file="src/wsh_shell_interact.h"/>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,55 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="structWshShellPromptWait" kind="struct" language="C++" prot="public">
+    <compoundname>WshShellPromptWait</compoundname>
+    <includes refid="wsh__shell__promptwait_8h" local="no">wsh_shell_promptwait.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structWshShellPromptWait_1ae4e0cb05436cf97715fec8238a910e38" prot="public" static="no" mutable="no">
+        <type><ref refid="wsh__shell__promptwait_8h_1a8b7d52c5773fc4c4bf95494df837cac0" kindref="member">WshShellPromptWait_Handler_t</ref></type>
+        <definition>WshShellPromptWait_Handler_t WshShellPromptWait::Handler</definition>
+        <argsstring></argsstring>
+        <name>Handler</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/wsh_shell_promptwait.h" line="44" column="34" bodyfile="src/wsh_shell_promptwait.h" bodystart="44" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structWshShellPromptWait_1ae5f7d28b53ad5e104c9e5902b0c117b0" prot="public" static="no" mutable="no">
+        <type>void *</type>
+        <definition>void* WshShellPromptWait::Ctx</definition>
+        <argsstring></argsstring>
+        <name>Ctx</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/wsh_shell_promptwait.h" line="45" column="10" bodyfile="src/wsh_shell_promptwait.h" bodystart="45" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Prompt-wait control structure. </para>
+    </briefdescription>
+    <detaileddescription>
+<para>Holds the active handler and optional context pointer. If Handler is NULL, no prompt-wait is active. </para>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="1">
+        <label>WshShellPromptWait</label>
+        <link refid="structWshShellPromptWait"/>
+        <childnode refid="1" relation="usage">
+          <edgelabel>Handler</edgelabel>
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="src/wsh_shell_promptwait.h" line="43" column="1" bodyfile="src/wsh_shell_promptwait.h" bodystart="43" bodyend="46"/>
+    <listofallmembers>
+      <member refid="structWshShellPromptWait_1ae5f7d28b53ad5e104c9e5902b0c117b0" prot="public" virt="non-virtual"><scope>WshShellPromptWait</scope><name>Ctx</name></member>
+      <member refid="structWshShellPromptWait_1ae4e0cb05436cf97715fec8238a910e38" prot="public" virt="non-virtual"><scope>WshShellPromptWait</scope><name>Handler</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>
