@@ -1,0 +1,69 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="structWshShellHistory__IO__t" kind="struct" language="C++" prot="public">
+    <compoundname>WshShellHistory_IO_t</compoundname>
+    <includes refid="wsh__shell__history_8h" local="no">wsh_shell_history.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structWshShellHistory__IO__t_1a94e168c22b74260b6e6d7b1c555ec1e1" prot="public" static="no" mutable="no">
+        <type><ref refid="wsh__shell__history_8h_1a6deaaf9be341ddc04ffb1cf8e78d3e11" kindref="member">WshShellHistory_ReadHandler_t</ref></type>
+        <definition>WshShellHistory_ReadHandler_t WshShellHistory_IO_t::Read</definition>
+        <argsstring></argsstring>
+        <name>Read</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Callback for loading saved history. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/wsh_shell_history.h" line="73" column="35" bodyfile="src/wsh_shell_history.h" bodystart="73" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structWshShellHistory__IO__t_1af3f6eccf6e1be7d473a390f24b7c1bdc" prot="public" static="no" mutable="no">
+        <type><ref refid="wsh__shell__history_8h_1a6c3f231f284abd001c0c405bde299bde" kindref="member">WshShellHistory_WriteHandler_t</ref></type>
+        <definition>WshShellHistory_WriteHandler_t WshShellHistory_IO_t::Write</definition>
+        <argsstring></argsstring>
+        <name>Write</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Callback for saving current history. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/wsh_shell_history.h" line="74" column="36" bodyfile="src/wsh_shell_history.h" bodystart="74" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Structure holding function pointers for history persistence I/O. </para>
+    </briefdescription>
+    <detaileddescription>
+<para>This allows the shell history system to remain storage-agnostic by delegating read/write responsibilities to external code (e.g., flash drivers, NVM emulation). </para>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="2">
+        <label>WshShellHistory_t</label>
+        <link refid="structWshShellHistory__t"/>
+        <childnode refid="3" relation="usage">
+          <edgelabel>Data</edgelabel>
+        </childnode>
+      </node>
+      <node id="3">
+        <label>WshShellHistory_Data_t</label>
+        <link refid="structWshShellHistory__Data__t"/>
+      </node>
+      <node id="1">
+        <label>WshShellHistory_IO_t</label>
+        <link refid="structWshShellHistory__IO__t"/>
+        <childnode refid="2" relation="usage">
+          <edgelabel>Read</edgelabel>
+          <edgelabel>Write</edgelabel>
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="src/wsh_shell_history.h" line="72" column="1" bodyfile="src/wsh_shell_history.h" bodystart="72" bodyend="75"/>
+    <listofallmembers>
+      <member refid="structWshShellHistory__IO__t_1a94e168c22b74260b6e6d7b1c555ec1e1" prot="public" virt="non-virtual"><scope>WshShellHistory_IO_t</scope><name>Read</name></member>
+      <member refid="structWshShellHistory__IO__t_1af3f6eccf6e1be7d473a390f24b7c1bdc" prot="public" virt="non-virtual"><scope>WshShellHistory_IO_t</scope><name>Write</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

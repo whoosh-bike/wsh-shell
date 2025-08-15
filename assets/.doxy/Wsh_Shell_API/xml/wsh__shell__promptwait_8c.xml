@@ -1,0 +1,353 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="wsh__shell__promptwait_8c" kind="file" language="C++">
+    <compoundname>wsh_shell_promptwait.c</compoundname>
+    <includes refid="wsh__shell__promptwait_8h" local="yes">wsh_shell_promptwait.h</includes>
+    <incdepgraph>
+      <node id="9">
+        <label>stdbool.h</label>
+      </node>
+      <node id="8">
+        <label>stdarg.h</label>
+      </node>
+      <node id="5">
+        <label>wsh_shell_str.h</label>
+        <link refid="wsh__shell__str_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>src/wsh_shell_promptwait.c</label>
+        <link refid="wsh__shell__promptwait_8c"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>wsh_shell_promptwait.h</label>
+        <link refid="wsh__shell__promptwait_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+      </node>
+      <node id="11">
+        <label>stdint.h</label>
+      </node>
+      <node id="13">
+        <label>stdlib.h</label>
+      </node>
+      <node id="3">
+        <label>wsh_shell_cfg.h</label>
+      </node>
+      <node id="10">
+        <label>stddef.h</label>
+      </node>
+      <node id="6">
+        <label>wsh_shell_option.h</label>
+        <link refid="wsh__shell__option_8h"/>
+        <childnode refid="7" relation="include">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>wsh_shell_io.h</label>
+        <link refid="wsh__shell__io_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+      </node>
+      <node id="14">
+        <label>string.h</label>
+      </node>
+      <node id="7">
+        <label>wsh_shell_types.h</label>
+        <link refid="wsh__shell__types_8h"/>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+      </node>
+      <node id="12">
+        <label>stdio.h</label>
+      </node>
+    </incdepgraph>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="wsh__shell__promptwait_8c_1a43d800c65924a700804695ce86f08fb0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void WshShellPromptWait_Attach</definition>
+        <argsstring>(WshShellPromptWait_t *pWait, WshShellPromptWait_Handler_t handler, void *pCtx)</argsstring>
+        <name>WshShellPromptWait_Attach</name>
+        <param>
+          <type><ref refid="wsh__shell__promptwait_8h_1ae016420bafdc2a872eff41aa9a95d110" kindref="member">WshShellPromptWait_t</ref> *</type>
+          <declname>pWait</declname>
+        </param>
+        <param>
+          <type><ref refid="wsh__shell__promptwait_8h_1a8b7d52c5773fc4c4bf95494df837cac0" kindref="member">WshShellPromptWait_Handler_t</ref></type>
+          <declname>handler</declname>
+        </param>
+        <param>
+          <type>void *</type>
+          <declname>pCtx</declname>
+        </param>
+        <briefdescription>
+<para>Attach a one-time input handler. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Replaces normal shell input handling with a temporary callback. The callback will receive the first character entered by the user, after which it should typically disable itself by calling <computeroutput><ref refid="wsh__shell__promptwait_8h_1a8a617ef8d2ec336720ab8efe34c2a279" kindref="member">WshShellPromptWait_Flush()</ref></computeroutput>.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="inout">pWait</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to prompt-wait control object. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">handler</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Callback function to invoke on user input. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">pCtx</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Optional pointer to user context. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/wsh_shell_promptwait.c" line="3" column="6" bodyfile="src/wsh_shell_promptwait.c" bodystart="3" bodyend="11"/>
+      </memberdef>
+      <memberdef kind="function" id="wsh__shell__promptwait_8c_1a8a617ef8d2ec336720ab8efe34c2a279" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void WshShellPromptWait_Flush</definition>
+        <argsstring>(WshShellPromptWait_t *pWait)</argsstring>
+        <name>WshShellPromptWait_Flush</name>
+        <param>
+          <type><ref refid="wsh__shell__promptwait_8h_1ae016420bafdc2a872eff41aa9a95d110" kindref="member">WshShellPromptWait_t</ref> *</type>
+          <declname>pWait</declname>
+        </param>
+        <briefdescription>
+<para>Flush the current prompt-wait mode. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Resets the handler to NULL so that normal shell input is processed.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="inout">pWait</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to prompt-wait control object. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/wsh_shell_promptwait.c" line="13" column="6" bodyfile="src/wsh_shell_promptwait.c" bodystart="13" bodyend="20"/>
+      </memberdef>
+      <memberdef kind="function" id="wsh__shell__promptwait_8c_1a77a4f37e3ae313fe5291c5e28addd451" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>WSH_SHELL_RET_STATE_t</type>
+        <definition>WSH_SHELL_RET_STATE_t WshShellPromptWait_Handle</definition>
+        <argsstring>(WshShellPromptWait_t *pWait, WshShell_Char_t symbol)</argsstring>
+        <name>WshShellPromptWait_Handle</name>
+        <param>
+          <type><ref refid="wsh__shell__promptwait_8h_1ae016420bafdc2a872eff41aa9a95d110" kindref="member">WshShellPromptWait_t</ref> *</type>
+          <declname>pWait</declname>
+        </param>
+        <param>
+          <type>WshShell_Char_t</type>
+          <declname>symbol</declname>
+        </param>
+        <briefdescription>
+<para>Handle a symbol when in prompt-wait mode. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>If a handler is set, it is called with the given symbol and context.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="inout">pWait</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to prompt-wait control object. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">symbol</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Character entered by the user. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>WSH_SHELL_RET_STATE_ERR_PARAM if some problems with input params WSH_SHELL_RET_STATE_ERR_EMPTY if there are no handler attached WSH_SHELL_RET_STATE_ERR_BUSY if normal shell processing should continue WSH_SHELL_RET_STATE_SUCCESS if the symbol was handled by the prompt-wait mechanism </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/wsh_shell_promptwait.c" line="22" column="23" bodyfile="src/wsh_shell_promptwait.c" bodystart="22" bodyend="37"/>
+      </memberdef>
+      <memberdef kind="function" id="wsh__shell__promptwait_8c_1a99b79f24add7ec6e2f404a6888373b6f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>WshShell_Bool_t</type>
+        <definition>WshShell_Bool_t WshShellPromptWait_Enter</definition>
+        <argsstring>(WshShell_Char_t symbol, WshShellPromptWait_t *pWait)</argsstring>
+        <name>WshShellPromptWait_Enter</name>
+        <param>
+          <type>WshShell_Char_t</type>
+          <declname>symbol</declname>
+        </param>
+        <param>
+          <type><ref refid="wsh__shell__promptwait_8h_1ae016420bafdc2a872eff41aa9a95d110" kindref="member">WshShellPromptWait_t</ref> *</type>
+          <declname>pWait</declname>
+        </param>
+        <briefdescription>
+<para>User input handler for prompt-wait mode. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Processes a character entered by the user while waiting for specific input (e.g., Enter key, Y/N confirmation, etc.).</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>symbol</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The character entered by the user. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>pWait</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the prompt-wait control structure. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>WshShell_Bool_t<itemizedlist>
+<listitem><para>true if the input was handled and waiting can end;</para>
+</listitem><listitem><para>false if waiting should continue. </para>
+</listitem></itemizedlist>
+</para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/wsh_shell_promptwait.c" line="39" column="17" bodyfile="src/wsh_shell_promptwait.c" bodystart="39" bodyend="47"/>
+      </memberdef>
+      <memberdef kind="function" id="wsh__shell__promptwait_8c_1a2550871112305c516bab1d2de9f5de05" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>WshShell_Bool_t</type>
+        <definition>WshShell_Bool_t WshShellPromptWait_YesNo</definition>
+        <argsstring>(WshShell_Char_t symbol, WshShellPromptWait_t *pWait)</argsstring>
+        <name>WshShellPromptWait_YesNo</name>
+        <param>
+          <type>WshShell_Char_t</type>
+          <declname>symbol</declname>
+        </param>
+        <param>
+          <type><ref refid="wsh__shell__promptwait_8h_1ae016420bafdc2a872eff41aa9a95d110" kindref="member">WshShellPromptWait_t</ref> *</type>
+          <declname>pWait</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/wsh_shell_promptwait.c" line="49" column="17" bodyfile="src/wsh_shell_promptwait.c" bodystart="49" bodyend="60"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="preprocessor">#include<sp/>&quot;<ref refid="wsh__shell__promptwait_8h" kindref="compound">wsh_shell_promptwait.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="wsh__shell__promptwait_8h_1a43d800c65924a700804695ce86f08fb0" kindref="member">WshShellPromptWait_Attach</ref>(<ref refid="structWshShellPromptWait" kindref="compound">WshShellPromptWait_t</ref>*<sp/>pWait,<sp/><ref refid="wsh__shell__promptwait_8h_1a8b7d52c5773fc4c4bf95494df837cac0" kindref="member">WshShellPromptWait_Handler_t</ref><sp/>handler,</highlight></codeline>
+<codeline lineno="4"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal">*<sp/>pCtx)<sp/>{</highlight></codeline>
+<codeline lineno="5"><highlight class="normal"><sp/><sp/><sp/><sp/>WSH_SHELL_ASSERT(pWait<sp/>&amp;&amp;<sp/>handler);</highlight></codeline>
+<codeline lineno="6"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(!pWait<sp/>||<sp/>!handler)</highlight></codeline>
+<codeline lineno="7"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight></codeline>
+<codeline lineno="9"><highlight class="normal"><sp/><sp/><sp/><sp/>pWait-&gt;Handler<sp/>=<sp/>handler;</highlight></codeline>
+<codeline lineno="10"><highlight class="normal"><sp/><sp/><sp/><sp/>pWait-&gt;Ctx<sp/><sp/><sp/><sp/><sp/>=<sp/>pCtx;</highlight></codeline>
+<codeline lineno="11"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="wsh__shell__promptwait_8h_1a8a617ef8d2ec336720ab8efe34c2a279" kindref="member">WshShellPromptWait_Flush</ref>(<ref refid="structWshShellPromptWait" kindref="compound">WshShellPromptWait_t</ref>*<sp/>pWait)<sp/>{</highlight></codeline>
+<codeline lineno="14"><highlight class="normal"><sp/><sp/><sp/><sp/>WSH_SHELL_ASSERT(pWait);</highlight></codeline>
+<codeline lineno="15"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(!pWait)</highlight></codeline>
+<codeline lineno="16"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="17"><highlight class="normal"></highlight></codeline>
+<codeline lineno="18"><highlight class="normal"><sp/><sp/><sp/><sp/>pWait-&gt;Handler<sp/>=<sp/>NULL;</highlight></codeline>
+<codeline lineno="19"><highlight class="normal"><sp/><sp/><sp/><sp/>pWait-&gt;Ctx<sp/><sp/><sp/><sp/><sp/>=<sp/>NULL;</highlight></codeline>
+<codeline lineno="20"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="21"><highlight class="normal"></highlight></codeline>
+<codeline lineno="22"><highlight class="normal">WSH_SHELL_RET_STATE_t<sp/><ref refid="wsh__shell__promptwait_8h_1a77a4f37e3ae313fe5291c5e28addd451" kindref="member">WshShellPromptWait_Handle</ref>(<ref refid="structWshShellPromptWait" kindref="compound">WshShellPromptWait_t</ref>*<sp/>pWait,</highlight></codeline>
+<codeline lineno="23"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>WshShell_Char_t<sp/>symbol)<sp/>{</highlight></codeline>
+<codeline lineno="24"><highlight class="normal"><sp/><sp/><sp/><sp/>WSH_SHELL_ASSERT(pWait);</highlight></codeline>
+<codeline lineno="25"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(!pWait)</highlight></codeline>
+<codeline lineno="26"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>WSH_SHELL_RET_STATE_ERR_PARAM;</highlight></codeline>
+<codeline lineno="27"><highlight class="normal"></highlight></codeline>
+<codeline lineno="28"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(pWait-&gt;Handler)<sp/>{</highlight></codeline>
+<codeline lineno="29"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>WshShell_Bool_t<sp/>res<sp/>=<sp/>pWait-&gt;Handler(symbol,<sp/>pWait);</highlight></codeline>
+<codeline lineno="30"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(!res)</highlight></codeline>
+<codeline lineno="31"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>WSH_SHELL_PRINT(</highlight><highlight class="stringliteral">&quot;%c&quot;</highlight><highlight class="normal">,<sp/><ref refid="wsh__shell__io_8h_1aada0009e1c61c8108bc32ad2755d9337" kindref="member">WSH_SHELL_SYM_SOUND</ref>);</highlight></codeline>
+<codeline lineno="32"><highlight class="normal"></highlight></codeline>
+<codeline lineno="33"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>res<sp/>==<sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal"><sp/>?<sp/>WSH_SHELL_RET_STATE_SUCCESS<sp/>:<sp/>WSH_SHELL_RET_STATE_ERR_BUSY;</highlight></codeline>
+<codeline lineno="34"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="35"><highlight class="normal"></highlight></codeline>
+<codeline lineno="36"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>WSH_SHELL_RET_STATE_ERR_EMPTY;</highlight></codeline>
+<codeline lineno="37"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="38"><highlight class="normal"></highlight></codeline>
+<codeline lineno="39"><highlight class="normal">WshShell_Bool_t<sp/><ref refid="wsh__shell__promptwait_8h_1a99b79f24add7ec6e2f404a6888373b6f" kindref="member">WshShellPromptWait_Enter</ref>(WshShell_Char_t<sp/>symbol,<sp/><ref refid="structWshShellPromptWait" kindref="compound">WshShellPromptWait_t</ref>*<sp/>pWait)<sp/>{</highlight></codeline>
+<codeline lineno="40"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(symbol<sp/>==<sp/></highlight><highlight class="charliteral">&apos;\r&apos;</highlight><highlight class="normal"><sp/>||<sp/>symbol<sp/>==<sp/></highlight><highlight class="charliteral">&apos;\n&apos;</highlight><highlight class="normal">)<sp/>{</highlight></codeline>
+<codeline lineno="41"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="wsh__shell__promptwait_8h_1a8a617ef8d2ec336720ab8efe34c2a279" kindref="member">WshShellPromptWait_Flush</ref>(pWait);</highlight></codeline>
+<codeline lineno="42"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="43"><highlight class="normal"><sp/><sp/><sp/><sp/>}<sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline lineno="44"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>WSH_SHELL_PRINT_SYS(</highlight><highlight class="stringliteral">&quot;Press<sp/>&lt;Enter&gt;<sp/>to<sp/>continue...\r\n&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="45"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="46"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="47"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="48"><highlight class="normal"></highlight></codeline>
+<codeline lineno="49"><highlight class="normal">WshShell_Bool_t<sp/>WshShellPromptWait_YesNo(WshShell_Char_t<sp/>symbol,<sp/><ref refid="structWshShellPromptWait" kindref="compound">WshShellPromptWait_t</ref>*<sp/>pWait)<sp/>{</highlight></codeline>
+<codeline lineno="50"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(symbol<sp/>==<sp/></highlight><highlight class="charliteral">&apos;Y&apos;</highlight><highlight class="normal"><sp/>||<sp/>symbol<sp/>==<sp/></highlight><highlight class="charliteral">&apos;y&apos;</highlight><highlight class="normal">)<sp/>{</highlight></codeline>
+<codeline lineno="51"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>WSH_SHELL_PRINT_SYS(</highlight><highlight class="stringliteral">&quot;Yes<sp/>selected\r\n&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="52"><highlight class="normal"><sp/><sp/><sp/><sp/>}<sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(symbol<sp/>==<sp/></highlight><highlight class="charliteral">&apos;N&apos;</highlight><highlight class="normal"><sp/>||<sp/>symbol<sp/>==<sp/></highlight><highlight class="charliteral">&apos;n&apos;</highlight><highlight class="normal">)<sp/>{</highlight></codeline>
+<codeline lineno="53"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>WSH_SHELL_PRINT_SYS(</highlight><highlight class="stringliteral">&quot;No<sp/>selected\r\n&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="54"><highlight class="normal"><sp/><sp/><sp/><sp/>}<sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline lineno="55"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>WSH_SHELL_PRINT_SYS(</highlight><highlight class="stringliteral">&quot;Invalid<sp/>input\r\n&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="56"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="57"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="58"><highlight class="normal"></highlight></codeline>
+<codeline lineno="59"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="60"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="src/wsh_shell_promptwait.c"/>
+  </compounddef>
+</doxygen>

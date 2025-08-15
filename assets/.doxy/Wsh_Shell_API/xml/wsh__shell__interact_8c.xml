@@ -1,0 +1,278 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="wsh__shell__interact_8c" kind="file" language="C++">
+    <compoundname>wsh_shell_interact.c</compoundname>
+    <includes refid="wsh__shell__interact_8h" local="yes">wsh_shell_interact.h</includes>
+    <incdepgraph>
+      <node id="9">
+        <label>stdbool.h</label>
+      </node>
+      <node id="8">
+        <label>stdarg.h</label>
+      </node>
+      <node id="5">
+        <label>wsh_shell_str.h</label>
+        <link refid="wsh__shell__str_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+      </node>
+      <node id="11">
+        <label>stdint.h</label>
+      </node>
+      <node id="13">
+        <label>stdlib.h</label>
+      </node>
+      <node id="3">
+        <label>wsh_shell_cfg.h</label>
+      </node>
+      <node id="10">
+        <label>stddef.h</label>
+      </node>
+      <node id="6">
+        <label>wsh_shell_option.h</label>
+        <link refid="wsh__shell__option_8h"/>
+        <childnode refid="7" relation="include">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>wsh_shell_io.h</label>
+        <link refid="wsh__shell__io_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+      </node>
+      <node id="14">
+        <label>string.h</label>
+      </node>
+      <node id="7">
+        <label>wsh_shell_types.h</label>
+        <link refid="wsh__shell__types_8h"/>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>src/wsh_shell_interact.c</label>
+        <link refid="wsh__shell__interact_8c"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>wsh_shell_interact.h</label>
+        <link refid="wsh__shell__interact_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+      </node>
+      <node id="12">
+        <label>stdio.h</label>
+      </node>
+    </incdepgraph>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="wsh__shell__interact_8c_1a5f248670e419f7a14026e1266fda5a56" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void WshShellInteract_Attach</definition>
+        <argsstring>(WshShell_Interact_t *pInteract, const WshShell_Char_t *pcName, WshShellInteractive_CmdHandler_t handler)</argsstring>
+        <name>WshShellInteract_Attach</name>
+        <param>
+          <type><ref refid="structWshShell__Interact__t" kindref="compound">WshShell_Interact_t</ref> *</type>
+          <declname>pInteract</declname>
+        </param>
+        <param>
+          <type>const WshShell_Char_t *</type>
+          <declname>pcName</declname>
+        </param>
+        <param>
+          <type><ref refid="wsh__shell__interact_8h_1a35ab4479cd1af794ef9f06de445b2d86" kindref="member">WshShellInteractive_CmdHandler_t</ref></type>
+          <declname>handler</declname>
+        </param>
+        <briefdescription>
+<para>Registers an interactive command. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Attaches a named command and its execution function to the given interact structure. The command name is truncated if it exceeds the internal buffer size.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="out">pInteract</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the interact object to initialize. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">pcName</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Null-terminated name of the interactive command. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">handler</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Function pointer to be called when the command is executed. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/wsh_shell_interact.c" line="49" column="6" bodyfile="src/wsh_shell_interact.c" bodystart="49" bodyend="56"/>
+      </memberdef>
+      <memberdef kind="function" id="wsh__shell__interact_8c_1a8afddd69a9e0d737f5e24935037f9b60" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void WshShellInteract_AppendLineBreak</definition>
+        <argsstring>(WshShellIO_CommandLine_t *pCommandLine)</argsstring>
+        <name>WshShellInteract_AppendLineBreak</name>
+        <param>
+          <type><ref refid="structWshShellIO__CommandLine__t" kindref="compound">WshShellIO_CommandLine_t</ref> *</type>
+          <declname>pCommandLine</declname>
+        </param>
+        <briefdescription>
+<para>Appends a CRLF (<computeroutput>\r\n</computeroutput>) sequence to the interaction buffer. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Adds a carriage return and line feed to the end of the current input buffer, if there is enough space. This is typically used to terminate user input lines.</para>
+<para>If the buffer is too full to append both characters, an error is printed.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="inout">pCommandLine</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the interaction buffer (command line). </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/wsh_shell_interact.c" line="58" column="6" bodyfile="src/wsh_shell_interact.c" bodystart="58" bodyend="60"/>
+      </memberdef>
+      <memberdef kind="function" id="wsh__shell__interact_8c_1acd711b0ad63230451db53ebca04c7e32" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void WshShellInteract_Flush</definition>
+        <argsstring>(WshShell_Interact_t *pInteract)</argsstring>
+        <name>WshShellInteract_Flush</name>
+        <param>
+          <type><ref refid="structWshShell__Interact__t" kindref="compound">WshShell_Interact_t</ref> *</type>
+          <declname>pInteract</declname>
+        </param>
+        <briefdescription>
+<para>Clears the contents of an interactive command slot. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Resets the execution function pointer to <computeroutput>NULL</computeroutput> and clears the command name buffer. This effectively &quot;removes&quot; the interactive command from the shell registry.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="inout">pInteract</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the interact structure to flush. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/wsh_shell_interact.c" line="62" column="6" bodyfile="src/wsh_shell_interact.c" bodystart="62" bodyend="64"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="preprocessor">#include<sp/>&quot;<ref refid="wsh__shell__interact_8h" kindref="compound">wsh_shell_interact.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="preprocessor">#if<sp/>WSH_SHELL_INTERACTIVE_MODE</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="wsh__shell__interact_8h_1a5f248670e419f7a14026e1266fda5a56" kindref="member">WshShellInteract_Attach</ref>(<ref refid="structWshShell__Interact__t" kindref="compound">WshShell_Interact_t</ref>*<sp/>pInteract,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>WshShell_Char_t*<sp/>pcName,</highlight></codeline>
+<codeline lineno="6"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="wsh__shell__interact_8h_1a35ab4479cd1af794ef9f06de445b2d86" kindref="member">WshShellInteractive_CmdHandler_t</ref><sp/>handler)<sp/>{</highlight></codeline>
+<codeline lineno="7"><highlight class="normal"><sp/><sp/><sp/><sp/>WSH_SHELL_ASSERT(pInteract<sp/>&amp;&amp;<sp/>pcName<sp/>&amp;&amp;<sp/>handler);</highlight></codeline>
+<codeline lineno="8"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(!pInteract<sp/>||<sp/>!pcName<sp/>||<sp/>!handler)</highlight></codeline>
+<codeline lineno="9"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight></codeline>
+<codeline lineno="11"><highlight class="normal"><sp/><sp/><sp/><sp/>pInteract-&gt;<ref refid="structWshShell__Interact__t_1ad2a2c2639c19852b31e839ac6253ee89" kindref="member">Handler</ref><sp/>=<sp/>handler;</highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight></codeline>
+<codeline lineno="13"><highlight class="normal"><sp/><sp/><sp/><sp/>WshShell_Size_t<sp/>bufSize<sp/>=<sp/></highlight><highlight class="keyword">sizeof</highlight><highlight class="normal">(pInteract-&gt;<ref refid="structWshShell__Interact__t_1a9ba12ecd5cb74beb9443284ca23ef8ff" kindref="member">CmdName</ref>);</highlight></codeline>
+<codeline lineno="14"><highlight class="normal"><sp/><sp/><sp/><sp/>WshShell_Size_t<sp/>len<sp/><sp/><sp/><sp/><sp/>=<sp/>WSH_SHELL_STRLEN(pcName);</highlight></codeline>
+<codeline lineno="15"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(len<sp/>&gt;=<sp/>bufSize)</highlight></codeline>
+<codeline lineno="16"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>len<sp/>=<sp/>bufSize<sp/>-<sp/>1;</highlight></codeline>
+<codeline lineno="17"><highlight class="normal"></highlight></codeline>
+<codeline lineno="18"><highlight class="normal"><sp/><sp/><sp/><sp/>WSH_SHELL_MEMCPY(pInteract-&gt;<ref refid="structWshShell__Interact__t_1a9ba12ecd5cb74beb9443284ca23ef8ff" kindref="member">CmdName</ref>,<sp/>pcName,<sp/>len);</highlight></codeline>
+<codeline lineno="19"><highlight class="normal"><sp/><sp/><sp/><sp/>pInteract-&gt;<ref refid="structWshShell__Interact__t_1a9ba12ecd5cb74beb9443284ca23ef8ff" kindref="member">CmdName</ref>[len]<sp/>=<sp/></highlight><highlight class="charliteral">&apos;\0&apos;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="20"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="21"><highlight class="normal"></highlight></codeline>
+<codeline lineno="22"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="wsh__shell__interact_8h_1a8afddd69a9e0d737f5e24935037f9b60" kindref="member">WshShellInteract_AppendLineBreak</ref>(<ref refid="structWshShellIO__CommandLine__t" kindref="compound">WshShellIO_CommandLine_t</ref>*<sp/>pCommandLine)<sp/>{</highlight></codeline>
+<codeline lineno="23"><highlight class="normal"><sp/><sp/><sp/><sp/>WSH_SHELL_ASSERT(pCommandLine);</highlight></codeline>
+<codeline lineno="24"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(!pCommandLine)</highlight></codeline>
+<codeline lineno="25"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="26"><highlight class="normal"></highlight></codeline>
+<codeline lineno="27"><highlight class="normal"><sp/><sp/><sp/><sp/>WshShell_Size_t<sp/>len<sp/><sp/><sp/><sp/>=<sp/>pCommandLine-&gt;<ref refid="structWshShellIO__CommandLine__t_1a9ceb70baa2d64af07f92632dd95f750d" kindref="member">Len</ref>;</highlight></codeline>
+<codeline lineno="28"><highlight class="normal"><sp/><sp/><sp/><sp/>WshShell_Size_t<sp/>maxLen<sp/>=<sp/></highlight><highlight class="keyword">sizeof</highlight><highlight class="normal">(pCommandLine-&gt;<ref refid="structWshShellIO__CommandLine__t_1a74b52cba6bcd35c578f8e1eeefe11b76" kindref="member">Buff</ref>);</highlight></codeline>
+<codeline lineno="29"><highlight class="normal"></highlight></codeline>
+<codeline lineno="30"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(len<sp/>+<sp/>2<sp/>&lt;<sp/>maxLen)<sp/>{</highlight></codeline>
+<codeline lineno="31"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>pCommandLine-&gt;<ref refid="structWshShellIO__CommandLine__t_1a74b52cba6bcd35c578f8e1eeefe11b76" kindref="member">Buff</ref>[len++]<sp/>=<sp/></highlight><highlight class="charliteral">&apos;\r&apos;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="32"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>pCommandLine-&gt;<ref refid="structWshShellIO__CommandLine__t_1a74b52cba6bcd35c578f8e1eeefe11b76" kindref="member">Buff</ref>[len++]<sp/>=<sp/></highlight><highlight class="charliteral">&apos;\n&apos;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="33"><highlight class="normal"><sp/><sp/><sp/><sp/>}<sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline lineno="34"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>WSH_SHELL_PRINT_ERR(</highlight><highlight class="stringliteral">&quot;Command<sp/>too<sp/>long!&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="35"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="36"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="37"><highlight class="normal"></highlight></codeline>
+<codeline lineno="38"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="wsh__shell__interact_8h_1acd711b0ad63230451db53ebca04c7e32" kindref="member">WshShellInteract_Flush</ref>(<ref refid="structWshShell__Interact__t" kindref="compound">WshShell_Interact_t</ref>*<sp/>pInteract)<sp/>{</highlight></codeline>
+<codeline lineno="39"><highlight class="normal"><sp/><sp/><sp/><sp/>WSH_SHELL_ASSERT(pInteract);</highlight></codeline>
+<codeline lineno="40"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(!pInteract)</highlight></codeline>
+<codeline lineno="41"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="42"><highlight class="normal"></highlight></codeline>
+<codeline lineno="43"><highlight class="normal"><sp/><sp/><sp/><sp/>pInteract-&gt;<ref refid="structWshShell__Interact__t_1ad2a2c2639c19852b31e839ac6253ee89" kindref="member">Handler</ref><sp/>=<sp/>NULL;</highlight></codeline>
+<codeline lineno="44"><highlight class="normal"><sp/><sp/><sp/><sp/>WSH_SHELL_MEMSET((</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">*)pInteract-&gt;<ref refid="structWshShell__Interact__t_1a9ba12ecd5cb74beb9443284ca23ef8ff" kindref="member">CmdName</ref>,<sp/>0,<sp/></highlight><highlight class="keyword">sizeof</highlight><highlight class="normal">(pInteract-&gt;<ref refid="structWshShell__Interact__t_1a9ba12ecd5cb74beb9443284ca23ef8ff" kindref="member">CmdName</ref>));</highlight></codeline>
+<codeline lineno="45"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="46"><highlight class="normal"></highlight></codeline>
+<codeline lineno="47"><highlight class="normal"></highlight><highlight class="preprocessor">#else<sp/></highlight><highlight class="comment">/*<sp/>WSH_SHELL_INTERACTIVE_MODE<sp/>*/</highlight><highlight class="preprocessor"></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="48"><highlight class="normal"></highlight></codeline>
+<codeline lineno="49"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="wsh__shell__interact_8h_1a5f248670e419f7a14026e1266fda5a56" kindref="member">WshShellInteract_Attach</ref>(<ref refid="structWshShell__Interact__t" kindref="compound">WshShell_Interact_t</ref>*<sp/>pInteract,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>WshShell_Char_t*<sp/>pcName,</highlight></codeline>
+<codeline lineno="50"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="wsh__shell__interact_8h_1a35ab4479cd1af794ef9f06de445b2d86" kindref="member">WshShellInteractive_CmdHandler_t</ref><sp/>handler)<sp/>{</highlight></codeline>
+<codeline lineno="51"><highlight class="normal"><sp/><sp/><sp/><sp/>(void)(pInteract);</highlight></codeline>
+<codeline lineno="52"><highlight class="normal"><sp/><sp/><sp/><sp/>(void)(pcName);</highlight></codeline>
+<codeline lineno="53"><highlight class="normal"><sp/><sp/><sp/><sp/>(void)(handler);</highlight></codeline>
+<codeline lineno="54"><highlight class="normal"></highlight></codeline>
+<codeline lineno="55"><highlight class="normal"><sp/><sp/><sp/><sp/>WSH_SHELL_PRINT_WARN(</highlight><highlight class="stringliteral">&quot;interactive<sp/>mode<sp/>disabled\r\n&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="56"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="57"><highlight class="normal"></highlight></codeline>
+<codeline lineno="58"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="wsh__shell__interact_8h_1a8afddd69a9e0d737f5e24935037f9b60" kindref="member">WshShellInteract_AppendLineBreak</ref>(<ref refid="structWshShellIO__CommandLine__t" kindref="compound">WshShellIO_CommandLine_t</ref>*<sp/>pCommandLine)<sp/>{</highlight></codeline>
+<codeline lineno="59"><highlight class="normal"><sp/><sp/><sp/><sp/>(void)(pCommandLine);</highlight></codeline>
+<codeline lineno="60"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="61"><highlight class="normal"></highlight></codeline>
+<codeline lineno="62"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="wsh__shell__interact_8h_1acd711b0ad63230451db53ebca04c7e32" kindref="member">WshShellInteract_Flush</ref>(<ref refid="structWshShell__Interact__t" kindref="compound">WshShell_Interact_t</ref>*<sp/>pInteract)<sp/>{</highlight></codeline>
+<codeline lineno="63"><highlight class="normal"><sp/><sp/><sp/><sp/>(void)(pInteract);</highlight></codeline>
+<codeline lineno="64"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="65"><highlight class="normal"></highlight></codeline>
+<codeline lineno="66"><highlight class="normal"></highlight><highlight class="preprocessor">#endif<sp/></highlight><highlight class="comment">/*<sp/>WSH_SHELL_INTERACTIVE_MODE<sp/>*/</highlight><highlight class="preprocessor"></highlight></codeline>
+    </programlisting>
+    <location file="src/wsh_shell_interact.c"/>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,123 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="structWshShellCmd" kind="struct" language="C++" prot="public">
+    <compoundname>WshShellCmd</compoundname>
+    <includes refid="wsh__shell__cmd_8h" local="no">wsh_shell_cmd.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structWshShellCmd_1aa3f13d3d7a3fe30c89ea635528662672" prot="public" static="no" mutable="no">
+        <type>const WshShell_Char_t *</type>
+        <definition>const WshShell_Char_t* WshShellCmd::Name</definition>
+        <argsstring></argsstring>
+        <name>Name</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Command name (e.g., &quot;set&quot;, &quot;info&quot;). </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/wsh_shell_cmd.h" line="45" column="27" bodyfile="src/wsh_shell_cmd.h" bodystart="45" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structWshShellCmd_1a14eb6d76a57bc514d5cc7a6e931e27b0" prot="public" static="no" mutable="no">
+        <type>const WshShell_Char_t *</type>
+        <definition>const WshShell_Char_t* WshShellCmd::Descr</definition>
+        <argsstring></argsstring>
+        <name>Descr</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Human-readable description of the command. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/wsh_shell_cmd.h" line="46" column="27" bodyfile="src/wsh_shell_cmd.h" bodystart="46" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structWshShellCmd_1a0545d6ea9332223f6e6a5d81a43c38c4" prot="public" static="no" mutable="no">
+        <type>WshShell_Size_t</type>
+        <definition>WshShell_Size_t WshShellCmd::Groups</definition>
+        <argsstring></argsstring>
+        <name>Groups</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Command group bitmask for access control or categorization. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/wsh_shell_cmd.h" line="47" column="21" bodyfile="src/wsh_shell_cmd.h" bodystart="47" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structWshShellCmd_1ab6d5436e6a42b7ab55514192a350ab47" prot="public" static="no" mutable="no">
+        <type>const <ref refid="structWshShellOption__t" kindref="compound">WshShellOption_t</ref> *</type>
+        <definition>const WshShellOption_t* WshShellCmd::Options</definition>
+        <argsstring></argsstring>
+        <name>Options</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Pointer to the command&apos;s options array. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/wsh_shell_cmd.h" line="48" column="28" bodyfile="src/wsh_shell_cmd.h" bodystart="48" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structWshShellCmd_1ac02bc1357a43896c73c63863c83d74c6" prot="public" static="no" mutable="no">
+        <type>WshShell_Size_t</type>
+        <definition>WshShell_Size_t WshShellCmd::OptNum</definition>
+        <argsstring></argsstring>
+        <name>OptNum</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Number of defined options. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/wsh_shell_cmd.h" line="49" column="21" bodyfile="src/wsh_shell_cmd.h" bodystart="49" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structWshShellCmd_1a67ee124125be63a4c00d3152560155c1" prot="public" static="no" mutable="no">
+        <type><ref refid="wsh__shell__cmd_8h_1aa35fd0f2220510a8eb2896cf3f471f20" kindref="member">WshShellCmdHandler_t</ref></type>
+        <definition>WshShellCmdHandler_t WshShellCmd::Handler</definition>
+        <argsstring></argsstring>
+        <name>Handler</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Execution callback function. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/wsh_shell_cmd.h" line="50" column="26" bodyfile="src/wsh_shell_cmd.h" bodystart="50" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Descriptor for a shell command. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="2">
+        <label>WshShellOption_t</label>
+        <link refid="structWshShellOption__t"/>
+      </node>
+      <node id="1">
+        <label>WshShellCmd</label>
+        <link refid="structWshShellCmd"/>
+        <childnode refid="1" relation="usage">
+          <edgelabel>Handler</edgelabel>
+        </childnode>
+        <childnode refid="2" relation="usage">
+          <edgelabel>Options</edgelabel>
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="src/wsh_shell_cmd.h" line="44" column="1" bodyfile="src/wsh_shell_cmd.h" bodystart="44" bodyend="51"/>
+    <listofallmembers>
+      <member refid="structWshShellCmd_1a14eb6d76a57bc514d5cc7a6e931e27b0" prot="public" virt="non-virtual"><scope>WshShellCmd</scope><name>Descr</name></member>
+      <member refid="structWshShellCmd_1a0545d6ea9332223f6e6a5d81a43c38c4" prot="public" virt="non-virtual"><scope>WshShellCmd</scope><name>Groups</name></member>
+      <member refid="structWshShellCmd_1a67ee124125be63a4c00d3152560155c1" prot="public" virt="non-virtual"><scope>WshShellCmd</scope><name>Handler</name></member>
+      <member refid="structWshShellCmd_1aa3f13d3d7a3fe30c89ea635528662672" prot="public" virt="non-virtual"><scope>WshShellCmd</scope><name>Name</name></member>
+      <member refid="structWshShellCmd_1ab6d5436e6a42b7ab55514192a350ab47" prot="public" virt="non-virtual"><scope>WshShellCmd</scope><name>Options</name></member>
+      <member refid="structWshShellCmd_1ac02bc1357a43896c73c63863c83d74c6" prot="public" virt="non-virtual"><scope>WshShellCmd</scope><name>OptNum</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

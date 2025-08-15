@@ -1,0 +1,61 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="structWshShellHistory__t" kind="struct" language="C++" prot="public">
+    <compoundname>WshShellHistory_t</compoundname>
+    <includes refid="wsh__shell__history_8h" local="no">wsh_shell_history.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structWshShellHistory__t_1afbc51d2827096815477d4b0b91e957fd" prot="public" static="no" mutable="no">
+        <type>WshShell_U32_t</type>
+        <definition>WshShell_U32_t WshShellHistory_t::Hash</definition>
+        <argsstring></argsstring>
+        <name>Hash</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Hash for integrity verification. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/wsh_shell_history.h" line="52" column="20" bodyfile="src/wsh_shell_history.h" bodystart="52" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structWshShellHistory__t_1a588e7536135d4b14774b8a87ca233547" prot="public" static="no" mutable="no">
+        <type><ref refid="structWshShellHistory__Data__t" kindref="compound">WshShellHistory_Data_t</ref></type>
+        <definition>WshShellHistory_Data_t WshShellHistory_t::Data</definition>
+        <argsstring></argsstring>
+        <name>Data</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Command history buffer. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/wsh_shell_history.h" line="53" column="28" bodyfile="src/wsh_shell_history.h" bodystart="53" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Shell history structure with integrity check. </para>
+    </briefdescription>
+    <detaileddescription>
+<para>This structure wraps the command history data along with a hash (CRC) for validation. </para>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="1">
+        <label>WshShellHistory_t</label>
+        <link refid="structWshShellHistory__t"/>
+        <childnode refid="2" relation="usage">
+          <edgelabel>Data</edgelabel>
+        </childnode>
+      </node>
+      <node id="2">
+        <label>WshShellHistory_Data_t</label>
+        <link refid="structWshShellHistory__Data__t"/>
+      </node>
+    </collaborationgraph>
+    <location file="src/wsh_shell_history.h" line="51" column="1" bodyfile="src/wsh_shell_history.h" bodystart="51" bodyend="54"/>
+    <listofallmembers>
+      <member refid="structWshShellHistory__t_1a588e7536135d4b14774b8a87ca233547" prot="public" virt="non-virtual"><scope>WshShellHistory_t</scope><name>Data</name></member>
+      <member refid="structWshShellHistory__t_1afbc51d2827096815477d4b0b91e957fd" prot="public" virt="non-virtual"><scope>WshShellHistory_t</scope><name>Hash</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

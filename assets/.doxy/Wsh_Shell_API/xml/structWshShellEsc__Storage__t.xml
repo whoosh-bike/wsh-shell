@@ -1,0 +1,47 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="structWshShellEsc__Storage__t" kind="struct" language="C++" prot="public">
+    <compoundname>WshShellEsc_Storage_t</compoundname>
+    <includes refid="wsh__shell__esc_8h" local="no">wsh_shell_esc.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structWshShellEsc__Storage__t_1a007836f5e3b971e2fc17e26e8f4b9dbb" prot="public" static="no" mutable="no">
+        <type>WshShell_Size_t</type>
+        <definition>WshShell_Size_t WshShellEsc_Storage_t::Cnt</definition>
+        <argsstring></argsstring>
+        <name>Cnt</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Current number of buffered characters </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/wsh_shell_esc.h" line="41" column="21" bodyfile="src/wsh_shell_esc.h" bodystart="41" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structWshShellEsc__Storage__t_1a23429db3def2a064b45e6f7d05084f1e" prot="public" static="no" mutable="no">
+        <type>WshShell_Char_t</type>
+        <definition>WshShell_Char_t WshShellEsc_Storage_t::Buff[WSH_SHELL_ESC_BUFF_LEN]</definition>
+        <argsstring>[WSH_SHELL_ESC_BUFF_LEN]</argsstring>
+        <name>Buff</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Escape sequence buffer </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/wsh_shell_esc.h" line="42" column="21" bodyfile="src/wsh_shell_esc.h" bodystart="42" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Escape sequence input state tracker. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="src/wsh_shell_esc.h" line="40" column="1" bodyfile="src/wsh_shell_esc.h" bodystart="40" bodyend="43"/>
+    <listofallmembers>
+      <member refid="structWshShellEsc__Storage__t_1a23429db3def2a064b45e6f7d05084f1e" prot="public" virt="non-virtual"><scope>WshShellEsc_Storage_t</scope><name>Buff</name></member>
+      <member refid="structWshShellEsc__Storage__t_1a007836f5e3b971e2fc17e26e8f4b9dbb" prot="public" virt="non-virtual"><scope>WshShellEsc_Storage_t</scope><name>Cnt</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

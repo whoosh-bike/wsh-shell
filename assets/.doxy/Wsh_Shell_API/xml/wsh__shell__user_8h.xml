@@ -1,0 +1,457 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="wsh__shell__user_8h" kind="file" language="C++">
+    <compoundname>wsh_shell_user.h</compoundname>
+    <includes local="yes">wsh_shell_cfg.h</includes>
+    <includes refid="wsh__shell__types_8h" local="yes">wsh_shell_types.h</includes>
+    <includedby refid="wsh__shell_8h" local="yes">src/wsh_shell.h</includedby>
+    <includedby refid="wsh__shell__user_8c" local="yes">src/wsh_shell_user.c</includedby>
+    <incdepgraph>
+      <node id="1">
+        <label>src/wsh_shell_user.h</label>
+        <link refid="wsh__shell__user_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="5">
+        <label>stdbool.h</label>
+      </node>
+      <node id="4">
+        <label>stdarg.h</label>
+      </node>
+      <node id="7">
+        <label>stdint.h</label>
+      </node>
+      <node id="9">
+        <label>stdlib.h</label>
+      </node>
+      <node id="2">
+        <label>wsh_shell_cfg.h</label>
+      </node>
+      <node id="6">
+        <label>stddef.h</label>
+      </node>
+      <node id="10">
+        <label>string.h</label>
+      </node>
+      <node id="3">
+        <label>wsh_shell_types.h</label>
+        <link refid="wsh__shell__types_8h"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+      </node>
+      <node id="8">
+        <label>stdio.h</label>
+      </node>
+    </incdepgraph>
+    <invincdepgraph>
+      <node id="1">
+        <label>src/wsh_shell_user.h</label>
+        <link refid="wsh__shell__user_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>src/wsh_shell.h</label>
+        <link refid="wsh__shell_8h"/>
+      </node>
+    </invincdepgraph>
+    <innerclass refid="structWshShellUser__t" prot="public">WshShellUser_t</innerclass>
+    <innerclass refid="structWshShellUser__Table__t" prot="public">WshShellUser_Table_t</innerclass>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="wsh__shell__user_8h_1ab005ea5ce79234fdc2541b255086cce5" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>WSH_SHELL_RET_STATE_t</type>
+        <definition>WSH_SHELL_RET_STATE_t WshShellUser_Attach</definition>
+        <argsstring>(WshShellUser_Table_t *pShellUsers, const WshShellUser_t *pcUserTable, WshShell_Size_t userNum)</argsstring>
+        <name>WshShellUser_Attach</name>
+        <param>
+          <type><ref refid="structWshShellUser__Table__t" kindref="compound">WshShellUser_Table_t</ref> *</type>
+          <declname>pShellUsers</declname>
+        </param>
+        <param>
+          <type>const <ref refid="structWshShellUser__t" kindref="compound">WshShellUser_t</ref> *</type>
+          <declname>pcUserTable</declname>
+        </param>
+        <param>
+          <type>WshShell_Size_t</type>
+          <declname>userNum</declname>
+        </param>
+        <briefdescription>
+<para>Initialize the shell user table. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Registers a static user table for the shell instance.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="out">pShellUsers</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the shell&apos;s user table. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">pcUserTable</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the static array of user records. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">userNum</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Number of users in the array.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>WSH_SHELL_RET_STATE_SUCCESS</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Initialization succeeded. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>WSH_SHELL_RET_STATE_ERR_PARAM</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Invalid input arguments. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>WSH_SHELL_RET_STATE_ERR_BUSY</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Table was already initialized. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/wsh_shell_user.h" line="55" column="23" bodyfile="src/wsh_shell_user.c" bodystart="3" bodyend="17" declfile="src/wsh_shell_user.h" declline="55" declcolumn="23"/>
+      </memberdef>
+      <memberdef kind="function" id="wsh__shell__user_8h_1a26a4a7ae0e505ede96a31c71eeb61f65" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void WshShellUser_DeAttach</definition>
+        <argsstring>(WshShellUser_Table_t *pShellUsers)</argsstring>
+        <name>WshShellUser_DeAttach</name>
+        <param>
+          <type><ref refid="structWshShellUser__Table__t" kindref="compound">WshShellUser_Table_t</ref> *</type>
+          <declname>pShellUsers</declname>
+        </param>
+        <briefdescription>
+<para>Destroy the user table. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Resets the user list and count to zero.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="inout">pShellUsers</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the user table to reset. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/wsh_shell_user.h" line="66" column="6" bodyfile="src/wsh_shell_user.c" bodystart="19" bodyend="24" declfile="src/wsh_shell_user.h" declline="66" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="wsh__shell__user_8h_1a5f1b4aed2ff3ac671b0a353721f325a9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>WshShell_Size_t</type>
+        <definition>WshShell_Size_t WshShellUser_GetUsersNum</definition>
+        <argsstring>(WshShellUser_Table_t *pShellUsers)</argsstring>
+        <name>WshShellUser_GetUsersNum</name>
+        <param>
+          <type><ref refid="structWshShellUser__Table__t" kindref="compound">WshShellUser_Table_t</ref> *</type>
+          <declname>pShellUsers</declname>
+        </param>
+        <briefdescription>
+<para>Get the number of users registered in the shell. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">pShellUsers</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the user table.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Number of users, or 0 if uninitialized or NULL. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/wsh_shell_user.h" line="75" column="17" bodyfile="src/wsh_shell_user.c" bodystart="26" bodyend="32" declfile="src/wsh_shell_user.h" declline="75" declcolumn="17"/>
+      </memberdef>
+      <memberdef kind="function" id="wsh__shell__user_8h_1a6eb27bd4524e3edabea08c52e34797d7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>const <ref refid="structWshShellUser__t" kindref="compound">WshShellUser_t</ref> *</type>
+        <definition>const WshShellUser_t* WshShellUser_GetUserByIndex</definition>
+        <argsstring>(WshShellUser_Table_t *pShellUsers, WshShell_Size_t idx)</argsstring>
+        <name>WshShellUser_GetUserByIndex</name>
+        <param>
+          <type><ref refid="structWshShellUser__Table__t" kindref="compound">WshShellUser_Table_t</ref> *</type>
+          <declname>pShellUsers</declname>
+        </param>
+        <param>
+          <type>WshShell_Size_t</type>
+          <declname>idx</declname>
+        </param>
+        <briefdescription>
+<para>Retrieve a user by index. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">pShellUsers</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the user table. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">idx</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Index of the user.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Pointer to the user object, or NULL if invalid. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/wsh_shell_user.h" line="85" column="22" bodyfile="src/wsh_shell_user.c" bodystart="34" bodyend="43" declfile="src/wsh_shell_user.h" declline="85" declcolumn="22"/>
+      </memberdef>
+      <memberdef kind="function" id="wsh__shell__user_8h_1a92102de85626b69ef375173f87b3d31b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>WshShell_Bool_t</type>
+        <definition>WshShell_Bool_t WshShellUser_CheckCredentials</definition>
+        <argsstring>(WshShellUser_Table_t *pShellUsers, WshShell_Size_t UserID, const WshShell_Char_t *pcLogin, const WshShell_Char_t *pcPassword)</argsstring>
+        <name>WshShellUser_CheckCredentials</name>
+        <param>
+          <type><ref refid="structWshShellUser__Table__t" kindref="compound">WshShellUser_Table_t</ref> *</type>
+          <declname>pShellUsers</declname>
+        </param>
+        <param>
+          <type>WshShell_Size_t</type>
+          <declname>UserID</declname>
+        </param>
+        <param>
+          <type>const WshShell_Char_t *</type>
+          <declname>pcLogin</declname>
+        </param>
+        <param>
+          <type>const WshShell_Char_t *</type>
+          <declname>pcPassword</declname>
+        </param>
+        <briefdescription>
+<para>Verify login credentials of a user. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Validates login and password against the given user index.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">pShellUsers</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the user table. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">UserID</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Index of the user to validate. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">pcLogin</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the login string. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">pcPassword</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the password string.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>true</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>If credentials match. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>false</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>If mismatch or error. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/wsh_shell_user.h" line="101" column="17" bodyfile="src/wsh_shell_user.c" bodystart="45" bodyend="65" declfile="src/wsh_shell_user.h" declline="101" declcolumn="17"/>
+      </memberdef>
+      <memberdef kind="function" id="wsh__shell__user_8h_1aeb6134783fd1a2d6d887de0d174b80f3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>const <ref refid="structWshShellUser__t" kindref="compound">WshShellUser_t</ref> *</type>
+        <definition>const WshShellUser_t* WshShellUser_FindByCredentials</definition>
+        <argsstring>(WshShellUser_Table_t *pShellUsers, const WshShell_Char_t *pcLogin, const WshShell_Char_t *pcPass)</argsstring>
+        <name>WshShellUser_FindByCredentials</name>
+        <param>
+          <type><ref refid="structWshShellUser__Table__t" kindref="compound">WshShellUser_Table_t</ref> *</type>
+          <declname>pShellUsers</declname>
+        </param>
+        <param>
+          <type>const WshShell_Char_t *</type>
+          <declname>pcLogin</declname>
+        </param>
+        <param>
+          <type>const WshShell_Char_t *</type>
+          <declname>pcPass</declname>
+        </param>
+        <briefdescription>
+<para>Finds a user by login and password credentials. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Searches the given user table for a user whose login and password match the provided credentials. Comparison is done using the <computeroutput>WshShellUser_CheckCredentials</computeroutput> function.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">pShellUsers</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the user table. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">pcLogin</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the login string. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">pcPass</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the password string.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Pointer to the matching user object if found; NULL otherwise.</para>
+</simplesect>
+<simplesect kind="note"><para>Returns NULL if any input pointer is NULL or if the user table is empty. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/wsh_shell_user.h" line="120" column="22" bodyfile="src/wsh_shell_user.c" bodystart="67" bodyend="80" declfile="src/wsh_shell_user.h" declline="120" declcolumn="22"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Shell user management API. </para>
+    </briefdescription>
+    <detaileddescription>
+<para><simplesect kind="author"><para>Whoosh Embedded Team </para>
+</simplesect>
+<simplesect kind="copyright"><para>Copyright (c) 2025 </para>
+</simplesect>
+</para>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="normal"></highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight><highlight class="preprocessor">#ifndef<sp/>__WSH_SHELL_USER_H</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>__WSH_SHELL_USER_H</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;wsh_shell_cfg.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="wsh__shell__types_8h" kindref="compound">wsh_shell_types.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="14"><highlight class="normal"></highlight></codeline>
+<codeline lineno="15"><highlight class="normal"></highlight><highlight class="preprocessor">#ifdef<sp/>__cplusplus</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="16"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/></highlight><highlight class="stringliteral">&quot;C&quot;</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline lineno="17"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="18"><highlight class="normal"></highlight></codeline>
+<codeline lineno="25" refid="structWshShellUser__t" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="26" refid="structWshShellUser__t_1a8820ed2911a83f57ef77bffe2166027d" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>WshShell_Char_t*<sp/><ref refid="structWshShellUser__t_1a8820ed2911a83f57ef77bffe2166027d" kindref="member">Login</ref>;<sp/></highlight></codeline>
+<codeline lineno="27" refid="structWshShellUser__t_1a4a8c39121d30dbe67a27f057a2939ed2" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>WshShell_Char_t*<sp/><ref refid="structWshShellUser__t_1a4a8c39121d30dbe67a27f057a2939ed2" kindref="member">Pass</ref>;<sp/><sp/></highlight></codeline>
+<codeline lineno="28" refid="structWshShellUser__t_1a982fe8c361a9b40d69cc943a7653ecc5" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>WshShell_Size_t<sp/><ref refid="structWshShellUser__t_1a982fe8c361a9b40d69cc943a7653ecc5" kindref="member">Groups</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="29" refid="structWshShellUser__t_1a1e990c9e7154cefedc038789c9f15664" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>WshShell_Size_t<sp/><ref refid="structWshShellUser__t_1a1e990c9e7154cefedc038789c9f15664" kindref="member">Rights</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="30"><highlight class="normal">}<sp/><ref refid="structWshShellUser__t" kindref="compound">WshShellUser_t</ref>;</highlight></codeline>
+<codeline lineno="31"><highlight class="normal"></highlight></codeline>
+<codeline lineno="37" refid="structWshShellUser__Table__t" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="38" refid="structWshShellUser__Table__t_1a9125202bad2d91a922c3e239d7d1aa42" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="structWshShellUser__t" kindref="compound">WshShellUser_t</ref>*<sp/><ref refid="structWshShellUser__Table__t_1a9125202bad2d91a922c3e239d7d1aa42" kindref="member">List</ref>;<sp/></highlight></codeline>
+<codeline lineno="39" refid="structWshShellUser__Table__t_1a146656c6dfdbcdaf6a00920a287bb40a" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>WshShell_Size_t<sp/><ref refid="structWshShellUser__Table__t_1a146656c6dfdbcdaf6a00920a287bb40a" kindref="member">Num</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="40"><highlight class="normal">}<sp/><ref refid="structWshShellUser__Table__t" kindref="compound">WshShellUser_Table_t</ref>;</highlight></codeline>
+<codeline lineno="41"><highlight class="normal"></highlight></codeline>
+<codeline lineno="55"><highlight class="normal">WSH_SHELL_RET_STATE_t<sp/><ref refid="wsh__shell__user_8h_1ab005ea5ce79234fdc2541b255086cce5" kindref="member">WshShellUser_Attach</ref>(<ref refid="structWshShellUser__Table__t" kindref="compound">WshShellUser_Table_t</ref>*<sp/>pShellUsers,</highlight></codeline>
+<codeline lineno="56"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="structWshShellUser__t" kindref="compound">WshShellUser_t</ref>*<sp/>pcUserTable,</highlight></codeline>
+<codeline lineno="57"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>WshShell_Size_t<sp/>userNum);</highlight></codeline>
+<codeline lineno="58"><highlight class="normal"></highlight></codeline>
+<codeline lineno="66"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="wsh__shell__user_8h_1a26a4a7ae0e505ede96a31c71eeb61f65" kindref="member">WshShellUser_DeAttach</ref>(<ref refid="structWshShellUser__Table__t" kindref="compound">WshShellUser_Table_t</ref>*<sp/>pShellUsers);</highlight></codeline>
+<codeline lineno="67"><highlight class="normal"></highlight></codeline>
+<codeline lineno="75"><highlight class="normal">WshShell_Size_t<sp/><ref refid="wsh__shell__user_8h_1a5f1b4aed2ff3ac671b0a353721f325a9" kindref="member">WshShellUser_GetUsersNum</ref>(<ref refid="structWshShellUser__Table__t" kindref="compound">WshShellUser_Table_t</ref>*<sp/>pShellUsers);</highlight></codeline>
+<codeline lineno="76"><highlight class="normal"></highlight></codeline>
+<codeline lineno="85"><highlight class="normal"></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="structWshShellUser__t" kindref="compound">WshShellUser_t</ref>*<sp/><ref refid="wsh__shell__user_8h_1a6eb27bd4524e3edabea08c52e34797d7" kindref="member">WshShellUser_GetUserByIndex</ref>(<ref refid="structWshShellUser__Table__t" kindref="compound">WshShellUser_Table_t</ref>*<sp/>pShellUsers,</highlight></codeline>
+<codeline lineno="86"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>WshShell_Size_t<sp/>idx);</highlight></codeline>
+<codeline lineno="87"><highlight class="normal"></highlight></codeline>
+<codeline lineno="101"><highlight class="normal">WshShell_Bool_t<sp/><ref refid="wsh__shell__user_8h_1a92102de85626b69ef375173f87b3d31b" kindref="member">WshShellUser_CheckCredentials</ref>(<ref refid="structWshShellUser__Table__t" kindref="compound">WshShellUser_Table_t</ref>*<sp/>pShellUsers,</highlight></codeline>
+<codeline lineno="102"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>WshShell_Size_t<sp/>UserID,</highlight></codeline>
+<codeline lineno="103"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>WshShell_Char_t*<sp/>pcLogin,</highlight></codeline>
+<codeline lineno="104"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>WshShell_Char_t*<sp/>pcPassword);</highlight></codeline>
+<codeline lineno="105"><highlight class="normal"></highlight></codeline>
+<codeline lineno="120"><highlight class="normal"></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="structWshShellUser__t" kindref="compound">WshShellUser_t</ref>*<sp/><ref refid="wsh__shell__user_8h_1aeb6134783fd1a2d6d887de0d174b80f3" kindref="member">WshShellUser_FindByCredentials</ref>(<ref refid="structWshShellUser__Table__t" kindref="compound">WshShellUser_Table_t</ref>*<sp/>pShellUsers,</highlight></codeline>
+<codeline lineno="121"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>WshShell_Char_t*<sp/>pcLogin,</highlight></codeline>
+<codeline lineno="122"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>WshShell_Char_t*<sp/>pcPass);</highlight></codeline>
+<codeline lineno="123"><highlight class="normal"></highlight></codeline>
+<codeline lineno="124"><highlight class="normal"></highlight><highlight class="preprocessor">#ifdef<sp/>__cplusplus</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="125"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="126"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="127"><highlight class="normal"></highlight></codeline>
+<codeline lineno="128"><highlight class="normal"></highlight><highlight class="preprocessor">#endif<sp/></highlight><highlight class="comment">/*<sp/>__WSH_SHELL_USER_H<sp/>*/</highlight><highlight class="preprocessor"></highlight></codeline>
+    </programlisting>
+    <location file="src/wsh_shell_user.h"/>
+  </compounddef>
+</doxygen>
