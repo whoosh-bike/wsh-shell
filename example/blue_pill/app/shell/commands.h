@@ -4,6 +4,6 @@
 #include "main.h"
 #include "wsh_shell.h"
 
-bool Shell_CmdTable_Init(WshShell_t* pShell);
+bool Shell_Commands_Init(WshShell_t* pShell);
 
 #endif /* __COMMANDS_H */

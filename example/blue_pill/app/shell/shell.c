@@ -53,7 +53,7 @@ bool Shell_Init(const char* pcHostName) {
 
     WshShellHistory_Init(&Shell.HistoryIO, Shell_HistoryRead, Shell_HistoryWrite);
 
-    if (!Shell_CmdTable_Init(&Shell))
+    if (!Shell_Commands_Init(&Shell))
         return false;
 
     // WshShell_Auth(&Shell, Shell_UserTable[0].Login, Shell_UserTable[0].Pass);  //For quick auth

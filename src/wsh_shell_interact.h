@@ -29,7 +29,7 @@ extern "C" {
  * This type defines the prototype for interactive command callbacks,
  * which are invoked with a pointer to the current command line buffer.
  */
-typedef void (*WshShellInteractive_CmdHandler_t)(WshShellIO_CommandLine_t* pInter);
+typedef void (*WshShellInteractive_CmdHandler_t)(WshShellIO_CommandLine_t* pCommandLine);
 
 /**
  * @brief Interactive command registration structure.
@@ -62,9 +62,9 @@ void WshShellInteract_Attach(WshShell_Interact_t* pInteract, const WshShell_Char
  *
  * If the buffer is too full to append both characters, an error is printed.
  *
- * @param[in,out] pInter Pointer to the interaction buffer (command line).
+ * @param[in,out] pCommandLine Pointer to the interaction buffer (command line).
  */
-void WshShellInteract_AppendLineBreak(WshShellIO_CommandLine_t* pInter);
+void WshShellInteract_AppendLineBreak(WshShellIO_CommandLine_t* pCommandLine);
 
 /**
  * @brief Clears the contents of an interactive command slot.

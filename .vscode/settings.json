@@ -35,6 +35,9 @@
         },
         "no-hard-tabs": {
             "spaces_per_tab": 4
+        },
+        "ul-indent": {
+            "indent": 4
         }
     },
 

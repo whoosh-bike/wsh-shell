@@ -21,12 +21,6 @@ extern "C" {
 #endif
 
 /**
- * @defgroup WshShellHistory Shell Command History
- * @brief Functionality for storing and navigating command history.
- * @{
- */
-
-/**
  * @brief Direction for history navigation.
  */
 typedef enum {
@@ -79,12 +73,6 @@ typedef struct {
     WshShellHistory_ReadHandler_t Read;   /**< Callback for loading saved history. */
     WshShellHistory_WriteHandler_t Write; /**< Callback for saving current history. */
 } WshShellHistory_IO_t;
-
-/**
- * @defgroup WshShellHistoryAPI Public API
- * @brief Public functions for managing shell history.
- * @{
- */
 
 /**
  * @brief Initialize the shell history system with custom I/O functions.
@@ -168,14 +156,6 @@ WshShell_Size_t WshShellHistory_GetTokenByIndex(WshShellHistory_IO_t* pHistIO,
  * @param[in] pHistIO Pointer to the I/O structure.
  */
 void WshShellHistory_Flush(WshShellHistory_IO_t* pHistIO);
-
-/**
- * @} // end of WshShellHistoryAPI
- */
-
-/**
- * @} // end of WshShellHistory
- */
 
 #ifdef __cplusplus
 }

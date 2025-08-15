@@ -134,7 +134,7 @@ WshShell_Bool_t WshShellAutocomplete_Try(WshShell_Char_t* pInBuff, WshShell_Size
     sysMsgShift[0]      = ' ';
     sysMsgShift[padLen] = '\0';
 
-    WSH_SHELL_PRINT_SYS("%s /autocomplete disabled", sysMsgShift);
+    WSH_SHELL_PRINT_WARN("%s /autocomplete disabled", sysMsgShift);
     WSH_SHELL_PRINT("\r\n");
 
     return false;

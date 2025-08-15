@@ -24,7 +24,7 @@
  * History configuration
  * ───────────────────────────────────────────── 
  */
-#define WSH_SHELL_HISTORY           1
+#define WSH_SHELL_HISTORY           0
 #define WSH_SHELL_HISTORY_BUFF_SIZE 256
 
 /* 
@@ -32,7 +32,7 @@
  * PS1 line configuration
  * ───────────────────────────────────────────── 
  */
-#define WSH_SHELL_PS1_CUSTOM   1
+#define WSH_SHELL_PS1_CUSTOM   0
 #define WSH_SHELL_PS1_TEMPLATE "%r%b%c6%d%c7@%c5%u%c2%i %c7> %r%c7"
 #define WSH_SHELL_PS1_MAX_LEN  128
 
@@ -41,7 +41,7 @@
  * Command autocompletion
  * ───────────────────────────────────────────── 
  */
-#define WSH_SHELL_AUTOCOMPLETE         1
+#define WSH_SHELL_AUTOCOMPLETE         0
 #define WSH_SHELL_AUTOCOMPLETE_PAD_LEN 32
 #define WSH_SHELL_AUTOCOMPLETE_PAD_SYM '.'
 
@@ -50,7 +50,7 @@
  * Interactive command mode
  * ───────────────────────────────────────────── 
  */
-#define WSH_SHELL_INTERACTIVE_MODE 1
+#define WSH_SHELL_INTERACTIVE_MODE 0
 
 /* 
  * ─────────────────────────────────────────────

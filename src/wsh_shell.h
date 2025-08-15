@@ -59,6 +59,7 @@ typedef struct {
     WshShell_Char_t* Version;                           /**< Version string. */
     WshShell_Char_t DeviceName[WSH_SHELL_DEV_NAME_LEN]; /**< Device name (used in PS1 and more). */
     WshShell_Char_t PS1[WSH_SHELL_PS1_MAX_LEN];         /**< Cached PS1 string. */
+    WshShell_Char_t PrevSym;                            /**< Previous symbol inserted in. */
 
     WshShellIO_CommandLine_t CommandLine; /**< Terminal input/output interface. */
     const WshShellUser_t* CurrUser;       /**< Currently authenticated user. */
@@ -119,8 +120,9 @@ WshShell_Bool_t WshShell_IsAuth(WshShell_t* pShell);
  * Resets the user context and optionally triggers the DeAuth callback.
  *
  * @param pShell Shell instance.
+ * @param pcReason Reason or source of deauth.
  */
-void WshShell_DeAuth(WshShell_t* pShell);
+void WshShell_DeAuth(WshShell_t* pShell, const WshShell_Char_t* pcReason);
 
 /**
  * @brief Process a new character entered by the user.

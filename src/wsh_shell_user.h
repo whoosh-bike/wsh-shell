@@ -17,12 +17,6 @@ extern "C" {
 #endif
 
 /**
- * @defgroup WshShellUser Shell User Management
- * @brief Functionality for managing user authentication and access rights.
- * @{
- */
-
-/**
  * @brief User object definition.
  * 
  * This structure represents a shell user with login, password,
@@ -44,12 +38,6 @@ typedef struct {
     const WshShellUser_t* List; /**< Pointer to an array of user objects. */
     WshShell_Size_t Num;        /**< Number of users in the list. */
 } WshShellUser_Table_t;
-
-/**
- * @defgroup WshShellUserAPI Public API
- * @brief Public functions for managing shell users.
- * @{
- */
 
 /**
  * @brief Initialize the shell user table.
@@ -132,14 +120,6 @@ WshShell_Bool_t WshShellUser_CheckCredentials(WshShellUser_Table_t* pShellUsers,
 const WshShellUser_t* WshShellUser_FindByCredentials(WshShellUser_Table_t* pShellUsers,
                                                      const WshShell_Char_t* pcLogin,
                                                      const WshShell_Char_t* pcPass);
-
-/**
- * @} // end of WshShellUserAPI
- */
-
-/**
- * @} // end of WshShellUser
- */
 
 #ifdef __cplusplus
 }

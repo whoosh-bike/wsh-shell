@@ -33,12 +33,6 @@ extern "C" {
 #endif
 
 /**
- * @defgroup WshShellAutocomplete Autocompletion
- * @brief Command-line autocompletion support for shell input.
- * @{
- */
-
-/**
  * @brief Attempts to autocomplete the command in the input buffer.
  * 
  * Scans the registered command table and tries to match the current input as a prefix.
@@ -59,10 +53,6 @@ extern "C" {
  */
 WshShell_Bool_t WshShellAutocomplete_Try(WshShell_Char_t* pInBuff, WshShell_Size_t inBuffLen,
                                          WshShellCmd_Table_t* pShellCommands);
-
-/**
- * @}
- */
 
 #ifdef __cplusplus
 }

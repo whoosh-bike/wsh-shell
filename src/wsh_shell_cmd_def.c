@@ -176,7 +176,7 @@ WSH_SHELL_RET_STATE_t WshShellCmdDef(const WshShellCmd_t* pcCmd, WshShell_Size_t
             } break;
 
             case WSH_SHELL_DEF_OPT_DEAUTH:
-                WshShell_DeAuth(pParentShell);
+                WshShell_DeAuth(pParentShell, "command");
                 break;
 
             default:
@@ -194,8 +194,8 @@ static WshShellOption_t OptArr[] = {WSH_SHELL_CMD_DEF_OPT_TABLE()};
 
 static const WshShellCmd_t WshShellDefCmd = {
     .Groups  = WSH_SHELL_CMD_GROUP_ALL,
-    .Name    = "shell",
-    .Descr   = "Configuring and querying the shell interface",
+    .Name    = "def",
+    .Descr   = "Default command for configuring and querying the shell interface",
     .Options = OptArr,
     .OptNum  = WSH_SHELL_ARR_LEN(OptArr),
     .Handler = WshShellCmdDef,

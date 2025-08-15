@@ -1,0 +1,36 @@
+image: $DOCKER_IMAGE
+
+stages:
+  - deploy
+
+# Template for deploy jobs
+.deploy_github_pages_template:
+  stage: deploy
+  before_script:
+    - apt-get update && apt-get install -y --no-install-recommends doxygen python3-venv
+    - python3 -m venv .venv
+    - . .venv/bin/activate
+    - pip install -r requirements.txt
+    - git config user.name "$GITHUB_USER"
+    - git config user.email "$GITHUB_USER@users.noreply.github.com"
+    - git remote remove github 2>/dev/null || true
+    - git remote add github "https://x-access-token:${GITHUB_ACCESS_TOKEN}@github.com/whoosh-bike/wsh-shell.git"
+
+# Job for deploy docs (DEV)
+deploy_github_pages_dev:
+  extends: .deploy_github_pages_template
+  script:
+    - mike deploy --config-file 'mkdocs.yml' --branch gh-pages --remote github dev --push
+    - echo "🔗 https://whoosh-bike.github.io/wsh-shell/dev/"
+  only:
+    - dev
+
+# Job for deploy docs (MAIN)
+deploy_github_pages_main:
+  extends: .deploy_github_pages_template
+  script:
+    - mike deploy --config-file 'mkdocs.yml' --branch gh-pages --remote github main --push
+    - mike set-default --branch gh-pages --remote github main --push
+    - echo "🔗 https://whoosh-bike.github.io/wsh-shell/"
+  only:
+    - main

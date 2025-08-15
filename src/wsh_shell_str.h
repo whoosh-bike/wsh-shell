@@ -18,17 +18,13 @@
 extern "C" {
 #endif
 
+#define WSH_SHELL_PRESS_ENTER_TO_LOG_IN_STR "Press <Enter> to log in..."
+
 typedef struct {
     const WshShell_Char_t* UserName;
     const WshShell_Char_t* DevName;
     WshShell_Char_t* InterCmdName;
 } WshShellStr_PS1Data_t;
-
-/**
- * @defgroup ShellStr String operations
- * @brief Common string operations for user input processing.
- * @{
- */
 
 /**
  * @brief Check whether the given character is a printable ASCII symbol.
@@ -150,10 +146,6 @@ void WshShellStr_GroupBitsToStr(WshShell_Size_t group, WshShell_Char_t* pOutStr)
  * @param[in]  pPS1Data   Pointer to the user name, divice name or other strings.
  */
 void WshShellStr_GeneratePS1(WshShell_Char_t* pPS1, WshShellStr_PS1Data_t* pPS1Data);
-
-/**
- * @} 
- */
 
 #ifdef __cplusplus
 }
