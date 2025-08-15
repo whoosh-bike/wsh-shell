@@ -1,0 +1,97 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="wsh__shell__version_8h" kind="file" language="C++">
+    <compoundname>wsh_shell_version.h</compoundname>
+    <includedby refid="wsh__shell_8h" local="yes">src/wsh_shell.h</includedby>
+    <invincdepgraph>
+      <node id="2">
+        <label>src/wsh_shell.h</label>
+        <link refid="wsh__shell_8h"/>
+      </node>
+      <node id="1">
+        <label>src/wsh_shell_version.h</label>
+        <link refid="wsh__shell__version_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+    </invincdepgraph>
+      <sectiondef kind="define">
+      <memberdef kind="define" id="wsh__shell__version_8h_1a81d685cf462dbd06726a9fddb7093381" prot="public" static="no">
+        <name>WSH_SHELL_VERSION_MAJOR</name>
+        <initializer>2</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/wsh_shell_version.h" line="4" column="9" bodyfile="src/wsh_shell_version.h" bodystart="4" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="wsh__shell__version_8h_1a062fa26f9b7fdfee5e65d6a25862c172" prot="public" static="no">
+        <name>WSH_SHELL_VERSION_MINOR</name>
+        <initializer>1</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/wsh_shell_version.h" line="5" column="9" bodyfile="src/wsh_shell_version.h" bodystart="5" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="wsh__shell__version_8h_1a8370416cff870ef1acd12d95a8dc36fb" prot="public" static="no">
+        <name>_WSH_SHELL_STR_HELPER</name>
+        <param><defname>x</defname></param>
+        <initializer>#x</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/wsh_shell_version.h" line="7" column="9" bodyfile="src/wsh_shell_version.h" bodystart="7" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="wsh__shell__version_8h_1a31b53a6762c159c66deddcc8ee82b6ed" prot="public" static="no">
+        <name>_WSH_SHELL_STR</name>
+        <param><defname>x</defname></param>
+        <initializer>_WSH_SHELL_STR_HELPER(x)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/wsh_shell_version.h" line="8" column="9" bodyfile="src/wsh_shell_version.h" bodystart="8" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="wsh__shell__version_8h_1a0d8d718a428bd4b4990498fc42662ac4" prot="public" static="no">
+        <name>WSH_SHELL_VERSION_STR</name>
+        <initializer>    _WSH_SHELL_STR(WSH_SHELL_VERSION_MAJOR) &quot;.&quot; _WSH_SHELL_STR(WSH_SHELL_VERSION_MINOR)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/wsh_shell_version.h" line="9" column="9" bodyfile="src/wsh_shell_version.h" bodystart="9" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="preprocessor">#ifndef<sp/>__WSH_SHELL_VERSION_H</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>__WSH_SHELL_VERSION_H</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>WSH_SHELL_VERSION_MAJOR<sp/>2</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>WSH_SHELL_VERSION_MINOR<sp/>1</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>_WSH_SHELL_STR_HELPER(x)<sp/>#x</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>_WSH_SHELL_STR(x)<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>_WSH_SHELL_STR_HELPER(x)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>WSH_SHELL_VERSION_STR<sp/>\</highlight></codeline>
+<codeline lineno="10"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>_WSH_SHELL_STR(WSH_SHELL_VERSION_MAJOR)<sp/>&quot;.&quot;</highlight><highlight class="normal"><sp/>_WSH_SHELL_STR(WSH_SHELL_VERSION_MINOR)</highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight><highlight class="preprocessor">#endif<sp/></highlight><highlight class="comment">/*<sp/>__WSH_SHELL_VERSION_H<sp/>*/</highlight><highlight class="preprocessor"></highlight></codeline>
+    </programlisting>
+    <location file="src/wsh_shell_version.h"/>
+  </compounddef>
+</doxygen>

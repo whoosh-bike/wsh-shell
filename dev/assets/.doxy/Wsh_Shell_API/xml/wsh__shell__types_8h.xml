@@ -1,0 +1,520 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="wsh__shell__types_8h" kind="file" language="C++">
+    <compoundname>wsh_shell_types.h</compoundname>
+    <includes local="no">stdarg.h</includes>
+    <includes local="no">stdbool.h</includes>
+    <includes local="no">stddef.h</includes>
+    <includes local="no">stdint.h</includes>
+    <includes local="no">stdio.h</includes>
+    <includes local="no">stdlib.h</includes>
+    <includes local="no">string.h</includes>
+    <includedby refid="wsh__shell_8h" local="yes">src/wsh_shell.h</includedby>
+    <includedby refid="wsh__shell__autocomplete_8h" local="yes">src/wsh_shell_autocomplete.h</includedby>
+    <includedby refid="wsh__shell__cfg__def_8h" local="yes">src/wsh_shell_cfg_def.h</includedby>
+    <includedby refid="wsh__shell__cmd_8h" local="yes">src/wsh_shell_cmd.h</includedby>
+    <includedby refid="wsh__shell__cmd__def_8h" local="yes">src/wsh_shell_cmd_def.h</includedby>
+    <includedby refid="wsh__shell__history_8h" local="yes">src/wsh_shell_history.h</includedby>
+    <includedby refid="wsh__shell__option_8h" local="yes">src/wsh_shell_option.h</includedby>
+    <includedby refid="wsh__shell__str_8h" local="yes">src/wsh_shell_str.h</includedby>
+    <includedby refid="wsh__shell__user_8h" local="yes">src/wsh_shell_user.h</includedby>
+    <incdepgraph>
+      <node id="3">
+        <label>stdbool.h</label>
+      </node>
+      <node id="2">
+        <label>stdarg.h</label>
+      </node>
+      <node id="5">
+        <label>stdint.h</label>
+      </node>
+      <node id="7">
+        <label>stdlib.h</label>
+      </node>
+      <node id="4">
+        <label>stddef.h</label>
+      </node>
+      <node id="8">
+        <label>string.h</label>
+      </node>
+      <node id="1">
+        <label>src/wsh_shell_types.h</label>
+        <link refid="wsh__shell__types_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+      </node>
+      <node id="6">
+        <label>stdio.h</label>
+      </node>
+    </incdepgraph>
+    <invincdepgraph>
+      <node id="14">
+        <label>src/wsh_shell_user.h</label>
+        <link refid="wsh__shell__user_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="10">
+        <label>src/wsh_shell_str.h</label>
+        <link refid="wsh__shell__str_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+      </node>
+      <node id="13">
+        <label>src/wsh_shell_promptwait.h</label>
+        <link refid="wsh__shell__promptwait_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="9">
+        <label>src/wsh_shell_option.h</label>
+        <link refid="wsh__shell__option_8h"/>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+      </node>
+      <node id="11">
+        <label>src/wsh_shell_io.h</label>
+        <link refid="wsh__shell__io_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>src/wsh_shell_types.h</label>
+        <link refid="wsh__shell__types_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+      </node>
+      <node id="7">
+        <label>src/wsh_shell_history.h</label>
+        <link refid="wsh__shell__history_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+      </node>
+      <node id="6">
+        <label>src/wsh_shell_cmd_def.h</label>
+        <link refid="wsh__shell__cmd__def_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>src/wsh_shell.h</label>
+        <link refid="wsh__shell_8h"/>
+      </node>
+      <node id="12">
+        <label>src/wsh_shell_interact.h</label>
+        <link refid="wsh__shell__interact_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>src/wsh_shell_cfg_def.h</label>
+        <link refid="wsh__shell__cfg__def_8h_source"/>
+      </node>
+      <node id="5">
+        <label>src/wsh_shell_cmd.h</label>
+        <link refid="wsh__shell__cmd_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+      </node>
+      <node id="8">
+        <label>src/wsh_shell_esc.h</label>
+        <link refid="wsh__shell__esc_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>src/wsh_shell_autocomplete.h</label>
+        <link refid="wsh__shell__autocomplete_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+    </invincdepgraph>
+      <sectiondef kind="define">
+      <memberdef kind="define" id="wsh__shell__types_8h_1a51feb5fc177dfc0f5a73b314593e1b9c" prot="public" static="no">
+        <name>WSH_SHELL_ARR_LEN</name>
+        <param><defname>a</defname></param>
+        <initializer>(sizeof((a)) / sizeof((a[0])))</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/wsh_shell_types.h" line="45" column="9" bodyfile="src/wsh_shell_types.h" bodystart="45" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="wsh__shell__types_8h_1a0dd2b551728ff08a6bde5ff0aa082dfd" prot="public" static="no">
+        <name>WSH_SHELL_RET_STATE_TABLE</name>
+        <param></param>
+        <initializer>    X_ENTRY(WSH_SHELL_RET_STATE_UNDEF, &quot;UNDEF&quot;)               \
+    X_ENTRY(WSH_SHELL_RET_STATE_SUCCESS, &quot;SUCCESS&quot;)           \
+    X_ENTRY(WSH_SHELL_RET_STATE_WARNING, &quot;WARNING&quot;)           \
+    X_ENTRY(WSH_SHELL_RET_STATE_ERROR, &quot;ERROR&quot;)               \
+    X_ENTRY(WSH_SHELL_RET_STATE_ERR_EMPTY, &quot;ERR_EMPTY&quot;)       \
+    X_ENTRY(WSH_SHELL_RET_STATE_ERR_PARAM, &quot;ERR_PARAM&quot;)       \
+    X_ENTRY(WSH_SHELL_RET_STATE_ERR_BUSY, &quot;ERR_BUSY&quot;)         \
+    X_ENTRY(WSH_SHELL_RET_STATE_ERR_OVERFLOW, &quot;ERR_OVERFLOW&quot;) \
+    X_ENTRY(WSH_SHELL_RET_STATE_ERR_MEMORY, &quot;ERR_MEMORY&quot;)     \
+    X_ENTRY(WSH_SHELL_RET_STATE_ERR_TIMEOUT, &quot;ERR_TIMEOUT&quot;)   \
+    X_ENTRY(WSH_SHELL_RET_STATE_ERR_CRC, &quot;ERR_CRC&quot;)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/wsh_shell_types.h" line="47" column="9" bodyfile="src/wsh_shell_types.h" bodystart="47" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="wsh__shell__types_8h_1ace10f078a31eaa5614ee6083b7c503c2" prot="public" static="no">
+        <name>X_ENTRY</name>
+        <param><defname>en</defname></param>
+        <param><defname>str</defname></param>
+        <initializer>en,</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/wsh_shell_types.h" line="61" column="9" bodyfile="src/wsh_shell_types.h" bodystart="61" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="wsh__shell__types_8h_1ace10f078a31eaa5614ee6083b7c503c2" prot="public" static="no">
+        <name>X_ENTRY</name>
+        <param><defname>en</defname></param>
+        <param><defname>str</defname></param>
+        <initializer>str,</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/wsh_shell_types.h" line="67" column="9" bodyfile="src/wsh_shell_types.h" bodystart="61" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="enum">
+      <memberdef kind="enum" id="wsh__shell__types_8h_1a52a4241a99ae5ec8c2a5b151e22ae00e" prot="public" static="no" strong="no">
+        <type></type>
+        <name>WSH_SHELL_RET_STATE_t</name>
+        <enumvalue id="wsh__shell__types_8h_1a52a4241a99ae5ec8c2a5b151e22ae00ea614a9ab246cb280a663fd797a6149686" prot="public">
+          <name>WSH_SHELL_RET_STATE_TABLE</name>
+          <initializer>=() WSH_SHELL_RET_STATE_ENUM_SIZE</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/wsh_shell_types.h" line="60" column="1" bodyfile="src/wsh_shell_types.h" bodystart="60" bodyend="64"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="typedef">
+      <memberdef kind="typedef" id="wsh__shell__types_8h_1aece1761b98b7dd5ef93064d22e455683" prot="public" static="no">
+        <type>bool</type>
+        <definition>typedef bool WshShell_Bool_t</definition>
+        <argsstring></argsstring>
+        <name>WshShell_Bool_t</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/wsh_shell_types.h" line="35" column="14" bodyfile="src/wsh_shell_types.h" bodystart="35" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="wsh__shell__types_8h_1abd358f95159cb4b96517bea5d405a5cd" prot="public" static="no">
+        <type>char</type>
+        <definition>typedef char WshShell_Char_t</definition>
+        <argsstring></argsstring>
+        <name>WshShell_Char_t</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/wsh_shell_types.h" line="36" column="14" bodyfile="src/wsh_shell_types.h" bodystart="36" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="wsh__shell__types_8h_1a08ced1edbec2e93b6348cc8ac171b6b0" prot="public" static="no">
+        <type>int8_t</type>
+        <definition>typedef int8_t WshShell_S8_t</definition>
+        <argsstring></argsstring>
+        <name>WshShell_S8_t</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/wsh_shell_types.h" line="37" column="16" bodyfile="src/wsh_shell_types.h" bodystart="37" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="wsh__shell__types_8h_1af5b0a4469576873de6741cab7645efbc" prot="public" static="no">
+        <type>uint8_t</type>
+        <definition>typedef uint8_t WshShell_U8_t</definition>
+        <argsstring></argsstring>
+        <name>WshShell_U8_t</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/wsh_shell_types.h" line="38" column="17" bodyfile="src/wsh_shell_types.h" bodystart="38" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="wsh__shell__types_8h_1a93932aeb53fbc774b7b0562fbef2aff6" prot="public" static="no">
+        <type>int32_t</type>
+        <definition>typedef int32_t WshShell_S32_t</definition>
+        <argsstring></argsstring>
+        <name>WshShell_S32_t</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/wsh_shell_types.h" line="39" column="17" bodyfile="src/wsh_shell_types.h" bodystart="39" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="wsh__shell__types_8h_1a0ce5cde290fd97e7172598f0c0e35b91" prot="public" static="no">
+        <type>uint32_t</type>
+        <definition>typedef uint32_t WshShell_U32_t</definition>
+        <argsstring></argsstring>
+        <name>WshShell_U32_t</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/wsh_shell_types.h" line="40" column="18" bodyfile="src/wsh_shell_types.h" bodystart="40" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="wsh__shell__types_8h_1aebf5a38cc89ccac39de0210900b34c85" prot="public" static="no">
+        <type>int16_t</type>
+        <definition>typedef int16_t WshShell_S16_t</definition>
+        <argsstring></argsstring>
+        <name>WshShell_S16_t</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/wsh_shell_types.h" line="41" column="17" bodyfile="src/wsh_shell_types.h" bodystart="41" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="wsh__shell__types_8h_1ad70db1b37b3f38ca477c0a10ab752d56" prot="public" static="no">
+        <type>uint16_t</type>
+        <definition>typedef uint16_t WshShell_U16_t</definition>
+        <argsstring></argsstring>
+        <name>WshShell_U16_t</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/wsh_shell_types.h" line="42" column="18" bodyfile="src/wsh_shell_types.h" bodystart="42" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="wsh__shell__types_8h_1a4f0ab0d615fb1120cc75c9994707fa6a" prot="public" static="no">
+        <type>size_t</type>
+        <definition>typedef size_t WshShell_Size_t</definition>
+        <argsstring></argsstring>
+        <name>WshShell_Size_t</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/wsh_shell_types.h" line="43" column="16" bodyfile="src/wsh_shell_types.h" bodystart="43" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="var">
+      <memberdef kind="variable" id="wsh__shell__types_8h_1ace80c087dcc7a8d0354e71bf4990b54e" prot="public" static="yes" mutable="no">
+        <type>const WshShell_Char_t *</type>
+        <definition>const WshShell_Char_t* RetStateBuff[]</definition>
+        <argsstring>[]</argsstring>
+        <name>RetStateBuff</name>
+        <initializer>= {
+#define X_ENTRY(en, str) 
+
+
+}</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/wsh_shell_types.h" line="66" column="30" bodyfile="src/wsh_shell_types.h" bodystart="66" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="wsh__shell__types_8h_1a4b9975253a299ad647b7280f501dbcea" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>const WshShell_Char_t *</type>
+        <definition>static const WshShell_Char_t* WshShell_GetRetStateStr</definition>
+        <argsstring>(WSH_SHELL_RET_STATE_t retState)</argsstring>
+        <name>WshShell_GetRetStateStr</name>
+        <param>
+          <type>WSH_SHELL_RET_STATE_t</type>
+          <declname>retState</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/wsh_shell_types.h" line="72" column="37" bodyfile="src/wsh_shell_types.h" bodystart="72" bodyend="77"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Basic type definitions and return state enumeration for WshShell. </para>
+    </briefdescription>
+    <detaileddescription>
+<para>This header defines common typedefs for basic data types used throughout the WshShell project, improving code readability and portability. It also defines the enumeration for return states used by shell functions, along with utility functions to convert return codes to human-readable strings.</para>
+<para>The file includes:<itemizedlist>
+<listitem><para>Boolean, character, and integer typedefs with explicit sizes.</para>
+</listitem><listitem><para>Macro for calculating array length.</para>
+</listitem><listitem><para>Enumeration of return states for consistent error and status reporting.</para>
+</listitem><listitem><para>Inline helper to get string representation of return states.</para>
+</listitem></itemizedlist>
+</para>
+<para><simplesect kind="author"><para>Whoosh Embedded Team </para>
+</simplesect>
+<simplesect kind="copyright"><para>Copyright (c) 2024 </para>
+</simplesect>
+</para>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="normal"></highlight></codeline>
+<codeline lineno="20"><highlight class="normal"></highlight><highlight class="preprocessor">#ifndef<sp/>__WSH_SHELL_TYPES_H</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="21"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>__WSH_SHELL_TYPES_H</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="22"><highlight class="normal"></highlight></codeline>
+<codeline lineno="23"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;stdarg.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="24"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;stdbool.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="25"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;stddef.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="26"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;stdint.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="27"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;stdio.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="28"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;stdlib.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="29"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;string.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="30"><highlight class="normal"></highlight></codeline>
+<codeline lineno="31"><highlight class="normal"></highlight><highlight class="preprocessor">#ifdef<sp/>__cplusplus</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="32"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/></highlight><highlight class="stringliteral">&quot;C&quot;</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline lineno="33"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="34"><highlight class="normal"></highlight></codeline>
+<codeline lineno="35"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>WshShell_Bool_t;<sp/><sp/></highlight><highlight class="comment">//<sp/>just<sp/>for<sp/>better<sp/>readability</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="36"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>WshShell_Char_t;<sp/><sp/></highlight><highlight class="comment">//<sp/>and<sp/>common<sp/>perception</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="37"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/>int8_t<sp/>WshShell_S8_t;</highlight></codeline>
+<codeline lineno="38"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/>uint8_t<sp/>WshShell_U8_t;</highlight></codeline>
+<codeline lineno="39"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/>int32_t<sp/>WshShell_S32_t;</highlight></codeline>
+<codeline lineno="40"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/>uint32_t<sp/>WshShell_U32_t;</highlight></codeline>
+<codeline lineno="41"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/>int16_t<sp/>WshShell_S16_t;</highlight></codeline>
+<codeline lineno="42"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/>uint16_t<sp/>WshShell_U16_t;</highlight></codeline>
+<codeline lineno="43"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/>WshShell_Size_t;</highlight></codeline>
+<codeline lineno="44"><highlight class="normal"></highlight></codeline>
+<codeline lineno="45"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>WSH_SHELL_ARR_LEN(a)<sp/>(sizeof((a))<sp/>/<sp/>sizeof((a[0])))</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="46"><highlight class="normal"></highlight></codeline>
+<codeline lineno="47"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>WSH_SHELL_RET_STATE_TABLE()<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>\</highlight></codeline>
+<codeline lineno="48"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>X_ENTRY(WSH_SHELL_RET_STATE_UNDEF,<sp/>&quot;UNDEF&quot;</highlight><highlight class="normal">)<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>\</highlight></codeline>
+<codeline lineno="49"><highlight class="normal"><sp/><sp/><sp/><sp/>X_ENTRY(WSH_SHELL_RET_STATE_SUCCESS,<sp/>&quot;SUCCESS&quot;)<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>\</highlight></codeline>
+<codeline lineno="50"><highlight class="normal"><sp/><sp/><sp/><sp/>X_ENTRY(WSH_SHELL_RET_STATE_WARNING,<sp/>&quot;WARNING&quot;)<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>\</highlight></codeline>
+<codeline lineno="51"><highlight class="normal"><sp/><sp/><sp/><sp/>X_ENTRY(WSH_SHELL_RET_STATE_ERROR,<sp/>&quot;ERROR&quot;)<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>\</highlight></codeline>
+<codeline lineno="52"><highlight class="normal"><sp/><sp/><sp/><sp/>X_ENTRY(WSH_SHELL_RET_STATE_ERR_EMPTY,<sp/>&quot;ERR_EMPTY&quot;)<sp/><sp/><sp/><sp/><sp/><sp/><sp/>\</highlight></codeline>
+<codeline lineno="53"><highlight class="normal"><sp/><sp/><sp/><sp/>X_ENTRY(WSH_SHELL_RET_STATE_ERR_PARAM,<sp/>&quot;ERR_PARAM&quot;)<sp/><sp/><sp/><sp/><sp/><sp/><sp/>\</highlight></codeline>
+<codeline lineno="54"><highlight class="normal"><sp/><sp/><sp/><sp/>X_ENTRY(WSH_SHELL_RET_STATE_ERR_BUSY,<sp/>&quot;ERR_BUSY&quot;)<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>\</highlight></codeline>
+<codeline lineno="55"><highlight class="normal"><sp/><sp/><sp/><sp/>X_ENTRY(WSH_SHELL_RET_STATE_ERR_OVERFLOW,<sp/>&quot;ERR_OVERFLOW&quot;)<sp/>\</highlight></codeline>
+<codeline lineno="56"><highlight class="normal"><sp/><sp/><sp/><sp/>X_ENTRY(WSH_SHELL_RET_STATE_ERR_MEMORY,<sp/>&quot;ERR_MEMORY&quot;)<sp/><sp/><sp/><sp/><sp/>\</highlight></codeline>
+<codeline lineno="57"><highlight class="normal"><sp/><sp/><sp/><sp/>X_ENTRY(WSH_SHELL_RET_STATE_ERR_TIMEOUT,<sp/>&quot;ERR_TIMEOUT&quot;)<sp/><sp/><sp/>\</highlight></codeline>
+<codeline lineno="58"><highlight class="normal"><sp/><sp/><sp/><sp/>X_ENTRY(WSH_SHELL_RET_STATE_ERR_CRC,<sp/>&quot;ERR_CRC&quot;)</highlight></codeline>
+<codeline lineno="59"><highlight class="normal"></highlight></codeline>
+<codeline lineno="60"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">enum</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline lineno="61"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>X_ENTRY(en,<sp/>str)<sp/>en,</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="62"><highlight class="normal"><sp/><sp/><sp/><sp/>WSH_SHELL_RET_STATE_TABLE()<sp/>WSH_SHELL_RET_STATE_ENUM_SIZE</highlight></codeline>
+<codeline lineno="63"><highlight class="normal"></highlight><highlight class="preprocessor">#undef<sp/>X_ENTRY</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="64"><highlight class="normal">}<sp/>WSH_SHELL_RET_STATE_t;</highlight></codeline>
+<codeline lineno="65"><highlight class="normal"></highlight></codeline>
+<codeline lineno="66"><highlight class="normal"></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>WshShell_Char_t*<sp/>RetStateBuff[]<sp/>=<sp/>{</highlight></codeline>
+<codeline lineno="67"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>X_ENTRY(en,<sp/>str)<sp/>str,</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="68"><highlight class="normal"><sp/><sp/><sp/><sp/>WSH_SHELL_RET_STATE_TABLE()</highlight></codeline>
+<codeline lineno="69"><highlight class="normal"></highlight><highlight class="preprocessor">#undef<sp/>X_ENTRY</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="70"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="71"><highlight class="normal"></highlight></codeline>
+<codeline lineno="72"><highlight class="normal"></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">inline</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>WshShell_Char_t*<sp/>WshShell_GetRetStateStr(WSH_SHELL_RET_STATE_t<sp/>retState)<sp/>{</highlight></codeline>
+<codeline lineno="73"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(retState<sp/>&gt;=<sp/>WSH_SHELL_RET_STATE_ENUM_SIZE)</highlight></codeline>
+<codeline lineno="74"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>retState<sp/>=<sp/>WSH_SHELL_RET_STATE_UNDEF;</highlight></codeline>
+<codeline lineno="75"><highlight class="normal"></highlight></codeline>
+<codeline lineno="76"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>RetStateBuff[retState];</highlight></codeline>
+<codeline lineno="77"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="78"><highlight class="normal"></highlight></codeline>
+<codeline lineno="79"><highlight class="normal"></highlight><highlight class="preprocessor">#ifdef<sp/>__cplusplus</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="80"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="81"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="82"><highlight class="normal"></highlight></codeline>
+<codeline lineno="83"><highlight class="normal"></highlight><highlight class="preprocessor">#endif<sp/></highlight><highlight class="comment">/*<sp/>__WSH_SHELL_TYPES_H<sp/>*/</highlight><highlight class="preprocessor"></highlight></codeline>
+    </programlisting>
+    <location file="src/wsh_shell_types.h"/>
+  </compounddef>
+</doxygen>

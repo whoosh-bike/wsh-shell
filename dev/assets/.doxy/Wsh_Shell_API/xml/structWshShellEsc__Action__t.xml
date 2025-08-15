@@ -1,0 +1,75 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="structWshShellEsc__Action__t" kind="struct" language="C++" prot="public">
+    <compoundname>WshShellEsc_Action_t</compoundname>
+    <includes refid="wsh__shell__esc_8h" local="no">wsh_shell_esc.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structWshShellEsc__Action__t_1a4f900d47cb45759e7eba78ddf83742f2" prot="public" static="no" mutable="no">
+        <type>const WshShell_Char_t *</type>
+        <definition>const WshShell_Char_t* WshShellEsc_Action_t::Sequence</definition>
+        <argsstring></argsstring>
+        <name>Sequence</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>ANSI escape sequence </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/wsh_shell_esc.h" line="33" column="27" bodyfile="src/wsh_shell_esc.h" bodystart="33" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structWshShellEsc__Action__t_1afa794b7216c5acd42bcb94fa0297e177" prot="public" static="no" mutable="no">
+        <type><ref refid="wsh__shell__esc_8h_1a67d41ca544ed4097586248da3ec1b125" kindref="member">WshShellEsc_Hadler_t</ref></type>
+        <definition>WshShellEsc_Hadler_t WshShellEsc_Action_t::Handler</definition>
+        <argsstring></argsstring>
+        <name>Handler</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Associated handler function </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/wsh_shell_esc.h" line="34" column="26" bodyfile="src/wsh_shell_esc.h" bodystart="34" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Escape sequence to handler mapping. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="3">
+        <label>WshShellHistory_t</label>
+        <link refid="structWshShellHistory__t"/>
+        <childnode refid="4" relation="usage">
+          <edgelabel>Data</edgelabel>
+        </childnode>
+      </node>
+      <node id="4">
+        <label>WshShellHistory_Data_t</label>
+        <link refid="structWshShellHistory__Data__t"/>
+      </node>
+      <node id="2">
+        <label>WshShellHistory_IO_t</label>
+        <link refid="structWshShellHistory__IO__t"/>
+        <childnode refid="3" relation="usage">
+          <edgelabel>Read</edgelabel>
+          <edgelabel>Write</edgelabel>
+        </childnode>
+      </node>
+      <node id="1">
+        <label>WshShellEsc_Action_t</label>
+        <link refid="structWshShellEsc__Action__t"/>
+        <childnode refid="2" relation="usage">
+          <edgelabel>Handler</edgelabel>
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="src/wsh_shell_esc.h" line="32" column="1" bodyfile="src/wsh_shell_esc.h" bodystart="32" bodyend="35"/>
+    <listofallmembers>
+      <member refid="structWshShellEsc__Action__t_1afa794b7216c5acd42bcb94fa0297e177" prot="public" virt="non-virtual"><scope>WshShellEsc_Action_t</scope><name>Handler</name></member>
+      <member refid="structWshShellEsc__Action__t_1a4f900d47cb45759e7eba78ddf83742f2" prot="public" virt="non-virtual"><scope>WshShellEsc_Action_t</scope><name>Sequence</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

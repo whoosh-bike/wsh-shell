@@ -1,0 +1,78 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="structWshShellUser__t" kind="struct" language="C++" prot="public">
+    <compoundname>WshShellUser_t</compoundname>
+    <includes refid="wsh__shell__user_8h" local="no">wsh_shell_user.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structWshShellUser__t_1a8820ed2911a83f57ef77bffe2166027d" prot="public" static="no" mutable="no">
+        <type>const WshShell_Char_t *</type>
+        <definition>const WshShell_Char_t* WshShellUser_t::Login</definition>
+        <argsstring></argsstring>
+        <name>Login</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Pointer to login string. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/wsh_shell_user.h" line="26" column="27" bodyfile="src/wsh_shell_user.h" bodystart="26" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structWshShellUser__t_1a4a8c39121d30dbe67a27f057a2939ed2" prot="public" static="no" mutable="no">
+        <type>const WshShell_Char_t *</type>
+        <definition>const WshShell_Char_t* WshShellUser_t::Pass</definition>
+        <argsstring></argsstring>
+        <name>Pass</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Pointer to password string. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/wsh_shell_user.h" line="27" column="27" bodyfile="src/wsh_shell_user.h" bodystart="27" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structWshShellUser__t_1a982fe8c361a9b40d69cc943a7653ecc5" prot="public" static="no" mutable="no">
+        <type>WshShell_Size_t</type>
+        <definition>WshShell_Size_t WshShellUser_t::Groups</definition>
+        <argsstring></argsstring>
+        <name>Groups</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Bitmask of accessible command groups. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/wsh_shell_user.h" line="28" column="21" bodyfile="src/wsh_shell_user.h" bodystart="28" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structWshShellUser__t_1a1e990c9e7154cefedc038789c9f15664" prot="public" static="no" mutable="no">
+        <type>WshShell_Size_t</type>
+        <definition>WshShell_Size_t WshShellUser_t::Rights</definition>
+        <argsstring></argsstring>
+        <name>Rights</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Bitmask of execution rights. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/wsh_shell_user.h" line="29" column="21" bodyfile="src/wsh_shell_user.h" bodystart="29" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>User object definition. </para>
+    </briefdescription>
+    <detaileddescription>
+<para>This structure represents a shell user with login, password, and associated access groups and rights. </para>
+    </detaileddescription>
+    <location file="src/wsh_shell_user.h" line="25" column="1" bodyfile="src/wsh_shell_user.h" bodystart="25" bodyend="30"/>
+    <listofallmembers>
+      <member refid="structWshShellUser__t_1a982fe8c361a9b40d69cc943a7653ecc5" prot="public" virt="non-virtual"><scope>WshShellUser_t</scope><name>Groups</name></member>
+      <member refid="structWshShellUser__t_1a8820ed2911a83f57ef77bffe2166027d" prot="public" virt="non-virtual"><scope>WshShellUser_t</scope><name>Login</name></member>
+      <member refid="structWshShellUser__t_1a4a8c39121d30dbe67a27f057a2939ed2" prot="public" virt="non-virtual"><scope>WshShellUser_t</scope><name>Pass</name></member>
+      <member refid="structWshShellUser__t_1a1e990c9e7154cefedc038789c9f15664" prot="public" virt="non-virtual"><scope>WshShellUser_t</scope><name>Rights</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

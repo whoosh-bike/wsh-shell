@@ -1,0 +1,61 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="structWshShellOption__Context__t" kind="struct" language="C++" prot="public">
+    <compoundname>WshShellOption_Context_t</compoundname>
+    <includes refid="wsh__shell__option_8h" local="no">wsh_shell_option.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structWshShellOption__Context__t_1a01ebc749a0a3df9dece800e13a7513ba" prot="public" static="no" mutable="no">
+        <type>const <ref refid="structWshShellOption__t" kindref="compound">WshShellOption_t</ref> *</type>
+        <definition>const WshShellOption_t* WshShellOption_Context_t::Option</definition>
+        <argsstring></argsstring>
+        <name>Option</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Pointer to matched option. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/wsh_shell_option.h" line="186" column="28" bodyfile="src/wsh_shell_option.h" bodystart="186" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structWshShellOption__Context__t_1a6831403a69dc4221bc65d0ce794317b8" prot="public" static="no" mutable="no">
+        <type>WshShell_Size_t</type>
+        <definition>WshShell_Size_t WshShellOption_Context_t::TokenPos</definition>
+        <argsstring></argsstring>
+        <name>TokenPos</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Position of the matching token in command line. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/wsh_shell_option.h" line="187" column="21" bodyfile="src/wsh_shell_option.h" bodystart="187" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Option usage context during parsing. </para>
+    </briefdescription>
+    <detaileddescription>
+<para>Used internally to reference which token matched which option. </para>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="2">
+        <label>WshShellOption_t</label>
+        <link refid="structWshShellOption__t"/>
+      </node>
+      <node id="1">
+        <label>WshShellOption_Context_t</label>
+        <link refid="structWshShellOption__Context__t"/>
+        <childnode refid="2" relation="usage">
+          <edgelabel>Option</edgelabel>
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="src/wsh_shell_option.h" line="185" column="1" bodyfile="src/wsh_shell_option.h" bodystart="185" bodyend="188"/>
+    <listofallmembers>
+      <member refid="structWshShellOption__Context__t_1a01ebc749a0a3df9dece800e13a7513ba" prot="public" virt="non-virtual"><scope>WshShellOption_Context_t</scope><name>Option</name></member>
+      <member refid="structWshShellOption__Context__t_1a6831403a69dc4221bc65d0ce794317b8" prot="public" virt="non-virtual"><scope>WshShellOption_Context_t</scope><name>TokenPos</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

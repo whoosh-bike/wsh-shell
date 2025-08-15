@@ -1,0 +1,37 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="dir_68267d1309a1af8e8297ef4c3efbcdba" kind="dir">
+    <compoundname>src</compoundname>
+    <innerfile refid="wsh__shell_8c">wsh_shell.c</innerfile>
+    <innerfile refid="wsh__shell_8h">wsh_shell.h</innerfile>
+    <innerfile refid="wsh__shell__autocomplete_8c">wsh_shell_autocomplete.c</innerfile>
+    <innerfile refid="wsh__shell__autocomplete_8h">wsh_shell_autocomplete.h</innerfile>
+    <innerfile refid="wsh__shell__cfg__def_8h">wsh_shell_cfg_def.h</innerfile>
+    <innerfile refid="wsh__shell__cmd_8c">wsh_shell_cmd.c</innerfile>
+    <innerfile refid="wsh__shell__cmd_8h">wsh_shell_cmd.h</innerfile>
+    <innerfile refid="wsh__shell__cmd__def_8c">wsh_shell_cmd_def.c</innerfile>
+    <innerfile refid="wsh__shell__cmd__def_8h">wsh_shell_cmd_def.h</innerfile>
+    <innerfile refid="wsh__shell__esc_8c">wsh_shell_esc.c</innerfile>
+    <innerfile refid="wsh__shell__esc_8h">wsh_shell_esc.h</innerfile>
+    <innerfile refid="wsh__shell__history_8c">wsh_shell_history.c</innerfile>
+    <innerfile refid="wsh__shell__history_8h">wsh_shell_history.h</innerfile>
+    <innerfile refid="wsh__shell__interact_8c">wsh_shell_interact.c</innerfile>
+    <innerfile refid="wsh__shell__interact_8h">wsh_shell_interact.h</innerfile>
+    <innerfile refid="wsh__shell__io_8c">wsh_shell_io.c</innerfile>
+    <innerfile refid="wsh__shell__io_8h">wsh_shell_io.h</innerfile>
+    <innerfile refid="wsh__shell__option_8h">wsh_shell_option.h</innerfile>
+    <innerfile refid="wsh__shell__promptwait_8c">wsh_shell_promptwait.c</innerfile>
+    <innerfile refid="wsh__shell__promptwait_8h">wsh_shell_promptwait.h</innerfile>
+    <innerfile refid="wsh__shell__str_8c">wsh_shell_str.c</innerfile>
+    <innerfile refid="wsh__shell__str_8h">wsh_shell_str.h</innerfile>
+    <innerfile refid="wsh__shell__types_8h">wsh_shell_types.h</innerfile>
+    <innerfile refid="wsh__shell__user_8c">wsh_shell_user.c</innerfile>
+    <innerfile refid="wsh__shell__user_8h">wsh_shell_user.h</innerfile>
+    <innerfile refid="wsh__shell__version_8h">wsh_shell_version.h</innerfile>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="src/"/>
+  </compounddef>
+</doxygen>

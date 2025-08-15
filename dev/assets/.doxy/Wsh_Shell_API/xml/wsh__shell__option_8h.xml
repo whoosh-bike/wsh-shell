@@ -1,0 +1,810 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="wsh__shell__option_8h" kind="file" language="C++">
+    <compoundname>wsh_shell_option.h</compoundname>
+    <includes refid="wsh__shell__types_8h" local="yes">wsh_shell_types.h</includes>
+    <includedby refid="wsh__shell__cmd_8h" local="yes">src/wsh_shell_cmd.h</includedby>
+    <includedby refid="wsh__shell__str_8h" local="yes">src/wsh_shell_str.h</includedby>
+    <incdepgraph>
+      <node id="4">
+        <label>stdbool.h</label>
+      </node>
+      <node id="3">
+        <label>stdarg.h</label>
+      </node>
+      <node id="6">
+        <label>stdint.h</label>
+      </node>
+      <node id="8">
+        <label>stdlib.h</label>
+      </node>
+      <node id="5">
+        <label>stddef.h</label>
+      </node>
+      <node id="1">
+        <label>src/wsh_shell_option.h</label>
+        <link refid="wsh__shell__option_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="9">
+        <label>string.h</label>
+      </node>
+      <node id="2">
+        <label>wsh_shell_types.h</label>
+        <link refid="wsh__shell__types_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+      </node>
+      <node id="7">
+        <label>stdio.h</label>
+      </node>
+    </incdepgraph>
+    <invincdepgraph>
+      <node id="6">
+        <label>src/wsh_shell_str.h</label>
+        <link refid="wsh__shell__str_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+      </node>
+      <node id="11">
+        <label>src/wsh_shell_promptwait.h</label>
+        <link refid="wsh__shell__promptwait_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>src/wsh_shell_option.h</label>
+        <link refid="wsh__shell__option_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+      </node>
+      <node id="9">
+        <label>src/wsh_shell_io.h</label>
+        <link refid="wsh__shell__io_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+      </node>
+      <node id="7">
+        <label>src/wsh_shell_history.h</label>
+        <link refid="wsh__shell__history_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+      </node>
+      <node id="5">
+        <label>src/wsh_shell_cmd_def.h</label>
+        <link refid="wsh__shell__cmd__def_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>src/wsh_shell.h</label>
+        <link refid="wsh__shell_8h"/>
+      </node>
+      <node id="10">
+        <label>src/wsh_shell_interact.h</label>
+        <link refid="wsh__shell__interact_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>src/wsh_shell_cmd.h</label>
+        <link refid="wsh__shell__cmd_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+      </node>
+      <node id="8">
+        <label>src/wsh_shell_esc.h</label>
+        <link refid="wsh__shell__esc_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>src/wsh_shell_autocomplete.h</label>
+        <link refid="wsh__shell__autocomplete_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+    </invincdepgraph>
+    <innerclass refid="structWshShellOption__t" prot="public">WshShellOption_t</innerclass>
+    <innerclass refid="structWshShellOption__Context__t" prot="public">WshShellOption_Context_t</innerclass>
+      <sectiondef kind="define">
+      <memberdef kind="define" id="wsh__shell__option_8h_1a0b5d600d9e88a6855ca97c058f2053ed" prot="public" static="no">
+        <name>WSH_SHELL_OPT_ACCESS_NONE</name>
+        <initializer>0x00</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/wsh_shell_option.h" line="21" column="9" bodyfile="src/wsh_shell_option.h" bodystart="21" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="wsh__shell__option_8h_1aafc46423ec1eac0c09061c9f3a74ceef" prot="public" static="no">
+        <name>WSH_SHELL_OPT_ACCESS_READ</name>
+        <initializer>0x01</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/wsh_shell_option.h" line="22" column="9" bodyfile="src/wsh_shell_option.h" bodystart="22" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="wsh__shell__option_8h_1a6a70c36f15e88901efe707ac8af288c6" prot="public" static="no">
+        <name>WSH_SHELL_OPT_ACCESS_WRITE</name>
+        <initializer>0x02</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/wsh_shell_option.h" line="23" column="9" bodyfile="src/wsh_shell_option.h" bodystart="23" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="wsh__shell__option_8h_1abd175c5d64191219bec3114459a75de7" prot="public" static="no">
+        <name>WSH_SHELL_OPT_ACCESS_EXECUTE</name>
+        <initializer>0x04</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/wsh_shell_option.h" line="24" column="9" bodyfile="src/wsh_shell_option.h" bodystart="24" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="wsh__shell__option_8h_1a8b770d9f81a1d599560cb95448f667ca" prot="public" static="no">
+        <name>WSH_SHELL_OPT_ACCESS_ANY</name>
+        <initializer>((WshShell_Size_t)(~0U))</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/wsh_shell_option.h" line="25" column="9" bodyfile="src/wsh_shell_option.h" bodystart="25" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="wsh__shell__option_8h_1a42d60084ba45f3c81a1d14465a9eb54c" prot="public" static="no">
+        <name>WSH_SHELL_OPT_DESCR</name>
+        <param><defname>descr</defname></param>
+        <initializer>&quot;&quot;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/wsh_shell_option.h" line="30" column="14" bodyfile="src/wsh_shell_option.h" bodystart="30" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="wsh__shell__option_8h_1af03a0fae0eb36eb851c152250887c6a1" prot="public" static="no">
+        <name>WSH_SHELL_OPT_NO</name>
+        <param><defname>acc</defname></param>
+        <initializer>WSH_SHELL_OPTION_NO, (acc), 0, NULL, NULL, NULL</initializer>
+        <briefdescription>
+<para>Define a special option that matches the command name only (no flags). </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">acc</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Access rights mask. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/wsh_shell_option.h" line="37" column="9" bodyfile="src/wsh_shell_option.h" bodystart="37" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="wsh__shell__option_8h_1a66b466e69cf81f23ed2f106eb4f4ea42" prot="public" static="no">
+        <name>WSH_SHELL_OPT_WAITS_INPUT</name>
+        <param><defname>acc</defname></param>
+        <initializer>WSH_SHELL_OPTION_WAITS_INPUT, (acc), 0, NULL, NULL, NULL</initializer>
+        <briefdescription>
+<para>Define an option that triggers when input is provided with no flags. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">acc</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Access rights mask. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/wsh_shell_option.h" line="43" column="9" bodyfile="src/wsh_shell_option.h" bodystart="43" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="wsh__shell__option_8h_1a84ae8c9b94efef61acb485aa33c179b7" prot="public" static="no">
+        <name>WSH_SHELL_OPT_HELP</name>
+        <param></param>
+        <initializer>    WSH_SHELL_OPTION_HELP, WSH_SHELL_OPT_ACCESS_ANY, 0, &quot;-h&quot;, &quot;--help&quot;, \
+        WSH_SHELL_OPT_DESCR(&quot;Show command help information&quot;)</initializer>
+        <briefdescription>
+<para>Define a built-in help option (e.g. <computeroutput>&quot;--help&quot;</computeroutput> or <computeroutput>&quot;-h&quot;</computeroutput>). </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/wsh_shell_option.h" line="48" column="9" bodyfile="src/wsh_shell_option.h" bodystart="48" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="wsh__shell__option_8h_1afa01544c11c0b5f24e98bf0c72380d7f" prot="public" static="no">
+        <name>WSH_SHELL_OPT_INTERACT</name>
+        <param></param>
+        <initializer>    WSH_SHELL_OPTION_INTERACT, WSH_SHELL_OPT_ACCESS_ANY, 0, &quot;-i&quot;, &quot;--interactive&quot;, \
+        WSH_SHELL_OPT_DESCR(&quot;Run command in interactive mode&quot;)</initializer>
+        <briefdescription>
+<para>Define an option for entering interactive mode. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/wsh_shell_option.h" line="55" column="9" bodyfile="src/wsh_shell_option.h" bodystart="55" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="wsh__shell__option_8h_1a4d51f6a392c48c29a2e6ee795819c513" prot="public" static="no">
+        <name>WSH_SHELL_OPT_WO_PARAM</name>
+        <param><defname>acc</defname></param>
+        <param><defname>short</defname></param>
+        <param><defname>long</defname></param>
+        <param><defname>descr</defname></param>
+        <initializer>    WSH_SHELL_OPTION_WO_PARAM, (acc), 0, (short), (long), WSH_SHELL_OPT_DESCR(descr)</initializer>
+        <briefdescription>
+<para>Define an option that requires no arguments. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">acc</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Access rights mask. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">short</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Short flag (e.g. <computeroutput>&quot;-a&quot;</computeroutput>). </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">long</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Long flag (e.g. <computeroutput>&quot;--all&quot;</computeroutput>). </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">descr</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Help description. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/wsh_shell_option.h" line="66" column="9" bodyfile="src/wsh_shell_option.h" bodystart="66" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="wsh__shell__option_8h_1a838537b988c65b6351ad4f73cf2f9cd9" prot="public" static="no">
+        <name>WSH_SHELL_OPT_MULTI_ARG</name>
+        <param><defname>acc</defname></param>
+        <param><defname>argnum</defname></param>
+        <param><defname>short</defname></param>
+        <param><defname>long</defname></param>
+        <param><defname>descr</defname></param>
+        <initializer>    WSH_SHELL_OPTION_MULTI_ARG, (acc), (argnum), (short), (long), WSH_SHELL_OPT_DESCR(descr)</initializer>
+        <briefdescription>
+<para>Define an option that accepts multiple arguments. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">acc</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Access rights mask. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">argnum</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Number of arguments. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">short</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Short flag. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">long</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Long flag. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">descr</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Help description. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/wsh_shell_option.h" line="77" column="9" bodyfile="src/wsh_shell_option.h" bodystart="77" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="wsh__shell__option_8h_1af2706bb4c06ca3cd9cc10807a3141988" prot="public" static="no">
+        <name>WSH_SHELL_OPT_STR</name>
+        <param><defname>acc</defname></param>
+        <param><defname>short</defname></param>
+        <param><defname>long</defname></param>
+        <param><defname>descr</defname></param>
+        <initializer>    WSH_SHELL_OPTION_STR, (acc), 1, (short), (long), WSH_SHELL_OPT_DESCR(descr)</initializer>
+        <briefdescription>
+<para>Define a string argument option. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">acc</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Access rights mask. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">short</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Short flag. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">long</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Long flag. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">descr</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Help description. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/wsh_shell_option.h" line="87" column="9" bodyfile="src/wsh_shell_option.h" bodystart="87" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="wsh__shell__option_8h_1a41ef8aca56ada98f64215cd93066a413" prot="public" static="no">
+        <name>WSH_SHELL_OPT_INT</name>
+        <param><defname>acc</defname></param>
+        <param><defname>short</defname></param>
+        <param><defname>long</defname></param>
+        <param><defname>descr</defname></param>
+        <initializer>    WSH_SHELL_OPTION_INT, (acc), 1, (short), (long), WSH_SHELL_OPT_DESCR(descr)</initializer>
+        <briefdescription>
+<para>Define an integer argument option. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">acc</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Access rights mask. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">short</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Short flag. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">long</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Long flag. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">descr</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Help description. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/wsh_shell_option.h" line="97" column="9" bodyfile="src/wsh_shell_option.h" bodystart="97" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="wsh__shell__option_8h_1aee6f7da2823df9204d2d4aeb420d097e" prot="public" static="no">
+        <name>WSH_SHELL_OPT_FLOAT</name>
+        <param><defname>acc</defname></param>
+        <param><defname>short</defname></param>
+        <param><defname>long</defname></param>
+        <param><defname>descr</defname></param>
+        <initializer>    WSH_SHELL_OPTION_FLOAT, (acc), 1, (short), (long), WSH_SHELL_OPT_DESCR(descr)</initializer>
+        <briefdescription>
+<para>Define a float argument option. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">acc</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Access rights mask. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">short</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Short flag. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">long</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Long flag. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">descr</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Help description. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/wsh_shell_option.h" line="107" column="9" bodyfile="src/wsh_shell_option.h" bodystart="107" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="wsh__shell__option_8h_1ab0f028502938fbf0e6b20ea8ce4a7c53" prot="public" static="no">
+        <name>WSH_SHELL_OPT_END</name>
+        <param></param>
+        <initializer>WSH_SHELL_OPTION_END, WSH_SHELL_OPT_ACCESS_ANY, 0, NULL, NULL, NULL</initializer>
+        <briefdescription>
+<para>Marks the end of an option array. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/wsh_shell_option.h" line="113" column="9" bodyfile="src/wsh_shell_option.h" bodystart="113" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="wsh__shell__option_8h_1a156227fdb5107dd81cdecf4a49fb5def" prot="public" static="no">
+        <name>WSH_SHELL_OPTION_TYPES_TABLE</name>
+        <param></param>
+        <initializer>    X_ENTRY(WSH_SHELL_OPTION_NO, &quot;NO&quot;)                   \
+    X_ENTRY(WSH_SHELL_OPTION_HELP, &quot;HELP&quot;)               \
+    X_ENTRY(WSH_SHELL_OPTION_INTERACT, &quot;INTERACT&quot;)       \
+    X_ENTRY(WSH_SHELL_OPTION_WO_PARAM, &quot;WO_PARAM&quot;)       \
+    X_ENTRY(WSH_SHELL_OPTION_MULTI_ARG, &quot;MULTI_ARG&quot;)     \
+    X_ENTRY(WSH_SHELL_OPTION_WAITS_INPUT, &quot;WAITS_INPUT&quot;) \
+    X_ENTRY(WSH_SHELL_OPTION_STR, &quot;STR&quot;)                 \
+    X_ENTRY(WSH_SHELL_OPTION_INT, &quot;INT&quot;)                 \
+    X_ENTRY(WSH_SHELL_OPTION_FLOAT, &quot;FLOAT&quot;)             \
+    X_ENTRY(WSH_SHELL_OPTION_END, &quot;END&quot;)</initializer>
+        <briefdescription>
+<para>Internal macro: full list of option types. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/wsh_shell_option.h" line="118" column="9" bodyfile="src/wsh_shell_option.h" bodystart="118" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="wsh__shell__option_8h_1a6ced20efe25225744733e153090f35ad" prot="public" static="no">
+        <name>X_ENTRY</name>
+        <param><defname>id</defname></param>
+        <param><defname>str</defname></param>
+        <initializer>id,</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/wsh_shell_option.h" line="135" column="9" bodyfile="src/wsh_shell_option.h" bodystart="135" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="wsh__shell__option_8h_1a6ced20efe25225744733e153090f35ad" prot="public" static="no">
+        <name>X_ENTRY</name>
+        <param><defname>id</defname></param>
+        <param><defname>str</defname></param>
+        <initializer>str,</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/wsh_shell_option.h" line="144" column="9" bodyfile="src/wsh_shell_option.h" bodystart="135" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="enum">
+      <memberdef kind="enum" id="wsh__shell__option_8h_1abacc485d17b3641078c496a9707d84df" prot="public" static="no" strong="no">
+        <type></type>
+        <name>WSH_SHELL_OPTION_TYPE_t</name>
+        <enumvalue id="wsh__shell__option_8h_1abacc485d17b3641078c496a9707d84dfa6ec88bd0ca0cd2ea1e65bafc87aaac91" prot="public">
+          <name>WSH_SHELL_OPTION_TYPES_TABLE</name>
+          <initializer>=() WSH_SHELL_OPTION_ENUM_SIZE</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+<para>Enumeration of all option types used by the shell. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/wsh_shell_option.h" line="134" column="1" bodyfile="src/wsh_shell_option.h" bodystart="134" bodyend="138"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="var">
+      <memberdef kind="variable" id="wsh__shell__option_8h_1a0fbee62c38eda710df8a54fe5cbd23e5" prot="public" static="yes" mutable="no">
+        <type>const WshShell_Char_t *</type>
+        <definition>const WshShell_Char_t* WshShell_OptionTypeNames[]</definition>
+        <argsstring>[]</argsstring>
+        <name>WshShell_OptionTypeNames</name>
+        <initializer>= {
+#define X_ENTRY(id, str) 
+
+
+}</initializer>
+        <briefdescription>
+<para>Human-readable names of option types. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/wsh_shell_option.h" line="143" column="30" bodyfile="src/wsh_shell_option.h" bodystart="143" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="wsh__shell__option_8h_1aac069d6491f74a1192298bb78cbfb466" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>const WshShell_Char_t *</type>
+        <definition>static const WshShell_Char_t* WshShell_OptTypeStr_Get</definition>
+        <argsstring>(WSH_SHELL_OPTION_TYPE_t optType)</argsstring>
+        <name>WshShell_OptTypeStr_Get</name>
+        <param>
+          <type><ref refid="wsh__shell__option_8h_1abacc485d17b3641078c496a9707d84df" kindref="member">WSH_SHELL_OPTION_TYPE_t</ref></type>
+          <declname>optType</declname>
+        </param>
+        <briefdescription>
+<para>Return the string name of an option type. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">optType</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The option type. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Option type name as string. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/wsh_shell_option.h" line="155" column="37" bodyfile="src/wsh_shell_option.h" bodystart="155" bodyend="160"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Definition of shell command-line option object and creation macros. </para>
+    </briefdescription>
+    <detaileddescription>
+<para>This file provides structures and macros for defining and managing command-line options in the WSH shell framework.</para>
+<para><simplesect kind="author"><para>Whoosh Embedded Team </para>
+</simplesect>
+<simplesect kind="copyright"><para>Copyright (c) 2024 </para>
+</simplesect>
+</para>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="normal"></highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight><highlight class="preprocessor">#ifndef<sp/>__WSH_SHELL_OPTIONS_H</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>__WSH_SHELL_OPTIONS_H</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="14"><highlight class="normal"></highlight></codeline>
+<codeline lineno="15"><highlight class="normal"></highlight><highlight class="preprocessor">#ifdef<sp/>__cplusplus</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="16"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/></highlight><highlight class="stringliteral">&quot;C&quot;</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline lineno="17"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="18"><highlight class="normal"></highlight></codeline>
+<codeline lineno="19"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="wsh__shell__types_8h" kindref="compound">wsh_shell_types.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="20"><highlight class="normal"></highlight></codeline>
+<codeline lineno="21"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>WSH_SHELL_OPT_ACCESS_NONE<sp/><sp/><sp/><sp/>0x00</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="22"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>WSH_SHELL_OPT_ACCESS_READ<sp/><sp/><sp/><sp/>0x01</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="23"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>WSH_SHELL_OPT_ACCESS_WRITE<sp/><sp/><sp/>0x02</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="24"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>WSH_SHELL_OPT_ACCESS_EXECUTE<sp/>0x04</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="25"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>WSH_SHELL_OPT_ACCESS_ANY<sp/><sp/><sp/><sp/><sp/>((WshShell_Size_t)(~0U))</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="26"><highlight class="normal"></highlight></codeline>
+<codeline lineno="27"><highlight class="normal"></highlight><highlight class="preprocessor">#if<sp/>WSH_SHELL_PRINT_OPT_HELP_ENABLE</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="28"><highlight class="normal"></highlight><highlight class="preprocessor"><sp/><sp/><sp/><sp/>#define<sp/>WSH_SHELL_OPT_DESCR(descr)<sp/>descr</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="29"><highlight class="normal"></highlight><highlight class="preprocessor">#else</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="30"><highlight class="normal"></highlight><highlight class="preprocessor"><sp/><sp/><sp/><sp/>#define<sp/>WSH_SHELL_OPT_DESCR(descr)<sp/>&quot;&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="31"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="32"><highlight class="normal"></highlight></codeline>
+<codeline lineno="37" refid="wsh__shell__option_8h_1af03a0fae0eb36eb851c152250887c6a1" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>WSH_SHELL_OPT_NO(acc)<sp/>WSH_SHELL_OPTION_NO,<sp/>(acc),<sp/>0,<sp/>NULL,<sp/>NULL,<sp/>NULL</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="38"><highlight class="normal"></highlight></codeline>
+<codeline lineno="43" refid="wsh__shell__option_8h_1a66b466e69cf81f23ed2f106eb4f4ea42" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>WSH_SHELL_OPT_WAITS_INPUT(acc)<sp/>WSH_SHELL_OPTION_WAITS_INPUT,<sp/>(acc),<sp/>0,<sp/>NULL,<sp/>NULL,<sp/>NULL</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="44"><highlight class="normal"></highlight></codeline>
+<codeline lineno="48" refid="wsh__shell__option_8h_1a84ae8c9b94efef61acb485aa33c179b7" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>WSH_SHELL_OPT_HELP()<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>\</highlight></codeline>
+<codeline lineno="49"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>WSH_SHELL_OPTION_HELP,<sp/>WSH_SHELL_OPT_ACCESS_ANY,<sp/>0,<sp/>&quot;-h&quot;</highlight><highlight class="normal">,<sp/>&quot;--help&quot;,<sp/>\</highlight></codeline>
+<codeline lineno="50"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>WSH_SHELL_OPT_DESCR(&quot;Show<sp/>command<sp/>help<sp/>information&quot;)</highlight></codeline>
+<codeline lineno="51"><highlight class="normal"></highlight></codeline>
+<codeline lineno="55" refid="wsh__shell__option_8h_1afa01544c11c0b5f24e98bf0c72380d7f" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>WSH_SHELL_OPT_INTERACT()<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>\</highlight></codeline>
+<codeline lineno="56"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>WSH_SHELL_OPTION_INTERACT,<sp/>WSH_SHELL_OPT_ACCESS_ANY,<sp/>0,<sp/>&quot;-i&quot;</highlight><highlight class="normal">,<sp/>&quot;--interactive&quot;,<sp/>\</highlight></codeline>
+<codeline lineno="57"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>WSH_SHELL_OPT_DESCR(&quot;Run<sp/>command<sp/>in<sp/>interactive<sp/>mode&quot;)</highlight></codeline>
+<codeline lineno="58"><highlight class="normal"></highlight></codeline>
+<codeline lineno="66" refid="wsh__shell__option_8h_1a4d51f6a392c48c29a2e6ee795819c513" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>WSH_SHELL_OPT_WO_PARAM(acc,<sp/>short,<sp/>long,<sp/>descr)<sp/>\</highlight></codeline>
+<codeline lineno="67"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>WSH_SHELL_OPTION_WO_PARAM,<sp/>(acc),<sp/>0,<sp/>(short),<sp/>(long),<sp/>WSH_SHELL_OPT_DESCR(descr)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="68"><highlight class="normal"></highlight></codeline>
+<codeline lineno="77" refid="wsh__shell__option_8h_1a838537b988c65b6351ad4f73cf2f9cd9" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>WSH_SHELL_OPT_MULTI_ARG(acc,<sp/>argnum,<sp/>short,<sp/>long,<sp/>descr)<sp/>\</highlight></codeline>
+<codeline lineno="78"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>WSH_SHELL_OPTION_MULTI_ARG,<sp/>(acc),<sp/>(argnum),<sp/>(short),<sp/>(long),<sp/>WSH_SHELL_OPT_DESCR(descr)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="79"><highlight class="normal"></highlight></codeline>
+<codeline lineno="87" refid="wsh__shell__option_8h_1af2706bb4c06ca3cd9cc10807a3141988" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>WSH_SHELL_OPT_STR(acc,<sp/>short,<sp/>long,<sp/>descr)<sp/>\</highlight></codeline>
+<codeline lineno="88"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>WSH_SHELL_OPTION_STR,<sp/>(acc),<sp/>1,<sp/>(short),<sp/>(long),<sp/>WSH_SHELL_OPT_DESCR(descr)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="89"><highlight class="normal"></highlight></codeline>
+<codeline lineno="97" refid="wsh__shell__option_8h_1a41ef8aca56ada98f64215cd93066a413" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>WSH_SHELL_OPT_INT(acc,<sp/>short,<sp/>long,<sp/>descr)<sp/>\</highlight></codeline>
+<codeline lineno="98"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>WSH_SHELL_OPTION_INT,<sp/>(acc),<sp/>1,<sp/>(short),<sp/>(long),<sp/>WSH_SHELL_OPT_DESCR(descr)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="99"><highlight class="normal"></highlight></codeline>
+<codeline lineno="107" refid="wsh__shell__option_8h_1aee6f7da2823df9204d2d4aeb420d097e" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>WSH_SHELL_OPT_FLOAT(acc,<sp/>short,<sp/>long,<sp/>descr)<sp/>\</highlight></codeline>
+<codeline lineno="108"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>WSH_SHELL_OPTION_FLOAT,<sp/>(acc),<sp/>1,<sp/>(short),<sp/>(long),<sp/>WSH_SHELL_OPT_DESCR(descr)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="109"><highlight class="normal"></highlight></codeline>
+<codeline lineno="113" refid="wsh__shell__option_8h_1ab0f028502938fbf0e6b20ea8ce4a7c53" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>WSH_SHELL_OPT_END()<sp/>WSH_SHELL_OPTION_END,<sp/>WSH_SHELL_OPT_ACCESS_ANY,<sp/>0,<sp/>NULL,<sp/>NULL,<sp/>NULL</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="114"><highlight class="normal"></highlight></codeline>
+<codeline lineno="118" refid="wsh__shell__option_8h_1a156227fdb5107dd81cdecf4a49fb5def" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>WSH_SHELL_OPTION_TYPES_TABLE()<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>\</highlight></codeline>
+<codeline lineno="119"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>X_ENTRY(WSH_SHELL_OPTION_NO,<sp/>&quot;NO&quot;</highlight><highlight class="normal">)<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>\</highlight></codeline>
+<codeline lineno="120"><highlight class="normal"><sp/><sp/><sp/><sp/>X_ENTRY(WSH_SHELL_OPTION_HELP,<sp/>&quot;HELP&quot;)<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>\</highlight></codeline>
+<codeline lineno="121"><highlight class="normal"><sp/><sp/><sp/><sp/>X_ENTRY(WSH_SHELL_OPTION_INTERACT,<sp/>&quot;INTERACT&quot;)<sp/><sp/><sp/><sp/><sp/><sp/><sp/>\</highlight></codeline>
+<codeline lineno="122"><highlight class="normal"><sp/><sp/><sp/><sp/>X_ENTRY(WSH_SHELL_OPTION_WO_PARAM,<sp/>&quot;WO_PARAM&quot;)<sp/><sp/><sp/><sp/><sp/><sp/><sp/>\</highlight></codeline>
+<codeline lineno="123"><highlight class="normal"><sp/><sp/><sp/><sp/>X_ENTRY(WSH_SHELL_OPTION_MULTI_ARG,<sp/>&quot;MULTI_ARG&quot;)<sp/><sp/><sp/><sp/><sp/>\</highlight></codeline>
+<codeline lineno="124"><highlight class="normal"><sp/><sp/><sp/><sp/>X_ENTRY(WSH_SHELL_OPTION_WAITS_INPUT,<sp/>&quot;WAITS_INPUT&quot;)<sp/>\</highlight></codeline>
+<codeline lineno="125"><highlight class="normal"><sp/><sp/><sp/><sp/>X_ENTRY(WSH_SHELL_OPTION_STR,<sp/>&quot;STR&quot;)<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>\</highlight></codeline>
+<codeline lineno="126"><highlight class="normal"><sp/><sp/><sp/><sp/>X_ENTRY(WSH_SHELL_OPTION_INT,<sp/>&quot;INT&quot;)<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>\</highlight></codeline>
+<codeline lineno="127"><highlight class="normal"><sp/><sp/><sp/><sp/>X_ENTRY(WSH_SHELL_OPTION_FLOAT,<sp/>&quot;FLOAT&quot;)<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>\</highlight></codeline>
+<codeline lineno="128"><highlight class="normal"><sp/><sp/><sp/><sp/>X_ENTRY(WSH_SHELL_OPTION_END,<sp/>&quot;END&quot;)</highlight></codeline>
+<codeline lineno="129"><highlight class="normal"></highlight></codeline>
+<codeline lineno="134" refid="wsh__shell__option_8h_1abacc485d17b3641078c496a9707d84df" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">enum</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline lineno="135"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>X_ENTRY(id,<sp/>str)<sp/>id,</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="136"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="wsh__shell__option_8h_1a156227fdb5107dd81cdecf4a49fb5def" kindref="member">WSH_SHELL_OPTION_TYPES_TABLE</ref>()<sp/>WSH_SHELL_OPTION_ENUM_SIZE</highlight></codeline>
+<codeline lineno="137"><highlight class="normal"></highlight><highlight class="preprocessor">#undef<sp/>X_ENTRY</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="138"><highlight class="normal">}<sp/><ref refid="wsh__shell__option_8h_1abacc485d17b3641078c496a9707d84df" kindref="member">WSH_SHELL_OPTION_TYPE_t</ref>;</highlight></codeline>
+<codeline lineno="139"><highlight class="normal"></highlight></codeline>
+<codeline lineno="143"><highlight class="normal"></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>WshShell_Char_t*<sp/>WshShell_OptionTypeNames[]<sp/>=<sp/>{</highlight></codeline>
+<codeline lineno="144"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>X_ENTRY(id,<sp/>str)<sp/>str,</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="145"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="wsh__shell__option_8h_1a156227fdb5107dd81cdecf4a49fb5def" kindref="member">WSH_SHELL_OPTION_TYPES_TABLE</ref>()</highlight></codeline>
+<codeline lineno="146"><highlight class="normal"></highlight><highlight class="preprocessor">#undef<sp/>X_ENTRY</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="147"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="148"><highlight class="normal"></highlight></codeline>
+<codeline lineno="155"><highlight class="normal"></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">inline</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>WshShell_Char_t*<sp/>WshShell_OptTypeStr_Get(<ref refid="wsh__shell__option_8h_1abacc485d17b3641078c496a9707d84df" kindref="member">WSH_SHELL_OPTION_TYPE_t</ref><sp/>optType)<sp/>{</highlight></codeline>
+<codeline lineno="156"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(optType<sp/>&gt;=<sp/>WSH_SHELL_OPTION_ENUM_SIZE)</highlight></codeline>
+<codeline lineno="157"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>optType<sp/>=<sp/>WSH_SHELL_OPTION_NO;</highlight></codeline>
+<codeline lineno="158"><highlight class="normal"></highlight></codeline>
+<codeline lineno="159"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>WshShell_OptionTypeNames[optType];</highlight></codeline>
+<codeline lineno="160"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="161"><highlight class="normal"></highlight></codeline>
+<codeline lineno="169" refid="structWshShellOption__t" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="170" refid="structWshShellOption__t_1a939aa63e34d9783de578999887073710" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>WshShell_Size_t<sp/><ref refid="structWshShellOption__t_1a939aa63e34d9783de578999887073710" kindref="member">ID</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="171" refid="structWshShellOption__t_1a5abf4d353b127ed4612ba689dbdce4e8" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="wsh__shell__option_8h_1abacc485d17b3641078c496a9707d84df" kindref="member">WSH_SHELL_OPTION_TYPE_t</ref><sp/><ref refid="structWshShellOption__t_1a5abf4d353b127ed4612ba689dbdce4e8" kindref="member">Type</ref>;<sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="172" refid="structWshShellOption__t_1a32dc92bfbe6cf2dab997cd12b86a414c" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>WshShell_Size_t<sp/><ref refid="structWshShellOption__t_1a32dc92bfbe6cf2dab997cd12b86a414c" kindref="member">Access</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="173" refid="structWshShellOption__t_1a5eb9ad77880b6e56bffdf44b7439348d" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>WshShell_Size_t<sp/><ref refid="structWshShellOption__t_1a5eb9ad77880b6e56bffdf44b7439348d" kindref="member">ArgNum</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="174" refid="structWshShellOption__t_1a71d093bcc543a9a08ab1663c79e0b85c" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>WshShell_Char_t*<sp/><ref refid="structWshShellOption__t_1a71d093bcc543a9a08ab1663c79e0b85c" kindref="member">ShortName</ref>;<sp/></highlight></codeline>
+<codeline lineno="175" refid="structWshShellOption__t_1a9d629a1db4e0cfbc63d821ab64c96708" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>WshShell_Char_t*<sp/><ref refid="structWshShellOption__t_1a9d629a1db4e0cfbc63d821ab64c96708" kindref="member">LongName</ref>;<sp/><sp/></highlight></codeline>
+<codeline lineno="176" refid="structWshShellOption__t_1aa1ec146a5fbd777345f79856d8b80891" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>WshShell_Char_t*<sp/><ref refid="structWshShellOption__t_1aa1ec146a5fbd777345f79856d8b80891" kindref="member">Descr</ref>;<sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="177"><highlight class="normal">}<sp/><ref refid="structWshShellOption__t" kindref="compound">WshShellOption_t</ref>;</highlight></codeline>
+<codeline lineno="178"><highlight class="normal"></highlight></codeline>
+<codeline lineno="185" refid="structWshShellOption__Context__t" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="186" refid="structWshShellOption__Context__t_1a01ebc749a0a3df9dece800e13a7513ba" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="structWshShellOption__t" kindref="compound">WshShellOption_t</ref>*<sp/><ref refid="structWshShellOption__Context__t_1a01ebc749a0a3df9dece800e13a7513ba" kindref="member">Option</ref>;<sp/></highlight></codeline>
+<codeline lineno="187" refid="structWshShellOption__Context__t_1a6831403a69dc4221bc65d0ce794317b8" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>WshShell_Size_t<sp/><ref refid="structWshShellOption__Context__t_1a6831403a69dc4221bc65d0ce794317b8" kindref="member">TokenPos</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="188"><highlight class="normal">}<sp/><ref refid="structWshShellOption__Context__t" kindref="compound">WshShellOption_Context_t</ref>;</highlight></codeline>
+<codeline lineno="189"><highlight class="normal"></highlight></codeline>
+<codeline lineno="190"><highlight class="normal"></highlight><highlight class="preprocessor">#ifdef<sp/>__cplusplus</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="191"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="192"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="193"><highlight class="normal"></highlight></codeline>
+<codeline lineno="194"><highlight class="normal"></highlight><highlight class="preprocessor">#endif<sp/></highlight><highlight class="comment">/*<sp/>__WSH_SHELL_OPTIONS_H<sp/>*/</highlight><highlight class="preprocessor"></highlight></codeline>
+    </programlisting>
+    <location file="src/wsh_shell_option.h"/>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,430 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="wsh__shell__io_8c" kind="file" language="C++">
+    <compoundname>wsh_shell_io.c</compoundname>
+    <includes refid="wsh__shell__io_8h" local="yes">wsh_shell_io.h</includes>
+    <incdepgraph>
+      <node id="8">
+        <label>stdbool.h</label>
+      </node>
+      <node id="7">
+        <label>stdarg.h</label>
+      </node>
+      <node id="4">
+        <label>wsh_shell_str.h</label>
+        <link refid="wsh__shell__str_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+      </node>
+      <node id="10">
+        <label>stdint.h</label>
+      </node>
+      <node id="12">
+        <label>stdlib.h</label>
+      </node>
+      <node id="3">
+        <label>wsh_shell_cfg.h</label>
+      </node>
+      <node id="9">
+        <label>stddef.h</label>
+      </node>
+      <node id="5">
+        <label>wsh_shell_option.h</label>
+        <link refid="wsh__shell__option_8h"/>
+        <childnode refid="6" relation="include">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>src/wsh_shell_io.c</label>
+        <link refid="wsh__shell__io_8c"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>wsh_shell_io.h</label>
+        <link refid="wsh__shell__io_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+      </node>
+      <node id="13">
+        <label>string.h</label>
+      </node>
+      <node id="6">
+        <label>wsh_shell_types.h</label>
+        <link refid="wsh__shell__types_8h"/>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+      </node>
+      <node id="11">
+        <label>stdio.h</label>
+      </node>
+    </incdepgraph>
+      <sectiondef kind="var">
+      <memberdef kind="variable" id="wsh__shell__io_8c_1a51d70c7df92594ac2383bc2174408706" prot="public" static="yes" mutable="no">
+        <type>const WshShell_Char_t *</type>
+        <definition>const WshShell_Char_t* WshShellIO_InsertStringTemplate</definition>
+        <argsstring></argsstring>
+        <name>WshShellIO_InsertStringTemplate</name>
+        <initializer>=
+    WSH_SHELL_ESC_SAVE_CURSOR WSH_SHELL_ESC_CLEAR_RIGHT_FROM_CURS
+    &quot;%s&quot; WSH_SHELL_ESC_RESTORE_CURSOR WSH_SHELL_ESC_ARROW_RIGHT</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/wsh_shell_io.c" line="77" column="30" bodyfile="src/wsh_shell_io.c" bodystart="77" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="wsh__shell__io_8c_1aec1f06269e94c4db764fd11b07a93600" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void WshShellIO_ClearInterBuff</definition>
+        <argsstring>(WshShellIO_CommandLine_t *pCommandLine)</argsstring>
+        <name>WshShellIO_ClearInterBuff</name>
+        <param>
+          <type><ref refid="structWshShellIO__CommandLine__t" kindref="compound">WshShellIO_CommandLine_t</ref> *</type>
+          <declname>pCommandLine</declname>
+        </param>
+        <briefdescription>
+<para>Clears the interaction buffer. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Resets buffer contents, cursor position, and line length.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>pCommandLine</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the interaction buffer. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/wsh_shell_io.c" line="3" column="6" bodyfile="src/wsh_shell_io.c" bodystart="3" bodyend="12"/>
+      </memberdef>
+      <memberdef kind="function" id="wsh__shell__io_8c_1a8941741c3a17fb54102de3772d6e9384" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void WshShellIO_WriteToInterBuff</definition>
+        <argsstring>(WshShellIO_CommandLine_t *pCommandLine, WshShell_Char_t symbol)</argsstring>
+        <name>WshShellIO_WriteToInterBuff</name>
+        <param>
+          <type><ref refid="structWshShellIO__CommandLine__t" kindref="compound">WshShellIO_CommandLine_t</ref> *</type>
+          <declname>pCommandLine</declname>
+        </param>
+        <param>
+          <type>WshShell_Char_t</type>
+          <declname>symbol</declname>
+        </param>
+        <briefdescription>
+<para>Writes a character into the interaction buffer at the cursor position. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Increments cursor and line length accordingly.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>pCommandLine</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the interaction buffer. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>symbol</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Character to write. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/wsh_shell_io.c" line="14" column="6" bodyfile="src/wsh_shell_io.c" bodystart="14" bodyend="22"/>
+      </memberdef>
+      <memberdef kind="function" id="wsh__shell__io_8c_1a8d4e26bec84a173c570dcff0e646894c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void WshShellIO_PrintInterBuff</definition>
+        <argsstring>(WshShellIO_CommandLine_t *pCommandLine)</argsstring>
+        <name>WshShellIO_PrintInterBuff</name>
+        <param>
+          <type><ref refid="structWshShellIO__CommandLine__t" kindref="compound">WshShellIO_CommandLine_t</ref> *</type>
+          <declname>pCommandLine</declname>
+        </param>
+        <briefdescription>
+<para>Prints the current interaction buffer to the terminal. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>pCommandLine</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the interaction buffer. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/wsh_shell_io.c" line="24" column="6" bodyfile="src/wsh_shell_io.c" bodystart="24" bodyend="30"/>
+      </memberdef>
+      <memberdef kind="function" id="wsh__shell__io_8c_1a504d8205168991de62227d30a6b360f9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void WshShellIO_RefreshConsoleFromInterBuff</definition>
+        <argsstring>(WshShellIO_CommandLine_t *pCommandLine)</argsstring>
+        <name>WshShellIO_RefreshConsoleFromInterBuff</name>
+        <param>
+          <type><ref refid="structWshShellIO__CommandLine__t" kindref="compound">WshShellIO_CommandLine_t</ref> *</type>
+          <declname>pCommandLine</declname>
+        </param>
+        <briefdescription>
+<para>Refreshes the terminal display using the interaction buffer. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Clears the current line and reprints buffer contents.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>pCommandLine</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the interaction buffer. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/wsh_shell_io.c" line="32" column="6" bodyfile="src/wsh_shell_io.c" bodystart="32" bodyend="49"/>
+      </memberdef>
+      <memberdef kind="function" id="wsh__shell__io_8c_1afd0ae76eae883ef80c73fc8e1c25197d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void WshShellIO_RemoveLeftSymbol</definition>
+        <argsstring>(WshShellIO_CommandLine_t *pCommandLine)</argsstring>
+        <name>WshShellIO_RemoveLeftSymbol</name>
+        <param>
+          <type><ref refid="structWshShellIO__CommandLine__t" kindref="compound">WshShellIO_CommandLine_t</ref> *</type>
+          <declname>pCommandLine</declname>
+        </param>
+        <briefdescription>
+<para>Removes the symbol to the left of the cursor in the input buffer. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>This function handles backspace-like behavior:<itemizedlist>
+<listitem><para>If the cursor is not at the beginning of the line, it removes the symbol to the left of the cursor, shifts the rest of the line left, and updates both the buffer and terminal display.</para>
+</listitem><listitem><para>If the cursor is beyond the line length (unexpected), only moves the cursor one position left.</para>
+</listitem></itemizedlist>
+</para>
+<para>Also updates the internal buffer length and uses ANSI escape sequences to visually update the terminal.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>pCommandLine</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the interaction buffer. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/wsh_shell_io.c" line="51" column="6" bodyfile="src/wsh_shell_io.c" bodystart="51" bodyend="75"/>
+      </memberdef>
+      <memberdef kind="function" id="wsh__shell__io_8c_1aff3bd3d1200458c97969a00125051ca4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void WshShellIO_InsertSymbol</definition>
+        <argsstring>(WshShellIO_CommandLine_t *pCommandLine, WshShell_Char_t ch, WshShell_Bool_t starsOrChars)</argsstring>
+        <name>WshShellIO_InsertSymbol</name>
+        <param>
+          <type><ref refid="structWshShellIO__CommandLine__t" kindref="compound">WshShellIO_CommandLine_t</ref> *</type>
+          <declname>pCommandLine</declname>
+        </param>
+        <param>
+          <type>WshShell_Char_t</type>
+          <declname>ch</declname>
+        </param>
+        <param>
+          <type>WshShell_Bool_t</type>
+          <declname>starsOrChars</declname>
+        </param>
+        <briefdescription>
+<para>Inserts a symbol at the current cursor position in the input buffer. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>This function handles character insertion into the interaction buffer:<itemizedlist>
+<listitem><para>If the cursor is in the middle of the line (not at the end), it shifts existing characters to the right to make space for the new symbol.</para>
+</listitem><listitem><para>The character is then written into the buffer at the cursor position using <computeroutput>WshShellIO_WriteToInterBuff</computeroutput>.</para>
+</listitem><listitem><para>The terminal is updated to reflect the insertion, printing either the actual symbol or an asterisk (<computeroutput>*</computeroutput>) if <computeroutput>starsOrChars</computeroutput> is true (used for password masking).</para>
+</listitem></itemizedlist>
+</para>
+<para>Cursor position and buffer length are updated internally. Asserts that <computeroutput>pCommandLine</computeroutput> is valid and that <computeroutput>CursorPos &gt;= 1</computeroutput> before printing.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>pCommandLine</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the interaction buffer. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>ch</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The symbol to insert. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>starsOrChars</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>If true, prints <computeroutput>*</computeroutput> instead of the actual character. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/wsh_shell_io.c" line="81" column="6" bodyfile="src/wsh_shell_io.c" bodystart="81" bodyend="100"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="preprocessor">#include<sp/>&quot;<ref refid="wsh__shell__io_8h" kindref="compound">wsh_shell_io.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="wsh__shell__io_8h_1aec1f06269e94c4db764fd11b07a93600" kindref="member">WshShellIO_ClearInterBuff</ref>(<ref refid="structWshShellIO__CommandLine__t" kindref="compound">WshShellIO_CommandLine_t</ref>*<sp/>pCommandLine)<sp/>{</highlight></codeline>
+<codeline lineno="4"><highlight class="normal"><sp/><sp/><sp/><sp/>WSH_SHELL_ASSERT(pCommandLine);</highlight></codeline>
+<codeline lineno="5"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(!pCommandLine)</highlight></codeline>
+<codeline lineno="6"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight></codeline>
+<codeline lineno="8"><highlight class="normal"><sp/><sp/><sp/><sp/>WSH_SHELL_MEMSET((</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">*)pCommandLine-&gt;<ref refid="structWshShellIO__CommandLine__t_1a74b52cba6bcd35c578f8e1eeefe11b76" kindref="member">Buff</ref>,<sp/>0,</highlight></codeline>
+<codeline lineno="9"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">sizeof</highlight><highlight class="normal">(WshShell_Char_t)<sp/>*<sp/>WSH_SHELL_INTR_BUFF_LEN);</highlight></codeline>
+<codeline lineno="10"><highlight class="normal"><sp/><sp/><sp/><sp/>pCommandLine-&gt;<ref refid="structWshShellIO__CommandLine__t_1a9ceb70baa2d64af07f92632dd95f750d" kindref="member">Len</ref><sp/><sp/><sp/><sp/><sp/><sp/><sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="11"><highlight class="normal"><sp/><sp/><sp/><sp/>pCommandLine-&gt;<ref refid="structWshShellIO__CommandLine__t_1a98a6251521984a9b61836fd327646555" kindref="member">CursorPos</ref><sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="12"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight></codeline>
+<codeline lineno="14"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="wsh__shell__io_8h_1a8941741c3a17fb54102de3772d6e9384" kindref="member">WshShellIO_WriteToInterBuff</ref>(<ref refid="structWshShellIO__CommandLine__t" kindref="compound">WshShellIO_CommandLine_t</ref>*<sp/>pCommandLine,<sp/>WshShell_Char_t<sp/>symbol)<sp/>{</highlight></codeline>
+<codeline lineno="15"><highlight class="normal"><sp/><sp/><sp/><sp/>WSH_SHELL_ASSERT(pCommandLine);</highlight></codeline>
+<codeline lineno="16"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(!pCommandLine)</highlight></codeline>
+<codeline lineno="17"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="18"><highlight class="normal"></highlight></codeline>
+<codeline lineno="19"><highlight class="normal"><sp/><sp/><sp/><sp/>pCommandLine-&gt;<ref refid="structWshShellIO__CommandLine__t_1a74b52cba6bcd35c578f8e1eeefe11b76" kindref="member">Buff</ref>[pCommandLine-&gt;<ref refid="structWshShellIO__CommandLine__t_1a98a6251521984a9b61836fd327646555" kindref="member">CursorPos</ref>]<sp/>=<sp/>symbol;</highlight></codeline>
+<codeline lineno="20"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="wsh__shell__str_8h_1a717aa2a87c1d1b039e986781479199ba" kindref="member">WshShellStr_IncrInterCnt</ref>(&amp;(pCommandLine-&gt;<ref refid="structWshShellIO__CommandLine__t_1a98a6251521984a9b61836fd327646555" kindref="member">CursorPos</ref>),<sp/>WSH_SHELL_INTR_BUFF_LEN);</highlight></codeline>
+<codeline lineno="21"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="wsh__shell__str_8h_1a717aa2a87c1d1b039e986781479199ba" kindref="member">WshShellStr_IncrInterCnt</ref>(&amp;(pCommandLine-&gt;<ref refid="structWshShellIO__CommandLine__t_1a9ceb70baa2d64af07f92632dd95f750d" kindref="member">Len</ref>),<sp/>WSH_SHELL_INTR_BUFF_LEN);</highlight></codeline>
+<codeline lineno="22"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="23"><highlight class="normal"></highlight></codeline>
+<codeline lineno="24"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="wsh__shell__io_8h_1a8d4e26bec84a173c570dcff0e646894c" kindref="member">WshShellIO_PrintInterBuff</ref>(<ref refid="structWshShellIO__CommandLine__t" kindref="compound">WshShellIO_CommandLine_t</ref>*<sp/>pCommandLine)<sp/>{</highlight></codeline>
+<codeline lineno="25"><highlight class="normal"><sp/><sp/><sp/><sp/>WSH_SHELL_ASSERT(pCommandLine);</highlight></codeline>
+<codeline lineno="26"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(!pCommandLine)</highlight></codeline>
+<codeline lineno="27"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="28"><highlight class="normal"></highlight></codeline>
+<codeline lineno="29"><highlight class="normal"><sp/><sp/><sp/><sp/>WSH_SHELL_PRINT(pCommandLine-&gt;<ref refid="structWshShellIO__CommandLine__t_1a74b52cba6bcd35c578f8e1eeefe11b76" kindref="member">Buff</ref>);</highlight></codeline>
+<codeline lineno="30"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="31"><highlight class="normal"></highlight></codeline>
+<codeline lineno="32"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="wsh__shell__io_8h_1a504d8205168991de62227d30a6b360f9" kindref="member">WshShellIO_RefreshConsoleFromInterBuff</ref>(<ref refid="structWshShellIO__CommandLine__t" kindref="compound">WshShellIO_CommandLine_t</ref>*<sp/>pCommandLine)<sp/>{</highlight></codeline>
+<codeline lineno="33"><highlight class="normal"><sp/><sp/><sp/><sp/>WSH_SHELL_ASSERT(pCommandLine);</highlight></codeline>
+<codeline lineno="34"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(!pCommandLine)</highlight></codeline>
+<codeline lineno="35"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="36"><highlight class="normal"></highlight></codeline>
+<codeline lineno="37"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Move<sp/>cursor<sp/>to<sp/>the<sp/>beginning</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="38"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(WshShell_Size_t<sp/>cur<sp/>=<sp/>pCommandLine-&gt;<ref refid="structWshShellIO__CommandLine__t_1a98a6251521984a9b61836fd327646555" kindref="member">CursorPos</ref>;<sp/>cur<sp/>&gt;<sp/>0;<sp/>cur--)</highlight></codeline>
+<codeline lineno="39"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>WSH_SHELL_PRINT(</highlight><highlight class="stringliteral">&quot;%c&quot;</highlight><highlight class="normal">,<sp/><ref refid="wsh__shell__io_8h_1ae07dd34e9a42f6ff703776223885aa6b" kindref="member">WSH_SHELL_SYM_BACKSPACE</ref>);<sp/><sp/></highlight><highlight class="comment">//Move<sp/>crs<sp/>left<sp/>1<sp/>char</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="40"><highlight class="normal"></highlight></codeline>
+<codeline lineno="41"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Clear<sp/>line<sp/>to<sp/>the<sp/>right<sp/>of<sp/>cursor</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="42"><highlight class="normal"><sp/><sp/><sp/><sp/>WSH_SHELL_PRINT(WSH_SHELL_ESC_CLEAR_RIGHT_FROM_CURS);</highlight></codeline>
+<codeline lineno="43"><highlight class="normal"></highlight></codeline>
+<codeline lineno="44"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Update<sp/>line<sp/>length<sp/>and<sp/>cursor<sp/>position</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="45"><highlight class="normal"><sp/><sp/><sp/><sp/>pCommandLine-&gt;<ref refid="structWshShellIO__CommandLine__t_1a9ceb70baa2d64af07f92632dd95f750d" kindref="member">Len</ref><sp/><sp/><sp/><sp/><sp/><sp/><sp/>=<sp/>WSH_SHELL_STRLEN(pCommandLine-&gt;<ref refid="structWshShellIO__CommandLine__t_1a74b52cba6bcd35c578f8e1eeefe11b76" kindref="member">Buff</ref>);</highlight></codeline>
+<codeline lineno="46"><highlight class="normal"><sp/><sp/><sp/><sp/>pCommandLine-&gt;<ref refid="structWshShellIO__CommandLine__t_1a98a6251521984a9b61836fd327646555" kindref="member">CursorPos</ref><sp/>=<sp/>pCommandLine-&gt;<ref refid="structWshShellIO__CommandLine__t_1a9ceb70baa2d64af07f92632dd95f750d" kindref="member">Len</ref>;</highlight></codeline>
+<codeline lineno="47"><highlight class="normal"></highlight></codeline>
+<codeline lineno="48"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="wsh__shell__io_8h_1a8d4e26bec84a173c570dcff0e646894c" kindref="member">WshShellIO_PrintInterBuff</ref>(pCommandLine);</highlight></codeline>
+<codeline lineno="49"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="50"><highlight class="normal"></highlight></codeline>
+<codeline lineno="51"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="wsh__shell__io_8h_1afd0ae76eae883ef80c73fc8e1c25197d" kindref="member">WshShellIO_RemoveLeftSymbol</ref>(<ref refid="structWshShellIO__CommandLine__t" kindref="compound">WshShellIO_CommandLine_t</ref>*<sp/>pCommandLine)<sp/>{</highlight></codeline>
+<codeline lineno="52"><highlight class="normal"><sp/><sp/><sp/><sp/>WSH_SHELL_ASSERT(pCommandLine);</highlight></codeline>
+<codeline lineno="53"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(!pCommandLine<sp/>||<sp/>pCommandLine-&gt;<ref refid="structWshShellIO__CommandLine__t_1a98a6251521984a9b61836fd327646555" kindref="member">CursorPos</ref><sp/>==<sp/>0)</highlight></codeline>
+<codeline lineno="54"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="55"><highlight class="normal"></highlight></codeline>
+<codeline lineno="56"><highlight class="normal"><sp/><sp/><sp/><sp/>WshShell_Size_t<sp/>cursorPos<sp/>=<sp/>pCommandLine-&gt;<ref refid="structWshShellIO__CommandLine__t_1a98a6251521984a9b61836fd327646555" kindref="member">CursorPos</ref><sp/>-<sp/>1;</highlight></codeline>
+<codeline lineno="57"><highlight class="normal"></highlight></codeline>
+<codeline lineno="58"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(pCommandLine-&gt;<ref refid="structWshShellIO__CommandLine__t_1a98a6251521984a9b61836fd327646555" kindref="member">CursorPos</ref><sp/>&lt;=<sp/>pCommandLine-&gt;<ref refid="structWshShellIO__CommandLine__t_1a9ceb70baa2d64af07f92632dd95f750d" kindref="member">Len</ref>)<sp/>{</highlight></codeline>
+<codeline lineno="59"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Shift<sp/>buffer<sp/>left<sp/>from<sp/>pos</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="60"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(WshShell_Size_t<sp/>pos<sp/>=<sp/>cursorPos;<sp/>pos<sp/>&lt;<sp/>pCommandLine-&gt;<ref refid="structWshShellIO__CommandLine__t_1a9ceb70baa2d64af07f92632dd95f750d" kindref="member">Len</ref>;<sp/>pos++)<sp/>{</highlight></codeline>
+<codeline lineno="61"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>pCommandLine-&gt;<ref refid="structWshShellIO__CommandLine__t_1a74b52cba6bcd35c578f8e1eeefe11b76" kindref="member">Buff</ref>[pos]<sp/>=<sp/>pCommandLine-&gt;<ref refid="structWshShellIO__CommandLine__t_1a74b52cba6bcd35c578f8e1eeefe11b76" kindref="member">Buff</ref>[pos<sp/>+<sp/>1];</highlight></codeline>
+<codeline lineno="62"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="63"><highlight class="normal"></highlight></codeline>
+<codeline lineno="64"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="wsh__shell__str_8h_1ab4b7be929d544496dbab7a625bc70204" kindref="member">WshShellStr_DecrInterCnt</ref>(&amp;pCommandLine-&gt;<ref refid="structWshShellIO__CommandLine__t_1a9ceb70baa2d64af07f92632dd95f750d" kindref="member">Len</ref>);</highlight></codeline>
+<codeline lineno="65"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>pCommandLine-&gt;<ref refid="structWshShellIO__CommandLine__t_1a98a6251521984a9b61836fd327646555" kindref="member">CursorPos</ref><sp/>=<sp/>cursorPos;</highlight></codeline>
+<codeline lineno="66"><highlight class="normal"></highlight></codeline>
+<codeline lineno="67"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>WSH_SHELL_PRINT(</highlight><highlight class="stringliteral">&quot;%c%s%s%s%s&quot;</highlight><highlight class="normal">,<sp/><ref refid="wsh__shell__io_8h_1ae07dd34e9a42f6ff703776223885aa6b" kindref="member">WSH_SHELL_SYM_BACKSPACE</ref>,<sp/>WSH_SHELL_ESC_SAVE_CURSOR,</highlight></codeline>
+<codeline lineno="68"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>WSH_SHELL_ESC_CLEAR_RIGHT_FROM_CURS,<sp/>&amp;pCommandLine-&gt;<ref refid="structWshShellIO__CommandLine__t_1a74b52cba6bcd35c578f8e1eeefe11b76" kindref="member">Buff</ref>[cursorPos],</highlight></codeline>
+<codeline lineno="69"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>WSH_SHELL_ESC_RESTORE_CURSOR);</highlight></codeline>
+<codeline lineno="70"><highlight class="normal"><sp/><sp/><sp/><sp/>}<sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline lineno="71"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>This<sp/>should<sp/>not<sp/>happen,<sp/>but<sp/>safe<sp/>fallback</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="72"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>pCommandLine-&gt;<ref refid="structWshShellIO__CommandLine__t_1a98a6251521984a9b61836fd327646555" kindref="member">CursorPos</ref><sp/>=<sp/>cursorPos;</highlight></codeline>
+<codeline lineno="73"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>WSH_SHELL_PRINT(</highlight><highlight class="stringliteral">&quot;%c&quot;</highlight><highlight class="normal">,<sp/><ref refid="wsh__shell__io_8h_1ae07dd34e9a42f6ff703776223885aa6b" kindref="member">WSH_SHELL_SYM_BACKSPACE</ref>);</highlight></codeline>
+<codeline lineno="74"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="75"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="76"><highlight class="normal"></highlight></codeline>
+<codeline lineno="77"><highlight class="normal"></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>WshShell_Char_t*<sp/>WshShellIO_InsertStringTemplate<sp/>=</highlight></codeline>
+<codeline lineno="78"><highlight class="normal"><sp/><sp/><sp/><sp/>WSH_SHELL_ESC_SAVE_CURSOR<sp/>WSH_SHELL_ESC_CLEAR_RIGHT_FROM_CURS</highlight></codeline>
+<codeline lineno="79"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;%s&quot;</highlight><highlight class="normal"><sp/>WSH_SHELL_ESC_RESTORE_CURSOR<sp/>WSH_SHELL_ESC_ARROW_RIGHT;</highlight></codeline>
+<codeline lineno="80"><highlight class="normal"></highlight></codeline>
+<codeline lineno="81"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="wsh__shell__io_8h_1aff3bd3d1200458c97969a00125051ca4" kindref="member">WshShellIO_InsertSymbol</ref>(<ref refid="structWshShellIO__CommandLine__t" kindref="compound">WshShellIO_CommandLine_t</ref>*<sp/>pCommandLine,<sp/>WshShell_Char_t<sp/>ch,</highlight></codeline>
+<codeline lineno="82"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>WshShell_Bool_t<sp/>starsOrChars)<sp/>{</highlight></codeline>
+<codeline lineno="83"><highlight class="normal"><sp/><sp/><sp/><sp/>WSH_SHELL_ASSERT(pCommandLine);</highlight></codeline>
+<codeline lineno="84"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(!pCommandLine)</highlight></codeline>
+<codeline lineno="85"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="86"><highlight class="normal"></highlight></codeline>
+<codeline lineno="87"><highlight class="normal"><sp/><sp/><sp/><sp/>WshShell_Bool_t<sp/>insertInMiddle<sp/>=<sp/>(WshShell_Bool_t)(pCommandLine-&gt;<ref refid="structWshShellIO__CommandLine__t_1a98a6251521984a9b61836fd327646555" kindref="member">CursorPos</ref><sp/>&lt;<sp/>pCommandLine-&gt;<ref refid="structWshShellIO__CommandLine__t_1a9ceb70baa2d64af07f92632dd95f750d" kindref="member">Len</ref>);</highlight></codeline>
+<codeline lineno="88"><highlight class="normal"></highlight></codeline>
+<codeline lineno="89"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Shift<sp/>characters<sp/>right<sp/>if<sp/>inserting<sp/>in<sp/>the<sp/>middle<sp/>of<sp/>the<sp/>line</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="90"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(insertInMiddle)<sp/>{</highlight></codeline>
+<codeline lineno="91"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(WshShell_Size_t<sp/>pos<sp/>=<sp/>pCommandLine-&gt;<ref refid="structWshShellIO__CommandLine__t_1a9ceb70baa2d64af07f92632dd95f750d" kindref="member">Len</ref>;<sp/>pos<sp/>&gt;<sp/>pCommandLine-&gt;<ref refid="structWshShellIO__CommandLine__t_1a98a6251521984a9b61836fd327646555" kindref="member">CursorPos</ref>;<sp/>pos--)</highlight></codeline>
+<codeline lineno="92"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>pCommandLine-&gt;<ref refid="structWshShellIO__CommandLine__t_1a74b52cba6bcd35c578f8e1eeefe11b76" kindref="member">Buff</ref>[pos]<sp/>=<sp/>pCommandLine-&gt;<ref refid="structWshShellIO__CommandLine__t_1a74b52cba6bcd35c578f8e1eeefe11b76" kindref="member">Buff</ref>[pos<sp/>-<sp/>1];</highlight></codeline>
+<codeline lineno="93"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="94"><highlight class="normal"></highlight></codeline>
+<codeline lineno="95"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="wsh__shell__io_8h_1a8941741c3a17fb54102de3772d6e9384" kindref="member">WshShellIO_WriteToInterBuff</ref>(pCommandLine,<sp/>ch);</highlight></codeline>
+<codeline lineno="96"><highlight class="normal"></highlight></codeline>
+<codeline lineno="97"><highlight class="normal"><sp/><sp/><sp/><sp/>WSH_SHELL_ASSERT(pCommandLine-&gt;<ref refid="structWshShellIO__CommandLine__t_1a98a6251521984a9b61836fd327646555" kindref="member">CursorPos</ref><sp/>&gt;=<sp/>1);</highlight></codeline>
+<codeline lineno="98"><highlight class="normal"><sp/><sp/><sp/><sp/>WSH_SHELL_PRINT(WshShellIO_InsertStringTemplate,</highlight></codeline>
+<codeline lineno="99"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>starsOrChars<sp/>?<sp/></highlight><highlight class="stringliteral">&quot;*&quot;</highlight><highlight class="normal"><sp/>:<sp/>&amp;pCommandLine-&gt;<ref refid="structWshShellIO__CommandLine__t_1a74b52cba6bcd35c578f8e1eeefe11b76" kindref="member">Buff</ref>[pCommandLine-&gt;<ref refid="structWshShellIO__CommandLine__t_1a98a6251521984a9b61836fd327646555" kindref="member">CursorPos</ref><sp/>-<sp/>1]);</highlight></codeline>
+<codeline lineno="100"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="src/wsh_shell_io.c"/>
+  </compounddef>
+</doxygen>

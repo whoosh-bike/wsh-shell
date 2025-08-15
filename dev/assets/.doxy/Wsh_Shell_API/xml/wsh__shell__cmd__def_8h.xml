@@ -1,0 +1,197 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="wsh__shell__cmd__def_8h" kind="file" language="C++">
+    <compoundname>wsh_shell_cmd_def.h</compoundname>
+    <includes local="yes">wsh_shell_cfg.h</includes>
+    <includes refid="wsh__shell__cmd_8h" local="yes">wsh_shell_cmd.h</includes>
+    <includes refid="wsh__shell__history_8h" local="yes">wsh_shell_history.h</includes>
+    <includes refid="wsh__shell__types_8h" local="yes">wsh_shell_types.h</includes>
+    <includedby refid="wsh__shell_8h" local="yes">src/wsh_shell.h</includedby>
+    <includedby refid="wsh__shell__autocomplete_8h" local="yes">src/wsh_shell_autocomplete.h</includedby>
+    <includedby refid="wsh__shell__cmd__def_8c" local="yes">src/wsh_shell_cmd_def.c</includedby>
+    <incdepgraph>
+      <node id="9">
+        <label>stdbool.h</label>
+      </node>
+      <node id="8">
+        <label>stdarg.h</label>
+      </node>
+      <node id="5">
+        <label>wsh_shell_str.h</label>
+        <link refid="wsh__shell__str_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+      </node>
+      <node id="11">
+        <label>stdint.h</label>
+      </node>
+      <node id="13">
+        <label>stdlib.h</label>
+      </node>
+      <node id="2">
+        <label>wsh_shell_cfg.h</label>
+      </node>
+      <node id="10">
+        <label>stddef.h</label>
+      </node>
+      <node id="6">
+        <label>wsh_shell_option.h</label>
+        <link refid="wsh__shell__option_8h"/>
+        <childnode refid="7" relation="include">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>wsh_shell_io.h</label>
+        <link refid="wsh__shell__io_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+      </node>
+      <node id="14">
+        <label>string.h</label>
+      </node>
+      <node id="7">
+        <label>wsh_shell_types.h</label>
+        <link refid="wsh__shell__types_8h"/>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+      </node>
+      <node id="15">
+        <label>wsh_shell_history.h</label>
+        <link refid="wsh__shell__history_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>src/wsh_shell_cmd_def.h</label>
+        <link refid="wsh__shell__cmd__def_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="15" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>wsh_shell_cmd.h</label>
+        <link refid="wsh__shell__cmd_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+      </node>
+      <node id="12">
+        <label>stdio.h</label>
+      </node>
+    </incdepgraph>
+    <invincdepgraph>
+      <node id="1">
+        <label>src/wsh_shell_cmd_def.h</label>
+        <link refid="wsh__shell__cmd__def_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>src/wsh_shell.h</label>
+        <link refid="wsh__shell_8h"/>
+      </node>
+      <node id="3">
+        <label>src/wsh_shell_autocomplete.h</label>
+        <link refid="wsh__shell__autocomplete_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+    </invincdepgraph>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="wsh__shell__cmd__def_8h_1a4b41924893e19aa40ea20bee8f0c6fef" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>const <ref refid="wsh__shell__cmd_8h_1aa3eea9fbfe1d3d8b71415bc7667c65a3" kindref="member">WshShellCmd_t</ref> *</type>
+        <definition>const WshShellCmd_t* WshShellDefCmd_GetPtr</definition>
+        <argsstring>(void)</argsstring>
+        <name>WshShellDefCmd_GetPtr</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+<para>Get a pointer to the default shell command structure. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>This function returns a constant pointer to the static command structure WshShellDefCmd, which describes the default command used for configuring and querying the shell interface.</para>
+<para><simplesect kind="return"><para>const WshShellCmd_t* Pointer to the default command structure. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/wsh_shell_cmd_def.h" line="37" column="21" bodyfile="src/wsh_shell_cmd_def.c" bodystart="204" bodyend="206" declfile="src/wsh_shell_cmd_def.h" declline="37" declcolumn="21"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Declaration of default shell commands and their option tables. </para>
+    </briefdescription>
+    <detaileddescription>
+<para>This header defines macros and functions for registering and executing a set of built-in shell commands. Each command is associated with a predefined option table and an executable handler.</para>
+<para>These default commands provide core shell functionality such as help, user info, clearing the screen, and managing command history.</para>
+<para><simplesect kind="author"><para>Whoosh Embedded Team </para>
+</simplesect>
+<simplesect kind="copyright"><para>Copyright (c) 2025 </para>
+</simplesect>
+</para>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="normal"></highlight></codeline>
+<codeline lineno="16"><highlight class="normal"></highlight><highlight class="preprocessor">#ifndef<sp/>__WSH_SHELL_CMD_DEF_H</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="17"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>__WSH_SHELL_CMD_DEF_H</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="18"><highlight class="normal"></highlight></codeline>
+<codeline lineno="19"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;wsh_shell_cfg.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="20"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="wsh__shell__cmd_8h" kindref="compound">wsh_shell_cmd.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="21"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="wsh__shell__history_8h" kindref="compound">wsh_shell_history.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="22"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="wsh__shell__types_8h" kindref="compound">wsh_shell_types.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="23"><highlight class="normal"></highlight></codeline>
+<codeline lineno="24"><highlight class="normal"></highlight><highlight class="preprocessor">#ifdef<sp/>__cplusplus</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="25"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/></highlight><highlight class="stringliteral">&quot;C&quot;</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline lineno="26"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="27"><highlight class="normal"></highlight></codeline>
+<codeline lineno="37"><highlight class="normal"></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="structWshShellCmd" kindref="compound">WshShellCmd_t</ref>*<sp/><ref refid="wsh__shell__cmd__def_8h_1a4b41924893e19aa40ea20bee8f0c6fef" kindref="member">WshShellDefCmd_GetPtr</ref>(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="38"><highlight class="normal"></highlight></codeline>
+<codeline lineno="39"><highlight class="normal"></highlight><highlight class="preprocessor">#ifdef<sp/>__cplusplus</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="40"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="41"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="42"><highlight class="normal"></highlight></codeline>
+<codeline lineno="43"><highlight class="normal"></highlight><highlight class="preprocessor">#endif<sp/></highlight><highlight class="comment">/*<sp/>__WSH_SHELL_CMD_DEF_H<sp/>*/</highlight><highlight class="preprocessor"></highlight></codeline>
+    </programlisting>
+    <location file="src/wsh_shell_cmd_def.h"/>
+  </compounddef>
+</doxygen>

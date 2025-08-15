@@ -1,0 +1,70 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="structWshShellCmd__Table__t" kind="struct" language="C++" prot="public">
+    <compoundname>WshShellCmd_Table_t</compoundname>
+    <includes refid="wsh__shell__cmd_8h" local="no">wsh_shell_cmd.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structWshShellCmd__Table__t_1a03f7b3a05a2ee4819cde581d887723ff" prot="public" static="no" mutable="no">
+        <type>const <ref refid="wsh__shell__cmd_8h_1aa3eea9fbfe1d3d8b71415bc7667c65a3" kindref="member">WshShellCmd_t</ref> **</type>
+        <definition>const WshShellCmd_t** WshShellCmd_Table_t::List</definition>
+        <argsstring></argsstring>
+        <name>List</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Pointer to the array of pointers to commands. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/wsh_shell_cmd.h" line="57" column="25" bodyfile="src/wsh_shell_cmd.h" bodystart="57" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structWshShellCmd__Table__t_1acaa59d2213c21cfed2c7116bafa9b85d" prot="public" static="no" mutable="no">
+        <type>WshShell_Size_t</type>
+        <definition>WshShell_Size_t WshShellCmd_Table_t::Num</definition>
+        <argsstring></argsstring>
+        <name>Num</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Number of commands in the table. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/wsh_shell_cmd.h" line="58" column="21" bodyfile="src/wsh_shell_cmd.h" bodystart="58" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Table of shell commands. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="3">
+        <label>WshShellOption_t</label>
+        <link refid="structWshShellOption__t"/>
+      </node>
+      <node id="2">
+        <label>WshShellCmd</label>
+        <link refid="structWshShellCmd"/>
+        <childnode refid="2" relation="usage">
+          <edgelabel>Handler</edgelabel>
+        </childnode>
+        <childnode refid="3" relation="usage">
+          <edgelabel>Options</edgelabel>
+        </childnode>
+      </node>
+      <node id="1">
+        <label>WshShellCmd_Table_t</label>
+        <link refid="structWshShellCmd__Table__t"/>
+        <childnode refid="2" relation="usage">
+          <edgelabel>List</edgelabel>
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="src/wsh_shell_cmd.h" line="56" column="1" bodyfile="src/wsh_shell_cmd.h" bodystart="56" bodyend="59"/>
+    <listofallmembers>
+      <member refid="structWshShellCmd__Table__t_1a03f7b3a05a2ee4819cde581d887723ff" prot="public" virt="non-virtual"><scope>WshShellCmd_Table_t</scope><name>List</name></member>
+      <member refid="structWshShellCmd__Table__t_1acaa59d2213c21cfed2c7116bafa9b85d" prot="public" virt="non-virtual"><scope>WshShellCmd_Table_t</scope><name>Num</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

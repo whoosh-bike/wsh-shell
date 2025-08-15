@@ -1,0 +1,271 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="wsh__shell__autocomplete_8h" kind="file" language="C++">
+    <compoundname>wsh_shell_autocomplete.h</compoundname>
+    <includes local="yes">wsh_shell_cfg.h</includes>
+    <includes refid="wsh__shell__cmd_8h" local="yes">wsh_shell_cmd.h</includes>
+    <includes refid="wsh__shell__cmd__def_8h" local="yes">wsh_shell_cmd_def.h</includes>
+    <includes refid="wsh__shell__io_8h" local="yes">wsh_shell_io.h</includes>
+    <includes refid="wsh__shell__str_8h" local="yes">wsh_shell_str.h</includes>
+    <includes refid="wsh__shell__types_8h" local="yes">wsh_shell_types.h</includes>
+    <includedby refid="wsh__shell_8h" local="yes">src/wsh_shell.h</includedby>
+    <includedby refid="wsh__shell__autocomplete_8c" local="yes">src/wsh_shell_autocomplete.c</includedby>
+    <incdepgraph>
+      <node id="9">
+        <label>stdbool.h</label>
+      </node>
+      <node id="8">
+        <label>stdarg.h</label>
+      </node>
+      <node id="5">
+        <label>wsh_shell_str.h</label>
+        <link refid="wsh__shell__str_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+      </node>
+      <node id="11">
+        <label>stdint.h</label>
+      </node>
+      <node id="13">
+        <label>stdlib.h</label>
+      </node>
+      <node id="2">
+        <label>wsh_shell_cfg.h</label>
+      </node>
+      <node id="10">
+        <label>stddef.h</label>
+      </node>
+      <node id="6">
+        <label>wsh_shell_option.h</label>
+        <link refid="wsh__shell__option_8h"/>
+        <childnode refid="7" relation="include">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>wsh_shell_io.h</label>
+        <link refid="wsh__shell__io_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+      </node>
+      <node id="14">
+        <label>string.h</label>
+      </node>
+      <node id="7">
+        <label>wsh_shell_types.h</label>
+        <link refid="wsh__shell__types_8h"/>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+      </node>
+      <node id="16">
+        <label>wsh_shell_history.h</label>
+        <link refid="wsh__shell__history_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+      </node>
+      <node id="15">
+        <label>wsh_shell_cmd_def.h</label>
+        <link refid="wsh__shell__cmd__def_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="16" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>wsh_shell_cmd.h</label>
+        <link refid="wsh__shell__cmd_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>src/wsh_shell_autocomplete.h</label>
+        <link refid="wsh__shell__autocomplete_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="15" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+      </node>
+      <node id="12">
+        <label>stdio.h</label>
+      </node>
+    </incdepgraph>
+    <invincdepgraph>
+      <node id="2">
+        <label>src/wsh_shell.h</label>
+        <link refid="wsh__shell_8h"/>
+      </node>
+      <node id="1">
+        <label>src/wsh_shell_autocomplete.h</label>
+        <link refid="wsh__shell__autocomplete_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+    </invincdepgraph>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="wsh__shell__autocomplete_8h_1a975094abed880791f1202ca19c01684d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>WshShell_Bool_t</type>
+        <definition>WshShell_Bool_t WshShellAutocomplete_Try</definition>
+        <argsstring>(WshShell_Char_t *pInBuff, WshShell_Size_t inBuffLen, WshShellCmd_Table_t *pShellCommands)</argsstring>
+        <name>WshShellAutocomplete_Try</name>
+        <param>
+          <type>WshShell_Char_t *</type>
+          <declname>pInBuff</declname>
+        </param>
+        <param>
+          <type>WshShell_Size_t</type>
+          <declname>inBuffLen</declname>
+        </param>
+        <param>
+          <type><ref refid="structWshShellCmd__Table__t" kindref="compound">WshShellCmd_Table_t</ref> *</type>
+          <declname>pShellCommands</declname>
+        </param>
+        <briefdescription>
+<para>Attempts to autocomplete the command in the input buffer. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Scans the registered command table and tries to match the current input as a prefix. If possible, it autocompletes the input buffer:</para>
+<para><itemizedlist>
+<listitem><para>If no matches are found, the buffer is not changed.</para>
+</listitem><listitem><para>If one match is found, the buffer is completed with the full command name.</para>
+</listitem><listitem><para>If multiple matches are found with a shared prefix, the buffer is extended to the longest matchable prefix.</para>
+</listitem></itemizedlist>
+</para>
+<para>This function is typically triggered by the user pressing the Tab key.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="inout">pInBuff</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the input buffer to modify. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">inBuffLen</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Total size of the input buffer. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">pShellCommands</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the command table to search.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>true</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The buffer was modified (i.e., autocomplete was applied). </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>false</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>No autocomplete was possible (zero matches or ambiguous match). </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/wsh_shell_autocomplete.h" line="54" column="17" bodyfile="src/wsh_shell_autocomplete.c" bodystart="123" bodyend="141" declfile="src/wsh_shell_autocomplete.h" declline="54" declcolumn="17"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Command-line autocompletion for shell commands. </para>
+    </briefdescription>
+    <detaileddescription>
+<para>This module provides autocompletion support for the shell interface. It enables the user to complete partially typed commands based on the currently registered command set. The algorithm performs prefix matching and modifies the input buffer accordingly:</para>
+<para><itemizedlist>
+<listitem><para>If <bold>no match</bold> is found, the input remains unchanged.</para>
+</listitem><listitem><para>If <bold>exactly one match</bold> is found, the input is completed with that command.</para>
+</listitem><listitem><para>If <bold>multiple matches</bold> exist with a <bold>common prefix</bold>, the input is extended to the longest common prefix.</para>
+</listitem></itemizedlist>
+</para>
+<para>Autocompletion improves user experience and reduces typing effort in shell environments.</para>
+<para><simplesect kind="author"><para>Whoosh Embedded Team </para>
+</simplesect>
+<simplesect kind="copyright"><para>Copyright (c) 2025 </para>
+</simplesect>
+</para>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="normal"></highlight></codeline>
+<codeline lineno="21"><highlight class="normal"></highlight><highlight class="preprocessor">#ifndef<sp/>__WSH_SHELL_AUTOCOMPLETE_H</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="22"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>__WSH_SHELL_AUTOCOMPLETE_H</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="23"><highlight class="normal"></highlight></codeline>
+<codeline lineno="24"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;wsh_shell_cfg.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="25"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="wsh__shell__cmd_8h" kindref="compound">wsh_shell_cmd.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="26"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="wsh__shell__cmd__def_8h" kindref="compound">wsh_shell_cmd_def.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="27"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="wsh__shell__io_8h" kindref="compound">wsh_shell_io.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="28"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="wsh__shell__str_8h" kindref="compound">wsh_shell_str.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="29"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="wsh__shell__types_8h" kindref="compound">wsh_shell_types.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="30"><highlight class="normal"></highlight></codeline>
+<codeline lineno="31"><highlight class="normal"></highlight><highlight class="preprocessor">#ifdef<sp/>__cplusplus</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="32"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/></highlight><highlight class="stringliteral">&quot;C&quot;</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline lineno="33"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="34"><highlight class="normal"></highlight></codeline>
+<codeline lineno="54"><highlight class="normal">WshShell_Bool_t<sp/><ref refid="wsh__shell__autocomplete_8h_1a975094abed880791f1202ca19c01684d" kindref="member">WshShellAutocomplete_Try</ref>(WshShell_Char_t*<sp/>pInBuff,<sp/>WshShell_Size_t<sp/>inBuffLen,</highlight></codeline>
+<codeline lineno="55"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="structWshShellCmd__Table__t" kindref="compound">WshShellCmd_Table_t</ref>*<sp/>pShellCommands);</highlight></codeline>
+<codeline lineno="56"><highlight class="normal"></highlight></codeline>
+<codeline lineno="57"><highlight class="normal"></highlight><highlight class="preprocessor">#ifdef<sp/>__cplusplus</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="58"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="59"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="60"><highlight class="normal"></highlight></codeline>
+<codeline lineno="61"><highlight class="normal"></highlight><highlight class="preprocessor">#endif<sp/></highlight><highlight class="comment">/*<sp/>__WSH_SHELL_AUTOCOMPLETE_H<sp/>*/</highlight><highlight class="preprocessor"></highlight></codeline>
+    </programlisting>
+    <location file="src/wsh_shell_autocomplete.h"/>
+  </compounddef>
+</doxygen>

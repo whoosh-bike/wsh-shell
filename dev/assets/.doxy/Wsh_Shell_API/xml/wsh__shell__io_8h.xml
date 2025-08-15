@@ -1,0 +1,1013 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="wsh__shell__io_8h" kind="file" language="C++">
+    <compoundname>wsh_shell_io.h</compoundname>
+    <includes local="yes">wsh_shell_cfg.h</includes>
+    <includes refid="wsh__shell__str_8h" local="yes">wsh_shell_str.h</includes>
+    <includedby refid="wsh__shell_8h" local="yes">src/wsh_shell.h</includedby>
+    <includedby refid="wsh__shell__autocomplete_8h" local="yes">src/wsh_shell_autocomplete.h</includedby>
+    <includedby refid="wsh__shell__cmd_8h" local="yes">src/wsh_shell_cmd.h</includedby>
+    <includedby refid="wsh__shell__esc_8h" local="yes">src/wsh_shell_esc.h</includedby>
+    <includedby refid="wsh__shell__interact_8h" local="yes">src/wsh_shell_interact.h</includedby>
+    <includedby refid="wsh__shell__io_8c" local="yes">src/wsh_shell_io.c</includedby>
+    <includedby refid="wsh__shell__promptwait_8h" local="yes">src/wsh_shell_promptwait.h</includedby>
+    <includedby refid="wsh__shell__str_8h" local="yes">src/wsh_shell_str.h</includedby>
+    <incdepgraph>
+      <node id="7">
+        <label>stdbool.h</label>
+      </node>
+      <node id="6">
+        <label>stdarg.h</label>
+      </node>
+      <node id="3">
+        <label>wsh_shell_str.h</label>
+        <link refid="wsh__shell__str_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="1" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+      </node>
+      <node id="9">
+        <label>stdint.h</label>
+      </node>
+      <node id="11">
+        <label>stdlib.h</label>
+      </node>
+      <node id="2">
+        <label>wsh_shell_cfg.h</label>
+      </node>
+      <node id="8">
+        <label>stddef.h</label>
+      </node>
+      <node id="4">
+        <label>wsh_shell_option.h</label>
+        <link refid="wsh__shell__option_8h"/>
+        <childnode refid="5" relation="include">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>src/wsh_shell_io.h</label>
+        <link refid="wsh__shell__io_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="12">
+        <label>string.h</label>
+      </node>
+      <node id="5">
+        <label>wsh_shell_types.h</label>
+        <link refid="wsh__shell__types_8h"/>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+      </node>
+      <node id="10">
+        <label>stdio.h</label>
+      </node>
+    </incdepgraph>
+    <invincdepgraph>
+      <node id="9">
+        <label>src/wsh_shell_str.h</label>
+        <link refid="wsh__shell__str_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="1" relation="include">
+        </childnode>
+      </node>
+      <node id="8">
+        <label>src/wsh_shell_promptwait.h</label>
+        <link refid="wsh__shell__promptwait_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>src/wsh_shell_io.h</label>
+        <link refid="wsh__shell__io_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+      </node>
+      <node id="10">
+        <label>src/wsh_shell_history.h</label>
+        <link refid="wsh__shell__history_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+      </node>
+      <node id="5">
+        <label>src/wsh_shell_cmd_def.h</label>
+        <link refid="wsh__shell__cmd__def_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>src/wsh_shell.h</label>
+        <link refid="wsh__shell_8h"/>
+      </node>
+      <node id="7">
+        <label>src/wsh_shell_interact.h</label>
+        <link refid="wsh__shell__interact_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>src/wsh_shell_cmd.h</label>
+        <link refid="wsh__shell__cmd_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+      </node>
+      <node id="6">
+        <label>src/wsh_shell_esc.h</label>
+        <link refid="wsh__shell__esc_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>src/wsh_shell_autocomplete.h</label>
+        <link refid="wsh__shell__autocomplete_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+    </invincdepgraph>
+    <innerclass refid="structWshShellIO__CommandLine__t" prot="public">WshShellIO_CommandLine_t</innerclass>
+      <sectiondef kind="user-defined">
+      <header>Control characters</header>
+      <memberdef kind="define" id="wsh__shell__io_8h_1ae07dd34e9a42f6ff703776223885aa6b" prot="public" static="no">
+        <name>WSH_SHELL_SYM_BACKSPACE</name>
+        <initializer>&apos;\b&apos;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Backspace character </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/wsh_shell_io.h" line="30" column="9" bodyfile="src/wsh_shell_io.h" bodystart="30" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="wsh__shell__io_8h_1a26be59e16e84ca290927cf46189b502c" prot="public" static="no">
+        <name>WSH_SHELL_SYM_DELETE</name>
+        <initializer>0x7f</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Delete (DEL) character </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/wsh_shell_io.h" line="31" column="9" bodyfile="src/wsh_shell_io.h" bodystart="31" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="wsh__shell__io_8h_1a220b70734c4b430fedc9c08067a284e8" prot="public" static="no">
+        <name>WSH_SHELL_SYM_TAB</name>
+        <initializer>&apos;\t&apos;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Tab character </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/wsh_shell_io.h" line="32" column="9" bodyfile="src/wsh_shell_io.h" bodystart="32" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="wsh__shell__io_8h_1a6017e38274918863cc206eda77a21d06" prot="public" static="no">
+        <name>WSH_SHELL_SYM_EXIT</name>
+        <initializer>0x04</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Ctrl + D (EOF signal) </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/wsh_shell_io.h" line="33" column="9" bodyfile="src/wsh_shell_io.h" bodystart="33" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="wsh__shell__io_8h_1aada0009e1c61c8108bc32ad2755d9337" prot="public" static="no">
+        <name>WSH_SHELL_SYM_SOUND</name>
+        <initializer>0x07</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Bell character (alert) </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/wsh_shell_io.h" line="34" column="9" bodyfile="src/wsh_shell_io.h" bodystart="34" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="user-defined">
+      <header>Formatting and PS1</header>
+      <memberdef kind="define" id="wsh__shell__io_8h_1a15503df83f204f0f678487a0dfa580a3" prot="public" static="no">
+        <name>WSH_SHELL_CHAR_CR</name>
+        <initializer>&apos;\r&apos;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Carriage return </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/wsh_shell_io.h" line="39" column="9" bodyfile="src/wsh_shell_io.h" bodystart="39" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="wsh__shell__io_8h_1aec016682590697d0bb64bbf49558c234" prot="public" static="no">
+        <name>WSH_SHELL_CHAR_LF</name>
+        <initializer>&apos;\n&apos;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Line feed </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/wsh_shell_io.h" line="40" column="9" bodyfile="src/wsh_shell_io.h" bodystart="40" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="wsh__shell__io_8h_1a714fb5eb74817250a9d30193dd82eda1" prot="public" static="no">
+        <name>WSH_SHELL_END_LINE</name>
+        <initializer>&quot;\r\n&quot;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>End-of-line string </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/wsh_shell_io.h" line="41" column="9" bodyfile="src/wsh_shell_io.h" bodystart="41" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="user-defined">
+      <header>Escape sequence start</header>
+      <description><para>Use <computeroutput>_CHAR</computeroutput> for character comparisons, <computeroutput>_STR</computeroutput> for formatting and printing. </para>
+</description>
+      <memberdef kind="define" id="wsh__shell__io_8h_1a3f1525da63d1f221ef0ca4dfaf1e5ead" prot="public" static="no">
+        <name>WSH_SHELL_ESC_SEQ_START_CHAR</name>
+        <initializer>&apos;\033&apos;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Escape character (0x1B) </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/wsh_shell_io.h" line="49" column="9" bodyfile="src/wsh_shell_io.h" bodystart="49" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="wsh__shell__io_8h_1a700f82795fdf8917accc82f1f2ecd15d" prot="public" static="no">
+        <name>WSH_SHELL_ESC_SEQ_START_STR</name>
+        <initializer>&quot;\033&quot;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Escape character as string </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/wsh_shell_io.h" line="50" column="9" bodyfile="src/wsh_shell_io.h" bodystart="50" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="user-defined">
+      <header>Cursor movement and ANSI escape codes</header>
+      <memberdef kind="define" id="wsh__shell__io_8h_1af1fb729a2f029c75d369b64e0ef47e7d" prot="public" static="no">
+        <name>WSH_SHELL_ESC_SAVE_CURSOR</name>
+        <initializer><ref refid="wsh__shell__io_8h_1a700f82795fdf8917accc82f1f2ecd15d" kindref="member">WSH_SHELL_ESC_SEQ_START_STR</ref> &quot;7&quot;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/wsh_shell_io.h" line="55" column="9" bodyfile="src/wsh_shell_io.h" bodystart="55" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="wsh__shell__io_8h_1a03be0a6d7a065c22b85305526d8b8e8b" prot="public" static="no">
+        <name>WSH_SHELL_ESC_RESTORE_CURSOR</name>
+        <initializer><ref refid="wsh__shell__io_8h_1a700f82795fdf8917accc82f1f2ecd15d" kindref="member">WSH_SHELL_ESC_SEQ_START_STR</ref> &quot;8&quot;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/wsh_shell_io.h" line="56" column="9" bodyfile="src/wsh_shell_io.h" bodystart="56" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="wsh__shell__io_8h_1a253fa34029dd4f9ede334e6b40e82ad5" prot="public" static="no">
+        <name>WSH_SHELL_ESC_CLEAR_RIGHT_FROM_CURS</name>
+        <initializer><ref refid="wsh__shell__io_8h_1a700f82795fdf8917accc82f1f2ecd15d" kindref="member">WSH_SHELL_ESC_SEQ_START_STR</ref> &quot;[0K&quot;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/wsh_shell_io.h" line="57" column="9" bodyfile="src/wsh_shell_io.h" bodystart="57" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="wsh__shell__io_8h_1a70a6edcf6299c41f705a4904f7a1b67d" prot="public" static="no">
+        <name>WSH_SHELL_ESC_ARROW_RIGHT</name>
+        <initializer><ref refid="wsh__shell__io_8h_1a700f82795fdf8917accc82f1f2ecd15d" kindref="member">WSH_SHELL_ESC_SEQ_START_STR</ref> &quot;[C&quot;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/wsh_shell_io.h" line="58" column="9" bodyfile="src/wsh_shell_io.h" bodystart="58" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="wsh__shell__io_8h_1ad8e082e9c170b15ea2033a7fbb27ab89" prot="public" static="no">
+        <name>WSH_SHELL_ESC_ARROW_LEFT</name>
+        <initializer><ref refid="wsh__shell__io_8h_1a700f82795fdf8917accc82f1f2ecd15d" kindref="member">WSH_SHELL_ESC_SEQ_START_STR</ref> &quot;[D&quot;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/wsh_shell_io.h" line="59" column="9" bodyfile="src/wsh_shell_io.h" bodystart="59" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="wsh__shell__io_8h_1af3a9195e5e64cdc273916fae16845ab3" prot="public" static="no">
+        <name>WSH_SHELL_ESC_ARROW_UP</name>
+        <initializer><ref refid="wsh__shell__io_8h_1a700f82795fdf8917accc82f1f2ecd15d" kindref="member">WSH_SHELL_ESC_SEQ_START_STR</ref> &quot;[A&quot;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/wsh_shell_io.h" line="60" column="9" bodyfile="src/wsh_shell_io.h" bodystart="60" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="wsh__shell__io_8h_1a2470ac05e944edc3fa7e44d6413724d2" prot="public" static="no">
+        <name>WSH_SHELL_ESC_ARROW_DOWN</name>
+        <initializer><ref refid="wsh__shell__io_8h_1a700f82795fdf8917accc82f1f2ecd15d" kindref="member">WSH_SHELL_ESC_SEQ_START_STR</ref> &quot;[B&quot;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/wsh_shell_io.h" line="61" column="9" bodyfile="src/wsh_shell_io.h" bodystart="61" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="user-defined">
+      <header>Style reset and screen clearing</header>
+      <memberdef kind="define" id="wsh__shell__io_8h_1acccbf5e9fbf06319dd3eba138402b297" prot="public" static="no">
+        <name>WSH_SHELL_ESC_RESET_STYLE</name>
+        <initializer><ref refid="wsh__shell__io_8h_1a700f82795fdf8917accc82f1f2ecd15d" kindref="member">WSH_SHELL_ESC_SEQ_START_STR</ref> &quot;[0m&quot;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/wsh_shell_io.h" line="66" column="9" bodyfile="src/wsh_shell_io.h" bodystart="66" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="wsh__shell__io_8h_1a0e6c00c05eb68e10c5da6381e683f08b" prot="public" static="no">
+        <name>WSH_SHELL_ECS_CLR_SCREEN</name>
+        <initializer>    <ref refid="wsh__shell__io_8h_1a700f82795fdf8917accc82f1f2ecd15d" kindref="member">WSH_SHELL_ESC_SEQ_START_STR</ref> &quot;[1;1H&quot; WSH_SHELL_ESC_SEQ_START_STR &quot;[2J&quot;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/wsh_shell_io.h" line="67" column="9" bodyfile="src/wsh_shell_io.h" bodystart="67" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="user-defined">
+      <header>Font styles</header>
+      <memberdef kind="define" id="wsh__shell__io_8h_1a899d99f6fcea0c895ffa19bf0b4ce44e" prot="public" static="no">
+        <name>WSH_SHELL_ECS_SET_MODE_BOLD</name>
+        <initializer><ref refid="wsh__shell__io_8h_1a700f82795fdf8917accc82f1f2ecd15d" kindref="member">WSH_SHELL_ESC_SEQ_START_STR</ref> &quot;[1m&quot;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/wsh_shell_io.h" line="73" column="9" bodyfile="src/wsh_shell_io.h" bodystart="73" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="wsh__shell__io_8h_1a28145a99d5c33166719852bc72d276c0" prot="public" static="no">
+        <name>WSH_SHELL_ECS_RESET_MODE_BOLD</name>
+        <initializer><ref refid="wsh__shell__io_8h_1a700f82795fdf8917accc82f1f2ecd15d" kindref="member">WSH_SHELL_ESC_SEQ_START_STR</ref> &quot;[22m&quot;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/wsh_shell_io.h" line="74" column="9" bodyfile="src/wsh_shell_io.h" bodystart="74" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="wsh__shell__io_8h_1af31885e3ea5953d1c974ead6d2926d29" prot="public" static="no">
+        <name>WSH_SHELL_ECS_SET_MODE_ITALIC</name>
+        <initializer><ref refid="wsh__shell__io_8h_1a700f82795fdf8917accc82f1f2ecd15d" kindref="member">WSH_SHELL_ESC_SEQ_START_STR</ref> &quot;[3m&quot;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/wsh_shell_io.h" line="75" column="9" bodyfile="src/wsh_shell_io.h" bodystart="75" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="wsh__shell__io_8h_1ae63139293cc2ed21aef58c3805f00bf4" prot="public" static="no">
+        <name>WSH_SHELL_ECS_RESET_MODE_ITALIC</name>
+        <initializer><ref refid="wsh__shell__io_8h_1a700f82795fdf8917accc82f1f2ecd15d" kindref="member">WSH_SHELL_ESC_SEQ_START_STR</ref> &quot;[23m&quot;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/wsh_shell_io.h" line="76" column="9" bodyfile="src/wsh_shell_io.h" bodystart="76" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="user-defined">
+      <header>ANSI text colors</header>
+      <memberdef kind="define" id="wsh__shell__io_8h_1ae31042e641265c4357a62839603874d1" prot="public" static="no">
+        <name>WSH_SHELL_COLOR_BLACK</name>
+        <initializer><ref refid="wsh__shell__io_8h_1a700f82795fdf8917accc82f1f2ecd15d" kindref="member">WSH_SHELL_ESC_SEQ_START_STR</ref> &quot;[30m&quot;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/wsh_shell_io.h" line="81" column="9" bodyfile="src/wsh_shell_io.h" bodystart="81" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="wsh__shell__io_8h_1aa9c042a8bd53a3665de2f1293f11e40d" prot="public" static="no">
+        <name>WSH_SHELL_COLOR_RED</name>
+        <initializer><ref refid="wsh__shell__io_8h_1a700f82795fdf8917accc82f1f2ecd15d" kindref="member">WSH_SHELL_ESC_SEQ_START_STR</ref> &quot;[31m&quot;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/wsh_shell_io.h" line="82" column="9" bodyfile="src/wsh_shell_io.h" bodystart="82" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="wsh__shell__io_8h_1a42f42496077aaa745bf8610f7645b79d" prot="public" static="no">
+        <name>WSH_SHELL_COLOR_GREEN</name>
+        <initializer><ref refid="wsh__shell__io_8h_1a700f82795fdf8917accc82f1f2ecd15d" kindref="member">WSH_SHELL_ESC_SEQ_START_STR</ref> &quot;[32m&quot;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/wsh_shell_io.h" line="83" column="9" bodyfile="src/wsh_shell_io.h" bodystart="83" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="wsh__shell__io_8h_1ad35f1c16f86fffda105d4cc20193dbc7" prot="public" static="no">
+        <name>WSH_SHELL_COLOR_YELLOW</name>
+        <initializer><ref refid="wsh__shell__io_8h_1a700f82795fdf8917accc82f1f2ecd15d" kindref="member">WSH_SHELL_ESC_SEQ_START_STR</ref> &quot;[33m&quot;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/wsh_shell_io.h" line="84" column="9" bodyfile="src/wsh_shell_io.h" bodystart="84" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="wsh__shell__io_8h_1ad4ee4f1c4c74616ad00b013ca87d3659" prot="public" static="no">
+        <name>WSH_SHELL_COLOR_BLUE</name>
+        <initializer><ref refid="wsh__shell__io_8h_1a700f82795fdf8917accc82f1f2ecd15d" kindref="member">WSH_SHELL_ESC_SEQ_START_STR</ref> &quot;[34m&quot;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/wsh_shell_io.h" line="85" column="9" bodyfile="src/wsh_shell_io.h" bodystart="85" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="wsh__shell__io_8h_1a00b1277cc246492e07e6a1dba5f98cb2" prot="public" static="no">
+        <name>WSH_SHELL_COLOR_PURPLE</name>
+        <initializer><ref refid="wsh__shell__io_8h_1a700f82795fdf8917accc82f1f2ecd15d" kindref="member">WSH_SHELL_ESC_SEQ_START_STR</ref> &quot;[35m&quot;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/wsh_shell_io.h" line="86" column="9" bodyfile="src/wsh_shell_io.h" bodystart="86" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="wsh__shell__io_8h_1a4ac82b15f978aa9fb694350e1f69190d" prot="public" static="no">
+        <name>WSH_SHELL_COLOR_CYAN</name>
+        <initializer><ref refid="wsh__shell__io_8h_1a700f82795fdf8917accc82f1f2ecd15d" kindref="member">WSH_SHELL_ESC_SEQ_START_STR</ref> &quot;[36m&quot;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/wsh_shell_io.h" line="87" column="9" bodyfile="src/wsh_shell_io.h" bodystart="87" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="wsh__shell__io_8h_1afef0b2831fae66d817f4a716d7922f5d" prot="public" static="no">
+        <name>WSH_SHELL_COLOR_WHITE</name>
+        <initializer><ref refid="wsh__shell__io_8h_1a700f82795fdf8917accc82f1f2ecd15d" kindref="member">WSH_SHELL_ESC_SEQ_START_STR</ref> &quot;[37m&quot;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/wsh_shell_io.h" line="88" column="9" bodyfile="src/wsh_shell_io.h" bodystart="88" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="user-defined">
+      <header>some predefined colors</header>
+      <memberdef kind="define" id="wsh__shell__io_8h_1a51aa0d927d485f3f6b0fe9abccf5c997" prot="public" static="no">
+        <name>WSH_SHELL_COLOR_INFO</name>
+        <initializer>WSH_SHELL_COLOR_WHITE</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/wsh_shell_io.h" line="93" column="9" bodyfile="src/wsh_shell_io.h" bodystart="93" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="wsh__shell__io_8h_1ac74bdea5e2e52121433370df8134e47d" prot="public" static="no">
+        <name>WSH_SHELL_COLOR_SYS</name>
+        <initializer>WSH_SHELL_COLOR_CYAN</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/wsh_shell_io.h" line="94" column="9" bodyfile="src/wsh_shell_io.h" bodystart="94" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="wsh__shell__io_8h_1a4ebfc1e1765ee9f181d18130e33c604f" prot="public" static="no">
+        <name>WSH_SHELL_COLOR_OK</name>
+        <initializer>WSH_SHELL_COLOR_GREEN</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/wsh_shell_io.h" line="95" column="9" bodyfile="src/wsh_shell_io.h" bodystart="95" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="wsh__shell__io_8h_1a26c5b57f2110ed0de16a318dc99e01f0" prot="public" static="no">
+        <name>WSH_SHELL_COLOR_WARN</name>
+        <initializer>WSH_SHELL_COLOR_YELLOW</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/wsh_shell_io.h" line="96" column="9" bodyfile="src/wsh_shell_io.h" bodystart="96" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="wsh__shell__io_8h_1ab9fb7648ff251d6d13974fff8c6d2f40" prot="public" static="no">
+        <name>WSH_SHELL_COLOR_ERROR</name>
+        <initializer>WSH_SHELL_COLOR_RED</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/wsh_shell_io.h" line="97" column="9" bodyfile="src/wsh_shell_io.h" bodystart="97" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="user-defined">
+      <header>Print macros (log levels)</header>
+      <memberdef kind="define" id="wsh__shell__io_8h_1a05f412acee3be3b6736a0271c74e47b2" prot="public" static="no">
+        <name>WSH_SHELL_PRINT_SYS</name>
+        <param><defname>_f_</defname></param>
+        <param><defname>...</defname></param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/wsh_shell_io.h" line="106" column="14" bodyfile="src/wsh_shell_io.h" bodystart="106" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="wsh__shell__io_8h_1a521887fb3abcf51e8749df33d663caa0" prot="public" static="no">
+        <name>WSH_SHELL_PRINT_INFO</name>
+        <param><defname>_f_</defname></param>
+        <param><defname>...</defname></param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/wsh_shell_io.h" line="113" column="14" bodyfile="src/wsh_shell_io.h" bodystart="113" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="wsh__shell__io_8h_1a00828fa25a32a5cdd57aee813831ba2f" prot="public" static="no">
+        <name>WSH_SHELL_PRINT_WARN</name>
+        <param><defname>_f_</defname></param>
+        <param><defname>...</defname></param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/wsh_shell_io.h" line="120" column="14" bodyfile="src/wsh_shell_io.h" bodystart="120" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="wsh__shell__io_8h_1ac8a3d68728e3ee4494b4c486fa9dd5ca" prot="public" static="no">
+        <name>WSH_SHELL_PRINT_ERR</name>
+        <param><defname>_f_</defname></param>
+        <param><defname>...</defname></param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/wsh_shell_io.h" line="127" column="14" bodyfile="src/wsh_shell_io.h" bodystart="127" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="wsh__shell__io_8h_1aec1f06269e94c4db764fd11b07a93600" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void WshShellIO_ClearInterBuff</definition>
+        <argsstring>(WshShellIO_CommandLine_t *pCommandLine)</argsstring>
+        <name>WshShellIO_ClearInterBuff</name>
+        <param>
+          <type><ref refid="structWshShellIO__CommandLine__t" kindref="compound">WshShellIO_CommandLine_t</ref> *</type>
+          <declname>pCommandLine</declname>
+        </param>
+        <briefdescription>
+<para>Clears the interaction buffer. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Resets buffer contents, cursor position, and line length.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>pCommandLine</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the interaction buffer. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/wsh_shell_io.h" line="148" column="6" bodyfile="src/wsh_shell_io.c" bodystart="3" bodyend="12" declfile="src/wsh_shell_io.h" declline="148" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="wsh__shell__io_8h_1a8941741c3a17fb54102de3772d6e9384" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void WshShellIO_WriteToInterBuff</definition>
+        <argsstring>(WshShellIO_CommandLine_t *pCommandLine, WshShell_Char_t symbol)</argsstring>
+        <name>WshShellIO_WriteToInterBuff</name>
+        <param>
+          <type><ref refid="structWshShellIO__CommandLine__t" kindref="compound">WshShellIO_CommandLine_t</ref> *</type>
+          <declname>pCommandLine</declname>
+        </param>
+        <param>
+          <type>WshShell_Char_t</type>
+          <declname>symbol</declname>
+        </param>
+        <briefdescription>
+<para>Writes a character into the interaction buffer at the cursor position. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Increments cursor and line length accordingly.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>pCommandLine</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the interaction buffer. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>symbol</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Character to write. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/wsh_shell_io.h" line="158" column="6" bodyfile="src/wsh_shell_io.c" bodystart="14" bodyend="22" declfile="src/wsh_shell_io.h" declline="158" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="wsh__shell__io_8h_1a8d4e26bec84a173c570dcff0e646894c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void WshShellIO_PrintInterBuff</definition>
+        <argsstring>(WshShellIO_CommandLine_t *pCommandLine)</argsstring>
+        <name>WshShellIO_PrintInterBuff</name>
+        <param>
+          <type><ref refid="structWshShellIO__CommandLine__t" kindref="compound">WshShellIO_CommandLine_t</ref> *</type>
+          <declname>pCommandLine</declname>
+        </param>
+        <briefdescription>
+<para>Prints the current interaction buffer to the terminal. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>pCommandLine</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the interaction buffer. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/wsh_shell_io.h" line="165" column="6" bodyfile="src/wsh_shell_io.c" bodystart="24" bodyend="30" declfile="src/wsh_shell_io.h" declline="165" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="wsh__shell__io_8h_1a504d8205168991de62227d30a6b360f9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void WshShellIO_RefreshConsoleFromInterBuff</definition>
+        <argsstring>(WshShellIO_CommandLine_t *pCommandLine)</argsstring>
+        <name>WshShellIO_RefreshConsoleFromInterBuff</name>
+        <param>
+          <type><ref refid="structWshShellIO__CommandLine__t" kindref="compound">WshShellIO_CommandLine_t</ref> *</type>
+          <declname>pCommandLine</declname>
+        </param>
+        <briefdescription>
+<para>Refreshes the terminal display using the interaction buffer. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Clears the current line and reprints buffer contents.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>pCommandLine</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the interaction buffer. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/wsh_shell_io.h" line="174" column="6" bodyfile="src/wsh_shell_io.c" bodystart="32" bodyend="49" declfile="src/wsh_shell_io.h" declline="174" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="wsh__shell__io_8h_1afd0ae76eae883ef80c73fc8e1c25197d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void WshShellIO_RemoveLeftSymbol</definition>
+        <argsstring>(WshShellIO_CommandLine_t *pCommandLine)</argsstring>
+        <name>WshShellIO_RemoveLeftSymbol</name>
+        <param>
+          <type><ref refid="structWshShellIO__CommandLine__t" kindref="compound">WshShellIO_CommandLine_t</ref> *</type>
+          <declname>pCommandLine</declname>
+        </param>
+        <briefdescription>
+<para>Removes the symbol to the left of the cursor in the input buffer. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>This function handles backspace-like behavior:<itemizedlist>
+<listitem><para>If the cursor is not at the beginning of the line, it removes the symbol to the left of the cursor, shifts the rest of the line left, and updates both the buffer and terminal display.</para>
+</listitem><listitem><para>If the cursor is beyond the line length (unexpected), only moves the cursor one position left.</para>
+</listitem></itemizedlist>
+</para>
+<para>Also updates the internal buffer length and uses ANSI escape sequences to visually update the terminal.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>pCommandLine</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the interaction buffer. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/wsh_shell_io.h" line="192" column="6" bodyfile="src/wsh_shell_io.c" bodystart="51" bodyend="75" declfile="src/wsh_shell_io.h" declline="192" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="wsh__shell__io_8h_1aff3bd3d1200458c97969a00125051ca4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void WshShellIO_InsertSymbol</definition>
+        <argsstring>(WshShellIO_CommandLine_t *pCommandLine, WshShell_Char_t ch, WshShell_Bool_t starsOrChars)</argsstring>
+        <name>WshShellIO_InsertSymbol</name>
+        <param>
+          <type><ref refid="structWshShellIO__CommandLine__t" kindref="compound">WshShellIO_CommandLine_t</ref> *</type>
+          <declname>pCommandLine</declname>
+        </param>
+        <param>
+          <type>WshShell_Char_t</type>
+          <declname>ch</declname>
+        </param>
+        <param>
+          <type>WshShell_Bool_t</type>
+          <declname>starsOrChars</declname>
+        </param>
+        <briefdescription>
+<para>Inserts a symbol at the current cursor position in the input buffer. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>This function handles character insertion into the interaction buffer:<itemizedlist>
+<listitem><para>If the cursor is in the middle of the line (not at the end), it shifts existing characters to the right to make space for the new symbol.</para>
+</listitem><listitem><para>The character is then written into the buffer at the cursor position using <computeroutput>WshShellIO_WriteToInterBuff</computeroutput>.</para>
+</listitem><listitem><para>The terminal is updated to reflect the insertion, printing either the actual symbol or an asterisk (<computeroutput>*</computeroutput>) if <computeroutput>starsOrChars</computeroutput> is true (used for password masking).</para>
+</listitem></itemizedlist>
+</para>
+<para>Cursor position and buffer length are updated internally. Asserts that <computeroutput>pCommandLine</computeroutput> is valid and that <computeroutput>CursorPos &gt;= 1</computeroutput> before printing.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>pCommandLine</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the interaction buffer. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>ch</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The symbol to insert. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>starsOrChars</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>If true, prints <computeroutput>*</computeroutput> instead of the actual character. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/wsh_shell_io.h" line="212" column="6" bodyfile="src/wsh_shell_io.c" bodystart="81" bodyend="100" declfile="src/wsh_shell_io.h" declline="212" declcolumn="6"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Terminal input/output definitions and interaction buffer API for WshShell. </para>
+    </briefdescription>
+    <detaileddescription>
+<para>This header provides:<itemizedlist>
+<listitem><para>Common control characters (e.g. backspace, delete, tab).</para>
+</listitem><listitem><para>ANSI escape sequences for terminal control (cursor movement, screen clearing, text style).</para>
+</listitem><listitem><para>Colorized print macros for various log levels (system/info/warning/error).</para>
+</listitem><listitem><para>PS1 and newline formatting helpers.</para>
+</listitem><listitem><para>I/O buffer structure and utility functions for handling user input.</para>
+</listitem></itemizedlist>
+</para>
+<para>These utilities support consistent terminal behavior and shell interaction flow.</para>
+<para><simplesect kind="author"><para>Whoosh Embedded Team </para>
+</simplesect>
+<simplesect kind="copyright"><para>Copyright (c) 2024 </para>
+</simplesect>
+</para>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="normal"></highlight></codeline>
+<codeline lineno="18"><highlight class="normal"></highlight><highlight class="preprocessor">#ifndef<sp/>__WSH_SHELL_IO_H</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="19"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>__WSH_SHELL_IO_H</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="20"><highlight class="normal"></highlight></codeline>
+<codeline lineno="21"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;wsh_shell_cfg.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="22"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="wsh__shell__str_8h" kindref="compound">wsh_shell_str.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="23"><highlight class="normal"></highlight></codeline>
+<codeline lineno="24"><highlight class="normal"></highlight><highlight class="preprocessor">#ifdef<sp/>__cplusplus</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="25"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/></highlight><highlight class="stringliteral">&quot;C&quot;</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline lineno="26"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="27"><highlight class="normal"></highlight></codeline>
+<codeline lineno="30" refid="wsh__shell__io_8h_1ae07dd34e9a42f6ff703776223885aa6b" refkind="member"><highlight class="preprocessor">#define<sp/>WSH_SHELL_SYM_BACKSPACE<sp/>&apos;\b&apos;<sp/></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="31" refid="wsh__shell__io_8h_1a26be59e16e84ca290927cf46189b502c" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>WSH_SHELL_SYM_DELETE<sp/><sp/><sp/><sp/>0x7f<sp/></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="32" refid="wsh__shell__io_8h_1a220b70734c4b430fedc9c08067a284e8" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>WSH_SHELL_SYM_TAB<sp/><sp/><sp/><sp/><sp/><sp/><sp/>&apos;\t&apos;<sp/></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="33" refid="wsh__shell__io_8h_1a6017e38274918863cc206eda77a21d06" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>WSH_SHELL_SYM_EXIT<sp/><sp/><sp/><sp/><sp/><sp/>0x04<sp/></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="34" refid="wsh__shell__io_8h_1aada0009e1c61c8108bc32ad2755d9337" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>WSH_SHELL_SYM_SOUND<sp/><sp/><sp/><sp/><sp/>0x07<sp/></highlight></codeline>
+<codeline lineno="36"></codeline>
+<codeline lineno="39" refid="wsh__shell__io_8h_1a15503df83f204f0f678487a0dfa580a3" refkind="member"><highlight class="preprocessor">#define<sp/>WSH_SHELL_CHAR_CR<sp/><sp/>&apos;\r&apos;<sp/><sp/><sp/></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="40" refid="wsh__shell__io_8h_1aec016682590697d0bb64bbf49558c234" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>WSH_SHELL_CHAR_LF<sp/><sp/>&apos;\n&apos;<sp/><sp/><sp/></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="41" refid="wsh__shell__io_8h_1a714fb5eb74817250a9d30193dd82eda1" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>WSH_SHELL_END_LINE<sp/>&quot;\r\n&quot;</highlight><highlight class="normal"><sp/></highlight></codeline>
+<codeline lineno="43"></codeline>
+<codeline lineno="49" refid="wsh__shell__io_8h_1a3f1525da63d1f221ef0ca4dfaf1e5ead" refkind="member"><highlight class="preprocessor">#define<sp/>WSH_SHELL_ESC_SEQ_START_CHAR<sp/>&apos;\033&apos;<sp/></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="50" refid="wsh__shell__io_8h_1a700f82795fdf8917accc82f1f2ecd15d" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>WSH_SHELL_ESC_SEQ_START_STR<sp/><sp/>&quot;\033&quot;</highlight><highlight class="normal"><sp/></highlight></codeline>
+<codeline lineno="52"></codeline>
+<codeline lineno="55"><highlight class="preprocessor">#define<sp/>WSH_SHELL_ESC_SAVE_CURSOR<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>WSH_SHELL_ESC_SEQ_START_STR<sp/>&quot;7&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="56"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>WSH_SHELL_ESC_RESTORE_CURSOR<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>WSH_SHELL_ESC_SEQ_START_STR<sp/>&quot;8&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="57"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>WSH_SHELL_ESC_CLEAR_RIGHT_FROM_CURS<sp/>WSH_SHELL_ESC_SEQ_START_STR<sp/>&quot;[0K&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="58"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>WSH_SHELL_ESC_ARROW_RIGHT<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>WSH_SHELL_ESC_SEQ_START_STR<sp/>&quot;[C&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="59"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>WSH_SHELL_ESC_ARROW_LEFT<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>WSH_SHELL_ESC_SEQ_START_STR<sp/>&quot;[D&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="60"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>WSH_SHELL_ESC_ARROW_UP<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>WSH_SHELL_ESC_SEQ_START_STR<sp/>&quot;[A&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="61"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>WSH_SHELL_ESC_ARROW_DOWN<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>WSH_SHELL_ESC_SEQ_START_STR<sp/>&quot;[B&quot;</highlight></codeline>
+<codeline lineno="63"></codeline>
+<codeline lineno="66"><highlight class="preprocessor">#define<sp/>WSH_SHELL_ESC_RESET_STYLE<sp/>WSH_SHELL_ESC_SEQ_START_STR<sp/>&quot;[0m&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="67"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>WSH_SHELL_ECS_CLR_SCREEN<sp/>\</highlight></codeline>
+<codeline lineno="68"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>WSH_SHELL_ESC_SEQ_START_STR<sp/>&quot;[1;1H&quot;</highlight><highlight class="normal"><sp/>WSH_SHELL_ESC_SEQ_START_STR<sp/>&quot;[2J&quot;</highlight></codeline>
+<codeline lineno="70"></codeline>
+<codeline lineno="73"><highlight class="preprocessor">#define<sp/>WSH_SHELL_ECS_SET_MODE_BOLD<sp/><sp/><sp/><sp/><sp/>WSH_SHELL_ESC_SEQ_START_STR<sp/>&quot;[1m&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="74"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>WSH_SHELL_ECS_RESET_MODE_BOLD<sp/><sp/><sp/>WSH_SHELL_ESC_SEQ_START_STR<sp/>&quot;[22m&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="75"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>WSH_SHELL_ECS_SET_MODE_ITALIC<sp/><sp/><sp/>WSH_SHELL_ESC_SEQ_START_STR<sp/>&quot;[3m&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="76"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>WSH_SHELL_ECS_RESET_MODE_ITALIC<sp/>WSH_SHELL_ESC_SEQ_START_STR<sp/>&quot;[23m&quot;</highlight></codeline>
+<codeline lineno="78"></codeline>
+<codeline lineno="81"><highlight class="preprocessor">#define<sp/>WSH_SHELL_COLOR_BLACK<sp/><sp/>WSH_SHELL_ESC_SEQ_START_STR<sp/>&quot;[30m&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="82"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>WSH_SHELL_COLOR_RED<sp/><sp/><sp/><sp/>WSH_SHELL_ESC_SEQ_START_STR<sp/>&quot;[31m&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="83"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>WSH_SHELL_COLOR_GREEN<sp/><sp/>WSH_SHELL_ESC_SEQ_START_STR<sp/>&quot;[32m&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="84"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>WSH_SHELL_COLOR_YELLOW<sp/>WSH_SHELL_ESC_SEQ_START_STR<sp/>&quot;[33m&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="85"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>WSH_SHELL_COLOR_BLUE<sp/><sp/><sp/>WSH_SHELL_ESC_SEQ_START_STR<sp/>&quot;[34m&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="86"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>WSH_SHELL_COLOR_PURPLE<sp/>WSH_SHELL_ESC_SEQ_START_STR<sp/>&quot;[35m&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="87"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>WSH_SHELL_COLOR_CYAN<sp/><sp/><sp/>WSH_SHELL_ESC_SEQ_START_STR<sp/>&quot;[36m&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="88"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>WSH_SHELL_COLOR_WHITE<sp/><sp/>WSH_SHELL_ESC_SEQ_START_STR<sp/>&quot;[37m&quot;</highlight></codeline>
+<codeline lineno="90"></codeline>
+<codeline lineno="93"><highlight class="preprocessor">#define<sp/>WSH_SHELL_COLOR_INFO<sp/><sp/>WSH_SHELL_COLOR_WHITE</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="94"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>WSH_SHELL_COLOR_SYS<sp/><sp/><sp/>WSH_SHELL_COLOR_CYAN</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="95"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>WSH_SHELL_COLOR_OK<sp/><sp/><sp/><sp/>WSH_SHELL_COLOR_GREEN</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="96"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>WSH_SHELL_COLOR_WARN<sp/><sp/>WSH_SHELL_COLOR_YELLOW</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="97"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>WSH_SHELL_COLOR_ERROR<sp/>WSH_SHELL_COLOR_RED</highlight></codeline>
+<codeline lineno="99"></codeline>
+<codeline lineno="102"><highlight class="preprocessor">#if<sp/>WSH_SHELL_PRINT_SYS_ENABLE</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="103"><highlight class="normal"></highlight><highlight class="preprocessor"><sp/><sp/><sp/><sp/>#define<sp/>WSH_SHELL_PRINT_SYS(_f_,<sp/>...)<sp/>\</highlight></codeline>
+<codeline lineno="104"><highlight class="preprocessor"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>WSH_SHELL_PRINT(WSH_SHELL_COLOR_SYS<sp/>_f_<sp/>WSH_SHELL_ESC_RESET_STYLE,<sp/>##__VA_ARGS__)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="105"><highlight class="normal"></highlight><highlight class="preprocessor">#else</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="106"><highlight class="normal"></highlight><highlight class="preprocessor"><sp/><sp/><sp/><sp/>#define<sp/>WSH_SHELL_PRINT_SYS(_f_,<sp/>...)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="107"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="108"><highlight class="normal"></highlight></codeline>
+<codeline lineno="109"><highlight class="normal"></highlight><highlight class="preprocessor">#if<sp/>WSH_SHELL_PRINT_INFO_ENABLE</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="110"><highlight class="normal"></highlight><highlight class="preprocessor"><sp/><sp/><sp/><sp/>#define<sp/>WSH_SHELL_PRINT_INFO(_f_,<sp/>...)<sp/>\</highlight></codeline>
+<codeline lineno="111"><highlight class="preprocessor"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>WSH_SHELL_PRINT(WSH_SHELL_COLOR_INFO<sp/>_f_<sp/>WSH_SHELL_ESC_RESET_STYLE,<sp/>##__VA_ARGS__)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="112"><highlight class="normal"></highlight><highlight class="preprocessor">#else</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="113"><highlight class="normal"></highlight><highlight class="preprocessor"><sp/><sp/><sp/><sp/>#define<sp/>WSH_SHELL_PRINT_INFO(_f_,<sp/>...)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="114"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="115"><highlight class="normal"></highlight></codeline>
+<codeline lineno="116"><highlight class="normal"></highlight><highlight class="preprocessor">#if<sp/>WSH_SHELL_PRINT_WARN_ENABLE</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="117"><highlight class="normal"></highlight><highlight class="preprocessor"><sp/><sp/><sp/><sp/>#define<sp/>WSH_SHELL_PRINT_WARN(_f_,<sp/>...)<sp/>\</highlight></codeline>
+<codeline lineno="118"><highlight class="preprocessor"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>WSH_SHELL_PRINT(WSH_SHELL_COLOR_WARN<sp/>_f_<sp/>WSH_SHELL_ESC_RESET_STYLE,<sp/>##__VA_ARGS__)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="119"><highlight class="normal"></highlight><highlight class="preprocessor">#else</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="120"><highlight class="normal"></highlight><highlight class="preprocessor"><sp/><sp/><sp/><sp/>#define<sp/>WSH_SHELL_PRINT_WARN(_f_,<sp/>...)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="121"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="122"><highlight class="normal"></highlight></codeline>
+<codeline lineno="123"><highlight class="normal"></highlight><highlight class="preprocessor">#if<sp/>WSH_SHELL_PRINT_ERR_ENABLE</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="124"><highlight class="normal"></highlight><highlight class="preprocessor"><sp/><sp/><sp/><sp/>#define<sp/>WSH_SHELL_PRINT_ERR(_f_,<sp/>...)<sp/>\</highlight></codeline>
+<codeline lineno="125"><highlight class="preprocessor"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>WSH_SHELL_PRINT(WSH_SHELL_COLOR_ERROR<sp/>_f_<sp/>WSH_SHELL_ESC_RESET_STYLE,<sp/>##__VA_ARGS__)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="126"><highlight class="normal"></highlight><highlight class="preprocessor">#else</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="127"><highlight class="normal"></highlight><highlight class="preprocessor"><sp/><sp/><sp/><sp/>#define<sp/>WSH_SHELL_PRINT_ERR(_f_,<sp/>...)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="128"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="129"><highlight class="normal"></highlight></codeline>
+<codeline lineno="131"><highlight class="normal"></highlight></codeline>
+<codeline lineno="135" refid="structWshShellIO__CommandLine__t" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="136" refid="structWshShellIO__CommandLine__t_1a74b52cba6bcd35c578f8e1eeefe11b76" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>WshShell_Char_t<sp/>Buff[WSH_SHELL_INTR_BUFF_LEN];<sp/></highlight></codeline>
+<codeline lineno="137" refid="structWshShellIO__CommandLine__t_1a9ceb70baa2d64af07f92632dd95f750d" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>WshShell_Size_t<sp/><ref refid="structWshShellIO__CommandLine__t_1a9ceb70baa2d64af07f92632dd95f750d" kindref="member">Len</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="138" refid="structWshShellIO__CommandLine__t_1a98a6251521984a9b61836fd327646555" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>WshShell_Size_t<sp/><ref refid="structWshShellIO__CommandLine__t_1a98a6251521984a9b61836fd327646555" kindref="member">CursorPos</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="139"><highlight class="normal">}<sp/><ref refid="structWshShellIO__CommandLine__t" kindref="compound">WshShellIO_CommandLine_t</ref>;</highlight></codeline>
+<codeline lineno="140"><highlight class="normal"></highlight></codeline>
+<codeline lineno="148"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="wsh__shell__io_8h_1aec1f06269e94c4db764fd11b07a93600" kindref="member">WshShellIO_ClearInterBuff</ref>(<ref refid="structWshShellIO__CommandLine__t" kindref="compound">WshShellIO_CommandLine_t</ref>*<sp/>pCommandLine);</highlight></codeline>
+<codeline lineno="149"><highlight class="normal"></highlight></codeline>
+<codeline lineno="158"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="wsh__shell__io_8h_1a8941741c3a17fb54102de3772d6e9384" kindref="member">WshShellIO_WriteToInterBuff</ref>(<ref refid="structWshShellIO__CommandLine__t" kindref="compound">WshShellIO_CommandLine_t</ref>*<sp/>pCommandLine,<sp/>WshShell_Char_t<sp/>symbol);</highlight></codeline>
+<codeline lineno="159"><highlight class="normal"></highlight></codeline>
+<codeline lineno="165"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="wsh__shell__io_8h_1a8d4e26bec84a173c570dcff0e646894c" kindref="member">WshShellIO_PrintInterBuff</ref>(<ref refid="structWshShellIO__CommandLine__t" kindref="compound">WshShellIO_CommandLine_t</ref>*<sp/>pCommandLine);</highlight></codeline>
+<codeline lineno="166"><highlight class="normal"></highlight></codeline>
+<codeline lineno="174"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="wsh__shell__io_8h_1a504d8205168991de62227d30a6b360f9" kindref="member">WshShellIO_RefreshConsoleFromInterBuff</ref>(<ref refid="structWshShellIO__CommandLine__t" kindref="compound">WshShellIO_CommandLine_t</ref>*<sp/>pCommandLine);</highlight></codeline>
+<codeline lineno="175"><highlight class="normal"></highlight></codeline>
+<codeline lineno="192"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="wsh__shell__io_8h_1afd0ae76eae883ef80c73fc8e1c25197d" kindref="member">WshShellIO_RemoveLeftSymbol</ref>(<ref refid="structWshShellIO__CommandLine__t" kindref="compound">WshShellIO_CommandLine_t</ref>*<sp/>pCommandLine);</highlight></codeline>
+<codeline lineno="193"><highlight class="normal"></highlight></codeline>
+<codeline lineno="212"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="wsh__shell__io_8h_1aff3bd3d1200458c97969a00125051ca4" kindref="member">WshShellIO_InsertSymbol</ref>(<ref refid="structWshShellIO__CommandLine__t" kindref="compound">WshShellIO_CommandLine_t</ref>*<sp/>pCommandLine,<sp/>WshShell_Char_t<sp/>ch,</highlight></codeline>
+<codeline lineno="213"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>WshShell_Bool_t<sp/>starsOrChars);</highlight></codeline>
+<codeline lineno="214"><highlight class="normal"></highlight></codeline>
+<codeline lineno="215"><highlight class="normal"></highlight><highlight class="preprocessor">#ifdef<sp/>__cplusplus</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="216"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="217"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="218"><highlight class="normal"></highlight></codeline>
+<codeline lineno="219"><highlight class="normal"></highlight><highlight class="preprocessor">#endif<sp/></highlight><highlight class="comment">/*<sp/>__WSH_SHELL_IO_H<sp/>*/</highlight><highlight class="preprocessor"></highlight></codeline>
+    </programlisting>
+    <location file="src/wsh_shell_io.h"/>
+  </compounddef>
+</doxygen>
