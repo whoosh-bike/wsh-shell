@@ -41,7 +41,6 @@ Used flags: `-O1`, `-mcpu=cortex-m3`, `-mfloat-abi=soft`
 | + WSH_SHELL_PRINT_WARN_ENABLE     | 6 KB  | 0.5 KB |
 | + WSH_SHELL_PRINT_ERR_ENABLE      | 6 KB  | 0.5 KB |
 | + WSH_SHELL_PRINT_OPT_HELP_ENABLE | 6 KB  | 0.5 KB |
-|                                   |       |        |
 
 ## ⌨️ Code counting
 
@@ -55,8 +54,6 @@ Used flags: `-O1`, `-mcpu=cortex-m3`, `-mfloat-abi=soft`
  Total                  26         3662         2045         1022          595
 ===============================================================================
 ```
-
-## Why not Microrl / tinysh / linenoise?
 
 ## Authors
 

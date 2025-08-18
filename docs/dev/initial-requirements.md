@@ -80,6 +80,10 @@ The **Wsh-Shell** module must satisfy two main categories of requirements:
 
 ---
 
+## Why not Microrl / tinysh / linenoise?
+
+---
+
 ## Notes
 
 - The above requirements define both **what the user sees** and **how the developer integrates** the Wsh-Shell.
