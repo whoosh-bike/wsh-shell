@@ -115,9 +115,10 @@ But previously you should setup `.env` file with required variables:
 
 ```bash
 MAKE_PATH="/opt/homebrew/opt/make/libexec/gnubin/make"
-ARM_NONE_EABI_PATH="/Users/katbert/my-utils/arm-gnu-toolchain-14.2.rel1-darwin-arm64-arm-none-eabi/bin/arm-none-eabi-gcc"
-GDB_PATH="/Users/katbert/my-utils/arm-gnu-toolchain-14.2.rel1-darwin-arm64-arm-none-eabi/bin/arm-none-eabi-gdb"
 OPENOCD_PATH="/opt/homebrew/bin/openocd"
+ARM_NONE_EABI_PATH="/Users/katbert/my-utils/arm-gnu-toolchain-14.2.rel1-darwin-arm64-arm-none-eabi/bin"
+GDB_PATH="/Users/katbert/my-utils/arm-gnu-toolchain-14.2.rel1-darwin-arm64-arm-none-eabi/bin/arm-none-eabi-gdb"
+NM_PATH="/Users/katbert/my-utils/arm-gnu-toolchain-14.2.rel1-darwin-arm64-arm-none-eabi/bin/arm-none-eabi-nm"
 ```
 
 Then flash the binary using OpenOCD:
@@ -129,6 +130,12 @@ openocd -f ./example/blue_pill/stlink.cfg \
 ```
 
 For the blue pill clones use `ch32f1x.cfg` config instead of `stm32f1x.cfg`
+
+You can analyse firmware `.elf` file for memory usage by running python script (or just call `analyse elf of blue_pill` vscode task):
+
+```bash
+./.venv/bin/python3 ./utils/elf-size-analyse.py ./example/blue_pill/build/blue_pill.elf
+```
 
 ---
 

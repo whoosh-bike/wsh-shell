@@ -60,6 +60,19 @@
                 "kind": "build",
                 "isDefault": true
             }
+        },
+        {
+            "label": "analyse elf of blue_pill",
+            "type": "shell",
+            "command": "${workspaceFolder}/.venv/bin/python3",
+            "args": [
+                "${workspaceFolder}/utils/elf-size-analyse.py",
+                "${workspaceFolder}/example/blue_pill/build/blue_pill.elf"
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            }
         }
     ]
 }

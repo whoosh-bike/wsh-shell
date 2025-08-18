@@ -31,17 +31,18 @@
 
 /* 
  * ─────────────────────────────────────────────
- * Command descriptions(help) - store and print
- * ───────────────────────────────────────────── 
- */
-#define WSH_SHELL_PRINT_OPT_HELP_ENABLE 1
-
-/* 
- * ─────────────────────────────────────────────
  * Default shell command (executed at startup)
  * ───────────────────────────────────────────── 
  */
 #define WSH_SHELL_DEF_COMMAND 1
+
+/* 
+ * ─────────────────────────────────────────────
+ * Command descriptions(help) - store and print
+ * ───────────────────────────────────────────── 
+ */
+#define WSH_SHELL_PRINT_OPT_HELP_ENABLE  1
+#define WSH_SHELL_CMD_PRINT_OPT_OVERVIEW 1
 
 /* 
  * ─────────────────────────────────────────────
@@ -75,13 +76,6 @@
 #define WSH_SHELL_PS1_CUSTOM   1
 #define WSH_SHELL_PS1_TEMPLATE "%r%b%c6%d%c7@%c5%u%c2%i %c7> %r%c7"
 #define WSH_SHELL_PS1_MAX_LEN  128
-
-/* 
- * ─────────────────────────────────────────────
- * Command setup
- * ───────────────────────────────────────────── 
- */
-#define WSH_SHELL_CMD_PRINT_OPT_OVERVIEW 1
 
 /* 
  * ─────────────────────────────────────────────
