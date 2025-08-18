@@ -30,10 +30,10 @@ typedef struct WshShellPromptWait {
     void* Ctx;
 } WshShellPromptWait_t;
 
+void WshShellPromptWait_Flush(WshShellPromptWait_t* pWait);
+
 void WshShellPromptWait_Attach(WshShellPromptWait_t* pWait, WshShellPromptWait_Handler_t handler,
                                void* pCtx);
-
-void WshShellPromptWait_Flush(WshShellPromptWait_t* pWait);
 
 WSH_SHELL_RET_STATE_t WshShellPromptWait_Handle(WshShellPromptWait_t* pWait,
                                                 WshShell_Char_t symbol);

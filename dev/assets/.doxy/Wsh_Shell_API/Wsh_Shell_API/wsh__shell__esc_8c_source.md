@@ -10,6 +10,8 @@
 ```C++
 #include "wsh_shell_esc.h"
 
+#if WSH_SHELL_HISTORY
+
 static void WshShellEsc_ArrowUp(WshShellHistory_IO_t* pHistIO,
                                 WshShellIO_CommandLine_t* pCommandLine) {
     WSH_SHELL_ASSERT(pHistIO && pCommandLine);
@@ -18,6 +20,8 @@ static void WshShellEsc_ArrowUp(WshShellHistory_IO_t* pHistIO,
 
     WshShellHistory_GetPrevCmd(pHistIO, pCommandLine->Buff, WSH_SHELL_INTR_BUFF_LEN);
     WshShellIO_RefreshConsoleFromInterBuff(pCommandLine);
+
+    return;
 }
 
 static void WshShellEsc_ArrowDown(WshShellHistory_IO_t* pHistIO,
@@ -28,7 +32,23 @@ static void WshShellEsc_ArrowDown(WshShellHistory_IO_t* pHistIO,
 
     WshShellHistory_GetNextCmd(pHistIO, pCommandLine->Buff, WSH_SHELL_INTR_BUFF_LEN);
     WshShellIO_RefreshConsoleFromInterBuff(pCommandLine);
+
+    return;
 }
+
+#else /* WSH_SHELL_HISTORY */
+
+static void WshShellEsc_ArrowUp(WshShellHistory_IO_t* pHistIO,
+                                WshShellIO_CommandLine_t* pCommandLine) {
+    return;
+}
+
+static void WshShellEsc_ArrowDown(WshShellHistory_IO_t* pHistIO,
+                                  WshShellIO_CommandLine_t* pCommandLine) {
+    return;
+}
+
+#endif /* WSH_SHELL_HISTORY */
 
 static void WshShellEsc_ArrowRight(WshShellHistory_IO_t* pHistIO,
                                    WshShellIO_CommandLine_t* pCommandLine) {

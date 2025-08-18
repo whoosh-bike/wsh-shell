@@ -4,7 +4,7 @@
     <compoundname>wsh_shell.c</compoundname>
     <includes refid="wsh__shell_8h" local="yes">wsh_shell.h</includes>
     <incdepgraph>
-      <node id="22">
+      <node id="23">
         <label>wsh_shell_user.h</label>
         <link refid="wsh__shell__user_8h"/>
         <childnode refid="4" relation="include">
@@ -134,13 +134,15 @@
         </childnode>
         <childnode refid="21" relation="include">
         </childnode>
+        <childnode refid="22" relation="include">
+        </childnode>
         <childnode refid="7" relation="include">
         </childnode>
         <childnode refid="9" relation="include">
         </childnode>
-        <childnode refid="22" relation="include">
-        </childnode>
         <childnode refid="23" relation="include">
+        </childnode>
+        <childnode refid="24" relation="include">
         </childnode>
       </node>
       <node id="20">
@@ -151,7 +153,7 @@
         <childnode refid="6" relation="include">
         </childnode>
       </node>
-      <node id="23">
+      <node id="24">
         <label>wsh_shell_version.h</label>
         <link refid="wsh__shell__version_8h_source"/>
       </node>
@@ -177,6 +179,16 @@
         <childnode refid="18" relation="include">
         </childnode>
         <childnode refid="6" relation="include">
+        </childnode>
+      </node>
+      <node id="22">
+        <label>wsh_shell_ps1_custom.h</label>
+        <link refid="wsh__shell__ps1__custom_8h"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
         </childnode>
       </node>
       <node id="3">
@@ -677,12 +689,12 @@
 <codeline lineno="86"><highlight class="normal"></highlight></codeline>
 <codeline lineno="87"><highlight class="normal"><sp/><sp/><sp/><sp/>pShell-&gt;<ref refid="structWshShell__t_1a3e5bcf2149fe8274b17914d5fdd1d20a" kindref="member">CurrUser</ref><sp/>=<sp/><ref refid="wsh__shell__user_8h_1aeb6134783fd1a2d6d887de0d174b80f3" kindref="member">WshShellUser_FindByCredentials</ref>(&amp;(pShell-&gt;<ref refid="structWshShell__t_1a9c531d31246a1f50fee3a956d06dfab0" kindref="member">Users</ref>),<sp/>pcLogin,<sp/>pcPass);</highlight></codeline>
 <codeline lineno="88"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(WSH_SHELL_USER_IS_AUTH())<sp/>{</highlight></codeline>
-<codeline lineno="89"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="structWshShellStr__PS1Data__t" kindref="compound">WshShellStr_PS1Data_t</ref><sp/>data<sp/>=<sp/>{</highlight></codeline>
-<codeline lineno="90"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.UserName<sp/><sp/><sp/><sp/><sp/>=<sp/>pShell-&gt;<ref refid="structWshShell__t_1a3e5bcf2149fe8274b17914d5fdd1d20a" kindref="member">CurrUser</ref>-&gt;<ref refid="structWshShellUser__t_1a8820ed2911a83f57ef77bffe2166027d" kindref="member">Login</ref>,</highlight></codeline>
+<codeline lineno="89"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="structWshShell__PS1Data__t" kindref="compound">WshShell_PS1Data_t</ref><sp/>data<sp/>=<sp/>{</highlight></codeline>
+<codeline lineno="90"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.<ref refid="structWshShell__PS1Data__t_1a76a701f2e100bb57a350c19652e05246" kindref="member">UserName</ref><sp/><sp/><sp/><sp/><sp/>=<sp/>pShell-&gt;<ref refid="structWshShell__t_1a3e5bcf2149fe8274b17914d5fdd1d20a" kindref="member">CurrUser</ref>-&gt;<ref refid="structWshShellUser__t_1a8820ed2911a83f57ef77bffe2166027d" kindref="member">Login</ref>,</highlight></codeline>
 <codeline lineno="91"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.DevName<sp/><sp/><sp/><sp/><sp/><sp/>=<sp/>pShell-&gt;<ref refid="structWshShell__t_1a465834dce871f37473a41e0cda7205cc" kindref="member">DeviceName</ref>,</highlight></codeline>
 <codeline lineno="92"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.InterCmdName<sp/>=<sp/>WSH_SHELL_INTER_CMD_EXISTS()<sp/>?<sp/>pShell-&gt;<ref refid="structWshShell__t_1adcf54d0d820296e96c8f7c0b78f4f346" kindref="member">Interact</ref>.<ref refid="structWshShell__Interact__t_1a9ba12ecd5cb74beb9443284ca23ef8ff" kindref="member">CmdName</ref><sp/>:<sp/>NULL,</highlight></codeline>
 <codeline lineno="93"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>};</highlight></codeline>
-<codeline lineno="94"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="wsh__shell__str_8h_1afdbc7488bc3b39b644c1ce3f4a978408" kindref="member">WshShellStr_GeneratePS1</ref>(pShell-&gt;<ref refid="structWshShell__t_1ad803062fc1744830dfc78d2169823724" kindref="member">PS1</ref>,<sp/>&amp;data);</highlight></codeline>
+<codeline lineno="94"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="wsh__shell__ps1__custom_8h_1ac7193e56063a572ed2866c38b1528799" kindref="member">WshShell_GeneratePS1</ref>(pShell-&gt;<ref refid="structWshShell__t_1ad803062fc1744830dfc78d2169823724" kindref="member">PS1</ref>,<sp/>&amp;data);</highlight></codeline>
 <codeline lineno="95"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>pShell-&gt;<ref refid="structWshShell__t_1a9b39a6d10daf9781ffff84d3eaddd3f1" kindref="member">ExtCallbacks</ref>.<ref refid="structWshShell__ExtCallbacks__t_1a0b03edf67c931680283cbaba80cb7872" kindref="member">Auth</ref>(NULL);</highlight></codeline>
 <codeline lineno="96"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>WSH_SHELL_PRINT(</highlight><highlight class="stringliteral">&quot;%c&quot;</highlight><highlight class="normal">,<sp/><ref refid="wsh__shell__io_8h_1aada0009e1c61c8108bc32ad2755d9337" kindref="member">WSH_SHELL_SYM_SOUND</ref>);</highlight></codeline>
 <codeline lineno="97"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
@@ -778,12 +790,12 @@
 <codeline lineno="187"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>WSH_SHELL_RET_STATE_t<sp/>retState<sp/>=<sp/>cmdHandler(pcCmd,<sp/>argc,<sp/>pсArgv,<sp/>pShell);</highlight></codeline>
 <codeline lineno="188"><highlight class="normal"></highlight></codeline>
 <codeline lineno="189"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(WSH_SHELL_INTER_CMD_EXISTS())<sp/>{</highlight></codeline>
-<codeline lineno="190"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="structWshShellStr__PS1Data__t" kindref="compound">WshShellStr_PS1Data_t</ref><sp/>data<sp/>=<sp/>{</highlight></codeline>
-<codeline lineno="191"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.UserName<sp/><sp/><sp/><sp/><sp/>=<sp/>pShell-&gt;<ref refid="structWshShell__t_1a3e5bcf2149fe8274b17914d5fdd1d20a" kindref="member">CurrUser</ref>-&gt;<ref refid="structWshShellUser__t_1a8820ed2911a83f57ef77bffe2166027d" kindref="member">Login</ref>,</highlight></codeline>
+<codeline lineno="190"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="structWshShell__PS1Data__t" kindref="compound">WshShell_PS1Data_t</ref><sp/>data<sp/>=<sp/>{</highlight></codeline>
+<codeline lineno="191"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.<ref refid="structWshShell__PS1Data__t_1a76a701f2e100bb57a350c19652e05246" kindref="member">UserName</ref><sp/><sp/><sp/><sp/><sp/>=<sp/>pShell-&gt;<ref refid="structWshShell__t_1a3e5bcf2149fe8274b17914d5fdd1d20a" kindref="member">CurrUser</ref>-&gt;<ref refid="structWshShellUser__t_1a8820ed2911a83f57ef77bffe2166027d" kindref="member">Login</ref>,</highlight></codeline>
 <codeline lineno="192"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.DevName<sp/><sp/><sp/><sp/><sp/><sp/>=<sp/>pShell-&gt;<ref refid="structWshShell__t_1a465834dce871f37473a41e0cda7205cc" kindref="member">DeviceName</ref>,</highlight></codeline>
 <codeline lineno="193"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.InterCmdName<sp/>=<sp/>pShell-&gt;<ref refid="structWshShell__t_1adcf54d0d820296e96c8f7c0b78f4f346" kindref="member">Interact</ref>.<ref refid="structWshShell__Interact__t_1a9ba12ecd5cb74beb9443284ca23ef8ff" kindref="member">CmdName</ref>,</highlight></codeline>
 <codeline lineno="194"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>};</highlight></codeline>
-<codeline lineno="195"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="wsh__shell__str_8h_1afdbc7488bc3b39b644c1ce3f4a978408" kindref="member">WshShellStr_GeneratePS1</ref>(pShell-&gt;<ref refid="structWshShell__t_1ad803062fc1744830dfc78d2169823724" kindref="member">PS1</ref>,<sp/>&amp;data);</highlight></codeline>
+<codeline lineno="195"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="wsh__shell__ps1__custom_8h_1ac7193e56063a572ed2866c38b1528799" kindref="member">WshShell_GeneratePS1</ref>(pShell-&gt;<ref refid="structWshShell__t_1ad803062fc1744830dfc78d2169823724" kindref="member">PS1</ref>,<sp/>&amp;data);</highlight></codeline>
 <codeline lineno="196"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
 <codeline lineno="197"><highlight class="normal"></highlight></codeline>
 <codeline lineno="198"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(retState<sp/>!=<sp/>WSH_SHELL_RET_STATE_SUCCESS)<sp/>{</highlight></codeline>
@@ -801,12 +813,12 @@
 <codeline lineno="210"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(WSH_SHELL_INTER_CMD_EXISTS())<sp/>{</highlight></codeline>
 <codeline lineno="211"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="wsh__shell__interact_8h_1acd711b0ad63230451db53ebca04c7e32" kindref="member">WshShellInteract_Flush</ref>(&amp;(pShell-&gt;<ref refid="structWshShell__t_1adcf54d0d820296e96c8f7c0b78f4f346" kindref="member">Interact</ref>));</highlight></codeline>
 <codeline lineno="212"><highlight class="normal"></highlight></codeline>
-<codeline lineno="213"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="structWshShellStr__PS1Data__t" kindref="compound">WshShellStr_PS1Data_t</ref><sp/>data<sp/>=<sp/>{</highlight></codeline>
-<codeline lineno="214"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.UserName<sp/><sp/><sp/><sp/><sp/>=<sp/>pShell-&gt;<ref refid="structWshShell__t_1a3e5bcf2149fe8274b17914d5fdd1d20a" kindref="member">CurrUser</ref>-&gt;<ref refid="structWshShellUser__t_1a8820ed2911a83f57ef77bffe2166027d" kindref="member">Login</ref>,</highlight></codeline>
+<codeline lineno="213"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="structWshShell__PS1Data__t" kindref="compound">WshShell_PS1Data_t</ref><sp/>data<sp/>=<sp/>{</highlight></codeline>
+<codeline lineno="214"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.<ref refid="structWshShell__PS1Data__t_1a76a701f2e100bb57a350c19652e05246" kindref="member">UserName</ref><sp/><sp/><sp/><sp/><sp/>=<sp/>pShell-&gt;<ref refid="structWshShell__t_1a3e5bcf2149fe8274b17914d5fdd1d20a" kindref="member">CurrUser</ref>-&gt;<ref refid="structWshShellUser__t_1a8820ed2911a83f57ef77bffe2166027d" kindref="member">Login</ref>,</highlight></codeline>
 <codeline lineno="215"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.DevName<sp/><sp/><sp/><sp/><sp/><sp/>=<sp/>pShell-&gt;<ref refid="structWshShell__t_1a465834dce871f37473a41e0cda7205cc" kindref="member">DeviceName</ref>,</highlight></codeline>
 <codeline lineno="216"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.InterCmdName<sp/>=<sp/>NULL,</highlight></codeline>
 <codeline lineno="217"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>};</highlight></codeline>
-<codeline lineno="218"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="wsh__shell__str_8h_1afdbc7488bc3b39b644c1ce3f4a978408" kindref="member">WshShellStr_GeneratePS1</ref>(pShell-&gt;<ref refid="structWshShell__t_1ad803062fc1744830dfc78d2169823724" kindref="member">PS1</ref>,<sp/>&amp;data);</highlight></codeline>
+<codeline lineno="218"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="wsh__shell__ps1__custom_8h_1ac7193e56063a572ed2866c38b1528799" kindref="member">WshShell_GeneratePS1</ref>(pShell-&gt;<ref refid="structWshShell__t_1ad803062fc1744830dfc78d2169823724" kindref="member">PS1</ref>,<sp/>&amp;data);</highlight></codeline>
 <codeline lineno="219"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>WSH_SHELL_PRINT(<ref refid="wsh__shell__io_8h_1a714fb5eb74817250a9d30193dd82eda1" kindref="member">WSH_SHELL_END_LINE</ref>);</highlight></codeline>
 <codeline lineno="220"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>WshShell_InvitationPrint(pShell);</highlight></codeline>
 <codeline lineno="221"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}<sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"></highlight></codeline>

@@ -30,8 +30,8 @@
 
 * **Descr** ([**WshShellCmd**](structWshShellCmd.md), [**WshShellOption\_t**](structWshShellOption__t.md))
 * **Data** ([**WshShellHistory\_t**](structWshShellHistory__t.md))
-* **DevName** ([**WshShellStr\_PS1Data\_t**](structWshShellStr__PS1Data__t.md))
 * **DeAuth** ([**WshShell\_ExtCallbacks\_t**](structWshShell__ExtCallbacks__t.md))
+* **DevName** ([**WshShell\_PS1Data\_t**](structWshShell__PS1Data__t.md))
 * **DeviceName** ([**WshShell\_t**](structWshShell__t.md))
 
 
@@ -57,7 +57,7 @@
 ## i
 
 * **ID** ([**WshShellOption\_t**](structWshShellOption__t.md))
-* **InterCmdName** ([**WshShellStr\_PS1Data\_t**](structWshShellStr__PS1Data__t.md))
+* **InterCmdName** ([**WshShell\_PS1Data\_t**](structWshShell__PS1Data__t.md))
 * **Interact** ([**WshShell\_t**](structWshShell__t.md))
 
 
@@ -117,7 +117,7 @@
 
 ## u
 
-* **UserName** ([**WshShellStr\_PS1Data\_t**](structWshShellStr__PS1Data__t.md))
+* **UserName** ([**WshShell\_PS1Data\_t**](structWshShell__PS1Data__t.md))
 * **Users** ([**WshShell\_t**](structWshShell__t.md))
 
 

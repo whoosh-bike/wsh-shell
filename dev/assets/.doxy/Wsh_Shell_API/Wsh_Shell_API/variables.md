@@ -3,11 +3,6 @@
 
 
 
-## o
-
-* **OptArr** ([**wsh\_shell\_cmd\_def.c**](wsh__shell__cmd__def_8c.md))
-
-
 ## r
 
 * **RetStateBuff** ([**wsh\_shell\_types.h**](wsh__shell__types_8h.md))
@@ -18,7 +13,6 @@
 * **WshShell\_ExtClbk\_t** ([**wsh\_shell.h**](wsh__shell_8h.md))
 * **WshShellCmdHandler\_t** ([**wsh\_shell\_cmd.h**](wsh__shell__cmd_8h.md))
 * **WshShellCmd\_t** ([**wsh\_shell\_cmd.h**](wsh__shell__cmd_8h.md))
-* **WSH\_SHELL\_DEF\_OPT\_t** ([**wsh\_shell\_cmd\_def.c**](wsh__shell__cmd__def_8c.md))
 * **WshShellDefCmd** ([**wsh\_shell\_cmd\_def.c**](wsh__shell__cmd__def_8c.md))
 * **WshShellEsc\_SeqHandlers** ([**wsh\_shell\_esc.c**](wsh__shell__esc_8c.md))
 * **WshShellEsc\_Hadler\_t** ([**wsh\_shell\_esc.h**](wsh__shell__esc_8h.md))

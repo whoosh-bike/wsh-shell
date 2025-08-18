@@ -2013,15 +2013,6 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#macros" class="md-nav__link">
-    <span class="md-ellipsis">
-      Macros
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#public-functions-documentation" class="md-nav__link">
     <span class="md-ellipsis">
       Public Functions Documentation
@@ -2044,15 +2035,6 @@
   <a href="#function-wshshellstr_decrintercnt" class="md-nav__link">
     <span class="md-ellipsis">
       function WshShellStr_DecrInterCnt
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#function-wshshellstr_generateps1" class="md-nav__link">
-    <span class="md-ellipsis">
-      function WshShellStr_GeneratePS1
     </span>
   </a>
   
@@ -2098,30 +2080,6 @@
   <a href="#function-wshshellstr_trimstring" class="md-nav__link">
     <span class="md-ellipsis">
       function WshShellStr_TrimString
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#macro-definition-documentation" class="md-nav__link">
-    <span class="md-ellipsis">
-      Macro Definition Documentation
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Macro Definition Documentation">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#define-wsh_ps1_space_left" class="md-nav__link">
-    <span class="md-ellipsis">
-      define WSH_PS1_SPACE_LEFT
     </span>
   </a>
   
@@ -2189,10 +2147,6 @@
 </tr>
 <tr>
 <td style="text-align: right;">void</td>
-<td style="text-align: left;"><a href="#function-wshshellstr_generateps1"><strong>WshShellStr_GeneratePS1</strong></a> (WshShell_Char_t * pPS1, <a href="../structWshShellStr__PS1Data__t/"><strong>WshShellStr_PS1Data_t</strong></a> * pPS1Data) <br><em>Applies the PS1 template and generates the final PS1 string.</em></td>
-</tr>
-<tr>
-<td style="text-align: right;">void</td>
 <td style="text-align: left;"><a href="#function-wshshellstr_groupbitstostr"><strong>WshShellStr_GroupBitsToStr</strong></a> (WshShell_Size_t group, WshShell_Char_t * pOutStr) <br><em>Converts group bitmask into symbolic group string (e.g. "*--*", "---*", etc).</em></td>
 </tr>
 <tr>
@@ -2210,21 +2164,6 @@
 <tr>
 <td style="text-align: right;">WshShell_Char_t *</td>
 <td style="text-align: left;"><a href="#function-wshshellstr_trimstring"><strong>WshShellStr_TrimString</strong></a> (WshShell_Char_t * pString, WshShell_Size_t len) <br><em>Trim tabulation and spaces from beginning and end of a string.</em></td>
-</tr>
-</tbody>
-</table>
-<h2 id="macros">Macros</h2>
-<table>
-<thead>
-<tr>
-<th style="text-align: right;">Type</th>
-<th style="text-align: left;">Name</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align: right;">define</td>
-<td style="text-align: left;"><a href="./#define-wsh_ps1_space_left"><strong>WSH_PS1_SPACE_LEFT</strong></a> (out, base) <code>((out) - (base) &amp;lt; (WSH\_SHELL\_PS1\_MAX\_LEN - 1))</code><br></td>
 </tr>
 </tbody>
 </table>
@@ -2268,41 +2207,15 @@
 </ul>
 <hr>
 
-<h3 id="function-wshshellstr_generateps1">function WshShellStr_GeneratePS1</h3>
-<p><em>Applies the PS1 template and generates the final PS1 string.</em> 
+<h3 id="function-wshshellstr_groupbitstostr">function WshShellStr_GroupBitsToStr</h3>
+<p><em>Converts group bitmask into symbolic group string (e.g. "*--*", "---*", etc).</em> 
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-2-1">1</a></span>
 <span class="normal"><a href="#__codelineno-2-2">2</a></span>
 <span class="normal"><a href="#__codelineno-2-3">3</a></span>
-<span class="normal"><a href="#__codelineno-2-4">4</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1"></a><span class="kt">void</span><span class="w"> </span><span class="n">WshShellStr_GeneratePS1</span><span class="w"> </span><span class="p">(</span>
-</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2"></a><span class="w">    </span><span class="n">WshShell_Char_t</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">pPS1</span><span class="p">,</span>
-</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3"></a><span class="w">    </span><span class="n">WshShellStr_PS1Data_t</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">pPS1Data</span>
+<span class="normal"><a href="#__codelineno-2-4">4</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1"></a><span class="kt">void</span><span class="w"> </span><span class="n">WshShellStr_GroupBitsToStr</span><span class="w"> </span><span class="p">(</span>
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2"></a><span class="w">    </span><span class="n">WshShell_Size_t</span><span class="w"> </span><span class="n">group</span><span class="p">,</span>
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3"></a><span class="w">    </span><span class="n">WshShell_Char_t</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">pOutStr</span>
 </span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4"></a><span class="p">)</span><span class="w"> </span>
-</span></code></pre></div></td></tr></table></div></p>
-<p>Expands a predefined PS1 template (<code>WSH_SHELL_PS1_TEMPLATE</code>) into a complete PS1 string, substituting special format specifiers with runtime values like username, device name, and ANSI escape sequences for styling (colors, bold, reset).</p>
-<p>Supported format specifiers in the template:
-* <code>u</code> — current username (from <code>pUser</code>)
-* <code>d</code> — current device name (from <code>pDevice</code>)
-* <code>cN</code> — ANSI color code from predefined color map (0 ≤ N ≤ 9)
-* <code>b</code> — ANSI escape sequence for bold text
-* <code>r</code> — ANSI escape sequence to reset all styles
-* Any unknown <code>%</code> sequence is copied verbatim as <code>X</code>.</p>
-<p>The output is truncated if it would exceed <code>WSH_SHELL_PS1_MAX_LEN - 1</code>. The result is always null-terminated.</p>
-<p><strong>Parameters:</strong></p>
-<ul>
-<li><code>pPS1</code> Output buffer for the final PS1 string. Must be at least <code>WSH_SHELL_PS1_MAX_LEN</code> in size. </li>
-<li><code>pPS1Data</code> Pointer to the user name, divice name or other strings. </li>
-</ul>
-<hr>
-
-<h3 id="function-wshshellstr_groupbitstostr">function WshShellStr_GroupBitsToStr</h3>
-<p><em>Converts group bitmask into symbolic group string (e.g. "*--*", "---*", etc).</em> 
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-3-1">1</a></span>
-<span class="normal"><a href="#__codelineno-3-2">2</a></span>
-<span class="normal"><a href="#__codelineno-3-3">3</a></span>
-<span class="normal"><a href="#__codelineno-3-4">4</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1"></a><span class="kt">void</span><span class="w"> </span><span class="n">WshShellStr_GroupBitsToStr</span><span class="w"> </span><span class="p">(</span>
-</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2"></a><span class="w">    </span><span class="n">WshShell_Size_t</span><span class="w"> </span><span class="n">group</span><span class="p">,</span>
-</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3"></a><span class="w">    </span><span class="n">WshShell_Char_t</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">pOutStr</span>
-</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4"></a><span class="p">)</span><span class="w"> </span>
 </span></code></pre></div></td></tr></table></div></p>
 <p>Produces a fixed-length string of '*' and '-' characters from highest to lowest group index.</p>
 <p>Example for 4 groups:
@@ -2317,13 +2230,13 @@
 
 <h3 id="function-wshshellstr_incrintercnt">function WshShellStr_IncrInterCnt</h3>
 <p><em>Increase buffer counter.</em> 
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-4-1">1</a></span>
-<span class="normal"><a href="#__codelineno-4-2">2</a></span>
-<span class="normal"><a href="#__codelineno-4-3">3</a></span>
-<span class="normal"><a href="#__codelineno-4-4">4</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1"></a><span class="kt">void</span><span class="w"> </span><span class="n">WshShellStr_IncrInterCnt</span><span class="w"> </span><span class="p">(</span>
-</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2"></a><span class="w">    </span><span class="n">WshShell_Size_t</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">pInterCnt</span><span class="p">,</span>
-</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3"></a><span class="w">    </span><span class="n">WshShell_Size_t</span><span class="w"> </span><span class="n">buffSize</span>
-</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4"></a><span class="p">)</span><span class="w"> </span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-3-1">1</a></span>
+<span class="normal"><a href="#__codelineno-3-2">2</a></span>
+<span class="normal"><a href="#__codelineno-3-3">3</a></span>
+<span class="normal"><a href="#__codelineno-3-4">4</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1"></a><span class="kt">void</span><span class="w"> </span><span class="n">WshShellStr_IncrInterCnt</span><span class="w"> </span><span class="p">(</span>
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2"></a><span class="w">    </span><span class="n">WshShell_Size_t</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">pInterCnt</span><span class="p">,</span>
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3"></a><span class="w">    </span><span class="n">WshShell_Size_t</span><span class="w"> </span><span class="n">buffSize</span>
+</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4"></a><span class="p">)</span><span class="w"> </span>
 </span></code></pre></div></td></tr></table></div></p>
 <p><strong>Parameters:</strong></p>
 <ul>
@@ -2334,11 +2247,11 @@
 
 <h3 id="function-wshshellstr_isprintableascii">function WshShellStr_IsPrintableAscii</h3>
 <p><em>Check whether the given character is a printable ASCII symbol.</em> 
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-5-1">1</a></span>
-<span class="normal"><a href="#__codelineno-5-2">2</a></span>
-<span class="normal"><a href="#__codelineno-5-3">3</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1"></a><span class="n">WshShell_Bool_t</span><span class="w"> </span><span class="n">WshShellStr_IsPrintableAscii</span><span class="w"> </span><span class="p">(</span>
-</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2"></a><span class="w">    </span><span class="n">WshShell_Char_t</span><span class="w"> </span><span class="n">ch</span>
-</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3"></a><span class="p">)</span><span class="w"> </span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-4-1">1</a></span>
+<span class="normal"><a href="#__codelineno-4-2">2</a></span>
+<span class="normal"><a href="#__codelineno-4-3">3</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1"></a><span class="n">WshShell_Bool_t</span><span class="w"> </span><span class="n">WshShellStr_IsPrintableAscii</span><span class="w"> </span><span class="p">(</span>
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2"></a><span class="w">    </span><span class="n">WshShell_Char_t</span><span class="w"> </span><span class="n">ch</span>
+</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3"></a><span class="p">)</span><span class="w"> </span>
 </span></code></pre></div></td></tr></table></div></p>
 <p>This function checks if the character belongs to the range of printable ASCII characters (from 0x20 ' ' to 0x7E '~').</p>
 <p><strong>Parameters:</strong></p>
@@ -2351,17 +2264,17 @@
 
 <h3 id="function-wshshellstr_parsetoargcargv">function WshShellStr_ParseToArgcArgv</h3>
 <p><em>Parse a string into space-separated tokens, handling quoted substrings as single tokens.</em> 
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-6-1">1</a></span>
-<span class="normal"><a href="#__codelineno-6-2">2</a></span>
-<span class="normal"><a href="#__codelineno-6-3">3</a></span>
-<span class="normal"><a href="#__codelineno-6-4">4</a></span>
-<span class="normal"><a href="#__codelineno-6-5">5</a></span>
-<span class="normal"><a href="#__codelineno-6-6">6</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1"></a><span class="kt">void</span><span class="w"> </span><span class="n">WshShellStr_ParseToArgcArgv</span><span class="w"> </span><span class="p">(</span>
-</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2"></a><span class="w">    </span><span class="n">WshShell_Char_t</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">pStr</span><span class="p">,</span>
-</span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3"></a><span class="w">    </span><span class="n">WshShell_Size_t</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">pArgNum</span><span class="p">,</span>
-</span><span id="__span-6-4"><a id="__codelineno-6-4" name="__codelineno-6-4"></a><span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="n">WshShell_Char_t</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">pArgBuff</span><span class="p">,</span>
-</span><span id="__span-6-5"><a id="__codelineno-6-5" name="__codelineno-6-5"></a><span class="w">    </span><span class="n">WshShell_Size_t</span><span class="w"> </span><span class="n">maxArgNum</span>
-</span><span id="__span-6-6"><a id="__codelineno-6-6" name="__codelineno-6-6"></a><span class="p">)</span><span class="w"> </span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-5-1">1</a></span>
+<span class="normal"><a href="#__codelineno-5-2">2</a></span>
+<span class="normal"><a href="#__codelineno-5-3">3</a></span>
+<span class="normal"><a href="#__codelineno-5-4">4</a></span>
+<span class="normal"><a href="#__codelineno-5-5">5</a></span>
+<span class="normal"><a href="#__codelineno-5-6">6</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1"></a><span class="kt">void</span><span class="w"> </span><span class="n">WshShellStr_ParseToArgcArgv</span><span class="w"> </span><span class="p">(</span>
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2"></a><span class="w">    </span><span class="n">WshShell_Char_t</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">pStr</span><span class="p">,</span>
+</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3"></a><span class="w">    </span><span class="n">WshShell_Size_t</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">pArgNum</span><span class="p">,</span>
+</span><span id="__span-5-4"><a id="__codelineno-5-4" name="__codelineno-5-4"></a><span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="n">WshShell_Char_t</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">pArgBuff</span><span class="p">,</span>
+</span><span id="__span-5-5"><a id="__codelineno-5-5" name="__codelineno-5-5"></a><span class="w">    </span><span class="n">WshShell_Size_t</span><span class="w"> </span><span class="n">maxArgNum</span>
+</span><span id="__span-5-6"><a id="__codelineno-5-6" name="__codelineno-5-6"></a><span class="p">)</span><span class="w"> </span>
 </span></code></pre></div></td></tr></table></div></p>
 <p>This function splits the input string <code>pStr</code> into tokens by replacing spaces with null terminators (<code>\0</code>). Tokens are written as pointers to the beginning of each token into the <code>pArgBuff</code> array. Quoted substrings (enclosed in double quotes <code>"</code>), if any, are treated as a single token. Quotes themselves are removed during parsing. ч </p>
 <p><strong>Note:</strong></p>
@@ -2379,13 +2292,13 @@
 
 <h3 id="function-wshshellstr_trimstring">function WshShellStr_TrimString</h3>
 <p><em>Trim tabulation and spaces from beginning and end of a string.</em> 
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-7-1">1</a></span>
-<span class="normal"><a href="#__codelineno-7-2">2</a></span>
-<span class="normal"><a href="#__codelineno-7-3">3</a></span>
-<span class="normal"><a href="#__codelineno-7-4">4</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1"></a><span class="n">WshShell_Char_t</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">WshShellStr_TrimString</span><span class="w"> </span><span class="p">(</span>
-</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2"></a><span class="w">    </span><span class="n">WshShell_Char_t</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">pString</span><span class="p">,</span>
-</span><span id="__span-7-3"><a id="__codelineno-7-3" name="__codelineno-7-3"></a><span class="w">    </span><span class="n">WshShell_Size_t</span><span class="w"> </span><span class="n">len</span>
-</span><span id="__span-7-4"><a id="__codelineno-7-4" name="__codelineno-7-4"></a><span class="p">)</span><span class="w"> </span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-6-1">1</a></span>
+<span class="normal"><a href="#__codelineno-6-2">2</a></span>
+<span class="normal"><a href="#__codelineno-6-3">3</a></span>
+<span class="normal"><a href="#__codelineno-6-4">4</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1"></a><span class="n">WshShell_Char_t</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">WshShellStr_TrimString</span><span class="w"> </span><span class="p">(</span>
+</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2"></a><span class="w">    </span><span class="n">WshShell_Char_t</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">pString</span><span class="p">,</span>
+</span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3"></a><span class="w">    </span><span class="n">WshShell_Size_t</span><span class="w"> </span><span class="n">len</span>
+</span><span id="__span-6-4"><a id="__codelineno-6-4" name="__codelineno-6-4"></a><span class="p">)</span><span class="w"> </span>
 </span></code></pre></div></td></tr></table></div></p>
 <p><strong>Parameters:</strong></p>
 <ul>
@@ -2394,17 +2307,6 @@
 </ul>
 <p><strong>Returns:</strong></p>
 <p>WshShell_Char_t*: Pointer to a trimmed string. </p>
-<hr>
-<h2 id="macro-definition-documentation">Macro Definition Documentation</h2>
-<h3 id="define-wsh_ps1_space_left">define WSH_PS1_SPACE_LEFT</h3>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-8-1">1</a></span>
-<span class="normal"><a href="#__codelineno-8-2">2</a></span>
-<span class="normal"><a href="#__codelineno-8-3">3</a></span>
-<span class="normal"><a href="#__codelineno-8-4">4</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1"></a><span class="cp">#define WSH_PS1_SPACE_LEFT (</span>
-</span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2"></a><span class="w">    </span><span class="n">out</span><span class="p">,</span>
-</span><span id="__span-8-3"><a id="__codelineno-8-3" name="__codelineno-8-3"></a><span class="w">    </span><span class="n">base</span>
-</span><span id="__span-8-4"><a id="__codelineno-8-4" name="__codelineno-8-4"></a><span class="p">)</span><span class="w"> </span><span class="err">`</span><span class="p">((</span><span class="n">out</span><span class="p">)</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="p">(</span><span class="n">base</span><span class="p">)</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="p">(</span><span class="n">WSH_SHELL_PS1_MAX_LEN</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">))</span><span class="err">`</span>
-</span></code></pre></div></td></tr></table></div>
 <hr>
 
 <hr />

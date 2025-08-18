@@ -97,6 +97,8 @@
 | define  | [**WSH\_SHELL\_CMD\_GROUP\_READER**](wsh__shell__cfg__def_8h.md#define-wsh_shell_cmd_group_reader)  `0x02`<br> |
 | define  | [**WSH\_SHELL\_CMD\_NAME\_LEN**](wsh__shell__cfg__def_8h.md#define-wsh_shell_cmd_name_len)  `16`<br> |
 | define  | [**WSH\_SHELL\_CMD\_OPTIONS\_MAX\_NUM**](wsh__shell__cfg__def_8h.md#define-wsh_shell_cmd_options_max_num)  `16`<br> |
+| define  | [**WSH\_SHELL\_CMD\_PRINT\_OPT\_OVERVIEW**](wsh__shell__cfg__def_8h.md#define-wsh_shell_cmd_print_opt_overview)  `1`<br> |
+| define  | [**WSH\_SHELL\_DEF\_COMMAND**](wsh__shell__cfg__def_8h.md#define-wsh_shell_def_command)  `1`<br> |
 | define  | [**WSH\_SHELL\_DEV\_NAME\_LEN**](wsh__shell__cfg__def_8h.md#define-wsh_shell_dev_name_len)  `16`<br> |
 | define  | [**WSH\_SHELL\_ESC\_BUFF\_LEN**](wsh__shell__cfg__def_8h.md#define-wsh_shell_esc_buff_len)  `8`<br> |
 | define  | [**WSH\_SHELL\_HEADER**](wsh__shell__cfg__def_8h.md#define-wsh_shell_header)  `"\                \_\_               \_\_         \_\_\_\_  \r\n\ \_      \_\_\_\_\_\_\_/ /\_        \_\_\_\_\_/ /\_  \_\_\_  / / /  \r\n\\| \| /\| / / \_\_\_/ \_\_ \\\_\_\_\_\_\_/ \_\_\_/ \_\_ \\/ \_ \\/ / /\r\n\\| \|/ \|/ (\_\_  ) / / /\_\_\_\_\_(\_\_  ) / / /  \_\_/ / /    \r\n\\|\_\_/\|\_\_/\_\_\_\_/\_/ /\_/     /\_\_\_\_/\_/ /\_/\\\_\_\_/\_/\_/    \r\n\\r\n"`<br> |
@@ -117,6 +119,7 @@
 | define  | [**WSH\_SHELL\_PRINT\_OPT\_HELP\_ENABLE**](wsh__shell__cfg__def_8h.md#define-wsh_shell_print_opt_help_enable)  `1`<br> |
 | define  | [**WSH\_SHELL\_PRINT\_SYS\_ENABLE**](wsh__shell__cfg__def_8h.md#define-wsh_shell_print_sys_enable)  `1`<br> |
 | define  | [**WSH\_SHELL\_PRINT\_WARN\_ENABLE**](wsh__shell__cfg__def_8h.md#define-wsh_shell_print_warn_enable)  `1`<br> |
+| define  | [**WSH\_SHELL\_PROMPT\_WAIT**](wsh__shell__cfg__def_8h.md#define-wsh_shell_prompt_wait)  `1`<br> |
 | define  | [**WSH\_SHELL\_PS1\_CUSTOM**](wsh__shell__cfg__def_8h.md#define-wsh_shell_ps1_custom)  `1`<br> |
 | define  | [**WSH\_SHELL\_PS1\_MAX\_LEN**](wsh__shell__cfg__def_8h.md#define-wsh_shell_ps1_max_len)  `128`<br> |
 | define  | [**WSH\_SHELL\_PS1\_TEMPLATE**](wsh__shell__cfg__def_8h.md#define-wsh_shell_ps1_template)  `"%r%b%c6%d%c7@%c5%u%c2%i %c7&gt; %r%c7"`<br> |
@@ -322,6 +325,32 @@ static inline bool WshShellRetState_TranslateToProject (
 
 ```C++
 #define WSH_SHELL_CMD_OPTIONS_MAX_NUM `16`
+```
+
+
+
+
+<hr>
+
+
+
+### define WSH\_SHELL\_CMD\_PRINT\_OPT\_OVERVIEW 
+
+```C++
+#define WSH_SHELL_CMD_PRINT_OPT_OVERVIEW `1`
+```
+
+
+
+
+<hr>
+
+
+
+### define WSH\_SHELL\_DEF\_COMMAND 
+
+```C++
+#define WSH_SHELL_DEF_COMMAND `1`
 ```
 
 
@@ -597,6 +626,19 @@ static inline bool WshShellRetState_TranslateToProject (
 
 ```C++
 #define WSH_SHELL_PRINT_WARN_ENABLE `1`
+```
+
+
+
+
+<hr>
+
+
+
+### define WSH\_SHELL\_PROMPT\_WAIT 
+
+```C++
+#define WSH_SHELL_PROMPT_WAIT `1`
 ```
 
 

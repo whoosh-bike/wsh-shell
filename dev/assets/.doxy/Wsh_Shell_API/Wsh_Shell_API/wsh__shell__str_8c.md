@@ -54,7 +54,6 @@
 | ---: | :--- |
 |  void | [**WshShellStr\_AccessBitsToStr**](#function-wshshellstr_accessbitstostr) (WshShell\_Size\_t access, WshShell\_Char\_t \* pOutStr) <br>_Converts access permission bits to a human-readable string like "rwx"._  |
 |  void | [**WshShellStr\_DecrInterCnt**](#function-wshshellstr_decrintercnt) (WshShell\_Size\_t \* pInterCnt) <br>_Decrease buffer counter._  |
-|  void | [**WshShellStr\_GeneratePS1**](#function-wshshellstr_generateps1) (WshShell\_Char\_t \* pPS1, [**WshShellStr\_PS1Data\_t**](structWshShellStr__PS1Data__t.md) \* pPS1Data) <br>_Applies the PS1 template and generates the final PS1 string._  |
 |  void | [**WshShellStr\_GroupBitsToStr**](#function-wshshellstr_groupbitstostr) (WshShell\_Size\_t group, WshShell\_Char\_t \* pOutStr) <br>_Converts group bitmask into symbolic group string (e.g. "\*--\*", "---\*", etc)._  |
 |  void | [**WshShellStr\_IncrInterCnt**](#function-wshshellstr_incrintercnt) (WshShell\_Size\_t \* pInterCnt, WshShell\_Size\_t buffSize) <br>_Increase buffer counter._  |
 |  WshShell\_Bool\_t | [**WshShellStr\_IsPrintableAscii**](#function-wshshellstr_isprintableascii) (WshShell\_Char\_t ch) <br>_Check whether the given character is a printable ASCII symbol._  |
@@ -87,11 +86,6 @@
 
 
 
-## Macros
-
-| Type | Name |
-| ---: | :--- |
-| define  | [**WSH\_PS1\_SPACE\_LEFT**](wsh__shell__str_8c.md#define-wsh_ps1_space_left) (out, base) `((out) - (base) &lt; (WSH\_SHELL\_PS1\_MAX\_LEN - 1))`<br> |
 
 ## Public Functions Documentation
 
@@ -162,52 +156,6 @@ void WshShellStr_DecrInterCnt (
 
 
 * `pInterCnt` Pointer to a counter. 
-
-
-
-
-        
-
-<hr>
-
-
-
-### function WshShellStr\_GeneratePS1 
-
-_Applies the PS1 template and generates the final PS1 string._ 
-```C++
-void WshShellStr_GeneratePS1 (
-    WshShell_Char_t * pPS1,
-    WshShellStr_PS1Data_t * pPS1Data
-) 
-```
-
-
-
-Expands a predefined PS1 template (`WSH_SHELL_PS1_TEMPLATE`) into a complete PS1 string, substituting special format specifiers with runtime values like username, device name, and ANSI escape sequences for styling (colors, bold, reset).
-
-
-Supported format specifiers in the template:
-* `u` — current username (from `pUser`)
-* `d` — current device name (from `pDevice`)
-* `cN` — ANSI color code from predefined color map (0 ≤ N ≤ 9)
-* `b` — ANSI escape sequence for bold text
-* `r` — ANSI escape sequence to reset all styles
-* Any unknown `%` sequence is copied verbatim as `X`.
-
-
-
-
-The output is truncated if it would exceed `WSH_SHELL_PS1_MAX_LEN - 1`. The result is always null-terminated.
-
-
-
-
-**Parameters:**
-
-
-* `pPS1` Output buffer for the final PS1 string. Must be at least `WSH_SHELL_PS1_MAX_LEN` in size. 
-* `pPS1Data` Pointer to the user name, divice name or other strings. 
 
 
 
@@ -398,25 +346,6 @@ WshShell\_Char\_t\*: Pointer to a trimmed string.
 
 
         
-
-<hr>
-## Macro Definition Documentation
-
-
-
-
-
-### define WSH\_PS1\_SPACE\_LEFT 
-
-```C++
-#define WSH_PS1_SPACE_LEFT (
-    out,
-    base
-) `((out) - (base) < (WSH_SHELL_PS1_MAX_LEN - 1))`
-```
-
-
-
 
 <hr>
 

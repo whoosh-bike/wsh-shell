@@ -19,6 +19,7 @@ _Core shell interface for command parsing, user authentication, and terminal int
 * `#include "wsh_shell_interact.h"`
 * `#include "wsh_shell_io.h"`
 * `#include "wsh_shell_promptwait.h"`
+* `#include "wsh_shell_ps1_custom.h"`
 * `#include "wsh_shell_str.h"`
 * `#include "wsh_shell_types.h"`
 * `#include "wsh_shell_user.h"`

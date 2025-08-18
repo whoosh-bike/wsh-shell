@@ -64,7 +64,7 @@ WSH_SHELL_RET_STATE_t WshShellCmd_GetOptValue(WshShellOption_Context_t* pOptCtx,
                                               WshShell_Size_t argc, const WshShell_Char_t* pArgv[],
                                               WshShell_Size_t valueSize, void* pValue);
 
-void WshShellCmd_PrintInfo(const WshShellCmd_t* pcCmd);
+void WshShellCmd_PrintOptionsOverview(const WshShellCmd_t* pcCmd);
 
 #ifdef __cplusplus
 }

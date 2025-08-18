@@ -1,0 +1,196 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="wsh__shell__ps1__custom_8h" kind="file" language="C++">
+    <compoundname>wsh_shell_ps1_custom.h</compoundname>
+    <includes local="yes">wsh_shell_cfg.h</includes>
+    <includes refid="wsh__shell__io_8h" local="yes">wsh_shell_io.h</includes>
+    <includes refid="wsh__shell__types_8h" local="yes">wsh_shell_types.h</includes>
+    <includedby refid="wsh__shell_8h" local="yes">src/wsh_shell.h</includedby>
+    <includedby refid="wsh__shell__ps1__custom_8c" local="yes">src/wsh_shell_ps1_custom.c</includedby>
+    <incdepgraph>
+      <node id="8">
+        <label>stdbool.h</label>
+      </node>
+      <node id="7">
+        <label>stdarg.h</label>
+      </node>
+      <node id="4">
+        <label>wsh_shell_str.h</label>
+        <link refid="wsh__shell__str_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+      </node>
+      <node id="10">
+        <label>stdint.h</label>
+      </node>
+      <node id="12">
+        <label>stdlib.h</label>
+      </node>
+      <node id="2">
+        <label>wsh_shell_cfg.h</label>
+      </node>
+      <node id="9">
+        <label>stddef.h</label>
+      </node>
+      <node id="5">
+        <label>wsh_shell_option.h</label>
+        <link refid="wsh__shell__option_8h"/>
+        <childnode refid="6" relation="include">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>wsh_shell_io.h</label>
+        <link refid="wsh__shell__io_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+      </node>
+      <node id="13">
+        <label>string.h</label>
+      </node>
+      <node id="6">
+        <label>wsh_shell_types.h</label>
+        <link refid="wsh__shell__types_8h"/>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>src/wsh_shell_ps1_custom.h</label>
+        <link refid="wsh__shell__ps1__custom_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+      </node>
+      <node id="11">
+        <label>stdio.h</label>
+      </node>
+    </incdepgraph>
+    <invincdepgraph>
+      <node id="2">
+        <label>src/wsh_shell.h</label>
+        <link refid="wsh__shell_8h"/>
+      </node>
+      <node id="1">
+        <label>src/wsh_shell_ps1_custom.h</label>
+        <link refid="wsh__shell__ps1__custom_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+    </invincdepgraph>
+    <innerclass refid="structWshShell__PS1Data__t" prot="public">WshShell_PS1Data_t</innerclass>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="wsh__shell__ps1__custom_8h_1ac7193e56063a572ed2866c38b1528799" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void WshShell_GeneratePS1</definition>
+        <argsstring>(WshShell_Char_t *pPS1, WshShell_PS1Data_t *pPS1Data)</argsstring>
+        <name>WshShell_GeneratePS1</name>
+        <param>
+          <type>WshShell_Char_t *</type>
+          <declname>pPS1</declname>
+        </param>
+        <param>
+          <type><ref refid="structWshShell__PS1Data__t" kindref="compound">WshShell_PS1Data_t</ref> *</type>
+          <declname>pPS1Data</declname>
+        </param>
+        <briefdescription>
+<para>Applies the PS1 template and generates the final PS1 string. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Expands a predefined PS1 template (<computeroutput>WSH_SHELL_PS1_TEMPLATE</computeroutput>) into a complete PS1 string, substituting special format specifiers with runtime values like username, device name, and ANSI escape sequences for styling (colors, bold, reset).</para>
+<para>Supported format specifiers in the template:<itemizedlist>
+<listitem><para><computeroutput>u</computeroutput> — current username (from <computeroutput>pUser</computeroutput>)</para>
+</listitem><listitem><para><computeroutput>d</computeroutput> — current device name (from <computeroutput>pDevice</computeroutput>)</para>
+</listitem><listitem><para><computeroutput>cN</computeroutput> — ANSI color code from predefined color map (0 ≤ N ≤ 9)</para>
+</listitem><listitem><para><computeroutput>b</computeroutput> — ANSI escape sequence for bold text</para>
+</listitem><listitem><para><computeroutput>r</computeroutput> — ANSI escape sequence to reset all styles</para>
+</listitem><listitem><para>Any unknown <computeroutput>%</computeroutput> sequence is copied verbatim as <computeroutput>X</computeroutput>.</para>
+</listitem></itemizedlist>
+</para>
+<para>The output is truncated if it would exceed <computeroutput>WSH_SHELL_PS1_MAX_LEN - 1</computeroutput>. The result is always null-terminated.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="out">pPS1</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Output buffer for the final PS1 string. Must be at least <computeroutput>WSH_SHELL_PS1_MAX_LEN</computeroutput> in size. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">pPS1Data</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the user name, divice name or other strings. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/wsh_shell_ps1_custom.h" line="64" column="6" bodyfile="src/wsh_shell_ps1_custom.c" bodystart="106" bodyend="128" declfile="src/wsh_shell_ps1_custom.h" declline="64" declcolumn="6"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Shell prompt (PS1) customization and formatting. </para>
+    </briefdescription>
+    <detaileddescription>
+<para>Provides functionality for building and customizing the shell prompt (<computeroutput>PS1</computeroutput>). This includes dynamic substitution of runtime values such as user name, device name, and ANSI styling codes (colors, bold, reset).</para>
+<para><simplesect kind="author"><para>Whoosh Embedded Team </para>
+</simplesect>
+<simplesect kind="copyright"><para>Copyright (c) 2025 </para>
+</simplesect>
+</para>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="normal"></highlight></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight><highlight class="preprocessor">#ifndef<sp/>__WSH_SHELL_PS1_CUSTOM_H</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="14"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>__WSH_SHELL_PS1_CUSTOM_H</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="15"><highlight class="normal"></highlight></codeline>
+<codeline lineno="16"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;wsh_shell_cfg.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="17"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="wsh__shell__io_8h" kindref="compound">wsh_shell_io.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="18"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="wsh__shell__types_8h" kindref="compound">wsh_shell_types.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="19"><highlight class="normal"></highlight></codeline>
+<codeline lineno="20"><highlight class="normal"></highlight><highlight class="preprocessor">#ifdef<sp/>__cplusplus</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="21"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/></highlight><highlight class="stringliteral">&quot;C&quot;</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline lineno="22"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="23"><highlight class="normal"></highlight></codeline>
+<codeline lineno="36" refid="structWshShell__PS1Data__t" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="37" refid="structWshShell__PS1Data__t_1a76a701f2e100bb57a350c19652e05246" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>WshShell_Char_t*<sp/><ref refid="structWshShell__PS1Data__t_1a76a701f2e100bb57a350c19652e05246" kindref="member">UserName</ref>;<sp/></highlight></codeline>
+<codeline lineno="38" refid="structWshShell__PS1Data__t_1a3e873a30c9b7050f5d3fbfe3de44be06" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>WshShell_Char_t*<sp/><ref refid="structWshShell__PS1Data__t_1a3e873a30c9b7050f5d3fbfe3de44be06" kindref="member">DevName</ref>;<sp/><sp/></highlight></codeline>
+<codeline lineno="39" refid="structWshShell__PS1Data__t_1a36273048220391ef8e7ae60b92a601ee" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>WshShell_Char_t*<sp/><ref refid="structWshShell__PS1Data__t_1a36273048220391ef8e7ae60b92a601ee" kindref="member">InterCmdName</ref>;<sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="40"><highlight class="normal">}<sp/><ref refid="structWshShell__PS1Data__t" kindref="compound">WshShell_PS1Data_t</ref>;</highlight></codeline>
+<codeline lineno="41"><highlight class="normal"></highlight></codeline>
+<codeline lineno="64"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="wsh__shell__ps1__custom_8h_1ac7193e56063a572ed2866c38b1528799" kindref="member">WshShell_GeneratePS1</ref>(WshShell_Char_t*<sp/>pPS1,<sp/><ref refid="structWshShell__PS1Data__t" kindref="compound">WshShell_PS1Data_t</ref>*<sp/>pPS1Data);</highlight></codeline>
+<codeline lineno="65"><highlight class="normal"></highlight></codeline>
+<codeline lineno="66"><highlight class="normal"></highlight><highlight class="preprocessor">#ifdef<sp/>__cplusplus</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="67"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="68"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="69"><highlight class="normal"></highlight></codeline>
+<codeline lineno="70"><highlight class="normal"></highlight><highlight class="preprocessor">#endif<sp/></highlight><highlight class="comment">/*<sp/>__WSH_SHELL_PS1_CUSTOM_H<sp/>*/</highlight><highlight class="preprocessor"></highlight></codeline>
+    </programlisting>
+    <location file="src/wsh_shell_ps1_custom.h"/>
+  </compounddef>
+</doxygen>

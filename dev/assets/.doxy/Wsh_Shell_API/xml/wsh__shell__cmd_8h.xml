@@ -544,11 +544,11 @@
         </inbodydescription>
         <location file="src/wsh_shell_cmd.h" line="160" column="23" bodyfile="src/wsh_shell_cmd.c" bodystart="141" bodyend="180" declfile="src/wsh_shell_cmd.h" declline="160" declcolumn="23"/>
       </memberdef>
-      <memberdef kind="function" id="wsh__shell__cmd_8h_1a94dcfcacf6d21381f4a17d847038e630" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="wsh__shell__cmd_8h_1a5db3a973370bfb723d3aa43f206623c3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
-        <definition>void WshShellCmd_PrintInfo</definition>
+        <definition>void WshShellCmd_PrintOptionsOverview</definition>
         <argsstring>(const WshShellCmd_t *pcCmd)</argsstring>
-        <name>WshShellCmd_PrintInfo</name>
+        <name>WshShellCmd_PrintOptionsOverview</name>
         <param>
           <type>const <ref refid="wsh__shell__cmd_8h_1aa3eea9fbfe1d3d8b71415bc7667c65a3" kindref="member">WshShellCmd_t</ref> *</type>
           <declname>pcCmd</declname>
@@ -580,7 +580,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/wsh_shell_cmd.h" line="183" column="6" bodyfile="src/wsh_shell_cmd.c" bodystart="182" bodyend="216" declfile="src/wsh_shell_cmd.h" declline="183" declcolumn="6"/>
+        <location file="src/wsh_shell_cmd.h" line="183" column="6" bodyfile="src/wsh_shell_cmd.c" bodystart="182" bodyend="224" declfile="src/wsh_shell_cmd.h" declline="183" declcolumn="6"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
@@ -651,7 +651,7 @@
 <codeline lineno="161"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>WshShell_Size_t<sp/>argc,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>WshShell_Char_t*<sp/>pArgv[],</highlight></codeline>
 <codeline lineno="162"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>WshShell_Size_t<sp/>valueSize,<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal">*<sp/>pValue);</highlight></codeline>
 <codeline lineno="163"><highlight class="normal"></highlight></codeline>
-<codeline lineno="183"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="wsh__shell__cmd_8h_1a94dcfcacf6d21381f4a17d847038e630" kindref="member">WshShellCmd_PrintInfo</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="structWshShellCmd" kindref="compound">WshShellCmd_t</ref>*<sp/>pcCmd);</highlight></codeline>
+<codeline lineno="183"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="wsh__shell__cmd_8h_1a5db3a973370bfb723d3aa43f206623c3" kindref="member">WshShellCmd_PrintOptionsOverview</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="structWshShellCmd" kindref="compound">WshShellCmd_t</ref>*<sp/>pcCmd);</highlight></codeline>
 <codeline lineno="184"><highlight class="normal"></highlight></codeline>
 <codeline lineno="185"><highlight class="normal"></highlight><highlight class="preprocessor">#ifdef<sp/>__cplusplus</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="186"><highlight class="normal">}</highlight></codeline>
