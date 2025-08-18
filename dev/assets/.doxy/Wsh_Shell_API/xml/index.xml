@@ -139,8 +139,9 @@
     <member refid="wsh__shell__cfg__def_8h_1a27f6a3cf4f8e58bf359b3302f193837a" kind="define"><name>WSH_SHELL_PRINT_INFO_ENABLE</name></member>
     <member refid="wsh__shell__cfg__def_8h_1a562de8bdf247986858f8508931ee6475" kind="define"><name>WSH_SHELL_PRINT_WARN_ENABLE</name></member>
     <member refid="wsh__shell__cfg__def_8h_1af52044788ee1e8708babd5a32a51c7fd" kind="define"><name>WSH_SHELL_PRINT_ERR_ENABLE</name></member>
-    <member refid="wsh__shell__cfg__def_8h_1acac175a02863a35c570a3f9b3d8dbb1b" kind="define"><name>WSH_SHELL_PRINT_OPT_HELP_ENABLE</name></member>
     <member refid="wsh__shell__cfg__def_8h_1a195ecfaaa46050c35ea3ab9eb9628da3" kind="define"><name>WSH_SHELL_DEF_COMMAND</name></member>
+    <member refid="wsh__shell__cfg__def_8h_1acac175a02863a35c570a3f9b3d8dbb1b" kind="define"><name>WSH_SHELL_PRINT_OPT_HELP_ENABLE</name></member>
+    <member refid="wsh__shell__cfg__def_8h_1aa273f75ae3ac2350aaa0f0a89d482516" kind="define"><name>WSH_SHELL_CMD_PRINT_OPT_OVERVIEW</name></member>
     <member refid="wsh__shell__cfg__def_8h_1ada4fbc968726db71306cbab04f40d8dc" kind="define"><name>WSH_SHELL_INTERACTIVE_MODE</name></member>
     <member refid="wsh__shell__cfg__def_8h_1a1ef1c6ab90ec34dd2df2f4e9f13f7425" kind="define"><name>WSH_SHELL_HISTORY</name></member>
     <member refid="wsh__shell__cfg__def_8h_1a56e6c2eba787687b9f39fe018f736aec" kind="define"><name>WSH_SHELL_HISTORY_BUFF_SIZE</name></member>
@@ -150,7 +151,6 @@
     <member refid="wsh__shell__cfg__def_8h_1ace6c2248b6a226bf1af40670065a1f17" kind="define"><name>WSH_SHELL_PS1_CUSTOM</name></member>
     <member refid="wsh__shell__cfg__def_8h_1a3892b3ae21a06cdb78603080f14e3f20" kind="define"><name>WSH_SHELL_PS1_TEMPLATE</name></member>
     <member refid="wsh__shell__cfg__def_8h_1a01654c8758d856de9ad5a6c90218c5e8" kind="define"><name>WSH_SHELL_PS1_MAX_LEN</name></member>
-    <member refid="wsh__shell__cfg__def_8h_1aa273f75ae3ac2350aaa0f0a89d482516" kind="define"><name>WSH_SHELL_CMD_PRINT_OPT_OVERVIEW</name></member>
     <member refid="wsh__shell__cfg__def_8h_1a7af31e564fe835d55aa74b7bc684eae0" kind="define"><name>WSH_SHELL_PROMPT_WAIT</name></member>
     <member refid="wsh__shell__cfg__def_8h_1a9cc874123e02a44f418562a8dd6cd892" kind="define"><name>WSH_SHELL_CMD_GROUP_NONE</name></member>
     <member refid="wsh__shell__cfg__def_8h_1a1834ff972b1e3eb6a753dc272aafec41" kind="define"><name>WSH_SHELL_CMD_GROUP_ALL</name></member>

@@ -2329,10 +2329,12 @@ Remove it manually if you want to regenerate it from the default template.</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-10-1">1</a></span>
 <span class="normal"><a href="#__codelineno-10-2">2</a></span>
 <span class="normal"><a href="#__codelineno-10-3">3</a></span>
-<span class="normal"><a href="#__codelineno-10-4">4</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1"></a><span class="nv">MAKE_PATH</span><span class="o">=</span><span class="s2">&quot;/opt/homebrew/opt/make/libexec/gnubin/make&quot;</span>
-</span><span id="__span-10-2"><a id="__codelineno-10-2" name="__codelineno-10-2"></a><span class="nv">ARM_NONE_EABI_PATH</span><span class="o">=</span><span class="s2">&quot;/Users/katbert/my-utils/arm-gnu-toolchain-14.2.rel1-darwin-arm64-arm-none-eabi/bin/arm-none-eabi-gcc&quot;</span>
-</span><span id="__span-10-3"><a id="__codelineno-10-3" name="__codelineno-10-3"></a><span class="nv">GDB_PATH</span><span class="o">=</span><span class="s2">&quot;/Users/katbert/my-utils/arm-gnu-toolchain-14.2.rel1-darwin-arm64-arm-none-eabi/bin/arm-none-eabi-gdb&quot;</span>
-</span><span id="__span-10-4"><a id="__codelineno-10-4" name="__codelineno-10-4"></a><span class="nv">OPENOCD_PATH</span><span class="o">=</span><span class="s2">&quot;/opt/homebrew/bin/openocd&quot;</span>
+<span class="normal"><a href="#__codelineno-10-4">4</a></span>
+<span class="normal"><a href="#__codelineno-10-5">5</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1"></a><span class="nv">MAKE_PATH</span><span class="o">=</span><span class="s2">&quot;/opt/homebrew/opt/make/libexec/gnubin/make&quot;</span>
+</span><span id="__span-10-2"><a id="__codelineno-10-2" name="__codelineno-10-2"></a><span class="nv">OPENOCD_PATH</span><span class="o">=</span><span class="s2">&quot;/opt/homebrew/bin/openocd&quot;</span>
+</span><span id="__span-10-3"><a id="__codelineno-10-3" name="__codelineno-10-3"></a><span class="nv">ARM_NONE_EABI_PATH</span><span class="o">=</span><span class="s2">&quot;/Users/katbert/my-utils/arm-gnu-toolchain-14.2.rel1-darwin-arm64-arm-none-eabi/bin&quot;</span>
+</span><span id="__span-10-4"><a id="__codelineno-10-4" name="__codelineno-10-4"></a><span class="nv">GDB_PATH</span><span class="o">=</span><span class="s2">&quot;/Users/katbert/my-utils/arm-gnu-toolchain-14.2.rel1-darwin-arm64-arm-none-eabi/bin/arm-none-eabi-gdb&quot;</span>
+</span><span id="__span-10-5"><a id="__codelineno-10-5" name="__codelineno-10-5"></a><span class="nv">NM_PATH</span><span class="o">=</span><span class="s2">&quot;/Users/katbert/my-utils/arm-gnu-toolchain-14.2.rel1-darwin-arm64-arm-none-eabi/bin/arm-none-eabi-nm&quot;</span>
 </span></code></pre></div></td></tr></table></div>
 <p>Then flash the binary using OpenOCD:</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-11-1">1</a></span>
@@ -2342,6 +2344,9 @@ Remove it manually if you want to regenerate it from the default template.</p>
 </span><span id="__span-11-3"><a id="__codelineno-11-3" name="__codelineno-11-3"></a><span class="w">        </span>-c<span class="w"> </span><span class="s2">&quot;program example/blue_pill/build/blue_pill.bin 0x08000000 verify reset exit&quot;</span>
 </span></code></pre></div></td></tr></table></div>
 <p>For the blue pill clones use <code>ch32f1x.cfg</code> config instead of <code>stm32f1x.cfg</code></p>
+<p>You can analyse firmware <code>.elf</code> file for memory usage by running python script (or just call <code>analyse elf of blue_pill</code> vscode task):</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-12-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1"></a>./.venv/bin/python3<span class="w"> </span>./utils/elf-size-analyse.py<span class="w"> </span>./example/blue_pill/build/blue_pill.elf
+</span></code></pre></div></td></tr></table></div>
 <hr />
 <h2 id="additional-notes">Additional Notes</h2>
 <ul>
