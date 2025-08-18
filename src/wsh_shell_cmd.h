@@ -180,7 +180,7 @@ WSH_SHELL_RET_STATE_t WshShellCmd_GetOptValue(WshShellOption_Context_t* pOptCtx,
  *
  * @param[in] pcCmd Pointer to the command descriptor whose options should be printed.
  */
-void WshShellCmd_PrintInfo(const WshShellCmd_t* pcCmd);
+void WshShellCmd_PrintOptionsOverview(const WshShellCmd_t* pcCmd);
 
 #ifdef __cplusplus
 }

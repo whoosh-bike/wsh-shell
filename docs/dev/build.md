@@ -115,7 +115,7 @@ But previously you should setup `.env` file with required variables:
 
 ```bash
 MAKE_PATH="/opt/homebrew/opt/make/libexec/gnubin/make"
-ARM_NONE_EABI_PATH="/Users/katbert/my-utils/arm-gnu-toolchain-14.2.rel1-darwin-arm64-arm-none-eabi/bin"
+ARM_NONE_EABI_PATH="/Users/katbert/my-utils/arm-gnu-toolchain-14.2.rel1-darwin-arm64-arm-none-eabi/bin/arm-none-eabi-gcc"
 GDB_PATH="/Users/katbert/my-utils/arm-gnu-toolchain-14.2.rel1-darwin-arm64-arm-none-eabi/bin/arm-none-eabi-gdb"
 OPENOCD_PATH="/opt/homebrew/bin/openocd"
 ```

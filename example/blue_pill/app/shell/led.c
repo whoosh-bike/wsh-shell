@@ -46,7 +46,7 @@ bool GPIO_LedIsOn(void) {
 X_CMD_ENTRY(CMD_LED_OPT_HELP, WSH_SHELL_OPT_HELP()) \
 X_CMD_ENTRY(CMD_LED_OPT_DEF, WSH_SHELL_OPT_NO(WSH_SHELL_OPT_ACCESS_EXECUTE)) \
 X_CMD_ENTRY(CMD_LED_OPT_INTERACT, WSH_SHELL_OPT_INTERACT()) \
-X_CMD_ENTRY(CMD_LED_OPT_INIT, WSH_SHELL_OPT_STR(WSH_SHELL_OPT_ACCESS_EXECUTE, "-g", "--gpio", "Init or reset LED pin [init/deinit]")) \
+X_CMD_ENTRY(CMD_LED_OPT_INIT, WSH_SHELL_OPT_STR(WSH_SHELL_OPT_ACCESS_EXECUTE, "-o", "--gpio", "Init or reset LED pin [init/deinit]")) \
 X_CMD_ENTRY(CMD_LED_OPT_STATE, WSH_SHELL_OPT_INT(WSH_SHELL_OPT_ACCESS_EXECUTE, "-s", "--state", "Set LED state [0/1]")) \
 X_CMD_ENTRY(CMD_LED_OPT_REV, WSH_SHELL_OPT_WO_PARAM(WSH_SHELL_OPT_ACCESS_EXECUTE, "-r", "--reverse", "Reverse LED state")) \
 X_CMD_ENTRY(CMD_LED_OPT_GET, WSH_SHELL_OPT_WO_PARAM(WSH_SHELL_OPT_ACCESS_READ, "-g", "--get", "Get LED state")) \
@@ -77,7 +77,7 @@ static WSH_SHELL_RET_STATE_t shell_cmd_led(const WshShellCmd_t* pcCmd, WshShell_
 
         switch (optCtx.Option->ID) {
             case CMD_LED_OPT_HELP:
-                WshShellCmd_PrintInfo(pcCmd);
+                WshShellCmd_PrintOptionsOverview(pcCmd);
                 break;
 
             case CMD_LED_OPT_DEF:
@@ -133,7 +133,7 @@ static WSH_SHELL_RET_STATE_t shell_cmd_led(const WshShellCmd_t* pcCmd, WshShell_
 const WshShellCmd_t Shell_LedCmd = {
     .Groups  = WSH_SHELL_CMD_GROUP_ADMIN,
     .Name    = "led",
-    .Descr   = "PC13 pin LED management",
+    .Descr   = "PC13 LED pin management",
     .Options = LedOptArr,
     .OptNum  = CMD_LED_OPT_ENUM_SIZE,
     .Handler = shell_cmd_led,

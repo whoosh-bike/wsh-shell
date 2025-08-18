@@ -86,12 +86,12 @@ WshShell_Bool_t WshShell_Auth(WshShell_t* pShell, const WshShell_Char_t* pcLogin
 
     pShell->CurrUser = WshShellUser_FindByCredentials(&(pShell->Users), pcLogin, pcPass);
     if (WSH_SHELL_USER_IS_AUTH()) {
-        WshShellStr_PS1Data_t data = {
+        WshShell_PS1Data_t data = {
             .UserName     = pShell->CurrUser->Login,
             .DevName      = pShell->DeviceName,
             .InterCmdName = WSH_SHELL_INTER_CMD_EXISTS() ? pShell->Interact.CmdName : NULL,
         };
-        WshShellStr_GeneratePS1(pShell->PS1, &data);
+        WshShell_GeneratePS1(pShell->PS1, &data);
         pShell->ExtCallbacks.Auth(NULL);
         WSH_SHELL_PRINT("%c", WSH_SHELL_SYM_SOUND);
     }
@@ -187,12 +187,12 @@ static void WshShell_StringHandler(WshShell_t* pShell) {
         WSH_SHELL_RET_STATE_t retState = cmdHandler(pcCmd, argc, pсArgv, pShell);
 
         if (WSH_SHELL_INTER_CMD_EXISTS()) {
-            WshShellStr_PS1Data_t data = {
+            WshShell_PS1Data_t data = {
                 .UserName     = pShell->CurrUser->Login,
                 .DevName      = pShell->DeviceName,
                 .InterCmdName = pShell->Interact.CmdName,
             };
-            WshShellStr_GeneratePS1(pShell->PS1, &data);
+            WshShell_GeneratePS1(pShell->PS1, &data);
         }
 
         if (retState != WSH_SHELL_RET_STATE_SUCCESS) {
@@ -210,12 +210,12 @@ static void WshShell_SymbolHandler(WshShell_t* pShell, const WshShell_Char_t sym
             if (WSH_SHELL_INTER_CMD_EXISTS()) {
                 WshShellInteract_Flush(&(pShell->Interact));
 
-                WshShellStr_PS1Data_t data = {
+                WshShell_PS1Data_t data = {
                     .UserName     = pShell->CurrUser->Login,
                     .DevName      = pShell->DeviceName,
                     .InterCmdName = NULL,
                 };
-                WshShellStr_GeneratePS1(pShell->PS1, &data);
+                WshShell_GeneratePS1(pShell->PS1, &data);
                 WSH_SHELL_PRINT(WSH_SHELL_END_LINE);
                 WshShell_InvitationPrint(pShell);
             } else

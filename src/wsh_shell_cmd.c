@@ -179,7 +179,9 @@ WSH_SHELL_RET_STATE_t WshShellCmd_GetOptValue(WshShellOption_Context_t* pOptCtx,
     return WSH_SHELL_RET_STATE_SUCCESS;
 }
 
-void WshShellCmd_PrintInfo(const WshShellCmd_t* pcCmd) {
+void WshShellCmd_PrintOptionsOverview(const WshShellCmd_t* pcCmd) {
+#if WSH_SHELL_CMD_PRINT_OPT_OVERVIEW
+
     WSH_SHELL_ASSERT(pcCmd);
     if (!pcCmd)
         return;
@@ -213,4 +215,10 @@ void WshShellCmd_PrintInfo(const WshShellCmd_t* pcCmd) {
         WSH_SHELL_PRINT(rowTemplate, pcOpt->ShortName, pcOpt->LongName,
                         WshShell_OptTypeStr_Get(pcOpt->Type), accessRow, pcOpt->Descr);
     }
+
+#else /* WSH_SHELL_CMD_PRINT_OPT_OVERVIEW */
+
+    return;
+
+#endif /* WSH_SHELL_CMD_PRINT_OPT_OVERVIEW */
 }

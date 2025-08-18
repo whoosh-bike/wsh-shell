@@ -20,6 +20,7 @@
 
 ## v2.1
 
+- [x] Support input range only from ` ` till `~`
 - [x] Add USB CDC support for STM32F1 Blue Pill
 - [x] Change command table attachment from storing commands to storing pointers to commands
 - [x] Add an extra space (' ') on double-Tab during command autocompletion
@@ -33,6 +34,7 @@
 - [ ] Review default command behavior and provide more detailed output about it.
 - [ ] Review groups, permissions, and access levels for commands, users, and options; document them. Add `reader` user for reference
 - [ ] Review and fix `wsh_shell_cmd` in `WshShellCmd_GetOptValue` if necessary
+- [ ] Check the same names for commands and options
 
 ```c
 if (valIdx >= argc)

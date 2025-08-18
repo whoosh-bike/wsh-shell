@@ -46,6 +46,15 @@ typedef struct WshShellPromptWait {
 } WshShellPromptWait_t;
 
 /**
+ * @brief Flush the current prompt-wait mode.
+ *
+ * Resets the handler to NULL so that normal shell input is processed.
+ *
+ * @param[in,out] pWait Pointer to prompt-wait control object.
+ */
+void WshShellPromptWait_Flush(WshShellPromptWait_t* pWait);
+
+/**
  * @brief Attach a one-time input handler.
  *
  * Replaces normal shell input handling with a temporary callback.
@@ -59,15 +68,6 @@ typedef struct WshShellPromptWait {
  */
 void WshShellPromptWait_Attach(WshShellPromptWait_t* pWait, WshShellPromptWait_Handler_t handler,
                                void* pCtx);
-
-/**
- * @brief Flush the current prompt-wait mode.
- *
- * Resets the handler to NULL so that normal shell input is processed.
- *
- * @param[in,out] pWait Pointer to prompt-wait control object.
- */
-void WshShellPromptWait_Flush(WshShellPromptWait_t* pWait);
 
 /**
  * @brief Handle a symbol when in prompt-wait mode.
