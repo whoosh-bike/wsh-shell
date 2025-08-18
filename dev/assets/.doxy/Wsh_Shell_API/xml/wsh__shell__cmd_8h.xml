@@ -580,7 +580,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/wsh_shell_cmd.h" line="183" column="6" bodyfile="src/wsh_shell_cmd.c" bodystart="182" bodyend="224" declfile="src/wsh_shell_cmd.h" declline="183" declcolumn="6"/>
+        <location file="src/wsh_shell_cmd.h" line="183" column="6" bodyfile="src/wsh_shell_cmd.c" bodystart="182" bodyend="226" declfile="src/wsh_shell_cmd.h" declline="183" declcolumn="6"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
