@@ -35,15 +35,15 @@ Wsh-Shell is a lightweight, portable, and fully static shell interpreter written
 | Config                              | FLASH, KB | RAM, KB | Comment                                              |
 | ----------------------------------- | --------- | ------- | ---------------------------------------------------- |
 | All features disabled               | 3.29102   | 0.0     |                                                      |
-| + WSH_SHELL_PRINT_SYS/INFO/WARN/ERR | 3.58984   | 0.0     |                                                      |
-| + WSH_SHELL_DEF_COMMAND             | 4.61914   | 0.27343 |                                                      |
-| + WSH_SHELL_PRINT_HELP              | 4.65234   | 0.27343 | Could be usefull on huge amount of external commands |
-| + WSH_SHELL_CMD_PRINT_OPT_OVERVIEW  | 4.90625   | 0.27343 |                                                      |
-| + WSH_SHELL_INTERACTIVE_MODE        | 5.00391   | 0.27343 |                                                      |
-| + WSH_SHELL_HISTORY                 | 6.16016   | 0.27343 |                                                      |
-| + WSH_SHELL_AUTOCOMPLETE            | 6.71094   | 0.27343 |                                                      |
-| + WSH_SHELL_PS1_CUSTOM              | 7.18359   | 0.27343 |                                                      |
-| + WSH_SHELL_PROMPT_WAIT             | 7.29883   | 0.27343 |                                                      |
+| +WSH_SHELL_PRINT_SYS/INFO/WARN/ERR  | 3.58984   | 0.0     |                                                      |
+| +WSH_SHELL_DEF_COMMAND              | 4.61914   | 0.27343 |                                                      |
+| +WSH_SHELL_PRINT_HELP               | 4.65234   | 0.27343 | Could be usefull on huge amount of external commands |
+| +WSH_SHELL_CMD_PRINT_OPT_OVERVIEW   | 4.90625   | 0.27343 |                                                      |
+| +WSH_SHELL_INTERACTIVE_MODE         | 5.00391   | 0.27343 |                                                      |
+| +WSH_SHELL_HISTORY                  | 6.16016   | 0.27343 |                                                      |
+| +WSH_SHELL_AUTOCOMPLETE             | 6.71094   | 0.27343 |                                                      |
+| +WSH_SHELL_PS1_CUSTOM               | 7.18359   | 0.27343 |                                                      |
+| +WSH_SHELL_PROMPT_WAIT              | 7.29883   | 0.27343 |                                                      |
 
 ## ⌨️ Code counting
 
