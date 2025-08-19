@@ -15,7 +15,7 @@
  * Autocompletion improves user experience and reduces typing effort in shell environments.
  * 
  * @author Whoosh Embedded Team
- * @copyright Copyright (c) 2024
+ * @copyright Copyright (c) 2025
  */
 
 #ifndef __WSH_SHELL_AUTOCOMPLETE_H
@@ -31,12 +31,6 @@
 #ifdef __cplusplus
 extern "C" {
 #endif
-
-/**
- * @defgroup WshShellAutocomplete Autocompletion
- * @brief Command-line autocompletion support for shell input.
- * @{
- */
 
 /**
  * @brief Attempts to autocomplete the command in the input buffer.
@@ -59,10 +53,6 @@ extern "C" {
  */
 WshShell_Bool_t WshShellAutocomplete_Try(WshShell_Char_t* pInBuff, WshShell_Size_t inBuffLen,
                                          WshShellCmd_Table_t* pShellCommands);
-
-/**
- * @}
- */
 
 #ifdef __cplusplus
 }

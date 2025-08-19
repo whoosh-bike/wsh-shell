@@ -31,27 +31,6 @@ extern "C" {
 #endif
 
 /**
- * @defgroup ShellOption Option
- * @brief Command-line option definition and API.
- *
- * Options represent named flags that modify command behavior.
- * Each option (called a *flag*) can have:
- * - A **long form** (e.g. `"--verbose"`)
- * - A **short form** (e.g. `"-v"`)
- *
- * @{
- */
-
-/**
- * @defgroup OptionCreationShortcuts Option creation shortcuts
- * @brief Macros for quick creation of command-line option objects.
- *
- * These macros simplify defining various kinds of options with their access,
- * flags, argument count, and descriptions.
- * @{
- */
-
-/**
  * @brief Define a special option that matches the command name only (no flags).
  * @param[in] acc Access rights mask.
  */
@@ -133,8 +112,6 @@ extern "C" {
  */
 #define WSH_SHELL_OPT_END() WSH_SHELL_OPTION_END, WSH_SHELL_OPT_ACCESS_ANY, 0, NULL, NULL, NULL
 
-/** @} */  // end of OptionCreationShortcuts
-
 /**
  * @brief Internal macro: full list of option types.
  */
@@ -209,8 +186,6 @@ typedef struct {
     const WshShellOption_t* Option; /**< Pointer to matched option. */
     WshShell_Size_t TokenPos;       /**< Position of the matching token in command line. */
 } WshShellOption_Context_t;
-
-/** @} */  // end of ShellOption
 
 #ifdef __cplusplus
 }

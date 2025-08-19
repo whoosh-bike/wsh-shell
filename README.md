@@ -1,77 +1,73 @@
-# wsh-shell
+# Wsh-Shell
 
-## Description
+Wsh-Shell is a lightweight, portable, and fully static shell interpreter written in C, designed for embedded systems. It requires no dynamic memory allocation and is built to run in constrained environments like microcontrollers, either bare-metal or under RTOS (e.g., FreeRTOS).
 
-`wsh-shell` is a small command line interface for creating custom and application specific services.
+## 🚀 Features
 
-## Components
+- **Cross-platform, highly portable** — only one header file to include  
+- **Single State Structure** — all shell state contained in a single `WshShell_t` instance  
+- **Static Memory Only** — no `malloc`, no heap; all buffers are statically allocated  
+- **Modular Design** — ability to disable submodules for memory footprint optimization
+- **Command-line Editing** — supports cursor movement, character deletion, and insert mode  
+- **Command Parsing & Options**:  
+    - Supports short (`-h`) and long (`--help`) flags  
+    - Supports int, float, string and other option types
+    - Supports double-quoted strings  
+- **Escape Sequence Handling**:  
+    - Parses VT100/ANSI sequences  
+    - Supports arrow keys, delete, backspace, sound alerts, etc.  
+    - Handles key combinations (Ctrl+C, Ctrl+D, etc.)  
+- **Command History**:  
+    - Implemented as a circular buffer  
+    - Efficient with hash-based integrity checks  
+    - Navigable with arrow keys (↑, ↓)  
+- **Autocomplete**:  
+    - Tab / double-Tab completion for commands and flags  
+- **Multi-User Support** — groups, access rights, and more  
+- **Customizable PS1 Prompt** — user-defined templates for prompt appearance
+- **Await Prompt** — await for a specific key press
 
-We have built `wsh-shell` using **Make**, **Doxygen** and **GCC**.
-So we higly recommend you to install this components and add them to your system's environment variable.
-Before heading forward check instalation of all components using:
+## 👾 Demo
 
-```bash
-make --version
-doxygen --version
-gcc --version
+![demo](/docs/img/demo.gif)
+
+## 💾 Memory footprint
+
+- Build options: cortex-m7, `-O1` optimization
+- sizeof(WshShell_t) = 336 bytes
+
+| Config                              | FLASH, KB | RAM, KB | Comment                                              |
+| ----------------------------------- | --------- | ------- | ---------------------------------------------------- |
+| All features disabled               | 3.29102   | 0.0     |                                                      |
+| +WSH_SHELL_PRINT_SYS/INFO/WARN/ERR  | 3.58984   | 0.0     | Not recommended to disable shell messages            |
+| +WSH_SHELL_DEF_COMMAND              | 4.61914   | 0.27343 |                                                      |
+| +WSH_SHELL_PRINT_HELP               | 4.65234   | 0.27343 | Could be usefull on huge amount of external commands |
+| +WSH_SHELL_CMD_PRINT_OPT_OVERVIEW   | 4.90625   | 0.27343 | Could be usefull on huge amount of external commands |
+| +WSH_SHELL_INTERACTIVE_MODE         | 5.00391   | 0.27343 |                                                      |
+| +WSH_SHELL_HISTORY                  | 6.16016   | 0.27343 |                                                      |
+| +WSH_SHELL_AUTOCOMPLETE             | 6.71094   | 0.27343 |                                                      |
+| +WSH_SHELL_PS1_CUSTOM               | 7.18359   | 0.27343 |                                                      |
+| +WSH_SHELL_PROMPT_WAIT              | 7.29883   | 0.27343 |                                                      |
+
+## ⌨️ Code counting
+
+```markdown
+===============================================================================
+ Language            Files        Lines         Code     Comments       Blanks
+===============================================================================
+ C                      12         1928         1470           52          406
+ C Header               16         1936          679         1028          229
+===============================================================================
+ Total                  28         3864         2149         1080          635
+===============================================================================
 ```
 
-## Build
+## 👨‍💻 Authors
 
-If all of the dependencies are installed build procedure should work *out of the box*.
+- **<abalyberdin@whoosh.bike>** — initial MVP  
+- **<vignatov@whoosh.bike>** — improvements, refactoring
+- **<akrestinin@whoosh.bike>** — project separation (for submodule usage), main structure, PC/MCU examples  
+- **<sh@whoosh.bike>** — UX improvements, extra features, documentation
+- **<eshamaev@whoosh.bike>**  — CI/CD, docs deployment, high-level PC command app
 
-### Simple build
-The easiest way to build project is to simply run:
-
-```bash
-make
-```
-
-By default project is build with *Debug* preset. If you want to build project with *Release* preset you shoud call:
-
-```bash
-make BUILD=Release
-```
- To check if everything is built properly you can build and run tests using:
-
- ```bash
- make test
- ```
-
-To clean builded files run:
-
-```shell
-make clean
-```
-
-## Examples
-
-Each example is a separate project. So for proper interaction with example you need to navigate to it's directory.
-
-### Basic
-
-The basic example contains minimum code to run a functional shell on the PC. Build procedure is similar to *Simple build*:
-So to build and run *basic* example you should:
-
-```
-make basic
-./example/basic/build/basic
-```
-
-or
-
-```
-cd example/basic
-make
-./build/basic
-```
-
-## Documentation
-
-If you want to generate doxygen documentation you can call `Generate Doxygen` VSCode task or call shell command:
-
-```shell
-doxygen
-```
-
-To open generated documentation open `/doc/html/index.html`.
+![img](/docs/img/shell_wide.png)

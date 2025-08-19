@@ -64,5 +64,10 @@ build/
 tags
 compile_commands.json
 doc/html/
-wsh_shell_cfg.h
+src/wsh_shell_cfg.h
 *.DS_Store
+.vscode/launch.json
+docs/html
+docs/xml
+docs_doxy/
+docs_mkdoc/

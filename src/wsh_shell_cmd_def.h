@@ -10,7 +10,7 @@
  * user info, clearing the screen, and managing command history.
  * 
  * @author Whoosh Embedded Team
- * @copyright Copyright (c) 2024
+ * @copyright Copyright (c) 2025
  */
 
 #ifndef __WSH_SHELL_CMD_DEF_H

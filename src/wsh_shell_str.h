@@ -18,17 +18,7 @@
 extern "C" {
 #endif
 
-typedef struct {
-    const WshShell_Char_t* UserName;
-    const WshShell_Char_t* DevName;
-    WshShell_Char_t* InterCmdName;
-} WshShellStr_PromptData_t;
-
-/**
- * @defgroup ShellStr String operations
- * @brief Common string operations for user input processing.
- * @{
- */
+#define WSH_SHELL_PRESS_ENTER_TO_LOG_IN_STR "Press <Enter> to log in..."
 
 /**
  * @brief Check whether the given character is a printable ASCII symbol.
@@ -126,35 +116,6 @@ void WshShellStr_AccessBitsToStr(WshShell_Size_t access, WshShell_Char_t* pOutSt
  * @param[out] pOutStr   Output buffer (must be at least WSH_SHELL_GROUP_STR_LEN).
  */
 void WshShellStr_GroupBitsToStr(WshShell_Size_t group, WshShell_Char_t* pOutStr);
-
-/**
- * @brief Applies the prompt template and generates the final prompt string.
- *
- * Expands a predefined prompt template (`WSH_SHELL_PROMPT_TEMPLATE`) into a complete prompt
- * string, substituting special format specifiers with runtime values like username, device name,
- * and ANSI escape sequences for styling (colors, bold, reset).
- *
- * Supported format specifiers in the template:
- * - `%u` — current username (from @p pUser)
- * - `%d` — current device name (from @p pDevice)
- * - `%cN` — ANSI color code from predefined color map (0 ≤ N ≤ 9)
- * - `%b` — ANSI escape sequence for bold text
- * - `%r` — ANSI escape sequence to reset all styles
- * - Any unknown `%` sequence is copied verbatim as `%X`.
- *
- * The output is truncated if it would exceed `WSH_SHELL_PROMPT_MAX_LEN - 1`.
- * The result is always null-terminated.
- *
- * @param[out] pcPrompt Output buffer for the final prompt string.
- *                     Must be at least `WSH_SHELL_PROMPT_MAX_LEN` in size.
- * @param[in]  pcUserName   Pointer to the user name string.
- * @param[in]  pcDevName Pointer to the device name string.
- */
-void WshShellStr_GeneratePrompt(WshShell_Char_t* pPrompt, WshShellStr_PromptData_t* pPromptData);
-
-/**
- * @} 
- */
 
 #ifdef __cplusplus
 }

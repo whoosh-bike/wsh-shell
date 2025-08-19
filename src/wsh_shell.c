@@ -7,20 +7,20 @@ void WshShell_Stub_ExtClbk(void* pCtx) {
 #define WSH_SHELL_USER_IS_AUTH()       (pShell->CurrUser != NULL)
 #define WSH_SHELL_TMP_LOGIN_IS_EMPTY() (pShell->TmpAuth.Login[0] == 0)
 #define WSH_SHELL_TMP_PASS_IS_EMPTY()  (pShell->TmpAuth.Pass[0] == 0)
-#define WSH_SHELL_INTER_CMD_EXISTS()   (pShell->Interact.Exec != NULL)
+#define WSH_SHELL_INTER_CMD_EXISTS()   (pShell->Interact.Handler != NULL)
 
 static void WshShell_InvitationPrint(WshShell_t* pShell) {
     if (!WSH_SHELL_USER_IS_AUTH()) {
         if (WSH_SHELL_TMP_LOGIN_IS_EMPTY()) {
-            WSH_SHELL_PRINT("Login: ");
+            WSH_SHELL_PRINT_SYS("Login: ");
         } else if (WSH_SHELL_TMP_PASS_IS_EMPTY()) {
-            WSH_SHELL_PRINT("Password: ");
+            WSH_SHELL_PRINT_SYS("Password: ");
         }
 
         return;
     }
 
-    WSH_SHELL_PRINT(pShell->Prompt);
+    WSH_SHELL_PRINT(pShell->PS1);
 }
 
 WSH_SHELL_RET_STATE_t WshShell_Init(WshShell_t* pShell, const WshShell_Char_t* pcDevName,
@@ -69,11 +69,11 @@ WSH_SHELL_RET_STATE_t WshShell_Init(WshShell_t* pShell, const WshShell_Char_t* p
     WSH_SHELL_PRINT("%c", WSH_SHELL_SYM_SOUND);
     WSH_SHELL_PRINT(WSH_SHELL_COLOR_PURPLE);
     WSH_SHELL_PRINT(pcCustomHeader ? pcCustomHeader : WSH_SHELL_HEADER);
-    WSH_SHELL_PRINT(WSH_SHELL_ESC_RESET_STYLE WSH_SHELL_COLOR_CYAN
-                    "Serial Shell Service (wsh-shell v%s) started on device (%s)\r\n"
-                    "Press <enter> to log in...",
-                    pShell->Version, pShell->DeviceName);
-    WSH_SHELL_PRINT(WSH_SHELL_ESC_RESET_STYLE);
+    WSH_SHELL_PRINT_SYS("Serial Shell Service (wsh-shell v%s) started on device "
+                        "(%s)\r\n" WSH_SHELL_PRESS_ENTER_TO_LOG_IN_STR "\r\n",
+                        pShell->Version, pShell->DeviceName);
+
+    WshShellPromptWait_Attach(&(pShell->PromptWait), WshShellPromptWait_Enter, NULL);
 
     return WSH_SHELL_RET_STATE_SUCCESS;
 }
@@ -86,12 +86,12 @@ WshShell_Bool_t WshShell_Auth(WshShell_t* pShell, const WshShell_Char_t* pcLogin
 
     pShell->CurrUser = WshShellUser_FindByCredentials(&(pShell->Users), pcLogin, pcPass);
     if (WSH_SHELL_USER_IS_AUTH()) {
-        WshShellStr_PromptData_t data = {
+        WshShell_PS1Data_t data = {
             .UserName     = pShell->CurrUser->Login,
             .DevName      = pShell->DeviceName,
-            .InterCmdName = NULL,
+            .InterCmdName = WSH_SHELL_INTER_CMD_EXISTS() ? pShell->Interact.CmdName : NULL,
         };
-        WshShellStr_GeneratePrompt(pShell->Prompt, &data);
+        WshShell_GeneratePS1(pShell->PS1, &data);
         pShell->ExtCallbacks.Auth(NULL);
         WSH_SHELL_PRINT("%c", WSH_SHELL_SYM_SOUND);
     }
@@ -110,14 +110,20 @@ WshShell_Bool_t WshShell_IsAuth(WshShell_t* pShell) {
     return (bool)WSH_SHELL_USER_IS_AUTH();
 }
 
-void WshShell_DeAuth(WshShell_t* pShell) {
-    WSH_SHELL_ASSERT(pShell);
-    if (!pShell)
+void WshShell_DeAuth(WshShell_t* pShell, const WshShell_Char_t* pcReason) {
+    WSH_SHELL_ASSERT(pShell && pcReason);
+    if (!pShell || !pcReason)
         return;
 
     pShell->CurrUser = NULL;
     pShell->ExtCallbacks.DeAuth(NULL);
     WshShellHistory_Flush(&(pShell->HistoryIO));
+
+    WSH_SHELL_PRINT("%c", WSH_SHELL_SYM_SOUND);
+    WSH_SHELL_PRINT_ERR("Shell deAuthed by `%s`!\r\n", pcReason);
+    WSH_SHELL_PRINT_SYS(WSH_SHELL_PRESS_ENTER_TO_LOG_IN_STR "\r\n");
+
+    WshShellPromptWait_Attach(&(pShell->PromptWait), WshShellPromptWait_Enter, NULL);
 }
 
 static void WshShell_AuthHandler(WshShell_t* pShell) {
@@ -161,36 +167,36 @@ static void WshShell_StringHandler(WshShell_t* pShell) {
 
     WshShellHistory_SaveCmd(&(pShell->HistoryIO), pcCmdStr, WSH_SHELL_STRLEN(pcCmdStr));
 
-    const WshShellCmd_t* pcCmd   = WshShellDefCmd_GetPtr();
-    WshShellCmd_Exec_t cmdToExec = NULL;
+    const WshShellCmd_t* pcCmd      = WshShellDefCmd_GetPtr();
+    WshShellCmdHandler_t cmdHandler = NULL;
 
     if (WSH_SHELL_STRNCMP(pcCmd->Name, pсArgv[0], WSH_SHELL_CMD_NAME_LEN) == 0) {
-        cmdToExec = pcCmd->Exec;
+        cmdHandler = pcCmd->Handler;
     } else {
         pcCmd = WshShellCmd_SearchCmd(&(pShell->Commands), pсArgv[0]);
         if (pcCmd == NULL) {
             WSH_SHELL_PRINT_WARN("Command \"%s\" not found!\r\n", pcCmdStr);
         } else if ((pShell->CurrUser->Groups & pcCmd->Groups) != 0) {
-            cmdToExec = pcCmd->Exec;
+            cmdHandler = pcCmd->Handler;
         } else {
             WSH_SHELL_PRINT_WARN("Access denied for command \"%s\"\r\n", pсArgv[0]);
         }
     }
 
-    if (cmdToExec) {
-        WSH_SHELL_RET_STATE_t retState = cmdToExec(pcCmd, argc, pсArgv, pShell);
+    if (cmdHandler) {
+        WSH_SHELL_RET_STATE_t retState = cmdHandler(pcCmd, argc, pсArgv, pShell);
 
         if (WSH_SHELL_INTER_CMD_EXISTS()) {
-            WshShellStr_PromptData_t data = {
+            WshShell_PS1Data_t data = {
                 .UserName     = pShell->CurrUser->Login,
                 .DevName      = pShell->DeviceName,
                 .InterCmdName = pShell->Interact.CmdName,
             };
-            WshShellStr_GeneratePrompt(pShell->Prompt, &data);
+            WshShell_GeneratePS1(pShell->PS1, &data);
         }
 
         if (retState != WSH_SHELL_RET_STATE_SUCCESS) {
-            WSH_SHELL_PRINT_ERR("Command exec internal error: %s\r\n",
+            WSH_SHELL_PRINT_ERR("Command handler internal error: %s\r\n",
                                 WshShell_GetRetStateStr(retState));
         }
     }
@@ -204,17 +210,16 @@ static void WshShell_SymbolHandler(WshShell_t* pShell, const WshShell_Char_t sym
             if (WSH_SHELL_INTER_CMD_EXISTS()) {
                 WshShellInteract_Flush(&(pShell->Interact));
 
-                WshShellStr_PromptData_t data = {
+                WshShell_PS1Data_t data = {
                     .UserName     = pShell->CurrUser->Login,
                     .DevName      = pShell->DeviceName,
                     .InterCmdName = NULL,
                 };
-                WshShellStr_GeneratePrompt(pShell->Prompt, &data);
+                WshShell_GeneratePS1(pShell->PS1, &data);
+                WSH_SHELL_PRINT(WSH_SHELL_END_LINE);
+                WshShell_InvitationPrint(pShell);
             } else
-                WshShell_DeAuth(pShell);
-
-            WSH_SHELL_PRINT(WSH_SHELL_END_LINE);
-            WshShell_InvitationPrint(pShell);
+                WshShell_DeAuth(pShell, "Ctrl+D");
             break;
 
         case WSH_SHELL_SYM_BACKSPACE:
@@ -252,6 +257,12 @@ static void WshShell_SymbolHandler(WshShell_t* pShell, const WshShell_Char_t sym
     }
 }
 
+#define SHELL_SAVE_PREV_AND_RETURN(pShell, sym) \
+    do {                                        \
+        (pShell)->PrevSym = (sym);              \
+        return;                                 \
+    } while (0)
+
 void WshShell_InsertChar(WshShell_t* pShell, const WshShell_Char_t symbol) {
     WSH_SHELL_ASSERT(pShell);
     if (!pShell)
@@ -259,30 +270,47 @@ void WshShell_InsertChar(WshShell_t* pShell, const WshShell_Char_t symbol) {
 
     pShell->ExtCallbacks.SymbolIn(NULL);
 
+    WshShell_Bool_t isEnterPressed = false;
     if (symbol == WSH_SHELL_CHAR_CR || symbol == WSH_SHELL_CHAR_LF) {
+        if (pShell->PrevSym == WSH_SHELL_CHAR_CR && symbol == WSH_SHELL_CHAR_LF) {
+            SHELL_SAVE_PREV_AND_RETURN(pShell, symbol);
+        }
+
+        isEnterPressed = true;
+    }
+
+    WSH_SHELL_RET_STATE_t promptWaitRes = WshShellPromptWait_Handle(&(pShell->PromptWait), symbol);
+    if (promptWaitRes == WSH_SHELL_RET_STATE_ERR_BUSY) {
+        SHELL_SAVE_PREV_AND_RETURN(pShell, symbol);
+    }
+
+    if (isEnterPressed) {
         WSH_SHELL_PRINT(WSH_SHELL_END_LINE);
 
         if (!WSH_SHELL_USER_IS_AUTH()) {
             WshShell_AuthHandler(pShell);
             WshShell_InvitationPrint(pShell);
-            return;
+            SHELL_SAVE_PREV_AND_RETURN(pShell, symbol);
         }
 
         if (WSH_SHELL_INTER_CMD_EXISTS()) {
-            pShell->Interact.Exec(&(pShell->CommandLine));
+            pShell->Interact.Handler(&(pShell->CommandLine));
             WshShellIO_ClearInterBuff(&(pShell->CommandLine));
         } else
             WshShell_StringHandler(pShell);
 
-        WshShell_InvitationPrint(pShell);
-        return;
+        if (WshShell_IsAuth(pShell))
+            WshShell_InvitationPrint(pShell);
+
+        SHELL_SAVE_PREV_AND_RETURN(pShell, symbol);
     }
 
     if (WshShellEsc_IsSeqStarted(&(pShell->EscStorage))) {
         WshShellEsc_Handler(&(pShell->HistoryIO), &(pShell->CommandLine), &(pShell->EscStorage),
                             symbol);
-        return;
+        SHELL_SAVE_PREV_AND_RETURN(pShell, symbol);
     }
 
     WshShell_SymbolHandler(pShell, symbol);
+    SHELL_SAVE_PREV_AND_RETURN(pShell, symbol);
 }

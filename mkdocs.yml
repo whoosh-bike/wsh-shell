@@ -1,0 +1,139 @@
+site_name: Wsh-Shell Documentation
+site_author: Whoosh Embedded Team
+site_description: Portable, lightweight and fast CLI-engine for microcontrollers (and beyond)
+repo_url: https://github.com/whoosh-bike/wsh-shell
+site_dir: 'docs_mkdoc/'
+docs_dir: 'docs/'
+strict: true
+
+plugins:
+  - search
+  - mermaid2
+  - callouts
+  - tags
+  - mkdoxy:
+      projects:
+        Wsh_Shell_API:
+          src-dirs: src/ 
+          full-doc: True
+          # doxy-cfg-file: Doxyfile
+          doxy-cfg: # standard doxygen configuration (key: value)
+            FILE_PATTERNS: "*.c *.h*" 
+            RECURSIVE: True
+
+theme:
+  name: material
+  logo: img/shell.png
+  palette:
+    scheme: slate
+    primary: purple
+    accent: cyan
+  font:
+    text: Comfortaa
+    code: JetBrains Mono
+  language: en
+  features:
+    - announce.dismiss
+    - content.action.edit
+    - content.action.view
+    - content.code.annotate
+    - content.code.copy
+    # - content.code.select
+    # - content.footnote.tooltips
+    # - content.tabs.link
+    - content.tooltips
+    # - header.autohide
+    # - navigation.expand
+    - navigation.footer
+    - navigation.indexes
+    - navigation.path
+    # - navigation.instant
+    # - navigation.instant.prefetch
+    # - navigation.instant.progress
+    # - navigation.prune
+    # - navigation.sections
+    - navigation.tabs
+    # - navigation.tabs.sticky
+    - navigation.top
+    - navigation.tracking
+    - search.highlight
+    - search.share
+    - search.suggest
+    - toc.follow
+    # - toc.integrate
+
+extra:
+  version:
+    provider: mike
+
+nav:
+  - Home: index.md
+  - Developer Guide:
+      - Initial Requirements: dev/initial-requirements.md
+      - Architecture: dev/architecture.md
+      - Build Instructions: dev/build.md
+      - ToDo: dev/todo.md
+  - Usage:
+      - Examples Bare-Metal: usage/bare-metal.md
+      - Examples RTOS: usage/rtos.md
+  # - Features:
+  #     - Prompt Customization: features/prompt-custom.md
+  #     - Command History: features/history-module.md
+  - API:
+      - General: 
+        - Wsh_Shell_API/files.md
+        - Wsh_Shell_API/functions.md
+        - Wsh_Shell_API/macros.md
+        - Wsh_Shell_API/variables.md
+      - Autocomplete: 
+        - Wsh_Shell_API/wsh__shell__autocomplete_8h.md
+      - Default Config:
+        - Wsh_Shell_API/wsh__shell__cfg__def_8h.md
+      - Default Commands:
+        - Wsh_Shell_API/wsh__shell__cmd__def_8h.md
+      - Commands Managemet:
+        - Wsh_Shell_API/wsh__shell__cmd_8h.md
+      - Escape sequences:
+        - Wsh_Shell_API/wsh__shell__esc_8h.md
+      - History:
+        - Wsh_Shell_API/wsh__shell__history_8h.md
+      - Interactive Command:
+        - Wsh_Shell_API/wsh__shell__interact_8h.md
+      - Input/Output Helpers:
+        - Wsh_Shell_API/wsh__shell__io_8h.md
+      - Command Options:
+        - Wsh_Shell_API/wsh__shell__option_8h.md
+      - Prompts Input Await:
+        - Wsh_Shell_API/wsh__shell__promptwait_8h.md
+      - Strings Handlers:
+        - Wsh_Shell_API/wsh__shell__str_8h.md
+      - Global Types:
+        - Wsh_Shell_API/wsh__shell__types_8h.md
+      - User Managemet:
+        - Wsh_Shell_API/wsh__shell__user_8h.md
+      - Version Definition:
+        - Wsh_Shell_API/wsh__shell__option_8h.md
+      - Shell Core / Auth:
+        - Wsh_Shell_API/wsh__shell_8h.md
+
+markdown_extensions:
+  - pymdownx.highlight:
+      anchor_linenums: true 
+      line_spans: __span 
+      linenums: true 
+  - pymdownx.superfences: 
+      custom_fences: 
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - pymdownx.details
+  - pymdownx.magiclink
+  - pymdownx.tasklist
+  - pymdownx.emoji
+  - footnotes
+  - attr_list
+  - admonition

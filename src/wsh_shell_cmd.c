@@ -1,7 +1,8 @@
 #include "wsh_shell_cmd.h"
 
 WSH_SHELL_RET_STATE_t WshShellCmd_Attach(WshShellCmd_Table_t* pShellCommands,
-                                         const WshShellCmd_t* pcCmdTable, WshShell_Size_t cmdNum) {
+                                         const WshShellCmd_t* pcCmdTable[],
+                                         WshShell_Size_t cmdNum) {
     WSH_SHELL_ASSERT(pShellCommands && pcCmdTable && cmdNum > 0);
     if (!pShellCommands || !pcCmdTable || cmdNum == 0)
         return WSH_SHELL_RET_STATE_ERR_PARAM;
@@ -39,7 +40,7 @@ const WshShellCmd_t* WshShellCmd_GetCmdByIndex(WshShellCmd_Table_t* pShellComman
 
     WSH_SHELL_ASSERT(idx < pShellCommands->Num);
 
-    return idx < pShellCommands->Num ? &pShellCommands->List[idx] : NULL;
+    return idx < pShellCommands->Num ? pShellCommands->List[idx] : NULL;
 }
 
 const WshShellCmd_t* WshShellCmd_SearchCmd(WshShellCmd_Table_t* pShellCommands,
@@ -149,7 +150,7 @@ WSH_SHELL_RET_STATE_t WshShellCmd_GetOptValue(WshShellOption_Context_t* pOptCtx,
 
     WshShell_Size_t valIdx = pOptCtx->TokenPos + 1;
     if (valIdx >= argc)
-        return WSH_SHELL_RET_STATE_ERR_OVERFLOW;
+        return WSH_SHELL_RET_STATE_ERR_OVERFLOW;  //FIXME ?
 
     switch (pOptCtx->Option->Type) {
         case WSH_SHELL_OPTION_STR:
@@ -178,12 +179,16 @@ WSH_SHELL_RET_STATE_t WshShellCmd_GetOptValue(WshShellOption_Context_t* pOptCtx,
     return WSH_SHELL_RET_STATE_SUCCESS;
 }
 
-void WshShellCmd_PrintInfo(const WshShellCmd_t* pcCmd) {
+void WshShellCmd_PrintOptionsOverview(const WshShellCmd_t* pcCmd) {
     WSH_SHELL_ASSERT(pcCmd);
     if (!pcCmd)
         return;
 
-    WSH_SHELL_PRINT("%s\r\nOptions overview:\r\n", pcCmd->Descr);
+    WSH_SHELL_PRINT_SYS("%s\r\n", pcCmd->Descr);
+
+#if WSH_SHELL_CMD_PRINT_OPT_OVERVIEW
+
+    WSH_SHELL_PRINT_SYS("Options overview:\r\n");
 
     const WshShell_Size_t shortNameMaxLen = WSH_SHELL_OPTION_SHORT_NAME_LEN + 5;
     const WshShell_Size_t longNameMaxLen  = WSH_SHELL_OPTION_LONG_NAME_LEN;
@@ -207,9 +212,15 @@ void WshShellCmd_PrintInfo(const WshShellCmd_t* pcCmd) {
         if (pcOpt->Type == WSH_SHELL_OPTION_NO || pcOpt->Type == WSH_SHELL_OPTION_WAITS_INPUT)
             continue;
 
-        WshShell_Char_t accessRow[16];
+        WshShell_Char_t accessRow[8];
         WshShellStr_AccessBitsToStr(pcOpt->Access, accessRow);
         WSH_SHELL_PRINT(rowTemplate, pcOpt->ShortName, pcOpt->LongName,
                         WshShell_OptTypeStr_Get(pcOpt->Type), accessRow, pcOpt->Descr);
     }
+
+#else /* WSH_SHELL_CMD_PRINT_OPT_OVERVIEW */
+
+    return;
+
+#endif /* WSH_SHELL_CMD_PRINT_OPT_OVERVIEW */
 }

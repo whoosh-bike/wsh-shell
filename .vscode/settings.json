@@ -35,6 +35,9 @@
         },
         "no-hard-tabs": {
             "spaces_per_tab": 4
+        },
+        "ul-indent": {
+            "indent": 4
         }
     },
 
@@ -46,7 +49,6 @@
 
     // Cortex debug
     "cortex-debug.variableUseNaturalFormat": true,
-    "cmake.ignoreCMakeListsMissing": true,
     "python-envs.defaultEnvManager": "ms-python.python:system",
     "python-envs.pythonProjects": []
 }

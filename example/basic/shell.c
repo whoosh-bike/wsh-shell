@@ -1,15 +1,10 @@
 #include "shell.h"
 
 #include "wsh_shell.h"
-#include "wsh_shell_cmd.h"
-#include "wsh_shell_cmd_def.h"
-#include "wsh_shell_history.h"
-#include "wsh_shell_types.h"
-#include "wsh_shell_user.h"
 
 static WshShell_t Shell = {0};
 
-static const WshShellUser_t UserTable[] = {
+static const WshShellUser_t Shell_UserTable[] = {
     {
         .Login  = "root",
         .Pass   = "1234",
@@ -20,11 +15,11 @@ static const WshShellUser_t UserTable[] = {
 
 static WshShellHistory_t Shell_HistoryStorage;
 
-WshShellHistory_t WshShellHistory_Read(void) {
+static WshShellHistory_t WshShellHistory_Read(void) {
     return Shell_HistoryStorage;
 }
 
-void WshShellHistory_Write(WshShellHistory_t history) {
+static void WshShellHistory_Write(WshShellHistory_t history) {
     memcpy((void*)&Shell_HistoryStorage, (void*)&history, sizeof(WshShellHistory_t));
 }
 
@@ -46,19 +41,21 @@ static WshShell_ExtCallbacks_t Shell_Callbacks = {
     .SymbolIn = Shell_SymInClbk,
 };
 
-void Shell_Init(const char* pcHostName) {
+bool Shell_Init(const char* pcHostName) {
     if (WshShell_Init(&Shell, pcHostName, NULL, &Shell_Callbacks) != WSH_SHELL_RET_STATE_SUCCESS) {
-        return;
+        return false;
     }
 
-    if (WshShellUser_Attach(&(Shell.Users), UserTable, WSH_SHELL_ARR_LEN(UserTable)) !=
+    if (WshShellUser_Attach(&(Shell.Users), Shell_UserTable, WSH_SHELL_ARR_LEN(Shell_UserTable)) !=
         WSH_SHELL_RET_STATE_SUCCESS) {
-        return;
+        return false;
     }
 
     WshShellHistory_Init(&Shell.HistoryIO, WshShellHistory_Read, WshShellHistory_Write);
 
-    // WshShell_Auth(&Shell, "root", "1234"); For quick auth
+    // WshShell_Auth(&Shell, Shell_UserTable[0].Login, Shell_UserTable[0].Pass);  //For quick auth
+
+    return true;
 }
 
 void Shell_SendChar(char ch) {

@@ -1,35 +1,78 @@
 {
-	"version": "2.0.0",
-	"tasks": [
-				{
-			"label": "clean",
-			"type": "shell",
-			"command": "make clean",
-			"group": {
-				"kind": "build",
-				"isDefault": true
-			},
-			"problemMatcher": []
-		},
-		{
-			"label": "build all",
-			"type": "shell",
-			"command": "make all",
-			"group": {
-				"kind": "build",
-				"isDefault": true
-			},
-			"problemMatcher": []
-		},
-		{
-			"label": "build basic",
-			"type": "shell",
-			"command": "make basic",
-			"group": {
-				"kind": "build",
-				"isDefault": true
-			},
-			"problemMatcher": []
-		}
-	]
+    "version": "2.0.0",
+    "problemMatcher": "$gcc",
+    "tasks": [
+                {
+            "label": "clean",
+            "type": "shell",
+            "command": "make clean",
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            }
+        },
+        {
+            "label": "build all",
+            "type": "shell",
+            "command": "make all",
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            }
+        },
+        {
+            "label": "build basic",
+            "type": "shell",
+            "command": "make basic",
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            }
+        },
+        {
+            "label": "build blue_pill: release",
+            "type": "shell",
+            "command": "make blue_pill BUILD=Release",
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            }
+        },
+        {
+            "label": "build blue_pill: debug",
+            "type": "shell",
+            "command": "make blue_pill",
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            }
+        },
+        {
+            "label": "flash blue_pill",
+            "type": "shell",
+            "command": "openocd",
+            "args": [
+                "-f", "${workspaceFolder}/example/blue_pill/stlink.cfg",
+                "-f", "${workspaceFolder}/example/blue_pill/stm32f1x_blue_pill_cn.cfg",
+                "-c", "program ${workspaceFolder}/example/blue_pill/build/blue_pill.elf verify reset exit"
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            }
+        },
+        {
+            "label": "analyse elf of blue_pill",
+            "type": "shell",
+            "command": "${workspaceFolder}/.venv/bin/python3",
+            "args": [
+                "${workspaceFolder}/utils/elf-size-analyse.py",
+                "${workspaceFolder}/example/blue_pill/build/blue_pill.elf"
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            }
+        }
+    ]
 }
