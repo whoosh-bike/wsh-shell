@@ -1,7 +1,5 @@
 # Wsh-Shell
 
-![img](/docs/img/shell_wide.png)
-
 Wsh-Shell is a lightweight, portable, and fully static shell interpreter written in C, designed for embedded systems. It requires no dynamic memory allocation and is built to run in constrained environments like microcontrollers, either bare-metal or under RTOS (e.g., FreeRTOS).
 
 ## 🚀 Features
@@ -29,6 +27,10 @@ Wsh-Shell is a lightweight, portable, and fully static shell interpreter written
 - **Customizable PS1 Prompt** — user-defined templates for prompt appearance
 - **Await Prompt** — await for a specific key press
 
+## 👾 Demo
+
+![demo](/docs/img/demo.gif)
+
 ## 💾 Memory footprint
 
 - Build options: cortex-m7, `-O1` optimization
@@ -49,7 +51,7 @@ Wsh-Shell is a lightweight, portable, and fully static shell interpreter written
 
 ## ⌨️ Code counting
 
-```txt
+```markdown
 ===============================================================================
  Language            Files        Lines         Code     Comments       Blanks
 ===============================================================================
@@ -60,10 +62,12 @@ Wsh-Shell is a lightweight, portable, and fully static shell interpreter written
 ===============================================================================
 ```
 
-## Authors
+## 👨‍💻 Authors
 
 - **<abalyberdin@whoosh.bike>** — initial MVP  
 - **<vignatov@whoosh.bike>** — improvements, refactoring
 - **<akrestinin@whoosh.bike>** — project separation (for submodule usage), main structure, PC/MCU examples  
 - **<sh@whoosh.bike>** — UX improvements, extra features, documentation
 - **<eshamaev@whoosh.bike>**  — CI/CD, docs deployment, high-level PC command app
+
+![img](/docs/img/shell_wide.png)
