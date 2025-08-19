@@ -9,7 +9,7 @@ The **Wsh-Shell** module must satisfy two main categories of requirements:
 
 1. **Command Flags Support**  
     - Support both **long** (`--long-option`) and **short** (`-s`) flag names.  
-    - Commands follow the standard syntax:  
+    - Commands follow the standard syntax
     - Long flags may exist without a corresponding short form.
 
 2. **Command Auto-Completion**  
