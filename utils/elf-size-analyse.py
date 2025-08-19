@@ -6,6 +6,9 @@ import subprocess
 from dotenv import load_dotenv
 from tabulate import tabulate
 
+# source .venv/bin/activate
+# python3 ./utils/elf-size-analyse.py ./example/blue_pill/build/blue_pill.elf
+
 # Define symbol types for flash vs RAM
 FLASH_TYPES = {"T", "t", "r", "R"}  # code + read-only const
 RAM_TYPES = {"D", "d", "B", "b"}  # initialized/uninitialized data in RAM

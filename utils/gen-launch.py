@@ -6,6 +6,9 @@ from pathlib import Path
 
 from dotenv import load_dotenv
 
+# source .venv/bin/activate
+# python3 ./utils/gen-launch.py
+
 # Logging setup
 logging.basicConfig(level=logging.INFO, format="%(message)s")
 log = logging.getLogger("launchgen")
