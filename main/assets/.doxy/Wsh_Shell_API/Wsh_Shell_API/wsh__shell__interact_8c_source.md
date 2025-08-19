@@ -62,7 +62,7 @@ void WshShellInteract_Attach(WshShell_Interact_t* pInteract, const WshShell_Char
     (void)(pcName);
     (void)(handler);
 
-    WSH_SHELL_PRINT_WARN("interactive mode disabled\r\n");
+    WSH_SHELL_PRINT_WARN("Interactive mode disabled\r\n");
 }
 
 void WshShellInteract_AppendLineBreak(WshShellIO_CommandLine_t* pCommandLine) {

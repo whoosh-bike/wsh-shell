@@ -3,11 +3,6 @@
 
 
 
-## s
-
-* **shell\_cmd\_def\_\_interactive** ([**wsh\_shell\_cmd\_def.c**](wsh__shell__cmd__def_8c.md))
-
-
 ## w
 
 * **WshShell\_Auth** ([**wsh\_shell.c**](wsh__shell_8c.md), [**wsh\_shell.h**](wsh__shell_8h.md))
@@ -29,9 +24,9 @@
 * **WshShellCmd\_GetCmdNum** ([**wsh\_shell\_cmd.c**](wsh__shell__cmd_8c.md), [**wsh\_shell\_cmd.h**](wsh__shell__cmd_8h.md))
 * **WshShellCmd\_GetOptValue** ([**wsh\_shell\_cmd.c**](wsh__shell__cmd_8c.md), [**wsh\_shell\_cmd.h**](wsh__shell__cmd_8h.md))
 * **WshShellCmd\_ParseOpt** ([**wsh\_shell\_cmd.c**](wsh__shell__cmd_8c.md), [**wsh\_shell\_cmd.h**](wsh__shell__cmd_8h.md))
-* **WshShellCmd\_PrintInfo** ([**wsh\_shell\_cmd.c**](wsh__shell__cmd_8c.md), [**wsh\_shell\_cmd.h**](wsh__shell__cmd_8h.md))
+* **WshShellCmd\_PrintOptionsOverview** ([**wsh\_shell\_cmd.c**](wsh__shell__cmd_8c.md), [**wsh\_shell\_cmd.h**](wsh__shell__cmd_8h.md))
 * **WshShellCmd\_SearchCmd** ([**wsh\_shell\_cmd.c**](wsh__shell__cmd_8c.md), [**wsh\_shell\_cmd.h**](wsh__shell__cmd_8h.md))
-* **WshShellCmdDef** ([**wsh\_shell\_cmd\_def.c**](wsh__shell__cmd__def_8c.md))
+* **WshShellCmdDef\_Dummy** ([**wsh\_shell\_cmd\_def.c**](wsh__shell__cmd__def_8c.md))
 * **WshShellDefCmd\_GetPtr** ([**wsh\_shell\_cmd\_def.c**](wsh__shell__cmd__def_8c.md), [**wsh\_shell\_cmd\_def.h**](wsh__shell__cmd__def_8h.md))
 * **WshShellEsc\_ArrowDown** ([**wsh\_shell\_esc.c**](wsh__shell__esc_8c.md))
 * **WshShellEsc\_ArrowLeft** ([**wsh\_shell\_esc.c**](wsh__shell__esc_8c.md))
@@ -63,9 +58,9 @@
 * **WshShellPromptWait\_Flush** ([**wsh\_shell\_promptwait.c**](wsh__shell__promptwait_8c.md), [**wsh\_shell\_promptwait.h**](wsh__shell__promptwait_8h.md))
 * **WshShellPromptWait\_Handle** ([**wsh\_shell\_promptwait.c**](wsh__shell__promptwait_8c.md), [**wsh\_shell\_promptwait.h**](wsh__shell__promptwait_8h.md))
 * **WshShellPromptWait\_YesNo** ([**wsh\_shell\_promptwait.c**](wsh__shell__promptwait_8c.md), [**wsh\_shell\_promptwait.h**](wsh__shell__promptwait_8h.md))
+* **WshShell\_GeneratePS1** ([**wsh\_shell\_ps1\_custom.c**](wsh__shell__ps1__custom_8c.md), [**wsh\_shell\_ps1\_custom.h**](wsh__shell__ps1__custom_8h.md))
 * **WshShellStr\_AccessBitsToStr** ([**wsh\_shell\_str.c**](wsh__shell__str_8c.md), [**wsh\_shell\_str.h**](wsh__shell__str_8h.md))
 * **WshShellStr\_DecrInterCnt** ([**wsh\_shell\_str.c**](wsh__shell__str_8c.md), [**wsh\_shell\_str.h**](wsh__shell__str_8h.md))
-* **WshShellStr\_GeneratePS1** ([**wsh\_shell\_str.c**](wsh__shell__str_8c.md), [**wsh\_shell\_str.h**](wsh__shell__str_8h.md))
 * **WshShellStr\_GroupBitsToStr** ([**wsh\_shell\_str.c**](wsh__shell__str_8c.md), [**wsh\_shell\_str.h**](wsh__shell__str_8h.md))
 * **WshShellStr\_IncrInterCnt** ([**wsh\_shell\_str.c**](wsh__shell__str_8c.md), [**wsh\_shell\_str.h**](wsh__shell__str_8h.md))
 * **WshShellStr\_IsPrintableAscii** ([**wsh\_shell\_str.c**](wsh__shell__str_8c.md), [**wsh\_shell\_str.h**](wsh__shell__str_8h.md))

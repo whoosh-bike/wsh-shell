@@ -79,21 +79,6 @@
         <label>stdio.h</label>
       </node>
     </incdepgraph>
-      <sectiondef kind="define">
-      <memberdef kind="define" id="wsh__shell__str_8c_1a56ced349066d6f3c6df4ff9d9cfefa2e" prot="public" static="no">
-        <name>WSH_PS1_SPACE_LEFT</name>
-        <param><defname>out</defname></param>
-        <param><defname>base</defname></param>
-        <initializer>((out) - (base) &lt; (WSH_SHELL_PS1_MAX_LEN - 1))</initializer>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="src/wsh_shell_str.c" line="3" column="9" bodyfile="src/wsh_shell_str.c" bodystart="3" bodyend="-1"/>
-      </memberdef>
-      </sectiondef>
       <sectiondef kind="func">
       <memberdef kind="function" id="wsh__shell__str_8c_1a9d35c0fc6d620aab2c92d6c9bf6ba804" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>WshShell_Bool_t</type>
@@ -124,7 +109,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/wsh_shell_str.c" line="5" column="17" bodyfile="src/wsh_shell_str.c" bodystart="5" bodyend="7"/>
+        <location file="src/wsh_shell_str.c" line="3" column="17" bodyfile="src/wsh_shell_str.c" bodystart="3" bodyend="5"/>
       </memberdef>
       <memberdef kind="function" id="wsh__shell__str_8c_1a75fcab509bbc6e57796fb144edfadcaa" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>WshShell_Char_t *</type>
@@ -166,7 +151,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/wsh_shell_str.c" line="9" column="17" bodyfile="src/wsh_shell_str.c" bodystart="9" bodyend="26"/>
+        <location file="src/wsh_shell_str.c" line="7" column="17" bodyfile="src/wsh_shell_str.c" bodystart="7" bodyend="24"/>
       </memberdef>
       <memberdef kind="function" id="wsh__shell__str_8c_1afa52b0f22a788ba56269460dfe7f09b3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -235,7 +220,7 @@ Example: Input: <computeroutput>&quot;arg1 arg2 \&quot;quoted string" arg3&quot;
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/wsh_shell_str.c" line="28" column="6" bodyfile="src/wsh_shell_str.c" bodystart="28" bodyend="61"/>
+        <location file="src/wsh_shell_str.c" line="26" column="6" bodyfile="src/wsh_shell_str.c" bodystart="26" bodyend="59"/>
       </memberdef>
       <memberdef kind="function" id="wsh__shell__str_8c_1a717aa2a87c1d1b039e986781479199ba" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -275,7 +260,7 @@ Example: Input: <computeroutput>&quot;arg1 arg2 \&quot;quoted string" arg3&quot;
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/wsh_shell_str.c" line="63" column="6" bodyfile="src/wsh_shell_str.c" bodystart="63" bodyend="70"/>
+        <location file="src/wsh_shell_str.c" line="61" column="6" bodyfile="src/wsh_shell_str.c" bodystart="61" bodyend="68"/>
       </memberdef>
       <memberdef kind="function" id="wsh__shell__str_8c_1ab4b7be929d544496dbab7a625bc70204" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -303,7 +288,7 @@ Example: Input: <computeroutput>&quot;arg1 arg2 \&quot;quoted string" arg3&quot;
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/wsh_shell_str.c" line="72" column="6" bodyfile="src/wsh_shell_str.c" bodystart="72" bodyend="79"/>
+        <location file="src/wsh_shell_str.c" line="70" column="6" bodyfile="src/wsh_shell_str.c" bodystart="70" bodyend="77"/>
       </memberdef>
       <memberdef kind="function" id="wsh__shell__str_8c_1a10832dc9d2d88b0577df9bac3e6e533e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -355,7 +340,7 @@ Example: Input: <computeroutput>&quot;arg1 arg2 \&quot;quoted string" arg3&quot;
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/wsh_shell_str.c" line="81" column="6" bodyfile="src/wsh_shell_str.c" bodystart="81" bodyend="91"/>
+        <location file="src/wsh_shell_str.c" line="79" column="6" bodyfile="src/wsh_shell_str.c" bodystart="79" bodyend="89"/>
       </memberdef>
       <memberdef kind="function" id="wsh__shell__str_8c_1a97dee099f0ae0c2f8bbd5fada5231e9b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -401,58 +386,7 @@ Example: Input: <computeroutput>&quot;arg1 arg2 \&quot;quoted string" arg3&quot;
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/wsh_shell_str.c" line="93" column="6" bodyfile="src/wsh_shell_str.c" bodystart="93" bodyend="102"/>
-      </memberdef>
-      <memberdef kind="function" id="wsh__shell__str_8c_1afdbc7488bc3b39b644c1ce3f4a978408" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type>void</type>
-        <definition>void WshShellStr_GeneratePS1</definition>
-        <argsstring>(WshShell_Char_t *pPS1, WshShellStr_PS1Data_t *pPS1Data)</argsstring>
-        <name>WshShellStr_GeneratePS1</name>
-        <param>
-          <type>WshShell_Char_t *</type>
-          <declname>pPS1</declname>
-        </param>
-        <param>
-          <type><ref refid="structWshShellStr__PS1Data__t" kindref="compound">WshShellStr_PS1Data_t</ref> *</type>
-          <declname>pPS1Data</declname>
-        </param>
-        <briefdescription>
-<para>Applies the PS1 template and generates the final PS1 string. </para>
-        </briefdescription>
-        <detaileddescription>
-<para>Expands a predefined PS1 template (<computeroutput>WSH_SHELL_PS1_TEMPLATE</computeroutput>) into a complete PS1 string, substituting special format specifiers with runtime values like username, device name, and ANSI escape sequences for styling (colors, bold, reset).</para>
-<para>Supported format specifiers in the template:<itemizedlist>
-<listitem><para><computeroutput>u</computeroutput> — current username (from <computeroutput>pUser</computeroutput>)</para>
-</listitem><listitem><para><computeroutput>d</computeroutput> — current device name (from <computeroutput>pDevice</computeroutput>)</para>
-</listitem><listitem><para><computeroutput>cN</computeroutput> — ANSI color code from predefined color map (0 ≤ N ≤ 9)</para>
-</listitem><listitem><para><computeroutput>b</computeroutput> — ANSI escape sequence for bold text</para>
-</listitem><listitem><para><computeroutput>r</computeroutput> — ANSI escape sequence to reset all styles</para>
-</listitem><listitem><para>Any unknown <computeroutput>%</computeroutput> sequence is copied verbatim as <computeroutput>X</computeroutput>.</para>
-</listitem></itemizedlist>
-</para>
-<para>The output is truncated if it would exceed <computeroutput>WSH_SHELL_PS1_MAX_LEN - 1</computeroutput>. The result is always null-terminated.</para>
-<para><parameterlist kind="param"><parameteritem>
-<parameternamelist>
-<parametername direction="out">pPS1</parametername>
-</parameternamelist>
-<parameterdescription>
-<para>Output buffer for the final PS1 string. Must be at least <computeroutput>WSH_SHELL_PS1_MAX_LEN</computeroutput> in size. </para>
-</parameterdescription>
-</parameteritem>
-<parameteritem>
-<parameternamelist>
-<parametername direction="in">pPS1Data</parametername>
-</parameternamelist>
-<parameterdescription>
-<para>Pointer to the user name, divice name or other strings. </para>
-</parameterdescription>
-</parameteritem>
-</parameterlist>
-</para>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="src/wsh_shell_str.c" line="205" column="6" bodyfile="src/wsh_shell_str.c" bodystart="205" bodyend="227"/>
+        <location file="src/wsh_shell_str.c" line="91" column="6" bodyfile="src/wsh_shell_str.c" bodystart="91" bodyend="100"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
@@ -462,233 +396,104 @@ Example: Input: <computeroutput>&quot;arg1 arg2 \&quot;quoted string" arg3&quot;
     <programlisting>
 <codeline lineno="1"><highlight class="preprocessor">#include<sp/>&quot;<ref refid="wsh__shell__str_8h" kindref="compound">wsh_shell_str.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="2"><highlight class="normal"></highlight></codeline>
-<codeline lineno="3"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>WSH_PS1_SPACE_LEFT(out,<sp/>base)<sp/>((out)<sp/>-<sp/>(base)<sp/>&lt;<sp/>(WSH_SHELL_PS1_MAX_LEN<sp/>-<sp/>1))</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="4"><highlight class="normal"></highlight></codeline>
-<codeline lineno="5"><highlight class="normal">WshShell_Bool_t<sp/><ref refid="wsh__shell__str_8h_1a9d35c0fc6d620aab2c92d6c9bf6ba804" kindref="member">WshShellStr_IsPrintableAscii</ref>(WshShell_Char_t<sp/>ch)<sp/>{</highlight></codeline>
-<codeline lineno="6"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">bool</highlight><highlight class="normal">)(ch<sp/>&gt;=<sp/></highlight><highlight class="charliteral">&apos;<sp/>&apos;</highlight><highlight class="normal"><sp/>&amp;&amp;<sp/>ch<sp/>&lt;=<sp/></highlight><highlight class="charliteral">&apos;~&apos;</highlight><highlight class="normal">);<sp/><sp/></highlight><highlight class="comment">//<sp/>ASCII<sp/>printable<sp/>range</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="7"><highlight class="normal">}</highlight></codeline>
-<codeline lineno="8"><highlight class="normal"></highlight></codeline>
-<codeline lineno="9"><highlight class="normal">WshShell_Char_t*<sp/><ref refid="wsh__shell__str_8h_1a75fcab509bbc6e57796fb144edfadcaa" kindref="member">WshShellStr_TrimString</ref>(WshShell_Char_t*<sp/>pString,<sp/>WshShell_Size_t<sp/>len)<sp/>{</highlight></codeline>
-<codeline lineno="10"><highlight class="normal"><sp/><sp/><sp/><sp/>WSH_SHELL_ASSERT(pString);</highlight></codeline>
-<codeline lineno="11"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(!pString)</highlight></codeline>
-<codeline lineno="12"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>pString;</highlight></codeline>
-<codeline lineno="13"><highlight class="normal"></highlight></codeline>
-<codeline lineno="14"><highlight class="normal"><sp/><sp/><sp/><sp/>WshShell_Char_t*<sp/>pStrBegin<sp/>=<sp/>pString;</highlight></codeline>
-<codeline lineno="15"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">while</highlight><highlight class="normal"><sp/>(((*pStrBegin<sp/>==<sp/></highlight><highlight class="charliteral">&apos;<sp/>&apos;</highlight><highlight class="normal">)<sp/>||<sp/>(*pStrBegin<sp/>==<sp/></highlight><highlight class="charliteral">&apos;\t&apos;</highlight><highlight class="normal">))<sp/>&amp;&amp;<sp/>(pStrBegin<sp/>&lt;<sp/>(pString<sp/>+<sp/>len)))<sp/>{</highlight></codeline>
-<codeline lineno="16"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>pStrBegin++;</highlight></codeline>
-<codeline lineno="17"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
-<codeline lineno="18"><highlight class="normal"></highlight></codeline>
-<codeline lineno="19"><highlight class="normal"><sp/><sp/><sp/><sp/>WshShell_Char_t*<sp/>pStrEnd<sp/>=<sp/>pString<sp/>+<sp/>len<sp/>-<sp/>1;</highlight></codeline>
-<codeline lineno="20"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">while</highlight><highlight class="normal"><sp/>((pStrEnd<sp/>&gt;=<sp/>pStrBegin)<sp/>&amp;&amp;<sp/>(*pStrEnd<sp/>==<sp/></highlight><highlight class="charliteral">&apos;<sp/>&apos;</highlight><highlight class="normal"><sp/>||<sp/>*pStrEnd<sp/>==<sp/></highlight><highlight class="charliteral">&apos;\t&apos;</highlight><highlight class="normal">))<sp/>{</highlight></codeline>
-<codeline lineno="21"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*pStrEnd<sp/>=<sp/>0;</highlight></codeline>
-<codeline lineno="22"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>pStrEnd--;</highlight></codeline>
-<codeline lineno="23"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
-<codeline lineno="24"><highlight class="normal"></highlight></codeline>
-<codeline lineno="25"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>pStrBegin;</highlight></codeline>
-<codeline lineno="26"><highlight class="normal">}</highlight></codeline>
-<codeline lineno="27"><highlight class="normal"></highlight></codeline>
-<codeline lineno="28"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="wsh__shell__str_8h_1afa52b0f22a788ba56269460dfe7f09b3" kindref="member">WshShellStr_ParseToArgcArgv</ref>(WshShell_Char_t*<sp/>pStr,<sp/>WshShell_Size_t*<sp/>pArgNum,</highlight></codeline>
-<codeline lineno="29"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>WshShell_Char_t*<sp/>pArgBuff[],<sp/>WshShell_Size_t<sp/>maxArgNum)<sp/>{</highlight></codeline>
-<codeline lineno="30"><highlight class="normal"><sp/><sp/><sp/><sp/>WSH_SHELL_ASSERT(pStr<sp/>&amp;&amp;<sp/>pArgNum<sp/>&amp;&amp;<sp/>pArgBuff<sp/>&amp;&amp;<sp/>maxArgNum<sp/>&gt;<sp/>0);</highlight></codeline>
-<codeline lineno="31"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(!pStr<sp/>||<sp/>!pArgNum<sp/>||<sp/>!pArgBuff<sp/>||<sp/>maxArgNum<sp/>==<sp/>0)</highlight></codeline>
-<codeline lineno="32"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal">;</highlight></codeline>
-<codeline lineno="33"><highlight class="normal"></highlight></codeline>
-<codeline lineno="34"><highlight class="normal"><sp/><sp/><sp/><sp/>*pArgNum<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>=<sp/>0;</highlight></codeline>
-<codeline lineno="35"><highlight class="normal"><sp/><sp/><sp/><sp/>WshShell_Bool_t<sp/>inQuotes<sp/>=<sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;</highlight></codeline>
-<codeline lineno="36"><highlight class="normal"><sp/><sp/><sp/><sp/>WshShell_Size_t<sp/>len<sp/><sp/><sp/><sp/><sp/><sp/>=<sp/>WSH_SHELL_STRLEN(pStr);</highlight></codeline>
-<codeline lineno="37"><highlight class="normal"></highlight></codeline>
-<codeline lineno="38"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(WshShell_Size_t<sp/>idx<sp/>=<sp/>0;<sp/>idx<sp/>&lt;<sp/>len;<sp/>idx++)<sp/>{</highlight></codeline>
-<codeline lineno="39"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(pStr[idx]<sp/>==<sp/></highlight><highlight class="charliteral">&apos;\&quot;&apos;</highlight><highlight class="normal">)<sp/>{</highlight></codeline>
-<codeline lineno="40"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>inQuotes<sp/><sp/>=<sp/>!inQuotes;</highlight></codeline>
+<codeline lineno="3"><highlight class="normal">WshShell_Bool_t<sp/><ref refid="wsh__shell__str_8h_1a9d35c0fc6d620aab2c92d6c9bf6ba804" kindref="member">WshShellStr_IsPrintableAscii</ref>(WshShell_Char_t<sp/>ch)<sp/>{</highlight></codeline>
+<codeline lineno="4"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">bool</highlight><highlight class="normal">)(ch<sp/>&gt;=<sp/></highlight><highlight class="charliteral">&apos;<sp/>&apos;</highlight><highlight class="normal"><sp/>&amp;&amp;<sp/>ch<sp/>&lt;=<sp/></highlight><highlight class="charliteral">&apos;~&apos;</highlight><highlight class="normal">);<sp/><sp/></highlight><highlight class="comment">//<sp/>ASCII<sp/>printable<sp/>range</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight></codeline>
+<codeline lineno="7"><highlight class="normal">WshShell_Char_t*<sp/><ref refid="wsh__shell__str_8h_1a75fcab509bbc6e57796fb144edfadcaa" kindref="member">WshShellStr_TrimString</ref>(WshShell_Char_t*<sp/>pString,<sp/>WshShell_Size_t<sp/>len)<sp/>{</highlight></codeline>
+<codeline lineno="8"><highlight class="normal"><sp/><sp/><sp/><sp/>WSH_SHELL_ASSERT(pString);</highlight></codeline>
+<codeline lineno="9"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(!pString)</highlight></codeline>
+<codeline lineno="10"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>pString;</highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight></codeline>
+<codeline lineno="12"><highlight class="normal"><sp/><sp/><sp/><sp/>WshShell_Char_t*<sp/>pStrBegin<sp/>=<sp/>pString;</highlight></codeline>
+<codeline lineno="13"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">while</highlight><highlight class="normal"><sp/>(((*pStrBegin<sp/>==<sp/></highlight><highlight class="charliteral">&apos;<sp/>&apos;</highlight><highlight class="normal">)<sp/>||<sp/>(*pStrBegin<sp/>==<sp/></highlight><highlight class="charliteral">&apos;\t&apos;</highlight><highlight class="normal">))<sp/>&amp;&amp;<sp/>(pStrBegin<sp/>&lt;<sp/>(pString<sp/>+<sp/>len)))<sp/>{</highlight></codeline>
+<codeline lineno="14"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>pStrBegin++;</highlight></codeline>
+<codeline lineno="15"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="16"><highlight class="normal"></highlight></codeline>
+<codeline lineno="17"><highlight class="normal"><sp/><sp/><sp/><sp/>WshShell_Char_t*<sp/>pStrEnd<sp/>=<sp/>pString<sp/>+<sp/>len<sp/>-<sp/>1;</highlight></codeline>
+<codeline lineno="18"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">while</highlight><highlight class="normal"><sp/>((pStrEnd<sp/>&gt;=<sp/>pStrBegin)<sp/>&amp;&amp;<sp/>(*pStrEnd<sp/>==<sp/></highlight><highlight class="charliteral">&apos;<sp/>&apos;</highlight><highlight class="normal"><sp/>||<sp/>*pStrEnd<sp/>==<sp/></highlight><highlight class="charliteral">&apos;\t&apos;</highlight><highlight class="normal">))<sp/>{</highlight></codeline>
+<codeline lineno="19"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*pStrEnd<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="20"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>pStrEnd--;</highlight></codeline>
+<codeline lineno="21"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="22"><highlight class="normal"></highlight></codeline>
+<codeline lineno="23"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>pStrBegin;</highlight></codeline>
+<codeline lineno="24"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="25"><highlight class="normal"></highlight></codeline>
+<codeline lineno="26"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="wsh__shell__str_8h_1afa52b0f22a788ba56269460dfe7f09b3" kindref="member">WshShellStr_ParseToArgcArgv</ref>(WshShell_Char_t*<sp/>pStr,<sp/>WshShell_Size_t*<sp/>pArgNum,</highlight></codeline>
+<codeline lineno="27"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>WshShell_Char_t*<sp/>pArgBuff[],<sp/>WshShell_Size_t<sp/>maxArgNum)<sp/>{</highlight></codeline>
+<codeline lineno="28"><highlight class="normal"><sp/><sp/><sp/><sp/>WSH_SHELL_ASSERT(pStr<sp/>&amp;&amp;<sp/>pArgNum<sp/>&amp;&amp;<sp/>pArgBuff<sp/>&amp;&amp;<sp/>maxArgNum<sp/>&gt;<sp/>0);</highlight></codeline>
+<codeline lineno="29"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(!pStr<sp/>||<sp/>!pArgNum<sp/>||<sp/>!pArgBuff<sp/>||<sp/>maxArgNum<sp/>==<sp/>0)</highlight></codeline>
+<codeline lineno="30"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="31"><highlight class="normal"></highlight></codeline>
+<codeline lineno="32"><highlight class="normal"><sp/><sp/><sp/><sp/>*pArgNum<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="33"><highlight class="normal"><sp/><sp/><sp/><sp/>WshShell_Bool_t<sp/>inQuotes<sp/>=<sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="34"><highlight class="normal"><sp/><sp/><sp/><sp/>WshShell_Size_t<sp/>len<sp/><sp/><sp/><sp/><sp/><sp/>=<sp/>WSH_SHELL_STRLEN(pStr);</highlight></codeline>
+<codeline lineno="35"><highlight class="normal"></highlight></codeline>
+<codeline lineno="36"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(WshShell_Size_t<sp/>idx<sp/>=<sp/>0;<sp/>idx<sp/>&lt;<sp/>len;<sp/>idx++)<sp/>{</highlight></codeline>
+<codeline lineno="37"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(pStr[idx]<sp/>==<sp/></highlight><highlight class="charliteral">&apos;\&quot;&apos;</highlight><highlight class="normal">)<sp/>{</highlight></codeline>
+<codeline lineno="38"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>inQuotes<sp/><sp/>=<sp/>!inQuotes;</highlight></codeline>
+<codeline lineno="39"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>pStr[idx]<sp/>=<sp/></highlight><highlight class="charliteral">&apos;\0&apos;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="40"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}<sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(!inQuotes<sp/>&amp;&amp;<sp/>pStr[idx]<sp/>==<sp/></highlight><highlight class="charliteral">&apos;<sp/>&apos;</highlight><highlight class="normal">)<sp/>{</highlight></codeline>
 <codeline lineno="41"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>pStr[idx]<sp/>=<sp/></highlight><highlight class="charliteral">&apos;\0&apos;</highlight><highlight class="normal">;</highlight></codeline>
-<codeline lineno="42"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}<sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(!inQuotes<sp/>&amp;&amp;<sp/>pStr[idx]<sp/>==<sp/></highlight><highlight class="charliteral">&apos;<sp/>&apos;</highlight><highlight class="normal">)<sp/>{</highlight></codeline>
-<codeline lineno="43"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>pStr[idx]<sp/>=<sp/></highlight><highlight class="charliteral">&apos;\0&apos;</highlight><highlight class="normal">;</highlight></codeline>
-<codeline lineno="44"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
-<codeline lineno="45"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
-<codeline lineno="46"><highlight class="normal"></highlight></codeline>
-<codeline lineno="47"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Extract<sp/>pointers<sp/>to<sp/>tokens</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="48"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(WshShell_Size_t<sp/>idx<sp/>=<sp/>0;<sp/>idx<sp/>&lt;<sp/>len;)<sp/>{</highlight></codeline>
-<codeline lineno="49"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(pStr[idx]<sp/>!=<sp/></highlight><highlight class="charliteral">&apos;\0&apos;</highlight><highlight class="normal">)<sp/>{</highlight></codeline>
-<codeline lineno="50"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(*pArgNum<sp/>&lt;<sp/>maxArgNum)<sp/>{</highlight></codeline>
-<codeline lineno="51"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>pArgBuff[(*pArgNum)++]<sp/>=<sp/>&amp;pStr[idx];</highlight></codeline>
-<codeline lineno="52"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
-<codeline lineno="53"><highlight class="normal"></highlight></codeline>
-<codeline lineno="54"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Skip<sp/>until<sp/>next<sp/>&apos;\0&apos;</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="55"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">while</highlight><highlight class="normal"><sp/>(idx<sp/>&lt;<sp/>len<sp/>&amp;&amp;<sp/>pStr[idx]<sp/>!=<sp/></highlight><highlight class="charliteral">&apos;\0&apos;</highlight><highlight class="normal">)</highlight></codeline>
-<codeline lineno="56"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>idx++;</highlight></codeline>
-<codeline lineno="57"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}<sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/>{</highlight></codeline>
-<codeline lineno="58"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>idx++;</highlight></codeline>
-<codeline lineno="59"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
-<codeline lineno="60"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
-<codeline lineno="61"><highlight class="normal">}</highlight></codeline>
-<codeline lineno="62"><highlight class="normal"></highlight></codeline>
-<codeline lineno="63"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="wsh__shell__str_8h_1a717aa2a87c1d1b039e986781479199ba" kindref="member">WshShellStr_IncrInterCnt</ref>(WshShell_Size_t*<sp/>pInterCnt,<sp/>WshShell_Size_t<sp/>buffSize)<sp/>{</highlight></codeline>
-<codeline lineno="64"><highlight class="normal"><sp/><sp/><sp/><sp/>WSH_SHELL_ASSERT(pInterCnt<sp/>&amp;&amp;<sp/>buffSize<sp/>&gt;<sp/>0);</highlight></codeline>
-<codeline lineno="65"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(!pInterCnt<sp/>||<sp/>buffSize<sp/>==<sp/>0)</highlight></codeline>
-<codeline lineno="66"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal">;</highlight></codeline>
-<codeline lineno="67"><highlight class="normal"></highlight></codeline>
-<codeline lineno="68"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(*pInterCnt<sp/>&lt;<sp/>buffSize<sp/>-<sp/>1)</highlight></codeline>
-<codeline lineno="69"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(*pInterCnt)++;</highlight></codeline>
-<codeline lineno="70"><highlight class="normal">}</highlight></codeline>
-<codeline lineno="71"><highlight class="normal"></highlight></codeline>
-<codeline lineno="72"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="wsh__shell__str_8h_1ab4b7be929d544496dbab7a625bc70204" kindref="member">WshShellStr_DecrInterCnt</ref>(WshShell_Size_t*<sp/>pInterCnt)<sp/>{</highlight></codeline>
-<codeline lineno="73"><highlight class="normal"><sp/><sp/><sp/><sp/>WSH_SHELL_ASSERT(pInterCnt);</highlight></codeline>
-<codeline lineno="74"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(!pInterCnt)</highlight></codeline>
-<codeline lineno="75"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal">;</highlight></codeline>
-<codeline lineno="76"><highlight class="normal"></highlight></codeline>
-<codeline lineno="77"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(*pInterCnt<sp/>&gt;<sp/>0)</highlight></codeline>
-<codeline lineno="78"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(*pInterCnt)--;</highlight></codeline>
-<codeline lineno="79"><highlight class="normal">}</highlight></codeline>
-<codeline lineno="80"><highlight class="normal"></highlight></codeline>
-<codeline lineno="81"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="wsh__shell__str_8h_1a10832dc9d2d88b0577df9bac3e6e533e" kindref="member">WshShellStr_AccessBitsToStr</ref>(WshShell_Size_t<sp/>access,<sp/>WshShell_Char_t*<sp/>pOutStr)<sp/>{</highlight></codeline>
-<codeline lineno="82"><highlight class="normal"><sp/><sp/><sp/><sp/>WSH_SHELL_ASSERT(pOutStr);</highlight></codeline>
-<codeline lineno="83"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(!pOutStr)</highlight></codeline>
-<codeline lineno="84"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal">;</highlight></codeline>
-<codeline lineno="85"><highlight class="normal"></highlight></codeline>
-<codeline lineno="86"><highlight class="normal"><sp/><sp/><sp/><sp/>pOutStr[0]<sp/>=<sp/>(access<sp/>&amp;<sp/>WSH_SHELL_OPT_ACCESS_READ)<sp/>?<sp/></highlight><highlight class="charliteral">&apos;r&apos;</highlight><highlight class="normal"><sp/>:<sp/></highlight><highlight class="charliteral">&apos;-&apos;</highlight><highlight class="normal">;</highlight></codeline>
-<codeline lineno="87"><highlight class="normal"><sp/><sp/><sp/><sp/>pOutStr[1]<sp/>=<sp/>(access<sp/>&amp;<sp/>WSH_SHELL_OPT_ACCESS_WRITE)<sp/>?<sp/></highlight><highlight class="charliteral">&apos;w&apos;</highlight><highlight class="normal"><sp/>:<sp/></highlight><highlight class="charliteral">&apos;-&apos;</highlight><highlight class="normal">;</highlight></codeline>
-<codeline lineno="88"><highlight class="normal"><sp/><sp/><sp/><sp/>pOutStr[2]<sp/>=<sp/>(access<sp/>&amp;<sp/>WSH_SHELL_OPT_ACCESS_EXECUTE)<sp/>?<sp/></highlight><highlight class="charliteral">&apos;x&apos;</highlight><highlight class="normal"><sp/>:<sp/></highlight><highlight class="charliteral">&apos;-&apos;</highlight><highlight class="normal">;</highlight></codeline>
-<codeline lineno="89"><highlight class="normal"><sp/><sp/><sp/><sp/>pOutStr[3]<sp/>=<sp/>(access<sp/>==<sp/>WSH_SHELL_OPT_ACCESS_ANY)<sp/>?<sp/></highlight><highlight class="charliteral">&apos;A&apos;</highlight><highlight class="normal"><sp/>:<sp/></highlight><highlight class="charliteral">&apos;\0&apos;</highlight><highlight class="normal">;</highlight></codeline>
-<codeline lineno="90"><highlight class="normal"><sp/><sp/><sp/><sp/>pOutStr[4]<sp/>=<sp/></highlight><highlight class="charliteral">&apos;\0&apos;</highlight><highlight class="normal">;</highlight></codeline>
-<codeline lineno="91"><highlight class="normal">}</highlight></codeline>
-<codeline lineno="92"><highlight class="normal"></highlight></codeline>
-<codeline lineno="93"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="wsh__shell__str_8h_1a97dee099f0ae0c2f8bbd5fada5231e9b" kindref="member">WshShellStr_GroupBitsToStr</ref>(WshShell_Size_t<sp/>group,<sp/>WshShell_Char_t*<sp/>pOutStr)<sp/>{</highlight></codeline>
-<codeline lineno="94"><highlight class="normal"><sp/><sp/><sp/><sp/>WSH_SHELL_ASSERT(pOutStr);</highlight></codeline>
-<codeline lineno="95"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(!pOutStr)</highlight></codeline>
-<codeline lineno="96"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal">;</highlight></codeline>
-<codeline lineno="97"><highlight class="normal"></highlight></codeline>
-<codeline lineno="98"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(WshShell_S32_t<sp/>groupIdx<sp/>=<sp/>WSH_SHELL_CMD_GROUP_MAX_COUNT<sp/>-<sp/>1;<sp/>groupIdx<sp/>&gt;=<sp/>0;<sp/>--groupIdx)<sp/>{</highlight></codeline>
-<codeline lineno="99"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*pOutStr++<sp/>=<sp/>(group<sp/>==<sp/>WSH_SHELL_CMD_GROUP_ALL<sp/>||<sp/>(group<sp/>&amp;<sp/>(1U<sp/>&lt;&lt;<sp/>groupIdx)))<sp/>?<sp/></highlight><highlight class="charliteral">&apos;*&apos;</highlight><highlight class="normal"><sp/>:<sp/></highlight><highlight class="charliteral">&apos;-&apos;</highlight><highlight class="normal">;</highlight></codeline>
-<codeline lineno="100"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
-<codeline lineno="101"><highlight class="normal"><sp/><sp/><sp/><sp/>*pOutStr<sp/>=<sp/></highlight><highlight class="charliteral">&apos;\0&apos;</highlight><highlight class="normal">;</highlight></codeline>
-<codeline lineno="102"><highlight class="normal">}</highlight></codeline>
-<codeline lineno="103"><highlight class="normal"></highlight></codeline>
-<codeline lineno="104"><highlight class="normal"></highlight><highlight class="preprocessor">#if<sp/>WSH_SHELL_PS1_CUSTOM</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="105"><highlight class="normal"></highlight></codeline>
-<codeline lineno="106"><highlight class="normal"></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>WshShell_Char_t*<sp/>WshShellStr_ColorMap[]<sp/>=<sp/>{</highlight></codeline>
-<codeline lineno="107"><highlight class="normal"><sp/><sp/><sp/><sp/>WSH_SHELL_COLOR_BLACK,<sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>%c0</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="108"><highlight class="normal"><sp/><sp/><sp/><sp/>WSH_SHELL_COLOR_RED,<sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>%c1</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="109"><highlight class="normal"><sp/><sp/><sp/><sp/>WSH_SHELL_COLOR_GREEN,<sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>%c2</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="110"><highlight class="normal"><sp/><sp/><sp/><sp/>WSH_SHELL_COLOR_YELLOW,<sp/><sp/></highlight><highlight class="comment">//<sp/>%c3</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="111"><highlight class="normal"><sp/><sp/><sp/><sp/>WSH_SHELL_COLOR_BLUE,<sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>%c4</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="112"><highlight class="normal"><sp/><sp/><sp/><sp/>WSH_SHELL_COLOR_PURPLE,<sp/><sp/></highlight><highlight class="comment">//<sp/>%c5</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="113"><highlight class="normal"><sp/><sp/><sp/><sp/>WSH_SHELL_COLOR_CYAN,<sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>%c6</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="114"><highlight class="normal"><sp/><sp/><sp/><sp/>WSH_SHELL_COLOR_WHITE<sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>%c7</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="115"><highlight class="normal">};</highlight></codeline>
-<codeline lineno="116"><highlight class="normal"></highlight></codeline>
-<codeline lineno="117"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="wsh__shell__str_8h_1afdbc7488bc3b39b644c1ce3f4a978408" kindref="member">WshShellStr_GeneratePS1</ref>(WshShell_Char_t*<sp/>pPS1,<sp/><ref refid="structWshShellStr__PS1Data__t" kindref="compound">WshShellStr_PS1Data_t</ref>*<sp/>pPS1Data)<sp/>{</highlight></codeline>
-<codeline lineno="118"><highlight class="normal"><sp/><sp/><sp/><sp/>WSH_SHELL_ASSERT(pPS1<sp/>&amp;&amp;<sp/>pPS1Data-&gt;UserName<sp/>&amp;&amp;<sp/>pPS1Data-&gt;DevName);</highlight></codeline>
-<codeline lineno="119"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(!pPS1<sp/>||<sp/>!pPS1Data-&gt;UserName<sp/>||<sp/>!pPS1Data-&gt;DevName)</highlight></codeline>
-<codeline lineno="120"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal">;</highlight></codeline>
-<codeline lineno="121"><highlight class="normal"></highlight></codeline>
-<codeline lineno="122"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>WshShell_Size_t<sp/>colorMapSize<sp/>=<sp/>WSH_SHELL_ARR_LEN(WshShellStr_ColorMap);</highlight></codeline>
-<codeline lineno="123"><highlight class="normal"><sp/><sp/><sp/><sp/>WshShell_Char_t*<sp/>pOut<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>=<sp/>pPS1;</highlight></codeline>
-<codeline lineno="124"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>WshShell_Char_t*<sp/>pcIn<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>=<sp/>WSH_SHELL_PS1_TEMPLATE;</highlight></codeline>
-<codeline lineno="125"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>WshShell_Char_t*<sp/>pcCurrColor<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;&quot;</highlight><highlight class="normal">;</highlight></codeline>
-<codeline lineno="126"><highlight class="normal"></highlight></codeline>
-<codeline lineno="127"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">while</highlight><highlight class="normal"><sp/>(*pcIn<sp/>&amp;&amp;<sp/>WSH_PS1_SPACE_LEFT(pOut,<sp/>pPS1))<sp/>{</highlight></codeline>
-<codeline lineno="128"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(*pcIn<sp/>==<sp/></highlight><highlight class="charliteral">&apos;%&apos;</highlight><highlight class="normal">)<sp/>{</highlight></codeline>
-<codeline lineno="129"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>++pcIn;</highlight></codeline>
-<codeline lineno="130"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(!*pcIn)</highlight></codeline>
-<codeline lineno="131"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">break</highlight><highlight class="normal">;</highlight></codeline>
-<codeline lineno="132"><highlight class="normal"></highlight></codeline>
-<codeline lineno="133"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(*pcIn<sp/>==<sp/></highlight><highlight class="charliteral">&apos;u&apos;</highlight><highlight class="normal">)<sp/>{<sp/><sp/></highlight><highlight class="comment">//<sp/>User<sp/>name</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="134"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>WshShell_Char_t*<sp/>pcUser<sp/>=<sp/>pPS1Data-&gt;UserName;</highlight></codeline>
-<codeline lineno="135"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">while</highlight><highlight class="normal"><sp/>(*pcUser<sp/>&amp;&amp;<sp/>WSH_PS1_SPACE_LEFT(pOut,<sp/>pPS1))</highlight></codeline>
-<codeline lineno="136"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*pOut++<sp/>=<sp/>*pcUser++;</highlight></codeline>
-<codeline lineno="137"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}<sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(*pcIn<sp/>==<sp/></highlight><highlight class="charliteral">&apos;d&apos;</highlight><highlight class="normal">)<sp/>{<sp/><sp/></highlight><highlight class="comment">//<sp/>Device<sp/>name</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="138"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>WshShell_Char_t*<sp/>pcDev<sp/>=<sp/>pPS1Data-&gt;DevName;</highlight></codeline>
-<codeline lineno="139"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">while</highlight><highlight class="normal"><sp/>(*pcDev<sp/>&amp;&amp;<sp/>WSH_PS1_SPACE_LEFT(pOut,<sp/>pPS1))</highlight></codeline>
-<codeline lineno="140"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*pOut++<sp/>=<sp/>*pcDev++;</highlight></codeline>
-<codeline lineno="141"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}<sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(*pcIn<sp/>==<sp/></highlight><highlight class="charliteral">&apos;c&apos;</highlight><highlight class="normal">)<sp/>{<sp/><sp/></highlight><highlight class="comment">//<sp/>Color<sp/>choice</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="142"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>++pcIn;</highlight></codeline>
-<codeline lineno="143"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(*pcIn<sp/>&gt;=<sp/></highlight><highlight class="charliteral">&apos;0&apos;</highlight><highlight class="normal"><sp/>&amp;&amp;<sp/>*pcIn<sp/>&lt;=<sp/></highlight><highlight class="charliteral">&apos;9&apos;</highlight><highlight class="normal">)<sp/>{<sp/><sp/></highlight><highlight class="comment">//<sp/>Valid<sp/>colors<sp/>range</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="144"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>WshShell_Size_t<sp/>idx<sp/>=<sp/>*pcIn<sp/>-<sp/></highlight><highlight class="charliteral">&apos;0&apos;</highlight><highlight class="normal">;</highlight></codeline>
-<codeline lineno="145"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>WshShell_Char_t*<sp/>pcColor<sp/>=</highlight></codeline>
-<codeline lineno="146"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(idx<sp/>&lt;<sp/>colorMapSize)<sp/>?<sp/>WshShellStr_ColorMap[idx]<sp/>:<sp/></highlight><highlight class="stringliteral">&quot;&quot;</highlight><highlight class="normal">;</highlight></codeline>
-<codeline lineno="147"><highlight class="normal"></highlight></codeline>
-<codeline lineno="148"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>pcCurrColor<sp/>=<sp/>pcColor;</highlight></codeline>
-<codeline lineno="149"><highlight class="normal"></highlight></codeline>
-<codeline lineno="150"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">while</highlight><highlight class="normal"><sp/>(*pcColor<sp/>&amp;&amp;<sp/>WSH_PS1_SPACE_LEFT(pOut,<sp/>pPS1))</highlight></codeline>
-<codeline lineno="151"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*pOut++<sp/>=<sp/>*pcColor++;</highlight></codeline>
-<codeline lineno="152"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
-<codeline lineno="153"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}<sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(*pcIn<sp/>==<sp/></highlight><highlight class="charliteral">&apos;r&apos;</highlight><highlight class="normal">)<sp/>{<sp/><sp/></highlight><highlight class="comment">//<sp/>Reset<sp/>style</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="154"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>WshShell_Char_t*<sp/>pcReset<sp/>=<sp/>WSH_SHELL_ESC_RESET_STYLE;</highlight></codeline>
-<codeline lineno="155"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">while</highlight><highlight class="normal"><sp/>(*pcReset<sp/>&amp;&amp;<sp/>WSH_PS1_SPACE_LEFT(pOut,<sp/>pPS1))</highlight></codeline>
-<codeline lineno="156"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*pOut++<sp/>=<sp/>*pcReset++;</highlight></codeline>
-<codeline lineno="157"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}<sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(*pcIn<sp/>==<sp/></highlight><highlight class="charliteral">&apos;b&apos;</highlight><highlight class="normal">)<sp/>{<sp/><sp/></highlight><highlight class="comment">//<sp/>Bold<sp/>style</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="158"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>WshShell_Char_t*<sp/>pcBold<sp/>=<sp/>WSH_SHELL_ECS_SET_MODE_BOLD;</highlight></codeline>
-<codeline lineno="159"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">while</highlight><highlight class="normal"><sp/>(*pcBold<sp/>&amp;&amp;<sp/>WSH_PS1_SPACE_LEFT(pOut,<sp/>pPS1))</highlight></codeline>
-<codeline lineno="160"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*pOut++<sp/>=<sp/>*pcBold++;</highlight></codeline>
-<codeline lineno="161"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}<sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(*pcIn<sp/>==<sp/></highlight><highlight class="charliteral">&apos;i&apos;</highlight><highlight class="normal">)<sp/>{<sp/><sp/></highlight><highlight class="comment">//<sp/>Interactive<sp/>command<sp/>name</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="162"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(pPS1Data-&gt;InterCmdName<sp/>&amp;&amp;<sp/>*pPS1Data-&gt;InterCmdName)<sp/>{</highlight></codeline>
-<codeline lineno="163"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(WSH_PS1_SPACE_LEFT(pOut,<sp/>pPS1))</highlight></codeline>
-<codeline lineno="164"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*pOut++<sp/>=<sp/></highlight><highlight class="charliteral">&apos;<sp/>&apos;</highlight><highlight class="normal">;</highlight></codeline>
-<codeline lineno="165"><highlight class="normal"></highlight></codeline>
-<codeline lineno="166"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>WshShell_Char_t*<sp/>pcWhite<sp/>=<sp/>WSH_SHELL_COLOR_WHITE;</highlight></codeline>
-<codeline lineno="167"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">while</highlight><highlight class="normal"><sp/>(*pcWhite<sp/>&amp;&amp;<sp/>WSH_PS1_SPACE_LEFT(pOut,<sp/>pPS1))</highlight></codeline>
-<codeline lineno="168"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*pOut++<sp/>=<sp/>*pcWhite++;</highlight></codeline>
-<codeline lineno="169"><highlight class="normal"></highlight></codeline>
-<codeline lineno="170"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(WSH_PS1_SPACE_LEFT(pOut,<sp/>pPS1))</highlight></codeline>
-<codeline lineno="171"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*pOut++<sp/>=<sp/></highlight><highlight class="charliteral">&apos;(&apos;</highlight><highlight class="normal">;</highlight></codeline>
-<codeline lineno="172"><highlight class="normal"></highlight></codeline>
-<codeline lineno="173"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>WshShell_Char_t*<sp/>pcColor<sp/>=<sp/>pcCurrColor;</highlight></codeline>
-<codeline lineno="174"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">while</highlight><highlight class="normal"><sp/>(*pcColor<sp/>&amp;&amp;<sp/>WSH_PS1_SPACE_LEFT(pOut,<sp/>pPS1))</highlight></codeline>
-<codeline lineno="175"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*pOut++<sp/>=<sp/>*pcColor++;</highlight></codeline>
-<codeline lineno="176"><highlight class="normal"></highlight></codeline>
-<codeline lineno="177"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>WshShell_Char_t*<sp/>pcInter<sp/>=<sp/>pPS1Data-&gt;InterCmdName;</highlight></codeline>
-<codeline lineno="178"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">while</highlight><highlight class="normal"><sp/>(*pcInter<sp/>&amp;&amp;<sp/>WSH_PS1_SPACE_LEFT(pOut,<sp/>pPS1))</highlight></codeline>
-<codeline lineno="179"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*pOut++<sp/>=<sp/>*pcInter++;</highlight></codeline>
-<codeline lineno="180"><highlight class="normal"></highlight></codeline>
-<codeline lineno="181"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>pcWhite<sp/>=<sp/>WSH_SHELL_COLOR_WHITE;</highlight></codeline>
-<codeline lineno="182"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">while</highlight><highlight class="normal"><sp/>(*pcWhite<sp/>&amp;&amp;<sp/>WSH_PS1_SPACE_LEFT(pOut,<sp/>pPS1))</highlight></codeline>
-<codeline lineno="183"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*pOut++<sp/>=<sp/>*pcWhite++;</highlight></codeline>
-<codeline lineno="184"><highlight class="normal"></highlight></codeline>
-<codeline lineno="185"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(WSH_PS1_SPACE_LEFT(pOut,<sp/>pPS1))</highlight></codeline>
-<codeline lineno="186"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*pOut++<sp/>=<sp/></highlight><highlight class="charliteral">&apos;)&apos;</highlight><highlight class="normal">;</highlight></codeline>
-<codeline lineno="187"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
-<codeline lineno="188"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}<sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/>{</highlight></codeline>
-<codeline lineno="189"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(WSH_PS1_SPACE_LEFT(pOut,<sp/>pPS1))</highlight></codeline>
-<codeline lineno="190"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*pOut++<sp/>=<sp/></highlight><highlight class="charliteral">&apos;%&apos;</highlight><highlight class="normal">;</highlight></codeline>
-<codeline lineno="191"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(WSH_PS1_SPACE_LEFT(pOut,<sp/>pPS1))</highlight></codeline>
-<codeline lineno="192"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*pOut++<sp/>=<sp/>*pcIn;</highlight></codeline>
-<codeline lineno="193"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
-<codeline lineno="194"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}<sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/>{</highlight></codeline>
-<codeline lineno="195"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*pOut++<sp/>=<sp/>*pcIn;</highlight></codeline>
-<codeline lineno="196"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
-<codeline lineno="197"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>++pcIn;</highlight></codeline>
-<codeline lineno="198"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
-<codeline lineno="199"><highlight class="normal"></highlight></codeline>
-<codeline lineno="200"><highlight class="normal"><sp/><sp/><sp/><sp/>*pOut<sp/>=<sp/></highlight><highlight class="charliteral">&apos;\0&apos;</highlight><highlight class="normal">;</highlight></codeline>
-<codeline lineno="201"><highlight class="normal">}</highlight></codeline>
-<codeline lineno="202"><highlight class="normal"></highlight></codeline>
-<codeline lineno="203"><highlight class="normal"></highlight><highlight class="preprocessor">#else<sp/></highlight><highlight class="comment">/*<sp/>WSH_SHELL_PS1_CUSTOM<sp/>*/</highlight><highlight class="preprocessor"></highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="204"><highlight class="normal"></highlight></codeline>
-<codeline lineno="205"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="wsh__shell__str_8h_1afdbc7488bc3b39b644c1ce3f4a978408" kindref="member">WshShellStr_GeneratePS1</ref>(WshShell_Char_t*<sp/>pPS1,<sp/><ref refid="structWshShellStr__PS1Data__t" kindref="compound">WshShellStr_PS1Data_t</ref>*<sp/>pPS1Data)<sp/>{</highlight></codeline>
-<codeline lineno="206"><highlight class="normal"><sp/><sp/><sp/><sp/>WSH_SHELL_ASSERT(pPS1<sp/>&amp;&amp;<sp/>pPS1Data-&gt;UserName<sp/>&amp;&amp;<sp/>pPS1Data-&gt;DevName);</highlight></codeline>
-<codeline lineno="207"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(!pPS1<sp/>||<sp/>!pPS1Data-&gt;UserName<sp/>||<sp/>!pPS1Data-&gt;DevName)</highlight></codeline>
-<codeline lineno="208"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal">;</highlight></codeline>
-<codeline lineno="209"><highlight class="normal"></highlight></codeline>
-<codeline lineno="210"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>WshShell_Char_t*<sp/>pcInterCmd<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;&quot;</highlight><highlight class="normal">;</highlight></codeline>
-<codeline lineno="211"><highlight class="normal"></highlight></codeline>
-<codeline lineno="212"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(pPS1Data-&gt;InterCmdName<sp/>&amp;&amp;<sp/>*pPS1Data-&gt;InterCmdName)<sp/>{</highlight></codeline>
-<codeline lineno="213"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/>WshShell_Char_t<sp/>interCmdBuff[2<sp/>*<sp/>WSH_SHELL_CMD_NAME_LEN];</highlight></codeline>
-<codeline lineno="214"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>WSH_SHELL_SNPRINTF(interCmdBuff,<sp/></highlight><highlight class="keyword">sizeof</highlight><highlight class="normal">(interCmdBuff),</highlight></codeline>
-<codeline lineno="215"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>WSH_SHELL_COLOR_WHITE<sp/></highlight><highlight class="stringliteral">&quot;<sp/>(&quot;</highlight><highlight class="normal"><sp/>WSH_SHELL_COLOR_GREEN</highlight></codeline>
-<codeline lineno="216"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;%s&quot;</highlight><highlight class="normal"><sp/>WSH_SHELL_COLOR_WHITE<sp/></highlight><highlight class="stringliteral">&quot;)&quot;</highlight><highlight class="normal">,</highlight></codeline>
-<codeline lineno="217"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>pPS1Data-&gt;InterCmdName);</highlight></codeline>
-<codeline lineno="218"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>pcInterCmd<sp/>=<sp/>interCmdBuff;</highlight></codeline>
-<codeline lineno="219"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
-<codeline lineno="220"><highlight class="normal"></highlight></codeline>
-<codeline lineno="221"><highlight class="normal"><sp/><sp/><sp/><sp/>WSH_SHELL_SNPRINTF(pPS1,<sp/>WSH_SHELL_PS1_MAX_LEN,</highlight></codeline>
-<codeline lineno="222"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>WSH_SHELL_ESC_RESET_STYLE<sp/>WSH_SHELL_ECS_SET_MODE_BOLD<sp/>WSH_SHELL_COLOR_CYAN</highlight></codeline>
-<codeline lineno="223"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;%s&quot;</highlight><highlight class="normal"><sp/>WSH_SHELL_COLOR_WHITE<sp/></highlight><highlight class="stringliteral">&quot;@&quot;</highlight><highlight class="normal"><sp/>WSH_SHELL_COLOR_PURPLE<sp/></highlight><highlight class="stringliteral">&quot;%s&quot;</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="224"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;%s&quot;</highlight><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>pcInterCmd</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="225"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>WSH_SHELL_COLOR_WHITE<sp/></highlight><highlight class="stringliteral">&quot;<sp/>&gt;<sp/>&quot;</highlight><highlight class="normal"><sp/>WSH_SHELL_ESC_RESET_STYLE,</highlight></codeline>
-<codeline lineno="226"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>pPS1Data-&gt;UserName,<sp/>pPS1Data-&gt;DevName,<sp/>pcInterCmd);</highlight></codeline>
-<codeline lineno="227"><highlight class="normal">}</highlight></codeline>
-<codeline lineno="228"><highlight class="normal"></highlight></codeline>
-<codeline lineno="229"><highlight class="normal"></highlight><highlight class="preprocessor">#endif<sp/></highlight><highlight class="comment">/*<sp/>WSH_SHELL_PS1_CUSTOM<sp/>*/</highlight><highlight class="preprocessor"></highlight></codeline>
+<codeline lineno="42"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="43"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="44"><highlight class="normal"></highlight></codeline>
+<codeline lineno="45"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Extract<sp/>pointers<sp/>to<sp/>tokens</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="46"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(WshShell_Size_t<sp/>idx<sp/>=<sp/>0;<sp/>idx<sp/>&lt;<sp/>len;)<sp/>{</highlight></codeline>
+<codeline lineno="47"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(pStr[idx]<sp/>!=<sp/></highlight><highlight class="charliteral">&apos;\0&apos;</highlight><highlight class="normal">)<sp/>{</highlight></codeline>
+<codeline lineno="48"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(*pArgNum<sp/>&lt;<sp/>maxArgNum)<sp/>{</highlight></codeline>
+<codeline lineno="49"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>pArgBuff[(*pArgNum)++]<sp/>=<sp/>&amp;pStr[idx];</highlight></codeline>
+<codeline lineno="50"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="51"><highlight class="normal"></highlight></codeline>
+<codeline lineno="52"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Skip<sp/>until<sp/>next<sp/>&apos;\0&apos;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="53"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">while</highlight><highlight class="normal"><sp/>(idx<sp/>&lt;<sp/>len<sp/>&amp;&amp;<sp/>pStr[idx]<sp/>!=<sp/></highlight><highlight class="charliteral">&apos;\0&apos;</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="54"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>idx++;</highlight></codeline>
+<codeline lineno="55"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}<sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline lineno="56"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>idx++;</highlight></codeline>
+<codeline lineno="57"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="58"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="59"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="60"><highlight class="normal"></highlight></codeline>
+<codeline lineno="61"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="wsh__shell__str_8h_1a717aa2a87c1d1b039e986781479199ba" kindref="member">WshShellStr_IncrInterCnt</ref>(WshShell_Size_t*<sp/>pInterCnt,<sp/>WshShell_Size_t<sp/>buffSize)<sp/>{</highlight></codeline>
+<codeline lineno="62"><highlight class="normal"><sp/><sp/><sp/><sp/>WSH_SHELL_ASSERT(pInterCnt<sp/>&amp;&amp;<sp/>buffSize<sp/>&gt;<sp/>0);</highlight></codeline>
+<codeline lineno="63"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(!pInterCnt<sp/>||<sp/>buffSize<sp/>==<sp/>0)</highlight></codeline>
+<codeline lineno="64"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="65"><highlight class="normal"></highlight></codeline>
+<codeline lineno="66"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(*pInterCnt<sp/>&lt;<sp/>buffSize<sp/>-<sp/>1)</highlight></codeline>
+<codeline lineno="67"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(*pInterCnt)++;</highlight></codeline>
+<codeline lineno="68"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="69"><highlight class="normal"></highlight></codeline>
+<codeline lineno="70"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="wsh__shell__str_8h_1ab4b7be929d544496dbab7a625bc70204" kindref="member">WshShellStr_DecrInterCnt</ref>(WshShell_Size_t*<sp/>pInterCnt)<sp/>{</highlight></codeline>
+<codeline lineno="71"><highlight class="normal"><sp/><sp/><sp/><sp/>WSH_SHELL_ASSERT(pInterCnt);</highlight></codeline>
+<codeline lineno="72"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(!pInterCnt)</highlight></codeline>
+<codeline lineno="73"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="74"><highlight class="normal"></highlight></codeline>
+<codeline lineno="75"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(*pInterCnt<sp/>&gt;<sp/>0)</highlight></codeline>
+<codeline lineno="76"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(*pInterCnt)--;</highlight></codeline>
+<codeline lineno="77"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="78"><highlight class="normal"></highlight></codeline>
+<codeline lineno="79"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="wsh__shell__str_8h_1a10832dc9d2d88b0577df9bac3e6e533e" kindref="member">WshShellStr_AccessBitsToStr</ref>(WshShell_Size_t<sp/>access,<sp/>WshShell_Char_t*<sp/>pOutStr)<sp/>{</highlight></codeline>
+<codeline lineno="80"><highlight class="normal"><sp/><sp/><sp/><sp/>WSH_SHELL_ASSERT(pOutStr);</highlight></codeline>
+<codeline lineno="81"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(!pOutStr)</highlight></codeline>
+<codeline lineno="82"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="83"><highlight class="normal"></highlight></codeline>
+<codeline lineno="84"><highlight class="normal"><sp/><sp/><sp/><sp/>pOutStr[0]<sp/>=<sp/>(access<sp/>&amp;<sp/>WSH_SHELL_OPT_ACCESS_READ)<sp/>?<sp/></highlight><highlight class="charliteral">&apos;r&apos;</highlight><highlight class="normal"><sp/>:<sp/></highlight><highlight class="charliteral">&apos;-&apos;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="85"><highlight class="normal"><sp/><sp/><sp/><sp/>pOutStr[1]<sp/>=<sp/>(access<sp/>&amp;<sp/>WSH_SHELL_OPT_ACCESS_WRITE)<sp/>?<sp/></highlight><highlight class="charliteral">&apos;w&apos;</highlight><highlight class="normal"><sp/>:<sp/></highlight><highlight class="charliteral">&apos;-&apos;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="86"><highlight class="normal"><sp/><sp/><sp/><sp/>pOutStr[2]<sp/>=<sp/>(access<sp/>&amp;<sp/>WSH_SHELL_OPT_ACCESS_EXECUTE)<sp/>?<sp/></highlight><highlight class="charliteral">&apos;x&apos;</highlight><highlight class="normal"><sp/>:<sp/></highlight><highlight class="charliteral">&apos;-&apos;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="87"><highlight class="normal"><sp/><sp/><sp/><sp/>pOutStr[3]<sp/>=<sp/>(access<sp/>==<sp/>WSH_SHELL_OPT_ACCESS_ANY)<sp/>?<sp/></highlight><highlight class="charliteral">&apos;A&apos;</highlight><highlight class="normal"><sp/>:<sp/></highlight><highlight class="charliteral">&apos;\0&apos;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="88"><highlight class="normal"><sp/><sp/><sp/><sp/>pOutStr[4]<sp/>=<sp/></highlight><highlight class="charliteral">&apos;\0&apos;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="89"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="90"><highlight class="normal"></highlight></codeline>
+<codeline lineno="91"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="wsh__shell__str_8h_1a97dee099f0ae0c2f8bbd5fada5231e9b" kindref="member">WshShellStr_GroupBitsToStr</ref>(WshShell_Size_t<sp/>group,<sp/>WshShell_Char_t*<sp/>pOutStr)<sp/>{</highlight></codeline>
+<codeline lineno="92"><highlight class="normal"><sp/><sp/><sp/><sp/>WSH_SHELL_ASSERT(pOutStr);</highlight></codeline>
+<codeline lineno="93"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(!pOutStr)</highlight></codeline>
+<codeline lineno="94"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="95"><highlight class="normal"></highlight></codeline>
+<codeline lineno="96"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(WshShell_S32_t<sp/>groupIdx<sp/>=<sp/>WSH_SHELL_CMD_GROUP_MAX_COUNT<sp/>-<sp/>1;<sp/>groupIdx<sp/>&gt;=<sp/>0;<sp/>--groupIdx)<sp/>{</highlight></codeline>
+<codeline lineno="97"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*pOutStr++<sp/>=<sp/>(group<sp/>==<sp/>WSH_SHELL_CMD_GROUP_ALL<sp/>||<sp/>(group<sp/>&amp;<sp/>(1U<sp/>&lt;&lt;<sp/>groupIdx)))<sp/>?<sp/></highlight><highlight class="charliteral">&apos;*&apos;</highlight><highlight class="normal"><sp/>:<sp/></highlight><highlight class="charliteral">&apos;-&apos;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="98"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="99"><highlight class="normal"><sp/><sp/><sp/><sp/>*pOutStr<sp/>=<sp/></highlight><highlight class="charliteral">&apos;\0&apos;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="100"><highlight class="normal">}</highlight></codeline>
     </programlisting>
     <location file="src/wsh_shell_str.c"/>
   </compounddef>

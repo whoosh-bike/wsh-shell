@@ -7,6 +7,7 @@
 * [**WshShell\_AuthContext\_t**](structWshShell__AuthContext__t.md)
 * [**WshShell\_ExtCallbacks\_t**](structWshShell__ExtCallbacks__t.md)
 * [**WshShell\_Interact\_t**](structWshShell__Interact__t.md)
+* [**WshShell\_PS1Data\_t**](structWshShell__PS1Data__t.md)
 * [**WshShell\_t**](structWshShell__t.md)
 * [**WshShellCmd**](structWshShellCmd.md)
 * [**WshShellCmd\_Table\_t**](structWshShellCmd__Table__t.md)
@@ -19,7 +20,6 @@
 * [**WshShellOption\_Context\_t**](structWshShellOption__Context__t.md)
 * [**WshShellOption\_t**](structWshShellOption__t.md)
 * [**WshShellPromptWait**](structWshShellPromptWait.md)
-* [**WshShellStr\_PS1Data\_t**](structWshShellStr__PS1Data__t.md)
 * [**WshShellUser\_t**](structWshShellUser__t.md)
 * [**WshShellUser\_Table\_t**](structWshShellUser__Table__t.md)
 

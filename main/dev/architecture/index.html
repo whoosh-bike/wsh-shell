@@ -20,7 +20,7 @@
       
       
       <link rel="icon" href="../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.16">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.17">
     
     
       
@@ -94,7 +94,7 @@
   <nav class="md-header__inner md-grid" aria-label="Header">
     <a href="../.." title="Wsh-Shell Documentation" class="md-header__button md-logo" aria-label="Wsh-Shell Documentation" data-md-component="logo">
       
-  <img src="../../shell.png" alt="logo">
+  <img src="../../img/shell.png" alt="logo">
 
     </a>
     <label class="md-header__button md-icon" for="__drawer">
@@ -318,7 +318,7 @@
   <label class="md-nav__title" for="__drawer">
     <a href="../.." title="Wsh-Shell Documentation" class="md-nav__button md-logo" aria-label="Wsh-Shell Documentation" data-md-component="logo">
       
-  <img src="../../shell.png" alt="logo">
+  <img src="../../img/shell.png" alt="logo">
 
     </a>
     Wsh-Shell Documentation
@@ -505,18 +505,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#project-structure" class="md-nav__link">
+  <a href="#sources-structure-repository-layout" class="md-nav__link">
     <span class="md-ellipsis">
-      Project Structure
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#repository-layout" class="md-nav__link">
-    <span class="md-ellipsis">
-      Repository Layout
+      Sources Structure &amp; Repository Layout
     </span>
   </a>
   
@@ -2093,18 +2084,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#project-structure" class="md-nav__link">
+  <a href="#sources-structure-repository-layout" class="md-nav__link">
     <span class="md-ellipsis">
-      Project Structure
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#repository-layout" class="md-nav__link">
-    <span class="md-ellipsis">
-      Repository Layout
+      Sources Structure &amp; Repository Layout
     </span>
   </a>
   
@@ -2187,7 +2169,7 @@
 </li>
 </ul>
 <hr />
-<h2 id="project-structure">Project Structure</h2>
+<h2 id="sources-structure-repository-layout">Sources Structure &amp; Repository Layout</h2>
 <table>
 <thead>
 <tr>
@@ -2197,69 +2179,71 @@
 </thead>
 <tbody>
 <tr>
-<td><strong>wsh_shell_autocomplete.h</strong></td>
-<td>Tab-completion logic</td>
+<td><strong>wsh_shell_autocomplete.h / .c</strong></td>
+<td>Tab-completion logic for commands and options</td>
 </tr>
 <tr>
 <td><strong>wsh_shell_cfg_def.h</strong></td>
 <td>Default and user-specific configuration macros</td>
 </tr>
 <tr>
-<td><strong>wsh_shell_cmd_def.h</strong></td>
-<td>Default command for shell internal usage</td>
+<td><strong>wsh_shell_cmd_def.h / .c</strong></td>
+<td>Default/internal shell commands</td>
 </tr>
 <tr>
-<td><strong>wsh_shell.h</strong></td>
-<td>Main shell engine (state machine, event loop)</td>
+<td><strong>wsh_shell_cmd.h / .c</strong></td>
+<td>Command registration, parsing, and execution</td>
 </tr>
 <tr>
-<td><strong>wsh_shell_esc.h</strong></td>
+<td><strong>wsh_shell_esc.h / .c</strong></td>
 <td>Terminal escape sequence handling</td>
 </tr>
 <tr>
-<td><strong>wsh_shell_history.h</strong></td>
-<td>Circular buffer for command history</td>
+<td><strong>wsh_shell_history.h / .c</strong></td>
+<td>Circular buffer for command history, search, and recall</td>
 </tr>
 <tr>
-<td><strong>wsh_shell_interact.h</strong></td>
-<td>Command interactive mode handling</td>
+<td><strong>wsh_shell_interact.h / .c</strong></td>
+<td>Interactive command mode handling (e.g., <code>wireless -i</code>)</td>
 </tr>
 <tr>
-<td><strong>wsh_shell_io.h</strong></td>
-<td>Input/output abstraction layer</td>
+<td><strong>wsh_shell_io.h / .c</strong></td>
+<td>Input/output abstraction</td>
 </tr>
 <tr>
 <td><strong>wsh_shell_option.h</strong></td>
-<td>Command-line option parsing helpers</td>
+<td>Command-line option parsing helpers and context structures</td>
 </tr>
 <tr>
-<td><strong>wsh_shell_promptwait.h</strong></td>
-<td>Custom keys await processing</td>
+<td><strong>wsh_shell_promptwait.h / .c</strong></td>
+<td>Wait for specific keys (Enter, Yes/No) during command input</td>
 </tr>
 <tr>
-<td><strong>wsh_shell_str.h</strong></td>
-<td>Line editing, cursor movement, interactive editing</td>
+<td><strong>wsh_shell_ps1_custom.h / .c</strong></td>
+<td>Custom shell prompt (<code>PS1</code>) generation and formatting</td>
+</tr>
+<tr>
+<td><strong>wsh_shell_str.h / .c</strong></td>
+<td>String utilities, line editing, cursor movement, interactive editing</td>
 </tr>
 <tr>
 <td><strong>wsh_shell_types.h</strong></td>
-<td>Core data types and enums</td>
+<td>Core typedefs, enums, boolean and status codes</td>
 </tr>
 <tr>
-<td><strong>wsh_shell_user.h</strong></td>
-<td>Multi-user access control and permissions</td>
+<td><strong>wsh_shell_user.h / .c</strong></td>
+<td>Multi-user access control, authentication, and permissions</td>
 </tr>
 <tr>
 <td><strong>wsh_shell_version.h</strong></td>
-<td>Version string and build metadata</td>
+<td>Version string, build metadata, and project identification</td>
 </tr>
 <tr>
-<td><strong>wsh_shell.h</strong></td>
-<td>Main shell engine (state machine, event loop)</td>
+<td><strong>wsh_shell.h / wsh_shell.c</strong></td>
+<td>Main shell engine: state machine, event loop, command dispatching, authentication</td>
 </tr>
 </tbody>
 </table>
-<hr />
-<h2 id="repository-layout">Repository Layout</h2>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-1"> 1</a></span>
 <span class="normal"><a href="#__codelineno-0-2"> 2</a></span>
 <span class="normal"><a href="#__codelineno-0-3"> 3</a></span>
@@ -2290,37 +2274,55 @@
 <span class="normal"><a href="#__codelineno-0-28">28</a></span>
 <span class="normal"><a href="#__codelineno-0-29">29</a></span>
 <span class="normal"><a href="#__codelineno-0-30">30</a></span>
-<span class="normal"><a href="#__codelineno-0-31">31</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1"></a>.
+<span class="normal"><a href="#__codelineno-0-31">31</a></span>
+<span class="normal"><a href="#__codelineno-0-32">32</a></span>
+<span class="normal"><a href="#__codelineno-0-33">33</a></span>
+<span class="normal"><a href="#__codelineno-0-34">34</a></span>
+<span class="normal"><a href="#__codelineno-0-35">35</a></span>
+<span class="normal"><a href="#__codelineno-0-36">36</a></span>
+<span class="normal"><a href="#__codelineno-0-37">37</a></span>
+<span class="normal"><a href="#__codelineno-0-38">38</a></span>
+<span class="normal"><a href="#__codelineno-0-39">39</a></span>
+<span class="normal"><a href="#__codelineno-0-40">40</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1"></a>.
 </span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2"></a>├──<span class="w"> </span>LICENSE
 </span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3"></a>├──<span class="w"> </span>Makefile
 </span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4"></a>├──<span class="w"> </span>README.md
-</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5"></a>└──<span class="w"> </span>src
-</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6"></a><span class="w">    </span>├──<span class="w"> </span>wsh_shell.c
-</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7"></a><span class="w">    </span>├──<span class="w"> </span>wsh_shell.h
-</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8"></a><span class="w">    </span>├──<span class="w"> </span>wsh_shell_autocomplete.c
-</span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9"></a><span class="w">    </span>├──<span class="w"> </span>wsh_shell_autocomplete.h
-</span><span id="__span-0-10"><a id="__codelineno-0-10" name="__codelineno-0-10"></a><span class="w">    </span>├──<span class="w"> </span>wsh_shell_cfg_def.h
-</span><span id="__span-0-11"><a id="__codelineno-0-11" name="__codelineno-0-11"></a><span class="w">    </span>├──<span class="w"> </span>wsh_shell_cmd.c
-</span><span id="__span-0-12"><a id="__codelineno-0-12" name="__codelineno-0-12"></a><span class="w">    </span>├──<span class="w"> </span>wsh_shell_cmd.h
-</span><span id="__span-0-13"><a id="__codelineno-0-13" name="__codelineno-0-13"></a><span class="w">    </span>├──<span class="w"> </span>wsh_shell_cmd_def.c
-</span><span id="__span-0-14"><a id="__codelineno-0-14" name="__codelineno-0-14"></a><span class="w">    </span>├──<span class="w"> </span>wsh_shell_cmd_def.h
-</span><span id="__span-0-15"><a id="__codelineno-0-15" name="__codelineno-0-15"></a><span class="w">    </span>├──<span class="w"> </span>wsh_shell_esc.c
-</span><span id="__span-0-16"><a id="__codelineno-0-16" name="__codelineno-0-16"></a><span class="w">    </span>├──<span class="w"> </span>wsh_shell_esc.h
-</span><span id="__span-0-17"><a id="__codelineno-0-17" name="__codelineno-0-17"></a><span class="w">    </span>├──<span class="w"> </span>wsh_shell_history.c
-</span><span id="__span-0-18"><a id="__codelineno-0-18" name="__codelineno-0-18"></a><span class="w">    </span>├──<span class="w"> </span>wsh_shell_history.h
-</span><span id="__span-0-19"><a id="__codelineno-0-19" name="__codelineno-0-19"></a><span class="w">    </span>├──<span class="w"> </span>wsh_shell_interact.c
-</span><span id="__span-0-20"><a id="__codelineno-0-20" name="__codelineno-0-20"></a><span class="w">    </span>├──<span class="w"> </span>wsh_shell_interact.h
-</span><span id="__span-0-21"><a id="__codelineno-0-21" name="__codelineno-0-21"></a><span class="w">    </span>├──<span class="w"> </span>wsh_shell_io.c
-</span><span id="__span-0-22"><a id="__codelineno-0-22" name="__codelineno-0-22"></a><span class="w">    </span>├──<span class="w"> </span>wsh_shell_io.h
-</span><span id="__span-0-23"><a id="__codelineno-0-23" name="__codelineno-0-23"></a><span class="w">    </span>├──<span class="w"> </span>wsh_shell_option.h
-</span><span id="__span-0-24"><a id="__codelineno-0-24" name="__codelineno-0-24"></a><span class="w">    </span>├──<span class="w"> </span>wsh_shell_promptwait.c
-</span><span id="__span-0-25"><a id="__codelineno-0-25" name="__codelineno-0-25"></a><span class="w">    </span>├──<span class="w"> </span>wsh_shell_promptwait.h
-</span><span id="__span-0-26"><a id="__codelineno-0-26" name="__codelineno-0-26"></a><span class="w">    </span>├──<span class="w"> </span>wsh_shell_str.c
-</span><span id="__span-0-27"><a id="__codelineno-0-27" name="__codelineno-0-27"></a><span class="w">    </span>├──<span class="w"> </span>wsh_shell_str.h
-</span><span id="__span-0-28"><a id="__codelineno-0-28" name="__codelineno-0-28"></a><span class="w">    </span>├──<span class="w"> </span>wsh_shell_types.h
-</span><span id="__span-0-29"><a id="__codelineno-0-29" name="__codelineno-0-29"></a><span class="w">    </span>├──<span class="w"> </span>wsh_shell_user.c
-</span><span id="__span-0-30"><a id="__codelineno-0-30" name="__codelineno-0-30"></a><span class="w">    </span>├──<span class="w"> </span>wsh_shell_user.h
-</span><span id="__span-0-31"><a id="__codelineno-0-31" name="__codelineno-0-31"></a><span class="w">    </span>└──<span class="w"> </span>wsh_shell_version.h
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5"></a>├──<span class="w"> </span>mkdocs.yml
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6"></a>├──<span class="w"> </span>requirements.txt
+</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7"></a>├──<span class="w"> </span>src
+</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8"></a>│<span class="w">   </span>├──<span class="w"> </span>wsh_shell.c
+</span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9"></a>│<span class="w">   </span>├──<span class="w"> </span>wsh_shell.h
+</span><span id="__span-0-10"><a id="__codelineno-0-10" name="__codelineno-0-10"></a>│<span class="w">   </span>├──<span class="w"> </span>wsh_shell_autocomplete.c
+</span><span id="__span-0-11"><a id="__codelineno-0-11" name="__codelineno-0-11"></a>│<span class="w">   </span>├──<span class="w"> </span>wsh_shell_autocomplete.h
+</span><span id="__span-0-12"><a id="__codelineno-0-12" name="__codelineno-0-12"></a>│<span class="w">   </span>├──<span class="w"> </span>wsh_shell_cfg.h
+</span><span id="__span-0-13"><a id="__codelineno-0-13" name="__codelineno-0-13"></a>│<span class="w">   </span>├──<span class="w"> </span>wsh_shell_cfg_def.h
+</span><span id="__span-0-14"><a id="__codelineno-0-14" name="__codelineno-0-14"></a>│<span class="w">   </span>├──<span class="w"> </span>wsh_shell_cmd.c
+</span><span id="__span-0-15"><a id="__codelineno-0-15" name="__codelineno-0-15"></a>│<span class="w">   </span>├──<span class="w"> </span>wsh_shell_cmd.h
+</span><span id="__span-0-16"><a id="__codelineno-0-16" name="__codelineno-0-16"></a>│<span class="w">   </span>├──<span class="w"> </span>wsh_shell_cmd_def.c
+</span><span id="__span-0-17"><a id="__codelineno-0-17" name="__codelineno-0-17"></a>│<span class="w">   </span>├──<span class="w"> </span>wsh_shell_cmd_def.h
+</span><span id="__span-0-18"><a id="__codelineno-0-18" name="__codelineno-0-18"></a>│<span class="w">   </span>├──<span class="w"> </span>wsh_shell_esc.c
+</span><span id="__span-0-19"><a id="__codelineno-0-19" name="__codelineno-0-19"></a>│<span class="w">   </span>├──<span class="w"> </span>wsh_shell_esc.h
+</span><span id="__span-0-20"><a id="__codelineno-0-20" name="__codelineno-0-20"></a>│<span class="w">   </span>├──<span class="w"> </span>wsh_shell_history.c
+</span><span id="__span-0-21"><a id="__codelineno-0-21" name="__codelineno-0-21"></a>│<span class="w">   </span>├──<span class="w"> </span>wsh_shell_history.h
+</span><span id="__span-0-22"><a id="__codelineno-0-22" name="__codelineno-0-22"></a>│<span class="w">   </span>├──<span class="w"> </span>wsh_shell_interact.c
+</span><span id="__span-0-23"><a id="__codelineno-0-23" name="__codelineno-0-23"></a>│<span class="w">   </span>├──<span class="w"> </span>wsh_shell_interact.h
+</span><span id="__span-0-24"><a id="__codelineno-0-24" name="__codelineno-0-24"></a>│<span class="w">   </span>├──<span class="w"> </span>wsh_shell_io.c
+</span><span id="__span-0-25"><a id="__codelineno-0-25" name="__codelineno-0-25"></a>│<span class="w">   </span>├──<span class="w"> </span>wsh_shell_io.h
+</span><span id="__span-0-26"><a id="__codelineno-0-26" name="__codelineno-0-26"></a>│<span class="w">   </span>├──<span class="w"> </span>wsh_shell_option.h
+</span><span id="__span-0-27"><a id="__codelineno-0-27" name="__codelineno-0-27"></a>│<span class="w">   </span>├──<span class="w"> </span>wsh_shell_promptwait.c
+</span><span id="__span-0-28"><a id="__codelineno-0-28" name="__codelineno-0-28"></a>│<span class="w">   </span>├──<span class="w"> </span>wsh_shell_promptwait.h
+</span><span id="__span-0-29"><a id="__codelineno-0-29" name="__codelineno-0-29"></a>│<span class="w">   </span>├──<span class="w"> </span>wsh_shell_ps1_custom.c
+</span><span id="__span-0-30"><a id="__codelineno-0-30" name="__codelineno-0-30"></a>│<span class="w">   </span>├──<span class="w"> </span>wsh_shell_ps1_custom.h
+</span><span id="__span-0-31"><a id="__codelineno-0-31" name="__codelineno-0-31"></a>│<span class="w">   </span>├──<span class="w"> </span>wsh_shell_str.c
+</span><span id="__span-0-32"><a id="__codelineno-0-32" name="__codelineno-0-32"></a>│<span class="w">   </span>├──<span class="w"> </span>wsh_shell_str.h
+</span><span id="__span-0-33"><a id="__codelineno-0-33" name="__codelineno-0-33"></a>│<span class="w">   </span>├──<span class="w"> </span>wsh_shell_types.h
+</span><span id="__span-0-34"><a id="__codelineno-0-34" name="__codelineno-0-34"></a>│<span class="w">   </span>├──<span class="w"> </span>wsh_shell_user.c
+</span><span id="__span-0-35"><a id="__codelineno-0-35" name="__codelineno-0-35"></a>│<span class="w">   </span>├──<span class="w"> </span>wsh_shell_user.h
+</span><span id="__span-0-36"><a id="__codelineno-0-36" name="__codelineno-0-36"></a>│<span class="w">   </span>└──<span class="w"> </span>wsh_shell_version.h
+</span><span id="__span-0-37"><a id="__codelineno-0-37" name="__codelineno-0-37"></a>└──<span class="w"> </span>utils
+</span><span id="__span-0-38"><a id="__codelineno-0-38" name="__codelineno-0-38"></a><span class="w">    </span>├──<span class="w"> </span>elf-size-analyse.py
+</span><span id="__span-0-39"><a id="__codelineno-0-39" name="__codelineno-0-39"></a><span class="w">    </span>├──<span class="w"> </span>gen-launch.py
+</span><span id="__span-0-40"><a id="__codelineno-0-40" name="__codelineno-0-40"></a><span class="w">    </span>└──<span class="w"> </span>shell-banner-gen.py
 </span></code></pre></div></td></tr></table></div>
 
 
@@ -2416,10 +2418,10 @@
     
     
       
-      <script id="__config" type="application/json">{"base": "../..", "features": ["announce.dismiss", "content.action.edit", "content.action.view", "content.code.annotate", "content.code.copy", "content.tooltips", "navigation.footer", "navigation.indexes", "navigation.path", "navigation.tabs", "navigation.top", "navigation.tracking", "search.highlight", "search.share", "search.suggest", "toc.follow"], "search": "../../assets/javascripts/workers/search.d50fe291.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"provider": "mike"}}</script>
+      <script id="__config" type="application/json">{"base": "../..", "features": ["announce.dismiss", "content.action.edit", "content.action.view", "content.code.annotate", "content.code.copy", "content.tooltips", "navigation.footer", "navigation.indexes", "navigation.path", "navigation.tabs", "navigation.top", "navigation.tracking", "search.highlight", "search.share", "search.suggest", "toc.follow"], "search": "../../assets/javascripts/workers/search.973d3a69.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"provider": "mike"}}</script>
     
     
-      <script src="../../assets/javascripts/bundle.50899def.min.js"></script>
+      <script src="../../assets/javascripts/bundle.92b07e13.min.js"></script>
       
     
   </body>

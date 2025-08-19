@@ -62,105 +62,6 @@
         </inbodydescription>
         <location file="src/wsh_shell_cfg_def.h" line="19" column="9" bodyfile="src/wsh_shell_cfg_def.h" bodystart="13" bodyend="-1"/>
       </memberdef>
-      <memberdef kind="define" id="wsh__shell__cfg__def_8h_1a1ef1c6ab90ec34dd2df2f4e9f13f7425" prot="public" static="no">
-        <name>WSH_SHELL_HISTORY</name>
-        <initializer>1</initializer>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="src/wsh_shell_cfg_def.h" line="27" column="9" bodyfile="src/wsh_shell_cfg_def.h" bodystart="27" bodyend="-1"/>
-      </memberdef>
-      <memberdef kind="define" id="wsh__shell__cfg__def_8h_1a56e6c2eba787687b9f39fe018f736aec" prot="public" static="no">
-        <name>WSH_SHELL_HISTORY_BUFF_SIZE</name>
-        <initializer>256</initializer>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="src/wsh_shell_cfg_def.h" line="28" column="9" bodyfile="src/wsh_shell_cfg_def.h" bodystart="28" bodyend="-1"/>
-      </memberdef>
-      <memberdef kind="define" id="wsh__shell__cfg__def_8h_1ace6c2248b6a226bf1af40670065a1f17" prot="public" static="no">
-        <name>WSH_SHELL_PS1_CUSTOM</name>
-        <initializer>1</initializer>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="src/wsh_shell_cfg_def.h" line="35" column="9" bodyfile="src/wsh_shell_cfg_def.h" bodystart="35" bodyend="-1"/>
-      </memberdef>
-      <memberdef kind="define" id="wsh__shell__cfg__def_8h_1a3892b3ae21a06cdb78603080f14e3f20" prot="public" static="no">
-        <name>WSH_SHELL_PS1_TEMPLATE</name>
-        <initializer>&quot;%r%b%c6%d%c7@%c5%u%c2%i %c7&gt; %r%c7&quot;</initializer>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="src/wsh_shell_cfg_def.h" line="36" column="9" bodyfile="src/wsh_shell_cfg_def.h" bodystart="36" bodyend="-1"/>
-      </memberdef>
-      <memberdef kind="define" id="wsh__shell__cfg__def_8h_1a01654c8758d856de9ad5a6c90218c5e8" prot="public" static="no">
-        <name>WSH_SHELL_PS1_MAX_LEN</name>
-        <initializer>128</initializer>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="src/wsh_shell_cfg_def.h" line="37" column="9" bodyfile="src/wsh_shell_cfg_def.h" bodystart="37" bodyend="-1"/>
-      </memberdef>
-      <memberdef kind="define" id="wsh__shell__cfg__def_8h_1aec8b61547ddf92fdef3cfff83bfa4c69" prot="public" static="no">
-        <name>WSH_SHELL_AUTOCOMPLETE</name>
-        <initializer>1</initializer>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="src/wsh_shell_cfg_def.h" line="44" column="9" bodyfile="src/wsh_shell_cfg_def.h" bodystart="44" bodyend="-1"/>
-      </memberdef>
-      <memberdef kind="define" id="wsh__shell__cfg__def_8h_1a06a74857c8c0d5425f50e800c88d2f71" prot="public" static="no">
-        <name>WSH_SHELL_AUTOCOMPLETE_PAD_LEN</name>
-        <initializer>32</initializer>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="src/wsh_shell_cfg_def.h" line="45" column="9" bodyfile="src/wsh_shell_cfg_def.h" bodystart="45" bodyend="-1"/>
-      </memberdef>
-      <memberdef kind="define" id="wsh__shell__cfg__def_8h_1ad78f3df270e130b8ea51a11bf1cabd60" prot="public" static="no">
-        <name>WSH_SHELL_AUTOCOMPLETE_PAD_SYM</name>
-        <initializer>&apos;.&apos;</initializer>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="src/wsh_shell_cfg_def.h" line="46" column="9" bodyfile="src/wsh_shell_cfg_def.h" bodystart="46" bodyend="-1"/>
-      </memberdef>
-      <memberdef kind="define" id="wsh__shell__cfg__def_8h_1ada4fbc968726db71306cbab04f40d8dc" prot="public" static="no">
-        <name>WSH_SHELL_INTERACTIVE_MODE</name>
-        <initializer>1</initializer>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="src/wsh_shell_cfg_def.h" line="53" column="9" bodyfile="src/wsh_shell_cfg_def.h" bodystart="53" bodyend="-1"/>
-      </memberdef>
       <memberdef kind="define" id="wsh__shell__cfg__def_8h_1a72c7484eaec49faaeee1cf64204699f1" prot="public" static="no">
         <name>WSH_SHELL_PRINT_SYS_ENABLE</name>
         <initializer>1</initializer>
@@ -170,7 +71,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/wsh_shell_cfg_def.h" line="60" column="9" bodyfile="src/wsh_shell_cfg_def.h" bodystart="60" bodyend="-1"/>
+        <location file="src/wsh_shell_cfg_def.h" line="27" column="9" bodyfile="src/wsh_shell_cfg_def.h" bodystart="27" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="wsh__shell__cfg__def_8h_1a27f6a3cf4f8e58bf359b3302f193837a" prot="public" static="no">
         <name>WSH_SHELL_PRINT_INFO_ENABLE</name>
@@ -181,7 +82,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/wsh_shell_cfg_def.h" line="61" column="9" bodyfile="src/wsh_shell_cfg_def.h" bodystart="61" bodyend="-1"/>
+        <location file="src/wsh_shell_cfg_def.h" line="28" column="9" bodyfile="src/wsh_shell_cfg_def.h" bodystart="28" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="wsh__shell__cfg__def_8h_1a562de8bdf247986858f8508931ee6475" prot="public" static="no">
         <name>WSH_SHELL_PRINT_WARN_ENABLE</name>
@@ -192,7 +93,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/wsh_shell_cfg_def.h" line="62" column="9" bodyfile="src/wsh_shell_cfg_def.h" bodystart="62" bodyend="-1"/>
+        <location file="src/wsh_shell_cfg_def.h" line="29" column="9" bodyfile="src/wsh_shell_cfg_def.h" bodystart="29" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="wsh__shell__cfg__def_8h_1af52044788ee1e8708babd5a32a51c7fd" prot="public" static="no">
         <name>WSH_SHELL_PRINT_ERR_ENABLE</name>
@@ -203,7 +104,18 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/wsh_shell_cfg_def.h" line="63" column="9" bodyfile="src/wsh_shell_cfg_def.h" bodystart="63" bodyend="-1"/>
+        <location file="src/wsh_shell_cfg_def.h" line="30" column="9" bodyfile="src/wsh_shell_cfg_def.h" bodystart="30" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="wsh__shell__cfg__def_8h_1a195ecfaaa46050c35ea3ab9eb9628da3" prot="public" static="no">
+        <name>WSH_SHELL_DEF_COMMAND</name>
+        <initializer>1</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/wsh_shell_cfg_def.h" line="37" column="9" bodyfile="src/wsh_shell_cfg_def.h" bodystart="37" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="wsh__shell__cfg__def_8h_1acac175a02863a35c570a3f9b3d8dbb1b" prot="public" static="no">
         <name>WSH_SHELL_PRINT_OPT_HELP_ENABLE</name>
@@ -214,7 +126,128 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/wsh_shell_cfg_def.h" line="64" column="9" bodyfile="src/wsh_shell_cfg_def.h" bodystart="64" bodyend="-1"/>
+        <location file="src/wsh_shell_cfg_def.h" line="44" column="9" bodyfile="src/wsh_shell_cfg_def.h" bodystart="44" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="wsh__shell__cfg__def_8h_1aa273f75ae3ac2350aaa0f0a89d482516" prot="public" static="no">
+        <name>WSH_SHELL_CMD_PRINT_OPT_OVERVIEW</name>
+        <initializer>1</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/wsh_shell_cfg_def.h" line="45" column="9" bodyfile="src/wsh_shell_cfg_def.h" bodystart="45" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="wsh__shell__cfg__def_8h_1ada4fbc968726db71306cbab04f40d8dc" prot="public" static="no">
+        <name>WSH_SHELL_INTERACTIVE_MODE</name>
+        <initializer>1</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/wsh_shell_cfg_def.h" line="52" column="9" bodyfile="src/wsh_shell_cfg_def.h" bodystart="52" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="wsh__shell__cfg__def_8h_1a1ef1c6ab90ec34dd2df2f4e9f13f7425" prot="public" static="no">
+        <name>WSH_SHELL_HISTORY</name>
+        <initializer>1</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/wsh_shell_cfg_def.h" line="59" column="9" bodyfile="src/wsh_shell_cfg_def.h" bodystart="59" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="wsh__shell__cfg__def_8h_1a56e6c2eba787687b9f39fe018f736aec" prot="public" static="no">
+        <name>WSH_SHELL_HISTORY_BUFF_SIZE</name>
+        <initializer>256</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/wsh_shell_cfg_def.h" line="60" column="9" bodyfile="src/wsh_shell_cfg_def.h" bodystart="60" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="wsh__shell__cfg__def_8h_1aec8b61547ddf92fdef3cfff83bfa4c69" prot="public" static="no">
+        <name>WSH_SHELL_AUTOCOMPLETE</name>
+        <initializer>1</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/wsh_shell_cfg_def.h" line="67" column="9" bodyfile="src/wsh_shell_cfg_def.h" bodystart="67" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="wsh__shell__cfg__def_8h_1a06a74857c8c0d5425f50e800c88d2f71" prot="public" static="no">
+        <name>WSH_SHELL_AUTOCOMPLETE_PAD_LEN</name>
+        <initializer>32</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/wsh_shell_cfg_def.h" line="68" column="9" bodyfile="src/wsh_shell_cfg_def.h" bodystart="68" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="wsh__shell__cfg__def_8h_1ad78f3df270e130b8ea51a11bf1cabd60" prot="public" static="no">
+        <name>WSH_SHELL_AUTOCOMPLETE_PAD_SYM</name>
+        <initializer>&apos;.&apos;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/wsh_shell_cfg_def.h" line="69" column="9" bodyfile="src/wsh_shell_cfg_def.h" bodystart="69" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="wsh__shell__cfg__def_8h_1ace6c2248b6a226bf1af40670065a1f17" prot="public" static="no">
+        <name>WSH_SHELL_PS1_CUSTOM</name>
+        <initializer>1</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/wsh_shell_cfg_def.h" line="76" column="9" bodyfile="src/wsh_shell_cfg_def.h" bodystart="76" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="wsh__shell__cfg__def_8h_1a3892b3ae21a06cdb78603080f14e3f20" prot="public" static="no">
+        <name>WSH_SHELL_PS1_TEMPLATE</name>
+        <initializer>&quot;%r%b%c6%d%c7@%c5%u%c2%i %c7&gt; %r%c7&quot;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/wsh_shell_cfg_def.h" line="77" column="9" bodyfile="src/wsh_shell_cfg_def.h" bodystart="77" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="wsh__shell__cfg__def_8h_1a01654c8758d856de9ad5a6c90218c5e8" prot="public" static="no">
+        <name>WSH_SHELL_PS1_MAX_LEN</name>
+        <initializer>128</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/wsh_shell_cfg_def.h" line="78" column="9" bodyfile="src/wsh_shell_cfg_def.h" bodystart="78" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="wsh__shell__cfg__def_8h_1a7af31e564fe835d55aa74b7bc684eae0" prot="public" static="no">
+        <name>WSH_SHELL_PROMPT_WAIT</name>
+        <initializer>1</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/wsh_shell_cfg_def.h" line="85" column="9" bodyfile="src/wsh_shell_cfg_def.h" bodystart="85" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="wsh__shell__cfg__def_8h_1a9cc874123e02a44f418562a8dd6cd892" prot="public" static="no">
         <name>WSH_SHELL_CMD_GROUP_NONE</name>
@@ -225,7 +258,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/wsh_shell_cfg_def.h" line="72" column="9" bodyfile="src/wsh_shell_cfg_def.h" bodystart="72" bodyend="-1"/>
+        <location file="src/wsh_shell_cfg_def.h" line="92" column="9" bodyfile="src/wsh_shell_cfg_def.h" bodystart="92" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="wsh__shell__cfg__def_8h_1a1834ff972b1e3eb6a753dc272aafec41" prot="public" static="no">
         <name>WSH_SHELL_CMD_GROUP_ALL</name>
@@ -236,7 +269,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/wsh_shell_cfg_def.h" line="73" column="9" bodyfile="src/wsh_shell_cfg_def.h" bodystart="73" bodyend="-1"/>
+        <location file="src/wsh_shell_cfg_def.h" line="93" column="9" bodyfile="src/wsh_shell_cfg_def.h" bodystart="93" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="wsh__shell__cfg__def_8h_1ac9697611a53211575b6eb7803b5f7dfa" prot="public" static="no">
         <name>WSH_SHELL_CMD_GROUP_MAX_COUNT</name>
@@ -247,7 +280,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/wsh_shell_cfg_def.h" line="74" column="9" bodyfile="src/wsh_shell_cfg_def.h" bodystart="74" bodyend="-1"/>
+        <location file="src/wsh_shell_cfg_def.h" line="94" column="9" bodyfile="src/wsh_shell_cfg_def.h" bodystart="94" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="wsh__shell__cfg__def_8h_1aed6960fa68ee3f33501aea8afd03f2e4" prot="public" static="no">
         <name>WSH_SHELL_CMD_GROUP_ADMIN</name>
@@ -258,7 +291,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/wsh_shell_cfg_def.h" line="76" column="9" bodyfile="src/wsh_shell_cfg_def.h" bodystart="76" bodyend="-1"/>
+        <location file="src/wsh_shell_cfg_def.h" line="96" column="9" bodyfile="src/wsh_shell_cfg_def.h" bodystart="96" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="wsh__shell__cfg__def_8h_1a61016ac6cab53a63c8f6448c376bca38" prot="public" static="no">
         <name>WSH_SHELL_CMD_GROUP_READER</name>
@@ -269,7 +302,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/wsh_shell_cfg_def.h" line="77" column="9" bodyfile="src/wsh_shell_cfg_def.h" bodystart="77" bodyend="-1"/>
+        <location file="src/wsh_shell_cfg_def.h" line="97" column="9" bodyfile="src/wsh_shell_cfg_def.h" bodystart="97" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="wsh__shell__cfg__def_8h_1a590165eafe6f1045e737863dec55fe94" prot="public" static="no">
         <name>WSH_SHELL_USER_GROUP_ADMIN</name>
@@ -280,7 +313,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/wsh_shell_cfg_def.h" line="79" column="9" bodyfile="src/wsh_shell_cfg_def.h" bodystart="79" bodyend="-1"/>
+        <location file="src/wsh_shell_cfg_def.h" line="99" column="9" bodyfile="src/wsh_shell_cfg_def.h" bodystart="99" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="wsh__shell__cfg__def_8h_1a1d1be3e3c4efba0946ba1cd48bf374a4" prot="public" static="no">
         <name>WSH_SHELL_USER_ACCESS_ADMIN</name>
@@ -291,7 +324,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/wsh_shell_cfg_def.h" line="80" column="9" bodyfile="src/wsh_shell_cfg_def.h" bodystart="80" bodyend="-1"/>
+        <location file="src/wsh_shell_cfg_def.h" line="100" column="9" bodyfile="src/wsh_shell_cfg_def.h" bodystart="100" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="wsh__shell__cfg__def_8h_1a6c7c6f8c30816f1cecf1c5528e014b16" prot="public" static="no">
         <name>WSH_SHELL_USER_GROUP_READER</name>
@@ -302,7 +335,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/wsh_shell_cfg_def.h" line="82" column="9" bodyfile="src/wsh_shell_cfg_def.h" bodystart="82" bodyend="-1"/>
+        <location file="src/wsh_shell_cfg_def.h" line="102" column="9" bodyfile="src/wsh_shell_cfg_def.h" bodystart="102" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="wsh__shell__cfg__def_8h_1a45f59a31e219c0d0d4dc5b41533afd1b" prot="public" static="no">
         <name>WSH_SHELL_USER_ACCESS_READER</name>
@@ -313,7 +346,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/wsh_shell_cfg_def.h" line="83" column="9" bodyfile="src/wsh_shell_cfg_def.h" bodystart="83" bodyend="-1"/>
+        <location file="src/wsh_shell_cfg_def.h" line="103" column="9" bodyfile="src/wsh_shell_cfg_def.h" bodystart="103" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="wsh__shell__cfg__def_8h_1a5b50d500fb7fe1030a651e4b5e921d32" prot="public" static="no">
         <name>WSH_SHELL_PRINT</name>
@@ -329,7 +362,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/wsh_shell_cfg_def.h" line="91" column="9" bodyfile="src/wsh_shell_cfg_def.h" bodystart="91" bodyend="-1"/>
+        <location file="src/wsh_shell_cfg_def.h" line="110" column="9" bodyfile="src/wsh_shell_cfg_def.h" bodystart="110" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="wsh__shell__cfg__def_8h_1a4885661933ff9dcdd023ee920e4bd8ab" prot="public" static="no">
         <name>WSH_SHELL_DEV_NAME_LEN</name>
@@ -340,7 +373,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/wsh_shell_cfg_def.h" line="103" column="9" bodyfile="src/wsh_shell_cfg_def.h" bodystart="103" bodyend="-1"/>
+        <location file="src/wsh_shell_cfg_def.h" line="121" column="9" bodyfile="src/wsh_shell_cfg_def.h" bodystart="121" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="wsh__shell__cfg__def_8h_1a63c776598f1f2124931154374fb52f2c" prot="public" static="no">
         <name>WSH_SHELL_OPTION_SHORT_NAME_LEN</name>
@@ -351,7 +384,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/wsh_shell_cfg_def.h" line="104" column="9" bodyfile="src/wsh_shell_cfg_def.h" bodystart="104" bodyend="-1"/>
+        <location file="src/wsh_shell_cfg_def.h" line="122" column="9" bodyfile="src/wsh_shell_cfg_def.h" bodystart="122" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="wsh__shell__cfg__def_8h_1a8cff30a2f70865203277c34946d2caf1" prot="public" static="no">
         <name>WSH_SHELL_OPTION_LONG_NAME_LEN</name>
@@ -362,7 +395,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/wsh_shell_cfg_def.h" line="105" column="9" bodyfile="src/wsh_shell_cfg_def.h" bodystart="105" bodyend="-1"/>
+        <location file="src/wsh_shell_cfg_def.h" line="123" column="9" bodyfile="src/wsh_shell_cfg_def.h" bodystart="123" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="wsh__shell__cfg__def_8h_1ae06a8a4829c6616449874a9685a3d290" prot="public" static="no">
         <name>WSH_SHELL_CMD_OPTIONS_MAX_NUM</name>
@@ -373,7 +406,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/wsh_shell_cfg_def.h" line="106" column="9" bodyfile="src/wsh_shell_cfg_def.h" bodystart="106" bodyend="-1"/>
+        <location file="src/wsh_shell_cfg_def.h" line="124" column="9" bodyfile="src/wsh_shell_cfg_def.h" bodystart="124" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="wsh__shell__cfg__def_8h_1a79de0f7193e33f404b77ae866c49d98f" prot="public" static="no">
         <name>WSH_SHELL_CMD_NAME_LEN</name>
@@ -384,7 +417,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/wsh_shell_cfg_def.h" line="107" column="9" bodyfile="src/wsh_shell_cfg_def.h" bodystart="107" bodyend="-1"/>
+        <location file="src/wsh_shell_cfg_def.h" line="125" column="9" bodyfile="src/wsh_shell_cfg_def.h" bodystart="125" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="wsh__shell__cfg__def_8h_1a812beb026e11a5ea7d033d5d8e348d1f" prot="public" static="no">
         <name>WSH_SHELL_CMD_ARGS_MAX_NUM</name>
@@ -395,7 +428,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/wsh_shell_cfg_def.h" line="108" column="9" bodyfile="src/wsh_shell_cfg_def.h" bodystart="108" bodyend="-1"/>
+        <location file="src/wsh_shell_cfg_def.h" line="126" column="9" bodyfile="src/wsh_shell_cfg_def.h" bodystart="126" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="wsh__shell__cfg__def_8h_1a9f92ef57a08be8ad8abed10d49d4698b" prot="public" static="no">
         <name>WSH_SHELL_LOGIN_LEN</name>
@@ -406,7 +439,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/wsh_shell_cfg_def.h" line="109" column="9" bodyfile="src/wsh_shell_cfg_def.h" bodystart="109" bodyend="-1"/>
+        <location file="src/wsh_shell_cfg_def.h" line="127" column="9" bodyfile="src/wsh_shell_cfg_def.h" bodystart="127" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="wsh__shell__cfg__def_8h_1a644af2e0140720678b57a5536ae9893e" prot="public" static="no">
         <name>WSH_SHELL_PASS_LEN</name>
@@ -417,7 +450,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/wsh_shell_cfg_def.h" line="110" column="9" bodyfile="src/wsh_shell_cfg_def.h" bodystart="110" bodyend="-1"/>
+        <location file="src/wsh_shell_cfg_def.h" line="128" column="9" bodyfile="src/wsh_shell_cfg_def.h" bodystart="128" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="wsh__shell__cfg__def_8h_1afc84660b6e175ec3b2470dea5b01fb59" prot="public" static="no">
         <name>WSH_SHELL_INTR_BUFF_LEN</name>
@@ -428,7 +461,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/wsh_shell_cfg_def.h" line="111" column="9" bodyfile="src/wsh_shell_cfg_def.h" bodystart="111" bodyend="-1"/>
+        <location file="src/wsh_shell_cfg_def.h" line="129" column="9" bodyfile="src/wsh_shell_cfg_def.h" bodystart="129" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="wsh__shell__cfg__def_8h_1a14dbb76d5fc5b27c4c6bfadd000443ba" prot="public" static="no">
         <name>WSH_SHELL_ESC_BUFF_LEN</name>
@@ -439,7 +472,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/wsh_shell_cfg_def.h" line="112" column="9" bodyfile="src/wsh_shell_cfg_def.h" bodystart="112" bodyend="-1"/>
+        <location file="src/wsh_shell_cfg_def.h" line="130" column="9" bodyfile="src/wsh_shell_cfg_def.h" bodystart="130" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="wsh__shell__cfg__def_8h_1ab738f1d1d08c8f060041628c3bcd49ee" prot="public" static="no">
         <name>WSH_SHELL_ASSERT</name>
@@ -450,7 +483,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/wsh_shell_cfg_def.h" line="132" column="17" bodyfile="src/wsh_shell_cfg_def.h" bodystart="132" bodyend="-1"/>
+        <location file="src/wsh_shell_cfg_def.h" line="152" column="17" bodyfile="src/wsh_shell_cfg_def.h" bodystart="152" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="wsh__shell__cfg__def_8h_1ac3328721726373823226e2213ad249fc" prot="public" static="no">
         <name>WSH_SHELL_MEMSET</name>
@@ -464,7 +497,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/wsh_shell_cfg_def.h" line="138" column="13" bodyfile="src/wsh_shell_cfg_def.h" bodystart="138" bodyend="-1"/>
+        <location file="src/wsh_shell_cfg_def.h" line="162" column="13" bodyfile="src/wsh_shell_cfg_def.h" bodystart="162" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="wsh__shell__cfg__def_8h_1a5e57c1924aefcc88d15846a489592ee5" prot="public" static="no">
         <name>WSH_SHELL_MEMCPY</name>
@@ -478,7 +511,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/wsh_shell_cfg_def.h" line="142" column="13" bodyfile="src/wsh_shell_cfg_def.h" bodystart="142" bodyend="-1"/>
+        <location file="src/wsh_shell_cfg_def.h" line="166" column="13" bodyfile="src/wsh_shell_cfg_def.h" bodystart="166" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="wsh__shell__cfg__def_8h_1ab83d9386a0b07cab6bb551809a01873e" prot="public" static="no">
         <name>WSH_SHELL_MEMCMP</name>
@@ -492,7 +525,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/wsh_shell_cfg_def.h" line="146" column="13" bodyfile="src/wsh_shell_cfg_def.h" bodystart="146" bodyend="-1"/>
+        <location file="src/wsh_shell_cfg_def.h" line="170" column="13" bodyfile="src/wsh_shell_cfg_def.h" bodystart="170" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="wsh__shell__cfg__def_8h_1a220a3d145cf8764414cbb974ed752177" prot="public" static="no">
         <name>WSH_SHELL_STRCPY</name>
@@ -505,7 +538,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/wsh_shell_cfg_def.h" line="150" column="13" bodyfile="src/wsh_shell_cfg_def.h" bodystart="150" bodyend="-1"/>
+        <location file="src/wsh_shell_cfg_def.h" line="174" column="13" bodyfile="src/wsh_shell_cfg_def.h" bodystart="174" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="wsh__shell__cfg__def_8h_1a7db510d40163ca4086693f49b30d8541" prot="public" static="no">
         <name>WSH_SHELL_STRNCPY</name>
@@ -519,7 +552,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/wsh_shell_cfg_def.h" line="154" column="13" bodyfile="src/wsh_shell_cfg_def.h" bodystart="154" bodyend="-1"/>
+        <location file="src/wsh_shell_cfg_def.h" line="178" column="13" bodyfile="src/wsh_shell_cfg_def.h" bodystart="178" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="wsh__shell__cfg__def_8h_1a6666d09772ae52c355f35d809c880ceb" prot="public" static="no">
         <name>WSH_SHELL_STRLEN</name>
@@ -531,7 +564,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/wsh_shell_cfg_def.h" line="158" column="13" bodyfile="src/wsh_shell_cfg_def.h" bodystart="158" bodyend="-1"/>
+        <location file="src/wsh_shell_cfg_def.h" line="182" column="13" bodyfile="src/wsh_shell_cfg_def.h" bodystart="182" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="wsh__shell__cfg__def_8h_1a3bcc1a8c04b11bc51f4bd4f6df980f4e" prot="public" static="no">
         <name>WSH_SHELL_STRNLEN</name>
@@ -544,7 +577,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/wsh_shell_cfg_def.h" line="162" column="13" bodyfile="src/wsh_shell_cfg_def.h" bodystart="162" bodyend="-1"/>
+        <location file="src/wsh_shell_cfg_def.h" line="186" column="13" bodyfile="src/wsh_shell_cfg_def.h" bodystart="186" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="wsh__shell__cfg__def_8h_1a05927f10b2028cf150f8e726bfa332c6" prot="public" static="no">
         <name>WSH_SHELL_STRCMP</name>
@@ -557,7 +590,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/wsh_shell_cfg_def.h" line="166" column="13" bodyfile="src/wsh_shell_cfg_def.h" bodystart="166" bodyend="-1"/>
+        <location file="src/wsh_shell_cfg_def.h" line="190" column="13" bodyfile="src/wsh_shell_cfg_def.h" bodystart="190" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="wsh__shell__cfg__def_8h_1a6033fbc6803dff77be7a22571f318011" prot="public" static="no">
         <name>WSH_SHELL_STRNCMP</name>
@@ -571,7 +604,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/wsh_shell_cfg_def.h" line="170" column="13" bodyfile="src/wsh_shell_cfg_def.h" bodystart="170" bodyend="-1"/>
+        <location file="src/wsh_shell_cfg_def.h" line="194" column="13" bodyfile="src/wsh_shell_cfg_def.h" bodystart="194" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="wsh__shell__cfg__def_8h_1aa3f0830eb541f3e35f1b32ac84c42c57" prot="public" static="no">
         <name>WSH_SHELL_STRTOL</name>
@@ -585,7 +618,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/wsh_shell_cfg_def.h" line="174" column="13" bodyfile="src/wsh_shell_cfg_def.h" bodystart="174" bodyend="-1"/>
+        <location file="src/wsh_shell_cfg_def.h" line="198" column="13" bodyfile="src/wsh_shell_cfg_def.h" bodystart="198" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="wsh__shell__cfg__def_8h_1a6a21b8a7a26b6cfbf320ce2d08655934" prot="public" static="no">
         <name>WSH_SHELL_STRTOF</name>
@@ -598,7 +631,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/wsh_shell_cfg_def.h" line="178" column="13" bodyfile="src/wsh_shell_cfg_def.h" bodystart="178" bodyend="-1"/>
+        <location file="src/wsh_shell_cfg_def.h" line="202" column="13" bodyfile="src/wsh_shell_cfg_def.h" bodystart="202" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="wsh__shell__cfg__def_8h_1a50805c7f390e5ce4dde1cfdcaaae86a7" prot="public" static="no">
         <name>WSH_SHELL_SNPRINTF</name>
@@ -612,7 +645,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/wsh_shell_cfg_def.h" line="182" column="13" bodyfile="src/wsh_shell_cfg_def.h" bodystart="182" bodyend="-1"/>
+        <location file="src/wsh_shell_cfg_def.h" line="206" column="13" bodyfile="src/wsh_shell_cfg_def.h" bodystart="206" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="wsh__shell__cfg__def_8h_1afeac7831da8c1d72496d93ea22648e7d" prot="public" static="no">
         <name>RET_STATE_MAP_TABLE</name>
@@ -634,7 +667,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/wsh_shell_cfg_def.h" line="186" column="9" bodyfile="src/wsh_shell_cfg_def.h" bodystart="186" bodyend="-1"/>
+        <location file="src/wsh_shell_cfg_def.h" line="214" column="9" bodyfile="src/wsh_shell_cfg_def.h" bodystart="214" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="wsh__shell__cfg__def_8h_1a81340832b4db62f2d31b410d3e748577" prot="public" static="no">
         <name>X_MAP_ENTRY</name>
@@ -648,7 +681,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/wsh_shell_cfg_def.h" line="201" column="9"/>
+        <location file="src/wsh_shell_cfg_def.h" line="229" column="9"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="func">
@@ -667,7 +700,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/wsh_shell_cfg_def.h" line="199" column="20" bodyfile="src/wsh_shell_cfg_def.h" bodystart="199" bodyend="209"/>
+        <location file="src/wsh_shell_cfg_def.h" line="227" column="20" bodyfile="src/wsh_shell_cfg_def.h" bodystart="227" bodyend="237"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
@@ -682,7 +715,7 @@
 <codeline lineno="5"><highlight class="normal"></highlight></codeline>
 <codeline lineno="6"><highlight class="normal"></highlight><highlight class="comment">/*<sp/></highlight></codeline>
 <codeline lineno="7"><highlight class="comment"><sp/>*<sp/>─────────────────────────────────────────────</highlight></codeline>
-<codeline lineno="8"><highlight class="comment"><sp/>*<sp/>Shell<sp/>welcome<sp/>banner</highlight></codeline>
+<codeline lineno="8"><highlight class="comment"><sp/>*<sp/>Shell<sp/>welcome<sp/>banner<sp/>(ASCII<sp/>logo)</highlight></codeline>
 <codeline lineno="9"><highlight class="comment"><sp/>*<sp/>─────────────────────────────────────────────<sp/></highlight></codeline>
 <codeline lineno="10"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="11"><highlight class="normal"></highlight></codeline>
@@ -698,194 +731,222 @@
 <codeline lineno="21"><highlight class="normal"></highlight></codeline>
 <codeline lineno="22"><highlight class="normal"></highlight><highlight class="comment">/*<sp/></highlight></codeline>
 <codeline lineno="23"><highlight class="comment"><sp/>*<sp/>─────────────────────────────────────────────</highlight></codeline>
-<codeline lineno="24"><highlight class="comment"><sp/>*<sp/>History<sp/>configuration</highlight></codeline>
+<codeline lineno="24"><highlight class="comment"><sp/>*<sp/>Print<sp/>objects<sp/>customization</highlight></codeline>
 <codeline lineno="25"><highlight class="comment"><sp/>*<sp/>─────────────────────────────────────────────<sp/></highlight></codeline>
 <codeline lineno="26"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="27"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>WSH_SHELL_HISTORY<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>1</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="28"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>WSH_SHELL_HISTORY_BUFF_SIZE<sp/>256</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="29"><highlight class="normal"></highlight></codeline>
-<codeline lineno="30"><highlight class="normal"></highlight><highlight class="comment">/*<sp/></highlight></codeline>
-<codeline lineno="31"><highlight class="comment"><sp/>*<sp/>─────────────────────────────────────────────</highlight></codeline>
-<codeline lineno="32"><highlight class="comment"><sp/>*<sp/>PS1<sp/>line<sp/>configuration</highlight></codeline>
-<codeline lineno="33"><highlight class="comment"><sp/>*<sp/>─────────────────────────────────────────────<sp/></highlight></codeline>
-<codeline lineno="34"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="35"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>WSH_SHELL_PS1_CUSTOM<sp/><sp/><sp/>1</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="36"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>WSH_SHELL_PS1_TEMPLATE<sp/>&quot;%r%b%c6%d%c7@%c5%u%c2%i<sp/>%c7&gt;<sp/>%r%c7&quot;</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="37"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>WSH_SHELL_PS1_MAX_LEN<sp/><sp/>128</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="27"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>WSH_SHELL_PRINT_SYS_ENABLE<sp/><sp/>1</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="28"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>WSH_SHELL_PRINT_INFO_ENABLE<sp/>1</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="29"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>WSH_SHELL_PRINT_WARN_ENABLE<sp/>1</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="30"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>WSH_SHELL_PRINT_ERR_ENABLE<sp/><sp/>1</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="31"><highlight class="normal"></highlight></codeline>
+<codeline lineno="32"><highlight class="normal"></highlight><highlight class="comment">/*<sp/></highlight></codeline>
+<codeline lineno="33"><highlight class="comment"><sp/>*<sp/>─────────────────────────────────────────────</highlight></codeline>
+<codeline lineno="34"><highlight class="comment"><sp/>*<sp/>Default<sp/>shell<sp/>command<sp/>(executed<sp/>at<sp/>startup)</highlight></codeline>
+<codeline lineno="35"><highlight class="comment"><sp/>*<sp/>─────────────────────────────────────────────<sp/></highlight></codeline>
+<codeline lineno="36"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="37"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>WSH_SHELL_DEF_COMMAND<sp/>1</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="38"><highlight class="normal"></highlight></codeline>
 <codeline lineno="39"><highlight class="normal"></highlight><highlight class="comment">/*<sp/></highlight></codeline>
 <codeline lineno="40"><highlight class="comment"><sp/>*<sp/>─────────────────────────────────────────────</highlight></codeline>
-<codeline lineno="41"><highlight class="comment"><sp/>*<sp/>Command<sp/>autocompletion</highlight></codeline>
+<codeline lineno="41"><highlight class="comment"><sp/>*<sp/>Command<sp/>descriptions(help)<sp/>-<sp/>store<sp/>and<sp/>print</highlight></codeline>
 <codeline lineno="42"><highlight class="comment"><sp/>*<sp/>─────────────────────────────────────────────<sp/></highlight></codeline>
 <codeline lineno="43"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="44"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>WSH_SHELL_AUTOCOMPLETE<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>1</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="45"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>WSH_SHELL_AUTOCOMPLETE_PAD_LEN<sp/>32</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="46"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>WSH_SHELL_AUTOCOMPLETE_PAD_SYM<sp/>&apos;.&apos;</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="47"><highlight class="normal"></highlight></codeline>
-<codeline lineno="48"><highlight class="normal"></highlight><highlight class="comment">/*<sp/></highlight></codeline>
-<codeline lineno="49"><highlight class="comment"><sp/>*<sp/>─────────────────────────────────────────────</highlight></codeline>
-<codeline lineno="50"><highlight class="comment"><sp/>*<sp/>Interactive<sp/>command<sp/>mode</highlight></codeline>
-<codeline lineno="51"><highlight class="comment"><sp/>*<sp/>─────────────────────────────────────────────<sp/></highlight></codeline>
-<codeline lineno="52"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="53"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>WSH_SHELL_INTERACTIVE_MODE<sp/>1</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="54"><highlight class="normal"></highlight></codeline>
-<codeline lineno="55"><highlight class="normal"></highlight><highlight class="comment">/*<sp/></highlight></codeline>
-<codeline lineno="56"><highlight class="comment"><sp/>*<sp/>─────────────────────────────────────────────</highlight></codeline>
-<codeline lineno="57"><highlight class="comment"><sp/>*<sp/>Print<sp/>objects<sp/>customization<sp/>for<sp/>minimize<sp/>shell<sp/>size</highlight></codeline>
-<codeline lineno="58"><highlight class="comment"><sp/>*<sp/>─────────────────────────────────────────────<sp/></highlight></codeline>
-<codeline lineno="59"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="60"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>WSH_SHELL_PRINT_SYS_ENABLE<sp/><sp/><sp/><sp/><sp/><sp/>1</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="61"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>WSH_SHELL_PRINT_INFO_ENABLE<sp/><sp/><sp/><sp/><sp/>1</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="62"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>WSH_SHELL_PRINT_WARN_ENABLE<sp/><sp/><sp/><sp/><sp/>1</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="63"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>WSH_SHELL_PRINT_ERR_ENABLE<sp/><sp/><sp/><sp/><sp/><sp/>1</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="64"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>WSH_SHELL_PRINT_OPT_HELP_ENABLE<sp/>1</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="65"><highlight class="normal"></highlight></codeline>
-<codeline lineno="66"><highlight class="normal"></highlight><highlight class="comment">/*<sp/></highlight></codeline>
-<codeline lineno="67"><highlight class="comment"><sp/>*<sp/>─────────────────────────────────────────────</highlight></codeline>
-<codeline lineno="68"><highlight class="comment"><sp/>*<sp/>Command<sp/>groups</highlight></codeline>
-<codeline lineno="69"><highlight class="comment"><sp/>*<sp/>─────────────────────────────────────────────<sp/></highlight></codeline>
-<codeline lineno="70"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="71"><highlight class="normal"></highlight></codeline>
-<codeline lineno="72"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>WSH_SHELL_CMD_GROUP_NONE<sp/><sp/><sp/><sp/><sp/><sp/>0x00</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="73"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>WSH_SHELL_CMD_GROUP_ALL<sp/><sp/><sp/><sp/><sp/><sp/><sp/>((WshShell_Size_t)(~0U))</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="74"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>WSH_SHELL_CMD_GROUP_MAX_COUNT<sp/>4</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="75"><highlight class="normal"></highlight></codeline>
-<codeline lineno="76"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>WSH_SHELL_CMD_GROUP_ADMIN<sp/><sp/>0x01</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="77"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>WSH_SHELL_CMD_GROUP_READER<sp/>0x02</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="78"><highlight class="normal"></highlight></codeline>
-<codeline lineno="79"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>WSH_SHELL_USER_GROUP_ADMIN<sp/><sp/>(WSH_SHELL_CMD_GROUP_ALL)</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="80"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>WSH_SHELL_USER_ACCESS_ADMIN<sp/>(WSH_SHELL_OPT_ACCESS_ANY)</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="81"><highlight class="normal"></highlight></codeline>
-<codeline lineno="82"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>WSH_SHELL_USER_GROUP_READER<sp/><sp/>(WSH_SHELL_CMD_GROUP_READER)</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="83"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>WSH_SHELL_USER_ACCESS_READER<sp/>(WSH_SHELL_OPT_ACCESS_ANY)</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="84"><highlight class="normal"></highlight></codeline>
-<codeline lineno="85"><highlight class="normal"></highlight><highlight class="comment">/*<sp/></highlight></codeline>
-<codeline lineno="86"><highlight class="comment"><sp/>*<sp/>─────────────────────────────────────────────</highlight></codeline>
-<codeline lineno="87"><highlight class="comment"><sp/>*<sp/></highlight></codeline>
-<codeline lineno="88"><highlight class="comment"><sp/>*<sp/>─────────────────────────────────────────────<sp/></highlight></codeline>
-<codeline lineno="89"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="90"><highlight class="normal"></highlight></codeline>
-<codeline lineno="91"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>WSH_SHELL_PRINT(_f_,<sp/>...)<sp/><sp/><sp/>\</highlight></codeline>
-<codeline lineno="92"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>do<sp/>{<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>\</highlight></codeline>
-<codeline lineno="93"><highlight class="preprocessor"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>printf(_f_,<sp/>##__VA_ARGS__);<sp/>\</highlight></codeline>
-<codeline lineno="94"><highlight class="preprocessor"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>fflush(stdout);<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>\</highlight></codeline>
-<codeline lineno="95"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>}<sp/>while<sp/>(0)</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="96"><highlight class="normal"></highlight></codeline>
-<codeline lineno="97"><highlight class="normal"></highlight><highlight class="comment">/*<sp/></highlight></codeline>
-<codeline lineno="98"><highlight class="comment"><sp/>*<sp/>─────────────────────────────────────────────</highlight></codeline>
-<codeline lineno="99"><highlight class="comment"><sp/>*<sp/></highlight></codeline>
-<codeline lineno="100"><highlight class="comment"><sp/>*<sp/>─────────────────────────────────────────────<sp/></highlight></codeline>
-<codeline lineno="101"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="102"><highlight class="normal"></highlight></codeline>
-<codeline lineno="103"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>WSH_SHELL_DEV_NAME_LEN<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>16<sp/><sp/></highlight><highlight class="comment">//Device<sp/>name<sp/>max<sp/>length.</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="104"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>WSH_SHELL_OPTION_SHORT_NAME_LEN<sp/>2<sp/><sp/><sp/></highlight><highlight class="comment">//Option<sp/>short<sp/>name<sp/>string<sp/>max<sp/>length.</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="105"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>WSH_SHELL_OPTION_LONG_NAME_LEN<sp/><sp/>16<sp/><sp/></highlight><highlight class="comment">//Option<sp/>long<sp/>name<sp/>string<sp/>max<sp/>length.</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="106"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>WSH_SHELL_CMD_OPTIONS_MAX_NUM<sp/><sp/><sp/>16<sp/><sp/></highlight><highlight class="comment">//Max<sp/>amount<sp/>of<sp/>founded<sp/>options<sp/>in<sp/>command<sp/>call<sp/>string.</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="107"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>WSH_SHELL_CMD_NAME_LEN<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>16<sp/><sp/></highlight><highlight class="comment">//Command<sp/>name<sp/>string<sp/>max<sp/>length.</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="108"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>WSH_SHELL_CMD_ARGS_MAX_NUM<sp/><sp/><sp/><sp/><sp/><sp/>16<sp/><sp/></highlight><highlight class="comment">//Max<sp/>amount<sp/>of<sp/>arguments<sp/>for<sp/>passing<sp/>in<sp/>command.</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="109"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>WSH_SHELL_LOGIN_LEN<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>16<sp/><sp/></highlight><highlight class="comment">//Max<sp/>length<sp/>of<sp/>a<sp/>user<sp/>name</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="110"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>WSH_SHELL_PASS_LEN<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>16<sp/><sp/></highlight><highlight class="comment">//Max<sp/>length<sp/>of<sp/>a<sp/>user<sp/>password</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="111"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>WSH_SHELL_INTR_BUFF_LEN<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>64<sp/><sp/></highlight><highlight class="comment">//Interactive<sp/>buffer<sp/>size.</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="112"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>WSH_SHELL_ESC_BUFF_LEN<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>8<sp/><sp/><sp/></highlight><highlight class="comment">//Escape<sp/>sequence<sp/>buffer<sp/>length.</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="113"><highlight class="normal"></highlight></codeline>
-<codeline lineno="114"><highlight class="normal"></highlight><highlight class="preprocessor">#ifdef<sp/>WSH_SHELL_ASSERT_ENABLE</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="115"><highlight class="normal"></highlight><highlight class="preprocessor"><sp/><sp/><sp/><sp/>#include<sp/>&lt;assert.h&gt;</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="116"><highlight class="normal"></highlight><highlight class="preprocessor"><sp/><sp/><sp/><sp/>#include<sp/>&lt;signal.h&gt;</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="117"><highlight class="normal"></highlight></codeline>
-<codeline lineno="118"><highlight class="normal"></highlight><highlight class="preprocessor"><sp/><sp/><sp/><sp/>#ifndef<sp/>WSH_SHELL_ASSERT</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="119"><highlight class="normal"></highlight><highlight class="preprocessor"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>#define<sp/>WSH_SHELL_ASSERT(exp)<sp/>\</highlight></codeline>
-<codeline lineno="120"><highlight class="preprocessor"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>do<sp/>{<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>\</highlight></codeline>
-<codeline lineno="121"><highlight class="preprocessor"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>if<sp/>(!(exp))<sp/>{<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>\</highlight></codeline>
-<codeline lineno="122"><highlight class="preprocessor"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>raise(SIGTRAP);<sp/><sp/><sp/>\</highlight></codeline>
-<codeline lineno="123"><highlight class="preprocessor"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>while<sp/>(1)<sp/>{<sp/><sp/><sp/><sp/><sp/><sp/><sp/>\</highlight></codeline>
-<codeline lineno="124"><highlight class="preprocessor"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>\</highlight></codeline>
-<codeline lineno="125"><highlight class="preprocessor"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>\</highlight></codeline>
-<codeline lineno="126"><highlight class="preprocessor"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}<sp/>while<sp/>(0)</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="127"><highlight class="normal"></highlight><highlight class="preprocessor"><sp/><sp/><sp/><sp/>#endif<sp/></highlight><highlight class="comment">/*<sp/>WSH_SHELL_ASSERT<sp/>*/</highlight><highlight class="preprocessor"></highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="128"><highlight class="normal"></highlight></codeline>
-<codeline lineno="129"><highlight class="normal"></highlight><highlight class="preprocessor">#else<sp/></highlight><highlight class="comment">/*<sp/>WSH_SHELL_ASSERT_ENABLE<sp/>*/</highlight><highlight class="preprocessor"></highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="130"><highlight class="normal"></highlight></codeline>
-<codeline lineno="131"><highlight class="normal"></highlight><highlight class="preprocessor"><sp/><sp/><sp/><sp/>#ifndef<sp/>WSH_SHELL_ASSERT</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="132"><highlight class="normal"></highlight><highlight class="preprocessor"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>#define<sp/>WSH_SHELL_ASSERT(exp)</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="133"><highlight class="normal"></highlight><highlight class="preprocessor"><sp/><sp/><sp/><sp/>#endif<sp/></highlight><highlight class="comment">/*<sp/>WSH_SHELL_ASSERT<sp/>*/</highlight><highlight class="preprocessor"></highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="134"><highlight class="normal"></highlight></codeline>
-<codeline lineno="135"><highlight class="normal"></highlight><highlight class="preprocessor">#endif<sp/></highlight><highlight class="comment">/*<sp/>WSH_SHELL_ASSERT_ENABLE<sp/>*/</highlight><highlight class="preprocessor"></highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="136"><highlight class="normal"></highlight></codeline>
-<codeline lineno="137"><highlight class="normal"></highlight><highlight class="preprocessor">#ifndef<sp/>WSH_SHELL_MEMSET</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="138"><highlight class="normal"></highlight><highlight class="preprocessor"><sp/><sp/><sp/><sp/>#define<sp/>WSH_SHELL_MEMSET(pD,<sp/>c,<sp/>sz)<sp/>memset((pD),<sp/>(c),<sp/>(sz))</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="139"><highlight class="normal"></highlight><highlight class="preprocessor">#endif<sp/></highlight><highlight class="comment">/*<sp/>WSH_SHELL_MEMSET<sp/>*/</highlight><highlight class="preprocessor"></highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="140"><highlight class="normal"></highlight></codeline>
-<codeline lineno="141"><highlight class="normal"></highlight><highlight class="preprocessor">#ifndef<sp/>WSH_SHELL_MEMCPY</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="142"><highlight class="normal"></highlight><highlight class="preprocessor"><sp/><sp/><sp/><sp/>#define<sp/>WSH_SHELL_MEMCPY(pD,<sp/>pS,<sp/>sz)<sp/>memcpy((pD),<sp/>(pS),<sp/>(sz))</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="143"><highlight class="normal"></highlight><highlight class="preprocessor">#endif<sp/></highlight><highlight class="comment">/*<sp/>WSH_SHELL_MEMCPY<sp/>*/</highlight><highlight class="preprocessor"></highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="144"><highlight class="normal"></highlight></codeline>
-<codeline lineno="145"><highlight class="normal"></highlight><highlight class="preprocessor">#ifndef<sp/>WSH_SHELL_MEMCMP</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="146"><highlight class="normal"></highlight><highlight class="preprocessor"><sp/><sp/><sp/><sp/>#define<sp/>WSH_SHELL_MEMCMP(pD,<sp/>pS,<sp/>sz)<sp/>memcmp((pD),<sp/>(pS),<sp/>(sz))</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="147"><highlight class="normal"></highlight><highlight class="preprocessor">#endif<sp/></highlight><highlight class="comment">/*<sp/>WSH_SHELL_MEMCPY<sp/>*/</highlight><highlight class="preprocessor"></highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="148"><highlight class="normal"></highlight></codeline>
-<codeline lineno="149"><highlight class="normal"></highlight><highlight class="preprocessor">#ifndef<sp/>WSH_SHELL_STRCPY</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="150"><highlight class="normal"></highlight><highlight class="preprocessor"><sp/><sp/><sp/><sp/>#define<sp/>WSH_SHELL_STRCPY(pD,<sp/>pS)<sp/>strcpy((pD),<sp/>(pS))</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="151"><highlight class="normal"></highlight><highlight class="preprocessor">#endif<sp/></highlight><highlight class="comment">/*<sp/>WSH_SHELL_STRCPY<sp/>*/</highlight><highlight class="preprocessor"></highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="152"><highlight class="normal"></highlight></codeline>
-<codeline lineno="153"><highlight class="normal"></highlight><highlight class="preprocessor">#ifndef<sp/>WSH_SHELL_STRNCPY</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="154"><highlight class="normal"></highlight><highlight class="preprocessor"><sp/><sp/><sp/><sp/>#define<sp/>WSH_SHELL_STRNCPY(pD,<sp/>pS,<sp/>sz)<sp/>strncpy((pD),<sp/>(pS),<sp/>(sz))</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="155"><highlight class="normal"></highlight><highlight class="preprocessor">#endif<sp/></highlight><highlight class="comment">/*<sp/>WSH_SHELL_STRNCPY<sp/>*/</highlight><highlight class="preprocessor"></highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="156"><highlight class="normal"></highlight></codeline>
-<codeline lineno="157"><highlight class="normal"></highlight><highlight class="preprocessor">#ifndef<sp/>WSH_SHELL_STRLEN</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="158"><highlight class="normal"></highlight><highlight class="preprocessor"><sp/><sp/><sp/><sp/>#define<sp/>WSH_SHELL_STRLEN(pS)<sp/>strlen((pS))</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="159"><highlight class="normal"></highlight><highlight class="preprocessor">#endif<sp/></highlight><highlight class="comment">/*<sp/>WSH_SHELL_STRLEN<sp/>*/</highlight><highlight class="preprocessor"></highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="160"><highlight class="normal"></highlight></codeline>
-<codeline lineno="161"><highlight class="normal"></highlight><highlight class="preprocessor">#ifndef<sp/>WSH_SHELL_STRNLEN</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="162"><highlight class="normal"></highlight><highlight class="preprocessor"><sp/><sp/><sp/><sp/>#define<sp/>WSH_SHELL_STRNLEN(pS,<sp/>len)<sp/>strnlen((pS),<sp/>(len))</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="163"><highlight class="normal"></highlight><highlight class="preprocessor">#endif<sp/></highlight><highlight class="comment">/*<sp/>WSH_SHELL_STRNLEN<sp/>*/</highlight><highlight class="preprocessor"></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="44"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>WSH_SHELL_PRINT_OPT_HELP_ENABLE<sp/><sp/>1</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="45"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>WSH_SHELL_CMD_PRINT_OPT_OVERVIEW<sp/>1</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="46"><highlight class="normal"></highlight></codeline>
+<codeline lineno="47"><highlight class="normal"></highlight><highlight class="comment">/*<sp/></highlight></codeline>
+<codeline lineno="48"><highlight class="comment"><sp/>*<sp/>─────────────────────────────────────────────</highlight></codeline>
+<codeline lineno="49"><highlight class="comment"><sp/>*<sp/>Interactive<sp/>mode<sp/>(user<sp/>input<sp/>enabled)</highlight></codeline>
+<codeline lineno="50"><highlight class="comment"><sp/>*<sp/>─────────────────────────────────────────────<sp/></highlight></codeline>
+<codeline lineno="51"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="52"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>WSH_SHELL_INTERACTIVE_MODE<sp/>1</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="53"><highlight class="normal"></highlight></codeline>
+<codeline lineno="54"><highlight class="normal"></highlight><highlight class="comment">/*<sp/></highlight></codeline>
+<codeline lineno="55"><highlight class="comment"><sp/>*<sp/>─────────────────────────────────────────────</highlight></codeline>
+<codeline lineno="56"><highlight class="comment"><sp/>*<sp/>Command<sp/>history</highlight></codeline>
+<codeline lineno="57"><highlight class="comment"><sp/>*<sp/>─────────────────────────────────────────────<sp/></highlight></codeline>
+<codeline lineno="58"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="59"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>WSH_SHELL_HISTORY<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>1</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="60"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>WSH_SHELL_HISTORY_BUFF_SIZE<sp/>256</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="61"><highlight class="normal"></highlight></codeline>
+<codeline lineno="62"><highlight class="normal"></highlight><highlight class="comment">/*<sp/></highlight></codeline>
+<codeline lineno="63"><highlight class="comment"><sp/>*<sp/>─────────────────────────────────────────────</highlight></codeline>
+<codeline lineno="64"><highlight class="comment"><sp/>*<sp/>Command<sp/>autocompletion</highlight></codeline>
+<codeline lineno="65"><highlight class="comment"><sp/>*<sp/>─────────────────────────────────────────────<sp/></highlight></codeline>
+<codeline lineno="66"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="67"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>WSH_SHELL_AUTOCOMPLETE<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>1</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="68"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>WSH_SHELL_AUTOCOMPLETE_PAD_LEN<sp/>32</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="69"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>WSH_SHELL_AUTOCOMPLETE_PAD_SYM<sp/>&apos;.&apos;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="70"><highlight class="normal"></highlight></codeline>
+<codeline lineno="71"><highlight class="normal"></highlight><highlight class="comment">/*<sp/></highlight></codeline>
+<codeline lineno="72"><highlight class="comment"><sp/>*<sp/>─────────────────────────────────────────────</highlight></codeline>
+<codeline lineno="73"><highlight class="comment"><sp/>*<sp/>PS1<sp/>prompt<sp/>configuration</highlight></codeline>
+<codeline lineno="74"><highlight class="comment"><sp/>*<sp/>─────────────────────────────────────────────<sp/></highlight></codeline>
+<codeline lineno="75"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="76"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>WSH_SHELL_PS1_CUSTOM<sp/><sp/><sp/>1</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="77"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>WSH_SHELL_PS1_TEMPLATE<sp/>&quot;%r%b%c6%d%c7@%c5%u%c2%i<sp/>%c7&gt;<sp/>%r%c7&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="78"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>WSH_SHELL_PS1_MAX_LEN<sp/><sp/>128</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="79"><highlight class="normal"></highlight></codeline>
+<codeline lineno="80"><highlight class="normal"></highlight><highlight class="comment">/*<sp/></highlight></codeline>
+<codeline lineno="81"><highlight class="comment"><sp/>*<sp/>─────────────────────────────────────────────</highlight></codeline>
+<codeline lineno="82"><highlight class="comment"><sp/>*<sp/>Prompt<sp/>waiting</highlight></codeline>
+<codeline lineno="83"><highlight class="comment"><sp/>*<sp/>─────────────────────────────────────────────<sp/></highlight></codeline>
+<codeline lineno="84"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="85"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>WSH_SHELL_PROMPT_WAIT<sp/>1</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="86"><highlight class="normal"></highlight></codeline>
+<codeline lineno="87"><highlight class="normal"></highlight><highlight class="comment">/*<sp/></highlight></codeline>
+<codeline lineno="88"><highlight class="comment"><sp/>*<sp/>─────────────────────────────────────────────</highlight></codeline>
+<codeline lineno="89"><highlight class="comment"><sp/>*<sp/>Command<sp/>groups<sp/>&amp;<sp/>access<sp/>control</highlight></codeline>
+<codeline lineno="90"><highlight class="comment"><sp/>*<sp/>─────────────────────────────────────────────<sp/></highlight></codeline>
+<codeline lineno="91"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="92"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>WSH_SHELL_CMD_GROUP_NONE<sp/><sp/><sp/><sp/><sp/><sp/>0x00</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="93"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>WSH_SHELL_CMD_GROUP_ALL<sp/><sp/><sp/><sp/><sp/><sp/><sp/>((WshShell_Size_t)(~0U))</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="94"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>WSH_SHELL_CMD_GROUP_MAX_COUNT<sp/>4</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="95"><highlight class="normal"></highlight></codeline>
+<codeline lineno="96"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>WSH_SHELL_CMD_GROUP_ADMIN<sp/><sp/>0x01</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="97"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>WSH_SHELL_CMD_GROUP_READER<sp/>0x02</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="98"><highlight class="normal"></highlight></codeline>
+<codeline lineno="99"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>WSH_SHELL_USER_GROUP_ADMIN<sp/><sp/>(WSH_SHELL_CMD_GROUP_ALL)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="100"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>WSH_SHELL_USER_ACCESS_ADMIN<sp/>(WSH_SHELL_OPT_ACCESS_ANY)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="101"><highlight class="normal"></highlight></codeline>
+<codeline lineno="102"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>WSH_SHELL_USER_GROUP_READER<sp/><sp/>(WSH_SHELL_CMD_GROUP_READER)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="103"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>WSH_SHELL_USER_ACCESS_READER<sp/>(WSH_SHELL_OPT_ACCESS_ANY)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="104"><highlight class="normal"></highlight></codeline>
+<codeline lineno="105"><highlight class="normal"></highlight><highlight class="comment">/*<sp/></highlight></codeline>
+<codeline lineno="106"><highlight class="comment"><sp/>*<sp/>─────────────────────────────────────────────</highlight></codeline>
+<codeline lineno="107"><highlight class="comment"><sp/>*<sp/>Print<sp/>helper<sp/>macro</highlight></codeline>
+<codeline lineno="108"><highlight class="comment"><sp/>*<sp/>─────────────────────────────────────────────<sp/></highlight></codeline>
+<codeline lineno="109"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="110"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>WSH_SHELL_PRINT(_f_,<sp/>...)<sp/><sp/><sp/>\</highlight></codeline>
+<codeline lineno="111"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>do<sp/>{<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>\</highlight></codeline>
+<codeline lineno="112"><highlight class="preprocessor"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>printf(_f_,<sp/>##__VA_ARGS__);<sp/>\</highlight></codeline>
+<codeline lineno="113"><highlight class="preprocessor"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>fflush(stdout);<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>\</highlight></codeline>
+<codeline lineno="114"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>}<sp/>while<sp/>(0)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="115"><highlight class="normal"></highlight></codeline>
+<codeline lineno="116"><highlight class="normal"></highlight><highlight class="comment">/*<sp/></highlight></codeline>
+<codeline lineno="117"><highlight class="comment"><sp/>*<sp/>─────────────────────────────────────────────</highlight></codeline>
+<codeline lineno="118"><highlight class="comment"><sp/>*<sp/>General<sp/>buffer<sp/>and<sp/>length<sp/>settings</highlight></codeline>
+<codeline lineno="119"><highlight class="comment"><sp/>*<sp/>─────────────────────────────────────────────<sp/></highlight></codeline>
+<codeline lineno="120"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="121"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>WSH_SHELL_DEV_NAME_LEN<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>16<sp/><sp/></highlight><highlight class="comment">//<sp/>Device<sp/>name<sp/>max<sp/>length</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="122"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>WSH_SHELL_OPTION_SHORT_NAME_LEN<sp/>2<sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Short<sp/>option<sp/>name<sp/>length</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="123"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>WSH_SHELL_OPTION_LONG_NAME_LEN<sp/><sp/>16<sp/><sp/></highlight><highlight class="comment">//<sp/>Long<sp/>option<sp/>name<sp/>length</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="124"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>WSH_SHELL_CMD_OPTIONS_MAX_NUM<sp/><sp/><sp/>16<sp/><sp/></highlight><highlight class="comment">//<sp/>Max<sp/>options<sp/>per<sp/>command</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="125"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>WSH_SHELL_CMD_NAME_LEN<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>16<sp/><sp/></highlight><highlight class="comment">//<sp/>Command<sp/>name<sp/>max<sp/>length</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="126"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>WSH_SHELL_CMD_ARGS_MAX_NUM<sp/><sp/><sp/><sp/><sp/><sp/>16<sp/><sp/></highlight><highlight class="comment">//<sp/>Max<sp/>arguments<sp/>per<sp/>command</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="127"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>WSH_SHELL_LOGIN_LEN<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>16<sp/><sp/></highlight><highlight class="comment">//<sp/>Max<sp/>username<sp/>length</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="128"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>WSH_SHELL_PASS_LEN<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>16<sp/><sp/></highlight><highlight class="comment">//<sp/>Max<sp/>password<sp/>length</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="129"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>WSH_SHELL_INTR_BUFF_LEN<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>64<sp/><sp/></highlight><highlight class="comment">//<sp/>Interactive<sp/>input<sp/>buffer</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="130"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>WSH_SHELL_ESC_BUFF_LEN<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>8<sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Escape<sp/>sequence<sp/>buffer</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="131"><highlight class="normal"></highlight></codeline>
+<codeline lineno="132"><highlight class="normal"></highlight><highlight class="comment">/*<sp/></highlight></codeline>
+<codeline lineno="133"><highlight class="comment"><sp/>*<sp/>─────────────────────────────────────────────</highlight></codeline>
+<codeline lineno="134"><highlight class="comment"><sp/>*<sp/>Assertions<sp/>(debug<sp/>only)</highlight></codeline>
+<codeline lineno="135"><highlight class="comment"><sp/>*<sp/>─────────────────────────────────────────────<sp/></highlight></codeline>
+<codeline lineno="136"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="137"><highlight class="normal"></highlight><highlight class="preprocessor">#ifdef<sp/>WSH_SHELL_ASSERT_ENABLE</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="138"><highlight class="normal"></highlight><highlight class="preprocessor"><sp/><sp/><sp/><sp/>#include<sp/>&lt;assert.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="139"><highlight class="normal"></highlight><highlight class="preprocessor"><sp/><sp/><sp/><sp/>#include<sp/>&lt;signal.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="140"><highlight class="normal"></highlight><highlight class="preprocessor"><sp/><sp/><sp/><sp/>#ifndef<sp/>WSH_SHELL_ASSERT</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="141"><highlight class="normal"></highlight><highlight class="preprocessor"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>#define<sp/>WSH_SHELL_ASSERT(exp)<sp/>\</highlight></codeline>
+<codeline lineno="142"><highlight class="preprocessor"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>do<sp/>{<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>\</highlight></codeline>
+<codeline lineno="143"><highlight class="preprocessor"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>if<sp/>(!(exp))<sp/>{<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>\</highlight></codeline>
+<codeline lineno="144"><highlight class="preprocessor"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>raise(SIGTRAP);<sp/><sp/><sp/>\</highlight></codeline>
+<codeline lineno="145"><highlight class="preprocessor"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>while<sp/>(1)<sp/>{<sp/><sp/><sp/><sp/><sp/><sp/><sp/>\</highlight></codeline>
+<codeline lineno="146"><highlight class="preprocessor"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>\</highlight></codeline>
+<codeline lineno="147"><highlight class="preprocessor"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>\</highlight></codeline>
+<codeline lineno="148"><highlight class="preprocessor"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}<sp/>while<sp/>(0)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="149"><highlight class="normal"></highlight><highlight class="preprocessor"><sp/><sp/><sp/><sp/>#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="150"><highlight class="normal"></highlight><highlight class="preprocessor">#else</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="151"><highlight class="normal"></highlight><highlight class="preprocessor"><sp/><sp/><sp/><sp/>#ifndef<sp/>WSH_SHELL_ASSERT</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="152"><highlight class="normal"></highlight><highlight class="preprocessor"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>#define<sp/>WSH_SHELL_ASSERT(exp)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="153"><highlight class="normal"></highlight><highlight class="preprocessor"><sp/><sp/><sp/><sp/>#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="154"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="155"><highlight class="normal"></highlight></codeline>
+<codeline lineno="156"><highlight class="normal"></highlight><highlight class="comment">/*<sp/></highlight></codeline>
+<codeline lineno="157"><highlight class="comment"><sp/>*<sp/>─────────────────────────────────────────────</highlight></codeline>
+<codeline lineno="158"><highlight class="comment"><sp/>*<sp/>Standard<sp/>library<sp/>wrappers<sp/>(can<sp/>be<sp/>replaced)</highlight></codeline>
+<codeline lineno="159"><highlight class="comment"><sp/>*<sp/>─────────────────────────────────────────────<sp/></highlight></codeline>
+<codeline lineno="160"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="161"><highlight class="normal"></highlight><highlight class="preprocessor">#ifndef<sp/>WSH_SHELL_MEMSET</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="162"><highlight class="normal"></highlight><highlight class="preprocessor"><sp/><sp/><sp/><sp/>#define<sp/>WSH_SHELL_MEMSET(pD,<sp/>c,<sp/>sz)<sp/>memset((pD),<sp/>(c),<sp/>(sz))</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="163"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="164"><highlight class="normal"></highlight></codeline>
-<codeline lineno="165"><highlight class="normal"></highlight><highlight class="preprocessor">#ifndef<sp/>WSH_SHELL_STRCMP</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="166"><highlight class="normal"></highlight><highlight class="preprocessor"><sp/><sp/><sp/><sp/>#define<sp/>WSH_SHELL_STRCMP(pS1,<sp/>pS2)<sp/>strcmp((pS1),<sp/>(pS2))</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="167"><highlight class="normal"></highlight><highlight class="preprocessor">#endif<sp/></highlight><highlight class="comment">/*<sp/>WSH_SHELL_STRCMP<sp/>*/</highlight><highlight class="preprocessor"></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="165"><highlight class="normal"></highlight><highlight class="preprocessor">#ifndef<sp/>WSH_SHELL_MEMCPY</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="166"><highlight class="normal"></highlight><highlight class="preprocessor"><sp/><sp/><sp/><sp/>#define<sp/>WSH_SHELL_MEMCPY(pD,<sp/>pS,<sp/>sz)<sp/>memcpy((pD),<sp/>(pS),<sp/>(sz))</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="167"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="168"><highlight class="normal"></highlight></codeline>
-<codeline lineno="169"><highlight class="normal"></highlight><highlight class="preprocessor">#ifndef<sp/>WSH_SHELL_STRNCMP</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="170"><highlight class="normal"></highlight><highlight class="preprocessor"><sp/><sp/><sp/><sp/>#define<sp/>WSH_SHELL_STRNCMP(pS1,<sp/>pS2,<sp/>len)<sp/>strncmp((pS1),<sp/>(pS2),<sp/>(len))</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="171"><highlight class="normal"></highlight><highlight class="preprocessor">#endif<sp/></highlight><highlight class="comment">/*<sp/>WSH_SHELL_STRNCMP<sp/>*/</highlight><highlight class="preprocessor"></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="169"><highlight class="normal"></highlight><highlight class="preprocessor">#ifndef<sp/>WSH_SHELL_MEMCMP</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="170"><highlight class="normal"></highlight><highlight class="preprocessor"><sp/><sp/><sp/><sp/>#define<sp/>WSH_SHELL_MEMCMP(pD,<sp/>pS,<sp/>sz)<sp/>memcmp((pD),<sp/>(pS),<sp/>(sz))</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="171"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="172"><highlight class="normal"></highlight></codeline>
-<codeline lineno="173"><highlight class="normal"></highlight><highlight class="preprocessor">#ifndef<sp/>WSH_SHELL_STRTOL</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="174"><highlight class="normal"></highlight><highlight class="preprocessor"><sp/><sp/><sp/><sp/>#define<sp/>WSH_SHELL_STRTOL(pS,<sp/>pE,<sp/>radix)<sp/>strtol((pS),<sp/>(pE),<sp/>(radix))</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="175"><highlight class="normal"></highlight><highlight class="preprocessor">#endif<sp/></highlight><highlight class="comment">/*<sp/>WSH_SHELL_STRTOL<sp/>*/</highlight><highlight class="preprocessor"></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="173"><highlight class="normal"></highlight><highlight class="preprocessor">#ifndef<sp/>WSH_SHELL_STRCPY</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="174"><highlight class="normal"></highlight><highlight class="preprocessor"><sp/><sp/><sp/><sp/>#define<sp/>WSH_SHELL_STRCPY(pD,<sp/>pS)<sp/>strcpy((pD),<sp/>(pS))</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="175"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="176"><highlight class="normal"></highlight></codeline>
-<codeline lineno="177"><highlight class="normal"></highlight><highlight class="preprocessor">#ifndef<sp/>WSH_SHELL_STRTOF</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="178"><highlight class="normal"></highlight><highlight class="preprocessor"><sp/><sp/><sp/><sp/>#define<sp/>WSH_SHELL_STRTOF(pN,<sp/>pE)<sp/>strtof((pN),<sp/>(pE))</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="179"><highlight class="normal"></highlight><highlight class="preprocessor">#endif<sp/></highlight><highlight class="comment">/*<sp/>WSH_SHELL_STRTOF<sp/>*/</highlight><highlight class="preprocessor"></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="177"><highlight class="normal"></highlight><highlight class="preprocessor">#ifndef<sp/>WSH_SHELL_STRNCPY</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="178"><highlight class="normal"></highlight><highlight class="preprocessor"><sp/><sp/><sp/><sp/>#define<sp/>WSH_SHELL_STRNCPY(pD,<sp/>pS,<sp/>sz)<sp/>strncpy((pD),<sp/>(pS),<sp/>(sz))</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="179"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="180"><highlight class="normal"></highlight></codeline>
-<codeline lineno="181"><highlight class="normal"></highlight><highlight class="preprocessor">#ifndef<sp/>WSH_SHELL_SNPRINTF</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="182"><highlight class="normal"></highlight><highlight class="preprocessor"><sp/><sp/><sp/><sp/>#define<sp/>WSH_SHELL_SNPRINTF(buf,<sp/>size,<sp/>...)<sp/>snprintf((buf),<sp/>(size),<sp/>__VA_ARGS__)</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="183"><highlight class="normal"></highlight><highlight class="preprocessor">#endif<sp/></highlight><highlight class="comment">/*<sp/>WSH_SHELL_SNPRINTF<sp/>*/</highlight><highlight class="preprocessor"></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="181"><highlight class="normal"></highlight><highlight class="preprocessor">#ifndef<sp/>WSH_SHELL_STRLEN</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="182"><highlight class="normal"></highlight><highlight class="preprocessor"><sp/><sp/><sp/><sp/>#define<sp/>WSH_SHELL_STRLEN(pS)<sp/>strlen((pS))</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="183"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="184"><highlight class="normal"></highlight></codeline>
-<codeline lineno="185"><highlight class="normal"></highlight><highlight class="comment">//<sp/>Project-to-shell<sp/>enum<sp/>mapping<sp/>table</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="186"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>RET_STATE_MAP_TABLE()<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>\</highlight></codeline>
-<codeline lineno="187"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>X_MAP_ENTRY(true,<sp/>WSH_SHELL_RET_STATE_SUCCESS)<sp/><sp/><sp/><sp/><sp/><sp/><sp/>\</highlight></codeline>
-<codeline lineno="188"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>X_MAP_ENTRY(true,<sp/>WSH_SHELL_RET_STATE_WARNING)<sp/><sp/><sp/><sp/><sp/><sp/><sp/>\</highlight></codeline>
-<codeline lineno="189"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>X_MAP_ENTRY(false,<sp/>WSH_SHELL_RET_STATE_ERROR)<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>\</highlight></codeline>
-<codeline lineno="190"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>X_MAP_ENTRY(false,<sp/>WSH_SHELL_RET_STATE_ERR_EMPTY)<sp/><sp/><sp/><sp/>\</highlight></codeline>
-<codeline lineno="191"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>X_MAP_ENTRY(false,<sp/>WSH_SHELL_RET_STATE_ERR_PARAM)<sp/><sp/><sp/><sp/>\</highlight></codeline>
-<codeline lineno="192"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>X_MAP_ENTRY(false,<sp/>WSH_SHELL_RET_STATE_ERR_BUSY)<sp/><sp/><sp/><sp/><sp/>\</highlight></codeline>
-<codeline lineno="193"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>X_MAP_ENTRY(false,<sp/>WSH_SHELL_RET_STATE_ERR_OVERFLOW)<sp/>\</highlight></codeline>
-<codeline lineno="194"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>X_MAP_ENTRY(false,<sp/>WSH_SHELL_RET_STATE_ERR_MEMORY)<sp/><sp/><sp/>\</highlight></codeline>
-<codeline lineno="195"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>X_MAP_ENTRY(false,<sp/>WSH_SHELL_RET_STATE_ERR_TIMEOUT)<sp/><sp/>\</highlight></codeline>
-<codeline lineno="196"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>X_MAP_ENTRY(false,<sp/>WSH_SHELL_RET_STATE_ERR_CRC)<sp/><sp/><sp/><sp/><sp/><sp/>\</highlight></codeline>
-<codeline lineno="197"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>X_MAP_ENTRY(false,<sp/>WSH_SHELL_RET_STATE_UNDEF)</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="198"><highlight class="normal"></highlight></codeline>
-<codeline lineno="199"><highlight class="normal"></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">inline</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>WshShellRetState_TranslateToProject(WSH_SHELL_RET_STATE_t<sp/>state)<sp/>{</highlight></codeline>
-<codeline lineno="200"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">switch</highlight><highlight class="normal"><sp/>(state)<sp/>{</highlight></codeline>
-<codeline lineno="201"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>X_MAP_ENTRY(proj,<sp/>shell)<sp/>\</highlight></codeline>
-<codeline lineno="202"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>case<sp/>shell:<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>\</highlight></codeline>
-<codeline lineno="203"><highlight class="preprocessor"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>return<sp/>proj;</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="204"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>RET_STATE_MAP_TABLE()</highlight></codeline>
-<codeline lineno="205"><highlight class="normal"></highlight><highlight class="preprocessor">#undef<sp/>X_MAP_ENTRY</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="206"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">default</highlight><highlight class="normal">:</highlight></codeline>
-<codeline lineno="207"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;</highlight></codeline>
-<codeline lineno="208"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
-<codeline lineno="209"><highlight class="normal">}</highlight></codeline>
-<codeline lineno="210"><highlight class="normal"></highlight></codeline>
-<codeline lineno="211"><highlight class="normal"></highlight><highlight class="preprocessor">#endif<sp/></highlight><highlight class="comment">/*<sp/>__WSH_SHELL_CFG_H<sp/>*/</highlight><highlight class="preprocessor"></highlight></codeline>
+<codeline lineno="185"><highlight class="normal"></highlight><highlight class="preprocessor">#ifndef<sp/>WSH_SHELL_STRNLEN</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="186"><highlight class="normal"></highlight><highlight class="preprocessor"><sp/><sp/><sp/><sp/>#define<sp/>WSH_SHELL_STRNLEN(pS,<sp/>len)<sp/>strnlen((pS),<sp/>(len))</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="187"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="188"><highlight class="normal"></highlight></codeline>
+<codeline lineno="189"><highlight class="normal"></highlight><highlight class="preprocessor">#ifndef<sp/>WSH_SHELL_STRCMP</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="190"><highlight class="normal"></highlight><highlight class="preprocessor"><sp/><sp/><sp/><sp/>#define<sp/>WSH_SHELL_STRCMP(pS1,<sp/>pS2)<sp/>strcmp((pS1),<sp/>(pS2))</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="191"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="192"><highlight class="normal"></highlight></codeline>
+<codeline lineno="193"><highlight class="normal"></highlight><highlight class="preprocessor">#ifndef<sp/>WSH_SHELL_STRNCMP</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="194"><highlight class="normal"></highlight><highlight class="preprocessor"><sp/><sp/><sp/><sp/>#define<sp/>WSH_SHELL_STRNCMP(pS1,<sp/>pS2,<sp/>len)<sp/>strncmp((pS1),<sp/>(pS2),<sp/>(len))</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="195"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="196"><highlight class="normal"></highlight></codeline>
+<codeline lineno="197"><highlight class="normal"></highlight><highlight class="preprocessor">#ifndef<sp/>WSH_SHELL_STRTOL</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="198"><highlight class="normal"></highlight><highlight class="preprocessor"><sp/><sp/><sp/><sp/>#define<sp/>WSH_SHELL_STRTOL(pS,<sp/>pE,<sp/>radix)<sp/>strtol((pS),<sp/>(pE),<sp/>(radix))</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="199"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="200"><highlight class="normal"></highlight></codeline>
+<codeline lineno="201"><highlight class="normal"></highlight><highlight class="preprocessor">#ifndef<sp/>WSH_SHELL_STRTOF</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="202"><highlight class="normal"></highlight><highlight class="preprocessor"><sp/><sp/><sp/><sp/>#define<sp/>WSH_SHELL_STRTOF(pN,<sp/>pE)<sp/>strtof((pN),<sp/>(pE))</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="203"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="204"><highlight class="normal"></highlight></codeline>
+<codeline lineno="205"><highlight class="normal"></highlight><highlight class="preprocessor">#ifndef<sp/>WSH_SHELL_SNPRINTF</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="206"><highlight class="normal"></highlight><highlight class="preprocessor"><sp/><sp/><sp/><sp/>#define<sp/>WSH_SHELL_SNPRINTF(buf,<sp/>size,<sp/>...)<sp/>snprintf((buf),<sp/>(size),<sp/>__VA_ARGS__)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="207"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="208"><highlight class="normal"></highlight></codeline>
+<codeline lineno="209"><highlight class="normal"></highlight><highlight class="comment">/*<sp/></highlight></codeline>
+<codeline lineno="210"><highlight class="comment"><sp/>*<sp/>─────────────────────────────────────────────</highlight></codeline>
+<codeline lineno="211"><highlight class="comment"><sp/>*<sp/>Project-to-shell<sp/>return<sp/>state<sp/>mapping</highlight></codeline>
+<codeline lineno="212"><highlight class="comment"><sp/>*<sp/>─────────────────────────────────────────────<sp/></highlight></codeline>
+<codeline lineno="213"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="214"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>RET_STATE_MAP_TABLE()<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>\</highlight></codeline>
+<codeline lineno="215"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>X_MAP_ENTRY(true,<sp/>WSH_SHELL_RET_STATE_SUCCESS)<sp/><sp/><sp/><sp/><sp/><sp/><sp/>\</highlight></codeline>
+<codeline lineno="216"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>X_MAP_ENTRY(true,<sp/>WSH_SHELL_RET_STATE_WARNING)<sp/><sp/><sp/><sp/><sp/><sp/><sp/>\</highlight></codeline>
+<codeline lineno="217"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>X_MAP_ENTRY(false,<sp/>WSH_SHELL_RET_STATE_ERROR)<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>\</highlight></codeline>
+<codeline lineno="218"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>X_MAP_ENTRY(false,<sp/>WSH_SHELL_RET_STATE_ERR_EMPTY)<sp/><sp/><sp/><sp/>\</highlight></codeline>
+<codeline lineno="219"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>X_MAP_ENTRY(false,<sp/>WSH_SHELL_RET_STATE_ERR_PARAM)<sp/><sp/><sp/><sp/>\</highlight></codeline>
+<codeline lineno="220"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>X_MAP_ENTRY(false,<sp/>WSH_SHELL_RET_STATE_ERR_BUSY)<sp/><sp/><sp/><sp/><sp/>\</highlight></codeline>
+<codeline lineno="221"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>X_MAP_ENTRY(false,<sp/>WSH_SHELL_RET_STATE_ERR_OVERFLOW)<sp/>\</highlight></codeline>
+<codeline lineno="222"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>X_MAP_ENTRY(false,<sp/>WSH_SHELL_RET_STATE_ERR_MEMORY)<sp/><sp/><sp/>\</highlight></codeline>
+<codeline lineno="223"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>X_MAP_ENTRY(false,<sp/>WSH_SHELL_RET_STATE_ERR_TIMEOUT)<sp/><sp/>\</highlight></codeline>
+<codeline lineno="224"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>X_MAP_ENTRY(false,<sp/>WSH_SHELL_RET_STATE_ERR_CRC)<sp/><sp/><sp/><sp/><sp/><sp/>\</highlight></codeline>
+<codeline lineno="225"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>X_MAP_ENTRY(false,<sp/>WSH_SHELL_RET_STATE_UNDEF)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="226"><highlight class="normal"></highlight></codeline>
+<codeline lineno="227"><highlight class="normal"></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">inline</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>WshShellRetState_TranslateToProject(WSH_SHELL_RET_STATE_t<sp/>state)<sp/>{</highlight></codeline>
+<codeline lineno="228"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">switch</highlight><highlight class="normal"><sp/>(state)<sp/>{</highlight></codeline>
+<codeline lineno="229"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>X_MAP_ENTRY(proj,<sp/>shell)<sp/>\</highlight></codeline>
+<codeline lineno="230"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>case<sp/>shell:<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>\</highlight></codeline>
+<codeline lineno="231"><highlight class="preprocessor"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>return<sp/>proj;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="232"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>RET_STATE_MAP_TABLE()</highlight></codeline>
+<codeline lineno="233"><highlight class="normal"></highlight><highlight class="preprocessor">#undef<sp/>X_MAP_ENTRY</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="234"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">default</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="235"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="236"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="237"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="238"><highlight class="normal"></highlight></codeline>
+<codeline lineno="239"><highlight class="normal"></highlight><highlight class="preprocessor">#endif<sp/></highlight><highlight class="comment">/*<sp/>__WSH_SHELL_CFG_H<sp/>*/</highlight><highlight class="preprocessor"></highlight></codeline>
     </programlisting>
     <location file="src/wsh_shell_cfg_def.h"/>
   </compounddef>

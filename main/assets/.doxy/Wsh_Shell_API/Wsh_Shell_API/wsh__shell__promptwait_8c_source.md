@@ -10,6 +10,16 @@
 ```C++
 #include "wsh_shell_promptwait.h"
 
+void WshShellPromptWait_Flush(WshShellPromptWait_t* pWait) {
+    WSH_SHELL_ASSERT(pWait);
+    if (!pWait)
+        return;
+
+    pWait->Handler = NULL;
+    pWait->Ctx     = NULL;
+}
+
+#if WSH_SHELL_PROMPT_WAIT
 void WshShellPromptWait_Attach(WshShellPromptWait_t* pWait, WshShellPromptWait_Handler_t handler,
                                void* pCtx) {
     WSH_SHELL_ASSERT(pWait && handler);
@@ -18,15 +28,6 @@ void WshShellPromptWait_Attach(WshShellPromptWait_t* pWait, WshShellPromptWait_H
 
     pWait->Handler = handler;
     pWait->Ctx     = pCtx;
-}
-
-void WshShellPromptWait_Flush(WshShellPromptWait_t* pWait) {
-    WSH_SHELL_ASSERT(pWait);
-    if (!pWait)
-        return;
-
-    pWait->Handler = NULL;
-    pWait->Ctx     = NULL;
 }
 
 WSH_SHELL_RET_STATE_t WshShellPromptWait_Handle(WshShellPromptWait_t* pWait,
@@ -47,6 +48,8 @@ WSH_SHELL_RET_STATE_t WshShellPromptWait_Handle(WshShellPromptWait_t* pWait,
 }
 
 WshShell_Bool_t WshShellPromptWait_Enter(WshShell_Char_t symbol, WshShellPromptWait_t* pWait) {
+    WSH_SHELL_ASSERT(pWait);
+
     if (symbol == '\r' || symbol == '\n') {
         WshShellPromptWait_Flush(pWait);
         return true;
@@ -57,6 +60,8 @@ WshShell_Bool_t WshShellPromptWait_Enter(WshShell_Char_t symbol, WshShellPromptW
 }
 
 WshShell_Bool_t WshShellPromptWait_YesNo(WshShell_Char_t symbol, WshShellPromptWait_t* pWait) {
+    WSH_SHELL_ASSERT(pWait);
+
     if (symbol == 'Y' || symbol == 'y') {
         WSH_SHELL_PRINT_SYS("Yes selected\r\n");
     } else if (symbol == 'N' || symbol == 'n') {
@@ -68,6 +73,28 @@ WshShell_Bool_t WshShellPromptWait_YesNo(WshShell_Char_t symbol, WshShellPromptW
 
     return true;
 }
+
+#else /* WSH_SHELL_PROMPT_WAIT */
+
+void WshShellPromptWait_Attach(WshShellPromptWait_t* pWait, WshShellPromptWait_Handler_t handler,
+                               void* pCtx) {
+    return;
+}
+
+WSH_SHELL_RET_STATE_t WshShellPromptWait_Handle(WshShellPromptWait_t* pWait,
+                                                WshShell_Char_t symbol) {
+    return WSH_SHELL_RET_STATE_SUCCESS;
+}
+
+WshShell_Bool_t WshShellPromptWait_Enter(WshShell_Char_t symbol, WshShellPromptWait_t* pWait) {
+    return true;
+}
+
+WshShell_Bool_t WshShellPromptWait_YesNo(WshShell_Char_t symbol, WshShellPromptWait_t* pWait) {
+    return true;
+}
+
+#endif /* WSH_SHELL_PROMPT_WAIT */
 ```
 
 

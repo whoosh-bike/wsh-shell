@@ -1,0 +1,69 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="structWshShell__PS1Data__t" kind="struct" language="C++" prot="public">
+    <compoundname>WshShell_PS1Data_t</compoundname>
+    <includes refid="wsh__shell__ps1__custom_8h" local="no">wsh_shell_ps1_custom.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structWshShell__PS1Data__t_1a76a701f2e100bb57a350c19652e05246" prot="public" static="no" mutable="no">
+        <type>const WshShell_Char_t *</type>
+        <definition>const WshShell_Char_t* WshShell_PS1Data_t::UserName</definition>
+        <argsstring></argsstring>
+        <name>UserName</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>User name string, used in <computeroutput>u</computeroutput>. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/wsh_shell_ps1_custom.h" line="37" column="27" bodyfile="src/wsh_shell_ps1_custom.h" bodystart="37" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structWshShell__PS1Data__t_1a3e873a30c9b7050f5d3fbfe3de44be06" prot="public" static="no" mutable="no">
+        <type>const WshShell_Char_t *</type>
+        <definition>const WshShell_Char_t* WshShell_PS1Data_t::DevName</definition>
+        <argsstring></argsstring>
+        <name>DevName</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Device name string, used in <computeroutput>d</computeroutput>. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/wsh_shell_ps1_custom.h" line="38" column="27" bodyfile="src/wsh_shell_ps1_custom.h" bodystart="38" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structWshShell__PS1Data__t_1a36273048220391ef8e7ae60b92a601ee" prot="public" static="no" mutable="no">
+        <type>WshShell_Char_t *</type>
+        <definition>WshShell_Char_t* WshShell_PS1Data_t::InterCmdName</definition>
+        <argsstring></argsstring>
+        <name>InterCmdName</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Intermediate/temporary command name or context string. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/wsh_shell_ps1_custom.h" line="39" column="21" bodyfile="src/wsh_shell_ps1_custom.h" bodystart="39" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Runtime data used for PS1 (prompt string) expansion. </para>
+    </briefdescription>
+    <detaileddescription>
+<para>This structure provides the dynamic values that can be substituted into the PS1 template string (<computeroutput>WSH_SHELL_PS1_TEMPLATE</computeroutput>).</para>
+<para>Members:<itemizedlist>
+<listitem><para><computeroutput>UserName</computeroutput> — Current user name string (used by <computeroutput>u</computeroutput>).</para>
+</listitem><listitem><para><computeroutput>DevName</computeroutput> — Device name string (used by <computeroutput>d</computeroutput>).</para>
+</listitem><listitem><para><computeroutput>InterCmdName</computeroutput> — Optional intermediate command or context-specific string that can be injected into the prompt. Can be NULL if not used. </para>
+</listitem></itemizedlist>
+</para>
+    </detaileddescription>
+    <location file="src/wsh_shell_ps1_custom.h" line="36" column="1" bodyfile="src/wsh_shell_ps1_custom.h" bodystart="36" bodyend="40"/>
+    <listofallmembers>
+      <member refid="structWshShell__PS1Data__t_1a3e873a30c9b7050f5d3fbfe3de44be06" prot="public" virt="non-virtual"><scope>WshShell_PS1Data_t</scope><name>DevName</name></member>
+      <member refid="structWshShell__PS1Data__t_1a36273048220391ef8e7ae60b92a601ee" prot="public" virt="non-virtual"><scope>WshShell_PS1Data_t</scope><name>InterCmdName</name></member>
+      <member refid="structWshShell__PS1Data__t_1a76a701f2e100bb57a350c19652e05246" prot="public" virt="non-virtual"><scope>WshShell_PS1Data_t</scope><name>UserName</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

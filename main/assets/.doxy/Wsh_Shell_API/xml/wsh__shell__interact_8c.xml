@@ -260,7 +260,7 @@
 <codeline lineno="52"><highlight class="normal"><sp/><sp/><sp/><sp/>(void)(pcName);</highlight></codeline>
 <codeline lineno="53"><highlight class="normal"><sp/><sp/><sp/><sp/>(void)(handler);</highlight></codeline>
 <codeline lineno="54"><highlight class="normal"></highlight></codeline>
-<codeline lineno="55"><highlight class="normal"><sp/><sp/><sp/><sp/>WSH_SHELL_PRINT_WARN(</highlight><highlight class="stringliteral">&quot;interactive<sp/>mode<sp/>disabled\r\n&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="55"><highlight class="normal"><sp/><sp/><sp/><sp/>WSH_SHELL_PRINT_WARN(</highlight><highlight class="stringliteral">&quot;Interactive<sp/>mode<sp/>disabled\r\n&quot;</highlight><highlight class="normal">);</highlight></codeline>
 <codeline lineno="56"><highlight class="normal">}</highlight></codeline>
 <codeline lineno="57"><highlight class="normal"></highlight></codeline>
 <codeline lineno="58"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="wsh__shell__interact_8h_1a8afddd69a9e0d737f5e24935037f9b60" kindref="member">WshShellInteract_AppendLineBreak</ref>(<ref refid="structWshShellIO__CommandLine__t" kindref="compound">WshShellIO_CommandLine_t</ref>*<sp/>pCommandLine)<sp/>{</highlight></codeline>

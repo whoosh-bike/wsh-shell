@@ -74,7 +74,7 @@ _Shell command object definition and public API._ [More...](#detailed-descriptio
 |  WshShell\_Size\_t | [**WshShellCmd\_GetCmdNum**](#function-wshshellcmd_getcmdnum) ([**WshShellCmd\_Table\_t**](structWshShellCmd__Table__t.md) \* pShellCommands) <br>_Returns the number of registered commands._  |
 |  WSH\_SHELL\_RET\_STATE\_t | [**WshShellCmd\_GetOptValue**](#function-wshshellcmd_getoptvalue) ([**WshShellOption\_Context\_t**](structWshShellOption__Context__t.md) \* pOptCtx, WshShell\_Size\_t argc, const WshShell\_Char\_t \* pArgv, WshShell\_Size\_t valueSize, void \* pValue) <br>_Retrieves the value associated with a parsed command option._  |
 |  [**WshShellOption\_Context\_t**](structWshShellOption__Context__t.md) | [**WshShellCmd\_ParseOpt**](#function-wshshellcmd_parseopt) (const [**WshShellCmd\_t**](wsh__shell__cmd_8h.md#typedef-wshshellcmd_t) \* pcCmd, WshShell\_Size\_t argc, const WshShell\_Char\_t \* pArgv, WshShell\_Size\_t \* pTokenPos) <br>_Parses a command-line option for a given shell command._  |
-|  void | [**WshShellCmd\_PrintInfo**](#function-wshshellcmd_printinfo) (const [**WshShellCmd\_t**](wsh__shell__cmd_8h.md#typedef-wshshellcmd_t) \* pcCmd) <br>_Prints detailed information about a shell command and its options._  |
+|  void | [**WshShellCmd\_PrintOptionsOverview**](#function-wshshellcmd_printoptionsoverview) (const [**WshShellCmd\_t**](wsh__shell__cmd_8h.md#typedef-wshshellcmd_t) \* pcCmd) <br>_Prints detailed information about a shell command and its options._  |
 |  const [**WshShellCmd\_t**](wsh__shell__cmd_8h.md#typedef-wshshellcmd_t) \* | [**WshShellCmd\_SearchCmd**](#function-wshshellcmd_searchcmd) ([**WshShellCmd\_Table\_t**](structWshShellCmd__Table__t.md) \* pShellCommands, const WshShell\_Char\_t \* pcCmdName) <br>_Finds a command by its name._  |
 
 
@@ -438,11 +438,11 @@ A filled option descriptor if a matching option is found, or an empty descriptor
 
 
 
-### function WshShellCmd\_PrintInfo 
+### function WshShellCmd\_PrintOptionsOverview 
 
 _Prints detailed information about a shell command and its options._ 
 ```C++
-void WshShellCmd_PrintInfo (
+void WshShellCmd_PrintOptionsOverview (
     const WshShellCmd_t * pcCmd
 ) 
 ```

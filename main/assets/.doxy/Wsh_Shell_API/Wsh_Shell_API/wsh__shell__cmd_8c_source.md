@@ -189,12 +189,16 @@ WSH_SHELL_RET_STATE_t WshShellCmd_GetOptValue(WshShellOption_Context_t* pOptCtx,
     return WSH_SHELL_RET_STATE_SUCCESS;
 }
 
-void WshShellCmd_PrintInfo(const WshShellCmd_t* pcCmd) {
+void WshShellCmd_PrintOptionsOverview(const WshShellCmd_t* pcCmd) {
     WSH_SHELL_ASSERT(pcCmd);
     if (!pcCmd)
         return;
 
-    WSH_SHELL_PRINT_SYS("%s\r\nOptions overview:\r\n", pcCmd->Descr);
+    WSH_SHELL_PRINT_SYS("%s\r\n", pcCmd->Descr);
+
+#if WSH_SHELL_CMD_PRINT_OPT_OVERVIEW
+
+    WSH_SHELL_PRINT_SYS("Options overview:\r\n");
 
     const WshShell_Size_t shortNameMaxLen = WSH_SHELL_OPTION_SHORT_NAME_LEN + 5;
     const WshShell_Size_t longNameMaxLen  = WSH_SHELL_OPTION_LONG_NAME_LEN;
@@ -223,6 +227,12 @@ void WshShellCmd_PrintInfo(const WshShellCmd_t* pcCmd) {
         WSH_SHELL_PRINT(rowTemplate, pcOpt->ShortName, pcOpt->LongName,
                         WshShell_OptTypeStr_Get(pcOpt->Type), accessRow, pcOpt->Descr);
     }
+
+#else /* WSH_SHELL_CMD_PRINT_OPT_OVERVIEW */
+
+    return;
+
+#endif /* WSH_SHELL_CMD_PRINT_OPT_OVERVIEW */
 }
 ```
 

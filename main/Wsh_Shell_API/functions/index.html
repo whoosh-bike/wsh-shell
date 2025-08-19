@@ -20,7 +20,7 @@
       
       
       <link rel="icon" href="../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.16">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.17">
     
     
       
@@ -94,7 +94,7 @@
   <nav class="md-header__inner md-grid" aria-label="Header">
     <a href="../.." title="Wsh-Shell Documentation" class="md-header__button md-logo" aria-label="Wsh-Shell Documentation" data-md-component="logo">
       
-  <img src="../../shell.png" alt="logo">
+  <img src="../../img/shell.png" alt="logo">
 
     </a>
     <label class="md-header__button md-icon" for="__drawer">
@@ -320,7 +320,7 @@
   <label class="md-nav__title" for="__drawer">
     <a href="../.." title="Wsh-Shell Documentation" class="md-nav__button md-logo" aria-label="Wsh-Shell Documentation" data-md-component="logo">
       
-  <img src="../../shell.png" alt="logo">
+  <img src="../../img/shell.png" alt="logo">
 
     </a>
     Wsh-Shell Documentation
@@ -823,15 +823,6 @@
       Table of contents
     </label>
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#s" class="md-nav__link">
-    <span class="md-ellipsis">
-      s
-    </span>
-  </a>
-  
-</li>
       
         <li class="md-nav__item">
   <a href="#w" class="md-nav__link">
@@ -2079,15 +2070,6 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#s" class="md-nav__link">
-    <span class="md-ellipsis">
-      s
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#w" class="md-nav__link">
     <span class="md-ellipsis">
       w
@@ -2129,10 +2111,6 @@
 
 
 <h1 id="functions">Functions</h1>
-<h2 id="s">s</h2>
-<ul>
-<li><strong>shell_cmd_def__interactive</strong> (<a href="../wsh__shell__cmd__def_8c/"><strong>wsh_shell_cmd_def.c</strong></a>)</li>
-</ul>
 <h2 id="w">w</h2>
 <ul>
 <li><strong>WshShell_Auth</strong> (<a href="../wsh__shell_8c/"><strong>wsh_shell.c</strong></a>, <a href="../wsh__shell_8h/"><strong>wsh_shell.h</strong></a>)</li>
@@ -2154,9 +2132,9 @@
 <li><strong>WshShellCmd_GetCmdNum</strong> (<a href="../wsh__shell__cmd_8c/"><strong>wsh_shell_cmd.c</strong></a>, <a href="../wsh__shell__cmd_8h/"><strong>wsh_shell_cmd.h</strong></a>)</li>
 <li><strong>WshShellCmd_GetOptValue</strong> (<a href="../wsh__shell__cmd_8c/"><strong>wsh_shell_cmd.c</strong></a>, <a href="../wsh__shell__cmd_8h/"><strong>wsh_shell_cmd.h</strong></a>)</li>
 <li><strong>WshShellCmd_ParseOpt</strong> (<a href="../wsh__shell__cmd_8c/"><strong>wsh_shell_cmd.c</strong></a>, <a href="../wsh__shell__cmd_8h/"><strong>wsh_shell_cmd.h</strong></a>)</li>
-<li><strong>WshShellCmd_PrintInfo</strong> (<a href="../wsh__shell__cmd_8c/"><strong>wsh_shell_cmd.c</strong></a>, <a href="../wsh__shell__cmd_8h/"><strong>wsh_shell_cmd.h</strong></a>)</li>
+<li><strong>WshShellCmd_PrintOptionsOverview</strong> (<a href="../wsh__shell__cmd_8c/"><strong>wsh_shell_cmd.c</strong></a>, <a href="../wsh__shell__cmd_8h/"><strong>wsh_shell_cmd.h</strong></a>)</li>
 <li><strong>WshShellCmd_SearchCmd</strong> (<a href="../wsh__shell__cmd_8c/"><strong>wsh_shell_cmd.c</strong></a>, <a href="../wsh__shell__cmd_8h/"><strong>wsh_shell_cmd.h</strong></a>)</li>
-<li><strong>WshShellCmdDef</strong> (<a href="../wsh__shell__cmd__def_8c/"><strong>wsh_shell_cmd_def.c</strong></a>)</li>
+<li><strong>WshShellCmdDef_Dummy</strong> (<a href="../wsh__shell__cmd__def_8c/"><strong>wsh_shell_cmd_def.c</strong></a>)</li>
 <li><strong>WshShellDefCmd_GetPtr</strong> (<a href="../wsh__shell__cmd__def_8c/"><strong>wsh_shell_cmd_def.c</strong></a>, <a href="../wsh__shell__cmd__def_8h/"><strong>wsh_shell_cmd_def.h</strong></a>)</li>
 <li><strong>WshShellEsc_ArrowDown</strong> (<a href="../wsh__shell__esc_8c/"><strong>wsh_shell_esc.c</strong></a>)</li>
 <li><strong>WshShellEsc_ArrowLeft</strong> (<a href="../wsh__shell__esc_8c/"><strong>wsh_shell_esc.c</strong></a>)</li>
@@ -2188,9 +2166,9 @@
 <li><strong>WshShellPromptWait_Flush</strong> (<a href="../wsh__shell__promptwait_8c/"><strong>wsh_shell_promptwait.c</strong></a>, <a href="../wsh__shell__promptwait_8h/"><strong>wsh_shell_promptwait.h</strong></a>)</li>
 <li><strong>WshShellPromptWait_Handle</strong> (<a href="../wsh__shell__promptwait_8c/"><strong>wsh_shell_promptwait.c</strong></a>, <a href="../wsh__shell__promptwait_8h/"><strong>wsh_shell_promptwait.h</strong></a>)</li>
 <li><strong>WshShellPromptWait_YesNo</strong> (<a href="../wsh__shell__promptwait_8c/"><strong>wsh_shell_promptwait.c</strong></a>, <a href="../wsh__shell__promptwait_8h/"><strong>wsh_shell_promptwait.h</strong></a>)</li>
+<li><strong>WshShell_GeneratePS1</strong> (<a href="../wsh__shell__ps1__custom_8c/"><strong>wsh_shell_ps1_custom.c</strong></a>, <a href="../wsh__shell__ps1__custom_8h/"><strong>wsh_shell_ps1_custom.h</strong></a>)</li>
 <li><strong>WshShellStr_AccessBitsToStr</strong> (<a href="../wsh__shell__str_8c/"><strong>wsh_shell_str.c</strong></a>, <a href="../wsh__shell__str_8h/"><strong>wsh_shell_str.h</strong></a>)</li>
 <li><strong>WshShellStr_DecrInterCnt</strong> (<a href="../wsh__shell__str_8c/"><strong>wsh_shell_str.c</strong></a>, <a href="../wsh__shell__str_8h/"><strong>wsh_shell_str.h</strong></a>)</li>
-<li><strong>WshShellStr_GeneratePS1</strong> (<a href="../wsh__shell__str_8c/"><strong>wsh_shell_str.c</strong></a>, <a href="../wsh__shell__str_8h/"><strong>wsh_shell_str.h</strong></a>)</li>
 <li><strong>WshShellStr_GroupBitsToStr</strong> (<a href="../wsh__shell__str_8c/"><strong>wsh_shell_str.c</strong></a>, <a href="../wsh__shell__str_8h/"><strong>wsh_shell_str.h</strong></a>)</li>
 <li><strong>WshShellStr_IncrInterCnt</strong> (<a href="../wsh__shell__str_8c/"><strong>wsh_shell_str.c</strong></a>, <a href="../wsh__shell__str_8h/"><strong>wsh_shell_str.h</strong></a>)</li>
 <li><strong>WshShellStr_IsPrintableAscii</strong> (<a href="../wsh__shell__str_8c/"><strong>wsh_shell_str.c</strong></a>, <a href="../wsh__shell__str_8h/"><strong>wsh_shell_str.h</strong></a>)</li>
@@ -2298,10 +2276,10 @@
     
     
       
-      <script id="__config" type="application/json">{"base": "../..", "features": ["announce.dismiss", "content.action.edit", "content.action.view", "content.code.annotate", "content.code.copy", "content.tooltips", "navigation.footer", "navigation.indexes", "navigation.path", "navigation.tabs", "navigation.top", "navigation.tracking", "search.highlight", "search.share", "search.suggest", "toc.follow"], "search": "../../assets/javascripts/workers/search.d50fe291.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"provider": "mike"}}</script>
+      <script id="__config" type="application/json">{"base": "../..", "features": ["announce.dismiss", "content.action.edit", "content.action.view", "content.code.annotate", "content.code.copy", "content.tooltips", "navigation.footer", "navigation.indexes", "navigation.path", "navigation.tabs", "navigation.top", "navigation.tracking", "search.highlight", "search.share", "search.suggest", "toc.follow"], "search": "../../assets/javascripts/workers/search.973d3a69.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"provider": "mike"}}</script>
     
     
-      <script src="../../assets/javascripts/bundle.50899def.min.js"></script>
+      <script src="../../assets/javascripts/bundle.92b07e13.min.js"></script>
       
     
   </body>

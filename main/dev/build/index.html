@@ -20,7 +20,7 @@
       
       
       <link rel="icon" href="../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.16">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.17">
     
     
       
@@ -94,7 +94,7 @@
   <nav class="md-header__inner md-grid" aria-label="Header">
     <a href="../.." title="Wsh-Shell Documentation" class="md-header__button md-logo" aria-label="Wsh-Shell Documentation" data-md-component="logo">
       
-  <img src="../../shell.png" alt="logo">
+  <img src="../../img/shell.png" alt="logo">
 
     </a>
     <label class="md-header__button md-icon" for="__drawer">
@@ -318,7 +318,7 @@
   <label class="md-nav__title" for="__drawer">
     <a href="../.." title="Wsh-Shell Documentation" class="md-nav__button md-logo" aria-label="Wsh-Shell Documentation" data-md-component="logo">
       
-  <img src="../../shell.png" alt="logo">
+  <img src="../../img/shell.png" alt="logo">
 
     </a>
     Wsh-Shell Documentation
@@ -2329,10 +2329,12 @@ Remove it manually if you want to regenerate it from the default template.</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-10-1">1</a></span>
 <span class="normal"><a href="#__codelineno-10-2">2</a></span>
 <span class="normal"><a href="#__codelineno-10-3">3</a></span>
-<span class="normal"><a href="#__codelineno-10-4">4</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1"></a><span class="nv">MAKE_PATH</span><span class="o">=</span><span class="s2">&quot;/opt/homebrew/opt/make/libexec/gnubin/make&quot;</span>
-</span><span id="__span-10-2"><a id="__codelineno-10-2" name="__codelineno-10-2"></a><span class="nv">ARM_NONE_EABI_PATH</span><span class="o">=</span><span class="s2">&quot;/Users/katbert/my-utils/arm-gnu-toolchain-14.2.rel1-darwin-arm64-arm-none-eabi/bin&quot;</span>
-</span><span id="__span-10-3"><a id="__codelineno-10-3" name="__codelineno-10-3"></a><span class="nv">GDB_PATH</span><span class="o">=</span><span class="s2">&quot;/Users/katbert/my-utils/arm-gnu-toolchain-14.2.rel1-darwin-arm64-arm-none-eabi/bin/arm-none-eabi-gdb&quot;</span>
-</span><span id="__span-10-4"><a id="__codelineno-10-4" name="__codelineno-10-4"></a><span class="nv">OPENOCD_PATH</span><span class="o">=</span><span class="s2">&quot;/opt/homebrew/bin/openocd&quot;</span>
+<span class="normal"><a href="#__codelineno-10-4">4</a></span>
+<span class="normal"><a href="#__codelineno-10-5">5</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1"></a><span class="nv">MAKE_PATH</span><span class="o">=</span><span class="s2">&quot;/opt/homebrew/opt/make/libexec/gnubin/make&quot;</span>
+</span><span id="__span-10-2"><a id="__codelineno-10-2" name="__codelineno-10-2"></a><span class="nv">OPENOCD_PATH</span><span class="o">=</span><span class="s2">&quot;/opt/homebrew/bin/openocd&quot;</span>
+</span><span id="__span-10-3"><a id="__codelineno-10-3" name="__codelineno-10-3"></a><span class="nv">ARM_NONE_EABI_PATH</span><span class="o">=</span><span class="s2">&quot;/Users/katbert/my-utils/arm-gnu-toolchain-14.2.rel1-darwin-arm64-arm-none-eabi/bin&quot;</span>
+</span><span id="__span-10-4"><a id="__codelineno-10-4" name="__codelineno-10-4"></a><span class="nv">GDB_PATH</span><span class="o">=</span><span class="s2">&quot;/Users/katbert/my-utils/arm-gnu-toolchain-14.2.rel1-darwin-arm64-arm-none-eabi/bin/arm-none-eabi-gdb&quot;</span>
+</span><span id="__span-10-5"><a id="__codelineno-10-5" name="__codelineno-10-5"></a><span class="nv">NM_PATH</span><span class="o">=</span><span class="s2">&quot;/Users/katbert/my-utils/arm-gnu-toolchain-14.2.rel1-darwin-arm64-arm-none-eabi/bin/arm-none-eabi-nm&quot;</span>
 </span></code></pre></div></td></tr></table></div>
 <p>Then flash the binary using OpenOCD:</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-11-1">1</a></span>
@@ -2342,6 +2344,9 @@ Remove it manually if you want to regenerate it from the default template.</p>
 </span><span id="__span-11-3"><a id="__codelineno-11-3" name="__codelineno-11-3"></a><span class="w">        </span>-c<span class="w"> </span><span class="s2">&quot;program example/blue_pill/build/blue_pill.bin 0x08000000 verify reset exit&quot;</span>
 </span></code></pre></div></td></tr></table></div>
 <p>For the blue pill clones use <code>ch32f1x.cfg</code> config instead of <code>stm32f1x.cfg</code></p>
+<p>You can analyse firmware <code>.elf</code> file for memory usage by running python script (or just call <code>analyse elf of blue_pill</code> vscode task):</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-12-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1"></a>python3<span class="w"> </span>./utils/elf-size-analyse.py<span class="w"> </span>./example/blue_pill/build/blue_pill.elf
+</span></code></pre></div></td></tr></table></div>
 <hr />
 <h2 id="additional-notes">Additional Notes</h2>
 <ul>
@@ -2442,10 +2447,10 @@ Remove it manually if you want to regenerate it from the default template.</p>
     
     
       
-      <script id="__config" type="application/json">{"base": "../..", "features": ["announce.dismiss", "content.action.edit", "content.action.view", "content.code.annotate", "content.code.copy", "content.tooltips", "navigation.footer", "navigation.indexes", "navigation.path", "navigation.tabs", "navigation.top", "navigation.tracking", "search.highlight", "search.share", "search.suggest", "toc.follow"], "search": "../../assets/javascripts/workers/search.d50fe291.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"provider": "mike"}}</script>
+      <script id="__config" type="application/json">{"base": "../..", "features": ["announce.dismiss", "content.action.edit", "content.action.view", "content.code.annotate", "content.code.copy", "content.tooltips", "navigation.footer", "navigation.indexes", "navigation.path", "navigation.tabs", "navigation.top", "navigation.tracking", "search.highlight", "search.share", "search.suggest", "toc.follow"], "search": "../../assets/javascripts/workers/search.973d3a69.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"provider": "mike"}}</script>
     
     
-      <script src="../../assets/javascripts/bundle.50899def.min.js"></script>
+      <script src="../../assets/javascripts/bundle.92b07e13.min.js"></script>
       
     
   </body>

@@ -11,6 +11,8 @@
 #include "wsh_shell_cmd_def.h"
 #include "wsh_shell.h"
 
+#if WSH_SHELL_DEF_COMMAND
+
 /* clang-format off */
 #define WSH_SHELL_CMD_DEF_OPT_TABLE() \
     X_CMD_ENTRY(WSH_SHELL_DEF_OPT_HELP, WSH_SHELL_OPT_HELP()) \
@@ -26,19 +28,23 @@
 /* clang-format on */
 
 typedef enum {
-#define X_CMD_ENTRY(en, m) en,
+    #define X_CMD_ENTRY(en, m) en,
     WSH_SHELL_CMD_DEF_OPT_TABLE() WSH_SHELL_CMD_DEF_OPT_ENUM_SIZE
-#undef X_CMD_ENTRY
+    #undef X_CMD_ENTRY
 } WSH_SHELL_DEF_OPT_t;
 
-static void shell_cmd_def__interactive(WshShellIO_CommandLine_t* pInter) {
+    #define X_CMD_ENTRY(enum, opt) {enum, opt},
+static WshShellOption_t WshShell_OptArr[] = {WSH_SHELL_CMD_DEF_OPT_TABLE()};
+    #undef X_CMD_ENTRY
+
+static void WshShell_CmdDefInteractive(WshShellIO_CommandLine_t* pInter) {
     WshShellInteract_AppendLineBreak(pInter);
 
     WSH_SHELL_PRINT("Just echo of interactive command: %s", pInter->Buff);
 }
 
-WSH_SHELL_RET_STATE_t WshShellCmdDef(const WshShellCmd_t* pcCmd, WshShell_Size_t argc,
-                                     const WshShell_Char_t* pArgv[], void* pCtx) {
+static WSH_SHELL_RET_STATE_t WshShellCmdDef(const WshShellCmd_t* pcCmd, WshShell_Size_t argc,
+                                            const WshShell_Char_t* pArgv[], void* pCtx) {
     if ((argc > 0 && pArgv == NULL) || pcCmd == NULL)
         return WSH_SHELL_RET_STATE_ERROR;
 
@@ -55,7 +61,7 @@ WSH_SHELL_RET_STATE_t WshShellCmdDef(const WshShellCmd_t* pcCmd, WshShell_Size_t
 
         switch (optCtx.Option->ID) {
             case WSH_SHELL_DEF_OPT_HELP:
-                WshShellCmd_PrintInfo(pcCmd);
+                WshShellCmd_PrintOptionsOverview(pcCmd);
                 break;
 
             case WSH_SHELL_DEF_OPT_DEF:
@@ -66,7 +72,7 @@ WSH_SHELL_RET_STATE_t WshShellCmdDef(const WshShellCmd_t* pcCmd, WshShell_Size_t
 
             case WSH_SHELL_DEF_OPT_INTERACT:
                 WshShellInteract_Attach(&(pParentShell->Interact), pcCmd->Name,
-                                        shell_cmd_def__interactive);
+                                        WshShell_CmdDefInteractive);
                 break;
 
             case WSH_SHELL_DEF_OPT_EXEC: {
@@ -184,18 +190,32 @@ WSH_SHELL_RET_STATE_t WshShellCmdDef(const WshShellCmd_t* pcCmd, WshShell_Size_t
     return retState;
 }
 
-#define X_CMD_ENTRY(enum, opt) {enum, opt},
-static WshShellOption_t OptArr[] = {WSH_SHELL_CMD_DEF_OPT_TABLE()};
-#undef X_CMD_ENTRY
-
 static const WshShellCmd_t WshShellDefCmd = {
     .Groups  = WSH_SHELL_CMD_GROUP_ALL,
     .Name    = "def",
     .Descr   = "Default command for configuring and querying the shell interface",
-    .Options = OptArr,
-    .OptNum  = WSH_SHELL_ARR_LEN(OptArr),
+    .Options = WshShell_OptArr,
+    .OptNum  = WSH_SHELL_ARR_LEN(WshShell_OptArr),
     .Handler = WshShellCmdDef,
 };
+
+#else /* WSH_SHELL_DEF_COMMAND */
+
+WSH_SHELL_RET_STATE_t WshShellCmdDef_Dummy(const WshShellCmd_t* pcCmd, WshShell_Size_t argc,
+                                           const WshShell_Char_t* pArgv[], void* pCtx) {
+    return WSH_SHELL_RET_STATE_ERR_EMPTY;
+}
+
+static const WshShellCmd_t WshShellDefCmd = {
+    .Groups  = WSH_SHELL_CMD_GROUP_ALL,
+    .Name    = "def",
+    .Descr   = "",
+    .Options = NULL,
+    .OptNum  = 0,
+    .Handler = WshShellCmdDef_Dummy,
+};
+
+#endif /* WSH_SHELL_DEF_COMMAND */
 
 const WshShellCmd_t* WshShellDefCmd_GetPtr(void) {
     return &WshShellDefCmd;
