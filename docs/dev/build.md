@@ -134,7 +134,7 @@ For the blue pill clones use `ch32f1x.cfg` config instead of `stm32f1x.cfg`
 You can analyse firmware `.elf` file for memory usage by running python script (or just call `analyse elf of blue_pill` vscode task):
 
 ```bash
-./.venv/bin/python3 ./utils/elf-size-analyse.py ./example/blue_pill/build/blue_pill.elf
+python3 ./utils/elf-size-analyse.py ./example/blue_pill/build/blue_pill.elf
 ```
 
 ---

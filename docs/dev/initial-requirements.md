@@ -80,7 +80,11 @@ The **Wsh-Shell** module must satisfy two main categories of requirements:
 
 ---
 
-## Why not Microrl / tinysh / linenoise?
+## Why not microrl / tinysh / linenoise?
+
+```markdown
+¯\_(ツ)_/¯
+```
 
 ---
 
