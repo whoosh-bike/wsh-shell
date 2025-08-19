@@ -23,7 +23,7 @@ plugins:
 
 theme:
   name: material
-  logo: shell.png
+  logo: img/shell.png
   palette:
     scheme: slate
     primary: purple
