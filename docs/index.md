@@ -29,7 +29,7 @@ Wsh-Shell is a lightweight, portable, and fully static shell interpreter written
 
 ## 👾 Demo
 
-![demo](/docs/img/demo.gif)
+![Demo](img/demo.gif)
 
 ## 💾 Memory footprint
 
@@ -70,4 +70,4 @@ Wsh-Shell is a lightweight, portable, and fully static shell interpreter written
 - **<sh@whoosh.bike>** — UX improvements, extra features, documentation
 - **<eshamaev@whoosh.bike>**  — CI/CD, docs deployment, high-level PC command app
 
-![img](/docs/img/shell_wide.png)
+![Shell](img/shell_wide.png)
