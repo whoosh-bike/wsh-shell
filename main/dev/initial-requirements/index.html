@@ -65,7 +65,7 @@
     
     
     
-    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="purple" data-md-color-accent="cyan">
+    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="orange" data-md-color-accent="blue">
   
     
     <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
@@ -2170,7 +2170,7 @@
 <p><strong>Command Flags Support</strong>  </p>
 <ul>
 <li>Support both <strong>long</strong> (<code>--long-option</code>) and <strong>short</strong> (<code>-s</code>) flag names.  </li>
-<li>Commands follow the standard syntax:  </li>
+<li>Commands follow the standard syntax</li>
 <li>Long flags may exist without a corresponding short form.</li>
 </ul>
 </li>
@@ -2234,57 +2234,59 @@
 <hr />
 <h2 id="development-requirements">Development Requirements</h2>
 <ol>
-<li><strong>Single Include Entry Point</strong>  </li>
 <li>
-<p>Only one header file is required to integrate Wsh-Shell into a project.</p>
+<p><strong>Single Include Entry Point</strong>  </p>
+<ul>
+<li>Only one header file is required to integrate Wsh-Shell into a project.</li>
+</ul>
 </li>
 <li>
 <p><strong>Modular Command Registration</strong>  </p>
-</li>
-<li>
-<p>Developers can define and register module-specific commands directly within their module.</p>
+<ul>
+<li>Developers can define and register module-specific commands directly within their module.</li>
+</ul>
 </li>
 <li>
 <p><strong>Configurable Portability</strong>  </p>
-</li>
-<li>
-<p>Cross-platform compatibility is achieved via a dedicated configuration file.</p>
+<ul>
+<li>Cross-platform compatibility is achieved via a dedicated configuration file.</li>
+</ul>
 </li>
 <li>
 <p><strong>Git Submodule Integration</strong>  </p>
-</li>
-<li>
-<p>Wsh-Shell should be easy to integrate into any project as a Git submodule.</p>
+<ul>
+<li>Wsh-Shell should be easy to integrate into any project as a Git submodule.</li>
+</ul>
 </li>
 <li>
 <p><strong>Dedicated Sub-Shell Task</strong>  </p>
-</li>
-<li>
-<p>In RTOS-based systems, run sub-Shell routines in a separate FreeRTOS task.</p>
+<ul>
+<li>In RTOS-based systems, run sub-Shell routines in a separate FreeRTOS task.</li>
+</ul>
 </li>
 <li>
 <p><strong>Hot-Swappable Interfaces</strong>  </p>
-</li>
-<li>
-<p>Switching between hardware interfaces must be possible at runtime.</p>
+<ul>
+<li>Switching between hardware interfaces must be possible at runtime.</li>
+</ul>
 </li>
 <li>
 <p><strong>Feature Modularity</strong>  </p>
-</li>
-<li>
-<p>Features such as history, autocomplete, and authorization must be implemented as <strong>independent submodules</strong> that can be disabled without breaking the core functionality.</p>
+<ul>
+<li>Features such as history, autocomplete, and authorization must be implemented as <strong>independent submodules</strong> that can be disabled without breaking the core functionality.</li>
+</ul>
 </li>
 <li>
 <p><strong>Mandatory Authorization</strong>  </p>
-</li>
-<li>
-<p>Authorization is always required except in debug builds.</p>
+<ul>
+<li>Authorization is always required except in debug builds.</li>
+</ul>
 </li>
 <li>
 <p><strong>Clear Input Parsing Model</strong>  </p>
-</li>
-<li>
-<p>Input parsing should follow a clearly defined state machine.</p>
+<ul>
+<li>Input parsing should follow a clearly defined state machine.</li>
+</ul>
 </li>
 <li>
 <p><strong>Sub-Shell I/O Redirection</strong>  </p>

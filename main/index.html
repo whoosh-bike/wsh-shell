@@ -63,7 +63,7 @@
     
     
     
-    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="purple" data-md-color-accent="cyan">
+    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="orange" data-md-color-accent="blue">
   
     
     <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
@@ -432,6 +432,15 @@
   <a href="#authors" class="md-nav__link">
     <span class="md-ellipsis">
       👨‍💻 Authors
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#license" class="md-nav__link">
+    <span class="md-ellipsis">
+      ⚖️ License
     </span>
   </a>
   
@@ -2139,6 +2148,15 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#license" class="md-nav__link">
+    <span class="md-ellipsis">
+      ⚖️ License
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -2175,7 +2193,7 @@
 <p>Wsh-Shell is a lightweight, portable, and fully static shell interpreter written in C, designed for embedded systems. It requires no dynamic memory allocation and is built to run in constrained environments like microcontrollers, either bare-metal or under RTOS (e.g., FreeRTOS).</p>
 <h2 id="features">🚀 Features</h2>
 <ul>
-<li><strong>Cross-platform, highly portable</strong> — only one header file to include  </li>
+<li><strong>Cross-platform, Highly Portable</strong> — only one header file to include</li>
 <li><strong>Single State Structure</strong> — all shell state contained in a single <code>WshShell_t</code> instance  </li>
 <li><strong>Static Memory Only</strong> — no <code>malloc</code>, no heap; all buffers are statically allocated  </li>
 <li><strong>Modular Design</strong> — ability to disable submodules for memory footprint optimization</li>
@@ -2205,6 +2223,7 @@
 <li><strong>Multi-User Support</strong> — groups, access rights, and more  </li>
 <li><strong>Customizable PS1 Prompt</strong> — user-defined templates for prompt appearance</li>
 <li><strong>Await Prompt</strong> — await for a specific key press</li>
+<li><strong>Different New Line Support</strong> - handle different terminals setup (<code>\r</code>, <code>\n</code> or <code>\r\n</code>)</li>
 </ul>
 <h2 id="demo">👾 Demo</h2>
 <p><img alt="Demo" src="img/demo.gif" /></p>
@@ -2230,55 +2249,55 @@
 <td></td>
 </tr>
 <tr>
-<td>+WSH_SHELL_PRINT_SYS/INFO/WARN/ERR</td>
+<td><code>+WSH_SHELL_PRINT_SYS/INFO/WARN/ERR</code></td>
 <td>3.58984</td>
 <td>0.0</td>
 <td>Not recommended to disable shell messages</td>
 </tr>
 <tr>
-<td>+WSH_SHELL_DEF_COMMAND</td>
+<td><code>+WSH_SHELL_DEF_COMMAND</code></td>
 <td>4.61914</td>
 <td>0.27343</td>
 <td></td>
 </tr>
 <tr>
-<td>+WSH_SHELL_PRINT_HELP</td>
+<td><code>+WSH_SHELL_PRINT_HELP</code></td>
 <td>4.65234</td>
 <td>0.27343</td>
 <td>Could be usefull on huge amount of external commands</td>
 </tr>
 <tr>
-<td>+WSH_SHELL_CMD_PRINT_OPT_OVERVIEW</td>
+<td><code>+WSH_SHELL_CMD_PRINT_OPT_OVERVIEW</code></td>
 <td>4.90625</td>
 <td>0.27343</td>
 <td>Could be usefull on huge amount of external commands</td>
 </tr>
 <tr>
-<td>+WSH_SHELL_INTERACTIVE_MODE</td>
+<td><code>+WSH_SHELL_INTERACTIVE_MODE</code></td>
 <td>5.00391</td>
 <td>0.27343</td>
 <td></td>
 </tr>
 <tr>
-<td>+WSH_SHELL_HISTORY</td>
+<td><code>+WSH_SHELL_HISTORY</code></td>
 <td>6.16016</td>
 <td>0.27343</td>
 <td></td>
 </tr>
 <tr>
-<td>+WSH_SHELL_AUTOCOMPLETE</td>
+<td><code>+WSH_SHELL_AUTOCOMPLETE</code></td>
 <td>6.71094</td>
 <td>0.27343</td>
 <td></td>
 </tr>
 <tr>
-<td>+WSH_SHELL_PS1_CUSTOM</td>
+<td><code>+WSH_SHELL_PS1_CUSTOM</code></td>
 <td>7.18359</td>
 <td>0.27343</td>
 <td></td>
 </tr>
 <tr>
-<td>+WSH_SHELL_PROMPT_WAIT</td>
+<td><code>+WSH_SHELL_PROMPT_WAIT</code></td>
 <td>7.29883</td>
 <td>0.27343</td>
 <td></td>
@@ -2310,6 +2329,9 @@
 <li><strong><a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#115;&#104;&#64;&#119;&#104;&#111;&#111;&#115;&#104;&#46;&#98;&#105;&#107;&#101;">&#115;&#104;&#64;&#119;&#104;&#111;&#111;&#115;&#104;&#46;&#98;&#105;&#107;&#101;</a></strong> — UX improvements, extra features, documentation</li>
 <li><strong><a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#101;&#115;&#104;&#97;&#109;&#97;&#101;&#118;&#64;&#119;&#104;&#111;&#111;&#115;&#104;&#46;&#98;&#105;&#107;&#101;">&#101;&#115;&#104;&#97;&#109;&#97;&#101;&#118;&#64;&#119;&#104;&#111;&#111;&#115;&#104;&#46;&#98;&#105;&#107;&#101;</a></strong>  — CI/CD, docs deployment, high-level PC command app</li>
 </ul>
+<h2 id="license">⚖️ License</h2>
+<p>This project is licensed under the <code>MIT License</code>.</p>
+<p>You are free to use, modify, and distribute this software in both commercial and non-commercial projects, provided that the original copyright notice and this permission notice are included.</p>
 <p><img alt="Shell" src="img/shell_wide.png" /></p>
 
 
