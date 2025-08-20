@@ -4,7 +4,7 @@ Wsh-Shell is a lightweight, portable, and fully static shell interpreter written
 
 ## 🚀 Features
 
-- **Cross-platform, highly portable** — only one header file to include  
+- **Cross-platform, Highly Portable** — only one header file to include
 - **Single State Structure** — all shell state contained in a single `WshShell_t` instance  
 - **Static Memory Only** — no `malloc`, no heap; all buffers are statically allocated  
 - **Modular Design** — ability to disable submodules for memory footprint optimization
@@ -26,6 +26,7 @@ Wsh-Shell is a lightweight, portable, and fully static shell interpreter written
 - **Multi-User Support** — groups, access rights, and more  
 - **Customizable PS1 Prompt** — user-defined templates for prompt appearance
 - **Await Prompt** — await for a specific key press
+- **Different New Line Support** - handle different terminals setup (`\r`, `\n` or `\r\n`)
 
 ## 👾 Demo
 
@@ -36,18 +37,18 @@ Wsh-Shell is a lightweight, portable, and fully static shell interpreter written
 - Build options: cortex-m7, `-O1` optimization
 - sizeof(WshShell_t) = 336 bytes
 
-| Config                              | FLASH, KB | RAM, KB | Comment                                              |
-| ----------------------------------- | --------- | ------- | ---------------------------------------------------- |
-| All features disabled               | 3.29102   | 0.0     |                                                      |
-| +WSH_SHELL_PRINT_SYS/INFO/WARN/ERR  | 3.58984   | 0.0     | Not recommended to disable shell messages            |
-| +WSH_SHELL_DEF_COMMAND              | 4.61914   | 0.27343 |                                                      |
-| +WSH_SHELL_PRINT_HELP               | 4.65234   | 0.27343 | Could be usefull on huge amount of external commands |
-| +WSH_SHELL_CMD_PRINT_OPT_OVERVIEW   | 4.90625   | 0.27343 | Could be usefull on huge amount of external commands |
-| +WSH_SHELL_INTERACTIVE_MODE         | 5.00391   | 0.27343 |                                                      |
-| +WSH_SHELL_HISTORY                  | 6.16016   | 0.27343 |                                                      |
-| +WSH_SHELL_AUTOCOMPLETE             | 6.71094   | 0.27343 |                                                      |
-| +WSH_SHELL_PS1_CUSTOM               | 7.18359   | 0.27343 |                                                      |
-| +WSH_SHELL_PROMPT_WAIT              | 7.29883   | 0.27343 |                                                      |
+| Config                                | FLASH, KB | RAM, KB | Comment                                              |
+| --------------------------------------| --------- | ------- | ---------------------------------------------------- |
+| All features disabled                 | 3.29102   | 0.0     |                                                      |
+| `+WSH_SHELL_PRINT_SYS/INFO/WARN/ERR`  | 3.58984   | 0.0     | Not recommended to disable shell messages            |
+| `+WSH_SHELL_DEF_COMMAND`              | 4.61914   | 0.27343 |                                                      |
+| `+WSH_SHELL_PRINT_HELP`               | 4.65234   | 0.27343 | Could be usefull on huge amount of external commands |
+| `+WSH_SHELL_CMD_PRINT_OPT_OVERVIEW`   | 4.90625   | 0.27343 | Could be usefull on huge amount of external commands |
+| `+WSH_SHELL_INTERACTIVE_MODE`         | 5.00391   | 0.27343 |                                                      |
+| `+WSH_SHELL_HISTORY`                  | 6.16016   | 0.27343 |                                                      |
+| `+WSH_SHELL_AUTOCOMPLETE`             | 6.71094   | 0.27343 |                                                      |
+| `+WSH_SHELL_PS1_CUSTOM`               | 7.18359   | 0.27343 |                                                      |
+| `+WSH_SHELL_PROMPT_WAIT`              | 7.29883   | 0.27343 |                                                      |
 
 ## ⌨️ Code counting
 
@@ -69,5 +70,11 @@ Wsh-Shell is a lightweight, portable, and fully static shell interpreter written
 - **<akrestinin@whoosh.bike>** — project separation (for submodule usage), main structure, PC/MCU examples  
 - **<sh@whoosh.bike>** — UX improvements, extra features, documentation
 - **<eshamaev@whoosh.bike>**  — CI/CD, docs deployment, high-level PC command app
+
+## ⚖️ License
+
+This project is licensed under the `MIT License`.
+
+You are free to use, modify, and distribute this software in both commercial and non-commercial projects, provided that the original copyright notice and this permission notice are included.
 
 ![Shell](img/shell_wide.png)

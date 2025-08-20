@@ -26,8 +26,9 @@ theme:
   logo: img/shell.png
   palette:
     scheme: slate
-    primary: purple
-    accent: cyan
+    # primary: custom
+    primary: orange
+    accent: blue
   font:
     text: Comfortaa
     code: JetBrains Mono
@@ -62,6 +63,9 @@ theme:
     - toc.follow
     # - toc.integrate
 
+# extra_css:
+# - styles/extra.css
+
 extra:
   version:
     provider: mike
@@ -76,9 +80,6 @@ nav:
   - Usage:
       - Examples Bare-Metal: usage/bare-metal.md
       - Examples RTOS: usage/rtos.md
-  # - Features:
-  #     - Prompt Customization: features/prompt-custom.md
-  #     - Command History: features/history-module.md
   - API:
       - General: 
         - Wsh_Shell_API/files.md
