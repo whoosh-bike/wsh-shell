@@ -1,6 +1,10 @@
 # RTOS Integration Example
 
-## Functions example for data transmitting from main app to shell task
+The example for RTOS is not very different from Bare-Metal; you need to do the same things.
+
+---
+
+## Data transmitting from main app to shell task
 
 ```c
 static QueueHandle_t ShellSymbol_Queue;

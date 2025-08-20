@@ -46,37 +46,37 @@ The **Wsh-Shell** module must satisfy two main categories of requirements:
 ## Development Requirements
 
 1. **Single Include Entry Point**  
-   - Only one header file is required to integrate Wsh-Shell into a project.
+    - Only one header file is required to integrate Wsh-Shell into a project.
 
 2. **Modular Command Registration**  
-   - Developers can define and register module-specific commands directly within their module.
+    - Developers can define and register module-specific commands directly within their module.
 
 3. **Configurable Portability**  
-   - Cross-platform compatibility is achieved via a dedicated configuration file.
+    - Cross-platform compatibility is achieved via a dedicated configuration file.
 
 4. **Git Submodule Integration**  
-   - Wsh-Shell should be easy to integrate into any project as a Git submodule.
+    - Wsh-Shell should be easy to integrate into any project as a Git submodule.
 
 5. **Dedicated Sub-Shell Task**  
-   - In RTOS-based systems, run sub-Shell routines in a separate FreeRTOS task.
+    - In RTOS-based systems, run sub-Shell routines in a separate FreeRTOS task.
 
 6. **Hot-Swappable Interfaces**  
-   - Switching between hardware interfaces must be possible at runtime.
+    - Switching between hardware interfaces must be possible at runtime.
 
 7. **Feature Modularity**  
-   - Features such as history, autocomplete, and authorization must be implemented as **independent submodules** that can be disabled without breaking the core functionality.
+    - Features such as history, autocomplete, and authorization must be implemented as **independent submodules** that can be disabled without breaking the core functionality.
 
 8. **Mandatory Authorization**  
-   - Authorization is always required except in debug builds.
+    - Authorization is always required except in debug builds.
 
 9. **Clear Input Parsing Model**  
-   - Input parsing should follow a clearly defined state machine.
+    - Input parsing should follow a clearly defined state machine.
 
 10. **Sub-Shell I/O Redirection**  
-    - When launching a sub-Shell, redirect input/output processing to the child shell instance.
+     - When launching a sub-Shell, redirect input/output processing to the child shell instance.
 
 11. **Hotkey & Combination Parsing**  
-    - Ability to detect and handle hotkey sequences and special symbol combinations.
+     - Ability to detect and handle hotkey sequences and special symbol combinations.
 
 ---
 
