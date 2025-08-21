@@ -3,26 +3,26 @@
 ## Core Principles
 
 - **Single-Instance State**  
-    - All shell state is stored inside a single `WshShell_t` structure.  
-    - Multiple instances can be created independently if needed.
+  - All shell state is stored inside a single `WshShell_t` structure.  
+  - Multiple instances can be created independently if needed.
 
 - **Modular Design**  
-    - Each feature is implemented as an isolated module (`cmd`, `user`, `history`, `autocomplete`, etc).
-    - Modules can be enabled or disabled to reduce code size and RAM usage.
+  - Each feature is implemented as an isolated module (`cmd`, `user`, `history`, `autocomplete`, etc).
+  - Modules can be enabled or disabled to reduce code size and RAM usage.
 
 - **Configurable at Compile-Time**  
-    - Main shell parameters (buffer sizes, enabled features, color schemes, etc.) are controlled via configuration macros, allowing customization without changing the source.
+  - Main shell parameters (buffer sizes, enabled features, color schemes, etc.) are controlled via configuration macros, allowing customization without changing the source.
 
 - **Static Memory Only**  
-    - No dynamic allocation (`malloc`/`free`).
-    - All commands, users, callbacks, and other resources are passed into the shell from outside.
+  - No dynamic allocation (`malloc`/`free`).
+  - All commands, users, callbacks, and other resources are passed into the shell from outside.
 
 - **Platform-Independent**  
-    - Runs on bare-metal systems and under RTOS.
-    - No dependencies on specific hardware or CPU architecture.
+  - Runs on bare-metal systems and under RTOS.
+  - No dependencies on specific hardware or CPU architecture.
 
 - **Lightweight Integration**  
-    - The shell is provided as a **git submodule** and can be easily integrated into any project.
+  - The shell is provided as a **git submodule** and can be easily integrated into any project.
 
 ---
 

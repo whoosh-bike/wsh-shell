@@ -10,19 +10,19 @@ Wsh-Shell is a lightweight, portable, and fully static shell interpreter written
 - **Modular Design** — ability to disable submodules for memory footprint optimization
 - **Command-line Editing** — supports cursor movement, character deletion, and insert mode  
 - **Command Parsing & Options**:  
-    - Supports short (`-h`) and long (`--help`) flags  
-    - Supports int, float, string and other option types
-    - Supports double-quoted strings  
+  - Supports short (`-h`) and long (`--help`) flags  
+  - Supports int, float, string and other option types
+  - Supports double-quoted strings  
 - **Escape Sequence Handling**:  
-    - Parses VT100/ANSI sequences  
-    - Supports arrow keys, delete, backspace, sound alerts, etc.  
-    - Handles key combinations (Ctrl+C, Ctrl+D, etc.)  
+  - Parses VT100/ANSI sequences  
+  - Supports arrow keys, delete, backspace, sound alerts, etc.  
+  - Handles key combinations (Ctrl+C, Ctrl+D, etc.)  
 - **Command History**:  
-    - Implemented as a circular buffer  
-    - Efficient with hash-based integrity checks  
-    - Navigable with arrow keys (↑, ↓)  
+  - Implemented as a circular buffer  
+  - Efficient with hash-based integrity checks  
+  - Navigable with arrow keys (↑, ↓)  
 - **Autocomplete**:  
-    - Tab / double-Tab completion for commands and flags  
+  - Tab / double-Tab completion for commands and flags  
 - **Multi-User Support** — groups, access rights, and more  
 - **Customizable PS1 Prompt** — user-defined templates for prompt appearance
 - **Await Prompt** — await for a specific key press
