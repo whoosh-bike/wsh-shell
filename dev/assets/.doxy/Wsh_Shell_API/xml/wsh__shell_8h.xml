@@ -474,7 +474,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/wsh_shell.h" line="136" column="6" bodyfile="src/wsh_shell.c" bodystart="266" bodyend="316" declfile="src/wsh_shell.h" declline="136" declcolumn="6"/>
+        <location file="src/wsh_shell.h" line="136" column="6" bodyfile="src/wsh_shell.c" bodystart="270" bodyend="320" declfile="src/wsh_shell.h" declline="136" declcolumn="6"/>
       </memberdef>
       </sectiondef>
     <briefdescription>

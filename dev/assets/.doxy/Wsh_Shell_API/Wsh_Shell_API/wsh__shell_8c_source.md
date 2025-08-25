@@ -130,13 +130,17 @@ void WshShell_DeAuth(WshShell_t* pShell, const WshShell_Char_t* pcReason) {
 
 static void WshShell_AuthHandler(WshShell_t* pShell) {
     WshShell_Size_t len = pShell->CommandLine.Len;
-    if (len >= WSH_SHELL_LOGIN_LEN)
-        len = WSH_SHELL_LOGIN_LEN - 1;
 
     if (WSH_SHELL_TMP_LOGIN_IS_EMPTY()) {
+        if (len >= WSH_SHELL_LOGIN_LEN)
+            len = WSH_SHELL_LOGIN_LEN - 1;
+
         WSH_SHELL_MEMCPY(pShell->TmpAuth.Login, pShell->CommandLine.Buff, len);
         pShell->TmpAuth.Login[len] = '\0';
     } else if (WSH_SHELL_TMP_PASS_IS_EMPTY()) {
+        if (len >= WSH_SHELL_PASS_LEN)
+            len = WSH_SHELL_PASS_LEN - 1;
+
         WSH_SHELL_MEMCPY(pShell->TmpAuth.Pass, pShell->CommandLine.Buff, len);
         pShell->TmpAuth.Pass[len] = '\0';
     }
