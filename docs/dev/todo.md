@@ -41,7 +41,7 @@ if (valIdx >= argc)
     return WSH_SHELL_RET_STATE_ERR_OVERFLOW;  // FIXME
 ```
 
-- [ ] Fix fault on history read или write callbacks if history isn't inited
+- [ ] Fix fault on history read and write callbacks if history isn't inited
 
 ## v3.0
 
