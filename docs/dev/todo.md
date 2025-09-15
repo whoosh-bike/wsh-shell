@@ -31,7 +31,7 @@
 
 ## v2.2
 
-- [x] Add support for storing passwords in encrypted(hashed?) form in memory
+- [x] Add support for storing passwords in encrypted(hashed) form in memory
 
 ## v2.3
 

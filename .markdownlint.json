@@ -4,5 +4,9 @@
   },
   "no-hard-tabs": {
     "spaces_per_tab": 4
+  },
+  "MD013": false,
+  "MD007": {
+    "indent": 4
   }
 }

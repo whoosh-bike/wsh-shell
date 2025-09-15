@@ -18,10 +18,7 @@ static void WshShellUser_DefHashFunc(const WshShell_Char_t* pcSalt, const WshShe
     WshShell_Size_t hash =
         WshShellMisc_CalcJenkinsHash((const WshShell_U8_t*)saltPass, saltLen + passLen);
 
-    WshShell_Char_t saltPassHashStr[WSH_SHELL_SALT_PASS_HASH_LEN + 1];
-    WSH_SHELL_SNPRINTF(saltPassHashStr, sizeof(saltPassHashStr), "%08x", hash);
-
-    WSH_SHELL_MEMCPY(pHash, saltPassHashStr, WSH_SHELL_STRLEN(saltPassHashStr) + 1);
+    WSH_SHELL_SNPRINTF(pHash, WSH_SHELL_SALT_PASS_HASH_LEN + 1, "%08x", hash);
 }
 
 WSH_SHELL_RET_STATE_t WshShellUser_Attach(WshShellUser_Table_t* pShellUsers,
