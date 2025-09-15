@@ -52,6 +52,7 @@
 * **WshShellIO\_RefreshConsoleFromInterBuff** ([**wsh\_shell\_io.c**](wsh__shell__io_8c.md), [**wsh\_shell\_io.h**](wsh__shell__io_8h.md))
 * **WshShellIO\_RemoveLeftSymbol** ([**wsh\_shell\_io.c**](wsh__shell__io_8c.md), [**wsh\_shell\_io.h**](wsh__shell__io_8h.md))
 * **WshShellIO\_WriteToInterBuff** ([**wsh\_shell\_io.c**](wsh__shell__io_8c.md), [**wsh\_shell\_io.h**](wsh__shell__io_8h.md))
+* **WshShellMisc\_CalcJenkinsHash** ([**wsh\_shell\_misc.c**](wsh__shell__misc_8c.md), [**wsh\_shell\_misc.h**](wsh__shell__misc_8h.md))
 * **WshShell\_OptTypeStr\_Get** ([**wsh\_shell\_option.h**](wsh__shell__option_8h.md))
 * **WshShellPromptWait\_Attach** ([**wsh\_shell\_promptwait.c**](wsh__shell__promptwait_8c.md), [**wsh\_shell\_promptwait.h**](wsh__shell__promptwait_8h.md))
 * **WshShellPromptWait\_Enter** ([**wsh\_shell\_promptwait.c**](wsh__shell__promptwait_8c.md), [**wsh\_shell\_promptwait.h**](wsh__shell__promptwait_8h.md))

@@ -322,7 +322,7 @@
         </childnode>
       </node>
     </collaborationgraph>
-    <location file="src/wsh_shell.h" line="59" column="1" bodyfile="src/wsh_shell.h" bodystart="59" bodyend="79"/>
+    <location file="src/wsh_shell.h" line="59" column="1" bodyfile="src/wsh_shell.h" bodystart="59" bodyend="78"/>
     <listofallmembers>
       <member refid="structWshShell__t_1a0c0a582384d2b2e147478850f4ddf459" prot="public" virt="non-virtual"><scope>WshShell_t</scope><name>CommandLine</name></member>
       <member refid="structWshShell__t_1ab76826113e0cae0cb5e48c36e82d988d" prot="public" virt="non-virtual"><scope>WshShell_t</scope><name>Commands</name></member>

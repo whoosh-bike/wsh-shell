@@ -16,7 +16,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/wsh_shell_history.h" line="52" column="20" bodyfile="src/wsh_shell_history.h" bodystart="52" bodyend="-1"/>
+        <location file="src/wsh_shell_history.h" line="53" column="20" bodyfile="src/wsh_shell_history.h" bodystart="53" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structWshShellHistory__t_1a588e7536135d4b14774b8a87ca233547" prot="public" static="no" mutable="no">
         <type><ref refid="structWshShellHistory__Data__t" kindref="compound">WshShellHistory_Data_t</ref></type>
@@ -30,7 +30,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/wsh_shell_history.h" line="53" column="28" bodyfile="src/wsh_shell_history.h" bodystart="53" bodyend="-1"/>
+        <location file="src/wsh_shell_history.h" line="54" column="28" bodyfile="src/wsh_shell_history.h" bodystart="54" bodyend="-1"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
@@ -52,7 +52,7 @@
         <link refid="structWshShellHistory__Data__t"/>
       </node>
     </collaborationgraph>
-    <location file="src/wsh_shell_history.h" line="51" column="1" bodyfile="src/wsh_shell_history.h" bodystart="51" bodyend="54"/>
+    <location file="src/wsh_shell_history.h" line="52" column="1" bodyfile="src/wsh_shell_history.h" bodystart="52" bodyend="55"/>
     <listofallmembers>
       <member refid="structWshShellHistory__t_1a588e7536135d4b14774b8a87ca233547" prot="public" virt="non-virtual"><scope>WshShellHistory_t</scope><name>Data</name></member>
       <member refid="structWshShellHistory__t_1afbc51d2827096815477d4b0b91e957fd" prot="public" virt="non-virtual"><scope>WshShellHistory_t</scope><name>Hash</name></member>

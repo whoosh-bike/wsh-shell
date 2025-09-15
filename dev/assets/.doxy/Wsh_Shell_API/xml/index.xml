@@ -328,6 +328,12 @@
     <member refid="wsh__shell__io_8h_1afd0ae76eae883ef80c73fc8e1c25197d" kind="function"><name>WshShellIO_RemoveLeftSymbol</name></member>
     <member refid="wsh__shell__io_8h_1aff3bd3d1200458c97969a00125051ca4" kind="function"><name>WshShellIO_InsertSymbol</name></member>
   </compound>
+  <compound refid="wsh__shell__misc_8c" kind="file"><name>wsh_shell_misc.c</name>
+    <member refid="wsh__shell__misc_8c_1a008d9a001d61629467efaaeb27f011dd" kind="function"><name>WshShellMisc_CalcJenkinsHash</name></member>
+  </compound>
+  <compound refid="wsh__shell__misc_8h" kind="file"><name>wsh_shell_misc.h</name>
+    <member refid="wsh__shell__misc_8h_1a008d9a001d61629467efaaeb27f011dd" kind="function"><name>WshShellMisc_CalcJenkinsHash</name></member>
+  </compound>
   <compound refid="wsh__shell__option_8h" kind="file"><name>wsh_shell_option.h</name>
     <member refid="wsh__shell__option_8h_1a0b5d600d9e88a6855ca97c058f2053ed" kind="define"><name>WSH_SHELL_OPT_ACCESS_NONE</name></member>
     <member refid="wsh__shell__option_8h_1aafc46423ec1eac0c09061c9f3a74ceef" kind="define"><name>WSH_SHELL_OPT_ACCESS_READ</name></member>

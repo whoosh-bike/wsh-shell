@@ -4,7 +4,7 @@
     <compoundname>wsh_shell.c</compoundname>
     <includes refid="wsh__shell_8h" local="yes">wsh_shell.h</includes>
     <incdepgraph>
-      <node id="23">
+      <node id="24">
         <label>wsh_shell_user.h</label>
         <link refid="wsh__shell__user_8h"/>
         <childnode refid="4" relation="include">
@@ -18,6 +18,14 @@
       <node id="10">
         <label>stdarg.h</label>
       </node>
+      <node id="19">
+        <label>wsh_shell_misc.h</label>
+        <link refid="wsh__shell__misc_8h"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+      </node>
       <node id="7">
         <label>wsh_shell_str.h</label>
         <link refid="wsh__shell__str_8h"/>
@@ -30,7 +38,7 @@
         <childnode refid="9" relation="include">
         </childnode>
       </node>
-      <node id="21">
+      <node id="22">
         <label>wsh_shell_promptwait.h</label>
         <link refid="wsh__shell__promptwait_8h"/>
         <childnode refid="4" relation="include">
@@ -90,6 +98,8 @@
         <link refid="wsh__shell__history_8h"/>
         <childnode refid="4" relation="include">
         </childnode>
+        <childnode refid="19" relation="include">
+        </childnode>
         <childnode refid="7" relation="include">
         </childnode>
         <childnode refid="9" relation="include">
@@ -124,28 +134,28 @@
         </childnode>
         <childnode refid="17" relation="include">
         </childnode>
-        <childnode refid="19" relation="include">
+        <childnode refid="20" relation="include">
         </childnode>
         <childnode refid="18" relation="include">
         </childnode>
-        <childnode refid="20" relation="include">
+        <childnode refid="21" relation="include">
         </childnode>
         <childnode refid="6" relation="include">
         </childnode>
-        <childnode refid="21" relation="include">
-        </childnode>
         <childnode refid="22" relation="include">
+        </childnode>
+        <childnode refid="23" relation="include">
         </childnode>
         <childnode refid="7" relation="include">
         </childnode>
         <childnode refid="9" relation="include">
         </childnode>
-        <childnode refid="23" relation="include">
-        </childnode>
         <childnode refid="24" relation="include">
         </childnode>
+        <childnode refid="25" relation="include">
+        </childnode>
       </node>
-      <node id="20">
+      <node id="21">
         <label>wsh_shell_interact.h</label>
         <link refid="wsh__shell__interact_8h"/>
         <childnode refid="4" relation="include">
@@ -153,7 +163,7 @@
         <childnode refid="6" relation="include">
         </childnode>
       </node>
-      <node id="24">
+      <node id="25">
         <label>wsh_shell_version.h</label>
         <link refid="wsh__shell__version_8h_source"/>
       </node>
@@ -171,7 +181,7 @@
         <childnode refid="9" relation="include">
         </childnode>
       </node>
-      <node id="19">
+      <node id="20">
         <label>wsh_shell_esc.h</label>
         <link refid="wsh__shell__esc_8h"/>
         <childnode refid="4" relation="include">
@@ -181,7 +191,7 @@
         <childnode refid="6" relation="include">
         </childnode>
       </node>
-      <node id="22">
+      <node id="23">
         <label>wsh_shell_ps1_custom.h</label>
         <link refid="wsh__shell__ps1__custom_8h"/>
         <childnode refid="4" relation="include">
