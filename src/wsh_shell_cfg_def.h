@@ -124,8 +124,10 @@
 #define WSH_SHELL_CMD_OPTIONS_MAX_NUM   16  // Max options per command
 #define WSH_SHELL_CMD_NAME_LEN          16  // Command name max length
 #define WSH_SHELL_CMD_ARGS_MAX_NUM      16  // Max arguments per command
-#define WSH_SHELL_LOGIN_LEN             16  // Max username length
+#define WSH_SHELL_LOGIN_LEN             16  // Max user name length
+#define WSH_SHELL_SALT_LEN              16  // Max salt length
 #define WSH_SHELL_PASS_LEN              16  // Max password length
+#define WSH_SHELL_SALT_PASS_HASH_LEN    64  // Password + salt hash length
 #define WSH_SHELL_INTR_BUFF_LEN         64  // Interactive input buffer
 #define WSH_SHELL_ESC_BUFF_LEN          8   // Escape sequence buffer
 

@@ -2,18 +2,21 @@
 
 static void WshShellUser_DefHashFunc(const WshShell_Char_t* pcSalt, const WshShell_Char_t* pcPass,
                                      WshShell_Char_t* pHash) {
-    u32 saltLen = WSH_SHELL_STRLEN(pcSalt);
-    u32 passLen = WSH_SHELL_STRLEN(pcPass);
+    WshShell_Size_t saltLen = WSH_SHELL_STRLEN(pcSalt);
+    WshShell_Size_t passLen = WSH_SHELL_STRLEN(pcPass);
 
-    if (saltLen > WSH_SHELL_SALT_LEN || passLen > WSH_SHELL_PASS_LEN)
+    if (saltLen > WSH_SHELL_SALT_LEN || passLen > WSH_SHELL_PASS_LEN) {
+        WSH_SHELL_ASSERT(0);
         return;
+    }
 
     char saltPass[WSH_SHELL_SALT_LEN + WSH_SHELL_PASS_LEN + 1];
     WSH_SHELL_MEMCPY(saltPass, pcSalt, saltLen);
     WSH_SHELL_MEMCPY(saltPass + saltLen, pcPass, passLen);
     saltPass[saltLen + passLen] = '\0';
 
-    u32 hash = WshShellMisc_CalcJenkinsHash((const u8*)saltPass, saltLen + passLen);
+    WshShell_Size_t hash =
+        WshShellMisc_CalcJenkinsHash((const WshShell_U8_t*)saltPass, saltLen + passLen);
 
     WshShell_Char_t saltPassHashStr[WSH_SHELL_SALT_PASS_HASH_LEN + 1];
     WSH_SHELL_SNPRINTF(saltPassHashStr, sizeof(saltPassHashStr), "%08x", hash);

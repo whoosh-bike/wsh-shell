@@ -7,7 +7,8 @@ static WshShell_t Shell = {0};
 static const WshShellUser_t Shell_UserTable[] = {
     {
         .Login  = "root",
-        .Pass   = "1234",
+        .Salt   = "a0523cb065ee08c1",
+        .Hash   = "0632cee0",  //1234
         .Groups = WSH_SHELL_CMD_GROUP_ALL,
         .Rights = WSH_SHELL_OPT_ACCESS_ANY,
     },
@@ -46,8 +47,8 @@ bool Shell_Init(const char* pcHostName) {
         return false;
     }
 
-    if (WshShellUser_Attach(&(Shell.Users), Shell_UserTable, WSH_SHELL_ARR_LEN(Shell_UserTable)) !=
-        WSH_SHELL_RET_STATE_SUCCESS) {
+    if (WshShellUser_Attach(&(Shell.Users), Shell_UserTable, WSH_SHELL_ARR_LEN(Shell_UserTable),
+                            NULL) != WSH_SHELL_RET_STATE_SUCCESS) {
         return false;
     }
 
@@ -56,7 +57,7 @@ bool Shell_Init(const char* pcHostName) {
     if (!Shell_Commands_Init(&Shell))
         return false;
 
-    // WshShell_Auth(&Shell, Shell_UserTable[0].Login, Shell_UserTable[0].Pass);  //For quick auth
+    // WshShell_Auth(&Shell, "root", "1234");  //For quick auth
 
     return true;
 }
