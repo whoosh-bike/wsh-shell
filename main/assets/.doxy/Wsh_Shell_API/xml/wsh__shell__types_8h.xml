@@ -15,6 +15,7 @@
     <includedby refid="wsh__shell__cmd_8h" local="yes">src/wsh_shell_cmd.h</includedby>
     <includedby refid="wsh__shell__cmd__def_8h" local="yes">src/wsh_shell_cmd_def.h</includedby>
     <includedby refid="wsh__shell__history_8h" local="yes">src/wsh_shell_history.h</includedby>
+    <includedby refid="wsh__shell__misc_8h" local="yes">src/wsh_shell_misc.h</includedby>
     <includedby refid="wsh__shell__option_8h" local="yes">src/wsh_shell_option.h</includedby>
     <includedby refid="wsh__shell__ps1__custom_8h" local="yes">src/wsh_shell_ps1_custom.h</includedby>
     <includedby refid="wsh__shell__str_8h" local="yes">src/wsh_shell_str.h</includedby>
@@ -61,13 +62,21 @@
       </node>
     </incdepgraph>
     <invincdepgraph>
-      <node id="15">
+      <node id="10">
         <label>src/wsh_shell_user.h</label>
         <link refid="wsh__shell__user_8h"/>
         <childnode refid="2" relation="include">
         </childnode>
       </node>
-      <node id="10">
+      <node id="9">
+        <label>src/wsh_shell_misc.h</label>
+        <link refid="wsh__shell__misc_8h"/>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+      </node>
+      <node id="12">
         <label>src/wsh_shell_str.h</label>
         <link refid="wsh__shell__str_8h"/>
         <childnode refid="2" relation="include">
@@ -78,24 +87,24 @@
         </childnode>
         <childnode refid="7" relation="include">
         </childnode>
-        <childnode refid="11" relation="include">
+        <childnode refid="13" relation="include">
         </childnode>
       </node>
-      <node id="13">
+      <node id="15">
         <label>src/wsh_shell_promptwait.h</label>
         <link refid="wsh__shell__promptwait_8h"/>
         <childnode refid="2" relation="include">
         </childnode>
       </node>
-      <node id="9">
+      <node id="11">
         <label>src/wsh_shell_option.h</label>
         <link refid="wsh__shell__option_8h"/>
         <childnode refid="5" relation="include">
         </childnode>
-        <childnode refid="10" relation="include">
+        <childnode refid="12" relation="include">
         </childnode>
       </node>
-      <node id="11">
+      <node id="13">
         <label>src/wsh_shell_io.h</label>
         <link refid="wsh__shell__io_8h"/>
         <childnode refid="2" relation="include">
@@ -106,13 +115,13 @@
         </childnode>
         <childnode refid="8" relation="include">
         </childnode>
-        <childnode refid="12" relation="include">
-        </childnode>
-        <childnode refid="13" relation="include">
-        </childnode>
         <childnode refid="14" relation="include">
         </childnode>
-        <childnode refid="10" relation="include">
+        <childnode refid="15" relation="include">
+        </childnode>
+        <childnode refid="16" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
         </childnode>
       </node>
       <node id="1">
@@ -132,11 +141,13 @@
         </childnode>
         <childnode refid="9" relation="include">
         </childnode>
-        <childnode refid="14" relation="include">
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="16" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
         </childnode>
         <childnode refid="10" relation="include">
-        </childnode>
-        <childnode refid="15" relation="include">
         </childnode>
       </node>
       <node id="7">
@@ -161,7 +172,7 @@
         <label>src/wsh_shell.h</label>
         <link refid="wsh__shell_8h"/>
       </node>
-      <node id="12">
+      <node id="14">
         <label>src/wsh_shell_interact.h</label>
         <link refid="wsh__shell__interact_8h"/>
         <childnode refid="2" relation="include">
@@ -187,7 +198,7 @@
         <childnode refid="2" relation="include">
         </childnode>
       </node>
-      <node id="14">
+      <node id="16">
         <label>src/wsh_shell_ps1_custom.h</label>
         <link refid="wsh__shell__ps1__custom_8h"/>
         <childnode refid="2" relation="include">

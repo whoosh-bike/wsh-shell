@@ -57,6 +57,8 @@
 * **WSH\_SHELL\_PS1\_CUSTOM** ([**wsh\_shell\_cfg\_def.h**](wsh__shell__cfg__def_8h.md))
 * **WSH\_SHELL\_PS1\_MAX\_LEN** ([**wsh\_shell\_cfg\_def.h**](wsh__shell__cfg__def_8h.md))
 * **WSH\_SHELL\_PS1\_TEMPLATE** ([**wsh\_shell\_cfg\_def.h**](wsh__shell__cfg__def_8h.md))
+* **WSH\_SHELL\_SALT\_LEN** ([**wsh\_shell\_cfg\_def.h**](wsh__shell__cfg__def_8h.md))
+* **WSH\_SHELL\_SALT\_PASS\_HASH\_LEN** ([**wsh\_shell\_cfg\_def.h**](wsh__shell__cfg__def_8h.md))
 * **WSH\_SHELL\_SNPRINTF** ([**wsh\_shell\_cfg\_def.h**](wsh__shell__cfg__def_8h.md))
 * **WSH\_SHELL\_STRCMP** ([**wsh\_shell\_cfg\_def.h**](wsh__shell__cfg__def_8h.md))
 * **WSH\_SHELL\_STRCPY** ([**wsh\_shell\_cfg\_def.h**](wsh__shell__cfg__def_8h.md))

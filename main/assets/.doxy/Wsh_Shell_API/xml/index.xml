@@ -94,13 +94,15 @@
   </compound>
   <compound refid="structWshShellUser__t" kind="struct"><name>WshShellUser_t</name>
     <member refid="structWshShellUser__t_1a8820ed2911a83f57ef77bffe2166027d" kind="variable"><name>Login</name></member>
-    <member refid="structWshShellUser__t_1a4a8c39121d30dbe67a27f057a2939ed2" kind="variable"><name>Pass</name></member>
+    <member refid="structWshShellUser__t_1a7833df12bf5f142c2af6aeaf8dba6c71" kind="variable"><name>Salt</name></member>
+    <member refid="structWshShellUser__t_1a49276198b7f3b6cde59b4ab44b86b5f8" kind="variable"><name>Hash</name></member>
     <member refid="structWshShellUser__t_1a982fe8c361a9b40d69cc943a7653ecc5" kind="variable"><name>Groups</name></member>
     <member refid="structWshShellUser__t_1a1e990c9e7154cefedc038789c9f15664" kind="variable"><name>Rights</name></member>
   </compound>
   <compound refid="structWshShellUser__Table__t" kind="struct"><name>WshShellUser_Table_t</name>
     <member refid="structWshShellUser__Table__t_1a9125202bad2d91a922c3e239d7d1aa42" kind="variable"><name>List</name></member>
     <member refid="structWshShellUser__Table__t_1a146656c6dfdbcdaf6a00920a287bb40a" kind="variable"><name>Num</name></member>
+    <member refid="structWshShellUser__Table__t_1ac8ec6602ffc594475032e03522889071" kind="variable"><name>Hash</name></member>
   </compound>
   <compound refid="wsh__shell_8c" kind="file"><name>wsh_shell.c</name>
     <member refid="wsh__shell_8c_1af1f17028fc1df49816f426b9701623e7" kind="define"><name>WSH_SHELL_USER_IS_AUTH</name></member>
@@ -139,9 +141,6 @@
     <member refid="wsh__shell__cfg__def_8h_1a27f6a3cf4f8e58bf359b3302f193837a" kind="define"><name>WSH_SHELL_PRINT_INFO_ENABLE</name></member>
     <member refid="wsh__shell__cfg__def_8h_1a562de8bdf247986858f8508931ee6475" kind="define"><name>WSH_SHELL_PRINT_WARN_ENABLE</name></member>
     <member refid="wsh__shell__cfg__def_8h_1af52044788ee1e8708babd5a32a51c7fd" kind="define"><name>WSH_SHELL_PRINT_ERR_ENABLE</name></member>
-    <member refid="wsh__shell__cfg__def_8h_1a195ecfaaa46050c35ea3ab9eb9628da3" kind="define"><name>WSH_SHELL_DEF_COMMAND</name></member>
-    <member refid="wsh__shell__cfg__def_8h_1acac175a02863a35c570a3f9b3d8dbb1b" kind="define"><name>WSH_SHELL_PRINT_OPT_HELP_ENABLE</name></member>
-    <member refid="wsh__shell__cfg__def_8h_1aa273f75ae3ac2350aaa0f0a89d482516" kind="define"><name>WSH_SHELL_CMD_PRINT_OPT_OVERVIEW</name></member>
     <member refid="wsh__shell__cfg__def_8h_1ada4fbc968726db71306cbab04f40d8dc" kind="define"><name>WSH_SHELL_INTERACTIVE_MODE</name></member>
     <member refid="wsh__shell__cfg__def_8h_1a1ef1c6ab90ec34dd2df2f4e9f13f7425" kind="define"><name>WSH_SHELL_HISTORY</name></member>
     <member refid="wsh__shell__cfg__def_8h_1a56e6c2eba787687b9f39fe018f736aec" kind="define"><name>WSH_SHELL_HISTORY_BUFF_SIZE</name></member>
@@ -152,6 +151,9 @@
     <member refid="wsh__shell__cfg__def_8h_1a3892b3ae21a06cdb78603080f14e3f20" kind="define"><name>WSH_SHELL_PS1_TEMPLATE</name></member>
     <member refid="wsh__shell__cfg__def_8h_1a01654c8758d856de9ad5a6c90218c5e8" kind="define"><name>WSH_SHELL_PS1_MAX_LEN</name></member>
     <member refid="wsh__shell__cfg__def_8h_1a7af31e564fe835d55aa74b7bc684eae0" kind="define"><name>WSH_SHELL_PROMPT_WAIT</name></member>
+    <member refid="wsh__shell__cfg__def_8h_1a195ecfaaa46050c35ea3ab9eb9628da3" kind="define"><name>WSH_SHELL_DEF_COMMAND</name></member>
+    <member refid="wsh__shell__cfg__def_8h_1acac175a02863a35c570a3f9b3d8dbb1b" kind="define"><name>WSH_SHELL_PRINT_OPT_HELP_ENABLE</name></member>
+    <member refid="wsh__shell__cfg__def_8h_1aa273f75ae3ac2350aaa0f0a89d482516" kind="define"><name>WSH_SHELL_CMD_PRINT_OPT_OVERVIEW</name></member>
     <member refid="wsh__shell__cfg__def_8h_1a9cc874123e02a44f418562a8dd6cd892" kind="define"><name>WSH_SHELL_CMD_GROUP_NONE</name></member>
     <member refid="wsh__shell__cfg__def_8h_1a1834ff972b1e3eb6a753dc272aafec41" kind="define"><name>WSH_SHELL_CMD_GROUP_ALL</name></member>
     <member refid="wsh__shell__cfg__def_8h_1ac9697611a53211575b6eb7803b5f7dfa" kind="define"><name>WSH_SHELL_CMD_GROUP_MAX_COUNT</name></member>
@@ -169,7 +171,9 @@
     <member refid="wsh__shell__cfg__def_8h_1a79de0f7193e33f404b77ae866c49d98f" kind="define"><name>WSH_SHELL_CMD_NAME_LEN</name></member>
     <member refid="wsh__shell__cfg__def_8h_1a812beb026e11a5ea7d033d5d8e348d1f" kind="define"><name>WSH_SHELL_CMD_ARGS_MAX_NUM</name></member>
     <member refid="wsh__shell__cfg__def_8h_1a9f92ef57a08be8ad8abed10d49d4698b" kind="define"><name>WSH_SHELL_LOGIN_LEN</name></member>
+    <member refid="wsh__shell__cfg__def_8h_1a281b7c3adf53028eba48080b7ae261b3" kind="define"><name>WSH_SHELL_SALT_LEN</name></member>
     <member refid="wsh__shell__cfg__def_8h_1a644af2e0140720678b57a5536ae9893e" kind="define"><name>WSH_SHELL_PASS_LEN</name></member>
+    <member refid="wsh__shell__cfg__def_8h_1aa80ad0a2681a199ed205cdb021d2e204" kind="define"><name>WSH_SHELL_SALT_PASS_HASH_LEN</name></member>
     <member refid="wsh__shell__cfg__def_8h_1afc84660b6e175ec3b2470dea5b01fb59" kind="define"><name>WSH_SHELL_INTR_BUFF_LEN</name></member>
     <member refid="wsh__shell__cfg__def_8h_1a14dbb76d5fc5b27c4c6bfadd000443ba" kind="define"><name>WSH_SHELL_ESC_BUFF_LEN</name></member>
     <member refid="wsh__shell__cfg__def_8h_1ab738f1d1d08c8f060041628c3bcd49ee" kind="define"><name>WSH_SHELL_ASSERT</name></member>
@@ -328,6 +332,12 @@
     <member refid="wsh__shell__io_8h_1afd0ae76eae883ef80c73fc8e1c25197d" kind="function"><name>WshShellIO_RemoveLeftSymbol</name></member>
     <member refid="wsh__shell__io_8h_1aff3bd3d1200458c97969a00125051ca4" kind="function"><name>WshShellIO_InsertSymbol</name></member>
   </compound>
+  <compound refid="wsh__shell__misc_8c" kind="file"><name>wsh_shell_misc.c</name>
+    <member refid="wsh__shell__misc_8c_1a008d9a001d61629467efaaeb27f011dd" kind="function"><name>WshShellMisc_CalcJenkinsHash</name></member>
+  </compound>
+  <compound refid="wsh__shell__misc_8h" kind="file"><name>wsh_shell_misc.h</name>
+    <member refid="wsh__shell__misc_8h_1a008d9a001d61629467efaaeb27f011dd" kind="function"><name>WshShellMisc_CalcJenkinsHash</name></member>
+  </compound>
   <compound refid="wsh__shell__option_8h" kind="file"><name>wsh_shell_option.h</name>
     <member refid="wsh__shell__option_8h_1a0b5d600d9e88a6855ca97c058f2053ed" kind="define"><name>WSH_SHELL_OPT_ACCESS_NONE</name></member>
     <member refid="wsh__shell__option_8h_1aafc46423ec1eac0c09061c9f3a74ceef" kind="define"><name>WSH_SHELL_OPT_ACCESS_READ</name></member>
@@ -414,19 +424,21 @@
     <member refid="wsh__shell__types_8h_1a4b9975253a299ad647b7280f501dbcea" kind="function"><name>WshShell_GetRetStateStr</name></member>
   </compound>
   <compound refid="wsh__shell__user_8c" kind="file"><name>wsh_shell_user.c</name>
-    <member refid="wsh__shell__user_8c_1ab005ea5ce79234fdc2541b255086cce5" kind="function"><name>WshShellUser_Attach</name></member>
+    <member refid="wsh__shell__user_8c_1aad0f26613046a529e7f0c06e5221627a" kind="function"><name>WshShellUser_DefHashFunc</name></member>
+    <member refid="wsh__shell__user_8c_1a77a730a1b1d4aedfe25a2f00d6f3e540" kind="function"><name>WshShellUser_Attach</name></member>
     <member refid="wsh__shell__user_8c_1a26a4a7ae0e505ede96a31c71eeb61f65" kind="function"><name>WshShellUser_DeAttach</name></member>
     <member refid="wsh__shell__user_8c_1a5f1b4aed2ff3ac671b0a353721f325a9" kind="function"><name>WshShellUser_GetUsersNum</name></member>
     <member refid="wsh__shell__user_8c_1a6eb27bd4524e3edabea08c52e34797d7" kind="function"><name>WshShellUser_GetUserByIndex</name></member>
-    <member refid="wsh__shell__user_8c_1a92102de85626b69ef375173f87b3d31b" kind="function"><name>WshShellUser_CheckCredentials</name></member>
+    <member refid="wsh__shell__user_8c_1a0a45ebf8604f3e979b4b8581acde6162" kind="function"><name>WshShellUser_CheckCredentials</name></member>
     <member refid="wsh__shell__user_8c_1aeb6134783fd1a2d6d887de0d174b80f3" kind="function"><name>WshShellUser_FindByCredentials</name></member>
   </compound>
   <compound refid="wsh__shell__user_8h" kind="file"><name>wsh_shell_user.h</name>
-    <member refid="wsh__shell__user_8h_1ab005ea5ce79234fdc2541b255086cce5" kind="function"><name>WshShellUser_Attach</name></member>
+    <member refid="wsh__shell__user_8h_1adcf8cc3083ca759f501246bb6a77b274" kind="typedef"><name>WshShellUser_HashFunc_t</name></member>
+    <member refid="wsh__shell__user_8h_1a77a730a1b1d4aedfe25a2f00d6f3e540" kind="function"><name>WshShellUser_Attach</name></member>
     <member refid="wsh__shell__user_8h_1a26a4a7ae0e505ede96a31c71eeb61f65" kind="function"><name>WshShellUser_DeAttach</name></member>
     <member refid="wsh__shell__user_8h_1a5f1b4aed2ff3ac671b0a353721f325a9" kind="function"><name>WshShellUser_GetUsersNum</name></member>
     <member refid="wsh__shell__user_8h_1a6eb27bd4524e3edabea08c52e34797d7" kind="function"><name>WshShellUser_GetUserByIndex</name></member>
-    <member refid="wsh__shell__user_8h_1a92102de85626b69ef375173f87b3d31b" kind="function"><name>WshShellUser_CheckCredentials</name></member>
+    <member refid="wsh__shell__user_8h_1a0a45ebf8604f3e979b4b8581acde6162" kind="function"><name>WshShellUser_CheckCredentials</name></member>
     <member refid="wsh__shell__user_8h_1aeb6134783fd1a2d6d887de0d174b80f3" kind="function"><name>WshShellUser_FindByCredentials</name></member>
   </compound>
   <compound refid="wsh__shell__version_8h" kind="file"><name>wsh_shell_version.h</name>

@@ -19,6 +19,8 @@
     <innerfile refid="wsh__shell__interact_8h">wsh_shell_interact.h</innerfile>
     <innerfile refid="wsh__shell__io_8c">wsh_shell_io.c</innerfile>
     <innerfile refid="wsh__shell__io_8h">wsh_shell_io.h</innerfile>
+    <innerfile refid="wsh__shell__misc_8c">wsh_shell_misc.c</innerfile>
+    <innerfile refid="wsh__shell__misc_8h">wsh_shell_misc.h</innerfile>
     <innerfile refid="wsh__shell__option_8h">wsh_shell_option.h</innerfile>
     <innerfile refid="wsh__shell__promptwait_8c">wsh_shell_promptwait.c</innerfile>
     <innerfile refid="wsh__shell__promptwait_8h">wsh_shell_promptwait.h</innerfile>

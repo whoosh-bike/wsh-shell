@@ -98,9 +98,6 @@ WshShell_Bool_t WshShell_Auth(WshShell_t* pShell, const WshShell_Char_t* pcLogin
         WSH_SHELL_PRINT("%c", WSH_SHELL_SYM_SOUND);
     }
 
-    WSH_SHELL_MEMSET((void*)pShell->TmpAuth.Login, 0, WSH_SHELL_LOGIN_LEN);
-    WSH_SHELL_MEMSET((void*)pShell->TmpAuth.Pass, 0, WSH_SHELL_PASS_LEN);
-
     return WSH_SHELL_USER_IS_AUTH();
 }
 
@@ -130,13 +127,17 @@ void WshShell_DeAuth(WshShell_t* pShell, const WshShell_Char_t* pcReason) {
 
 static void WshShell_AuthHandler(WshShell_t* pShell) {
     WshShell_Size_t len = pShell->CommandLine.Len;
-    if (len >= WSH_SHELL_LOGIN_LEN)
-        len = WSH_SHELL_LOGIN_LEN - 1;
 
     if (WSH_SHELL_TMP_LOGIN_IS_EMPTY()) {
+        if (len >= WSH_SHELL_LOGIN_LEN)
+            len = WSH_SHELL_LOGIN_LEN - 1;
+
         WSH_SHELL_MEMCPY(pShell->TmpAuth.Login, pShell->CommandLine.Buff, len);
         pShell->TmpAuth.Login[len] = '\0';
     } else if (WSH_SHELL_TMP_PASS_IS_EMPTY()) {
+        if (len >= WSH_SHELL_PASS_LEN)
+            len = WSH_SHELL_PASS_LEN - 1;
+
         WSH_SHELL_MEMCPY(pShell->TmpAuth.Pass, pShell->CommandLine.Buff, len);
         pShell->TmpAuth.Pass[len] = '\0';
     }
@@ -144,6 +145,9 @@ static void WshShell_AuthHandler(WshShell_t* pShell) {
     if (!WSH_SHELL_TMP_LOGIN_IS_EMPTY() && !WSH_SHELL_TMP_PASS_IS_EMPTY()) {
         WshShell_Bool_t isAuthOk =
             WshShell_Auth(pShell, pShell->TmpAuth.Login, pShell->TmpAuth.Pass);
+
+        WSH_SHELL_MEMSET((void*)pShell->TmpAuth.Login, 0, WSH_SHELL_LOGIN_LEN);
+        WSH_SHELL_MEMSET((void*)pShell->TmpAuth.Pass, 0, WSH_SHELL_PASS_LEN);
 
         if (!isAuthOk)
             WSH_SHELL_PRINT("%c", WSH_SHELL_SYM_SOUND);

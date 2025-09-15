@@ -22,6 +22,8 @@ Here is a list of all files with brief descriptions:
     * **file** [**wsh\_shell\_interact.h**](wsh__shell__interact_8h.md) _Interactive command registration and line editing utilities for WshShell._     
     * **file** [**wsh\_shell\_io.c**](wsh__shell__io_8c.md)     
     * **file** [**wsh\_shell\_io.h**](wsh__shell__io_8h.md) _Terminal input/output definitions and interaction buffer API for WshShell._     
+    * **file** [**wsh\_shell\_misc.c**](wsh__shell__misc_8c.md)     
+    * **file** [**wsh\_shell\_misc.h**](wsh__shell__misc_8h.md) _Miscellaneous helper utilities for the shell._     
     * **file** [**wsh\_shell\_option.h**](wsh__shell__option_8h.md) _Definition of shell command-line option object and creation macros._     
     * **file** [**wsh\_shell\_promptwait.c**](wsh__shell__promptwait_8c.md)     
     * **file** [**wsh\_shell\_promptwait.h**](wsh__shell__promptwait_8h.md) _One-time user input waiting mechanism for WshShell._     

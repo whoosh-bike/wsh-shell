@@ -11,6 +11,7 @@
 _Shell user management API._ [More...](#detailed-description)
 
 * `#include "wsh_shell_cfg.h"`
+* `#include "wsh_shell_misc.h"`
 * `#include "wsh_shell_types.h"`
 
 
@@ -35,6 +36,11 @@ _Shell user management API._ [More...](#detailed-description)
 | struct | [**WshShellUser\_t**](structWshShellUser__t.md) <br>_User object definition._  |
 
 
+## Public Types
+
+| Type | Name |
+| ---: | :--- |
+| typedef void(\* | [**WshShellUser\_HashFunc\_t**](#typedef-wshshelluser_hashfunc_t)  <br>_Hash function for salt + pass encryption._  |
 
 
 
@@ -59,8 +65,8 @@ _Shell user management API._ [More...](#detailed-description)
 
 | Type | Name |
 | ---: | :--- |
-|  WSH\_SHELL\_RET\_STATE\_t | [**WshShellUser\_Attach**](#function-wshshelluser_attach) ([**WshShellUser\_Table\_t**](structWshShellUser__Table__t.md) \* pShellUsers, const [**WshShellUser\_t**](structWshShellUser__t.md) \* pcUserTable, WshShell\_Size\_t userNum) <br>_Initialize the shell user table._  |
-|  WshShell\_Bool\_t | [**WshShellUser\_CheckCredentials**](#function-wshshelluser_checkcredentials) ([**WshShellUser\_Table\_t**](structWshShellUser__Table__t.md) \* pShellUsers, WshShell\_Size\_t UserID, const WshShell\_Char\_t \* pcLogin, const WshShell\_Char\_t \* pcPassword) <br>_Verify login credentials of a user._  |
+|  WSH\_SHELL\_RET\_STATE\_t | [**WshShellUser\_Attach**](#function-wshshelluser_attach) ([**WshShellUser\_Table\_t**](structWshShellUser__Table__t.md) \* pShellUsers, const [**WshShellUser\_t**](structWshShellUser__t.md) \* pcUserTable, WshShell\_Size\_t userNum, [**WshShellUser\_HashFunc\_t**](wsh__shell__user_8h.md#typedef-wshshelluser_hashfunc_t) extHashFunc) <br>_Initialize the shell user table._  |
+|  WshShell\_Bool\_t | [**WshShellUser\_CheckCredentials**](#function-wshshelluser_checkcredentials) ([**WshShellUser\_Table\_t**](structWshShellUser__Table__t.md) \* pShellUsers, WshShell\_Size\_t UserID, const WshShell\_Char\_t \* pcLogin, const WshShell\_Char\_t \* pcPass) <br>_Verify login credentials of a user._  |
 |  void | [**WshShellUser\_DeAttach**](#function-wshshelluser_deattach) ([**WshShellUser\_Table\_t**](structWshShellUser__Table__t.md) \* pShellUsers) <br>_Destroy the user table._  |
 |  const [**WshShellUser\_t**](structWshShellUser__t.md) \* | [**WshShellUser\_FindByCredentials**](#function-wshshelluser_findbycredentials) ([**WshShellUser\_Table\_t**](structWshShellUser__Table__t.md) \* pShellUsers, const WshShell\_Char\_t \* pcLogin, const WshShell\_Char\_t \* pcPass) <br>_Finds a user by login and password credentials._  |
 |  const [**WshShellUser\_t**](structWshShellUser__t.md) \* | [**WshShellUser\_GetUserByIndex**](#function-wshshelluser_getuserbyindex) ([**WshShellUser\_Table\_t**](structWshShellUser__Table__t.md) \* pShellUsers, WshShell\_Size\_t idx) <br>_Retrieve a user by index._  |
@@ -114,6 +120,22 @@ Copyright (c) 2025
 
 
     
+## Public Types Documentation
+
+
+
+
+### typedef WshShellUser\_HashFunc\_t 
+
+_Hash function for salt + pass encryption._ 
+```C++
+typedef void(* WshShellUser_HashFunc_t) (const WshShell_Char_t *pcSalt, const WshShell_Char_t *pcPass, WshShell_Char_t *pHash);
+```
+
+
+
+
+<hr>
 ## Public Functions Documentation
 
 
@@ -126,7 +148,8 @@ _Initialize the shell user table._
 WSH_SHELL_RET_STATE_t WshShellUser_Attach (
     WshShellUser_Table_t * pShellUsers,
     const WshShellUser_t * pcUserTable,
-    WshShell_Size_t userNum
+    WshShell_Size_t userNum,
+    WshShellUser_HashFunc_t extHashFunc
 ) 
 ```
 
@@ -170,7 +193,7 @@ WshShell_Bool_t WshShellUser_CheckCredentials (
     WshShellUser_Table_t * pShellUsers,
     WshShell_Size_t UserID,
     const WshShell_Char_t * pcLogin,
-    const WshShell_Char_t * pcPassword
+    const WshShell_Char_t * pcPass
 ) 
 ```
 
@@ -187,7 +210,7 @@ Validates login and password against the given user index.
 * `pShellUsers` Pointer to the user table. 
 * `UserID` Index of the user to validate. 
 * `pcLogin` Pointer to the login string. 
-* `pcPassword` Pointer to the password string.
+* `pcPass` Pointer to the password string.
 
 
 

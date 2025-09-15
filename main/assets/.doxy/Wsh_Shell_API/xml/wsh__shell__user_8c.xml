@@ -17,33 +17,41 @@
         </childnode>
         <childnode refid="4" relation="include">
         </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
       </node>
-      <node id="6">
+      <node id="7">
         <label>stdbool.h</label>
       </node>
-      <node id="5">
+      <node id="6">
         <label>stdarg.h</label>
       </node>
-      <node id="8">
+      <node id="4">
+        <label>wsh_shell_misc.h</label>
+        <link refid="wsh__shell__misc_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+      </node>
+      <node id="9">
         <label>stdint.h</label>
       </node>
-      <node id="10">
+      <node id="11">
         <label>stdlib.h</label>
       </node>
       <node id="3">
         <label>wsh_shell_cfg.h</label>
       </node>
-      <node id="7">
+      <node id="8">
         <label>stddef.h</label>
       </node>
-      <node id="11">
+      <node id="12">
         <label>string.h</label>
       </node>
-      <node id="4">
+      <node id="5">
         <label>wsh_shell_types.h</label>
         <link refid="wsh__shell__types_8h"/>
-        <childnode refid="5" relation="include">
-        </childnode>
         <childnode refid="6" relation="include">
         </childnode>
         <childnode refid="7" relation="include">
@@ -56,16 +64,43 @@
         </childnode>
         <childnode refid="11" relation="include">
         </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
       </node>
-      <node id="9">
+      <node id="10">
         <label>stdio.h</label>
       </node>
     </incdepgraph>
       <sectiondef kind="func">
-      <memberdef kind="function" id="wsh__shell__user_8c_1ab005ea5ce79234fdc2541b255086cce5" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="wsh__shell__user_8c_1aad0f26613046a529e7f0c06e5221627a" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>static void WshShellUser_DefHashFunc</definition>
+        <argsstring>(const WshShell_Char_t *pcSalt, const WshShell_Char_t *pcPass, WshShell_Char_t *pHash)</argsstring>
+        <name>WshShellUser_DefHashFunc</name>
+        <param>
+          <type>const WshShell_Char_t *</type>
+          <declname>pcSalt</declname>
+        </param>
+        <param>
+          <type>const WshShell_Char_t *</type>
+          <declname>pcPass</declname>
+        </param>
+        <param>
+          <type>WshShell_Char_t *</type>
+          <declname>pHash</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/wsh_shell_user.c" line="3" column="13" bodyfile="src/wsh_shell_user.c" bodystart="3" bodyend="22"/>
+      </memberdef>
+      <memberdef kind="function" id="wsh__shell__user_8c_1a77a730a1b1d4aedfe25a2f00d6f3e540" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>WSH_SHELL_RET_STATE_t</type>
         <definition>WSH_SHELL_RET_STATE_t WshShellUser_Attach</definition>
-        <argsstring>(WshShellUser_Table_t *pShellUsers, const WshShellUser_t *pcUserTable, WshShell_Size_t userNum)</argsstring>
+        <argsstring>(WshShellUser_Table_t *pShellUsers, const WshShellUser_t *pcUserTable, WshShell_Size_t userNum, WshShellUser_HashFunc_t extHashFunc)</argsstring>
         <name>WshShellUser_Attach</name>
         <param>
           <type><ref refid="structWshShellUser__Table__t" kindref="compound">WshShellUser_Table_t</ref> *</type>
@@ -78,6 +113,10 @@
         <param>
           <type>WshShell_Size_t</type>
           <declname>userNum</declname>
+        </param>
+        <param>
+          <type><ref refid="wsh__shell__user_8h_1adcf8cc3083ca759f501246bb6a77b274" kindref="member">WshShellUser_HashFunc_t</ref></type>
+          <declname>extHashFunc</declname>
         </param>
         <briefdescription>
 <para>Initialize the shell user table. </para>
@@ -138,7 +177,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/wsh_shell_user.c" line="3" column="23" bodyfile="src/wsh_shell_user.c" bodystart="3" bodyend="17"/>
+        <location file="src/wsh_shell_user.c" line="24" column="23" bodyfile="src/wsh_shell_user.c" bodystart="24" bodyend="40"/>
       </memberdef>
       <memberdef kind="function" id="wsh__shell__user_8c_1a26a4a7ae0e505ede96a31c71eeb61f65" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -167,7 +206,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/wsh_shell_user.c" line="19" column="6" bodyfile="src/wsh_shell_user.c" bodystart="19" bodyend="24"/>
+        <location file="src/wsh_shell_user.c" line="42" column="6" bodyfile="src/wsh_shell_user.c" bodystart="42" bodyend="47"/>
       </memberdef>
       <memberdef kind="function" id="wsh__shell__user_8c_1a5f1b4aed2ff3ac671b0a353721f325a9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>WshShell_Size_t</type>
@@ -197,7 +236,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/wsh_shell_user.c" line="26" column="17" bodyfile="src/wsh_shell_user.c" bodystart="26" bodyend="32"/>
+        <location file="src/wsh_shell_user.c" line="49" column="17" bodyfile="src/wsh_shell_user.c" bodystart="49" bodyend="55"/>
       </memberdef>
       <memberdef kind="function" id="wsh__shell__user_8c_1a6eb27bd4524e3edabea08c52e34797d7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>const <ref refid="structWshShellUser__t" kindref="compound">WshShellUser_t</ref> *</type>
@@ -239,12 +278,12 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/wsh_shell_user.c" line="34" column="22" bodyfile="src/wsh_shell_user.c" bodystart="34" bodyend="43"/>
+        <location file="src/wsh_shell_user.c" line="57" column="22" bodyfile="src/wsh_shell_user.c" bodystart="57" bodyend="66"/>
       </memberdef>
-      <memberdef kind="function" id="wsh__shell__user_8c_1a92102de85626b69ef375173f87b3d31b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="wsh__shell__user_8c_1a0a45ebf8604f3e979b4b8581acde6162" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>WshShell_Bool_t</type>
         <definition>WshShell_Bool_t WshShellUser_CheckCredentials</definition>
-        <argsstring>(WshShellUser_Table_t *pShellUsers, WshShell_Size_t UserID, const WshShell_Char_t *pcLogin, const WshShell_Char_t *pcPassword)</argsstring>
+        <argsstring>(WshShellUser_Table_t *pShellUsers, WshShell_Size_t UserID, const WshShell_Char_t *pcLogin, const WshShell_Char_t *pcPass)</argsstring>
         <name>WshShellUser_CheckCredentials</name>
         <param>
           <type><ref refid="structWshShellUser__Table__t" kindref="compound">WshShellUser_Table_t</ref> *</type>
@@ -260,7 +299,7 @@
         </param>
         <param>
           <type>const WshShell_Char_t *</type>
-          <declname>pcPassword</declname>
+          <declname>pcPass</declname>
         </param>
         <briefdescription>
 <para>Verify login credentials of a user. </para>
@@ -293,7 +332,7 @@
 </parameteritem>
 <parameteritem>
 <parameternamelist>
-<parametername direction="in">pcPassword</parametername>
+<parametername direction="in">pcPass</parametername>
 </parameternamelist>
 <parameterdescription>
 <para>Pointer to the password string.</para>
@@ -321,7 +360,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/wsh_shell_user.c" line="45" column="17" bodyfile="src/wsh_shell_user.c" bodystart="45" bodyend="65"/>
+        <location file="src/wsh_shell_user.c" line="68" column="17" bodyfile="src/wsh_shell_user.c" bodystart="68" bodyend="99"/>
       </memberdef>
       <memberdef kind="function" id="wsh__shell__user_8c_1aeb6134783fd1a2d6d887de0d174b80f3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>const <ref refid="structWshShellUser__t" kindref="compound">WshShellUser_t</ref> *</type>
@@ -378,7 +417,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/wsh_shell_user.c" line="67" column="22" bodyfile="src/wsh_shell_user.c" bodystart="67" bodyend="80"/>
+        <location file="src/wsh_shell_user.c" line="101" column="22" bodyfile="src/wsh_shell_user.c" bodystart="101" bodyend="114"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
@@ -388,84 +427,118 @@
     <programlisting>
 <codeline lineno="1"><highlight class="preprocessor">#include<sp/>&quot;<ref refid="wsh__shell__user_8h" kindref="compound">wsh_shell_user.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="2"><highlight class="normal"></highlight></codeline>
-<codeline lineno="3"><highlight class="normal">WSH_SHELL_RET_STATE_t<sp/><ref refid="wsh__shell__user_8h_1ab005ea5ce79234fdc2541b255086cce5" kindref="member">WshShellUser_Attach</ref>(<ref refid="structWshShellUser__Table__t" kindref="compound">WshShellUser_Table_t</ref>*<sp/>pShellUsers,</highlight></codeline>
-<codeline lineno="4"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="structWshShellUser__t" kindref="compound">WshShellUser_t</ref>*<sp/>pcUserTable,</highlight></codeline>
-<codeline lineno="5"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>WshShell_Size_t<sp/>userNum)<sp/>{</highlight></codeline>
-<codeline lineno="6"><highlight class="normal"><sp/><sp/><sp/><sp/>WSH_SHELL_ASSERT(pShellUsers<sp/>&amp;&amp;<sp/>pcUserTable<sp/>&amp;&amp;<sp/>userNum<sp/>&gt;<sp/>0);</highlight></codeline>
-<codeline lineno="7"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(!pShellUsers<sp/>||<sp/>!pcUserTable<sp/>||<sp/>userNum<sp/>==<sp/>0)</highlight></codeline>
-<codeline lineno="8"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>WSH_SHELL_RET_STATE_ERR_PARAM;</highlight></codeline>
-<codeline lineno="9"><highlight class="normal"></highlight></codeline>
-<codeline lineno="10"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(pShellUsers-&gt;<ref refid="structWshShellUser__Table__t_1a9125202bad2d91a922c3e239d7d1aa42" kindref="member">List</ref><sp/>!=<sp/>NULL)</highlight></codeline>
-<codeline lineno="11"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>WSH_SHELL_RET_STATE_ERR_BUSY;<sp/><sp/></highlight><highlight class="comment">//<sp/>Already<sp/>inited</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>WshShellUser_DefHashFunc(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>WshShell_Char_t*<sp/>pcSalt,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>WshShell_Char_t*<sp/>pcPass,</highlight></codeline>
+<codeline lineno="4"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>WshShell_Char_t*<sp/>pHash)<sp/>{</highlight></codeline>
+<codeline lineno="5"><highlight class="normal"><sp/><sp/><sp/><sp/>WshShell_Size_t<sp/>saltLen<sp/>=<sp/>WSH_SHELL_STRLEN(pcSalt);</highlight></codeline>
+<codeline lineno="6"><highlight class="normal"><sp/><sp/><sp/><sp/>WshShell_Size_t<sp/>passLen<sp/>=<sp/>WSH_SHELL_STRLEN(pcPass);</highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight></codeline>
+<codeline lineno="8"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(saltLen<sp/>&gt;<sp/>WSH_SHELL_SALT_LEN<sp/>||<sp/>passLen<sp/>&gt;<sp/>WSH_SHELL_PASS_LEN)<sp/>{</highlight></codeline>
+<codeline lineno="9"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>WSH_SHELL_ASSERT(0);</highlight></codeline>
+<codeline lineno="10"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="11"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
 <codeline lineno="12"><highlight class="normal"></highlight></codeline>
-<codeline lineno="13"><highlight class="normal"><sp/><sp/><sp/><sp/>pShellUsers-&gt;<ref refid="structWshShellUser__Table__t_1a9125202bad2d91a922c3e239d7d1aa42" kindref="member">List</ref><sp/>=<sp/>pcUserTable;</highlight></codeline>
-<codeline lineno="14"><highlight class="normal"><sp/><sp/><sp/><sp/>pShellUsers-&gt;<ref refid="structWshShellUser__Table__t_1a146656c6dfdbcdaf6a00920a287bb40a" kindref="member">Num</ref><sp/><sp/>=<sp/>userNum;</highlight></codeline>
-<codeline lineno="15"><highlight class="normal"></highlight></codeline>
-<codeline lineno="16"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>WSH_SHELL_RET_STATE_SUCCESS;</highlight></codeline>
-<codeline lineno="17"><highlight class="normal">}</highlight></codeline>
-<codeline lineno="18"><highlight class="normal"></highlight></codeline>
-<codeline lineno="19"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="wsh__shell__user_8h_1a26a4a7ae0e505ede96a31c71eeb61f65" kindref="member">WshShellUser_DeAttach</ref>(<ref refid="structWshShellUser__Table__t" kindref="compound">WshShellUser_Table_t</ref>*<sp/>pShellUsers)<sp/>{</highlight></codeline>
-<codeline lineno="20"><highlight class="normal"><sp/><sp/><sp/><sp/>WSH_SHELL_ASSERT(pShellUsers);</highlight></codeline>
-<codeline lineno="21"><highlight class="normal"></highlight></codeline>
-<codeline lineno="22"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(pShellUsers)</highlight></codeline>
-<codeline lineno="23"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*pShellUsers<sp/>=<sp/>(<ref refid="structWshShellUser__Table__t" kindref="compound">WshShellUser_Table_t</ref>){0};</highlight></codeline>
-<codeline lineno="24"><highlight class="normal">}</highlight></codeline>
-<codeline lineno="25"><highlight class="normal"></highlight></codeline>
-<codeline lineno="26"><highlight class="normal">WshShell_Size_t<sp/><ref refid="wsh__shell__user_8h_1a5f1b4aed2ff3ac671b0a353721f325a9" kindref="member">WshShellUser_GetUsersNum</ref>(<ref refid="structWshShellUser__Table__t" kindref="compound">WshShellUser_Table_t</ref>*<sp/>pShellUsers)<sp/>{</highlight></codeline>
-<codeline lineno="27"><highlight class="normal"><sp/><sp/><sp/><sp/>WSH_SHELL_ASSERT(pShellUsers);</highlight></codeline>
-<codeline lineno="28"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(!pShellUsers<sp/>||<sp/>!pShellUsers-&gt;<ref refid="structWshShellUser__Table__t_1a9125202bad2d91a922c3e239d7d1aa42" kindref="member">List</ref>)</highlight></codeline>
-<codeline lineno="29"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>0;</highlight></codeline>
-<codeline lineno="30"><highlight class="normal"></highlight></codeline>
-<codeline lineno="31"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>pShellUsers-&gt;<ref refid="structWshShellUser__Table__t_1a146656c6dfdbcdaf6a00920a287bb40a" kindref="member">Num</ref>;</highlight></codeline>
-<codeline lineno="32"><highlight class="normal">}</highlight></codeline>
-<codeline lineno="33"><highlight class="normal"></highlight></codeline>
-<codeline lineno="34"><highlight class="normal"></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="structWshShellUser__t" kindref="compound">WshShellUser_t</ref>*<sp/><ref refid="wsh__shell__user_8h_1a6eb27bd4524e3edabea08c52e34797d7" kindref="member">WshShellUser_GetUserByIndex</ref>(<ref refid="structWshShellUser__Table__t" kindref="compound">WshShellUser_Table_t</ref>*<sp/>pShellUsers,</highlight></codeline>
-<codeline lineno="35"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>WshShell_Size_t<sp/>idx)<sp/>{</highlight></codeline>
-<codeline lineno="36"><highlight class="normal"><sp/><sp/><sp/><sp/>WSH_SHELL_ASSERT(pShellUsers);</highlight></codeline>
-<codeline lineno="37"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(!pShellUsers<sp/>||<sp/>!pShellUsers-&gt;<ref refid="structWshShellUser__Table__t_1a9125202bad2d91a922c3e239d7d1aa42" kindref="member">List</ref>)</highlight></codeline>
-<codeline lineno="38"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>NULL;</highlight></codeline>
-<codeline lineno="39"><highlight class="normal"></highlight></codeline>
-<codeline lineno="40"><highlight class="normal"><sp/><sp/><sp/><sp/>WSH_SHELL_ASSERT(idx<sp/>&lt;<sp/>pShellUsers-&gt;Num);</highlight></codeline>
+<codeline lineno="13"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>saltPass[WSH_SHELL_SALT_LEN<sp/>+<sp/>WSH_SHELL_PASS_LEN<sp/>+<sp/>1];</highlight></codeline>
+<codeline lineno="14"><highlight class="normal"><sp/><sp/><sp/><sp/>WSH_SHELL_MEMCPY(saltPass,<sp/>pcSalt,<sp/>saltLen);</highlight></codeline>
+<codeline lineno="15"><highlight class="normal"><sp/><sp/><sp/><sp/>WSH_SHELL_MEMCPY(saltPass<sp/>+<sp/>saltLen,<sp/>pcPass,<sp/>passLen);</highlight></codeline>
+<codeline lineno="16"><highlight class="normal"><sp/><sp/><sp/><sp/>saltPass[saltLen<sp/>+<sp/>passLen]<sp/>=<sp/></highlight><highlight class="charliteral">&apos;\0&apos;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="17"><highlight class="normal"></highlight></codeline>
+<codeline lineno="18"><highlight class="normal"><sp/><sp/><sp/><sp/>WshShell_Size_t<sp/>hash<sp/>=</highlight></codeline>
+<codeline lineno="19"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="wsh__shell__misc_8h_1a008d9a001d61629467efaaeb27f011dd" kindref="member">WshShellMisc_CalcJenkinsHash</ref>((</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>WshShell_U8_t*)saltPass,<sp/>saltLen<sp/>+<sp/>passLen);</highlight></codeline>
+<codeline lineno="20"><highlight class="normal"></highlight></codeline>
+<codeline lineno="21"><highlight class="normal"><sp/><sp/><sp/><sp/>WSH_SHELL_SNPRINTF(pHash,<sp/>WSH_SHELL_SALT_PASS_HASH_LEN<sp/>+<sp/>1,<sp/></highlight><highlight class="stringliteral">&quot;%08x&quot;</highlight><highlight class="normal">,<sp/>hash);</highlight></codeline>
+<codeline lineno="22"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="23"><highlight class="normal"></highlight></codeline>
+<codeline lineno="24"><highlight class="normal">WSH_SHELL_RET_STATE_t<sp/><ref refid="wsh__shell__user_8h_1a77a730a1b1d4aedfe25a2f00d6f3e540" kindref="member">WshShellUser_Attach</ref>(<ref refid="structWshShellUser__Table__t" kindref="compound">WshShellUser_Table_t</ref>*<sp/>pShellUsers,</highlight></codeline>
+<codeline lineno="25"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="structWshShellUser__t" kindref="compound">WshShellUser_t</ref>*<sp/>pcUserTable,</highlight></codeline>
+<codeline lineno="26"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>WshShell_Size_t<sp/>userNum,</highlight></codeline>
+<codeline lineno="27"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="wsh__shell__user_8h_1adcf8cc3083ca759f501246bb6a77b274" kindref="member">WshShellUser_HashFunc_t</ref><sp/>extHashFunc)<sp/>{</highlight></codeline>
+<codeline lineno="28"><highlight class="normal"><sp/><sp/><sp/><sp/>WSH_SHELL_ASSERT(pShellUsers<sp/>&amp;&amp;<sp/>pcUserTable<sp/>&amp;&amp;<sp/>userNum<sp/>&gt;<sp/>0);</highlight></codeline>
+<codeline lineno="29"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(!pShellUsers<sp/>||<sp/>!pcUserTable<sp/>||<sp/>userNum<sp/>==<sp/>0)</highlight></codeline>
+<codeline lineno="30"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>WSH_SHELL_RET_STATE_ERR_PARAM;</highlight></codeline>
+<codeline lineno="31"><highlight class="normal"></highlight></codeline>
+<codeline lineno="32"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(pShellUsers-&gt;<ref refid="structWshShellUser__Table__t_1a9125202bad2d91a922c3e239d7d1aa42" kindref="member">List</ref><sp/>!=<sp/>NULL)</highlight></codeline>
+<codeline lineno="33"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>WSH_SHELL_RET_STATE_ERR_BUSY;<sp/><sp/></highlight><highlight class="comment">//<sp/>Already<sp/>inited</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="34"><highlight class="normal"></highlight></codeline>
+<codeline lineno="35"><highlight class="normal"><sp/><sp/><sp/><sp/>pShellUsers-&gt;<ref refid="structWshShellUser__Table__t_1a9125202bad2d91a922c3e239d7d1aa42" kindref="member">List</ref><sp/>=<sp/>pcUserTable;</highlight></codeline>
+<codeline lineno="36"><highlight class="normal"><sp/><sp/><sp/><sp/>pShellUsers-&gt;<ref refid="structWshShellUser__Table__t_1a146656c6dfdbcdaf6a00920a287bb40a" kindref="member">Num</ref><sp/><sp/>=<sp/>userNum;</highlight></codeline>
+<codeline lineno="37"><highlight class="normal"><sp/><sp/><sp/><sp/>pShellUsers-&gt;<ref refid="structWshShellUser__Table__t_1ac8ec6602ffc594475032e03522889071" kindref="member">Hash</ref><sp/>=<sp/>extHashFunc<sp/>?<sp/>extHashFunc<sp/>:<sp/>WshShellUser_DefHashFunc;</highlight></codeline>
+<codeline lineno="38"><highlight class="normal"></highlight></codeline>
+<codeline lineno="39"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>WSH_SHELL_RET_STATE_SUCCESS;</highlight></codeline>
+<codeline lineno="40"><highlight class="normal">}</highlight></codeline>
 <codeline lineno="41"><highlight class="normal"></highlight></codeline>
-<codeline lineno="42"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>idx<sp/>&lt;<sp/>pShellUsers-&gt;<ref refid="structWshShellUser__Table__t_1a146656c6dfdbcdaf6a00920a287bb40a" kindref="member">Num</ref><sp/>?<sp/>&amp;pShellUsers-&gt;<ref refid="structWshShellUser__Table__t_1a9125202bad2d91a922c3e239d7d1aa42" kindref="member">List</ref>[idx]<sp/>:<sp/>NULL;</highlight></codeline>
-<codeline lineno="43"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="42"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="wsh__shell__user_8h_1a26a4a7ae0e505ede96a31c71eeb61f65" kindref="member">WshShellUser_DeAttach</ref>(<ref refid="structWshShellUser__Table__t" kindref="compound">WshShellUser_Table_t</ref>*<sp/>pShellUsers)<sp/>{</highlight></codeline>
+<codeline lineno="43"><highlight class="normal"><sp/><sp/><sp/><sp/>WSH_SHELL_ASSERT(pShellUsers);</highlight></codeline>
 <codeline lineno="44"><highlight class="normal"></highlight></codeline>
-<codeline lineno="45"><highlight class="normal">WshShell_Bool_t<sp/><ref refid="wsh__shell__user_8h_1a92102de85626b69ef375173f87b3d31b" kindref="member">WshShellUser_CheckCredentials</ref>(<ref refid="structWshShellUser__Table__t" kindref="compound">WshShellUser_Table_t</ref>*<sp/>pShellUsers,</highlight></codeline>
-<codeline lineno="46"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>WshShell_Size_t<sp/>UserID,</highlight></codeline>
-<codeline lineno="47"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>WshShell_Char_t*<sp/>pcLogin,</highlight></codeline>
-<codeline lineno="48"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>WshShell_Char_t*<sp/>pcPassword)<sp/>{</highlight></codeline>
-<codeline lineno="49"><highlight class="normal"><sp/><sp/><sp/><sp/>WSH_SHELL_ASSERT(pShellUsers<sp/>&amp;&amp;<sp/>pcLogin<sp/>&amp;&amp;<sp/>pcPassword);</highlight></codeline>
-<codeline lineno="50"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(!pShellUsers<sp/>||<sp/>!pShellUsers-&gt;<ref refid="structWshShellUser__Table__t_1a9125202bad2d91a922c3e239d7d1aa42" kindref="member">List</ref><sp/>||<sp/>!pcLogin<sp/>||<sp/>!pcPassword)</highlight></codeline>
-<codeline lineno="51"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;</highlight></codeline>
-<codeline lineno="52"><highlight class="normal"></highlight></codeline>
-<codeline lineno="53"><highlight class="normal"><sp/><sp/><sp/><sp/>WSH_SHELL_ASSERT(UserID<sp/>&lt;<sp/>pShellUsers-&gt;Num);</highlight></codeline>
-<codeline lineno="54"><highlight class="normal"></highlight></codeline>
-<codeline lineno="55"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(UserID<sp/>&gt;=<sp/>pShellUsers-&gt;<ref refid="structWshShellUser__Table__t_1a146656c6dfdbcdaf6a00920a287bb40a" kindref="member">Num</ref>)</highlight></codeline>
-<codeline lineno="56"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;</highlight></codeline>
-<codeline lineno="57"><highlight class="normal"></highlight></codeline>
-<codeline lineno="58"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(WSH_SHELL_STRNLEN(pcLogin,<sp/>WSH_SHELL_LOGIN_LEN<sp/>+<sp/>1)<sp/>&gt;<sp/>WSH_SHELL_LOGIN_LEN<sp/>||</highlight></codeline>
-<codeline lineno="59"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>WSH_SHELL_STRNLEN(pcPassword,<sp/>WSH_SHELL_PASS_LEN<sp/>+<sp/>1)<sp/>&gt;<sp/>WSH_SHELL_PASS_LEN)</highlight></codeline>
-<codeline lineno="60"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;</highlight></codeline>
-<codeline lineno="61"><highlight class="normal"></highlight></codeline>
-<codeline lineno="62"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="structWshShellUser__t" kindref="compound">WshShellUser_t</ref>*<sp/>pUser<sp/>=<sp/>&amp;pShellUsers-&gt;<ref refid="structWshShellUser__Table__t_1a9125202bad2d91a922c3e239d7d1aa42" kindref="member">List</ref>[UserID];</highlight></codeline>
-<codeline lineno="63"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>WSH_SHELL_STRNCMP(pUser-&gt;<ref refid="structWshShellUser__t_1a8820ed2911a83f57ef77bffe2166027d" kindref="member">Login</ref>,<sp/>pcLogin,<sp/>WSH_SHELL_LOGIN_LEN)<sp/>==<sp/>0<sp/>&amp;&amp;</highlight></codeline>
-<codeline lineno="64"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>WSH_SHELL_STRNCMP(pUser-&gt;<ref refid="structWshShellUser__t_1a4a8c39121d30dbe67a27f057a2939ed2" kindref="member">Pass</ref>,<sp/>pcPassword,<sp/>WSH_SHELL_PASS_LEN)<sp/>==<sp/>0;</highlight></codeline>
-<codeline lineno="65"><highlight class="normal">}</highlight></codeline>
-<codeline lineno="66"><highlight class="normal"></highlight></codeline>
-<codeline lineno="67"><highlight class="normal"></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="structWshShellUser__t" kindref="compound">WshShellUser_t</ref>*<sp/><ref refid="wsh__shell__user_8h_1aeb6134783fd1a2d6d887de0d174b80f3" kindref="member">WshShellUser_FindByCredentials</ref>(<ref refid="structWshShellUser__Table__t" kindref="compound">WshShellUser_Table_t</ref>*<sp/>pShellUsers,</highlight></codeline>
-<codeline lineno="68"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>WshShell_Char_t*<sp/>pcLogin,</highlight></codeline>
-<codeline lineno="69"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>WshShell_Char_t*<sp/>pcPass)<sp/>{</highlight></codeline>
-<codeline lineno="70"><highlight class="normal"><sp/><sp/><sp/><sp/>WSH_SHELL_ASSERT(pShellUsers<sp/>&amp;&amp;<sp/>pcLogin<sp/>&amp;&amp;<sp/>pcPass);</highlight></codeline>
-<codeline lineno="71"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(!pShellUsers<sp/>||<sp/>!pShellUsers-&gt;<ref refid="structWshShellUser__Table__t_1a9125202bad2d91a922c3e239d7d1aa42" kindref="member">List</ref><sp/>||<sp/>!pcLogin<sp/>||<sp/>!pcPass)</highlight></codeline>
-<codeline lineno="72"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>NULL;</highlight></codeline>
-<codeline lineno="73"><highlight class="normal"></highlight></codeline>
-<codeline lineno="74"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(WshShell_Size_t<sp/>usr<sp/>=<sp/>0;<sp/>usr<sp/>&lt;<sp/><ref refid="wsh__shell__user_8h_1a5f1b4aed2ff3ac671b0a353721f325a9" kindref="member">WshShellUser_GetUsersNum</ref>(pShellUsers);<sp/>usr++)<sp/>{</highlight></codeline>
-<codeline lineno="75"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<ref refid="wsh__shell__user_8h_1a92102de85626b69ef375173f87b3d31b" kindref="member">WshShellUser_CheckCredentials</ref>(pShellUsers,<sp/>usr,<sp/>pcLogin,<sp/>pcPass))</highlight></codeline>
-<codeline lineno="76"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="wsh__shell__user_8h_1a6eb27bd4524e3edabea08c52e34797d7" kindref="member">WshShellUser_GetUserByIndex</ref>(pShellUsers,<sp/>usr);</highlight></codeline>
-<codeline lineno="77"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
-<codeline lineno="78"><highlight class="normal"></highlight></codeline>
-<codeline lineno="79"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>NULL;</highlight></codeline>
-<codeline lineno="80"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="45"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(pShellUsers)</highlight></codeline>
+<codeline lineno="46"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*pShellUsers<sp/>=<sp/>(<ref refid="structWshShellUser__Table__t" kindref="compound">WshShellUser_Table_t</ref>){0};</highlight></codeline>
+<codeline lineno="47"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="48"><highlight class="normal"></highlight></codeline>
+<codeline lineno="49"><highlight class="normal">WshShell_Size_t<sp/><ref refid="wsh__shell__user_8h_1a5f1b4aed2ff3ac671b0a353721f325a9" kindref="member">WshShellUser_GetUsersNum</ref>(<ref refid="structWshShellUser__Table__t" kindref="compound">WshShellUser_Table_t</ref>*<sp/>pShellUsers)<sp/>{</highlight></codeline>
+<codeline lineno="50"><highlight class="normal"><sp/><sp/><sp/><sp/>WSH_SHELL_ASSERT(pShellUsers);</highlight></codeline>
+<codeline lineno="51"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(!pShellUsers<sp/>||<sp/>!pShellUsers-&gt;<ref refid="structWshShellUser__Table__t_1a9125202bad2d91a922c3e239d7d1aa42" kindref="member">List</ref>)</highlight></codeline>
+<codeline lineno="52"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>0;</highlight></codeline>
+<codeline lineno="53"><highlight class="normal"></highlight></codeline>
+<codeline lineno="54"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>pShellUsers-&gt;<ref refid="structWshShellUser__Table__t_1a146656c6dfdbcdaf6a00920a287bb40a" kindref="member">Num</ref>;</highlight></codeline>
+<codeline lineno="55"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="56"><highlight class="normal"></highlight></codeline>
+<codeline lineno="57"><highlight class="normal"></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="structWshShellUser__t" kindref="compound">WshShellUser_t</ref>*<sp/><ref refid="wsh__shell__user_8h_1a6eb27bd4524e3edabea08c52e34797d7" kindref="member">WshShellUser_GetUserByIndex</ref>(<ref refid="structWshShellUser__Table__t" kindref="compound">WshShellUser_Table_t</ref>*<sp/>pShellUsers,</highlight></codeline>
+<codeline lineno="58"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>WshShell_Size_t<sp/>idx)<sp/>{</highlight></codeline>
+<codeline lineno="59"><highlight class="normal"><sp/><sp/><sp/><sp/>WSH_SHELL_ASSERT(pShellUsers);</highlight></codeline>
+<codeline lineno="60"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(!pShellUsers<sp/>||<sp/>!pShellUsers-&gt;<ref refid="structWshShellUser__Table__t_1a9125202bad2d91a922c3e239d7d1aa42" kindref="member">List</ref>)</highlight></codeline>
+<codeline lineno="61"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>NULL;</highlight></codeline>
+<codeline lineno="62"><highlight class="normal"></highlight></codeline>
+<codeline lineno="63"><highlight class="normal"><sp/><sp/><sp/><sp/>WSH_SHELL_ASSERT(idx<sp/>&lt;<sp/>pShellUsers-&gt;Num);</highlight></codeline>
+<codeline lineno="64"><highlight class="normal"></highlight></codeline>
+<codeline lineno="65"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>idx<sp/>&lt;<sp/>pShellUsers-&gt;<ref refid="structWshShellUser__Table__t_1a146656c6dfdbcdaf6a00920a287bb40a" kindref="member">Num</ref><sp/>?<sp/>&amp;pShellUsers-&gt;<ref refid="structWshShellUser__Table__t_1a9125202bad2d91a922c3e239d7d1aa42" kindref="member">List</ref>[idx]<sp/>:<sp/>NULL;</highlight></codeline>
+<codeline lineno="66"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="67"><highlight class="normal"></highlight></codeline>
+<codeline lineno="68"><highlight class="normal">WshShell_Bool_t<sp/><ref refid="wsh__shell__user_8h_1a0a45ebf8604f3e979b4b8581acde6162" kindref="member">WshShellUser_CheckCredentials</ref>(<ref refid="structWshShellUser__Table__t" kindref="compound">WshShellUser_Table_t</ref>*<sp/>pShellUsers,</highlight></codeline>
+<codeline lineno="69"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>WshShell_Size_t<sp/>UserID,</highlight></codeline>
+<codeline lineno="70"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>WshShell_Char_t*<sp/>pcLogin,</highlight></codeline>
+<codeline lineno="71"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>WshShell_Char_t*<sp/>pcPass)<sp/>{</highlight></codeline>
+<codeline lineno="72"><highlight class="normal"><sp/><sp/><sp/><sp/>WSH_SHELL_ASSERT(pShellUsers<sp/>&amp;&amp;<sp/>pcLogin<sp/>&amp;&amp;<sp/>pcPass);</highlight></codeline>
+<codeline lineno="73"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(!pShellUsers<sp/>||<sp/>!pShellUsers-&gt;<ref refid="structWshShellUser__Table__t_1a9125202bad2d91a922c3e239d7d1aa42" kindref="member">List</ref><sp/>||<sp/>!pcLogin<sp/>||<sp/>!pcPass)</highlight></codeline>
+<codeline lineno="74"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="75"><highlight class="normal"></highlight></codeline>
+<codeline lineno="76"><highlight class="normal"><sp/><sp/><sp/><sp/>WSH_SHELL_ASSERT(UserID<sp/>&lt;<sp/>pShellUsers-&gt;Num);</highlight></codeline>
+<codeline lineno="77"><highlight class="normal"></highlight></codeline>
+<codeline lineno="78"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(UserID<sp/>&gt;=<sp/>pShellUsers-&gt;<ref refid="structWshShellUser__Table__t_1a146656c6dfdbcdaf6a00920a287bb40a" kindref="member">Num</ref>)</highlight></codeline>
+<codeline lineno="79"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="80"><highlight class="normal"></highlight></codeline>
+<codeline lineno="81"><highlight class="normal"><sp/><sp/><sp/><sp/>WshShell_Size_t<sp/>loginLen<sp/>=<sp/>WSH_SHELL_STRNLEN(pcLogin,<sp/>WSH_SHELL_LOGIN_LEN<sp/>+<sp/>1);</highlight></codeline>
+<codeline lineno="82"><highlight class="normal"><sp/><sp/><sp/><sp/>WshShell_Size_t<sp/>passLen<sp/><sp/>=<sp/>WSH_SHELL_STRNLEN(pcPass,<sp/>WSH_SHELL_PASS_LEN<sp/>+<sp/>1);</highlight></codeline>
+<codeline lineno="83"><highlight class="normal"></highlight></codeline>
+<codeline lineno="84"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(loginLen<sp/>&gt;<sp/>WSH_SHELL_LOGIN_LEN<sp/>||<sp/>passLen<sp/>&gt;<sp/>WSH_SHELL_PASS_LEN)</highlight></codeline>
+<codeline lineno="85"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="86"><highlight class="normal"></highlight></codeline>
+<codeline lineno="87"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="structWshShellUser__t" kindref="compound">WshShellUser_t</ref>*<sp/>pUser<sp/>=<sp/>&amp;pShellUsers-&gt;<ref refid="structWshShellUser__Table__t_1a9125202bad2d91a922c3e239d7d1aa42" kindref="member">List</ref>[UserID];</highlight></codeline>
+<codeline lineno="88"><highlight class="normal"></highlight></codeline>
+<codeline lineno="89"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(WSH_SHELL_STRNCMP(pUser-&gt;<ref refid="structWshShellUser__t_1a8820ed2911a83f57ef77bffe2166027d" kindref="member">Login</ref>,<sp/>pcLogin,<sp/>loginLen)<sp/>!=<sp/>0)</highlight></codeline>
+<codeline lineno="90"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="91"><highlight class="normal"></highlight></codeline>
+<codeline lineno="92"><highlight class="normal"><sp/><sp/><sp/><sp/>WshShell_Char_t<sp/>locSaltPassHash[WSH_SHELL_SALT_PASS_HASH_LEN<sp/>+<sp/>1]<sp/>=<sp/>{0};</highlight></codeline>
+<codeline lineno="93"><highlight class="normal"><sp/><sp/><sp/><sp/>pShellUsers-&gt;<ref refid="structWshShellUser__Table__t_1ac8ec6602ffc594475032e03522889071" kindref="member">Hash</ref>(pUser-&gt;<ref refid="structWshShellUser__t_1a7833df12bf5f142c2af6aeaf8dba6c71" kindref="member">Salt</ref>,<sp/>pcPass,<sp/>locSaltPassHash);</highlight></codeline>
+<codeline lineno="94"><highlight class="normal"></highlight></codeline>
+<codeline lineno="95"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(WSH_SHELL_STRNCMP(locSaltPassHash,<sp/>pUser-&gt;<ref refid="structWshShellUser__t_1a49276198b7f3b6cde59b4ab44b86b5f8" kindref="member">Hash</ref>,<sp/>WSH_SHELL_SALT_PASS_HASH_LEN<sp/>+<sp/>1)<sp/>!=<sp/>0)</highlight></codeline>
+<codeline lineno="96"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="97"><highlight class="normal"></highlight></codeline>
+<codeline lineno="98"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="99"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="100"><highlight class="normal"></highlight></codeline>
+<codeline lineno="101"><highlight class="normal"></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="structWshShellUser__t" kindref="compound">WshShellUser_t</ref>*<sp/><ref refid="wsh__shell__user_8h_1aeb6134783fd1a2d6d887de0d174b80f3" kindref="member">WshShellUser_FindByCredentials</ref>(<ref refid="structWshShellUser__Table__t" kindref="compound">WshShellUser_Table_t</ref>*<sp/>pShellUsers,</highlight></codeline>
+<codeline lineno="102"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>WshShell_Char_t*<sp/>pcLogin,</highlight></codeline>
+<codeline lineno="103"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>WshShell_Char_t*<sp/>pcPass)<sp/>{</highlight></codeline>
+<codeline lineno="104"><highlight class="normal"><sp/><sp/><sp/><sp/>WSH_SHELL_ASSERT(pShellUsers<sp/>&amp;&amp;<sp/>pcLogin<sp/>&amp;&amp;<sp/>pcPass);</highlight></codeline>
+<codeline lineno="105"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(!pShellUsers<sp/>||<sp/>!pShellUsers-&gt;<ref refid="structWshShellUser__Table__t_1a9125202bad2d91a922c3e239d7d1aa42" kindref="member">List</ref><sp/>||<sp/>!pcLogin<sp/>||<sp/>!pcPass)</highlight></codeline>
+<codeline lineno="106"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>NULL;</highlight></codeline>
+<codeline lineno="107"><highlight class="normal"></highlight></codeline>
+<codeline lineno="108"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(WshShell_Size_t<sp/>usr<sp/>=<sp/>0;<sp/>usr<sp/>&lt;<sp/><ref refid="wsh__shell__user_8h_1a5f1b4aed2ff3ac671b0a353721f325a9" kindref="member">WshShellUser_GetUsersNum</ref>(pShellUsers);<sp/>usr++)<sp/>{</highlight></codeline>
+<codeline lineno="109"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<ref refid="wsh__shell__user_8h_1a0a45ebf8604f3e979b4b8581acde6162" kindref="member">WshShellUser_CheckCredentials</ref>(pShellUsers,<sp/>usr,<sp/>pcLogin,<sp/>pcPass))</highlight></codeline>
+<codeline lineno="110"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="wsh__shell__user_8h_1a6eb27bd4524e3edabea08c52e34797d7" kindref="member">WshShellUser_GetUserByIndex</ref>(pShellUsers,<sp/>usr);</highlight></codeline>
+<codeline lineno="111"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="112"><highlight class="normal"></highlight></codeline>
+<codeline lineno="113"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>NULL;</highlight></codeline>
+<codeline lineno="114"><highlight class="normal">}</highlight></codeline>
     </programlisting>
     <location file="src/wsh_shell_user.c"/>
   </compounddef>

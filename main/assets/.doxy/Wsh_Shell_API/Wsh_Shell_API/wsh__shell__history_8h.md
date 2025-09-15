@@ -11,6 +11,7 @@
 _Shell history management API._ [More...](#detailed-description)
 
 * `#include "wsh_shell_cfg.h"`
+* `#include "wsh_shell_misc.h"`
 * `#include "wsh_shell_str.h"`
 * `#include "wsh_shell_types.h"`
 

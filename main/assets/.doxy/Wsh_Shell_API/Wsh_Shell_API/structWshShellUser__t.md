@@ -37,9 +37,10 @@ _User object definition._ [More...](#detailed-description)
 | Type | Name |
 | ---: | :--- |
 |  WshShell\_Size\_t | [**Groups**](#variable-groups)  <br> |
+|  const WshShell\_Char\_t \* | [**Hash**](#variable-hash)  <br> |
 |  const WshShell\_Char\_t \* | [**Login**](#variable-login)  <br> |
-|  const WshShell\_Char\_t \* | [**Pass**](#variable-pass)  <br> |
 |  WshShell\_Size\_t | [**Rights**](#variable-rights)  <br> |
+|  const WshShell\_Char\_t \* | [**Salt**](#variable-salt)  <br> |
 
 
 
@@ -113,6 +114,23 @@ Bitmask of accessible command groups.
 
 
 
+### variable Hash 
+
+```C++
+const WshShell_Char_t* WshShellUser_t::Hash;
+```
+
+
+
+Pointer to hash(salt\|pass) string. 
+
+
+        
+
+<hr>
+
+
+
 ### variable Login 
 
 ```C++
@@ -130,23 +148,6 @@ Pointer to login string.
 
 
 
-### variable Pass 
-
-```C++
-const WshShell_Char_t* WshShellUser_t::Pass;
-```
-
-
-
-Pointer to password string. 
-
-
-        
-
-<hr>
-
-
-
 ### variable Rights 
 
 ```C++
@@ -156,6 +157,23 @@ WshShell_Size_t WshShellUser_t::Rights;
 
 
 Bitmask of execution rights. 
+
+
+        
+
+<hr>
+
+
+
+### variable Salt 
+
+```C++
+const WshShell_Char_t* WshShellUser_t::Salt;
+```
+
+
+
+Pointer to salt string. 
 
 
         

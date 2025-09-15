@@ -5,10 +5,12 @@
     <includes refid="wsh__shell__cmd__def_8h" local="yes">wsh_shell_cmd_def.h</includes>
     <includes refid="wsh__shell_8h" local="yes">wsh_shell.h</includes>
     <incdepgraph>
-      <node id="23">
+      <node id="24">
         <label>wsh_shell_user.h</label>
         <link refid="wsh__shell__user_8h"/>
         <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="17" relation="include">
         </childnode>
         <childnode refid="8" relation="include">
         </childnode>
@@ -18,6 +20,14 @@
       </node>
       <node id="9">
         <label>stdarg.h</label>
+      </node>
+      <node id="17">
+        <label>wsh_shell_misc.h</label>
+        <link refid="wsh__shell__misc_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
       </node>
       <node id="6">
         <label>wsh_shell_str.h</label>
@@ -31,7 +41,7 @@
         <childnode refid="8" relation="include">
         </childnode>
       </node>
-      <node id="21">
+      <node id="22">
         <label>wsh_shell_promptwait.h</label>
         <link refid="wsh__shell__promptwait_8h"/>
         <childnode refid="3" relation="include">
@@ -91,6 +101,8 @@
         <link refid="wsh__shell__history_8h"/>
         <childnode refid="3" relation="include">
         </childnode>
+        <childnode refid="17" relation="include">
+        </childnode>
         <childnode refid="6" relation="include">
         </childnode>
         <childnode refid="8" relation="include">
@@ -101,7 +113,7 @@
         <link refid="wsh__shell__cmd__def_8c"/>
         <childnode refid="2" relation="include">
         </childnode>
-        <childnode refid="17" relation="include">
+        <childnode refid="18" relation="include">
         </childnode>
       </node>
       <node id="2">
@@ -116,10 +128,10 @@
         <childnode refid="8" relation="include">
         </childnode>
       </node>
-      <node id="17">
+      <node id="18">
         <label>wsh_shell.h</label>
         <link refid="wsh__shell_8h"/>
-        <childnode refid="18" relation="include">
+        <childnode refid="19" relation="include">
         </childnode>
         <childnode refid="3" relation="include">
         </childnode>
@@ -127,28 +139,28 @@
         </childnode>
         <childnode refid="2" relation="include">
         </childnode>
-        <childnode refid="19" relation="include">
+        <childnode refid="20" relation="include">
         </childnode>
         <childnode refid="16" relation="include">
         </childnode>
-        <childnode refid="20" relation="include">
+        <childnode refid="21" relation="include">
         </childnode>
         <childnode refid="5" relation="include">
         </childnode>
-        <childnode refid="21" relation="include">
-        </childnode>
         <childnode refid="22" relation="include">
+        </childnode>
+        <childnode refid="23" relation="include">
         </childnode>
         <childnode refid="6" relation="include">
         </childnode>
         <childnode refid="8" relation="include">
         </childnode>
-        <childnode refid="23" relation="include">
-        </childnode>
         <childnode refid="24" relation="include">
         </childnode>
+        <childnode refid="25" relation="include">
+        </childnode>
       </node>
-      <node id="20">
+      <node id="21">
         <label>wsh_shell_interact.h</label>
         <link refid="wsh__shell__interact_8h"/>
         <childnode refid="3" relation="include">
@@ -156,7 +168,7 @@
         <childnode refid="5" relation="include">
         </childnode>
       </node>
-      <node id="24">
+      <node id="25">
         <label>wsh_shell_version.h</label>
         <link refid="wsh__shell__version_8h_source"/>
       </node>
@@ -174,7 +186,7 @@
         <childnode refid="8" relation="include">
         </childnode>
       </node>
-      <node id="19">
+      <node id="20">
         <label>wsh_shell_esc.h</label>
         <link refid="wsh__shell__esc_8h"/>
         <childnode refid="3" relation="include">
@@ -184,7 +196,7 @@
         <childnode refid="5" relation="include">
         </childnode>
       </node>
-      <node id="22">
+      <node id="23">
         <label>wsh_shell_ps1_custom.h</label>
         <link refid="wsh__shell__ps1__custom_8h"/>
         <childnode refid="3" relation="include">
@@ -194,7 +206,7 @@
         <childnode refid="8" relation="include">
         </childnode>
       </node>
-      <node id="18">
+      <node id="19">
         <label>wsh_shell_autocomplete.h</label>
         <link refid="wsh__shell__autocomplete_8h"/>
         <childnode refid="3" relation="include">
@@ -321,7 +333,7 @@
 <codeline lineno="38"><highlight class="normal">}<sp/>WSH_SHELL_DEF_OPT_t;</highlight></codeline>
 <codeline lineno="39"><highlight class="normal"></highlight></codeline>
 <codeline lineno="40"><highlight class="normal"></highlight><highlight class="preprocessor"><sp/><sp/><sp/><sp/>#define<sp/>X_CMD_ENTRY(enum,<sp/>opt)<sp/>{enum,<sp/>opt},</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="41"><highlight class="normal"></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/><ref refid="structWshShellOption__t" kindref="compound">WshShellOption_t</ref><sp/>WshShell_OptArr[]<sp/>=<sp/>{WSH_SHELL_CMD_DEF_OPT_TABLE()};</highlight></codeline>
+<codeline lineno="41"><highlight class="normal"></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="structWshShellOption__t" kindref="compound">WshShellOption_t</ref><sp/>WshShell_OptArr[]<sp/>=<sp/>{WSH_SHELL_CMD_DEF_OPT_TABLE()};</highlight></codeline>
 <codeline lineno="42"><highlight class="normal"></highlight><highlight class="preprocessor"><sp/><sp/><sp/><sp/>#undef<sp/>X_CMD_ENTRY</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="43"><highlight class="normal"></highlight></codeline>
 <codeline lineno="44"><highlight class="normal"></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>WshShell_CmdDefInteractive(<ref refid="structWshShellIO__CommandLine__t" kindref="compound">WshShellIO_CommandLine_t</ref>*<sp/>pInter)<sp/>{</highlight></codeline>

@@ -50,7 +50,7 @@
 
 * **Handler** ([**WshShellCmd**](structWshShellCmd.md), [**WshShellEsc\_Action\_t**](structWshShellEsc__Action__t.md), [**WshShellPromptWait**](structWshShellPromptWait.md), [**WshShell\_Interact\_t**](structWshShell__Interact__t.md))
 * **HeadIdx** ([**WshShellHistory\_Data\_t**](structWshShellHistory__Data__t.md))
-* **Hash** ([**WshShellHistory\_t**](structWshShellHistory__t.md))
+* **Hash** ([**WshShellHistory\_t**](structWshShellHistory__t.md), [**WshShellUser\_Table\_t**](structWshShellUser__Table__t.md), [**WshShellUser\_t**](structWshShellUser__t.md))
 * **HistoryIO** ([**WshShell\_t**](structWshShell__t.md))
 
 
@@ -87,7 +87,7 @@
 ## p
 
 * **PrevDir** ([**WshShellHistory\_Data\_t**](structWshShellHistory__Data__t.md))
-* **Pass** ([**WshShellUser\_t**](structWshShellUser__t.md), [**WshShell\_AuthContext\_t**](structWshShell__AuthContext__t.md))
+* **Pass** ([**WshShell\_AuthContext\_t**](structWshShell__AuthContext__t.md))
 * **PS1** ([**WshShell\_t**](structWshShell__t.md))
 * **PrevSym** ([**WshShell\_t**](structWshShell__t.md))
 * **PromptWait** ([**WshShell\_t**](structWshShell__t.md))
@@ -104,6 +104,7 @@
 * **Sequence** ([**WshShellEsc\_Action\_t**](structWshShellEsc__Action__t.md))
 * **StorageBuff** ([**WshShellHistory\_Data\_t**](structWshShellHistory__Data__t.md))
 * **ShortName** ([**WshShellOption\_t**](structWshShellOption__t.md))
+* **Salt** ([**WshShellUser\_t**](structWshShellUser__t.md))
 * **SymbolIn** ([**WshShell\_ExtCallbacks\_t**](structWshShell__ExtCallbacks__t.md))
 
 

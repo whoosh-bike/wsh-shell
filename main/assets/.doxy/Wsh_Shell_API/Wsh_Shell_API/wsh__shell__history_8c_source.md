@@ -12,28 +12,12 @@
 
 #if WSH_SHELL_HISTORY
 
-static WshShell_U32_t WshShellHistory_CalcHash(const WshShell_U8_t* pBuff, WshShell_Size_t len) {
-    WSH_SHELL_ASSERT(pBuff);
-
-    WshShell_U32_t hash = 0;
-    for (WshShell_Size_t idx = 0; idx < len; idx++) {
-        hash += pBuff[idx];
-        hash += hash << 10;
-        hash ^= hash >> 6;
-    }
-
-    hash += hash << 3;
-    hash ^= hash >> 11;
-    hash += hash << 15;
-
-    return hash;
-}
-
 static void WshShellHistory_CalcHashAndWrite(WshShellHistory_IO_t* pHistIO,
                                              WshShellHistory_t history) {
     WSH_SHELL_ASSERT(pHistIO);
 
-    history.Hash = WshShellHistory_CalcHash((WshShell_U8_t*)&history.Data, sizeof(history.Data));
+    history.Hash =
+        WshShellMisc_CalcJenkinsHash((WshShell_U8_t*)&history.Data, sizeof(history.Data));
     pHistIO->Write(history);
     // WSH_SHELL_PRINT("\r\nh %d, t %d, l %d\r\n", history.Data.HeadIdx, history.Data.TailIdx,
     //                 history.Data.LastSavedCmdIdx);
@@ -50,7 +34,7 @@ void WshShellHistory_Init(WshShellHistory_IO_t* pHistIO, WshShellHistory_ReadHan
 
     WshShellHistory_t extHistory = pHistIO->Read();
     WshShell_U32_t extHash =
-        WshShellHistory_CalcHash((WshShell_U8_t*)&extHistory.Data, sizeof(extHistory.Data));
+        WshShellMisc_CalcJenkinsHash((WshShell_U8_t*)&extHistory.Data, sizeof(extHistory.Data));
 
     if (extHash != extHistory.Hash)
         WshShellHistory_CalcHashAndWrite(pHistIO, (WshShellHistory_t){0});

@@ -3,6 +3,7 @@
   <compounddef id="wsh__shell__history_8h" kind="file" language="C++">
     <compoundname>wsh_shell_history.h</compoundname>
     <includes local="yes">wsh_shell_cfg.h</includes>
+    <includes refid="wsh__shell__misc_8h" local="yes">wsh_shell_misc.h</includes>
     <includes refid="wsh__shell__str_8h" local="yes">wsh_shell_str.h</includes>
     <includes refid="wsh__shell__types_8h" local="yes">wsh_shell_types.h</includes>
     <includedby refid="wsh__shell_8h" local="yes">src/wsh_shell.h</includedby>
@@ -10,56 +11,68 @@
     <includedby refid="wsh__shell__esc_8h" local="yes">src/wsh_shell_esc.h</includedby>
     <includedby refid="wsh__shell__history_8c" local="yes">src/wsh_shell_history.c</includedby>
     <incdepgraph>
-      <node id="8">
+      <node id="6">
         <label>stdbool.h</label>
       </node>
-      <node id="7">
+      <node id="5">
         <label>stdarg.h</label>
       </node>
       <node id="3">
-        <label>wsh_shell_str.h</label>
-        <link refid="wsh__shell__str_8h"/>
+        <label>wsh_shell_misc.h</label>
+        <link refid="wsh__shell__misc_8h"/>
         <childnode refid="2" relation="include">
         </childnode>
         <childnode refid="4" relation="include">
         </childnode>
-        <childnode refid="5" relation="include">
-        </childnode>
-        <childnode refid="6" relation="include">
-        </childnode>
-      </node>
-      <node id="10">
-        <label>stdint.h</label>
       </node>
       <node id="12">
+        <label>wsh_shell_str.h</label>
+        <link refid="wsh__shell__str_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+      </node>
+      <node id="8">
+        <label>stdint.h</label>
+      </node>
+      <node id="10">
         <label>stdlib.h</label>
       </node>
       <node id="2">
         <label>wsh_shell_cfg.h</label>
       </node>
-      <node id="9">
+      <node id="7">
         <label>stddef.h</label>
       </node>
-      <node id="5">
+      <node id="14">
         <label>wsh_shell_option.h</label>
         <link refid="wsh__shell__option_8h"/>
-        <childnode refid="6" relation="include">
+        <childnode refid="4" relation="include">
         </childnode>
       </node>
-      <node id="4">
+      <node id="13">
         <label>wsh_shell_io.h</label>
         <link refid="wsh__shell__io_8h"/>
         <childnode refid="2" relation="include">
         </childnode>
-        <childnode refid="3" relation="include">
+        <childnode refid="12" relation="include">
         </childnode>
       </node>
-      <node id="13">
+      <node id="11">
         <label>string.h</label>
       </node>
-      <node id="6">
+      <node id="4">
         <label>wsh_shell_types.h</label>
         <link refid="wsh__shell__types_8h"/>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
         <childnode refid="7" relation="include">
         </childnode>
         <childnode refid="8" relation="include">
@@ -70,10 +83,6 @@
         </childnode>
         <childnode refid="11" relation="include">
         </childnode>
-        <childnode refid="12" relation="include">
-        </childnode>
-        <childnode refid="13" relation="include">
-        </childnode>
       </node>
       <node id="1">
         <label>src/wsh_shell_history.h</label>
@@ -82,10 +91,12 @@
         </childnode>
         <childnode refid="3" relation="include">
         </childnode>
-        <childnode refid="6" relation="include">
+        <childnode refid="12" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
         </childnode>
       </node>
-      <node id="11">
+      <node id="9">
         <label>stdio.h</label>
       </node>
     </incdepgraph>
@@ -156,7 +167,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/wsh_shell_history.h" line="26" column="1" bodyfile="src/wsh_shell_history.h" bodystart="26" bodyend="29"/>
+        <location file="src/wsh_shell_history.h" line="27" column="1" bodyfile="src/wsh_shell_history.h" bodystart="27" bodyend="30"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="typedef">
@@ -172,7 +183,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/wsh_shell_history.h" line="59" column="9" bodyfile="src/wsh_shell_history.h" bodystart="59" bodyend="-1"/>
+        <location file="src/wsh_shell_history.h" line="60" column="9" bodyfile="src/wsh_shell_history.h" bodystart="60" bodyend="-1"/>
       </memberdef>
       <memberdef kind="typedef" id="wsh__shell__history_8h_1a6c3f231f284abd001c0c405bde299bde" prot="public" static="no">
         <type>void(*</type>
@@ -186,7 +197,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/wsh_shell_history.h" line="64" column="9" bodyfile="src/wsh_shell_history.h" bodystart="64" bodyend="-1"/>
+        <location file="src/wsh_shell_history.h" line="65" column="9" bodyfile="src/wsh_shell_history.h" bodystart="65" bodyend="-1"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="func">
@@ -241,7 +252,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/wsh_shell_history.h" line="87" column="6" bodyfile="src/wsh_shell_history.c" bodystart="276" bodyend="281" declfile="src/wsh_shell_history.h" declline="87" declcolumn="6"/>
+        <location file="src/wsh_shell_history.h" line="88" column="6" bodyfile="src/wsh_shell_history.c" bodystart="256" bodyend="261" declfile="src/wsh_shell_history.h" declline="88" declcolumn="6"/>
       </memberdef>
       <memberdef kind="function" id="wsh__shell__history_8h_1a67a10560defd9e51aa9caa17fc974b99" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -293,7 +304,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/wsh_shell_history.h" line="97" column="6" bodyfile="src/wsh_shell_history.c" bodystart="283" bodyend="288" declfile="src/wsh_shell_history.h" declline="97" declcolumn="6"/>
+        <location file="src/wsh_shell_history.h" line="98" column="6" bodyfile="src/wsh_shell_history.c" bodystart="263" bodyend="268" declfile="src/wsh_shell_history.h" declline="98" declcolumn="6"/>
       </memberdef>
       <memberdef kind="function" id="wsh__shell__history_8h_1a1e747efc6ac5cedda5cb4ba85326db6f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>WshShell_Size_t</type>
@@ -347,7 +358,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/wsh_shell_history.h" line="109" column="17" bodyfile="src/wsh_shell_history.c" bodystart="290" bodyend="297" declfile="src/wsh_shell_history.h" declline="109" declcolumn="17"/>
+        <location file="src/wsh_shell_history.h" line="110" column="17" bodyfile="src/wsh_shell_history.c" bodystart="270" bodyend="277" declfile="src/wsh_shell_history.h" declline="110" declcolumn="17"/>
       </memberdef>
       <memberdef kind="function" id="wsh__shell__history_8h_1a44207937739d4295df858ad57b42b29b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>WshShell_Size_t</type>
@@ -401,7 +412,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/wsh_shell_history.h" line="121" column="17" bodyfile="src/wsh_shell_history.c" bodystart="299" bodyend="306" declfile="src/wsh_shell_history.h" declline="121" declcolumn="17"/>
+        <location file="src/wsh_shell_history.h" line="122" column="17" bodyfile="src/wsh_shell_history.c" bodystart="279" bodyend="286" declfile="src/wsh_shell_history.h" declline="122" declcolumn="17"/>
       </memberdef>
       <memberdef kind="function" id="wsh__shell__history_8h_1a1b4586617b550312b9493a08228a9f71" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>WshShell_Size_t</type>
@@ -432,7 +443,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/wsh_shell_history.h" line="134" column="17" bodyfile="src/wsh_shell_history.c" bodystart="308" bodyend="312" declfile="src/wsh_shell_history.h" declline="134" declcolumn="17"/>
+        <location file="src/wsh_shell_history.h" line="135" column="17" bodyfile="src/wsh_shell_history.c" bodystart="288" bodyend="292" declfile="src/wsh_shell_history.h" declline="135" declcolumn="17"/>
       </memberdef>
       <memberdef kind="function" id="wsh__shell__history_8h_1ad22b979dd885a6890f39ed7ac743c1d7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>WshShell_Size_t</type>
@@ -499,7 +510,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/wsh_shell_history.h" line="149" column="17" bodyfile="src/wsh_shell_history.c" bodystart="314" bodyend="324" declfile="src/wsh_shell_history.h" declline="149" declcolumn="17"/>
+        <location file="src/wsh_shell_history.h" line="150" column="17" bodyfile="src/wsh_shell_history.c" bodystart="294" bodyend="304" declfile="src/wsh_shell_history.h" declline="150" declcolumn="17"/>
       </memberdef>
       <memberdef kind="function" id="wsh__shell__history_8h_1aee963c89139b4ea9419b13dfdc6b64a1" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -527,7 +538,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/wsh_shell_history.h" line="158" column="6" bodyfile="src/wsh_shell_history.c" bodystart="326" bodyend="328" declfile="src/wsh_shell_history.h" declline="158" declcolumn="6"/>
+        <location file="src/wsh_shell_history.h" line="159" column="6" bodyfile="src/wsh_shell_history.c" bodystart="306" bodyend="308" declfile="src/wsh_shell_history.h" declline="159" declcolumn="6"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
@@ -547,66 +558,67 @@
 <codeline lineno="13"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>__WSH_SHELL_HISTORY_H</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="14"><highlight class="normal"></highlight></codeline>
 <codeline lineno="15"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;wsh_shell_cfg.h&quot;</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="16"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="wsh__shell__str_8h" kindref="compound">wsh_shell_str.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="17"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="wsh__shell__types_8h" kindref="compound">wsh_shell_types.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="18"><highlight class="normal"></highlight></codeline>
-<codeline lineno="19"><highlight class="normal"></highlight><highlight class="preprocessor">#ifdef<sp/>__cplusplus</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="20"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/></highlight><highlight class="stringliteral">&quot;C&quot;</highlight><highlight class="normal"><sp/>{</highlight></codeline>
-<codeline lineno="21"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="22"><highlight class="normal"></highlight></codeline>
-<codeline lineno="26" refid="wsh__shell__history_8h_1a036107f17cb0ba9105b8832cd7a91e25" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">enum</highlight><highlight class="normal"><sp/>{</highlight></codeline>
-<codeline lineno="27" refid="wsh__shell__history_8h_1a036107f17cb0ba9105b8832cd7a91e25ad3a751ed298cfcfd230a5185df85e319" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="wsh__shell__history_8h_1a036107f17cb0ba9105b8832cd7a91e25ad3a751ed298cfcfd230a5185df85e319" kindref="member">WSH_SHELL_HIST_CMD_PREV</ref><sp/>=<sp/>0,<sp/></highlight></codeline>
-<codeline lineno="28"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="wsh__shell__history_8h_1a036107f17cb0ba9105b8832cd7a91e25a38b5d298484d91a2a373289e6f068fee" kindref="member">WSH_SHELL_HIST_CMD_NEXT</ref><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
-<codeline lineno="29" refid="wsh__shell__history_8h_1a036107f17cb0ba9105b8832cd7a91e25a38b5d298484d91a2a373289e6f068fee" refkind="member"><highlight class="normal">}<sp/><ref refid="wsh__shell__history_8h_1a036107f17cb0ba9105b8832cd7a91e25" kindref="member">WSH_SHELL_HIST_CMD_DIR_t</ref>;</highlight></codeline>
-<codeline lineno="30"><highlight class="normal"></highlight></codeline>
-<codeline lineno="37" refid="structWshShellHistory__Data__t" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal">{</highlight></codeline>
-<codeline lineno="38" refid="structWshShellHistory__Data__t_1a7129dd84fb22ab789be8f41c63356896" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>WshShell_Char_t<sp/>StorageBuff[WSH_SHELL_HISTORY_BUFF_SIZE];<sp/></highlight></codeline>
-<codeline lineno="39" refid="structWshShellHistory__Data__t_1a851b9a6e347f02cc621e6d3f04948b0b" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>WshShell_Size_t<sp/><ref refid="structWshShellHistory__Data__t_1a851b9a6e347f02cc621e6d3f04948b0b" kindref="member">HeadIdx</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
-<codeline lineno="40" refid="structWshShellHistory__Data__t_1aab55966490d20d635e3c8a305cb4055f" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>WshShell_Size_t<sp/><ref refid="structWshShellHistory__Data__t_1aab55966490d20d635e3c8a305cb4055f" kindref="member">TailIdx</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
-<codeline lineno="41" refid="structWshShellHistory__Data__t_1a6c24a791a4709beffc2719ad30b0e028" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>WshShell_Size_t<sp/><ref refid="structWshShellHistory__Data__t_1a6c24a791a4709beffc2719ad30b0e028" kindref="member">LastSavedCmdIdx</ref>;<sp/><sp/></highlight></codeline>
-<codeline lineno="42" refid="structWshShellHistory__Data__t_1a03c83742c1d136dc5f2fc8c61bc8636a" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="wsh__shell__history_8h_1a036107f17cb0ba9105b8832cd7a91e25" kindref="member">WSH_SHELL_HIST_CMD_DIR_t</ref><sp/><ref refid="structWshShellHistory__Data__t_1a03c83742c1d136dc5f2fc8c61bc8636a" kindref="member">PrevDir</ref>;<sp/></highlight></codeline>
-<codeline lineno="43" refid="structWshShellHistory__Data__t_1ae0e19b90028ead2731d3d9c1636b7a39" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>WshShell_Bool_t<sp/><ref refid="structWshShellHistory__Data__t_1ae0e19b90028ead2731d3d9c1636b7a39" kindref="member">LimitIsReached</ref>;<sp/><sp/><sp/></highlight></codeline>
-<codeline lineno="44"><highlight class="normal">}<sp/><ref refid="structWshShellHistory__Data__t" kindref="compound">WshShellHistory_Data_t</ref>;</highlight></codeline>
-<codeline lineno="45"><highlight class="normal"></highlight></codeline>
-<codeline lineno="51" refid="structWshShellHistory__t" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal">{</highlight></codeline>
-<codeline lineno="52" refid="structWshShellHistory__t_1afbc51d2827096815477d4b0b91e957fd" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>WshShell_U32_t<sp/><ref refid="structWshShellHistory__t_1afbc51d2827096815477d4b0b91e957fd" kindref="member">Hash</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
-<codeline lineno="53" refid="structWshShellHistory__t_1a588e7536135d4b14774b8a87ca233547" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="structWshShellHistory__Data__t" kindref="compound">WshShellHistory_Data_t</ref><sp/><ref refid="structWshShellHistory__t_1a588e7536135d4b14774b8a87ca233547" kindref="member">Data</ref>;<sp/></highlight></codeline>
-<codeline lineno="54"><highlight class="normal">}<sp/><ref refid="structWshShellHistory__t" kindref="compound">WshShellHistory_t</ref>;</highlight></codeline>
-<codeline lineno="55"><highlight class="normal"></highlight></codeline>
-<codeline lineno="59" refid="wsh__shell__history_8h_1a6deaaf9be341ddc04ffb1cf8e78d3e11" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/><ref refid="structWshShellHistory__t" kindref="compound">WshShellHistory_t</ref><sp/>(*<ref refid="wsh__shell__history_8h_1a6deaaf9be341ddc04ffb1cf8e78d3e11" kindref="member">WshShellHistory_ReadHandler_t</ref>)(void);</highlight></codeline>
-<codeline lineno="60"><highlight class="normal"></highlight></codeline>
-<codeline lineno="64" refid="wsh__shell__history_8h_1a6c3f231f284abd001c0c405bde299bde" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/>void<sp/>(*<ref refid="wsh__shell__history_8h_1a6c3f231f284abd001c0c405bde299bde" kindref="member">WshShellHistory_WriteHandler_t</ref>)(<ref refid="structWshShellHistory__t" kindref="compound">WshShellHistory_t</ref>);</highlight></codeline>
-<codeline lineno="65"><highlight class="normal"></highlight></codeline>
-<codeline lineno="72" refid="structWshShellHistory__IO__t" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal">{</highlight></codeline>
-<codeline lineno="73" refid="structWshShellHistory__IO__t_1a94e168c22b74260b6e6d7b1c555ec1e1" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="wsh__shell__history_8h_1a6deaaf9be341ddc04ffb1cf8e78d3e11" kindref="member">WshShellHistory_ReadHandler_t</ref><sp/><ref refid="structWshShellHistory__IO__t_1a94e168c22b74260b6e6d7b1c555ec1e1" kindref="member">Read</ref>;<sp/><sp/><sp/></highlight></codeline>
-<codeline lineno="74" refid="structWshShellHistory__IO__t_1af3f6eccf6e1be7d473a390f24b7c1bdc" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="wsh__shell__history_8h_1a6c3f231f284abd001c0c405bde299bde" kindref="member">WshShellHistory_WriteHandler_t</ref><sp/><ref refid="structWshShellHistory__IO__t_1af3f6eccf6e1be7d473a390f24b7c1bdc" kindref="member">Write</ref>;<sp/></highlight></codeline>
-<codeline lineno="75"><highlight class="normal">}<sp/><ref refid="structWshShellHistory__IO__t" kindref="compound">WshShellHistory_IO_t</ref>;</highlight></codeline>
-<codeline lineno="76"><highlight class="normal"></highlight></codeline>
-<codeline lineno="87"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="wsh__shell__history_8h_1a6901119a26ff598ae3ad85ad6e918f74" kindref="member">WshShellHistory_Init</ref>(<ref refid="structWshShellHistory__IO__t" kindref="compound">WshShellHistory_IO_t</ref>*<sp/>pHistIO,<sp/><ref refid="wsh__shell__history_8h_1a6deaaf9be341ddc04ffb1cf8e78d3e11" kindref="member">WshShellHistory_ReadHandler_t</ref><sp/>readFn,</highlight></codeline>
-<codeline lineno="88"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="wsh__shell__history_8h_1a6c3f231f284abd001c0c405bde299bde" kindref="member">WshShellHistory_WriteHandler_t</ref><sp/>writeFn);</highlight></codeline>
-<codeline lineno="89"><highlight class="normal"></highlight></codeline>
-<codeline lineno="97"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="wsh__shell__history_8h_1a67a10560defd9e51aa9caa17fc974b99" kindref="member">WshShellHistory_SaveCmd</ref>(<ref refid="structWshShellHistory__IO__t" kindref="compound">WshShellHistory_IO_t</ref>*<sp/>pHistIO,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>WshShell_Char_t*<sp/>pcCmdStr,</highlight></codeline>
-<codeline lineno="98"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>WshShell_Size_t<sp/>cmdStrLen);</highlight></codeline>
-<codeline lineno="99"><highlight class="normal"></highlight></codeline>
-<codeline lineno="109"><highlight class="normal">WshShell_Size_t<sp/><ref refid="wsh__shell__history_8h_1a1e747efc6ac5cedda5cb4ba85326db6f" kindref="member">WshShellHistory_GetPrevCmd</ref>(<ref refid="structWshShellHistory__IO__t" kindref="compound">WshShellHistory_IO_t</ref>*<sp/>pHistIO,<sp/>WshShell_Char_t*<sp/>pOutBuff,</highlight></codeline>
-<codeline lineno="110"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>WshShell_Size_t<sp/>outBuffSize);</highlight></codeline>
-<codeline lineno="111"><highlight class="normal"></highlight></codeline>
-<codeline lineno="121"><highlight class="normal">WshShell_Size_t<sp/><ref refid="wsh__shell__history_8h_1a44207937739d4295df858ad57b42b29b" kindref="member">WshShellHistory_GetNextCmd</ref>(<ref refid="structWshShellHistory__IO__t" kindref="compound">WshShellHistory_IO_t</ref>*<sp/>pHistIO,<sp/>WshShell_Char_t*<sp/>pOutBuff,</highlight></codeline>
-<codeline lineno="122"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>WshShell_Size_t<sp/>outBuffSize);</highlight></codeline>
-<codeline lineno="123"><highlight class="normal"></highlight></codeline>
-<codeline lineno="134"><highlight class="normal">WshShell_Size_t<sp/><ref refid="wsh__shell__history_8h_1a1b4586617b550312b9493a08228a9f71" kindref="member">WshShellHistory_GetTokenNum</ref>(<ref refid="structWshShellHistory__IO__t" kindref="compound">WshShellHistory_IO_t</ref>*<sp/>pHistIO);</highlight></codeline>
-<codeline lineno="135"><highlight class="normal"></highlight></codeline>
-<codeline lineno="149"><highlight class="normal">WshShell_Size_t<sp/><ref refid="wsh__shell__history_8h_1ad22b979dd885a6890f39ed7ac743c1d7" kindref="member">WshShellHistory_GetTokenByIndex</ref>(<ref refid="structWshShellHistory__IO__t" kindref="compound">WshShellHistory_IO_t</ref>*<sp/>pHistIO,</highlight></codeline>
-<codeline lineno="150"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>WshShell_Char_t*<sp/>pOutBuff,</highlight></codeline>
-<codeline lineno="151"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>WshShell_Size_t<sp/>outBuffSize,<sp/>WshShell_Size_t<sp/>index);</highlight></codeline>
-<codeline lineno="152"><highlight class="normal"></highlight></codeline>
-<codeline lineno="158"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="wsh__shell__history_8h_1aee963c89139b4ea9419b13dfdc6b64a1" kindref="member">WshShellHistory_Flush</ref>(<ref refid="structWshShellHistory__IO__t" kindref="compound">WshShellHistory_IO_t</ref>*<sp/>pHistIO);</highlight></codeline>
-<codeline lineno="159"><highlight class="normal"></highlight></codeline>
-<codeline lineno="160"><highlight class="normal"></highlight><highlight class="preprocessor">#ifdef<sp/>__cplusplus</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="161"><highlight class="normal">}</highlight></codeline>
-<codeline lineno="162"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="163"><highlight class="normal"></highlight></codeline>
-<codeline lineno="164"><highlight class="normal"></highlight><highlight class="preprocessor">#endif<sp/></highlight><highlight class="comment">/*<sp/>__WSH_SHELL_HISTORY_H<sp/>*/</highlight><highlight class="preprocessor"></highlight></codeline>
+<codeline lineno="16"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="wsh__shell__misc_8h" kindref="compound">wsh_shell_misc.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="17"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="wsh__shell__str_8h" kindref="compound">wsh_shell_str.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="18"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="wsh__shell__types_8h" kindref="compound">wsh_shell_types.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="19"><highlight class="normal"></highlight></codeline>
+<codeline lineno="20"><highlight class="normal"></highlight><highlight class="preprocessor">#ifdef<sp/>__cplusplus</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="21"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/></highlight><highlight class="stringliteral">&quot;C&quot;</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline lineno="22"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="23"><highlight class="normal"></highlight></codeline>
+<codeline lineno="27" refid="wsh__shell__history_8h_1a036107f17cb0ba9105b8832cd7a91e25" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">enum</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline lineno="28" refid="wsh__shell__history_8h_1a036107f17cb0ba9105b8832cd7a91e25ad3a751ed298cfcfd230a5185df85e319" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="wsh__shell__history_8h_1a036107f17cb0ba9105b8832cd7a91e25ad3a751ed298cfcfd230a5185df85e319" kindref="member">WSH_SHELL_HIST_CMD_PREV</ref><sp/>=<sp/>0,<sp/></highlight></codeline>
+<codeline lineno="29"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="wsh__shell__history_8h_1a036107f17cb0ba9105b8832cd7a91e25a38b5d298484d91a2a373289e6f068fee" kindref="member">WSH_SHELL_HIST_CMD_NEXT</ref><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="30" refid="wsh__shell__history_8h_1a036107f17cb0ba9105b8832cd7a91e25a38b5d298484d91a2a373289e6f068fee" refkind="member"><highlight class="normal">}<sp/><ref refid="wsh__shell__history_8h_1a036107f17cb0ba9105b8832cd7a91e25" kindref="member">WSH_SHELL_HIST_CMD_DIR_t</ref>;</highlight></codeline>
+<codeline lineno="31"><highlight class="normal"></highlight></codeline>
+<codeline lineno="38" refid="structWshShellHistory__Data__t" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="39" refid="structWshShellHistory__Data__t_1a7129dd84fb22ab789be8f41c63356896" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>WshShell_Char_t<sp/>StorageBuff[WSH_SHELL_HISTORY_BUFF_SIZE];<sp/></highlight></codeline>
+<codeline lineno="40" refid="structWshShellHistory__Data__t_1a851b9a6e347f02cc621e6d3f04948b0b" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>WshShell_Size_t<sp/><ref refid="structWshShellHistory__Data__t_1a851b9a6e347f02cc621e6d3f04948b0b" kindref="member">HeadIdx</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="41" refid="structWshShellHistory__Data__t_1aab55966490d20d635e3c8a305cb4055f" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>WshShell_Size_t<sp/><ref refid="structWshShellHistory__Data__t_1aab55966490d20d635e3c8a305cb4055f" kindref="member">TailIdx</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="42" refid="structWshShellHistory__Data__t_1a6c24a791a4709beffc2719ad30b0e028" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>WshShell_Size_t<sp/><ref refid="structWshShellHistory__Data__t_1a6c24a791a4709beffc2719ad30b0e028" kindref="member">LastSavedCmdIdx</ref>;<sp/><sp/></highlight></codeline>
+<codeline lineno="43" refid="structWshShellHistory__Data__t_1a03c83742c1d136dc5f2fc8c61bc8636a" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="wsh__shell__history_8h_1a036107f17cb0ba9105b8832cd7a91e25" kindref="member">WSH_SHELL_HIST_CMD_DIR_t</ref><sp/><ref refid="structWshShellHistory__Data__t_1a03c83742c1d136dc5f2fc8c61bc8636a" kindref="member">PrevDir</ref>;<sp/></highlight></codeline>
+<codeline lineno="44" refid="structWshShellHistory__Data__t_1ae0e19b90028ead2731d3d9c1636b7a39" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>WshShell_Bool_t<sp/><ref refid="structWshShellHistory__Data__t_1ae0e19b90028ead2731d3d9c1636b7a39" kindref="member">LimitIsReached</ref>;<sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="45"><highlight class="normal">}<sp/><ref refid="structWshShellHistory__Data__t" kindref="compound">WshShellHistory_Data_t</ref>;</highlight></codeline>
+<codeline lineno="46"><highlight class="normal"></highlight></codeline>
+<codeline lineno="52" refid="structWshShellHistory__t" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="53" refid="structWshShellHistory__t_1afbc51d2827096815477d4b0b91e957fd" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>WshShell_U32_t<sp/><ref refid="structWshShellHistory__t_1afbc51d2827096815477d4b0b91e957fd" kindref="member">Hash</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="54" refid="structWshShellHistory__t_1a588e7536135d4b14774b8a87ca233547" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="structWshShellHistory__Data__t" kindref="compound">WshShellHistory_Data_t</ref><sp/><ref refid="structWshShellHistory__t_1a588e7536135d4b14774b8a87ca233547" kindref="member">Data</ref>;<sp/></highlight></codeline>
+<codeline lineno="55"><highlight class="normal">}<sp/><ref refid="structWshShellHistory__t" kindref="compound">WshShellHistory_t</ref>;</highlight></codeline>
+<codeline lineno="56"><highlight class="normal"></highlight></codeline>
+<codeline lineno="60" refid="wsh__shell__history_8h_1a6deaaf9be341ddc04ffb1cf8e78d3e11" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/><ref refid="structWshShellHistory__t" kindref="compound">WshShellHistory_t</ref><sp/>(*<ref refid="wsh__shell__history_8h_1a6deaaf9be341ddc04ffb1cf8e78d3e11" kindref="member">WshShellHistory_ReadHandler_t</ref>)(void);</highlight></codeline>
+<codeline lineno="61"><highlight class="normal"></highlight></codeline>
+<codeline lineno="65" refid="wsh__shell__history_8h_1a6c3f231f284abd001c0c405bde299bde" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/>void<sp/>(*<ref refid="wsh__shell__history_8h_1a6c3f231f284abd001c0c405bde299bde" kindref="member">WshShellHistory_WriteHandler_t</ref>)(<ref refid="structWshShellHistory__t" kindref="compound">WshShellHistory_t</ref>);</highlight></codeline>
+<codeline lineno="66"><highlight class="normal"></highlight></codeline>
+<codeline lineno="73" refid="structWshShellHistory__IO__t" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="74" refid="structWshShellHistory__IO__t_1a94e168c22b74260b6e6d7b1c555ec1e1" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="wsh__shell__history_8h_1a6deaaf9be341ddc04ffb1cf8e78d3e11" kindref="member">WshShellHistory_ReadHandler_t</ref><sp/><ref refid="structWshShellHistory__IO__t_1a94e168c22b74260b6e6d7b1c555ec1e1" kindref="member">Read</ref>;<sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="75" refid="structWshShellHistory__IO__t_1af3f6eccf6e1be7d473a390f24b7c1bdc" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="wsh__shell__history_8h_1a6c3f231f284abd001c0c405bde299bde" kindref="member">WshShellHistory_WriteHandler_t</ref><sp/><ref refid="structWshShellHistory__IO__t_1af3f6eccf6e1be7d473a390f24b7c1bdc" kindref="member">Write</ref>;<sp/></highlight></codeline>
+<codeline lineno="76"><highlight class="normal">}<sp/><ref refid="structWshShellHistory__IO__t" kindref="compound">WshShellHistory_IO_t</ref>;</highlight></codeline>
+<codeline lineno="77"><highlight class="normal"></highlight></codeline>
+<codeline lineno="88"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="wsh__shell__history_8h_1a6901119a26ff598ae3ad85ad6e918f74" kindref="member">WshShellHistory_Init</ref>(<ref refid="structWshShellHistory__IO__t" kindref="compound">WshShellHistory_IO_t</ref>*<sp/>pHistIO,<sp/><ref refid="wsh__shell__history_8h_1a6deaaf9be341ddc04ffb1cf8e78d3e11" kindref="member">WshShellHistory_ReadHandler_t</ref><sp/>readFn,</highlight></codeline>
+<codeline lineno="89"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="wsh__shell__history_8h_1a6c3f231f284abd001c0c405bde299bde" kindref="member">WshShellHistory_WriteHandler_t</ref><sp/>writeFn);</highlight></codeline>
+<codeline lineno="90"><highlight class="normal"></highlight></codeline>
+<codeline lineno="98"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="wsh__shell__history_8h_1a67a10560defd9e51aa9caa17fc974b99" kindref="member">WshShellHistory_SaveCmd</ref>(<ref refid="structWshShellHistory__IO__t" kindref="compound">WshShellHistory_IO_t</ref>*<sp/>pHistIO,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>WshShell_Char_t*<sp/>pcCmdStr,</highlight></codeline>
+<codeline lineno="99"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>WshShell_Size_t<sp/>cmdStrLen);</highlight></codeline>
+<codeline lineno="100"><highlight class="normal"></highlight></codeline>
+<codeline lineno="110"><highlight class="normal">WshShell_Size_t<sp/><ref refid="wsh__shell__history_8h_1a1e747efc6ac5cedda5cb4ba85326db6f" kindref="member">WshShellHistory_GetPrevCmd</ref>(<ref refid="structWshShellHistory__IO__t" kindref="compound">WshShellHistory_IO_t</ref>*<sp/>pHistIO,<sp/>WshShell_Char_t*<sp/>pOutBuff,</highlight></codeline>
+<codeline lineno="111"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>WshShell_Size_t<sp/>outBuffSize);</highlight></codeline>
+<codeline lineno="112"><highlight class="normal"></highlight></codeline>
+<codeline lineno="122"><highlight class="normal">WshShell_Size_t<sp/><ref refid="wsh__shell__history_8h_1a44207937739d4295df858ad57b42b29b" kindref="member">WshShellHistory_GetNextCmd</ref>(<ref refid="structWshShellHistory__IO__t" kindref="compound">WshShellHistory_IO_t</ref>*<sp/>pHistIO,<sp/>WshShell_Char_t*<sp/>pOutBuff,</highlight></codeline>
+<codeline lineno="123"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>WshShell_Size_t<sp/>outBuffSize);</highlight></codeline>
+<codeline lineno="124"><highlight class="normal"></highlight></codeline>
+<codeline lineno="135"><highlight class="normal">WshShell_Size_t<sp/><ref refid="wsh__shell__history_8h_1a1b4586617b550312b9493a08228a9f71" kindref="member">WshShellHistory_GetTokenNum</ref>(<ref refid="structWshShellHistory__IO__t" kindref="compound">WshShellHistory_IO_t</ref>*<sp/>pHistIO);</highlight></codeline>
+<codeline lineno="136"><highlight class="normal"></highlight></codeline>
+<codeline lineno="150"><highlight class="normal">WshShell_Size_t<sp/><ref refid="wsh__shell__history_8h_1ad22b979dd885a6890f39ed7ac743c1d7" kindref="member">WshShellHistory_GetTokenByIndex</ref>(<ref refid="structWshShellHistory__IO__t" kindref="compound">WshShellHistory_IO_t</ref>*<sp/>pHistIO,</highlight></codeline>
+<codeline lineno="151"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>WshShell_Char_t*<sp/>pOutBuff,</highlight></codeline>
+<codeline lineno="152"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>WshShell_Size_t<sp/>outBuffSize,<sp/>WshShell_Size_t<sp/>index);</highlight></codeline>
+<codeline lineno="153"><highlight class="normal"></highlight></codeline>
+<codeline lineno="159"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="wsh__shell__history_8h_1aee963c89139b4ea9419b13dfdc6b64a1" kindref="member">WshShellHistory_Flush</ref>(<ref refid="structWshShellHistory__IO__t" kindref="compound">WshShellHistory_IO_t</ref>*<sp/>pHistIO);</highlight></codeline>
+<codeline lineno="160"><highlight class="normal"></highlight></codeline>
+<codeline lineno="161"><highlight class="normal"></highlight><highlight class="preprocessor">#ifdef<sp/>__cplusplus</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="162"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="163"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="164"><highlight class="normal"></highlight></codeline>
+<codeline lineno="165"><highlight class="normal"></highlight><highlight class="preprocessor">#endif<sp/></highlight><highlight class="comment">/*<sp/>__WSH_SHELL_HISTORY_H<sp/>*/</highlight><highlight class="preprocessor"></highlight></codeline>
     </programlisting>
     <location file="src/wsh_shell_history.h"/>
   </compounddef>
