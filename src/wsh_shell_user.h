@@ -10,6 +10,7 @@
 #define __WSH_SHELL_USER_H
 
 #include "wsh_shell_cfg.h"
+#include "wsh_shell_misc.h"
 #include "wsh_shell_types.h"
 
 #ifdef __cplusplus
@@ -24,10 +25,17 @@ extern "C" {
  */
 typedef struct {
     const WshShell_Char_t* Login; /**< Pointer to login string. */
-    const WshShell_Char_t* Pass;  /**< Pointer to password string. */
+    const WshShell_Char_t* Salt;  /**< Pointer to salt string. */
+    const WshShell_Char_t* Hash;  /**< Pointer to hash(salt|pass) string. */
     WshShell_Size_t Groups;       /**< Bitmask of accessible command groups. */
     WshShell_Size_t Rights;       /**< Bitmask of execution rights. */
 } WshShellUser_t;
+
+/**
+ * @brief Hash function for salt + pass encryption.
+ */
+typedef void (*WshShellUser_HashFunc_t)(const WshShell_Char_t* pcSalt,
+                                        const WshShell_Char_t* pcPass, WshShell_Char_t* pHash);
 
 /**
  * @brief Table of registered shell users.
@@ -35,8 +43,9 @@ typedef struct {
  * This structure contains a list of shell users and total count.
  */
 typedef struct {
-    const WshShellUser_t* List; /**< Pointer to an array of user objects. */
-    WshShell_Size_t Num;        /**< Number of users in the list. */
+    const WshShellUser_t* List;   /**< Pointer to an array of user objects. */
+    WshShell_Size_t Num;          /**< Number of users in the list. */
+    WshShellUser_HashFunc_t Hash; /**< Hash func */
 } WshShellUser_Table_t;
 
 /**
@@ -54,7 +63,8 @@ typedef struct {
  */
 WSH_SHELL_RET_STATE_t WshShellUser_Attach(WshShellUser_Table_t* pShellUsers,
                                           const WshShellUser_t* pcUserTable,
-                                          WshShell_Size_t userNum);
+                                          WshShell_Size_t userNum,
+                                          WshShellUser_HashFunc_t extHashFunc);
 
 /**
  * @brief Destroy the user table.
@@ -93,7 +103,7 @@ const WshShellUser_t* WshShellUser_GetUserByIndex(WshShellUser_Table_t* pShellUs
  * @param[in] pShellUsers Pointer to the user table.
  * @param[in] UserID      Index of the user to validate.
  * @param[in] pcLogin     Pointer to the login string.
- * @param[in] pcPassword  Pointer to the password string.
+ * @param[in] pcPass      Pointer to the password string.
  * 
  * @retval true  If credentials match.
  * @retval false If mismatch or error.
@@ -101,7 +111,7 @@ const WshShellUser_t* WshShellUser_GetUserByIndex(WshShellUser_Table_t* pShellUs
 WshShell_Bool_t WshShellUser_CheckCredentials(WshShellUser_Table_t* pShellUsers,
                                               WshShell_Size_t UserID,
                                               const WshShell_Char_t* pcLogin,
-                                              const WshShell_Char_t* pcPassword);
+                                              const WshShell_Char_t* pcPass);
 
 /**
  * @brief Finds a user by login and password credentials.
