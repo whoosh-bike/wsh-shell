@@ -49,17 +49,54 @@ const WshShellCmd_t Shell_LedCmd = {
 
 ## 4. Define users
 
-Add at least one user with credentials, groups, and rights:
+- Add at least one user with credentials, groups, and rights
+- Add custom function for passwords decryption
 
 ```c
+#include "crypto.h"
+#include "stringlib.h"
+
+static void Shell_UserAuth_HashFunc(const WshShell_Char_t* pcSalt, const WshShell_Char_t* pcPass,
+                                    WshShell_Char_t* pHash) {
+    u32 saltLen = strlen(pcSalt);
+    u32 passLen = strlen(pcPass);
+
+    ASSERT_CHECK(saltLen <= WSH_SHELL_SALT_LEN);
+    ASSERT_CHECK(passLen <= WSH_SHELL_PASS_LEN);
+
+    char saltPass[WSH_SHELL_SALT_LEN + WSH_SHELL_PASS_LEN + 1];
+    memcpy(saltPass, pcSalt, saltLen);
+    memcpy(saltPass + saltLen, pcPass, passLen);
+    saltPass[saltLen + passLen] = '\0';
+    u32 saltPassLen                = saltLen + passLen;
+
+    u8 saltPassHashBytes[CRYPTO_SHA256_BLOCK_SIZE];
+    char saltPassHashStr[CRYPTO_SHA256_BLOCK_SIZE * 2 + 1];
+
+    Crypto_SHA256_t ctx;
+    Crypto_SHA256_Init(&ctx);
+    Crypto_SHA256_Update(&ctx, (const u8*)saltPass, saltPassLen);
+    Crypto_SHA256_Finish(&ctx, saltPassHashBytes);
+
+    StringLib_BytesToHex(saltPassHashBytes, sizeof(saltPassHashBytes), saltPassHashStr, false);
+
+    memcpy(pHash, saltPassHashStr, strlen(saltPassHashStr) + 1);
+}
+
 static const WshShellUser_t Shell_UserTable[] = {
     {
-        .Login  = "root",
-        .Pass   = "1234",
-        .Groups = WSH_SHELL_CMD_GROUP_ALL,
-        .Rights = WSH_SHELL_OPT_ACCESS_ANY,
+        .Login    = "admin",
+        .Salt    = "538a03bccc40a07f",
+        .Hash    = "8818316ae96ae8b4bbb2d7504b1c7b759c62bbea2c0d1595e72b4fcc7af079fa",  //1234
+        .Groups = WSH_SHELL_CMD_GROUP_ADMIN,
+        .Rights = WSH_SHELL_USER_ACCESS_ADMIN,
     },
 };
+
+RET_STATE_t Shell_Users_Init(WshShell_t* pShell) {
+    return WshShellRetState_TranslateToProject(WshShellUser_Attach(
+        &(pShell->Users), Shell_UserTable, NUM_ELEMENTS(Shell_UserTable), Shell_UserAuth_HashFunc));
+}
 ```
 
 ## 5. Setup command history

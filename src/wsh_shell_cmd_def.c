@@ -38,7 +38,7 @@ typedef enum {
 } WSH_SHELL_DEF_OPT_t;
 
     #define X_CMD_ENTRY(enum, opt) {enum, opt},
-static WshShellOption_t WshShell_OptArr[] = {WSH_SHELL_CMD_DEF_OPT_TABLE()};
+static const WshShellOption_t WshShell_OptArr[] = {WSH_SHELL_CMD_DEF_OPT_TABLE()};
     #undef X_CMD_ENTRY
 
 static void WshShell_CmdDefInteractive(WshShellIO_CommandLine_t* pInter) {

@@ -20,7 +20,7 @@
 
 ## v2.1
 
-- [x] Support input range only from ` ` till `~`
+- [x] Support input range only from `space` till `~`
 - [x] Add USB CDC support for STM32F1 Blue Pill
 - [x] Change command table attachment from storing commands to storing pointers to commands
 - [x] Add an extra space (' ') on double-Tab during command autocompletion
@@ -30,6 +30,10 @@
 - [x] Automatically generate documentation on GitHub Pages
 
 ## v2.2
+
+- [x] Add support for storing passwords in encrypted(hashed) form in memory
+
+## v2.3
 
 - [ ] Review default command behavior and provide more detailed output about it.
 - [ ] Review groups, permissions, and access levels for commands, users, and options; document them. Add `reader` user for reference
@@ -41,12 +45,8 @@ if (valIdx >= argc)
     return WSH_SHELL_RET_STATE_ERR_OVERFLOW;  // FIXME
 ```
 
-- [ ] Fix fault on history read или write callbacks if history isn't inited
+- [ ] Fix fault on history read and write callbacks if history isn't inited
 
 ## v3.0
-
-- [ ] Add support for storing passwords in encrypted(hashed?) form in memory
-
-## v3.1
 
 - [ ] Automate build and test runs via GitHub Actions

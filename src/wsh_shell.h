@@ -75,7 +75,6 @@ typedef struct {
     WshShellPromptWait_t PromptWait;
 
     WshShell_ExtCallbacks_t ExtCallbacks; /**< Optional external auth callbacks. */
-
 } WshShell_t;
 
 /**

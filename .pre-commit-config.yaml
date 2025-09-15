@@ -31,3 +31,18 @@ repos:
           - "--verbose"
           - "--redact"
           - "--config=.gitleaks.toml"
+
+  - repo: https://github.com/igorshubovych/markdownlint-cli
+    rev: v0.39.0  
+    hooks:
+      - id: markdownlint
+        name: markdownlint
+        args: ["--config", ".markdownlint.json"]
+        files: \.md$  
+  
+      # pre-commit run markdownlint-fix --all-files --hook-stage manual
+      - id: markdownlint-fix
+        name: markdownlint-fix
+        args: ["--config", ".markdownlint.json", "--fix"]
+        files: \.md$
+        stages: [manual]

@@ -61,7 +61,7 @@ typedef enum {
 /* clang-format on */
 
 #define X_CMD_ENTRY(enum, opt) {enum, opt},
-const WshShellOption_t LedOptArr[] = {CMD_LED_OPT_TABLE()};
+static const WshShellOption_t LedOptArr[] = {CMD_LED_OPT_TABLE()};
 #undef X_CMD_ENTRY
 
 static WSH_SHELL_RET_STATE_t shell_cmd_led(const WshShellCmd_t* pcCmd, WshShell_Size_t argc,
