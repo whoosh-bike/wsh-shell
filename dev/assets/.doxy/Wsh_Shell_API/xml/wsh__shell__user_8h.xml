@@ -180,7 +180,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/wsh_shell_user.h" line="64" column="23" bodyfile="src/wsh_shell_user.c" bodystart="24" bodyend="40" declfile="src/wsh_shell_user.h" declline="64" declcolumn="23"/>
+        <location file="src/wsh_shell_user.h" line="64" column="23" bodyfile="src/wsh_shell_user.c" bodystart="27" bodyend="43" declfile="src/wsh_shell_user.h" declline="64" declcolumn="23"/>
       </memberdef>
       <memberdef kind="function" id="wsh__shell__user_8h_1a26a4a7ae0e505ede96a31c71eeb61f65" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -209,7 +209,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/wsh_shell_user.h" line="76" column="6" bodyfile="src/wsh_shell_user.c" bodystart="42" bodyend="47" declfile="src/wsh_shell_user.h" declline="76" declcolumn="6"/>
+        <location file="src/wsh_shell_user.h" line="76" column="6" bodyfile="src/wsh_shell_user.c" bodystart="45" bodyend="50" declfile="src/wsh_shell_user.h" declline="76" declcolumn="6"/>
       </memberdef>
       <memberdef kind="function" id="wsh__shell__user_8h_1a5f1b4aed2ff3ac671b0a353721f325a9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>WshShell_Size_t</type>
@@ -239,7 +239,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/wsh_shell_user.h" line="85" column="17" bodyfile="src/wsh_shell_user.c" bodystart="49" bodyend="55" declfile="src/wsh_shell_user.h" declline="85" declcolumn="17"/>
+        <location file="src/wsh_shell_user.h" line="85" column="17" bodyfile="src/wsh_shell_user.c" bodystart="52" bodyend="58" declfile="src/wsh_shell_user.h" declline="85" declcolumn="17"/>
       </memberdef>
       <memberdef kind="function" id="wsh__shell__user_8h_1a6eb27bd4524e3edabea08c52e34797d7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>const <ref refid="structWshShellUser__t" kindref="compound">WshShellUser_t</ref> *</type>
@@ -281,7 +281,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/wsh_shell_user.h" line="95" column="22" bodyfile="src/wsh_shell_user.c" bodystart="57" bodyend="66" declfile="src/wsh_shell_user.h" declline="95" declcolumn="22"/>
+        <location file="src/wsh_shell_user.h" line="95" column="22" bodyfile="src/wsh_shell_user.c" bodystart="60" bodyend="69" declfile="src/wsh_shell_user.h" declline="95" declcolumn="22"/>
       </memberdef>
       <memberdef kind="function" id="wsh__shell__user_8h_1a0a45ebf8604f3e979b4b8581acde6162" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>WshShell_Bool_t</type>
@@ -363,7 +363,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/wsh_shell_user.h" line="111" column="17" bodyfile="src/wsh_shell_user.c" bodystart="68" bodyend="99" declfile="src/wsh_shell_user.h" declline="111" declcolumn="17"/>
+        <location file="src/wsh_shell_user.h" line="111" column="17" bodyfile="src/wsh_shell_user.c" bodystart="71" bodyend="102" declfile="src/wsh_shell_user.h" declline="111" declcolumn="17"/>
       </memberdef>
       <memberdef kind="function" id="wsh__shell__user_8h_1aeb6134783fd1a2d6d887de0d174b80f3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>const <ref refid="structWshShellUser__t" kindref="compound">WshShellUser_t</ref> *</type>
@@ -420,7 +420,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/wsh_shell_user.h" line="130" column="22" bodyfile="src/wsh_shell_user.c" bodystart="101" bodyend="114" declfile="src/wsh_shell_user.h" declline="130" declcolumn="22"/>
+        <location file="src/wsh_shell_user.h" line="130" column="22" bodyfile="src/wsh_shell_user.c" bodystart="104" bodyend="117" declfile="src/wsh_shell_user.h" declline="130" declcolumn="22"/>
       </memberdef>
       </sectiondef>
     <briefdescription>

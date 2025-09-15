@@ -171,7 +171,9 @@
     <member refid="wsh__shell__cfg__def_8h_1a79de0f7193e33f404b77ae866c49d98f" kind="define"><name>WSH_SHELL_CMD_NAME_LEN</name></member>
     <member refid="wsh__shell__cfg__def_8h_1a812beb026e11a5ea7d033d5d8e348d1f" kind="define"><name>WSH_SHELL_CMD_ARGS_MAX_NUM</name></member>
     <member refid="wsh__shell__cfg__def_8h_1a9f92ef57a08be8ad8abed10d49d4698b" kind="define"><name>WSH_SHELL_LOGIN_LEN</name></member>
+    <member refid="wsh__shell__cfg__def_8h_1a281b7c3adf53028eba48080b7ae261b3" kind="define"><name>WSH_SHELL_SALT_LEN</name></member>
     <member refid="wsh__shell__cfg__def_8h_1a644af2e0140720678b57a5536ae9893e" kind="define"><name>WSH_SHELL_PASS_LEN</name></member>
+    <member refid="wsh__shell__cfg__def_8h_1aa80ad0a2681a199ed205cdb021d2e204" kind="define"><name>WSH_SHELL_SALT_PASS_HASH_LEN</name></member>
     <member refid="wsh__shell__cfg__def_8h_1afc84660b6e175ec3b2470dea5b01fb59" kind="define"><name>WSH_SHELL_INTR_BUFF_LEN</name></member>
     <member refid="wsh__shell__cfg__def_8h_1a14dbb76d5fc5b27c4c6bfadd000443ba" kind="define"><name>WSH_SHELL_ESC_BUFF_LEN</name></member>
     <member refid="wsh__shell__cfg__def_8h_1ab738f1d1d08c8f060041628c3bcd49ee" kind="define"><name>WSH_SHELL_ASSERT</name></member>

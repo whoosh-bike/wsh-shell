@@ -123,6 +123,8 @@
 | define  | [**WSH\_SHELL\_PS1\_CUSTOM**](wsh__shell__cfg__def_8h.md#define-wsh_shell_ps1_custom)  `1`<br> |
 | define  | [**WSH\_SHELL\_PS1\_MAX\_LEN**](wsh__shell__cfg__def_8h.md#define-wsh_shell_ps1_max_len)  `128`<br> |
 | define  | [**WSH\_SHELL\_PS1\_TEMPLATE**](wsh__shell__cfg__def_8h.md#define-wsh_shell_ps1_template)  `"%r%b%c6%d%c7@%c5%u%c2%i %c7&gt; %r%c7"`<br> |
+| define  | [**WSH\_SHELL\_SALT\_LEN**](wsh__shell__cfg__def_8h.md#define-wsh_shell_salt_len)  `16`<br> |
+| define  | [**WSH\_SHELL\_SALT\_PASS\_HASH\_LEN**](wsh__shell__cfg__def_8h.md#define-wsh_shell_salt_pass_hash_len)  `64`<br> |
 | define  | [**WSH\_SHELL\_SNPRINTF**](wsh__shell__cfg__def_8h.md#define-wsh_shell_snprintf) (buf, size, ...) `snprintf((buf), (size), \_\_VA\_ARGS\_\_)`<br> |
 | define  | [**WSH\_SHELL\_STRCMP**](wsh__shell__cfg__def_8h.md#define-wsh_shell_strcmp) (pS1, pS2) `strcmp((pS1), (pS2))`<br> |
 | define  | [**WSH\_SHELL\_STRCPY**](wsh__shell__cfg__def_8h.md#define-wsh_shell_strcpy) (pD, pS) `strcpy((pD), (pS))`<br> |
@@ -678,6 +680,32 @@ static inline bool WshShellRetState_TranslateToProject (
 
 ```C++
 #define WSH_SHELL_PS1_TEMPLATE `"%r%b%c6%d%c7@%c5%u%c2%i %c7> %r%c7"`
+```
+
+
+
+
+<hr>
+
+
+
+### define WSH\_SHELL\_SALT\_LEN 
+
+```C++
+#define WSH_SHELL_SALT_LEN `16`
+```
+
+
+
+
+<hr>
+
+
+
+### define WSH\_SHELL\_SALT\_PASS\_HASH\_LEN 
+
+```C++
+#define WSH_SHELL_SALT_PASS_HASH_LEN `64`
 ```
 
 
