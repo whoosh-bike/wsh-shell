@@ -27,6 +27,7 @@ Wsh-Shell is a lightweight, portable, and fully static shell interpreter written
 - **Customizable PS1 Prompt** — user-defined templates for prompt appearance
 - **Await Prompt** — await for a specific key press
 - **Different New Line Support** - handle different terminals setup (`\r`, `\n` or `\r\n`)
+- **Passwords Stored Salted & Hashed** — passwords are supplied and verified through a user-provided callback and always stored in a salted, hashed form; by default the module uses a lightweight Jenkins (non-cryptographic) hash, and no plaintext passwords are written to flash unless the integrator explicitly chooses to do so
 
 ## 👾 Demo
 

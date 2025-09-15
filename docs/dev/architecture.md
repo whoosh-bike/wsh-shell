@@ -38,6 +38,7 @@
 | **wsh_shell_history.h / .c**      | Circular buffer for command history, search, and recall |
 | **wsh_shell_interact.h / .c**     | Interactive command mode handling (e.g., `wireless -i`) |
 | **wsh_shell_io.h / .c**           | Input/output abstraction |
+| **wsh_shell_misc.h / .c**         | Various helper functions that do not belong to specific subsystems |
 | **wsh_shell_option.h**            | Command-line option parsing helpers and context structures |
 | **wsh_shell_promptwait.h / .c**   | Wait for specific keys (Enter, Yes/No) during command input |
 | **wsh_shell_ps1_custom.h / .c**   | Custom shell prompt (`PS1`) generation and formatting |
@@ -73,6 +74,8 @@
 │   ├── wsh_shell_interact.h
 │   ├── wsh_shell_io.c
 │   ├── wsh_shell_io.h
+│   ├── wsh_shell_misc.c
+│   ├── wsh_shell_misc.h
 │   ├── wsh_shell_option.h
 │   ├── wsh_shell_promptwait.c
 │   ├── wsh_shell_promptwait.h
@@ -87,5 +90,6 @@
 └── utils
     ├── elf-size-analyse.py
     ├── gen-launch.py
+    ├── gen-pass.py
     └── shell-banner-gen.py
 ```
