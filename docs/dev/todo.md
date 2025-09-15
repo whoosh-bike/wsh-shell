@@ -31,6 +31,10 @@
 
 ## v2.2
 
+- [x] Add support for storing passwords in encrypted(hashed?) form in memory
+
+## v2.3
+
 - [ ] Review default command behavior and provide more detailed output about it.
 - [ ] Review groups, permissions, and access levels for commands, users, and options; document them. Add `reader` user for reference
 - [ ] Review and fix `wsh_shell_cmd` in `WshShellCmd_GetOptValue` if necessary
@@ -44,9 +48,5 @@ if (valIdx >= argc)
 - [ ] Fix fault on history read and write callbacks if history isn't inited
 
 ## v3.0
-
-- [ ] Add support for storing passwords in encrypted(hashed?) form in memory
-
-## v3.1
 
 - [ ] Automate build and test runs via GitHub Actions
