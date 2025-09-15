@@ -4,7 +4,7 @@ Wsh-Shell is a lightweight, portable, and fully static shell interpreter written
 
 ## 🚀 Features
 
-- **Cross-platform, Highly Portable** — only one header file to include  
+- **Cross-platform, Highly Portable** — only one header file to include
 - **Single State Structure** — all shell state contained in a single `WshShell_t` instance  
 - **Static Memory Only** — no `malloc`, no heap; all buffers are statically allocated  
 - **Modular Design** — ability to disable submodules for memory footprint optimization
@@ -30,25 +30,25 @@ Wsh-Shell is a lightweight, portable, and fully static shell interpreter written
 
 ## 👾 Demo
 
-![demo](/docs/img/demo.gif)
+![Demo](/docs/img/demo.gif)
 
 ## 💾 Memory footprint
 
 - Build options: cortex-m7, `-O1` optimization
 - sizeof(WshShell_t) = 336 bytes
 
-| Config                                | FLASH, KB | RAM, KB | Comment                                              |
-| --------------------------------------| --------- | ------- | ---------------------------------------------------- |
-| All features disabled                 | 3.29102   | 0.0     |                                                      |
-| `+WSH_SHELL_PRINT_SYS/INFO/WARN/ERR`  | 3.58984   | 0.0     | Not recommended to disable shell messages            |
-| `+WSH_SHELL_DEF_COMMAND`              | 4.61914   | 0.27343 |                                                      |
-| `+WSH_SHELL_PRINT_HELP`               | 4.65234   | 0.27343 | Could be usefull on huge amount of external commands |
-| `+WSH_SHELL_CMD_PRINT_OPT_OVERVIEW`   | 4.90625   | 0.27343 | Could be usefull on huge amount of external commands |
-| `+WSH_SHELL_INTERACTIVE_MODE`         | 5.00391   | 0.27343 |                                                      |
-| `+WSH_SHELL_HISTORY`                  | 6.16016   | 0.27343 |                                                      |
-| `+WSH_SHELL_AUTOCOMPLETE`             | 6.71094   | 0.27343 |                                                      |
-| `+WSH_SHELL_PS1_CUSTOM`               | 7.18359   | 0.27343 |                                                      |
-| `+WSH_SHELL_PROMPT_WAIT`              | 7.29883   | 0.27343 |                                                      |
+| Config                                | FLASH, KB | Comment                                              |
+| --------------------------------------| --------- | ---------------------------------------------------- |
+| All features disabled                 | 3.50781   |                                                      |
+| `+WSH_SHELL_PRINT_SYS/INFO/WARN/ERR`  | 3.8457    | Not recommended to disable shell messages            |
+| `+WSH_SHELL_INTERACTIVE_MODE`         | 3.94336   |                                                      |
+| `+WSH_SHELL_HISTORY`                  | 4.88672   |                                                      |
+| `+WSH_SHELL_AUTOCOMPLETE`             | 5.44531   |                                                      |
+| `+WSH_SHELL_PS1_CUSTOM`               | 5.91797   |                                                      |
+| `+WSH_SHELL_PROMPT_WAIT`              | 6.0332    |                                                      |
+| `+WSH_SHELL_DEF_COMMAND`              | 7.50586   |                                                      |
+| `+WSH_SHELL_PRINT_OPT_HELP`           | 7.50586   | Could be usefull on huge amount of external commands |
+| `+WSH_SHELL_CMD_PRINT_OPT_OVERVIEW`   | 7.75977   | Could be usefull on huge amount of external commands |
 
 ## ⌨️ Code counting
 
@@ -56,10 +56,10 @@ Wsh-Shell is a lightweight, portable, and fully static shell interpreter written
 ===============================================================================
  Language            Files        Lines         Code     Comments       Blanks
 ===============================================================================
- C                      12         1928         1470           52          406
- C Header               16         1936          679         1028          229
+ C                      13         1971         1501           52          418
+ C Header               17         1977          700         1042          235
 ===============================================================================
- Total                  28         3864         2149         1080          635
+ Total                  30         3948         2201         1094          653
 ===============================================================================
 ```
 
@@ -77,4 +77,4 @@ This project is licensed under the [MIT License](LICENSE).
 
 You are free to use, modify, and distribute this software in both commercial and non-commercial projects, provided that the original copyright notice and this permission notice are included.
 
-![img](/docs/img/shell_wide.png)
+![Shell](/docs/img/shell_wide.png)

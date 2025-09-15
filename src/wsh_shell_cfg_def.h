@@ -31,21 +31,6 @@
 
 /* 
  * ─────────────────────────────────────────────
- * Default shell command (executed at startup)
- * ───────────────────────────────────────────── 
- */
-#define WSH_SHELL_DEF_COMMAND 1
-
-/* 
- * ─────────────────────────────────────────────
- * Command descriptions(help) - store and print
- * ───────────────────────────────────────────── 
- */
-#define WSH_SHELL_PRINT_OPT_HELP_ENABLE  1
-#define WSH_SHELL_CMD_PRINT_OPT_OVERVIEW 1
-
-/* 
- * ─────────────────────────────────────────────
  * Interactive mode (user input enabled)
  * ───────────────────────────────────────────── 
  */
@@ -83,6 +68,21 @@
  * ───────────────────────────────────────────── 
  */
 #define WSH_SHELL_PROMPT_WAIT 1
+
+/* 
+ * ─────────────────────────────────────────────
+ * Default shell command (executed at startup)
+ * ───────────────────────────────────────────── 
+ */
+#define WSH_SHELL_DEF_COMMAND 1
+
+/* 
+ * ─────────────────────────────────────────────
+ * Command descriptions(help) - store and print
+ * ───────────────────────────────────────────── 
+ */
+#define WSH_SHELL_PRINT_OPT_HELP_ENABLE  1
+#define WSH_SHELL_CMD_PRINT_OPT_OVERVIEW 1
 
 /* 
  * ─────────────────────────────────────────────
