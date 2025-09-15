@@ -2127,42 +2127,46 @@
 <h1 id="architecture">Architecture</h1>
 <h2 id="core-principles">Core Principles</h2>
 <ul>
-<li><strong>Single-Instance State</strong>  </li>
-<li>All shell state is stored inside a single <code>WshShell_t</code> structure.  </li>
 <li>
-<p>Multiple instances can be created independently if needed.</p>
+<p><strong>Single-Instance State</strong>  </p>
+<ul>
+<li>All shell state is stored inside a single <code>WshShell_t</code> structure.  </li>
+<li>Multiple instances can be created independently if needed.</li>
+</ul>
 </li>
 <li>
 <p><strong>Modular Design</strong>  </p>
-</li>
+<ul>
 <li>Each feature is implemented as an isolated module (<code>cmd</code>, <code>user</code>, <code>history</code>, <code>autocomplete</code>, etc).</li>
-<li>
-<p>Modules can be enabled or disabled to reduce code size and RAM usage.</p>
+<li>Modules can be enabled or disabled to reduce code size and RAM usage.</li>
+</ul>
 </li>
 <li>
 <p><strong>Configurable at Compile-Time</strong>  </p>
-</li>
-<li>
-<p>Main shell parameters (buffer sizes, enabled features, color schemes, etc.) are controlled via configuration macros, allowing customization without changing the source.</p>
+<ul>
+<li>Main shell parameters (buffer sizes, enabled features, color schemes, etc.) are controlled via configuration macros, allowing customization without changing the source.</li>
+</ul>
 </li>
 <li>
 <p><strong>Static Memory Only</strong>  </p>
-</li>
+<ul>
 <li>No dynamic allocation (<code>malloc</code>/<code>free</code>).</li>
-<li>
-<p>All commands, users, callbacks, and other resources are passed into the shell from outside.</p>
+<li>All commands, users, callbacks, and other resources are passed into the shell from outside.</li>
+</ul>
 </li>
 <li>
 <p><strong>Platform-Independent</strong>  </p>
-</li>
+<ul>
 <li>Runs on bare-metal systems and under RTOS.</li>
-<li>
-<p>No dependencies on specific hardware or CPU architecture.</p>
+<li>No dependencies on specific hardware or CPU architecture.</li>
+</ul>
 </li>
 <li>
 <p><strong>Lightweight Integration</strong>  </p>
-</li>
+<ul>
 <li>The shell is provided as a <strong>git submodule</strong> and can be easily integrated into any project.</li>
+</ul>
+</li>
 </ul>
 <hr />
 <h2 id="sources-structure-repository-layout">Sources Structure &amp; Repository Layout</h2>

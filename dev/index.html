@@ -2198,20 +2198,28 @@
 <li><strong>Static Memory Only</strong> — no <code>malloc</code>, no heap; all buffers are statically allocated  </li>
 <li><strong>Modular Design</strong> — ability to disable submodules for memory footprint optimization</li>
 <li><strong>Command-line Editing</strong> — supports cursor movement, character deletion, and insert mode  </li>
-<li><strong>Command Parsing &amp; Options</strong>:  </li>
+<li><strong>Command Parsing &amp; Options</strong>:  <ul>
 <li>Supports short (<code>-h</code>) and long (<code>--help</code>) flags  </li>
 <li>Supports int, float, string and other option types</li>
 <li>Supports double-quoted strings  </li>
-<li><strong>Escape Sequence Handling</strong>:  </li>
+</ul>
+</li>
+<li><strong>Escape Sequence Handling</strong>:  <ul>
 <li>Parses VT100/ANSI sequences  </li>
 <li>Supports arrow keys, delete, backspace, sound alerts, etc.  </li>
 <li>Handles key combinations (Ctrl+C, Ctrl+D, etc.)  </li>
-<li><strong>Command History</strong>:  </li>
+</ul>
+</li>
+<li><strong>Command History</strong>:  <ul>
 <li>Implemented as a circular buffer  </li>
 <li>Efficient with hash-based integrity checks  </li>
 <li>Navigable with arrow keys (↑, ↓)  </li>
-<li><strong>Autocomplete</strong>:  </li>
+</ul>
+</li>
+<li><strong>Autocomplete</strong>:  <ul>
 <li>Tab / double-Tab completion for commands and flags  </li>
+</ul>
+</li>
 <li><strong>Multi-User Support</strong> — groups, access rights, and more  </li>
 <li><strong>Customizable PS1 Prompt</strong> — user-defined templates for prompt appearance</li>
 <li><strong>Await Prompt</strong> — await for a specific key press</li>
