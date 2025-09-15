@@ -76,6 +76,7 @@
           <declname>len</declname>
         </param>
         <briefdescription>
+<para>Calculate Jenkins one-at-a-time hash. </para>
         </briefdescription>
         <detaileddescription>
 <para>Jenkins hash function <ulink url="https://en.wikipedia.org/wiki/Jenkins_hash_function">https://en.wikipedia.org/wiki/Jenkins_hash_function</ulink> </para>

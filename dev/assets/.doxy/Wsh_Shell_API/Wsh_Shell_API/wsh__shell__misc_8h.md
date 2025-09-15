@@ -53,7 +53,7 @@ _Miscellaneous helper utilities for the shell._ [More...](#detailed-description)
 
 | Type | Name |
 | ---: | :--- |
-|  WshShell\_U32\_t | [**WshShellMisc\_CalcJenkinsHash**](#function-wshshellmisc_calcjenkinshash) (const WshShell\_U8\_t \* pcBuff, WshShell\_Size\_t len) <br> |
+|  WshShell\_U32\_t | [**WshShellMisc\_CalcJenkinsHash**](#function-wshshellmisc_calcjenkinshash) (const WshShell\_U8\_t \* pcBuff, WshShell\_Size\_t len) <br>_Calculate Jenkins one-at-a-time hash._  |
 
 
 
@@ -113,6 +113,7 @@ Copyright (c) 2025
 
 ### function WshShellMisc\_CalcJenkinsHash 
 
+_Calculate Jenkins one-at-a-time hash._ 
 ```C++
 WshShell_U32_t WshShellMisc_CalcJenkinsHash (
     const WshShell_U8_t * pcBuff,
@@ -120,6 +121,31 @@ WshShell_U32_t WshShellMisc_CalcJenkinsHash (
 ) 
 ```
 
+
+
+This function computes the 32-bit Jenkins one-at-a-time hash for the given buffer. It is a simple and fast non-cryptographic (!) hash function, commonly used for hash tables and quick data checksums.
+
+
+
+
+**Parameters:**
+
+
+* `pcBuff` Pointer to the input buffer. 
+* `len` Number of bytes in the input buffer.
+
+
+
+**Returns:**
+
+32-bit hash value computed over the input buffer.
+
+
+
+
+**Note:**
+
+This hash is not suitable for cryptographic purposes !!! It is designed for speed and good distribution in hash tables.
 
 
 Jenkins hash function [https://en.wikipedia.org/wiki/Jenkins\_hash\_function](https://en.wikipedia.org/wiki/Jenkins_hash_function) 

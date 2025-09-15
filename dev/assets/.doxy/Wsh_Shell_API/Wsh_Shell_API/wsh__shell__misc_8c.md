@@ -52,7 +52,7 @@
 
 | Type | Name |
 | ---: | :--- |
-|  WshShell\_U32\_t | [**WshShellMisc\_CalcJenkinsHash**](#function-wshshellmisc_calcjenkinshash) (const WshShell\_U8\_t \* pcBuff, WshShell\_Size\_t len) <br> |
+|  WshShell\_U32\_t | [**WshShellMisc\_CalcJenkinsHash**](#function-wshshellmisc_calcjenkinshash) (const WshShell\_U8\_t \* pcBuff, WshShell\_Size\_t len) <br>_Calculate Jenkins one-at-a-time hash._  |
 
 
 
@@ -88,6 +88,7 @@
 
 ### function WshShellMisc\_CalcJenkinsHash 
 
+_Calculate Jenkins one-at-a-time hash._ 
 ```C++
 WshShell_U32_t WshShellMisc_CalcJenkinsHash (
     const WshShell_U8_t * pcBuff,

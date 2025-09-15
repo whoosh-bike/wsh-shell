@@ -2096,7 +2096,7 @@
 <tbody>
 <tr>
 <td style="text-align: right;">WshShell_U32_t</td>
-<td style="text-align: left;"><a href="#function-wshshellmisc_calcjenkinshash"><strong>WshShellMisc_CalcJenkinsHash</strong></a> (const WshShell_U8_t * pcBuff, WshShell_Size_t len) <br></td>
+<td style="text-align: left;"><a href="#function-wshshellmisc_calcjenkinshash"><strong>WshShellMisc_CalcJenkinsHash</strong></a> (const WshShell_U8_t * pcBuff, WshShell_Size_t len) <br><em>Calculate Jenkins one-at-a-time hash.</em></td>
 </tr>
 </tbody>
 </table>
@@ -2108,6 +2108,7 @@
 <p>Copyright (c) 2025 </p>
 <h2 id="public-functions-documentation">Public Functions Documentation</h2>
 <h3 id="function-wshshellmisc_calcjenkinshash">function WshShellMisc_CalcJenkinsHash</h3>
+<p><em>Calculate Jenkins one-at-a-time hash.</em> 
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-1">1</a></span>
 <span class="normal"><a href="#__codelineno-0-2">2</a></span>
 <span class="normal"><a href="#__codelineno-0-3">3</a></span>
@@ -2115,7 +2116,17 @@
 </span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2"></a><span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="n">WshShell_U8_t</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">pcBuff</span><span class="p">,</span>
 </span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3"></a><span class="w">    </span><span class="n">WshShell_Size_t</span><span class="w"> </span><span class="n">len</span>
 </span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4"></a><span class="p">)</span><span class="w"> </span>
-</span></code></pre></div></td></tr></table></div>
+</span></code></pre></div></td></tr></table></div></p>
+<p>This function computes the 32-bit Jenkins one-at-a-time hash for the given buffer. It is a simple and fast non-cryptographic (!) hash function, commonly used for hash tables and quick data checksums.</p>
+<p><strong>Parameters:</strong></p>
+<ul>
+<li><code>pcBuff</code> Pointer to the input buffer. </li>
+<li><code>len</code> Number of bytes in the input buffer.</li>
+</ul>
+<p><strong>Returns:</strong></p>
+<p>32-bit hash value computed over the input buffer.</p>
+<p><strong>Note:</strong></p>
+<p>This hash is not suitable for cryptographic purposes !!! It is designed for speed and good distribution in hash tables.</p>
 <p>Jenkins hash function <a href="https://en.wikipedia.org/wiki/Jenkins_hash_function">https://en.wikipedia.org/wiki/Jenkins_hash_function</a> </p>
 <hr>
 
