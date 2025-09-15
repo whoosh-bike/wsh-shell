@@ -106,39 +106,6 @@
         </inbodydescription>
         <location file="src/wsh_shell_cfg_def.h" line="30" column="9" bodyfile="src/wsh_shell_cfg_def.h" bodystart="30" bodyend="-1"/>
       </memberdef>
-      <memberdef kind="define" id="wsh__shell__cfg__def_8h_1a195ecfaaa46050c35ea3ab9eb9628da3" prot="public" static="no">
-        <name>WSH_SHELL_DEF_COMMAND</name>
-        <initializer>1</initializer>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="src/wsh_shell_cfg_def.h" line="37" column="9" bodyfile="src/wsh_shell_cfg_def.h" bodystart="37" bodyend="-1"/>
-      </memberdef>
-      <memberdef kind="define" id="wsh__shell__cfg__def_8h_1acac175a02863a35c570a3f9b3d8dbb1b" prot="public" static="no">
-        <name>WSH_SHELL_PRINT_OPT_HELP_ENABLE</name>
-        <initializer>1</initializer>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="src/wsh_shell_cfg_def.h" line="44" column="9" bodyfile="src/wsh_shell_cfg_def.h" bodystart="44" bodyend="-1"/>
-      </memberdef>
-      <memberdef kind="define" id="wsh__shell__cfg__def_8h_1aa273f75ae3ac2350aaa0f0a89d482516" prot="public" static="no">
-        <name>WSH_SHELL_CMD_PRINT_OPT_OVERVIEW</name>
-        <initializer>1</initializer>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="src/wsh_shell_cfg_def.h" line="45" column="9" bodyfile="src/wsh_shell_cfg_def.h" bodystart="45" bodyend="-1"/>
-      </memberdef>
       <memberdef kind="define" id="wsh__shell__cfg__def_8h_1ada4fbc968726db71306cbab04f40d8dc" prot="public" static="no">
         <name>WSH_SHELL_INTERACTIVE_MODE</name>
         <initializer>1</initializer>
@@ -148,7 +115,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/wsh_shell_cfg_def.h" line="52" column="9" bodyfile="src/wsh_shell_cfg_def.h" bodystart="52" bodyend="-1"/>
+        <location file="src/wsh_shell_cfg_def.h" line="37" column="9" bodyfile="src/wsh_shell_cfg_def.h" bodystart="37" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="wsh__shell__cfg__def_8h_1a1ef1c6ab90ec34dd2df2f4e9f13f7425" prot="public" static="no">
         <name>WSH_SHELL_HISTORY</name>
@@ -159,7 +126,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/wsh_shell_cfg_def.h" line="59" column="9" bodyfile="src/wsh_shell_cfg_def.h" bodystart="59" bodyend="-1"/>
+        <location file="src/wsh_shell_cfg_def.h" line="44" column="9" bodyfile="src/wsh_shell_cfg_def.h" bodystart="44" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="wsh__shell__cfg__def_8h_1a56e6c2eba787687b9f39fe018f736aec" prot="public" static="no">
         <name>WSH_SHELL_HISTORY_BUFF_SIZE</name>
@@ -170,7 +137,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/wsh_shell_cfg_def.h" line="60" column="9" bodyfile="src/wsh_shell_cfg_def.h" bodystart="60" bodyend="-1"/>
+        <location file="src/wsh_shell_cfg_def.h" line="45" column="9" bodyfile="src/wsh_shell_cfg_def.h" bodystart="45" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="wsh__shell__cfg__def_8h_1aec8b61547ddf92fdef3cfff83bfa4c69" prot="public" static="no">
         <name>WSH_SHELL_AUTOCOMPLETE</name>
@@ -181,7 +148,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/wsh_shell_cfg_def.h" line="67" column="9" bodyfile="src/wsh_shell_cfg_def.h" bodystart="67" bodyend="-1"/>
+        <location file="src/wsh_shell_cfg_def.h" line="52" column="9" bodyfile="src/wsh_shell_cfg_def.h" bodystart="52" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="wsh__shell__cfg__def_8h_1a06a74857c8c0d5425f50e800c88d2f71" prot="public" static="no">
         <name>WSH_SHELL_AUTOCOMPLETE_PAD_LEN</name>
@@ -192,7 +159,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/wsh_shell_cfg_def.h" line="68" column="9" bodyfile="src/wsh_shell_cfg_def.h" bodystart="68" bodyend="-1"/>
+        <location file="src/wsh_shell_cfg_def.h" line="53" column="9" bodyfile="src/wsh_shell_cfg_def.h" bodystart="53" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="wsh__shell__cfg__def_8h_1ad78f3df270e130b8ea51a11bf1cabd60" prot="public" static="no">
         <name>WSH_SHELL_AUTOCOMPLETE_PAD_SYM</name>
@@ -203,7 +170,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/wsh_shell_cfg_def.h" line="69" column="9" bodyfile="src/wsh_shell_cfg_def.h" bodystart="69" bodyend="-1"/>
+        <location file="src/wsh_shell_cfg_def.h" line="54" column="9" bodyfile="src/wsh_shell_cfg_def.h" bodystart="54" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="wsh__shell__cfg__def_8h_1ace6c2248b6a226bf1af40670065a1f17" prot="public" static="no">
         <name>WSH_SHELL_PS1_CUSTOM</name>
@@ -214,7 +181,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/wsh_shell_cfg_def.h" line="76" column="9" bodyfile="src/wsh_shell_cfg_def.h" bodystart="76" bodyend="-1"/>
+        <location file="src/wsh_shell_cfg_def.h" line="61" column="9" bodyfile="src/wsh_shell_cfg_def.h" bodystart="61" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="wsh__shell__cfg__def_8h_1a3892b3ae21a06cdb78603080f14e3f20" prot="public" static="no">
         <name>WSH_SHELL_PS1_TEMPLATE</name>
@@ -225,7 +192,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/wsh_shell_cfg_def.h" line="77" column="9" bodyfile="src/wsh_shell_cfg_def.h" bodystart="77" bodyend="-1"/>
+        <location file="src/wsh_shell_cfg_def.h" line="62" column="9" bodyfile="src/wsh_shell_cfg_def.h" bodystart="62" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="wsh__shell__cfg__def_8h_1a01654c8758d856de9ad5a6c90218c5e8" prot="public" static="no">
         <name>WSH_SHELL_PS1_MAX_LEN</name>
@@ -236,10 +203,43 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/wsh_shell_cfg_def.h" line="78" column="9" bodyfile="src/wsh_shell_cfg_def.h" bodystart="78" bodyend="-1"/>
+        <location file="src/wsh_shell_cfg_def.h" line="63" column="9" bodyfile="src/wsh_shell_cfg_def.h" bodystart="63" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="wsh__shell__cfg__def_8h_1a7af31e564fe835d55aa74b7bc684eae0" prot="public" static="no">
         <name>WSH_SHELL_PROMPT_WAIT</name>
+        <initializer>1</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/wsh_shell_cfg_def.h" line="70" column="9" bodyfile="src/wsh_shell_cfg_def.h" bodystart="70" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="wsh__shell__cfg__def_8h_1a195ecfaaa46050c35ea3ab9eb9628da3" prot="public" static="no">
+        <name>WSH_SHELL_DEF_COMMAND</name>
+        <initializer>1</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/wsh_shell_cfg_def.h" line="77" column="9" bodyfile="src/wsh_shell_cfg_def.h" bodystart="77" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="wsh__shell__cfg__def_8h_1acac175a02863a35c570a3f9b3d8dbb1b" prot="public" static="no">
+        <name>WSH_SHELL_PRINT_OPT_HELP_ENABLE</name>
+        <initializer>1</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/wsh_shell_cfg_def.h" line="84" column="9" bodyfile="src/wsh_shell_cfg_def.h" bodystart="84" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="wsh__shell__cfg__def_8h_1aa273f75ae3ac2350aaa0f0a89d482516" prot="public" static="no">
+        <name>WSH_SHELL_CMD_PRINT_OPT_OVERVIEW</name>
         <initializer>1</initializer>
         <briefdescription>
         </briefdescription>
@@ -763,58 +763,58 @@
 <codeline lineno="31"><highlight class="normal"></highlight></codeline>
 <codeline lineno="32"><highlight class="normal"></highlight><highlight class="comment">/*<sp/></highlight></codeline>
 <codeline lineno="33"><highlight class="comment"><sp/>*<sp/>─────────────────────────────────────────────</highlight></codeline>
-<codeline lineno="34"><highlight class="comment"><sp/>*<sp/>Default<sp/>shell<sp/>command<sp/>(executed<sp/>at<sp/>startup)</highlight></codeline>
+<codeline lineno="34"><highlight class="comment"><sp/>*<sp/>Interactive<sp/>mode<sp/>(user<sp/>input<sp/>enabled)</highlight></codeline>
 <codeline lineno="35"><highlight class="comment"><sp/>*<sp/>─────────────────────────────────────────────<sp/></highlight></codeline>
 <codeline lineno="36"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="37"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>WSH_SHELL_DEF_COMMAND<sp/>1</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="37"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>WSH_SHELL_INTERACTIVE_MODE<sp/>1</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="38"><highlight class="normal"></highlight></codeline>
 <codeline lineno="39"><highlight class="normal"></highlight><highlight class="comment">/*<sp/></highlight></codeline>
 <codeline lineno="40"><highlight class="comment"><sp/>*<sp/>─────────────────────────────────────────────</highlight></codeline>
-<codeline lineno="41"><highlight class="comment"><sp/>*<sp/>Command<sp/>descriptions(help)<sp/>-<sp/>store<sp/>and<sp/>print</highlight></codeline>
+<codeline lineno="41"><highlight class="comment"><sp/>*<sp/>Command<sp/>history</highlight></codeline>
 <codeline lineno="42"><highlight class="comment"><sp/>*<sp/>─────────────────────────────────────────────<sp/></highlight></codeline>
 <codeline lineno="43"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="44"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>WSH_SHELL_PRINT_OPT_HELP_ENABLE<sp/><sp/>1</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="45"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>WSH_SHELL_CMD_PRINT_OPT_OVERVIEW<sp/>1</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="44"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>WSH_SHELL_HISTORY<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>1</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="45"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>WSH_SHELL_HISTORY_BUFF_SIZE<sp/>256</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="46"><highlight class="normal"></highlight></codeline>
 <codeline lineno="47"><highlight class="normal"></highlight><highlight class="comment">/*<sp/></highlight></codeline>
 <codeline lineno="48"><highlight class="comment"><sp/>*<sp/>─────────────────────────────────────────────</highlight></codeline>
-<codeline lineno="49"><highlight class="comment"><sp/>*<sp/>Interactive<sp/>mode<sp/>(user<sp/>input<sp/>enabled)</highlight></codeline>
+<codeline lineno="49"><highlight class="comment"><sp/>*<sp/>Command<sp/>autocompletion</highlight></codeline>
 <codeline lineno="50"><highlight class="comment"><sp/>*<sp/>─────────────────────────────────────────────<sp/></highlight></codeline>
 <codeline lineno="51"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="52"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>WSH_SHELL_INTERACTIVE_MODE<sp/>1</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="53"><highlight class="normal"></highlight></codeline>
-<codeline lineno="54"><highlight class="normal"></highlight><highlight class="comment">/*<sp/></highlight></codeline>
-<codeline lineno="55"><highlight class="comment"><sp/>*<sp/>─────────────────────────────────────────────</highlight></codeline>
-<codeline lineno="56"><highlight class="comment"><sp/>*<sp/>Command<sp/>history</highlight></codeline>
-<codeline lineno="57"><highlight class="comment"><sp/>*<sp/>─────────────────────────────────────────────<sp/></highlight></codeline>
-<codeline lineno="58"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="59"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>WSH_SHELL_HISTORY<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>1</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="60"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>WSH_SHELL_HISTORY_BUFF_SIZE<sp/>256</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="61"><highlight class="normal"></highlight></codeline>
-<codeline lineno="62"><highlight class="normal"></highlight><highlight class="comment">/*<sp/></highlight></codeline>
-<codeline lineno="63"><highlight class="comment"><sp/>*<sp/>─────────────────────────────────────────────</highlight></codeline>
-<codeline lineno="64"><highlight class="comment"><sp/>*<sp/>Command<sp/>autocompletion</highlight></codeline>
-<codeline lineno="65"><highlight class="comment"><sp/>*<sp/>─────────────────────────────────────────────<sp/></highlight></codeline>
-<codeline lineno="66"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="67"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>WSH_SHELL_AUTOCOMPLETE<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>1</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="68"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>WSH_SHELL_AUTOCOMPLETE_PAD_LEN<sp/>32</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="69"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>WSH_SHELL_AUTOCOMPLETE_PAD_SYM<sp/>&apos;.&apos;</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="70"><highlight class="normal"></highlight></codeline>
-<codeline lineno="71"><highlight class="normal"></highlight><highlight class="comment">/*<sp/></highlight></codeline>
-<codeline lineno="72"><highlight class="comment"><sp/>*<sp/>─────────────────────────────────────────────</highlight></codeline>
-<codeline lineno="73"><highlight class="comment"><sp/>*<sp/>PS1<sp/>prompt<sp/>configuration</highlight></codeline>
-<codeline lineno="74"><highlight class="comment"><sp/>*<sp/>─────────────────────────────────────────────<sp/></highlight></codeline>
-<codeline lineno="75"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="76"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>WSH_SHELL_PS1_CUSTOM<sp/><sp/><sp/>1</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="77"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>WSH_SHELL_PS1_TEMPLATE<sp/>&quot;%r%b%c6%d%c7@%c5%u%c2%i<sp/>%c7&gt;<sp/>%r%c7&quot;</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="78"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>WSH_SHELL_PS1_MAX_LEN<sp/><sp/>128</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="79"><highlight class="normal"></highlight></codeline>
-<codeline lineno="80"><highlight class="normal"></highlight><highlight class="comment">/*<sp/></highlight></codeline>
-<codeline lineno="81"><highlight class="comment"><sp/>*<sp/>─────────────────────────────────────────────</highlight></codeline>
-<codeline lineno="82"><highlight class="comment"><sp/>*<sp/>Prompt<sp/>waiting</highlight></codeline>
-<codeline lineno="83"><highlight class="comment"><sp/>*<sp/>─────────────────────────────────────────────<sp/></highlight></codeline>
-<codeline lineno="84"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="85"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>WSH_SHELL_PROMPT_WAIT<sp/>1</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="52"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>WSH_SHELL_AUTOCOMPLETE<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>1</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="53"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>WSH_SHELL_AUTOCOMPLETE_PAD_LEN<sp/>32</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="54"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>WSH_SHELL_AUTOCOMPLETE_PAD_SYM<sp/>&apos;.&apos;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="55"><highlight class="normal"></highlight></codeline>
+<codeline lineno="56"><highlight class="normal"></highlight><highlight class="comment">/*<sp/></highlight></codeline>
+<codeline lineno="57"><highlight class="comment"><sp/>*<sp/>─────────────────────────────────────────────</highlight></codeline>
+<codeline lineno="58"><highlight class="comment"><sp/>*<sp/>PS1<sp/>prompt<sp/>configuration</highlight></codeline>
+<codeline lineno="59"><highlight class="comment"><sp/>*<sp/>─────────────────────────────────────────────<sp/></highlight></codeline>
+<codeline lineno="60"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="61"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>WSH_SHELL_PS1_CUSTOM<sp/><sp/><sp/>1</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="62"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>WSH_SHELL_PS1_TEMPLATE<sp/>&quot;%r%b%c6%d%c7@%c5%u%c2%i<sp/>%c7&gt;<sp/>%r%c7&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="63"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>WSH_SHELL_PS1_MAX_LEN<sp/><sp/>128</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="64"><highlight class="normal"></highlight></codeline>
+<codeline lineno="65"><highlight class="normal"></highlight><highlight class="comment">/*<sp/></highlight></codeline>
+<codeline lineno="66"><highlight class="comment"><sp/>*<sp/>─────────────────────────────────────────────</highlight></codeline>
+<codeline lineno="67"><highlight class="comment"><sp/>*<sp/>Prompt<sp/>waiting</highlight></codeline>
+<codeline lineno="68"><highlight class="comment"><sp/>*<sp/>─────────────────────────────────────────────<sp/></highlight></codeline>
+<codeline lineno="69"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="70"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>WSH_SHELL_PROMPT_WAIT<sp/>1</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="71"><highlight class="normal"></highlight></codeline>
+<codeline lineno="72"><highlight class="normal"></highlight><highlight class="comment">/*<sp/></highlight></codeline>
+<codeline lineno="73"><highlight class="comment"><sp/>*<sp/>─────────────────────────────────────────────</highlight></codeline>
+<codeline lineno="74"><highlight class="comment"><sp/>*<sp/>Default<sp/>shell<sp/>command<sp/>(executed<sp/>at<sp/>startup)</highlight></codeline>
+<codeline lineno="75"><highlight class="comment"><sp/>*<sp/>─────────────────────────────────────────────<sp/></highlight></codeline>
+<codeline lineno="76"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="77"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>WSH_SHELL_DEF_COMMAND<sp/>1</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="78"><highlight class="normal"></highlight></codeline>
+<codeline lineno="79"><highlight class="normal"></highlight><highlight class="comment">/*<sp/></highlight></codeline>
+<codeline lineno="80"><highlight class="comment"><sp/>*<sp/>─────────────────────────────────────────────</highlight></codeline>
+<codeline lineno="81"><highlight class="comment"><sp/>*<sp/>Command<sp/>descriptions(help)<sp/>-<sp/>store<sp/>and<sp/>print</highlight></codeline>
+<codeline lineno="82"><highlight class="comment"><sp/>*<sp/>─────────────────────────────────────────────<sp/></highlight></codeline>
+<codeline lineno="83"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="84"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>WSH_SHELL_PRINT_OPT_HELP_ENABLE<sp/><sp/>1</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="85"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>WSH_SHELL_CMD_PRINT_OPT_OVERVIEW<sp/>1</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="86"><highlight class="normal"></highlight></codeline>
 <codeline lineno="87"><highlight class="normal"></highlight><highlight class="comment">/*<sp/></highlight></codeline>
 <codeline lineno="88"><highlight class="comment"><sp/>*<sp/>─────────────────────────────────────────────</highlight></codeline>
