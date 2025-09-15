@@ -230,7 +230,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/wsh_shell_autocomplete.h" line="54" column="17" bodyfile="src/wsh_shell_autocomplete.c" bodystart="123" bodyend="141" declfile="src/wsh_shell_autocomplete.h" declline="54" declcolumn="17"/>
+        <location file="src/wsh_shell_autocomplete.h" line="54" column="17" bodyfile="src/wsh_shell_autocomplete.c" bodystart="126" bodyend="144" declfile="src/wsh_shell_autocomplete.h" declline="54" declcolumn="17"/>
       </memberdef>
       </sectiondef>
     <briefdescription>

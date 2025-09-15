@@ -74,12 +74,15 @@ WshShell_Bool_t WshShellAutocomplete_Try(WshShell_Char_t* pInBuff, WshShell_Size
 
             const WshShellOption_t* pOpt = pcCmdMatch->Options;
             WshShell_Bool_t optFound     = false;
-            for (; pOpt->Type != WSH_SHELL_OPTION_END; pOpt++) {
-                if (pOpt->Type == WSH_SHELL_OPTION_NO || pOpt->Type == WSH_SHELL_OPTION_WAITS_INPUT)
-                    continue;
+            if (pOpt != NULL) {
+                for (; pOpt->Type != WSH_SHELL_OPTION_END; pOpt++) {
+                    if (pOpt->Type == WSH_SHELL_OPTION_NO ||
+                        pOpt->Type == WSH_SHELL_OPTION_WAITS_INPUT)
+                        continue;
 
-                optFound = true;
-                WSH_SHELL_PRINT_INFO("[%s/%s] ", pOpt->ShortName, pOpt->LongName);
+                    optFound = true;
+                    WSH_SHELL_PRINT_INFO("[%s/%s] ", pOpt->ShortName, pOpt->LongName);
+                }
             }
 
             WSH_SHELL_PRINT_INFO("%s\r\n", optFound ? "" : "none");
