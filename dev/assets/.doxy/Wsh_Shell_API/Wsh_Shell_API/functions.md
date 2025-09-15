@@ -71,6 +71,7 @@
 * **WshShellUser\_Attach** ([**wsh\_shell\_user.c**](wsh__shell__user_8c.md), [**wsh\_shell\_user.h**](wsh__shell__user_8h.md))
 * **WshShellUser\_CheckCredentials** ([**wsh\_shell\_user.c**](wsh__shell__user_8c.md), [**wsh\_shell\_user.h**](wsh__shell__user_8h.md))
 * **WshShellUser\_DeAttach** ([**wsh\_shell\_user.c**](wsh__shell__user_8c.md), [**wsh\_shell\_user.h**](wsh__shell__user_8h.md))
+* **WshShellUser\_DefHashFunc** ([**wsh\_shell\_user.c**](wsh__shell__user_8c.md))
 * **WshShellUser\_FindByCredentials** ([**wsh\_shell\_user.c**](wsh__shell__user_8c.md), [**wsh\_shell\_user.h**](wsh__shell__user_8h.md))
 * **WshShellUser\_GetUserByIndex** ([**wsh\_shell\_user.c**](wsh__shell__user_8c.md), [**wsh\_shell\_user.h**](wsh__shell__user_8h.md))
 * **WshShellUser\_GetUsersNum** ([**wsh\_shell\_user.c**](wsh__shell__user_8c.md), [**wsh\_shell\_user.h**](wsh__shell__user_8h.md))

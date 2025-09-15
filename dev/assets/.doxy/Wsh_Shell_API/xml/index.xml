@@ -94,13 +94,15 @@
   </compound>
   <compound refid="structWshShellUser__t" kind="struct"><name>WshShellUser_t</name>
     <member refid="structWshShellUser__t_1a8820ed2911a83f57ef77bffe2166027d" kind="variable"><name>Login</name></member>
-    <member refid="structWshShellUser__t_1a4a8c39121d30dbe67a27f057a2939ed2" kind="variable"><name>Pass</name></member>
+    <member refid="structWshShellUser__t_1a7833df12bf5f142c2af6aeaf8dba6c71" kind="variable"><name>Salt</name></member>
+    <member refid="structWshShellUser__t_1a49276198b7f3b6cde59b4ab44b86b5f8" kind="variable"><name>Hash</name></member>
     <member refid="structWshShellUser__t_1a982fe8c361a9b40d69cc943a7653ecc5" kind="variable"><name>Groups</name></member>
     <member refid="structWshShellUser__t_1a1e990c9e7154cefedc038789c9f15664" kind="variable"><name>Rights</name></member>
   </compound>
   <compound refid="structWshShellUser__Table__t" kind="struct"><name>WshShellUser_Table_t</name>
     <member refid="structWshShellUser__Table__t_1a9125202bad2d91a922c3e239d7d1aa42" kind="variable"><name>List</name></member>
     <member refid="structWshShellUser__Table__t_1a146656c6dfdbcdaf6a00920a287bb40a" kind="variable"><name>Num</name></member>
+    <member refid="structWshShellUser__Table__t_1ac8ec6602ffc594475032e03522889071" kind="variable"><name>Hash</name></member>
   </compound>
   <compound refid="wsh__shell_8c" kind="file"><name>wsh_shell.c</name>
     <member refid="wsh__shell_8c_1af1f17028fc1df49816f426b9701623e7" kind="define"><name>WSH_SHELL_USER_IS_AUTH</name></member>
@@ -420,19 +422,21 @@
     <member refid="wsh__shell__types_8h_1a4b9975253a299ad647b7280f501dbcea" kind="function"><name>WshShell_GetRetStateStr</name></member>
   </compound>
   <compound refid="wsh__shell__user_8c" kind="file"><name>wsh_shell_user.c</name>
-    <member refid="wsh__shell__user_8c_1ab005ea5ce79234fdc2541b255086cce5" kind="function"><name>WshShellUser_Attach</name></member>
+    <member refid="wsh__shell__user_8c_1aad0f26613046a529e7f0c06e5221627a" kind="function"><name>WshShellUser_DefHashFunc</name></member>
+    <member refid="wsh__shell__user_8c_1a77a730a1b1d4aedfe25a2f00d6f3e540" kind="function"><name>WshShellUser_Attach</name></member>
     <member refid="wsh__shell__user_8c_1a26a4a7ae0e505ede96a31c71eeb61f65" kind="function"><name>WshShellUser_DeAttach</name></member>
     <member refid="wsh__shell__user_8c_1a5f1b4aed2ff3ac671b0a353721f325a9" kind="function"><name>WshShellUser_GetUsersNum</name></member>
     <member refid="wsh__shell__user_8c_1a6eb27bd4524e3edabea08c52e34797d7" kind="function"><name>WshShellUser_GetUserByIndex</name></member>
-    <member refid="wsh__shell__user_8c_1a92102de85626b69ef375173f87b3d31b" kind="function"><name>WshShellUser_CheckCredentials</name></member>
+    <member refid="wsh__shell__user_8c_1a0a45ebf8604f3e979b4b8581acde6162" kind="function"><name>WshShellUser_CheckCredentials</name></member>
     <member refid="wsh__shell__user_8c_1aeb6134783fd1a2d6d887de0d174b80f3" kind="function"><name>WshShellUser_FindByCredentials</name></member>
   </compound>
   <compound refid="wsh__shell__user_8h" kind="file"><name>wsh_shell_user.h</name>
-    <member refid="wsh__shell__user_8h_1ab005ea5ce79234fdc2541b255086cce5" kind="function"><name>WshShellUser_Attach</name></member>
+    <member refid="wsh__shell__user_8h_1adcf8cc3083ca759f501246bb6a77b274" kind="typedef"><name>WshShellUser_HashFunc_t</name></member>
+    <member refid="wsh__shell__user_8h_1a77a730a1b1d4aedfe25a2f00d6f3e540" kind="function"><name>WshShellUser_Attach</name></member>
     <member refid="wsh__shell__user_8h_1a26a4a7ae0e505ede96a31c71eeb61f65" kind="function"><name>WshShellUser_DeAttach</name></member>
     <member refid="wsh__shell__user_8h_1a5f1b4aed2ff3ac671b0a353721f325a9" kind="function"><name>WshShellUser_GetUsersNum</name></member>
     <member refid="wsh__shell__user_8h_1a6eb27bd4524e3edabea08c52e34797d7" kind="function"><name>WshShellUser_GetUserByIndex</name></member>
-    <member refid="wsh__shell__user_8h_1a92102de85626b69ef375173f87b3d31b" kind="function"><name>WshShellUser_CheckCredentials</name></member>
+    <member refid="wsh__shell__user_8h_1a0a45ebf8604f3e979b4b8581acde6162" kind="function"><name>WshShellUser_CheckCredentials</name></member>
     <member refid="wsh__shell__user_8h_1aeb6134783fd1a2d6d887de0d174b80f3" kind="function"><name>WshShellUser_FindByCredentials</name></member>
   </compound>
   <compound refid="wsh__shell__version_8h" kind="file"><name>wsh_shell_version.h</name>

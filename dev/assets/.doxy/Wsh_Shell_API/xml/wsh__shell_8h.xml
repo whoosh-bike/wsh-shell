@@ -24,6 +24,8 @@
         <link refid="wsh__shell__user_8h"/>
         <childnode refid="3" relation="include">
         </childnode>
+        <childnode refid="18" relation="include">
+        </childnode>
         <childnode refid="8" relation="include">
         </childnode>
       </node>
@@ -372,7 +374,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/wsh_shell.h" line="106" column="17" bodyfile="src/wsh_shell.c" bodystart="81" bodyend="103" declfile="src/wsh_shell.h" declline="106" declcolumn="17"/>
+        <location file="src/wsh_shell.h" line="106" column="17" bodyfile="src/wsh_shell.c" bodystart="81" bodyend="100" declfile="src/wsh_shell.h" declline="106" declcolumn="17"/>
       </memberdef>
       <memberdef kind="function" id="wsh__shell_8h_1a68eefe18055efabdbcd86c9081ef456e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>WshShell_Bool_t</type>
@@ -402,7 +404,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/wsh_shell.h" line="115" column="17" bodyfile="src/wsh_shell.c" bodystart="105" bodyend="111" declfile="src/wsh_shell.h" declline="115" declcolumn="17"/>
+        <location file="src/wsh_shell.h" line="115" column="17" bodyfile="src/wsh_shell.c" bodystart="102" bodyend="108" declfile="src/wsh_shell.h" declline="115" declcolumn="17"/>
       </memberdef>
       <memberdef kind="function" id="wsh__shell_8h_1a0273d5c96a995ee6439c2a7d650aef52" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -443,7 +445,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/wsh_shell.h" line="125" column="6" bodyfile="src/wsh_shell.c" bodystart="113" bodyend="127" declfile="src/wsh_shell.h" declline="125" declcolumn="6"/>
+        <location file="src/wsh_shell.h" line="125" column="6" bodyfile="src/wsh_shell.c" bodystart="110" bodyend="124" declfile="src/wsh_shell.h" declline="125" declcolumn="6"/>
       </memberdef>
       <memberdef kind="function" id="wsh__shell_8h_1a3e1b413a08637a56173ae77a25899226" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>

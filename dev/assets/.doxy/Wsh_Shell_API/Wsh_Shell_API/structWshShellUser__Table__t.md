@@ -36,6 +36,7 @@ _Table of registered shell users._ [More...](#detailed-description)
 
 | Type | Name |
 | ---: | :--- |
+|  [**WshShellUser\_HashFunc\_t**](wsh__shell__user_8h.md#typedef-wshshelluser_hashfunc_t) | [**Hash**](#variable-hash)  <br> |
 |  const [**WshShellUser\_t**](structWshShellUser__t.md) \* | [**List**](#variable-list)  <br> |
 |  WshShell\_Size\_t | [**Num**](#variable-num)  <br> |
 
@@ -91,6 +92,23 @@ This structure contains a list of shell users and total count.
     
 ## Public Attributes Documentation
 
+
+
+
+### variable Hash 
+
+```C++
+WshShellUser_HashFunc_t WshShellUser_Table_t::Hash;
+```
+
+
+
+Hash func 
+
+
+        
+
+<hr>
 
 
 

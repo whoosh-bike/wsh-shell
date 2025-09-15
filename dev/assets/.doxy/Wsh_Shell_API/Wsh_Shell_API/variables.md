@@ -35,6 +35,7 @@
 * **WshShell\_U16\_t** ([**wsh\_shell\_types.h**](wsh__shell__types_8h.md))
 * **WshShell\_U32\_t** ([**wsh\_shell\_types.h**](wsh__shell__types_8h.md))
 * **WshShell\_U8\_t** ([**wsh\_shell\_types.h**](wsh__shell__types_8h.md))
+* **WshShellUser\_HashFunc\_t** ([**wsh\_shell\_user.h**](wsh__shell__user_8h.md))
 
 
 

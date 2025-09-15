@@ -2041,6 +2041,15 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#variable-hash" class="md-nav__link">
+    <span class="md-ellipsis">
+      variable Hash
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#variable-login" class="md-nav__link">
     <span class="md-ellipsis">
       variable Login
@@ -2050,18 +2059,18 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#variable-pass" class="md-nav__link">
+  <a href="#variable-rights" class="md-nav__link">
     <span class="md-ellipsis">
-      variable Pass
+      variable Rights
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#variable-rights" class="md-nav__link">
+  <a href="#variable-salt" class="md-nav__link">
     <span class="md-ellipsis">
-      variable Rights
+      variable Salt
     </span>
   </a>
   
@@ -2125,15 +2134,19 @@
 </tr>
 <tr>
 <td style="text-align: right;">const WshShell_Char_t *</td>
-<td style="text-align: left;"><a href="#variable-login"><strong>Login</strong></a>  <br></td>
+<td style="text-align: left;"><a href="#variable-hash"><strong>Hash</strong></a>  <br></td>
 </tr>
 <tr>
 <td style="text-align: right;">const WshShell_Char_t *</td>
-<td style="text-align: left;"><a href="#variable-pass"><strong>Pass</strong></a>  <br></td>
+<td style="text-align: left;"><a href="#variable-login"><strong>Login</strong></a>  <br></td>
 </tr>
 <tr>
 <td style="text-align: right;">WshShell_Size_t</td>
 <td style="text-align: left;"><a href="#variable-rights"><strong>Rights</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">const WshShell_Char_t *</td>
+<td style="text-align: left;"><a href="#variable-salt"><strong>Salt</strong></a>  <br></td>
 </tr>
 </tbody>
 </table>
@@ -2146,22 +2159,28 @@
 <p>Bitmask of accessible command groups. </p>
 <hr>
 
-<h3 id="variable-login">variable Login</h3>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-1-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1"></a><span class="k">const</span><span class="w"> </span><span class="n">WshShell_Char_t</span><span class="o">*</span><span class="w"> </span><span class="n">WshShellUser_t</span><span class="o">::</span><span class="n">Login</span><span class="p">;</span>
+<h3 id="variable-hash">variable Hash</h3>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-1-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1"></a><span class="k">const</span><span class="w"> </span><span class="n">WshShell_Char_t</span><span class="o">*</span><span class="w"> </span><span class="n">WshShellUser_t</span><span class="o">::</span><span class="n">Hash</span><span class="p">;</span>
 </span></code></pre></div></td></tr></table></div>
-<p>Pointer to login string. </p>
+<p>Pointer to hash(salt|pass) string. </p>
 <hr>
 
-<h3 id="variable-pass">variable Pass</h3>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-2-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1"></a><span class="k">const</span><span class="w"> </span><span class="n">WshShell_Char_t</span><span class="o">*</span><span class="w"> </span><span class="n">WshShellUser_t</span><span class="o">::</span><span class="n">Pass</span><span class="p">;</span>
+<h3 id="variable-login">variable Login</h3>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-2-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1"></a><span class="k">const</span><span class="w"> </span><span class="n">WshShell_Char_t</span><span class="o">*</span><span class="w"> </span><span class="n">WshShellUser_t</span><span class="o">::</span><span class="n">Login</span><span class="p">;</span>
 </span></code></pre></div></td></tr></table></div>
-<p>Pointer to password string. </p>
+<p>Pointer to login string. </p>
 <hr>
 
 <h3 id="variable-rights">variable Rights</h3>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-3-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1"></a><span class="n">WshShell_Size_t</span><span class="w"> </span><span class="n">WshShellUser_t</span><span class="o">::</span><span class="n">Rights</span><span class="p">;</span>
 </span></code></pre></div></td></tr></table></div>
 <p>Bitmask of execution rights. </p>
+<hr>
+
+<h3 id="variable-salt">variable Salt</h3>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-4-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1"></a><span class="k">const</span><span class="w"> </span><span class="n">WshShell_Char_t</span><span class="o">*</span><span class="w"> </span><span class="n">WshShellUser_t</span><span class="o">::</span><span class="n">Salt</span><span class="p">;</span>
+</span></code></pre></div></td></tr></table></div>
+<p>Pointer to salt string. </p>
 <hr>
 
 <hr />
