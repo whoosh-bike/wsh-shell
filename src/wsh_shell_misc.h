@@ -20,6 +20,22 @@
 extern "C" {
 #endif
 
+/**
+ * @brief Calculate Jenkins one-at-a-time hash.
+ *
+ * This function computes the 32-bit Jenkins one-at-a-time hash
+ * for the given buffer. It is a simple and fast non-cryptographic (!)
+ * hash function, commonly used for hash tables and quick data
+ * checksums.
+ *
+ * @param pcBuff Pointer to the input buffer.
+ * @param len    Number of bytes in the input buffer.
+ *
+ * @return 32-bit hash value computed over the input buffer.
+ *
+ * @note This hash is not suitable for cryptographic purposes !!!
+ *       It is designed for speed and good distribution in hash tables.
+ */
 WshShell_U32_t WshShellMisc_CalcJenkinsHash(const WshShell_U8_t* pcBuff, WshShell_Size_t len);
 
 #ifdef __cplusplus
