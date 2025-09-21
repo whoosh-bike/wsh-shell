@@ -2211,6 +2211,10 @@
 <td>Input/output abstraction</td>
 </tr>
 <tr>
+<td><strong>wsh_shell_misc.h / .c</strong></td>
+<td>Various helper functions that do not belong to specific subsystems</td>
+</tr>
+<tr>
 <td><strong>wsh_shell_option.h</strong></td>
 <td>Command-line option parsing helpers and context structures</td>
 </tr>
@@ -2283,7 +2287,10 @@
 <span class="normal"><a href="#__codelineno-0-37">37</a></span>
 <span class="normal"><a href="#__codelineno-0-38">38</a></span>
 <span class="normal"><a href="#__codelineno-0-39">39</a></span>
-<span class="normal"><a href="#__codelineno-0-40">40</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1"></a>.
+<span class="normal"><a href="#__codelineno-0-40">40</a></span>
+<span class="normal"><a href="#__codelineno-0-41">41</a></span>
+<span class="normal"><a href="#__codelineno-0-42">42</a></span>
+<span class="normal"><a href="#__codelineno-0-43">43</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1"></a>.
 </span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2"></a>├──<span class="w"> </span>LICENSE
 </span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3"></a>├──<span class="w"> </span>Makefile
 </span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4"></a>├──<span class="w"> </span>README.md
@@ -2308,21 +2315,24 @@
 </span><span id="__span-0-23"><a id="__codelineno-0-23" name="__codelineno-0-23"></a>│<span class="w">   </span>├──<span class="w"> </span>wsh_shell_interact.h
 </span><span id="__span-0-24"><a id="__codelineno-0-24" name="__codelineno-0-24"></a>│<span class="w">   </span>├──<span class="w"> </span>wsh_shell_io.c
 </span><span id="__span-0-25"><a id="__codelineno-0-25" name="__codelineno-0-25"></a>│<span class="w">   </span>├──<span class="w"> </span>wsh_shell_io.h
-</span><span id="__span-0-26"><a id="__codelineno-0-26" name="__codelineno-0-26"></a>│<span class="w">   </span>├──<span class="w"> </span>wsh_shell_option.h
-</span><span id="__span-0-27"><a id="__codelineno-0-27" name="__codelineno-0-27"></a>│<span class="w">   </span>├──<span class="w"> </span>wsh_shell_promptwait.c
-</span><span id="__span-0-28"><a id="__codelineno-0-28" name="__codelineno-0-28"></a>│<span class="w">   </span>├──<span class="w"> </span>wsh_shell_promptwait.h
-</span><span id="__span-0-29"><a id="__codelineno-0-29" name="__codelineno-0-29"></a>│<span class="w">   </span>├──<span class="w"> </span>wsh_shell_ps1_custom.c
-</span><span id="__span-0-30"><a id="__codelineno-0-30" name="__codelineno-0-30"></a>│<span class="w">   </span>├──<span class="w"> </span>wsh_shell_ps1_custom.h
-</span><span id="__span-0-31"><a id="__codelineno-0-31" name="__codelineno-0-31"></a>│<span class="w">   </span>├──<span class="w"> </span>wsh_shell_str.c
-</span><span id="__span-0-32"><a id="__codelineno-0-32" name="__codelineno-0-32"></a>│<span class="w">   </span>├──<span class="w"> </span>wsh_shell_str.h
-</span><span id="__span-0-33"><a id="__codelineno-0-33" name="__codelineno-0-33"></a>│<span class="w">   </span>├──<span class="w"> </span>wsh_shell_types.h
-</span><span id="__span-0-34"><a id="__codelineno-0-34" name="__codelineno-0-34"></a>│<span class="w">   </span>├──<span class="w"> </span>wsh_shell_user.c
-</span><span id="__span-0-35"><a id="__codelineno-0-35" name="__codelineno-0-35"></a>│<span class="w">   </span>├──<span class="w"> </span>wsh_shell_user.h
-</span><span id="__span-0-36"><a id="__codelineno-0-36" name="__codelineno-0-36"></a>│<span class="w">   </span>└──<span class="w"> </span>wsh_shell_version.h
-</span><span id="__span-0-37"><a id="__codelineno-0-37" name="__codelineno-0-37"></a>└──<span class="w"> </span>utils
-</span><span id="__span-0-38"><a id="__codelineno-0-38" name="__codelineno-0-38"></a><span class="w">    </span>├──<span class="w"> </span>elf-size-analyse.py
-</span><span id="__span-0-39"><a id="__codelineno-0-39" name="__codelineno-0-39"></a><span class="w">    </span>├──<span class="w"> </span>gen-launch.py
-</span><span id="__span-0-40"><a id="__codelineno-0-40" name="__codelineno-0-40"></a><span class="w">    </span>└──<span class="w"> </span>shell-banner-gen.py
+</span><span id="__span-0-26"><a id="__codelineno-0-26" name="__codelineno-0-26"></a>│<span class="w">   </span>├──<span class="w"> </span>wsh_shell_misc.c
+</span><span id="__span-0-27"><a id="__codelineno-0-27" name="__codelineno-0-27"></a>│<span class="w">   </span>├──<span class="w"> </span>wsh_shell_misc.h
+</span><span id="__span-0-28"><a id="__codelineno-0-28" name="__codelineno-0-28"></a>│<span class="w">   </span>├──<span class="w"> </span>wsh_shell_option.h
+</span><span id="__span-0-29"><a id="__codelineno-0-29" name="__codelineno-0-29"></a>│<span class="w">   </span>├──<span class="w"> </span>wsh_shell_promptwait.c
+</span><span id="__span-0-30"><a id="__codelineno-0-30" name="__codelineno-0-30"></a>│<span class="w">   </span>├──<span class="w"> </span>wsh_shell_promptwait.h
+</span><span id="__span-0-31"><a id="__codelineno-0-31" name="__codelineno-0-31"></a>│<span class="w">   </span>├──<span class="w"> </span>wsh_shell_ps1_custom.c
+</span><span id="__span-0-32"><a id="__codelineno-0-32" name="__codelineno-0-32"></a>│<span class="w">   </span>├──<span class="w"> </span>wsh_shell_ps1_custom.h
+</span><span id="__span-0-33"><a id="__codelineno-0-33" name="__codelineno-0-33"></a>│<span class="w">   </span>├──<span class="w"> </span>wsh_shell_str.c
+</span><span id="__span-0-34"><a id="__codelineno-0-34" name="__codelineno-0-34"></a>│<span class="w">   </span>├──<span class="w"> </span>wsh_shell_str.h
+</span><span id="__span-0-35"><a id="__codelineno-0-35" name="__codelineno-0-35"></a>│<span class="w">   </span>├──<span class="w"> </span>wsh_shell_types.h
+</span><span id="__span-0-36"><a id="__codelineno-0-36" name="__codelineno-0-36"></a>│<span class="w">   </span>├──<span class="w"> </span>wsh_shell_user.c
+</span><span id="__span-0-37"><a id="__codelineno-0-37" name="__codelineno-0-37"></a>│<span class="w">   </span>├──<span class="w"> </span>wsh_shell_user.h
+</span><span id="__span-0-38"><a id="__codelineno-0-38" name="__codelineno-0-38"></a>│<span class="w">   </span>└──<span class="w"> </span>wsh_shell_version.h
+</span><span id="__span-0-39"><a id="__codelineno-0-39" name="__codelineno-0-39"></a>└──<span class="w"> </span>utils
+</span><span id="__span-0-40"><a id="__codelineno-0-40" name="__codelineno-0-40"></a><span class="w">    </span>├──<span class="w"> </span>elf-size-analyse.py
+</span><span id="__span-0-41"><a id="__codelineno-0-41" name="__codelineno-0-41"></a><span class="w">    </span>├──<span class="w"> </span>gen-launch.py
+</span><span id="__span-0-42"><a id="__codelineno-0-42" name="__codelineno-0-42"></a><span class="w">    </span>├──<span class="w"> </span>gen-pass.py
+</span><span id="__span-0-43"><a id="__codelineno-0-43" name="__codelineno-0-43"></a><span class="w">    </span>└──<span class="w"> </span>shell-banner-gen.py
 </span></code></pre></div></td></tr></table></div>
 
 

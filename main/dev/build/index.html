@@ -555,28 +555,28 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#building-and-running-examples" class="md-nav__link">
+  <a href="#building-and-running-example" class="md-nav__link">
     <span class="md-ellipsis">
-      Building and Running Examples
+      Building and Running Example
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Building and Running Examples">
+    <nav class="md-nav" aria-label="Building and Running Example">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#basic-example-pc" class="md-nav__link">
+  <a href="#default-example-pc" class="md-nav__link">
     <span class="md-ellipsis">
-      Basic Example (PC)
+      Default Example (PC)
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#blue-pill-example-stm32-mcu" class="md-nav__link">
+  <a href="#example-on-hardware" class="md-nav__link">
     <span class="md-ellipsis">
-      Blue Pill Example (STM32 MCU)
+      Example on Hardware
     </span>
   </a>
   
@@ -2171,28 +2171,28 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#building-and-running-examples" class="md-nav__link">
+  <a href="#building-and-running-example" class="md-nav__link">
     <span class="md-ellipsis">
-      Building and Running Examples
+      Building and Running Example
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Building and Running Examples">
+    <nav class="md-nav" aria-label="Building and Running Example">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#basic-example-pc" class="md-nav__link">
+  <a href="#default-example-pc" class="md-nav__link">
     <span class="md-ellipsis">
-      Basic Example (PC)
+      Default Example (PC)
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#blue-pill-example-stm32-mcu" class="md-nav__link">
+  <a href="#example-on-hardware" class="md-nav__link">
     <span class="md-ellipsis">
-      Blue Pill Example (STM32 MCU)
+      Example on Hardware
     </span>
   </a>
   
@@ -2303,50 +2303,24 @@ To build with the <strong>Release</strong> preset:</p>
 Remove it manually if you want to regenerate it from the default template.</p>
 </blockquote>
 <hr />
-<h2 id="building-and-running-examples">Building and Running Examples</h2>
-<h3 id="basic-example-pc">Basic Example (PC)</h3>
+<h2 id="building-and-running-example">Building and Running Example</h2>
+<h3 id="default-example-pc">Default Example (PC)</h3>
 <p>This example runs locally on your machine:</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-6-1">1</a></span>
-<span class="normal"><a href="#__codelineno-6-2">2</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1"></a>make<span class="w"> </span>clean<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>make<span class="w"> </span>basic
-</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2"></a>./example/basic/build/basic
+<span class="normal"><a href="#__codelineno-6-2">2</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1"></a>make<span class="w"> </span>clean<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>make<span class="w"> </span>example
+</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2"></a>./example/build/example
 </span></code></pre></div></td></tr></table></div>
 <p>or</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-7-1">1</a></span>
 <span class="normal"><a href="#__codelineno-7-2">2</a></span>
-<span class="normal"><a href="#__codelineno-7-3">3</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1"></a><span class="nb">cd</span><span class="w"> </span>example/basic
-</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2"></a>make
-</span><span id="__span-7-3"><a id="__codelineno-7-3" name="__codelineno-7-3"></a>./build/basic
+<span class="normal"><a href="#__codelineno-7-3">3</a></span>
+<span class="normal"><a href="#__codelineno-7-4">4</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1"></a><span class="nb">cd</span><span class="w"> </span>example
+</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2"></a>make<span class="w"> </span>clean
+</span><span id="__span-7-3"><a id="__codelineno-7-3" name="__codelineno-7-3"></a>make
+</span><span id="__span-7-4"><a id="__codelineno-7-4" name="__codelineno-7-4"></a>./build/example
 </span></code></pre></div></td></tr></table></div>
-<hr />
-<h3 id="blue-pill-example-stm32-mcu">Blue Pill Example (STM32 MCU)</h3>
-<p>This example builds for the STM32F103 "Blue Pill" board:</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-8-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1"></a>make<span class="w"> </span>clean<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>make<span class="w"> </span>blue_pill
-</span></code></pre></div></td></tr></table></div>
-<p>For vscode launch run <code>gen_launch.py</code> script for <code>launch.json</code> generation from <code>launch.template.json</code>:</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-9-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1"></a><span class="n">python3</span> <span class="o">.</span><span class="n">vscode</span><span class="o">/</span><span class="n">gen_launch</span><span class="o">.</span><span class="n">py</span> 
-</span></code></pre></div></td></tr></table></div>
-<p>But previously you should setup <code>.env</code> file with required variables:</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-10-1">1</a></span>
-<span class="normal"><a href="#__codelineno-10-2">2</a></span>
-<span class="normal"><a href="#__codelineno-10-3">3</a></span>
-<span class="normal"><a href="#__codelineno-10-4">4</a></span>
-<span class="normal"><a href="#__codelineno-10-5">5</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1"></a><span class="nv">MAKE_PATH</span><span class="o">=</span><span class="s2">&quot;/opt/homebrew/opt/make/libexec/gnubin/make&quot;</span>
-</span><span id="__span-10-2"><a id="__codelineno-10-2" name="__codelineno-10-2"></a><span class="nv">OPENOCD_PATH</span><span class="o">=</span><span class="s2">&quot;/opt/homebrew/bin/openocd&quot;</span>
-</span><span id="__span-10-3"><a id="__codelineno-10-3" name="__codelineno-10-3"></a><span class="nv">ARM_NONE_EABI_PATH</span><span class="o">=</span><span class="s2">&quot;/Users/katbert/my-utils/arm-gnu-toolchain-14.2.rel1-darwin-arm64-arm-none-eabi/bin&quot;</span>
-</span><span id="__span-10-4"><a id="__codelineno-10-4" name="__codelineno-10-4"></a><span class="nv">GDB_PATH</span><span class="o">=</span><span class="s2">&quot;/Users/katbert/my-utils/arm-gnu-toolchain-14.2.rel1-darwin-arm64-arm-none-eabi/bin/arm-none-eabi-gdb&quot;</span>
-</span><span id="__span-10-5"><a id="__codelineno-10-5" name="__codelineno-10-5"></a><span class="nv">NM_PATH</span><span class="o">=</span><span class="s2">&quot;/Users/katbert/my-utils/arm-gnu-toolchain-14.2.rel1-darwin-arm64-arm-none-eabi/bin/arm-none-eabi-nm&quot;</span>
-</span></code></pre></div></td></tr></table></div>
-<p>Then flash the binary using OpenOCD:</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-11-1">1</a></span>
-<span class="normal"><a href="#__codelineno-11-2">2</a></span>
-<span class="normal"><a href="#__codelineno-11-3">3</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1"></a>openocd<span class="w"> </span>-f<span class="w"> </span>./example/blue_pill/stlink.cfg<span class="w"> </span><span class="se">\</span>
-</span><span id="__span-11-2"><a id="__codelineno-11-2" name="__codelineno-11-2"></a><span class="w">        </span>-f<span class="w"> </span>./example/blue_pill/stm32f1x.cfg<span class="w"> </span><span class="se">\</span>
-</span><span id="__span-11-3"><a id="__codelineno-11-3" name="__codelineno-11-3"></a><span class="w">        </span>-c<span class="w"> </span><span class="s2">&quot;program example/blue_pill/build/blue_pill.bin 0x08000000 verify reset exit&quot;</span>
-</span></code></pre></div></td></tr></table></div>
-<p>For the blue pill clones use <code>ch32f1x.cfg</code> config instead of <code>stm32f1x.cfg</code></p>
-<p>You can analyse firmware <code>.elf</code> file for memory usage by running python script (or just call <code>analyse elf of blue_pill</code> vscode task):</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-12-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1"></a>python3<span class="w"> </span>./utils/elf-size-analyse.py<span class="w"> </span>./example/blue_pill/build/blue_pill.elf
-</span></code></pre></div></td></tr></table></div>
+<h3 id="example-on-hardware">Example on Hardware</h3>
+<p>It has been moved to <a href="https://github.com/katbert-92/wsh-shell-blue-pill-example">https://github.com/katbert-92/wsh-shell-blue-pill-example</a> repo</p>
 <hr />
 <h2 id="additional-notes">Additional Notes</h2>
 <ul>
