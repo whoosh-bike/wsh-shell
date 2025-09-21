@@ -1,31 +1,11 @@
 {
     "configurations": [
         {
-            "name": "blue_pill",
+            "name": "example",
             "compilerPath": "${config:compiler_path}",
             "includePath": [
-                "${workspaceFolder}/src",
                 "${workspaceFolder}/example",
-                "${workspaceFolder}/example/blue_pill",
-                "${workspaceFolder}/example/blue_pill/app",
-                "${workspaceFolder}/example/blue_pill/app/shell",
-                "${workspaceFolder}/example/blue_pill/app/usb",
-                "${workspaceFolder}/example/blue_pill/platform",
-                "${workspaceFolder}/example/blue_pill/platform/STM32CubeF1",
-                "${workspaceFolder}/example/blue_pill/platform/STM32CubeF1/Drivers",
-                "${workspaceFolder}/example/blue_pill/platform/STM32CubeF1/Drivers/CMSIS/Include",
-                "${workspaceFolder}/example/blue_pill/platform/STM32CubeF1/Drivers/CMSIS/Device/ST/STM32F1xx/Include",
-                "${workspaceFolder}/example/blue_pill/platform/STM32CubeF1/Drivers/STM32F1xx_HAL_Driver/Inc",
-                "${workspaceFolder}/example/blue_pill/platform/STM32CubeF1/Drivers/STM32F1xx_HAL_Driver/Inc/Legacy",
-                "${workspaceFolder}/example/blue_pill/platform/STM32CubeF1/Middlewares/ST/STM32_USB_Device_Library/Core/Inc",
-                "${workspaceFolder}/example/blue_pill/platform/STM32CubeF1/Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc",
-                "${workspaceFolder}/example/blue_pill/system"
-            ],
-            "defines": [
-                "STM32F103xB",
-                "USE_FULL_LL_DRIVER",
-                "USE_FULL_ASSERT",
-                "USE_HAL_DRIVER"
+                "${workspaceFolder}/src" 
             ],
             "cStandard": "c11",
             "cppStandard": "c++17",

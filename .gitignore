@@ -63,10 +63,8 @@ build/
 .cache
 tags
 compile_commands.json
-doc/html/
 src/wsh_shell_cfg.h
 *.DS_Store
-.vscode/launch.json
 docs/html
 docs/xml
 docs_doxy/

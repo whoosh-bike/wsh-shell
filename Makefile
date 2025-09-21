@@ -17,8 +17,7 @@ BUILD_DIR := build
 OBJ_DIR := $(BUILD_DIR)/obj/$(SRC_DIR)
 # TEST_DIR := test
 # TEST_BUILD_DIR := $(BUILD_DIR)/obj/$(TEST_DIR)
-BASIC_EXAMPLE_DIR := example/basic
-BLUE_PILL_EXAMPLE_DIR := example/blue_pill
+EXAMPLE_DIR := example
 
 # ===== Source Files =====
 SRCS := $(wildcard $(SRC_DIR)/*.c)
@@ -51,7 +50,7 @@ $(shell git submodule update --init --recursive)
 # ET_SRCS := $(wildcard et/Embedded-Test/et/*.c)
 
 # ===== Targets =====
-.PHONY: all clean test basic blue_pill format cppcheck
+.PHONY: all clean example format cppcheck
 
 all: $(BUILD_DIR)/lib$(TARGET).a
 
@@ -69,6 +68,11 @@ src/wsh_shell_cfg.h:
 	@echo "[GEN] $@ from default"
 	@$(CP) src/wsh_shell_cfg_def.h $@
 
+clean:
+	@echo "[CLEAN] Removing build artifacts"
+	@$(RM) $(BUILD_DIR)
+	@$(MAKE) -C $(EXAMPLE_DIR) clean
+
 # test: $(TEST_BINS)
 # 	@for test_exec in $(TEST_BINS); do \
 # 		echo "[RUN] $$test_exec"; \
@@ -80,27 +84,13 @@ src/wsh_shell_cfg.h:
 # 	@$(MKDIR) $(dir $@)
 # 	@$(CC) $(CFLAGS) $(TEST_INC) $^ -o $@
 
-basic:
-	@echo "[MAKE] Building example: basic"
-	@$(MAKE) -C $(BASIC_EXAMPLE_DIR)
-
-blue_pill:
-	@echo "[MAKE] Building example: blue_pill"
-	@$(MAKE) -C $(BLUE_PILL_EXAMPLE_DIR)
-
-blue_pill_flash:
-	@echo "[MAKE] Flashing: blue_pill"
-	@$(MAKE) -C $(BLUE_PILL_EXAMPLE_DIR) flash
-
-clean:
-	@echo "[CLEAN] Removing build artifacts"
-	@$(RM) $(BUILD_DIR)
-	@$(MAKE) -C $(BASIC_EXAMPLE_DIR) clean
-	@$(MAKE) -C $(BLUE_PILL_EXAMPLE_DIR) clean
+example:
+	@echo "[MAKE] Building example"
+	@$(MAKE) -C $(EXAMPLE_DIR)
 
 format:
 	@echo "[FORMAT] Running clang-format"
-	@clang-format --style=file -i $(SRC_DIR)/*.[ch] $(BASIC_EXAMPLE_DIR)/main.c
+	@clang-format --style=file -i $(SRC_DIR)/*.[ch] $(EXAMPLE_DIR)/main.c
 
 cppcheck:
 	@echo "[CHECK] Running cppcheck"
