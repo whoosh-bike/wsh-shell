@@ -76,66 +76,29 @@ make clean
 
 ---
 
-## Building and Running Examples
+## Building and Running Example
 
-### Basic Example (PC)
+### Default Example (PC)
 
 This example runs locally on your machine:
 
 ```bash
-make clean && make basic
-./example/basic/build/basic
+make clean && make example
+./example/build/example
 ```
 
 or
 
 ```bash
-cd example/basic
+cd example
+make clean
 make
-./build/basic
+./build/example
 ```
 
----
+### Example on Hardware
 
-### Blue Pill Example (STM32 MCU)
-
-This example builds for the STM32F103 "Blue Pill" board:
-
-```bash
-make clean && make blue_pill
-```
-
-For vscode launch run `gen_launch.py` script for `launch.json` generation from `launch.template.json`:
-
-```python
-python3 .vscode/gen_launch.py 
-```
-
-But previously you should setup `.env` file with required variables:
-
-```bash
-MAKE_PATH="/opt/homebrew/opt/make/libexec/gnubin/make"
-OPENOCD_PATH="/opt/homebrew/bin/openocd"
-ARM_NONE_EABI_PATH="/Users/katbert/my-utils/arm-gnu-toolchain-14.2.rel1-darwin-arm64-arm-none-eabi/bin"
-GDB_PATH="/Users/katbert/my-utils/arm-gnu-toolchain-14.2.rel1-darwin-arm64-arm-none-eabi/bin/arm-none-eabi-gdb"
-NM_PATH="/Users/katbert/my-utils/arm-gnu-toolchain-14.2.rel1-darwin-arm64-arm-none-eabi/bin/arm-none-eabi-nm"
-```
-
-Then flash the binary using OpenOCD:
-
-```bash
-openocd -f ./example/blue_pill/stlink.cfg \
-        -f ./example/blue_pill/stm32f1x.cfg \
-        -c "program example/blue_pill/build/blue_pill.bin 0x08000000 verify reset exit"
-```
-
-For the blue pill clones use `ch32f1x.cfg` config instead of `stm32f1x.cfg`
-
-You can analyse firmware `.elf` file for memory usage by running python script (or just call `analyse elf of blue_pill` vscode task):
-
-```bash
-python3 ./utils/elf-size-analyse.py ./example/blue_pill/build/blue_pill.elf
-```
+It has been moved to <https://github.com/katbert-92/wsh-shell-blue-pill-example> repo
 
 ---
 

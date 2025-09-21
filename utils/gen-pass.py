@@ -3,7 +3,7 @@ import argparse
 import hashlib
 
 # source .venv/bin/activate
-# python3 pass-gen.py --salt 1q2w3e4r5t6y7u8i --password 1234
+# python3 gen-pass.py --salt 1q2w3e4r5t6y7u8i --password 1234
 
 
 def make_sha256(data: bytes) -> str:

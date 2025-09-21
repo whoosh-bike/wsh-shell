@@ -1,7 +1,7 @@
-### Makefile (example/basic/Makefile) ###
+### Makefile (example/Makefile) ###
 
 # ===== Project Configuration =====
-TARGET := basic
+TARGET := example
 BUILD ?= Debug
 
 # ===== Toolchain =====
@@ -11,7 +11,7 @@ RM := rm -rf
 
 # ===== Paths =====
 SRC_DIR := .
-CORE_DIR := ../../src
+CORE_DIR := ../src
 BUILD_DIR := build
 OBJ_DIR := $(BUILD_DIR)/obj
 

@@ -1,0 +1,13 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Debug example (LLDB)",
+            "type": "lldb",
+            "request": "launch",
+            "program": "${workspaceFolder}/example/build/example",
+            "args": [],
+            "cwd": "${workspaceFolder}"
+        }
+    ]
+}
