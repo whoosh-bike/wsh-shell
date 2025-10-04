@@ -37,14 +37,7 @@
 
 - [ ] Review default command behavior and provide more detailed output about it.
 - [ ] Review groups, permissions, and access levels for commands, users, and options; document them. Add `reader` user for reference
-- [ ] Review and fix `wsh_shell_cmd` in `WshShellCmd_GetOptValue` if necessary
-- [ ] Check the same names for commands and options
-
-```c
-if (valIdx >= argc)
-    return WSH_SHELL_RET_STATE_ERR_OVERFLOW;  // FIXME
-```
-
+- [ ] Check the same names for commands and options (if short and long options repited in one command or commands are same)
 - [ ] Fix fault on history read and write callbacks if history isn't inited
 
 ## v3.0
