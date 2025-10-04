@@ -22,6 +22,9 @@
     X_CMD_ENTRY(WSH_SHELL_DEF_OPT_HIST_CLEAR, WSH_SHELL_OPT_WO_PARAM(WSH_SHELL_OPT_ACCESS_ANY, "-r", "--histrst", "Reset history storage")) \
     X_CMD_ENTRY(WSH_SHELL_DEF_OPT_HIST_PRINT, WSH_SHELL_OPT_WO_PARAM(WSH_SHELL_OPT_ACCESS_ANY, "-p", "--histprint", "Print history storage")) \
     X_CMD_ENTRY(WSH_SHELL_DEF_OPT_DEAUTH, WSH_SHELL_OPT_WO_PARAM(WSH_SHELL_OPT_ACCESS_ANY, "-d", "--deauth", "DeAuth and destroy history")) \
+    X_CMD_ENTRY(WSH_SHELL_DEF_OPT_STR, WSH_SHELL_OPT_STR(WSH_SHELL_OPT_ACCESS_ANY, "-s", "--str", "Set string")) \
+    X_CMD_ENTRY(WSH_SHELL_DEF_OPT_INT, WSH_SHELL_OPT_INT(WSH_SHELL_OPT_ACCESS_ANY, "-n", "--int", "Set int")) \
+    X_CMD_ENTRY(WSH_SHELL_DEF_OPT_FLT, WSH_SHELL_OPT_FLOAT(WSH_SHELL_OPT_ACCESS_ANY, "-f", "--flt", "Set float")) \
     X_CMD_ENTRY(WSH_SHELL_DEF_OPT_END, WSH_SHELL_OPT_END())
 /* clang-format on */
 
@@ -183,6 +186,27 @@ static WSH_SHELL_RET_STATE_t WshShellCmdDef(const WshShellCmd_t* pcCmd, WshShell
 
             case WSH_SHELL_DEF_OPT_DEAUTH:
                 WshShell_DeAuth(pParentShell, "command");
+                break;
+
+            case WSH_SHELL_DEF_OPT_STR:
+                WshShell_Char_t optStr[WSH_SHELL_INTR_BUFF_LEN];
+                WshShellCmd_GetOptValue(&optCtx, argc, pArgv, sizeof(optStr),
+                                        (WshShell_Size_t*)&optStr);
+                WSH_SHELL_PRINT("Option (str): %s\r\n", optStr);
+                break;
+
+            case WSH_SHELL_DEF_OPT_INT:
+                WshShell_Size_t optInt = 0;
+                WshShellCmd_GetOptValue(&optCtx, argc, pArgv, sizeof(optInt),
+                                        (WshShell_Size_t*)&optInt);
+                WSH_SHELL_PRINT("Option (int): %d\r\n", optInt);
+                break;
+
+            case WSH_SHELL_DEF_OPT_FLT:
+                WshShell_Float_t optFlt = 0.0f;
+                WshShellCmd_GetOptValue(&optCtx, argc, pArgv, sizeof(optFlt),
+                                        (WshShell_Size_t*)&optFlt);
+                WSH_SHELL_PRINT("Option (float): %f\r\n", optFlt);
                 break;
 
             default:
