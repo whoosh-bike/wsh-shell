@@ -114,7 +114,7 @@ _Core shell interface for command parsing, user authentication, and terminal int
 | Type | Name |
 | ---: | :--- |
 | define  | [**COMPILER**](wsh__shell_8h.md#define-compiler)  `"Unknown Compiler"`<br> |
-| define  | [**OS\_NAME**](wsh__shell_8h.md#define-os_name)  `"Unknown OS"`<br> |
+| define  | [**OS\_NAME**](wsh__shell_8h.md#define-os_name)  `WSH\_SHELL\_TARGET\_OS`<br> |
 
 ## Detailed Description
 
@@ -362,7 +362,7 @@ WshShell_Bool_t WshShell_IsAuth (
 ### define OS\_NAME 
 
 ```C++
-#define OS_NAME `"Unknown OS"`
+#define OS_NAME `WSH_SHELL_TARGET_OS`
 ```
 
 

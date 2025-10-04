@@ -134,6 +134,7 @@
 | define  | [**WSH\_SHELL\_STRNLEN**](wsh__shell__cfg__def_8h.md#define-wsh_shell_strnlen) (pS, len) `strnlen((pS), (len))`<br> |
 | define  | [**WSH\_SHELL\_STRTOF**](wsh__shell__cfg__def_8h.md#define-wsh_shell_strtof) (pN, pE) `strtof((pN), (pE))`<br> |
 | define  | [**WSH\_SHELL\_STRTOL**](wsh__shell__cfg__def_8h.md#define-wsh_shell_strtol) (pS, pE, radix) `strtol((pS), (pE), (radix))`<br> |
+| define  | [**WSH\_SHELL\_TARGET\_OS**](wsh__shell__cfg__def_8h.md#define-wsh_shell_target_os)  `"Bare-metal"`<br> |
 | define  | [**WSH\_SHELL\_USER\_ACCESS\_ADMIN**](wsh__shell__cfg__def_8h.md#define-wsh_shell_user_access_admin)  `(WSH\_SHELL\_OPT\_ACCESS\_ANY)`<br> |
 | define  | [**WSH\_SHELL\_USER\_ACCESS\_READER**](wsh__shell__cfg__def_8h.md#define-wsh_shell_user_access_reader)  `(WSH\_SHELL\_OPT\_ACCESS\_ANY)`<br> |
 | define  | [**WSH\_SHELL\_USER\_GROUP\_ADMIN**](wsh__shell__cfg__def_8h.md#define-wsh_shell_user_group_admin)  `(WSH\_SHELL\_CMD\_GROUP\_ALL)`<br> |
@@ -853,6 +854,19 @@ static inline bool WshShellRetState_TranslateToProject (
     pE,
     radix
 ) `strtol((pS), (pE), (radix))`
+```
+
+
+
+
+<hr>
+
+
+
+### define WSH\_SHELL\_TARGET\_OS 
+
+```C++
+#define WSH_SHELL_TARGET_OS `"Bare-metal"`
 ```
 
 

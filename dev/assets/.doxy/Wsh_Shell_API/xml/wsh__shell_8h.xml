@@ -238,7 +238,7 @@
       <sectiondef kind="define">
       <memberdef kind="define" id="wsh__shell_8h_1a28102cfb12a549d1139ad1430fc21b73" prot="public" static="no">
         <name>OS_NAME</name>
-        <initializer>&quot;Unknown OS&quot;</initializer>
+        <initializer>WSH_SHELL_TARGET_OS</initializer>
         <briefdescription>
         </briefdescription>
         <detaileddescription>
@@ -554,7 +554,7 @@
 <codeline lineno="37"><highlight class="normal"></highlight><highlight class="preprocessor">#elif<sp/>defined(_WIN32)</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="38"><highlight class="normal"></highlight><highlight class="preprocessor"><sp/><sp/><sp/><sp/>#define<sp/>OS_NAME<sp/>&quot;Windows&quot;</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="39"><highlight class="normal"></highlight><highlight class="preprocessor">#else</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="40"><highlight class="normal"></highlight><highlight class="preprocessor"><sp/><sp/><sp/><sp/>#define<sp/>OS_NAME<sp/>&quot;Unknown<sp/>OS&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="40"><highlight class="normal"></highlight><highlight class="preprocessor"><sp/><sp/><sp/><sp/>#define<sp/>OS_NAME<sp/>WSH_SHELL_TARGET_OS</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="41"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="42"><highlight class="normal"></highlight></codeline>
 <codeline lineno="43"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>detect<sp/>compiler<sp/>name<sp/>and<sp/>version<sp/>*/</highlight><highlight class="normal"></highlight></codeline>

@@ -139,6 +139,7 @@
   </compound>
   <compound refid="wsh__shell__cfg__def_8h" kind="file"><name>wsh_shell_cfg_def.h</name>
     <member refid="wsh__shell__cfg__def_8h_1a6ac0e771f2e842dcc668a0635228cee3" kind="define"><name>WSH_SHELL_HEADER</name></member>
+    <member refid="wsh__shell__cfg__def_8h_1afc5d5b09497e3e93c9ddb9254217f5ad" kind="define"><name>WSH_SHELL_TARGET_OS</name></member>
     <member refid="wsh__shell__cfg__def_8h_1a72c7484eaec49faaeee1cf64204699f1" kind="define"><name>WSH_SHELL_PRINT_SYS_ENABLE</name></member>
     <member refid="wsh__shell__cfg__def_8h_1a27f6a3cf4f8e58bf359b3302f193837a" kind="define"><name>WSH_SHELL_PRINT_INFO_ENABLE</name></member>
     <member refid="wsh__shell__cfg__def_8h_1a562de8bdf247986858f8508931ee6475" kind="define"><name>WSH_SHELL_PRINT_WARN_ENABLE</name></member>

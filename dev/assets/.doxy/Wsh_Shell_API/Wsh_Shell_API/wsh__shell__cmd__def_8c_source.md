@@ -184,26 +184,29 @@ static WSH_SHELL_RET_STATE_t WshShellCmdDef(const WshShellCmd_t* pcCmd, WshShell
                 WshShell_DeAuth(pParentShell, "command");
                 break;
 
-            case WSH_SHELL_DEF_OPT_STR:
+            case WSH_SHELL_DEF_OPT_STR: {
                 WshShell_Char_t optStr[WSH_SHELL_INTR_BUFF_LEN];
                 WshShellCmd_GetOptValue(&optCtx, argc, pArgv, sizeof(optStr),
                                         (WshShell_Size_t*)&optStr);
                 WSH_SHELL_PRINT("Option (str): %s\r\n", optStr);
                 break;
+            }
 
-            case WSH_SHELL_DEF_OPT_INT:
+            case WSH_SHELL_DEF_OPT_INT: {
                 WshShell_Size_t optInt = 0;
                 WshShellCmd_GetOptValue(&optCtx, argc, pArgv, sizeof(optInt),
                                         (WshShell_Size_t*)&optInt);
                 WSH_SHELL_PRINT("Option (int): %d\r\n", optInt);
                 break;
+            }
 
-            case WSH_SHELL_DEF_OPT_FLT:
+            case WSH_SHELL_DEF_OPT_FLT: {
                 WshShell_Float_t optFlt = 0.0f;
                 WshShellCmd_GetOptValue(&optCtx, argc, pArgv, sizeof(optFlt),
                                         (WshShell_Size_t*)&optFlt);
                 WSH_SHELL_PRINT("Option (float): %f\r\n", optFlt);
                 break;
+            }
 
             default:
                 retState = WSH_SHELL_RET_STATE_ERROR;

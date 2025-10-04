@@ -1525,6 +1525,15 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#define-wsh_shell_target_os" class="md-nav__link">
+    <span class="md-ellipsis">
+      define WSH_SHELL_TARGET_OS
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#define-wsh_shell_user_access_admin" class="md-nav__link">
     <span class="md-ellipsis">
       define WSH_SHELL_USER_ACCESS_ADMIN
@@ -3115,6 +3124,15 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#define-wsh_shell_target_os" class="md-nav__link">
+    <span class="md-ellipsis">
+      define WSH_SHELL_TARGET_OS
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#define-wsh_shell_user_access_admin" class="md-nav__link">
     <span class="md-ellipsis">
       define WSH_SHELL_USER_ACCESS_ADMIN
@@ -3425,6 +3443,10 @@
 <tr>
 <td style="text-align: right;">define</td>
 <td style="text-align: left;"><a href="./#define-wsh_shell_strtol"><strong>WSH_SHELL_STRTOL</strong></a> (pS, pE, radix) <code>strtol((pS), (pE), (radix))</code><br></td>
+</tr>
+<tr>
+<td style="text-align: right;">define</td>
+<td style="text-align: left;"><a href="./#define-wsh_shell_target_os"><strong>WSH_SHELL_TARGET_OS</strong></a>  <code>"Bare-metal"</code><br></td>
 </tr>
 <tr>
 <td style="text-align: right;">define</td>
@@ -3806,34 +3828,39 @@
 </span></code></pre></div></td></tr></table></div>
 <hr>
 
+<h3 id="define-wsh_shell_target_os">define WSH_SHELL_TARGET_OS</h3>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-51-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-51-1"><a id="__codelineno-51-1" name="__codelineno-51-1"></a><span class="cp">#define WSH_SHELL_TARGET_OS `&quot;Bare-metal&quot;`</span>
+</span></code></pre></div></td></tr></table></div>
+<hr>
+
 <h3 id="define-wsh_shell_user_access_admin">define WSH_SHELL_USER_ACCESS_ADMIN</h3>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-51-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-51-1"><a id="__codelineno-51-1" name="__codelineno-51-1"></a><span class="cp">#define WSH_SHELL_USER_ACCESS_ADMIN `(WSH_SHELL_OPT_ACCESS_ANY)`</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-52-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-52-1"><a id="__codelineno-52-1" name="__codelineno-52-1"></a><span class="cp">#define WSH_SHELL_USER_ACCESS_ADMIN `(WSH_SHELL_OPT_ACCESS_ANY)`</span>
 </span></code></pre></div></td></tr></table></div>
 <hr>
 
 <h3 id="define-wsh_shell_user_access_reader">define WSH_SHELL_USER_ACCESS_READER</h3>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-52-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-52-1"><a id="__codelineno-52-1" name="__codelineno-52-1"></a><span class="cp">#define WSH_SHELL_USER_ACCESS_READER `(WSH_SHELL_OPT_ACCESS_ANY)`</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-53-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-53-1"><a id="__codelineno-53-1" name="__codelineno-53-1"></a><span class="cp">#define WSH_SHELL_USER_ACCESS_READER `(WSH_SHELL_OPT_ACCESS_ANY)`</span>
 </span></code></pre></div></td></tr></table></div>
 <hr>
 
 <h3 id="define-wsh_shell_user_group_admin">define WSH_SHELL_USER_GROUP_ADMIN</h3>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-53-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-53-1"><a id="__codelineno-53-1" name="__codelineno-53-1"></a><span class="cp">#define WSH_SHELL_USER_GROUP_ADMIN `(WSH_SHELL_CMD_GROUP_ALL)`</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-54-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-54-1"><a id="__codelineno-54-1" name="__codelineno-54-1"></a><span class="cp">#define WSH_SHELL_USER_GROUP_ADMIN `(WSH_SHELL_CMD_GROUP_ALL)`</span>
 </span></code></pre></div></td></tr></table></div>
 <hr>
 
 <h3 id="define-wsh_shell_user_group_reader">define WSH_SHELL_USER_GROUP_READER</h3>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-54-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-54-1"><a id="__codelineno-54-1" name="__codelineno-54-1"></a><span class="cp">#define WSH_SHELL_USER_GROUP_READER `(WSH_SHELL_CMD_GROUP_READER)`</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-55-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-55-1"><a id="__codelineno-55-1" name="__codelineno-55-1"></a><span class="cp">#define WSH_SHELL_USER_GROUP_READER `(WSH_SHELL_CMD_GROUP_READER)`</span>
 </span></code></pre></div></td></tr></table></div>
 <hr>
 
 <h3 id="define-x_map_entry">define X_MAP_ENTRY</h3>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-55-1">1</a></span>
-<span class="normal"><a href="#__codelineno-55-2">2</a></span>
-<span class="normal"><a href="#__codelineno-55-3">3</a></span>
-<span class="normal"><a href="#__codelineno-55-4">4</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-55-1"><a id="__codelineno-55-1" name="__codelineno-55-1"></a><span class="cp">#define X_MAP_ENTRY (</span>
-</span><span id="__span-55-2"><a id="__codelineno-55-2" name="__codelineno-55-2"></a><span class="w">    </span><span class="n">proj</span><span class="p">,</span>
-</span><span id="__span-55-3"><a id="__codelineno-55-3" name="__codelineno-55-3"></a><span class="w">    </span><span class="n">shell</span>
-</span><span id="__span-55-4"><a id="__codelineno-55-4" name="__codelineno-55-4"></a><span class="p">)</span><span class="w"> </span><span class="err">`</span><span class="cm">/* multi line expression */</span><span class="err">`</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-56-1">1</a></span>
+<span class="normal"><a href="#__codelineno-56-2">2</a></span>
+<span class="normal"><a href="#__codelineno-56-3">3</a></span>
+<span class="normal"><a href="#__codelineno-56-4">4</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-56-1"><a id="__codelineno-56-1" name="__codelineno-56-1"></a><span class="cp">#define X_MAP_ENTRY (</span>
+</span><span id="__span-56-2"><a id="__codelineno-56-2" name="__codelineno-56-2"></a><span class="w">    </span><span class="n">proj</span><span class="p">,</span>
+</span><span id="__span-56-3"><a id="__codelineno-56-3" name="__codelineno-56-3"></a><span class="w">    </span><span class="n">shell</span>
+</span><span id="__span-56-4"><a id="__codelineno-56-4" name="__codelineno-56-4"></a><span class="p">)</span><span class="w"> </span><span class="err">`</span><span class="cm">/* multi line expression */</span><span class="err">`</span>
 </span></code></pre></div></td></tr></table></div>
 <hr>
 

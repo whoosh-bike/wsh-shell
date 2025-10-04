@@ -31,6 +31,15 @@
 
 /* 
  * ─────────────────────────────────────────────
+ * Target runtime environment 
+ * ───────────────────────────────────────────── 
+ */
+#define WSH_SHELL_TARGET_OS "Bare-metal"
+// #define WSH_SHELL_TARGET_OS "FreeRTOS"
+// #define WSH_SHELL_TARGET_OS "Zephyr"
+
+/* 
+ * ─────────────────────────────────────────────
  * Print objects customization
  * ───────────────────────────────────────────── 
  */
