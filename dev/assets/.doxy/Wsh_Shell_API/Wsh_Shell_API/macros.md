@@ -3,6 +3,16 @@
 
 
 
+## c
+
+* **COMPILER** ([**wsh\_shell.h**](wsh__shell_8h.md))
+
+
+## o
+
+* **OS\_NAME** ([**wsh\_shell.h**](wsh__shell_8h.md))
+
+
 ## r
 
 * **RET\_STATE\_MAP\_TABLE** ([**wsh\_shell\_cfg\_def.h**](wsh__shell__cfg__def_8h.md))

@@ -27,6 +27,34 @@
 #include "wsh_shell_user.h"
 #include "wsh_shell_version.h"
 
+/* detect operating system name */
+#if defined(__linux)
+    #define OS_NAME "Linux"
+#elif defined(__unix)
+    #define OS_NAME "Unix"
+#elif defined(__APPLE__)
+    #define OS_NAME "Darwin"
+#elif defined(_WIN32)
+    #define OS_NAME "Windows"
+#else
+    #define OS_NAME "Unknown OS"
+#endif
+
+/* detect compiler name and version */
+#if defined(__clang__)
+    #define COMPILER "clang " __clang_version__
+#elif defined(__GNUC__)
+    #define COMPILER "GCC " __VERSION__
+#elif defined(_MSC_VER)
+    #define COMPILER "MSVC"
+#elif defined(__CC_ARM)
+    #define COMPILER "ARMCC"
+#elif defined(__ICCARM__)
+    #define COMPILER "IAR"
+#else
+    #define COMPILER "Unknown Compiler"
+#endif
+
 #ifdef __cplusplus
 extern "C" {
 #endif

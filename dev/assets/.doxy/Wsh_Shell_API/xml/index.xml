@@ -110,7 +110,7 @@
     <member refid="wsh__shell_8c_1a292087537076375127d7ba338df40116" kind="define"><name>WSH_SHELL_TMP_PASS_IS_EMPTY</name></member>
     <member refid="wsh__shell_8c_1a763e5be394406b16801cf55615da0749" kind="define"><name>WSH_SHELL_INTER_CMD_EXISTS</name></member>
     <member refid="wsh__shell_8c_1ae4b7726ad12587f1c9e9405f09474a4a" kind="define"><name>SHELL_SAVE_PREV_AND_RETURN</name></member>
-    <member refid="wsh__shell_8c_1a4e188f224f29da40c242e75c168852a8" kind="function"><name>WshShell_Stub_ExtClbk</name></member>
+    <member refid="wsh__shell_8c_1adbee794f60de843d3667797710dd8fa1" kind="function"><name>WshShell_Stub_ExtClbk</name></member>
     <member refid="wsh__shell_8c_1a537de0de6654584f9075b33f523d000f" kind="function"><name>WshShell_InvitationPrint</name></member>
     <member refid="wsh__shell_8c_1a90b21ffe631e62fdce47691786645383" kind="function"><name>WshShell_Init</name></member>
     <member refid="wsh__shell_8c_1ab27020809267df0016455a90c03d6f63" kind="function"><name>WshShell_Auth</name></member>
@@ -122,6 +122,8 @@
     <member refid="wsh__shell_8c_1a3e1b413a08637a56173ae77a25899226" kind="function"><name>WshShell_InsertChar</name></member>
   </compound>
   <compound refid="wsh__shell_8h" kind="file"><name>wsh_shell.h</name>
+    <member refid="wsh__shell_8h_1a28102cfb12a549d1139ad1430fc21b73" kind="define"><name>OS_NAME</name></member>
+    <member refid="wsh__shell_8h_1a63f2e19ce36089fbdd99a7a46c62afbe" kind="define"><name>COMPILER</name></member>
     <member refid="wsh__shell_8h_1a31ac89f2d478911c46e3e6c2142c1ac1" kind="typedef"><name>WshShell_ExtClbk_t</name></member>
     <member refid="wsh__shell_8h_1a90b21ffe631e62fdce47691786645383" kind="function"><name>WshShell_Init</name></member>
     <member refid="wsh__shell_8h_1ab27020809267df0016455a90c03d6f63" kind="function"><name>WshShell_Auth</name></member>
@@ -345,7 +347,7 @@
     <member refid="wsh__shell__option_8h_1abd175c5d64191219bec3114459a75de7" kind="define"><name>WSH_SHELL_OPT_ACCESS_EXECUTE</name></member>
     <member refid="wsh__shell__option_8h_1a8b770d9f81a1d599560cb95448f667ca" kind="define"><name>WSH_SHELL_OPT_ACCESS_ANY</name></member>
     <member refid="wsh__shell__option_8h_1a42d60084ba45f3c81a1d14465a9eb54c" kind="define"><name>WSH_SHELL_OPT_DESCR</name></member>
-    <member refid="wsh__shell__option_8h_1af03a0fae0eb36eb851c152250887c6a1" kind="define"><name>WSH_SHELL_OPT_NO</name></member>
+    <member refid="wsh__shell__option_8h_1aa175a98ec6b5be206c57a1b43735d140" kind="define"><name>WSH_SHELL_OPT_NO</name></member>
     <member refid="wsh__shell__option_8h_1a66b466e69cf81f23ed2f106eb4f4ea42" kind="define"><name>WSH_SHELL_OPT_WAITS_INPUT</name></member>
     <member refid="wsh__shell__option_8h_1a84ae8c9b94efef61acb485aa33c179b7" kind="define"><name>WSH_SHELL_OPT_HELP</name></member>
     <member refid="wsh__shell__option_8h_1afa01544c11c0b5f24e98bf0c72380d7f" kind="define"><name>WSH_SHELL_OPT_INTERACT</name></member>
@@ -413,6 +415,8 @@
     <member refid="wsh__shell__types_8h_1a52a4241a99ae5ec8c2a5b151e22ae00ea614a9ab246cb280a663fd797a6149686" kind="enumvalue"><name>WSH_SHELL_RET_STATE_TABLE</name></member>
     <member refid="wsh__shell__types_8h_1aece1761b98b7dd5ef93064d22e455683" kind="typedef"><name>WshShell_Bool_t</name></member>
     <member refid="wsh__shell__types_8h_1abd358f95159cb4b96517bea5d405a5cd" kind="typedef"><name>WshShell_Char_t</name></member>
+    <member refid="wsh__shell__types_8h_1a315bf7b46e3ddb0f0fdb2364e4232a60" kind="typedef"><name>WshShell_Float_t</name></member>
+    <member refid="wsh__shell__types_8h_1ad538f032e03b723f08890693d001b31d" kind="typedef"><name>WshShell_Double_t</name></member>
     <member refid="wsh__shell__types_8h_1a08ced1edbec2e93b6348cc8ac171b6b0" kind="typedef"><name>WshShell_S8_t</name></member>
     <member refid="wsh__shell__types_8h_1af5b0a4469576873de6741cab7645efbc" kind="typedef"><name>WshShell_U8_t</name></member>
     <member refid="wsh__shell__types_8h_1a93932aeb53fbc774b7b0562fbef2aff6" kind="typedef"><name>WshShell_S32_t</name></member>

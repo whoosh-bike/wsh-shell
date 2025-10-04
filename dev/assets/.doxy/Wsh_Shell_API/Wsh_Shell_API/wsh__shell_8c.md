@@ -57,7 +57,6 @@
 |  WSH\_SHELL\_RET\_STATE\_t | [**WshShell\_Init**](#function-wshshell_init) ([**WshShell\_t**](structWshShell__t.md) \* pShell, const WshShell\_Char\_t \* pcDevName, const WshShell\_Char\_t \* pcCustomHeader, [**WshShell\_ExtCallbacks\_t**](structWshShell__ExtCallbacks__t.md) \* pExtClbks) <br>_Initialize a shell instance._  |
 |  void | [**WshShell\_InsertChar**](#function-wshshell_insertchar) ([**WshShell\_t**](structWshShell__t.md) \* pShell, const WshShell\_Char\_t symbol) <br>_Process a new character entered by the user._  |
 |  WshShell\_Bool\_t | [**WshShell\_IsAuth**](#function-wshshell_isauth) ([**WshShell\_t**](structWshShell__t.md) \* pShell) <br>_Check if a user is currently authenticated._  |
-|  void | [**WshShell\_Stub\_ExtClbk**](#function-wshshell_stub_extclbk) (void \* pCtx) <br> |
 
 
 ## Public Static Functions
@@ -67,6 +66,7 @@
 |  void | [**WshShell\_AuthHandler**](#function-wshshell_authhandler) ([**WshShell\_t**](structWshShell__t.md) \* pShell) <br> |
 |  void | [**WshShell\_InvitationPrint**](#function-wshshell_invitationprint) ([**WshShell\_t**](structWshShell__t.md) \* pShell) <br> |
 |  void | [**WshShell\_StringHandler**](#function-wshshell_stringhandler) ([**WshShell\_t**](structWshShell__t.md) \* pShell) <br> |
+|  void | [**WshShell\_Stub\_ExtClbk**](#function-wshshell_stub_extclbk) (void \* pCtx) <br> |
 |  void | [**WshShell\_SymbolHandler**](#function-wshshell_symbolhandler) ([**WshShell\_t**](structWshShell__t.md) \* pShell, const WshShell\_Char\_t symbol) <br> |
 
 
@@ -287,21 +287,6 @@ WshShell_Bool_t WshShell_IsAuth (
         
 
 <hr>
-
-
-
-### function WshShell\_Stub\_ExtClbk 
-
-```C++
-void WshShell_Stub_ExtClbk (
-    void * pCtx
-) 
-```
-
-
-
-
-<hr>
 ## Public Static Functions Documentation
 
 
@@ -342,6 +327,21 @@ static void WshShell_InvitationPrint (
 ```C++
 static void WshShell_StringHandler (
     WshShell_t * pShell
+) 
+```
+
+
+
+
+<hr>
+
+
+
+### function WshShell\_Stub\_ExtClbk 
+
+```C++
+static void WshShell_Stub_ExtClbk (
+    void * pCtx
 ) 
 ```
 

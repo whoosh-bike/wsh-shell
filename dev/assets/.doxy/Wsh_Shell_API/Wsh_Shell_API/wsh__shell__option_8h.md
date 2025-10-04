@@ -113,7 +113,7 @@ _Definition of shell command-line option object and creation macros._ [More...](
 | define  | [**WSH\_SHELL\_OPT\_INT**](wsh__shell__option_8h.md#define-wsh_shell_opt_int) (acc, short, long, descr) `WSH\_SHELL\_OPTION\_INT, (acc), 1, (short), (long), WSH\_SHELL\_OPT\_DESCR(descr)`<br>_Define an integer argument option._  |
 | define  | [**WSH\_SHELL\_OPT\_INTERACT**](wsh__shell__option_8h.md#define-wsh_shell_opt_interact) () `/* multi line expression */`<br>_Define an option for entering interactive mode._  |
 | define  | [**WSH\_SHELL\_OPT\_MULTI\_ARG**](wsh__shell__option_8h.md#define-wsh_shell_opt_multi_arg) (acc, argnum, short, long, descr) `WSH\_SHELL\_OPTION\_MULTI\_ARG, (acc), (argnum), (short), (long), WSH\_SHELL\_OPT\_DESCR(descr)`<br>_Define an option that accepts multiple arguments._  |
-| define  | [**WSH\_SHELL\_OPT\_NO**](wsh__shell__option_8h.md#define-wsh_shell_opt_no) (acc) `WSH\_SHELL\_OPTION\_NO, (acc), 0, NULL, NULL, NULL`<br>_Define a special option that matches the command name only (no flags)._  |
+| define  | [**WSH\_SHELL\_OPT\_NO**](wsh__shell__option_8h.md#define-wsh_shell_opt_no) (acc, descr) `WSH\_SHELL\_OPTION\_NO, (acc), 0, "--", "---", WSH\_SHELL\_OPT\_DESCR(descr)`<br>_Define a special option that matches the command name only (no flags)._  |
 | define  | [**WSH\_SHELL\_OPT\_STR**](wsh__shell__option_8h.md#define-wsh_shell_opt_str) (acc, short, long, descr) `WSH\_SHELL\_OPTION\_STR, (acc), 1, (short), (long), WSH\_SHELL\_OPT\_DESCR(descr)`<br>_Define a string argument option._  |
 | define  | [**WSH\_SHELL\_OPT\_WAITS\_INPUT**](wsh__shell__option_8h.md#define-wsh_shell_opt_waits_input) (acc) `WSH\_SHELL\_OPTION\_WAITS\_INPUT, (acc), 0, NULL, NULL, NULL`<br>_Define an option that triggers when input is provided with no flags._  |
 | define  | [**WSH\_SHELL\_OPT\_WO\_PARAM**](wsh__shell__option_8h.md#define-wsh_shell_opt_wo_param) (acc, short, long, descr) `WSH\_SHELL\_OPTION\_WO\_PARAM, (acc), 0, (short), (long), WSH\_SHELL\_OPT\_DESCR(descr)`<br>_Define an option that requires no arguments._  |
@@ -470,8 +470,9 @@ _Define an option that accepts multiple arguments._
 _Define a special option that matches the command name only (no flags)._ 
 ```C++
 #define WSH_SHELL_OPT_NO (
-    acc
-) `WSH_SHELL_OPTION_NO, (acc), 0, NULL, NULL, NULL`
+    acc,
+    descr
+) `WSH_SHELL_OPTION_NO, (acc), 0, "--", "---", WSH_SHELL_OPT_DESCR(descr)`
 ```
 
 

@@ -30,7 +30,8 @@ extern "C" {
     #define WSH_SHELL_OPT_DESCR(descr) ""
 #endif
 
-#define WSH_SHELL_OPT_NO(acc) WSH_SHELL_OPTION_NO, (acc), 0, NULL, NULL, NULL
+#define WSH_SHELL_OPT_NO(acc, descr) \
+    WSH_SHELL_OPTION_NO, (acc), 0, "--", "---", WSH_SHELL_OPT_DESCR(descr)
 
 #define WSH_SHELL_OPT_WAITS_INPUT(acc) WSH_SHELL_OPTION_WAITS_INPUT, (acc), 0, NULL, NULL, NULL
 
@@ -60,7 +61,7 @@ extern "C" {
 #define WSH_SHELL_OPT_END() WSH_SHELL_OPTION_END, WSH_SHELL_OPT_ACCESS_ANY, 0, NULL, NULL, NULL
 
 #define WSH_SHELL_OPTION_TYPES_TABLE()                   \
-    X_ENTRY(WSH_SHELL_OPTION_NO, "NO")                   \
+    X_ENTRY(WSH_SHELL_OPTION_NO, "EMPTY")                \
     X_ENTRY(WSH_SHELL_OPTION_HELP, "HELP")               \
     X_ENTRY(WSH_SHELL_OPTION_INTERACT, "INTERACT")       \
     X_ENTRY(WSH_SHELL_OPTION_WO_PARAM, "WO_PARAM")       \

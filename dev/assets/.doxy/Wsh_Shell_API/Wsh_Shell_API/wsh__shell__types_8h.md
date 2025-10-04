@@ -41,6 +41,8 @@ _Basic type definitions and return state enumeration for WshShell._ [More...](#d
 | enum  | [**WSH\_SHELL\_RET\_STATE\_t**](#enum-wsh_shell_ret_state_t)  <br> |
 | typedef bool | [**WshShell\_Bool\_t**](#typedef-wshshell_bool_t)  <br> |
 | typedef char | [**WshShell\_Char\_t**](#typedef-wshshell_char_t)  <br> |
+| typedef double | [**WshShell\_Double\_t**](#typedef-wshshell_double_t)  <br> |
+| typedef float | [**WshShell\_Float\_t**](#typedef-wshshell_float_t)  <br> |
 | typedef int16\_t | [**WshShell\_S16\_t**](#typedef-wshshell_s16_t)  <br> |
 | typedef int32\_t | [**WshShell\_S32\_t**](#typedef-wshshell_s32_t)  <br> |
 | typedef int8\_t | [**WshShell\_S8\_t**](#typedef-wshshell_s8_t)  <br> |
@@ -184,6 +186,32 @@ typedef bool WshShell_Bool_t;
 
 ```C++
 typedef char WshShell_Char_t;
+```
+
+
+
+
+<hr>
+
+
+
+### typedef WshShell\_Double\_t 
+
+```C++
+typedef double WshShell_Double_t;
+```
+
+
+
+
+<hr>
+
+
+
+### typedef WshShell\_Float\_t 
+
+```C++
+typedef float WshShell_Float_t;
 ```
 
 

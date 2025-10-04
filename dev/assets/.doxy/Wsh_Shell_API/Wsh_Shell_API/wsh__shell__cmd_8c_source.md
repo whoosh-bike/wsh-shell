@@ -159,8 +159,10 @@ WSH_SHELL_RET_STATE_t WshShellCmd_GetOptValue(WshShellOption_Context_t* pOptCtx,
         return WSH_SHELL_RET_STATE_ERR_EMPTY;
 
     WshShell_Size_t valIdx = pOptCtx->TokenPos + 1;
-    if (valIdx >= argc)
-        return WSH_SHELL_RET_STATE_ERR_OVERFLOW;  //FIXME ?
+    if (valIdx >= argc) {
+        WSH_SHELL_ASSERT(false);
+        return WSH_SHELL_RET_STATE_ERROR;
+    }
 
     switch (pOptCtx->Option->Type) {
         case WSH_SHELL_OPTION_STR:
@@ -219,7 +221,7 @@ void WshShellCmd_PrintOptionsOverview(const WshShellCmd_t* pcCmd) {
 
     const WshShellOption_t* pcOpt = pcCmd->Options;
     for (; pcOpt->Type != WSH_SHELL_OPTION_END; pcOpt++) {
-        if (pcOpt->Type == WSH_SHELL_OPTION_NO || pcOpt->Type == WSH_SHELL_OPTION_WAITS_INPUT)
+        if (pcOpt->Type == WSH_SHELL_OPTION_WAITS_INPUT)
             continue;
 
         WshShell_Char_t accessRow[8];

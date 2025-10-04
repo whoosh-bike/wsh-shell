@@ -252,7 +252,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/wsh_shell_history.h" line="88" column="6" bodyfile="src/wsh_shell_history.c" bodystart="256" bodyend="261" declfile="src/wsh_shell_history.h" declline="88" declcolumn="6"/>
+        <location file="src/wsh_shell_history.h" line="88" column="6" bodyfile="src/wsh_shell_history.c" bodystart="274" bodyend="279" declfile="src/wsh_shell_history.h" declline="88" declcolumn="6"/>
       </memberdef>
       <memberdef kind="function" id="wsh__shell__history_8h_1a67a10560defd9e51aa9caa17fc974b99" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -304,7 +304,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/wsh_shell_history.h" line="98" column="6" bodyfile="src/wsh_shell_history.c" bodystart="263" bodyend="268" declfile="src/wsh_shell_history.h" declline="98" declcolumn="6"/>
+        <location file="src/wsh_shell_history.h" line="98" column="6" bodyfile="src/wsh_shell_history.c" bodystart="281" bodyend="286" declfile="src/wsh_shell_history.h" declline="98" declcolumn="6"/>
       </memberdef>
       <memberdef kind="function" id="wsh__shell__history_8h_1a1e747efc6ac5cedda5cb4ba85326db6f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>WshShell_Size_t</type>
@@ -358,7 +358,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/wsh_shell_history.h" line="110" column="17" bodyfile="src/wsh_shell_history.c" bodystart="270" bodyend="277" declfile="src/wsh_shell_history.h" declline="110" declcolumn="17"/>
+        <location file="src/wsh_shell_history.h" line="110" column="17" bodyfile="src/wsh_shell_history.c" bodystart="288" bodyend="295" declfile="src/wsh_shell_history.h" declline="110" declcolumn="17"/>
       </memberdef>
       <memberdef kind="function" id="wsh__shell__history_8h_1a44207937739d4295df858ad57b42b29b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>WshShell_Size_t</type>
@@ -412,7 +412,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/wsh_shell_history.h" line="122" column="17" bodyfile="src/wsh_shell_history.c" bodystart="279" bodyend="286" declfile="src/wsh_shell_history.h" declline="122" declcolumn="17"/>
+        <location file="src/wsh_shell_history.h" line="122" column="17" bodyfile="src/wsh_shell_history.c" bodystart="297" bodyend="304" declfile="src/wsh_shell_history.h" declline="122" declcolumn="17"/>
       </memberdef>
       <memberdef kind="function" id="wsh__shell__history_8h_1a1b4586617b550312b9493a08228a9f71" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>WshShell_Size_t</type>
@@ -443,7 +443,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/wsh_shell_history.h" line="135" column="17" bodyfile="src/wsh_shell_history.c" bodystart="288" bodyend="292" declfile="src/wsh_shell_history.h" declline="135" declcolumn="17"/>
+        <location file="src/wsh_shell_history.h" line="135" column="17" bodyfile="src/wsh_shell_history.c" bodystart="306" bodyend="310" declfile="src/wsh_shell_history.h" declline="135" declcolumn="17"/>
       </memberdef>
       <memberdef kind="function" id="wsh__shell__history_8h_1ad22b979dd885a6890f39ed7ac743c1d7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>WshShell_Size_t</type>
@@ -510,7 +510,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/wsh_shell_history.h" line="150" column="17" bodyfile="src/wsh_shell_history.c" bodystart="294" bodyend="304" declfile="src/wsh_shell_history.h" declline="150" declcolumn="17"/>
+        <location file="src/wsh_shell_history.h" line="150" column="17" bodyfile="src/wsh_shell_history.c" bodystart="312" bodyend="322" declfile="src/wsh_shell_history.h" declline="150" declcolumn="17"/>
       </memberdef>
       <memberdef kind="function" id="wsh__shell__history_8h_1aee963c89139b4ea9419b13dfdc6b64a1" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -538,7 +538,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/wsh_shell_history.h" line="159" column="6" bodyfile="src/wsh_shell_history.c" bodystart="306" bodyend="308" declfile="src/wsh_shell_history.h" declline="159" declcolumn="6"/>
+        <location file="src/wsh_shell_history.h" line="159" column="6" bodyfile="src/wsh_shell_history.c" bodystart="324" bodyend="326" declfile="src/wsh_shell_history.h" declline="159" declcolumn="6"/>
       </memberdef>
       </sectiondef>
     <briefdescription>

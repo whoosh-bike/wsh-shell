@@ -28,6 +28,8 @@
 * **WSH\_SHELL\_RET\_STATE\_t** ([**wsh\_shell\_types.h**](wsh__shell__types_8h.md))
 * **WshShell\_Bool\_t** ([**wsh\_shell\_types.h**](wsh__shell__types_8h.md))
 * **WshShell\_Char\_t** ([**wsh\_shell\_types.h**](wsh__shell__types_8h.md))
+* **WshShell\_Double\_t** ([**wsh\_shell\_types.h**](wsh__shell__types_8h.md))
+* **WshShell\_Float\_t** ([**wsh\_shell\_types.h**](wsh__shell__types_8h.md))
 * **WshShell\_S16\_t** ([**wsh\_shell\_types.h**](wsh__shell__types_8h.md))
 * **WshShell\_S32\_t** ([**wsh\_shell\_types.h**](wsh__shell__types_8h.md))
 * **WshShell\_S8\_t** ([**wsh\_shell\_types.h**](wsh__shell__types_8h.md))
