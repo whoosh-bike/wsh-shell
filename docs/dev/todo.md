@@ -35,7 +35,7 @@
 
 ## v2.3
 
-- [ ] Review default command behavior and provide more detailed output about it.
+- [x] Review default command behavior and provide more detailed output about it.
 - [ ] Review groups, permissions, and access levels for commands, users, and options; document them. Add `reader` user for reference
 - [ ] Check the same names for commands and options (if short and long options repited in one command or commands are same)
 - [ ] Fix fault on history read and write callbacks if history isn't inited

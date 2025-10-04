@@ -211,7 +211,7 @@ void WshShellCmd_PrintOptionsOverview(const WshShellCmd_t* pcCmd) {
 
     const WshShellOption_t* pcOpt = pcCmd->Options;
     for (; pcOpt->Type != WSH_SHELL_OPTION_END; pcOpt++) {
-        if (pcOpt->Type == WSH_SHELL_OPTION_NO || pcOpt->Type == WSH_SHELL_OPTION_WAITS_INPUT)
+        if (pcOpt->Type == WSH_SHELL_OPTION_WAITS_INPUT)
             continue;
 
         WshShell_Char_t accessRow[8];

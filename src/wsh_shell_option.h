@@ -34,7 +34,8 @@ extern "C" {
  * @brief Define a special option that matches the command name only (no flags).
  * @param[in] acc Access rights mask.
  */
-#define WSH_SHELL_OPT_NO(acc) WSH_SHELL_OPTION_NO, (acc), 0, NULL, NULL, NULL
+#define WSH_SHELL_OPT_NO(acc, descr) \
+    WSH_SHELL_OPTION_NO, (acc), 0, "--", "---", WSH_SHELL_OPT_DESCR(descr)
 
 /**
  * @brief Define an option that triggers when input is provided with no flags.
@@ -116,7 +117,7 @@ extern "C" {
  * @brief Internal macro: full list of option types.
  */
 #define WSH_SHELL_OPTION_TYPES_TABLE()                   \
-    X_ENTRY(WSH_SHELL_OPTION_NO, "NO")                   \
+    X_ENTRY(WSH_SHELL_OPTION_NO, "EMPTY")                \
     X_ENTRY(WSH_SHELL_OPTION_HELP, "HELP")               \
     X_ENTRY(WSH_SHELL_OPTION_INTERACT, "INTERACT")       \
     X_ENTRY(WSH_SHELL_OPTION_WO_PARAM, "WO_PARAM")       \
