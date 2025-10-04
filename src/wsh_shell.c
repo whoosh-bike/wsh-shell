@@ -1,6 +1,6 @@
 #include "wsh_shell.h"
 
-void WshShell_Stub_ExtClbk(void* pCtx) {
+static void WshShell_Stub_ExtClbk(void* pCtx) {
     (void)pCtx;
 }
 
