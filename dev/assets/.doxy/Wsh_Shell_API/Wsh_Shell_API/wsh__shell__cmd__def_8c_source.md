@@ -63,14 +63,14 @@ static WSH_SHELL_RET_STATE_t WshShellCmdDef(const WshShellCmd_t* pcCmd, WshShell
         }
 
         switch (optCtx.Option->ID) {
-            case WSH_SHELL_DEF_OPT_HELP:
-                WshShellCmd_PrintOptionsOverview(pcCmd);
-                break;
-
             case WSH_SHELL_DEF_OPT_DEF:
                 WSH_SHELL_PRINT("Ver: %s\r\n", pParentShell->Version);
                 WSH_SHELL_PRINT("Device name: %s\r\n", pParentShell->DeviceName);
                 WSH_SHELL_PRINT("User: %s\r\n", pParentShell->CurrUser->Login);
+                break;
+
+            case WSH_SHELL_DEF_OPT_HELP:
+                WshShellCmd_PrintOptionsOverview(pcCmd);
                 break;
 
             case WSH_SHELL_DEF_OPT_INTERACT:
