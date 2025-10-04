@@ -37,7 +37,7 @@
 #elif defined(_WIN32)
     #define OS_NAME "Windows"
 #else
-    #define OS_NAME "Unknown OS"
+    #define OS_NAME WSH_SHELL_TARGET_OS
 #endif
 
 /* detect compiler name and version */
