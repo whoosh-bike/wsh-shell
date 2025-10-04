@@ -39,8 +39,9 @@ ifeq ($(findstring clang,$(CC)),clang)
     COMMON_FLAGS += -Wno-gnu-zero-variadic-macro-arguments
 endif
 
+# $(info [MAKE] BUILD=$(BUILD))
 ifeq ($(BUILD),Debug)
-    CFLAGS := $(COMMON_FLAGS) -O0 -g -DWSH_SHELL_ASSERT_ENABLE
+    CFLAGS := $(COMMON_FLAGS) -O0 -g -DWSH_SHELL_DEBUG_ENABLE -DWSH_SHELL_ASSERT_ENABLE
 else
     CFLAGS := $(COMMON_FLAGS) -O2 -DNDEBUG
 endif

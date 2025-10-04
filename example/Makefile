@@ -29,13 +29,14 @@ INC_FLAGS := -I$(SRC_DIR) -I$(CORE_DIR)
 
 # ===== Compiler Flags =====
 COMMON_FLAGS := $(INC_FLAGS) -MMD -Wall -Wextra -Wpedantic -Wno-unused-parameter -Wno-format
-DEBUG_FLAGS := -O0 -g -DWSH_SHELL_ASSERT_ENABLE
+DEBUG_FLAGS := -O0 -g -DWSH_SHELL_DEBUG_ENABLE -DWSH_SHELL_ASSERT_ENABLE
 RELEASE_FLAGS := -O2 -DNDEBUG
 
 ifeq ($(findstring clang,$(CC)),clang)
     COMMON_FLAGS += -Wno-gnu-zero-variadic-macro-arguments
 endif
 
+# $(info [MAKE] BUILD=$(BUILD))
 ifeq ($(BUILD),Debug)
     CFLAGS := $(COMMON_FLAGS) $(DEBUG_FLAGS)
 else

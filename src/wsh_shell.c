@@ -66,12 +66,18 @@ WSH_SHELL_RET_STATE_t WshShell_Init(WshShell_t* pShell, const WshShell_Char_t* p
      * First out
      */
 
+    const WshShell_Char_t* pBuildType = "release";
+#if defined(WSH_SHELL_DEBUG_ENABLE)
+    pBuildType = "debug";
+#endif
+
     WSH_SHELL_PRINT("%c", WSH_SHELL_SYM_SOUND);
     WSH_SHELL_PRINT(WSH_SHELL_COLOR_PURPLE);
     WSH_SHELL_PRINT(pcCustomHeader ? pcCustomHeader : WSH_SHELL_HEADER);
-    WSH_SHELL_PRINT_SYS("Serial Shell Service (wsh-shell v%s) started on device "
-                        "(%s)\r\n" WSH_SHELL_PRESS_ENTER_TO_LOG_IN_STR "\r\n",
-                        pShell->Version, pShell->DeviceName);
+    WSH_SHELL_PRINT_SYS("Serial shell service started on %s device\r\n", pShell->DeviceName);
+    WSH_SHELL_PRINT_SYS("wsh-shell-v%s (%s), built in %s, at %s, with [%s], on %s\r\n",
+                        pShell->Version, pBuildType, __DATE__, __TIME__, COMPILER, OS_NAME);
+    WSH_SHELL_PRINT_SYS(WSH_SHELL_PRESS_ENTER_TO_LOG_IN_STR "\r\n");
 
     WshShellPromptWait_Attach(&(pShell->PromptWait), WshShellPromptWait_Enter, NULL);
 

@@ -21,9 +21,18 @@
             }
         },
         {
-            "label": "build example",
+            "label": "build example (debug)",
             "type": "shell",
             "command": "make example",
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            }
+        },
+        {
+            "label": "build example (release)",
+            "type": "shell",
+            "command": "make example BUILD=Release",
             "group": {
                 "kind": "build",
                 "isDefault": true
