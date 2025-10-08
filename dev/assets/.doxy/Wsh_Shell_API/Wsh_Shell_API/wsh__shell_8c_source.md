@@ -216,6 +216,16 @@ static void WshShell_StringHandler(WshShell_t* pShell) {
     WshShellIO_ClearInterBuff(&(pShell->CommandLine));
 }
 
+static void WshShell_StringInteractHandler(WshShell_t* pShell) {
+    pShell->CommandLine.Buff[pShell->CommandLine.Len] = 0;
+    const WshShell_Char_t* pcCmdStr                   = pShell->CommandLine.Buff;
+
+    WshShellHistory_SaveCmd(&(pShell->HistoryIO), pShell->CommandLine.Buff,
+                            WSH_SHELL_STRLEN(pcCmdStr));
+    pShell->Interact.Handler(&(pShell->CommandLine));
+    WshShellIO_ClearInterBuff(&(pShell->CommandLine));
+}
+
 static void WshShell_SymbolHandler(WshShell_t* pShell, const WshShell_Char_t symbol) {
     switch (symbol) {
         case WSH_SHELL_SYM_EXIT:
@@ -306,8 +316,7 @@ void WshShell_InsertChar(WshShell_t* pShell, const WshShell_Char_t symbol) {
         }
 
         if (WSH_SHELL_INTER_CMD_EXISTS()) {
-            pShell->Interact.Handler(&(pShell->CommandLine));
-            WshShellIO_ClearInterBuff(&(pShell->CommandLine));
+            WshShell_StringInteractHandler(pShell);
         } else
             WshShell_StringHandler(pShell);
 

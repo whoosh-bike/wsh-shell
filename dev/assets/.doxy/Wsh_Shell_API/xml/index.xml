@@ -118,6 +118,7 @@
     <member refid="wsh__shell_8c_1a0273d5c96a995ee6439c2a7d650aef52" kind="function"><name>WshShell_DeAuth</name></member>
     <member refid="wsh__shell_8c_1a732f755c2387429293a09d4dfa6490e1" kind="function"><name>WshShell_AuthHandler</name></member>
     <member refid="wsh__shell_8c_1a8be86336558b002a181bb2281f08b061" kind="function"><name>WshShell_StringHandler</name></member>
+    <member refid="wsh__shell_8c_1a0d63ea9a3446dd6491942dc9ef12518f" kind="function"><name>WshShell_StringInteractHandler</name></member>
     <member refid="wsh__shell_8c_1a44d234fcd36557e6af016a89e7a97fd4" kind="function"><name>WshShell_SymbolHandler</name></member>
     <member refid="wsh__shell_8c_1a3e1b413a08637a56173ae77a25899226" kind="function"><name>WshShell_InsertChar</name></member>
   </compound>

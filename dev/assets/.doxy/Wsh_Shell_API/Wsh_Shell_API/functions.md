@@ -13,6 +13,7 @@
 * **WshShell\_InvitationPrint** ([**wsh\_shell.c**](wsh__shell_8c.md))
 * **WshShell\_IsAuth** ([**wsh\_shell.c**](wsh__shell_8c.md), [**wsh\_shell.h**](wsh__shell_8h.md))
 * **WshShell\_StringHandler** ([**wsh\_shell.c**](wsh__shell_8c.md))
+* **WshShell\_StringInteractHandler** ([**wsh\_shell.c**](wsh__shell_8c.md))
 * **WshShell\_Stub\_ExtClbk** ([**wsh\_shell.c**](wsh__shell_8c.md))
 * **WshShell\_SymbolHandler** ([**wsh\_shell.c**](wsh__shell_8c.md))
 * **WshShellAutocomplete\_Try** ([**wsh\_shell\_autocomplete.c**](wsh__shell__autocomplete_8c.md), [**wsh\_shell\_autocomplete.h**](wsh__shell__autocomplete_8h.md))

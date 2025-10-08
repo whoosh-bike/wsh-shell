@@ -66,6 +66,7 @@
 |  void | [**WshShell\_AuthHandler**](#function-wshshell_authhandler) ([**WshShell\_t**](structWshShell__t.md) \* pShell) <br> |
 |  void | [**WshShell\_InvitationPrint**](#function-wshshell_invitationprint) ([**WshShell\_t**](structWshShell__t.md) \* pShell) <br> |
 |  void | [**WshShell\_StringHandler**](#function-wshshell_stringhandler) ([**WshShell\_t**](structWshShell__t.md) \* pShell) <br> |
+|  void | [**WshShell\_StringInteractHandler**](#function-wshshell_stringinteracthandler) ([**WshShell\_t**](structWshShell__t.md) \* pShell) <br> |
 |  void | [**WshShell\_Stub\_ExtClbk**](#function-wshshell_stub_extclbk) (void \* pCtx) <br> |
 |  void | [**WshShell\_SymbolHandler**](#function-wshshell_symbolhandler) ([**WshShell\_t**](structWshShell__t.md) \* pShell, const WshShell\_Char\_t symbol) <br> |
 
@@ -326,6 +327,21 @@ static void WshShell_InvitationPrint (
 
 ```C++
 static void WshShell_StringHandler (
+    WshShell_t * pShell
+) 
+```
+
+
+
+
+<hr>
+
+
+
+### function WshShell\_StringInteractHandler 
+
+```C++
+static void WshShell_StringInteractHandler (
     WshShell_t * pShell
 ) 
 ```
