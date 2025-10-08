@@ -218,8 +218,7 @@ static void WshShell_StringInteractHandler(WshShell_t* pShell) {
     pShell->CommandLine.Buff[pShell->CommandLine.Len] = 0;
     const WshShell_Char_t* pcCmdStr                   = pShell->CommandLine.Buff;
 
-    WshShellHistory_SaveCmd(&(pShell->HistoryIO), pShell->CommandLine.Buff,
-                            WSH_SHELL_STRLEN(pcCmdStr));
+    WshShellHistory_SaveCmd(&(pShell->HistoryIO), pcCmdStr, WSH_SHELL_STRLEN(pcCmdStr));
     pShell->Interact.Handler(&(pShell->CommandLine));
     WshShellIO_ClearInterBuff(&(pShell->CommandLine));
 }
