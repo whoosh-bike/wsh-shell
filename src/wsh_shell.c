@@ -75,7 +75,7 @@ WSH_SHELL_RET_STATE_t WshShell_Init(WshShell_t* pShell, const WshShell_Char_t* p
     WSH_SHELL_PRINT(WSH_SHELL_COLOR_PURPLE);
     WSH_SHELL_PRINT(pcCustomHeader ? pcCustomHeader : WSH_SHELL_HEADER);
     WSH_SHELL_PRINT_SYS("Serial shell service started on %s device\r\n", pShell->DeviceName);
-    WSH_SHELL_PRINT_SYS("wsh-shell-v%s (%s), built in %s, at %s, with [%s], on %s\r\n",
+    WSH_SHELL_PRINT_SYS("wsh-shell-v%s (%s), built in %s, at %s, with [%s], on [%s]\r\n",
                         pShell->Version, pBuildType, __DATE__, __TIME__, COMPILER, OS_NAME);
     WSH_SHELL_PRINT_SYS(WSH_SHELL_PRESS_ENTER_TO_LOG_IN_STR "\r\n");
 
