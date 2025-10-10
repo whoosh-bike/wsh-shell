@@ -36,6 +36,8 @@
     #define OS_NAME "Darwin"
 #elif defined(_WIN32)
     #define OS_NAME "Windows"
+#elif defined(tskKERNEL_VERSION_NUMBER)
+    #define OS_NAME "FreeRTOS " tskKERNEL_VERSION_NUMBER
 #else
     #define OS_NAME WSH_SHELL_TARGET_OS
 #endif
