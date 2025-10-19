@@ -130,6 +130,58 @@ extern "C" {
 ///@}
 
 /**
+ * @enum WSH_SHELL_PRINT_t
+ * @brief Shell print levels.
+ *
+ * Defines the available message levels for shell output.
+ * Used to select which type of message (system, info, warning, error, ...)
+ * should be printed when calling ::WSH_SHELL_PRINT_LEVEL().
+ */
+typedef enum {
+    WSH_SHELL_PRINT_SYS,  /**< System-level messages (e.g., initialization info). */
+    WSH_SHELL_PRINT_INFO, /**< Informational messages (normal operation). */
+    WSH_SHELL_PRINT_WARN, /**< Warning messages about potential issues. */
+    WSH_SHELL_PRINT_ERR,  /**< Error messages indicating failures. */
+} WSH_SHELL_PRINT_t;
+
+/**
+ * @def WSH_SHELL_PRINT_LEVEL(_level_, _f_, ...)
+ * @brief Generic macro for printing messages with a specific level.
+ *
+ * Each specific print macro (e.g. ::WSH_SHELL_PRINT_ERR) can be disabled
+ * at compile time using corresponding flags (`WSH_SHELL_PRINT_*_ENABLE`).
+ *
+ * @param _level_  Print level (one of ::WSH_SHELL_PRINT_t).
+ * @param _f_      Format string (compatible with `printf`).
+ * @param ...      Additional arguments for the format string.
+ *
+ * @code
+ * // Example usage:
+ * WSH_SHELL_PRINT_LEVEL(WSH_SHELL_PRINT_INFO, "Initialization complete\n");
+ * WSH_SHELL_PRINT_LEVEL(WSH_SHELL_PRINT_ERR, "Failed to open file: %s\n", filename);
+ * @endcode
+ */
+#define WSH_SHELL_PRINT_LEVEL(_level_, _f_, ...)          \
+    do {                                                  \
+        switch (_level_) {                                \
+            case WSH_SHELL_PRINT_SYS:                     \
+                WSH_SHELL_PRINT_SYS(_f_, ##__VA_ARGS__);  \
+                break;                                    \
+            case WSH_SHELL_PRINT_INFO:                    \
+                WSH_SHELL_PRINT_INFO(_f_, ##__VA_ARGS__); \
+                break;                                    \
+            case WSH_SHELL_PRINT_WARN:                    \
+                WSH_SHELL_PRINT_WARN(_f_, ##__VA_ARGS__); \
+                break;                                    \
+            case WSH_SHELL_PRINT_ERR:                     \
+                WSH_SHELL_PRINT_ERR(_f_, ##__VA_ARGS__);  \
+                break;                                    \
+            default:                                      \
+                break;                                    \
+        }                                                 \
+    } while (0)
+
+/**
  * @brief Structure representing the current user input interaction state.
  */
 typedef struct {
