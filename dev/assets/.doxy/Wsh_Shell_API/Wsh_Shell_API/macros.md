@@ -116,6 +116,7 @@
 * **WSH\_SHELL\_ESC\_SEQ\_START\_STR** ([**wsh\_shell\_io.h**](wsh__shell__io_8h.md))
 * **WSH\_SHELL\_PRINT\_ERR** ([**wsh\_shell\_io.h**](wsh__shell__io_8h.md))
 * **WSH\_SHELL\_PRINT\_INFO** ([**wsh\_shell\_io.h**](wsh__shell__io_8h.md))
+* **WSH\_SHELL\_PRINT\_LEVEL** ([**wsh\_shell\_io.h**](wsh__shell__io_8h.md))
 * **WSH\_SHELL\_PRINT\_SYS** ([**wsh\_shell\_io.h**](wsh__shell__io_8h.md))
 * **WSH\_SHELL\_PRINT\_WARN** ([**wsh\_shell\_io.h**](wsh__shell__io_8h.md))
 * **WSH\_SHELL\_SYM\_BACKSPACE** ([**wsh\_shell\_io.h**](wsh__shell__io_8h.md))

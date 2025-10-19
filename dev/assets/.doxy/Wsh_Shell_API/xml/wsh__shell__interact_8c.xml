@@ -239,7 +239,7 @@
 <codeline lineno="31"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>pCommandLine-&gt;<ref refid="structWshShellIO__CommandLine__t_1a74b52cba6bcd35c578f8e1eeefe11b76" kindref="member">Buff</ref>[len++]<sp/>=<sp/></highlight><highlight class="charliteral">&apos;\r&apos;</highlight><highlight class="normal">;</highlight></codeline>
 <codeline lineno="32"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>pCommandLine-&gt;<ref refid="structWshShellIO__CommandLine__t_1a74b52cba6bcd35c578f8e1eeefe11b76" kindref="member">Buff</ref>[len++]<sp/>=<sp/></highlight><highlight class="charliteral">&apos;\n&apos;</highlight><highlight class="normal">;</highlight></codeline>
 <codeline lineno="33"><highlight class="normal"><sp/><sp/><sp/><sp/>}<sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/>{</highlight></codeline>
-<codeline lineno="34"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>WSH_SHELL_PRINT_ERR(</highlight><highlight class="stringliteral">&quot;Command<sp/>too<sp/>long!&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="34"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="wsh__shell__io_8h_1aaa716dd3abd8eea0d420a40cb6b1f06fa71f76d75986ffbd400e4d94082f4b500" kindref="member">WSH_SHELL_PRINT_ERR</ref>(</highlight><highlight class="stringliteral">&quot;Command<sp/>too<sp/>long!&quot;</highlight><highlight class="normal">);</highlight></codeline>
 <codeline lineno="35"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
 <codeline lineno="36"><highlight class="normal">}</highlight></codeline>
 <codeline lineno="37"><highlight class="normal"></highlight></codeline>
@@ -260,7 +260,7 @@
 <codeline lineno="52"><highlight class="normal"><sp/><sp/><sp/><sp/>(void)(pcName);</highlight></codeline>
 <codeline lineno="53"><highlight class="normal"><sp/><sp/><sp/><sp/>(void)(handler);</highlight></codeline>
 <codeline lineno="54"><highlight class="normal"></highlight></codeline>
-<codeline lineno="55"><highlight class="normal"><sp/><sp/><sp/><sp/>WSH_SHELL_PRINT_WARN(</highlight><highlight class="stringliteral">&quot;Interactive<sp/>mode<sp/>disabled\r\n&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="55"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="wsh__shell__io_8h_1aaa716dd3abd8eea0d420a40cb6b1f06face447d48d1527de5a9ab6bb9418f1ba7" kindref="member">WSH_SHELL_PRINT_WARN</ref>(</highlight><highlight class="stringliteral">&quot;Interactive<sp/>mode<sp/>disabled\r\n&quot;</highlight><highlight class="normal">);</highlight></codeline>
 <codeline lineno="56"><highlight class="normal">}</highlight></codeline>
 <codeline lineno="57"><highlight class="normal"></highlight></codeline>
 <codeline lineno="58"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="wsh__shell__interact_8h_1a8afddd69a9e0d737f5e24935037f9b60" kindref="member">WshShellInteract_AppendLineBreak</ref>(<ref refid="structWshShellIO__CommandLine__t" kindref="compound">WshShellIO_CommandLine_t</ref>*<sp/>pCommandLine)<sp/>{</highlight></codeline>

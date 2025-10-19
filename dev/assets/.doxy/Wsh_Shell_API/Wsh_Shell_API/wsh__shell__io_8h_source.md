@@ -93,6 +93,33 @@ extern "C" {
 #endif
 
 
+typedef enum {
+    WSH_SHELL_PRINT_SYS,  
+    WSH_SHELL_PRINT_INFO, 
+    WSH_SHELL_PRINT_WARN, 
+    WSH_SHELL_PRINT_ERR,  
+} WSH_SHELL_PRINT_t;
+
+#define WSH_SHELL_PRINT_LEVEL(_level_, _f_, ...)          \
+    do {                                                  \
+        switch (_level_) {                                \
+            case WSH_SHELL_PRINT_SYS:                     \
+                WSH_SHELL_PRINT_SYS(_f_, ##__VA_ARGS__);  \
+                break;                                    \
+            case WSH_SHELL_PRINT_INFO:                    \
+                WSH_SHELL_PRINT_INFO(_f_, ##__VA_ARGS__); \
+                break;                                    \
+            case WSH_SHELL_PRINT_WARN:                    \
+                WSH_SHELL_PRINT_WARN(_f_, ##__VA_ARGS__); \
+                break;                                    \
+            case WSH_SHELL_PRINT_ERR:                     \
+                WSH_SHELL_PRINT_ERR(_f_, ##__VA_ARGS__);  \
+                break;                                    \
+            default:                                      \
+                break;                                    \
+        }                                                 \
+    } while (0)
+
 typedef struct {
     WshShell_Char_t Buff[WSH_SHELL_INTR_BUFF_LEN]; 
     WshShell_Size_t Len;                           

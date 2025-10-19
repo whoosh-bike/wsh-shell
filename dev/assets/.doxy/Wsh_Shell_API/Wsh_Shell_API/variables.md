@@ -21,6 +21,7 @@
 * **WshShellHistory\_WriteHandler\_t** ([**wsh\_shell\_history.h**](wsh__shell__history_8h.md))
 * **WshShellInteractive\_CmdHandler\_t** ([**wsh\_shell\_interact.h**](wsh__shell__interact_8h.md))
 * **WshShellIO\_InsertStringTemplate** ([**wsh\_shell\_io.c**](wsh__shell__io_8c.md))
+* **WSH\_SHELL\_PRINT\_t** ([**wsh\_shell\_io.h**](wsh__shell__io_8h.md))
 * **WSH\_SHELL\_OPTION\_TYPE\_t** ([**wsh\_shell\_option.h**](wsh__shell__option_8h.md))
 * **WshShell\_OptionTypeNames** ([**wsh\_shell\_option.h**](wsh__shell__option_8h.md))
 * **WshShellPromptWait\_Handler\_t** ([**wsh\_shell\_promptwait.h**](wsh__shell__promptwait_8h.md))

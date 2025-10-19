@@ -34,6 +34,11 @@ _Terminal input/output definitions and interaction buffer API for WshShell._ [Mo
 | struct | [**WshShellIO\_CommandLine\_t**](structWshShellIO__CommandLine__t.md) <br>_Structure representing the current user input interaction state._  |
 
 
+## Public Types
+
+| Type | Name |
+| ---: | :--- |
+| enum  | [**WSH\_SHELL\_PRINT\_t**](#enum-wsh_shell_print_t)  <br>_Shell print levels._  |
 
 
 
@@ -128,6 +133,7 @@ _Terminal input/output definitions and interaction buffer API for WshShell._ [Mo
 | define  | [**WSH\_SHELL\_ESC\_SEQ\_START\_STR**](wsh__shell__io_8h.md#define-wsh_shell_esc_seq_start_str)  `"\033"`<br> |
 | define  | [**WSH\_SHELL\_PRINT\_ERR**](wsh__shell__io_8h.md#define-wsh_shell_print_err) (\_f\_, ...) <br> |
 | define  | [**WSH\_SHELL\_PRINT\_INFO**](wsh__shell__io_8h.md#define-wsh_shell_print_info) (\_f\_, ...) <br> |
+| define  | [**WSH\_SHELL\_PRINT\_LEVEL**](wsh__shell__io_8h.md#define-wsh_shell_print_level) (\_level\_, \_f\_, ...) `/* multi line expression */`<br>_Generic macro for printing messages with a specific level._  |
 | define  | [**WSH\_SHELL\_PRINT\_SYS**](wsh__shell__io_8h.md#define-wsh_shell_print_sys) (\_f\_, ...) <br> |
 | define  | [**WSH\_SHELL\_PRINT\_WARN**](wsh__shell__io_8h.md#define-wsh_shell_print_warn) (\_f\_, ...) <br> |
 | define  | [**WSH\_SHELL\_SYM\_BACKSPACE**](wsh__shell__io_8h.md#define-wsh_shell_sym_backspace)  `'\b'`<br> |
@@ -170,6 +176,31 @@ Copyright (c) 2024
 
 
     
+## Public Types Documentation
+
+
+
+
+### enum WSH\_SHELL\_PRINT\_t 
+
+_Shell print levels._ 
+```C++
+enum WSH_SHELL_PRINT_t {
+    WSH_SHELL_PRINT_SYS,
+    WSH_SHELL_PRINT_INFO,
+    WSH_SHELL_PRINT_WARN,
+    WSH_SHELL_PRINT_ERR
+};
+```
+
+
+
+Defines the available message levels for shell output. Used to select which type of message (system, info, warning, error, ...) should be printed when calling [**WSH\_SHELL\_PRINT\_LEVEL()**](wsh__shell__io_8h.md#define-wsh_shell_print_level). 
+
+
+        
+
+<hr>
 ## Public Functions Documentation
 
 
@@ -826,6 +857,46 @@ Escape character as string
 
 
 
+
+<hr>
+
+
+
+### define WSH\_SHELL\_PRINT\_LEVEL 
+
+_Generic macro for printing messages with a specific level._ 
+```C++
+#define WSH_SHELL_PRINT_LEVEL (
+    _level_,
+    _f_,
+    ...
+) `/* multi line expression */`
+```
+
+
+
+Each specific print macro (e.g. WSH\_SHELL\_PRINT\_ERR) can be disabled at compile time using corresponding flags (`WSH_SHELL_PRINT_*_ENABLE`).
+
+
+
+
+**Parameters:**
+
+
+* `<em>level</em>` Print level (one of [**WSH\_SHELL\_PRINT\_t**](wsh__shell__io_8h.md#enum-wsh_shell_print_t)). 
+* `<em>f</em>` Format string (compatible with `printf`). 
+* `...` Additional arguments for the format string.
+
+
+```C++
+// Example usage:
+WSH_SHELL_PRINT_LEVEL(WSH_SHELL_PRINT_INFO, "Initialization complete\n");
+WSH_SHELL_PRINT_LEVEL(WSH_SHELL_PRINT_ERR, "Failed to open file: %s\n", filename);
+```
+ 
+
+
+        
 
 <hr>
 

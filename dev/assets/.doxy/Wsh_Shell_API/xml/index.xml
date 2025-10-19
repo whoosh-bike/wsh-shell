@@ -329,6 +329,12 @@
     <member refid="wsh__shell__io_8h_1a521887fb3abcf51e8749df33d663caa0" kind="define"><name>WSH_SHELL_PRINT_INFO</name></member>
     <member refid="wsh__shell__io_8h_1a00828fa25a32a5cdd57aee813831ba2f" kind="define"><name>WSH_SHELL_PRINT_WARN</name></member>
     <member refid="wsh__shell__io_8h_1ac8a3d68728e3ee4494b4c486fa9dd5ca" kind="define"><name>WSH_SHELL_PRINT_ERR</name></member>
+    <member refid="wsh__shell__io_8h_1a2daaef3d083678fcc639e383f55910e7" kind="define"><name>WSH_SHELL_PRINT_LEVEL</name></member>
+    <member refid="wsh__shell__io_8h_1aaa716dd3abd8eea0d420a40cb6b1f06f" kind="enum"><name>WSH_SHELL_PRINT_t</name></member>
+    <member refid="wsh__shell__io_8h_1aaa716dd3abd8eea0d420a40cb6b1f06fa8033fcf487eecf6b7e6f24b6c6604d9b" kind="enumvalue"><name>WSH_SHELL_PRINT_SYS</name></member>
+    <member refid="wsh__shell__io_8h_1aaa716dd3abd8eea0d420a40cb6b1f06fa7d599cdea6554d67a7710a83ea1d7472" kind="enumvalue"><name>WSH_SHELL_PRINT_INFO</name></member>
+    <member refid="wsh__shell__io_8h_1aaa716dd3abd8eea0d420a40cb6b1f06face447d48d1527de5a9ab6bb9418f1ba7" kind="enumvalue"><name>WSH_SHELL_PRINT_WARN</name></member>
+    <member refid="wsh__shell__io_8h_1aaa716dd3abd8eea0d420a40cb6b1f06fa71f76d75986ffbd400e4d94082f4b500" kind="enumvalue"><name>WSH_SHELL_PRINT_ERR</name></member>
     <member refid="wsh__shell__io_8h_1aec1f06269e94c4db764fd11b07a93600" kind="function"><name>WshShellIO_ClearInterBuff</name></member>
     <member refid="wsh__shell__io_8h_1a8941741c3a17fb54102de3772d6e9384" kind="function"><name>WshShellIO_WriteToInterBuff</name></member>
     <member refid="wsh__shell__io_8h_1a8d4e26bec84a173c570dcff0e646894c" kind="function"><name>WshShellIO_PrintInterBuff</name></member>
