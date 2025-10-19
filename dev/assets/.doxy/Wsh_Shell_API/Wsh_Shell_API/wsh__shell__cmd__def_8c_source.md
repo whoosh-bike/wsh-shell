@@ -187,7 +187,7 @@ static WSH_SHELL_RET_STATE_t WshShellCmdDef(const WshShellCmd_t* pcCmd, WshShell
             case WSH_SHELL_DEF_OPT_STR: {
                 WshShell_Char_t optStr[WSH_SHELL_INTR_BUFF_LEN];
                 WshShellCmd_GetOptValue(&optCtx, argc, pArgv, sizeof(optStr),
-                                        (WshShell_Size_t*)&optStr);
+                                        (WshShell_Size_t*)optStr);
                 WSH_SHELL_PRINT("Option (str): %s\r\n", optStr);
                 break;
             }

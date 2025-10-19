@@ -208,8 +208,7 @@ static void WshShell_StringHandler(WshShell_t* pShell) {
         }
 
         if (retState != WSH_SHELL_RET_STATE_SUCCESS) {
-            WSH_SHELL_PRINT_ERR("Command handler internal error: %s\r\n",
-                                WshShell_GetRetStateStr(retState));
+            WSH_SHELL_PRINT_ERR("WshShell ret state: %s\r\n", WshShell_GetRetStateStr(retState));
         }
     }
 
