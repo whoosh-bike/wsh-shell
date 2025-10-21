@@ -37,9 +37,10 @@ void WshShellInteract_AppendLineBreak(WshShellIO_CommandLine_t* pCommandLine) {
     WshShell_Size_t len    = pCommandLine->Len;
     WshShell_Size_t maxLen = sizeof(pCommandLine->Buff);
 
-    if (len + 2 < maxLen) {
+    if (len + 3 < maxLen) {
         pCommandLine->Buff[len++] = '\r';
         pCommandLine->Buff[len++] = '\n';
+        pCommandLine->Buff[len++] = '\0';
     } else {
         WSH_SHELL_PRINT_ERR("Command too long!");
     }
