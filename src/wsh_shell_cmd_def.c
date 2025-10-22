@@ -52,14 +52,13 @@ static void WshShell_CmdDefInteractive(WshShellIO_CommandLine_t* pInter) {
 
 static WSH_SHELL_RET_STATE_t WshShellCmdDef(const WshShellCmd_t* pcCmd, WshShell_Size_t argc,
                                             const WshShell_Char_t* pArgv[], void* pCtx) {
-    if ((argc > 0 && pArgv == NULL) || pcCmd == NULL)
+    if ((argc > 0 && !pArgv) || !pcCmd)
         return WSH_SHELL_RET_STATE_ERROR;
 
     WshShell_t* pParentShell       = (WshShell_t*)pCtx;
     WSH_SHELL_RET_STATE_t retState = WSH_SHELL_RET_STATE_SUCCESS;
 
-    WshShell_Size_t tokenPos = 0;
-    while (tokenPos < argc) {
+    for (WshShell_Size_t tokenPos = 0; tokenPos < argc;) {
         WshShellOption_Context_t optCtx = WshShellCmd_ParseOpt(pcCmd, argc, pArgv, &tokenPos);
         if (optCtx.Option == NULL) {
             retState = WSH_SHELL_RET_STATE_ERR_EMPTY;
@@ -67,20 +66,20 @@ static WSH_SHELL_RET_STATE_t WshShellCmdDef(const WshShellCmd_t* pcCmd, WshShell
         }
 
         switch (optCtx.Option->ID) {
-            case WSH_SHELL_DEF_OPT_DEF:
+            case WSH_SHELL_DEF_OPT_DEF: {
                 WSH_SHELL_PRINT("Ver: %s\r\n", pParentShell->Version);
                 WSH_SHELL_PRINT("Device name: %s\r\n", pParentShell->DeviceName);
                 WSH_SHELL_PRINT("User: %s\r\n", pParentShell->CurrUser->Login);
-                break;
+            } break;
 
-            case WSH_SHELL_DEF_OPT_HELP:
+            case WSH_SHELL_DEF_OPT_HELP: {
                 WshShellCmd_PrintOptionsOverview(pcCmd);
-                break;
+            } break;
 
-            case WSH_SHELL_DEF_OPT_INTERACT:
+            case WSH_SHELL_DEF_OPT_INTERACT: {
                 WshShellInteract_Attach(&(pParentShell->Interact), pcCmd->Name,
                                         WshShell_CmdDefInteractive);
-                break;
+            } break;
 
             case WSH_SHELL_DEF_OPT_EXEC: {
                 WSH_SHELL_PRINT("Availible commans:\r\n");
@@ -126,7 +125,7 @@ static WSH_SHELL_RET_STATE_t WshShellCmdDef(const WshShellCmd_t* pcCmd, WshShell
                 }
             } break;
 
-            case WSH_SHELL_DEF_OPT_USER:
+            case WSH_SHELL_DEF_OPT_USER: {
                 WSH_SHELL_PRINT("Availible users:\r\n");
 
                 const WshShell_Size_t loginMaxLen  = WSH_SHELL_LOGIN_LEN;
@@ -161,15 +160,15 @@ static WSH_SHELL_RET_STATE_t WshShellCmdDef(const WshShellCmd_t* pcCmd, WshShell
 
                     WSH_SHELL_PRINT(rowTemplate, pcTargetUser->Login, groupRow, rightsRow);
                 }
-                break;
+            } break;
 
-            case WSH_SHELL_DEF_OPT_CLS:
+            case WSH_SHELL_DEF_OPT_CLS: {
                 WSH_SHELL_PRINT(WSH_SHELL_ECS_CLR_SCREEN);
-                break;
+            } break;
 
-            case WSH_SHELL_DEF_OPT_HIST_CLEAR:
+            case WSH_SHELL_DEF_OPT_HIST_CLEAR: {
                 WshShellHistory_Flush(&(pParentShell->HistoryIO));
-                break;
+            } break;
 
             case WSH_SHELL_DEF_OPT_HIST_PRINT: {
                 WshShell_Char_t cmdBuff[WSH_SHELL_INTR_BUFF_LEN];
@@ -184,9 +183,9 @@ static WSH_SHELL_RET_STATE_t WshShellCmdDef(const WshShellCmd_t* pcCmd, WshShell
                 }
             } break;
 
-            case WSH_SHELL_DEF_OPT_DEAUTH:
+            case WSH_SHELL_DEF_OPT_DEAUTH: {
                 WshShell_DeAuth(pParentShell, "command");
-                break;
+            } break;
 
             case WSH_SHELL_DEF_OPT_STR: {
                 WshShell_Char_t optStr[WSH_SHELL_INTR_BUFF_LEN];
@@ -212,9 +211,9 @@ static WSH_SHELL_RET_STATE_t WshShellCmdDef(const WshShellCmd_t* pcCmd, WshShell
                 break;
             }
 
-            default:
+            default: {
                 retState = WSH_SHELL_RET_STATE_ERROR;
-                break;
+            } break;
         }
     }
 
