@@ -18,11 +18,13 @@ extern "C" {
 
 #include "wsh_shell_types.h"
 
-#define WSH_SHELL_OPT_ACCESS_NONE    0x00
+#define WSH_SHELL_OPT_ACCESS_NO      0x00
 #define WSH_SHELL_OPT_ACCESS_READ    0x01
 #define WSH_SHELL_OPT_ACCESS_WRITE   0x02
 #define WSH_SHELL_OPT_ACCESS_EXECUTE 0x04
-#define WSH_SHELL_OPT_ACCESS_ANY     ((WshShell_Size_t)(~0U))
+#define WSH_SHELL_OPT_ACCESS_ADMIN   0x08
+#define WSH_SHELL_OPT_ACCESS_ANY \
+    (WSH_SHELL_OPT_ACCESS_READ | WSH_SHELL_OPT_ACCESS_WRITE | WSH_SHELL_OPT_ACCESS_EXECUTE)
 
 #if WSH_SHELL_PRINT_OPT_HELP_ENABLE
     #define WSH_SHELL_OPT_DESCR(descr) descr
@@ -53,8 +55,8 @@ extern "C" {
 /**
  * @brief Define an option for entering interactive mode.
  */
-#define WSH_SHELL_OPT_INTERACT()                                                   \
-    WSH_SHELL_OPTION_INTERACT, WSH_SHELL_OPT_ACCESS_ANY, 0, "-i", "--interactive", \
+#define WSH_SHELL_OPT_INTERACT(acc)                             \
+    WSH_SHELL_OPTION_INTERACT, (acc), 0, "-i", "--interactive", \
         WSH_SHELL_OPT_DESCR("Run command in interactive mode")
 
 /**
@@ -178,7 +180,7 @@ typedef struct {
 } WshShellOption_t;
 
 /**
- * @struct WshShellOption_Context_t
+ * @struct WshShellOption_Ctx_t
  * @brief Option usage context during parsing.
  *
  * Used internally to reference which token matched which option.
@@ -186,7 +188,7 @@ typedef struct {
 typedef struct {
     const WshShellOption_t* Option; /**< Pointer to matched option. */
     WshShell_Size_t TokenPos;       /**< Position of the matching token in command line. */
-} WshShellOption_Context_t;
+} WshShellOption_Ctx_t;
 
 #ifdef __cplusplus
 }

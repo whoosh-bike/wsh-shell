@@ -28,15 +28,17 @@ struct WshShellCmd;
 /**
  * @brief Function pointer type for shell command execution.
  *
- * @param[in] pcCmd   Pointer to the command descriptor.
- * @param[in] argc   Number of command-line arguments.
- * @param[in] pArgv  Array of argument strings.
+ * @param[in] pcCmd     Pointer to the command descriptor.
+ * @param[in] argc      Number of command-line arguments.
+ * @param[in] pArgv     Array of argument strings.
+ * @param[in] pShellCtx Parent shell context.
  *
  * @return Command execution result (success, error, etc.).
  */
 typedef WSH_SHELL_RET_STATE_t (*WshShellCmdHandler_t)(const struct WshShellCmd* pcCmd,
                                                       WshShell_Size_t argc,
-                                                      const WshShell_Char_t* pArgv[], void* pCtx);
+                                                      const WshShell_Char_t* pArgv[],
+                                                      void* pShellCtx);
 
 /**
  * @brief Descriptor for a shell command.
@@ -121,18 +123,19 @@ const WshShellCmd_t* WshShellCmd_SearchCmd(WshShellCmd_Table_t* pShellCommands,
  * for an option of type `WSH_SHELL_OPTION_NO` (indicating the command may be
  * executed without any parameters).
  *
- * @param[in]  pcCmd       Pointer to the shell command definition.
- * @param[in]  argc       Number of arguments in the input array.
- * @param[in]  pArgv      Array of argument strings.
- * @param[in,out] pTokenPos Pointer to the current token position in `pArgv`.
- *                          Will be updated to point past the parsed option.
+ * @param[in]       pcCmd      Pointer to the shell command definition.
+ * @param[in]       argc       Number of arguments in the input array.
+ * @param[in]       pArgv      Array of argument strings.
+ * @param[in]       pArgv      User rights bitmask for access check.
+ * @param[in,out]   pTokenPos  Pointer to the current token position in `pArgv`.
+ *                             Will be updated to point past the parsed option.
  *
  * @return A filled option descriptor if a matching option is found,
  *         or an empty descriptor if not.
  */
-WshShellOption_Context_t WshShellCmd_ParseOpt(const WshShellCmd_t* pcCmd, WshShell_Size_t argc,
-                                              const WshShell_Char_t* pArgv[],
-                                              WshShell_Size_t* pTokenPos);
+WshShellOption_Ctx_t WshShellCmd_ParseOpt(const WshShellCmd_t* pcCmd, WshShell_Size_t argc,
+                                          const WshShell_Char_t* pArgv[], WshShell_Size_t rights,
+                                          WshShell_Size_t* pTokenPos);
 
 /**
  * @brief Retrieves the value associated with a parsed command option.
@@ -157,8 +160,8 @@ WshShellOption_Context_t WshShellCmd_ParseOpt(const WshShellCmd_t* pcCmd, WshShe
  * @return WSH_SHELL_RET_STATE_ERR_EMPTY   if the option doesn't accept a value,
  * @return WSH_SHELL_RET_STATE_ERR_OVERFLOW if argument list is too short.
  */
-WSH_SHELL_RET_STATE_t WshShellCmd_GetOptValue(WshShellOption_Context_t* pOptCtx,
-                                              WshShell_Size_t argc, const WshShell_Char_t* pArgv[],
+WSH_SHELL_RET_STATE_t WshShellCmd_GetOptValue(WshShellOption_Ctx_t* pOptCtx, WshShell_Size_t argc,
+                                              const WshShell_Char_t* pArgv[],
                                               WshShell_Size_t valueSize, void* pValue);
 
 /**

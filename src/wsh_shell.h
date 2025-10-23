@@ -81,7 +81,7 @@ typedef struct {
 typedef struct {
     WshShell_Char_t Login[WSH_SHELL_LOGIN_LEN]; /**< Input buffer for username. */
     WshShell_Char_t Pass[WSH_SHELL_PASS_LEN];   /**< Input buffer for password. */
-} WshShell_AuthContext_t;
+} WshShell_AuthCtx_t;
 
 /**
  * @brief Main shell structure containing state, configuration, user context, and subsystems.
@@ -94,7 +94,7 @@ typedef struct {
 
     WshShellIO_CommandLine_t CommandLine; /**< Terminal input/output interface. */
     const WshShellUser_t* CurrUser;       /**< Currently authenticated user. */
-    WshShell_AuthContext_t TmpAuth;       /**< Temporary auth input storage. */
+    WshShell_AuthCtx_t TmpAuth;           /**< Temporary auth input storage. */
     WshShellEsc_Storage_t EscStorage;     /**< Escape sequence state storage. */
 
     WshShellUser_Table_t Users;   /**< Table of available users. */

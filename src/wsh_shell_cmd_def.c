@@ -1,6 +1,12 @@
 #include "wsh_shell_cmd_def.h"
 #include "wsh_shell.h"
 
+#define X_ENTRY(name, value) value,
+static const WSH_SHELL_CMD_GROUP_t WshShell_CmdGroups[] = {WSH_SHELL_CMD_GROUP_LIST};
+#undef X_ENTRY
+
+#define WSH_SHELL_CMD_GROUP_COUNT (WSH_SHELL_ARR_LEN(WshShell_CmdGroups))
+
 #if WSH_SHELL_DEF_COMMAND
 
 /**
@@ -15,16 +21,16 @@
 #define WSH_SHELL_CMD_DEF_OPT_TABLE() \
     X_CMD_ENTRY(WSH_SHELL_DEF_OPT_DEF, WSH_SHELL_OPT_NO(WSH_SHELL_OPT_ACCESS_ANY, "Print basic info about shell instance")) \
     X_CMD_ENTRY(WSH_SHELL_DEF_OPT_HELP, WSH_SHELL_OPT_HELP()) \
-    X_CMD_ENTRY(WSH_SHELL_DEF_OPT_INTERACT, WSH_SHELL_OPT_INTERACT()) \
-    X_CMD_ENTRY(WSH_SHELL_DEF_OPT_EXEC, WSH_SHELL_OPT_WO_PARAM(WSH_SHELL_OPT_ACCESS_ANY, "-x", "--exec", "Get info about accessible commands")) \
-    X_CMD_ENTRY(WSH_SHELL_DEF_OPT_USER, WSH_SHELL_OPT_WO_PARAM(WSH_SHELL_OPT_ACCESS_ANY, "-u", "--user", "Get info about users")) \
-    X_CMD_ENTRY(WSH_SHELL_DEF_OPT_CLS, WSH_SHELL_OPT_WO_PARAM(WSH_SHELL_OPT_ACCESS_ANY, "-c", "--cls", "Clear screen")) \
-    X_CMD_ENTRY(WSH_SHELL_DEF_OPT_HIST_CLEAR, WSH_SHELL_OPT_WO_PARAM(WSH_SHELL_OPT_ACCESS_ANY, "-r", "--histrst", "Reset history storage")) \
-    X_CMD_ENTRY(WSH_SHELL_DEF_OPT_HIST_PRINT, WSH_SHELL_OPT_WO_PARAM(WSH_SHELL_OPT_ACCESS_ANY, "-p", "--histprint", "Print history storage")) \
+    X_CMD_ENTRY(WSH_SHELL_DEF_OPT_INTERACT, WSH_SHELL_OPT_INTERACT(WSH_SHELL_OPT_ACCESS_ANY)) \
+    X_CMD_ENTRY(WSH_SHELL_DEF_OPT_EXEC, WSH_SHELL_OPT_WO_PARAM(WSH_SHELL_OPT_ACCESS_READ, "-x", "--exec", "Get info about accessible commands")) \
+    X_CMD_ENTRY(WSH_SHELL_DEF_OPT_USER, WSH_SHELL_OPT_WO_PARAM(WSH_SHELL_OPT_ACCESS_READ, "-u", "--user", "Get info about users")) \
+    X_CMD_ENTRY(WSH_SHELL_DEF_OPT_CLS, WSH_SHELL_OPT_WO_PARAM(WSH_SHELL_OPT_ACCESS_EXECUTE, "-c", "--cls", "Clear screen")) \
+    X_CMD_ENTRY(WSH_SHELL_DEF_OPT_HIST_CLEAR, WSH_SHELL_OPT_WO_PARAM(WSH_SHELL_OPT_ACCESS_WRITE, "-r", "--histrst", "Reset history storage")) \
+    X_CMD_ENTRY(WSH_SHELL_DEF_OPT_HIST_PRINT, WSH_SHELL_OPT_WO_PARAM(WSH_SHELL_OPT_ACCESS_READ, "-p", "--histprint", "Print history storage")) \
     X_CMD_ENTRY(WSH_SHELL_DEF_OPT_DEAUTH, WSH_SHELL_OPT_WO_PARAM(WSH_SHELL_OPT_ACCESS_ANY, "-d", "--deauth", "DeAuth and destroy history")) \
-    X_CMD_ENTRY(WSH_SHELL_DEF_OPT_STR, WSH_SHELL_OPT_STR(WSH_SHELL_OPT_ACCESS_ANY, "-s", "--str", "Set string")) \
-    X_CMD_ENTRY(WSH_SHELL_DEF_OPT_INT, WSH_SHELL_OPT_INT(WSH_SHELL_OPT_ACCESS_ANY, "-n", "--int", "Set int")) \
-    X_CMD_ENTRY(WSH_SHELL_DEF_OPT_FLT, WSH_SHELL_OPT_FLOAT(WSH_SHELL_OPT_ACCESS_ANY, "-f", "--flt", "Set float")) \
+    X_CMD_ENTRY(WSH_SHELL_DEF_OPT_STR, WSH_SHELL_OPT_STR(WSH_SHELL_OPT_ACCESS_EXECUTE, "-s", "--str", "Set string")) \
+    X_CMD_ENTRY(WSH_SHELL_DEF_OPT_INT, WSH_SHELL_OPT_INT(WSH_SHELL_OPT_ACCESS_EXECUTE, "-n", "--int", "Set int")) \
+    X_CMD_ENTRY(WSH_SHELL_DEF_OPT_FLT, WSH_SHELL_OPT_FLOAT(WSH_SHELL_OPT_ACCESS_ADMIN, "-f", "--flt", "Set float")) \
     X_CMD_ENTRY(WSH_SHELL_DEF_OPT_END, WSH_SHELL_OPT_END())
 /* clang-format on */
 
@@ -51,19 +57,18 @@ static void WshShell_CmdDefInteractive(WshShellIO_CommandLine_t* pInter) {
 }
 
 static WSH_SHELL_RET_STATE_t WshShellCmdDef(const WshShellCmd_t* pcCmd, WshShell_Size_t argc,
-                                            const WshShell_Char_t* pArgv[], void* pCtx) {
+                                            const WshShell_Char_t* pArgv[], void* pShellCtx) {
     if ((argc > 0 && !pArgv) || !pcCmd)
         return WSH_SHELL_RET_STATE_ERROR;
 
-    WshShell_t* pParentShell       = (WshShell_t*)pCtx;
+    WshShell_t* pParentShell       = (WshShell_t*)pShellCtx;
     WSH_SHELL_RET_STATE_t retState = WSH_SHELL_RET_STATE_SUCCESS;
 
     for (WshShell_Size_t tokenPos = 0; tokenPos < argc;) {
-        WshShellOption_Context_t optCtx = WshShellCmd_ParseOpt(pcCmd, argc, pArgv, &tokenPos);
-        if (optCtx.Option == NULL) {
-            retState = WSH_SHELL_RET_STATE_ERR_EMPTY;
-            break;
-        }
+        WshShellOption_Ctx_t optCtx =
+            WshShellCmd_ParseOpt(pcCmd, argc, pArgv, pParentShell->CurrUser->Rights, &tokenPos);
+        if (!optCtx.Option)
+            return WSH_SHELL_RET_STATE_ERR_EMPTY;
 
         switch (optCtx.Option->ID) {
             case WSH_SHELL_DEF_OPT_DEF: {
@@ -86,7 +91,7 @@ static WSH_SHELL_RET_STATE_t WshShellCmdDef(const WshShellCmd_t* pcCmd, WshShell
 
                 const WshShell_Size_t cmdMaxLen   = WSH_SHELL_CMD_NAME_LEN;
                 const WshShell_Size_t optMaxLen   = 5;
-                const WshShell_Size_t groupMaxLen = WSH_SHELL_CMD_GROUP_MAX_COUNT + 3;
+                const WshShell_Size_t groupMaxLen = WSH_SHELL_CMD_GROUP_COUNT + 3;
 
                 WshShell_Char_t headTemplate[64];
                 WSH_SHELL_SNPRINTF(headTemplate, sizeof(headTemplate),
@@ -103,8 +108,9 @@ static WSH_SHELL_RET_STATE_t WshShellCmdDef(const WshShellCmd_t* pcCmd, WshShell
 
                 const WshShellCmd_t* pcDefCmd = WshShellDefCmd_GetPtr();
                 if (pcDefCmd != NULL) {
-                    WshShell_Char_t groupRow[16];
-                    WshShellStr_GroupBitsToStr(pcDefCmd->Groups, groupRow);
+                    WshShell_Char_t groupRow[WSH_SHELL_CMD_GROUP_COUNT + 1];
+                    WshShellStr_GroupBitsToStr(pcDefCmd->Groups, WSH_SHELL_CMD_GROUP_COUNT,
+                                               groupRow);
                     WSH_SHELL_PRINT(rowTemplate, pcDefCmd->Name, pcDefCmd->OptNum - 1, groupRow,
                                     pcDefCmd->Descr);
                 }
@@ -117,8 +123,9 @@ static WSH_SHELL_RET_STATE_t WshShellCmdDef(const WshShellCmd_t* pcCmd, WshShell
                     if (pcTargetCmd == NULL)
                         continue;
 
-                    WshShell_Char_t groupRow[16];
-                    WshShellStr_GroupBitsToStr(pcTargetCmd->Groups, groupRow);
+                    WshShell_Char_t groupRow[WSH_SHELL_CMD_GROUP_COUNT + 1];
+                    WshShellStr_GroupBitsToStr(pcTargetCmd->Groups, WSH_SHELL_CMD_GROUP_COUNT,
+                                               groupRow);
 
                     WSH_SHELL_PRINT(rowTemplate, pcTargetCmd->Name, pcTargetCmd->OptNum - 1,
                                     groupRow, pcTargetCmd->Descr);
@@ -129,7 +136,7 @@ static WSH_SHELL_RET_STATE_t WshShellCmdDef(const WshShellCmd_t* pcCmd, WshShell
                 WSH_SHELL_PRINT("Availible users:\r\n");
 
                 const WshShell_Size_t loginMaxLen  = WSH_SHELL_LOGIN_LEN;
-                const WshShell_Size_t groupMaxLen  = WSH_SHELL_CMD_GROUP_MAX_COUNT + 3;
+                const WshShell_Size_t groupMaxLen  = WSH_SHELL_CMD_GROUP_COUNT + 3;
                 const WshShell_Size_t rightsMaxLen = 6;
 
                 WshShell_Char_t headTemplate[64];
@@ -152,10 +159,11 @@ static WSH_SHELL_RET_STATE_t WshShellCmdDef(const WshShellCmd_t* pcCmd, WshShell
                     if (pcTargetUser == NULL)
                         continue;
 
-                    WshShell_Char_t groupRow[16];
-                    WshShellStr_GroupBitsToStr(pcTargetUser->Groups, groupRow);
+                    WshShell_Char_t groupRow[WSH_SHELL_CMD_GROUP_COUNT + 1];
+                    WshShellStr_GroupBitsToStr(pcTargetUser->Groups, WSH_SHELL_CMD_GROUP_COUNT,
+                                               groupRow);
 
-                    WshShell_Char_t rightsRow[16];
+                    WshShell_Char_t rightsRow[5];
                     WshShellStr_AccessBitsToStr(pcTargetUser->Rights, rightsRow);
 
                     WSH_SHELL_PRINT(rowTemplate, pcTargetUser->Login, groupRow, rightsRow);
@@ -232,7 +240,7 @@ static const WshShellCmd_t WshShellDefCmd = {
 #else /* WSH_SHELL_DEF_COMMAND */
 
 WSH_SHELL_RET_STATE_t WshShellCmdDef_Dummy(const WshShellCmd_t* pcCmd, WshShell_Size_t argc,
-                                           const WshShell_Char_t* pArgv[], void* pCtx) {
+                                           const WshShell_Char_t* pArgv[], void* pShellCtx) {
     return WSH_SHELL_RET_STATE_ERR_EMPTY;
 }
 

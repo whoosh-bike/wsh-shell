@@ -189,24 +189,27 @@ static void WshShell_StringHandler(WshShell_t* pShell) {
         } else if ((pShell->CurrUser->Groups & pcCmd->Groups) != 0) {
             cmdHandler = pcCmd->Handler;
         } else {
-            WSH_SHELL_PRINT_WARN("Access denied for command \"%s\"\r\n", pсArgv[0]);
+            WSH_SHELL_PRINT_ERR(
+                "Access denied: no group intersection for command \"%s\" and user \"%s\"!\r\n",
+                pсArgv[0], pShell->CurrUser->Login);
+            return;
         }
     }
 
     if (cmdHandler) {
         WSH_SHELL_RET_STATE_t retState = cmdHandler(pcCmd, argc, pсArgv, pShell);
 
-        if (WSH_SHELL_INTER_CMD_EXISTS()) {
-            WshShell_PS1Data_t data = {
-                .UserName     = pShell->CurrUser->Login,
-                .DevName      = pShell->DeviceName,
-                .InterCmdName = pShell->Interact.CmdName,
-            };
-            WshShell_GeneratePS1(pShell->PS1, &data);
-        }
-
         if (retState != WSH_SHELL_RET_STATE_SUCCESS) {
-            WSH_SHELL_PRINT_ERR("WshShell ret state: %s\r\n", WshShell_GetRetStateStr(retState));
+            WSH_SHELL_PRINT_ERR("Command execution: %s\r\n", WshShell_GetRetStateStr(retState));
+        } else {
+            if (WSH_SHELL_INTER_CMD_EXISTS()) {
+                WshShell_PS1Data_t data = {
+                    .UserName     = pShell->CurrUser->Login,
+                    .DevName      = pShell->DeviceName,
+                    .InterCmdName = pShell->Interact.CmdName,
+                };
+                WshShell_GeneratePS1(pShell->PS1, &data);
+            }
         }
     }
 

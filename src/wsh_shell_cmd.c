@@ -94,11 +94,12 @@ static const WshShellOption_t* WshShellCmd_FindOpt(const WshShellCmd_t* pcCmd,
     return pcWaitsInputOpt;
 }
 
-WshShellOption_Context_t WshShellCmd_ParseOpt(const WshShellCmd_t* pcCmd, WshShell_Size_t argc,
-                                              const WshShell_Char_t* pArgv[],
-                                              WshShell_Size_t* pTokenPos) {
+WshShellOption_Ctx_t WshShellCmd_ParseOpt(const WshShellCmd_t* pcCmd, WshShell_Size_t argc,
+                                          const WshShell_Char_t* pArgv[], WshShell_Size_t rights,
+                                          WshShell_Size_t* pTokenPos) {
     WSH_SHELL_ASSERT(pcCmd && pArgv && argc > 0 && pTokenPos);
-    WshShellOption_Context_t optCtx = {0};
+
+    WshShellOption_Ctx_t optCtx = {0};
     if (!pcCmd || !pArgv || argc == 0 || !pTokenPos || *pTokenPos >= argc)
         return optCtx;
 
@@ -118,11 +119,27 @@ WshShellOption_Context_t WshShellCmd_ParseOpt(const WshShellCmd_t* pcCmd, WshShe
     if (*pTokenPos == 0)  // Skip command token if not yet skipped
         (*pTokenPos)++;
 
-    const WshShell_Char_t* pcStr  = pArgv[*pTokenPos];
-    WshShell_Size_t strLen        = WSH_SHELL_STRLEN(pcStr);
-    const WshShellOption_t* pcOpt = WshShellCmd_FindOpt(pcCmd, pcStr, strLen);
+    while (*pTokenPos < argc) {
+        const WshShell_Char_t* pcStr  = pArgv[*pTokenPos];
+        WshShell_Size_t strLen        = WSH_SHELL_STRLEN(pcStr);
+        const WshShellOption_t* pcOpt = WshShellCmd_FindOpt(pcCmd, pcStr, strLen);
+        if (!pcOpt) {
+            (*pTokenPos)++;
+            continue;
+        }
 
-    if (pcOpt) {
+        if (((pcOpt->Access & rights) == 0) && !(rights & WSH_SHELL_OPT_ACCESS_ADMIN)) {
+            WshShell_Char_t optRightsRow[5];
+            WshShell_Char_t usrRightsRow[5];
+            WshShellStr_AccessBitsToStr(pcOpt->Access, optRightsRow);
+            WshShellStr_AccessBitsToStr(rights, usrRightsRow);
+            WSH_SHELL_PRINT_ERR("No access rights for option \"%s\" (%s) and user (%s)\r\n", pcStr,
+                                optRightsRow, usrRightsRow);
+            *pTokenPos += pcOpt->ArgNum;
+            (*pTokenPos)++;
+            continue;
+        }
+
         optCtx.Option   = pcOpt;
         optCtx.TokenPos = *pTokenPos;
 
@@ -132,14 +149,16 @@ WshShellOption_Context_t WshShellCmd_ParseOpt(const WshShellCmd_t* pcCmd, WshShe
         } else {
             *pTokenPos += pcOpt->ArgNum;
         }
+
+        (*pTokenPos)++;
+        break;
     }
 
-    (*pTokenPos)++;
     return optCtx;
 }
 
-WSH_SHELL_RET_STATE_t WshShellCmd_GetOptValue(WshShellOption_Context_t* pOptCtx,
-                                              WshShell_Size_t argc, const WshShell_Char_t* pArgv[],
+WSH_SHELL_RET_STATE_t WshShellCmd_GetOptValue(WshShellOption_Ctx_t* pOptCtx, WshShell_Size_t argc,
+                                              const WshShell_Char_t* pArgv[],
                                               WshShell_Size_t valueSize, void* pValue) {
     WSH_SHELL_ASSERT(pOptCtx && pOptCtx->Option && pArgv && pValue && valueSize);
     if (!pOptCtx || !pOptCtx->Option || !pArgv || !pValue || valueSize == 0)
