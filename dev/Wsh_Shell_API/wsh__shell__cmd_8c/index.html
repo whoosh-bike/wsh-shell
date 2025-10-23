@@ -2197,11 +2197,11 @@
 </tr>
 <tr>
 <td style="text-align: right;">WSH_SHELL_RET_STATE_t</td>
-<td style="text-align: left;"><a href="#function-wshshellcmd_getoptvalue"><strong>WshShellCmd_GetOptValue</strong></a> (<a href="../structWshShellOption__Context__t/"><strong>WshShellOption_Context_t</strong></a> * pOptCtx, WshShell_Size_t argc, const WshShell_Char_t * pArgv, WshShell_Size_t valueSize, void * pValue) <br><em>Retrieves the value associated with a parsed command option.</em></td>
+<td style="text-align: left;"><a href="#function-wshshellcmd_getoptvalue"><strong>WshShellCmd_GetOptValue</strong></a> (<a href="../structWshShellOption__Ctx__t/"><strong>WshShellOption_Ctx_t</strong></a> * pOptCtx, WshShell_Size_t argc, const WshShell_Char_t * pArgv, WshShell_Size_t valueSize, void * pValue) <br><em>Retrieves the value associated with a parsed command option.</em></td>
 </tr>
 <tr>
-<td style="text-align: right;"><a href="../structWshShellOption__Context__t/"><strong>WshShellOption_Context_t</strong></a></td>
-<td style="text-align: left;"><a href="#function-wshshellcmd_parseopt"><strong>WshShellCmd_ParseOpt</strong></a> (const <a href="../wsh__shell__cmd_8h/#typedef-wshshellcmd_t"><strong>WshShellCmd_t</strong></a> * pcCmd, WshShell_Size_t argc, const WshShell_Char_t * pArgv, WshShell_Size_t * pTokenPos) <br><em>Parses a command-line option for a given shell command.</em></td>
+<td style="text-align: right;"><a href="../structWshShellOption__Ctx__t/"><strong>WshShellOption_Ctx_t</strong></a></td>
+<td style="text-align: left;"><a href="#function-wshshellcmd_parseopt"><strong>WshShellCmd_ParseOpt</strong></a> (const <a href="../wsh__shell__cmd_8h/#typedef-wshshellcmd_t"><strong>WshShellCmd_t</strong></a> * pcCmd, WshShell_Size_t argc, const WshShell_Char_t * pArgv, WshShell_Size_t rights, WshShell_Size_t * pTokenPos) <br><em>Parses a command-line option for a given shell command.</em></td>
 </tr>
 <tr>
 <td style="text-align: right;">void</td>
@@ -2309,7 +2309,7 @@
 <span class="normal"><a href="#__codelineno-4-5">5</a></span>
 <span class="normal"><a href="#__codelineno-4-6">6</a></span>
 <span class="normal"><a href="#__codelineno-4-7">7</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1"></a><span class="n">WSH_SHELL_RET_STATE_t</span><span class="w"> </span><span class="n">WshShellCmd_GetOptValue</span><span class="w"> </span><span class="p">(</span>
-</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2"></a><span class="w">    </span><span class="n">WshShellOption_Context_t</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">pOptCtx</span><span class="p">,</span>
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2"></a><span class="w">    </span><span class="n">WshShellOption_Ctx_t</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">pOptCtx</span><span class="p">,</span>
 </span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3"></a><span class="w">    </span><span class="n">WshShell_Size_t</span><span class="w"> </span><span class="n">argc</span><span class="p">,</span>
 </span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4"></a><span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="n">WshShell_Char_t</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">pArgv</span><span class="p">,</span>
 </span><span id="__span-4-5"><a id="__codelineno-4-5" name="__codelineno-4-5"></a><span class="w">    </span><span class="n">WshShell_Size_t</span><span class="w"> </span><span class="n">valueSize</span><span class="p">,</span>
@@ -2346,12 +2346,14 @@
 <span class="normal"><a href="#__codelineno-5-3">3</a></span>
 <span class="normal"><a href="#__codelineno-5-4">4</a></span>
 <span class="normal"><a href="#__codelineno-5-5">5</a></span>
-<span class="normal"><a href="#__codelineno-5-6">6</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1"></a><span class="n">WshShellOption_Context_t</span><span class="w"> </span><span class="n">WshShellCmd_ParseOpt</span><span class="w"> </span><span class="p">(</span>
+<span class="normal"><a href="#__codelineno-5-6">6</a></span>
+<span class="normal"><a href="#__codelineno-5-7">7</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1"></a><span class="n">WshShellOption_Ctx_t</span><span class="w"> </span><span class="n">WshShellCmd_ParseOpt</span><span class="w"> </span><span class="p">(</span>
 </span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2"></a><span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="n">WshShellCmd_t</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">pcCmd</span><span class="p">,</span>
 </span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3"></a><span class="w">    </span><span class="n">WshShell_Size_t</span><span class="w"> </span><span class="n">argc</span><span class="p">,</span>
 </span><span id="__span-5-4"><a id="__codelineno-5-4" name="__codelineno-5-4"></a><span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="n">WshShell_Char_t</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">pArgv</span><span class="p">,</span>
-</span><span id="__span-5-5"><a id="__codelineno-5-5" name="__codelineno-5-5"></a><span class="w">    </span><span class="n">WshShell_Size_t</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">pTokenPos</span>
-</span><span id="__span-5-6"><a id="__codelineno-5-6" name="__codelineno-5-6"></a><span class="p">)</span><span class="w"> </span>
+</span><span id="__span-5-5"><a id="__codelineno-5-5" name="__codelineno-5-5"></a><span class="w">    </span><span class="n">WshShell_Size_t</span><span class="w"> </span><span class="n">rights</span><span class="p">,</span>
+</span><span id="__span-5-6"><a id="__codelineno-5-6" name="__codelineno-5-6"></a><span class="w">    </span><span class="n">WshShell_Size_t</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">pTokenPos</span>
+</span><span id="__span-5-7"><a id="__codelineno-5-7" name="__codelineno-5-7"></a><span class="p">)</span><span class="w"> </span>
 </span></code></pre></div></td></tr></table></div></p>
 <p>This function analyzes the current token in the argument list and attempts to identify a valid option defined in the given command's option table. If a valid option is found, its descriptor is returned. The token position (<code>*pTokenPos</code>) is advanced accordingly depending on the number of arguments that the option consumes.</p>
 <p>If only the command name is present (i.e., <code>argc == 1</code>), the function checks for an option of type <code>WSH_SHELL_OPTION_NO</code> (indicating the command may be executed without any parameters).</p>
@@ -2360,6 +2362,7 @@
 <li><code>pcCmd</code> Pointer to the shell command definition. </li>
 <li><code>argc</code> Number of arguments in the input array. </li>
 <li><code>pArgv</code> Array of argument strings. </li>
+<li><code>pArgv</code> User rights bitmask for access check. </li>
 <li><code>pTokenPos</code> Pointer to the current token position in <code>pArgv</code>. Will be updated to point past the parsed option.</li>
 </ul>
 <p><strong>Returns:</strong></p>

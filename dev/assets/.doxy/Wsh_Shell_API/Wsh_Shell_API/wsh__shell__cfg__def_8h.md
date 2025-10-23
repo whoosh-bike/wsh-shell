@@ -28,6 +28,11 @@
 
 
 
+## Public Types
+
+| Type | Name |
+| ---: | :--- |
+| enum  | [**WSH\_SHELL\_CMD\_GROUP\_t**](#enum-wsh_shell_cmd_group_t)  <br> |
 
 
 
@@ -90,11 +95,8 @@
 | define  | [**WSH\_SHELL\_AUTOCOMPLETE\_PAD\_LEN**](wsh__shell__cfg__def_8h.md#define-wsh_shell_autocomplete_pad_len)  `32`<br> |
 | define  | [**WSH\_SHELL\_AUTOCOMPLETE\_PAD\_SYM**](wsh__shell__cfg__def_8h.md#define-wsh_shell_autocomplete_pad_sym)  `'.'`<br> |
 | define  | [**WSH\_SHELL\_CMD\_ARGS\_MAX\_NUM**](wsh__shell__cfg__def_8h.md#define-wsh_shell_cmd_args_max_num)  `16`<br> |
-| define  | [**WSH\_SHELL\_CMD\_GROUP\_ADMIN**](wsh__shell__cfg__def_8h.md#define-wsh_shell_cmd_group_admin)  `0x01`<br> |
 | define  | [**WSH\_SHELL\_CMD\_GROUP\_ALL**](wsh__shell__cfg__def_8h.md#define-wsh_shell_cmd_group_all)  `((WshShell\_Size\_t)(~0U))`<br> |
-| define  | [**WSH\_SHELL\_CMD\_GROUP\_MAX\_COUNT**](wsh__shell__cfg__def_8h.md#define-wsh_shell_cmd_group_max_count)  `4`<br> |
-| define  | [**WSH\_SHELL\_CMD\_GROUP\_NONE**](wsh__shell__cfg__def_8h.md#define-wsh_shell_cmd_group_none)  `0x00`<br> |
-| define  | [**WSH\_SHELL\_CMD\_GROUP\_READER**](wsh__shell__cfg__def_8h.md#define-wsh_shell_cmd_group_reader)  `0x02`<br> |
+| define  | [**WSH\_SHELL\_CMD\_GROUP\_LIST**](wsh__shell__cfg__def_8h.md#define-wsh_shell_cmd_group_list)  `/* multi line expression */`<br> |
 | define  | [**WSH\_SHELL\_CMD\_NAME\_LEN**](wsh__shell__cfg__def_8h.md#define-wsh_shell_cmd_name_len)  `16`<br> |
 | define  | [**WSH\_SHELL\_CMD\_OPTIONS\_MAX\_NUM**](wsh__shell__cfg__def_8h.md#define-wsh_shell_cmd_options_max_num)  `16`<br> |
 | define  | [**WSH\_SHELL\_CMD\_PRINT\_OPT\_OVERVIEW**](wsh__shell__cfg__def_8h.md#define-wsh_shell_cmd_print_opt_overview)  `1`<br> |
@@ -135,12 +137,26 @@
 | define  | [**WSH\_SHELL\_STRTOF**](wsh__shell__cfg__def_8h.md#define-wsh_shell_strtof) (pN, pE) `strtof((pN), (pE))`<br> |
 | define  | [**WSH\_SHELL\_STRTOL**](wsh__shell__cfg__def_8h.md#define-wsh_shell_strtol) (pS, pE, radix) `strtol((pS), (pE), (radix))`<br> |
 | define  | [**WSH\_SHELL\_TARGET\_OS**](wsh__shell__cfg__def_8h.md#define-wsh_shell_target_os)  `"Bare-metal"`<br> |
-| define  | [**WSH\_SHELL\_USER\_ACCESS\_ADMIN**](wsh__shell__cfg__def_8h.md#define-wsh_shell_user_access_admin)  `(WSH\_SHELL\_OPT\_ACCESS\_ANY)`<br> |
-| define  | [**WSH\_SHELL\_USER\_ACCESS\_READER**](wsh__shell__cfg__def_8h.md#define-wsh_shell_user_access_reader)  `(WSH\_SHELL\_OPT\_ACCESS\_ANY)`<br> |
-| define  | [**WSH\_SHELL\_USER\_GROUP\_ADMIN**](wsh__shell__cfg__def_8h.md#define-wsh_shell_user_group_admin)  `(WSH\_SHELL\_CMD\_GROUP\_ALL)`<br> |
-| define  | [**WSH\_SHELL\_USER\_GROUP\_READER**](wsh__shell__cfg__def_8h.md#define-wsh_shell_user_group_reader)  `(WSH\_SHELL\_CMD\_GROUP\_READER)`<br> |
+| define  | [**X\_ENTRY**](wsh__shell__cfg__def_8h.md#define-x_entry) (name, value) `name = value,`<br> |
 | define  | [**X\_MAP\_ENTRY**](wsh__shell__cfg__def_8h.md#define-x_map_entry) (proj, shell) `/* multi line expression */`<br> |
 
+## Public Types Documentation
+
+
+
+
+### enum WSH\_SHELL\_CMD\_GROUP\_t 
+
+```C++
+enum WSH_SHELL_CMD_GROUP_t {
+    WSH_SHELL_CMD_GROUP_LIST
+};
+```
+
+
+
+
+<hr>
 ## Public Static Functions Documentation
 
 
@@ -246,19 +262,6 @@ static inline bool WshShellRetState_TranslateToProject (
 
 
 
-### define WSH\_SHELL\_CMD\_GROUP\_ADMIN 
-
-```C++
-#define WSH_SHELL_CMD_GROUP_ADMIN `0x01`
-```
-
-
-
-
-<hr>
-
-
-
 ### define WSH\_SHELL\_CMD\_GROUP\_ALL 
 
 ```C++
@@ -272,36 +275,10 @@ static inline bool WshShellRetState_TranslateToProject (
 
 
 
-### define WSH\_SHELL\_CMD\_GROUP\_MAX\_COUNT 
+### define WSH\_SHELL\_CMD\_GROUP\_LIST 
 
 ```C++
-#define WSH_SHELL_CMD_GROUP_MAX_COUNT `4`
-```
-
-
-
-
-<hr>
-
-
-
-### define WSH\_SHELL\_CMD\_GROUP\_NONE 
-
-```C++
-#define WSH_SHELL_CMD_GROUP_NONE `0x00`
-```
-
-
-
-
-<hr>
-
-
-
-### define WSH\_SHELL\_CMD\_GROUP\_READER 
-
-```C++
-#define WSH_SHELL_CMD_GROUP_READER `0x02`
+#define WSH_SHELL_CMD_GROUP_LIST `/* multi line expression */`
 ```
 
 
@@ -876,49 +853,13 @@ static inline bool WshShellRetState_TranslateToProject (
 
 
 
-### define WSH\_SHELL\_USER\_ACCESS\_ADMIN 
+### define X\_ENTRY 
 
 ```C++
-#define WSH_SHELL_USER_ACCESS_ADMIN `(WSH_SHELL_OPT_ACCESS_ANY)`
-```
-
-
-
-
-<hr>
-
-
-
-### define WSH\_SHELL\_USER\_ACCESS\_READER 
-
-```C++
-#define WSH_SHELL_USER_ACCESS_READER `(WSH_SHELL_OPT_ACCESS_ANY)`
-```
-
-
-
-
-<hr>
-
-
-
-### define WSH\_SHELL\_USER\_GROUP\_ADMIN 
-
-```C++
-#define WSH_SHELL_USER_GROUP_ADMIN `(WSH_SHELL_CMD_GROUP_ALL)`
-```
-
-
-
-
-<hr>
-
-
-
-### define WSH\_SHELL\_USER\_GROUP\_READER 
-
-```C++
-#define WSH_SHELL_USER_GROUP_READER `(WSH_SHELL_CMD_GROUP_READER)`
+#define X_ENTRY (
+    name,
+    value
+) `name = value,`
 ```
 
 

@@ -1698,6 +1698,15 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#define-wsh_shell_opt_access_admin" class="md-nav__link">
+    <span class="md-ellipsis">
+      define WSH_SHELL_OPT_ACCESS_ADMIN
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#define-wsh_shell_opt_access_any" class="md-nav__link">
     <span class="md-ellipsis">
       define WSH_SHELL_OPT_ACCESS_ANY
@@ -1716,9 +1725,9 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#define-wsh_shell_opt_access_none" class="md-nav__link">
+  <a href="#define-wsh_shell_opt_access_no" class="md-nav__link">
     <span class="md-ellipsis">
-      define WSH_SHELL_OPT_ACCESS_NONE
+      define WSH_SHELL_OPT_ACCESS_NO
     </span>
   </a>
   
@@ -2434,6 +2443,15 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#define-wsh_shell_opt_access_admin" class="md-nav__link">
+    <span class="md-ellipsis">
+      define WSH_SHELL_OPT_ACCESS_ADMIN
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#define-wsh_shell_opt_access_any" class="md-nav__link">
     <span class="md-ellipsis">
       define WSH_SHELL_OPT_ACCESS_ANY
@@ -2452,9 +2470,9 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#define-wsh_shell_opt_access_none" class="md-nav__link">
+  <a href="#define-wsh_shell_opt_access_no" class="md-nav__link">
     <span class="md-ellipsis">
-      define WSH_SHELL_OPT_ACCESS_NONE
+      define WSH_SHELL_OPT_ACCESS_NO
     </span>
   </a>
   
@@ -2872,6 +2890,15 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#define-wsh_shell_opt_access_admin" class="md-nav__link">
+    <span class="md-ellipsis">
+      define WSH_SHELL_OPT_ACCESS_ADMIN
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#define-wsh_shell_opt_access_any" class="md-nav__link">
     <span class="md-ellipsis">
       define WSH_SHELL_OPT_ACCESS_ANY
@@ -2890,9 +2917,9 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#define-wsh_shell_opt_access_none" class="md-nav__link">
+  <a href="#define-wsh_shell_opt_access_no" class="md-nav__link">
     <span class="md-ellipsis">
-      define WSH_SHELL_OPT_ACCESS_NONE
+      define WSH_SHELL_OPT_ACCESS_NO
     </span>
   </a>
   
@@ -3088,7 +3115,7 @@
 <tbody>
 <tr>
 <td style="text-align: right;">struct</td>
-<td style="text-align: left;"><a href="../structWshShellOption__Context__t/"><strong>WshShellOption_Context_t</strong></a> <br><em>Option usage context during parsing.</em></td>
+<td style="text-align: left;"><a href="../structWshShellOption__Ctx__t/"><strong>WshShellOption_Ctx_t</strong></a> <br><em>Option usage context during parsing.</em></td>
 </tr>
 <tr>
 <td style="text-align: right;">struct</td>
@@ -3156,7 +3183,11 @@
 </tr>
 <tr>
 <td style="text-align: right;">define</td>
-<td style="text-align: left;"><a href="./#define-wsh_shell_opt_access_any"><strong>WSH_SHELL_OPT_ACCESS_ANY</strong></a>  <code>((WshShell\_Size\_t)(~0U))</code><br></td>
+<td style="text-align: left;"><a href="./#define-wsh_shell_opt_access_admin"><strong>WSH_SHELL_OPT_ACCESS_ADMIN</strong></a>  <code>0x08</code><br></td>
+</tr>
+<tr>
+<td style="text-align: right;">define</td>
+<td style="text-align: left;"><a href="./#define-wsh_shell_opt_access_any"><strong>WSH_SHELL_OPT_ACCESS_ANY</strong></a>  <code>(WSH\_SHELL\_OPT\_ACCESS\_READ \| WSH\_SHELL\_OPT\_ACCESS\_WRITE \| WSH\_SHELL\_OPT\_ACCESS\_EXECUTE)</code><br></td>
 </tr>
 <tr>
 <td style="text-align: right;">define</td>
@@ -3164,7 +3195,7 @@
 </tr>
 <tr>
 <td style="text-align: right;">define</td>
-<td style="text-align: left;"><a href="./#define-wsh_shell_opt_access_none"><strong>WSH_SHELL_OPT_ACCESS_NONE</strong></a>  <code>0x00</code><br></td>
+<td style="text-align: left;"><a href="./#define-wsh_shell_opt_access_no"><strong>WSH_SHELL_OPT_ACCESS_NO</strong></a>  <code>0x00</code><br></td>
 </tr>
 <tr>
 <td style="text-align: right;">define</td>
@@ -3196,7 +3227,7 @@
 </tr>
 <tr>
 <td style="text-align: right;">define</td>
-<td style="text-align: left;"><a href="./#define-wsh_shell_opt_interact"><strong>WSH_SHELL_OPT_INTERACT</strong></a> () <code>/* multi line expression */</code><br><em>Define an option for entering interactive mode.</em></td>
+<td style="text-align: left;"><a href="./#define-wsh_shell_opt_interact"><strong>WSH_SHELL_OPT_INTERACT</strong></a> (acc) <code>/* multi line expression */</code><br><em>Define an option for entering interactive mode.</em></td>
 </tr>
 <tr>
 <td style="text-align: right;">define</td>
@@ -3277,63 +3308,68 @@
 </span></code></pre></div></td></tr></table></div></p>
 <hr>
 
+<h3 id="define-wsh_shell_opt_access_admin">define WSH_SHELL_OPT_ACCESS_ADMIN</h3>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-4-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1"></a><span class="cp">#define WSH_SHELL_OPT_ACCESS_ADMIN `0x08`</span>
+</span></code></pre></div></td></tr></table></div>
+<hr>
+
 <h3 id="define-wsh_shell_opt_access_any">define WSH_SHELL_OPT_ACCESS_ANY</h3>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-4-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1"></a><span class="cp">#define WSH_SHELL_OPT_ACCESS_ANY `((WshShell_Size_t)(~0U))`</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-5-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1"></a><span class="cp">#define WSH_SHELL_OPT_ACCESS_ANY `(WSH_SHELL_OPT_ACCESS_READ | WSH_SHELL_OPT_ACCESS_WRITE | WSH_SHELL_OPT_ACCESS_EXECUTE)`</span>
 </span></code></pre></div></td></tr></table></div>
 <hr>
 
 <h3 id="define-wsh_shell_opt_access_execute">define WSH_SHELL_OPT_ACCESS_EXECUTE</h3>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-5-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1"></a><span class="cp">#define WSH_SHELL_OPT_ACCESS_EXECUTE `0x04`</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-6-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1"></a><span class="cp">#define WSH_SHELL_OPT_ACCESS_EXECUTE `0x04`</span>
 </span></code></pre></div></td></tr></table></div>
 <hr>
 
-<h3 id="define-wsh_shell_opt_access_none">define WSH_SHELL_OPT_ACCESS_NONE</h3>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-6-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1"></a><span class="cp">#define WSH_SHELL_OPT_ACCESS_NONE `0x00`</span>
+<h3 id="define-wsh_shell_opt_access_no">define WSH_SHELL_OPT_ACCESS_NO</h3>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-7-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1"></a><span class="cp">#define WSH_SHELL_OPT_ACCESS_NO `0x00`</span>
 </span></code></pre></div></td></tr></table></div>
 <hr>
 
 <h3 id="define-wsh_shell_opt_access_read">define WSH_SHELL_OPT_ACCESS_READ</h3>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-7-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1"></a><span class="cp">#define WSH_SHELL_OPT_ACCESS_READ `0x01`</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-8-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1"></a><span class="cp">#define WSH_SHELL_OPT_ACCESS_READ `0x01`</span>
 </span></code></pre></div></td></tr></table></div>
 <hr>
 
 <h3 id="define-wsh_shell_opt_access_write">define WSH_SHELL_OPT_ACCESS_WRITE</h3>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-8-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1"></a><span class="cp">#define WSH_SHELL_OPT_ACCESS_WRITE `0x02`</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-9-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1"></a><span class="cp">#define WSH_SHELL_OPT_ACCESS_WRITE `0x02`</span>
 </span></code></pre></div></td></tr></table></div>
 <hr>
 
 <h3 id="define-wsh_shell_opt_descr">define WSH_SHELL_OPT_DESCR</h3>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-9-1">1</a></span>
-<span class="normal"><a href="#__codelineno-9-2">2</a></span>
-<span class="normal"><a href="#__codelineno-9-3">3</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1"></a><span class="cp">#define WSH_SHELL_OPT_DESCR (</span>
-</span><span id="__span-9-2"><a id="__codelineno-9-2" name="__codelineno-9-2"></a><span class="w">    </span><span class="n">descr</span>
-</span><span id="__span-9-3"><a id="__codelineno-9-3" name="__codelineno-9-3"></a><span class="p">)</span><span class="w"> </span><span class="err">`</span><span class="s">&quot;&quot;</span><span class="err">`</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-10-1">1</a></span>
+<span class="normal"><a href="#__codelineno-10-2">2</a></span>
+<span class="normal"><a href="#__codelineno-10-3">3</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1"></a><span class="cp">#define WSH_SHELL_OPT_DESCR (</span>
+</span><span id="__span-10-2"><a id="__codelineno-10-2" name="__codelineno-10-2"></a><span class="w">    </span><span class="n">descr</span>
+</span><span id="__span-10-3"><a id="__codelineno-10-3" name="__codelineno-10-3"></a><span class="p">)</span><span class="w"> </span><span class="err">`</span><span class="s">&quot;&quot;</span><span class="err">`</span>
 </span></code></pre></div></td></tr></table></div>
 <hr>
 
 <h3 id="define-wsh_shell_opt_end">define WSH_SHELL_OPT_END</h3>
 <p><em>Marks the end of an option array.</em> 
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-10-1">1</a></span>
-<span class="normal"><a href="#__codelineno-10-2">2</a></span>
-<span class="normal"><a href="#__codelineno-10-3">3</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1"></a><span class="cp">#define WSH_SHELL_OPT_END (</span>
-</span><span id="__span-10-2"><a id="__codelineno-10-2" name="__codelineno-10-2"></a>
-</span><span id="__span-10-3"><a id="__codelineno-10-3" name="__codelineno-10-3"></a><span class="p">)</span><span class="w"> </span><span class="err">`</span><span class="n">WSH_SHELL_OPTION_END</span><span class="p">,</span><span class="w"> </span><span class="n">WSH_SHELL_OPT_ACCESS_ANY</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="nb">NULL</span><span class="p">,</span><span class="w"> </span><span class="nb">NULL</span><span class="p">,</span><span class="w"> </span><span class="nb">NULL</span><span class="err">`</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-11-1">1</a></span>
+<span class="normal"><a href="#__codelineno-11-2">2</a></span>
+<span class="normal"><a href="#__codelineno-11-3">3</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1"></a><span class="cp">#define WSH_SHELL_OPT_END (</span>
+</span><span id="__span-11-2"><a id="__codelineno-11-2" name="__codelineno-11-2"></a>
+</span><span id="__span-11-3"><a id="__codelineno-11-3" name="__codelineno-11-3"></a><span class="p">)</span><span class="w"> </span><span class="err">`</span><span class="n">WSH_SHELL_OPTION_END</span><span class="p">,</span><span class="w"> </span><span class="n">WSH_SHELL_OPT_ACCESS_ANY</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="nb">NULL</span><span class="p">,</span><span class="w"> </span><span class="nb">NULL</span><span class="p">,</span><span class="w"> </span><span class="nb">NULL</span><span class="err">`</span>
 </span></code></pre></div></td></tr></table></div></p>
 <hr>
 
 <h3 id="define-wsh_shell_opt_float">define WSH_SHELL_OPT_FLOAT</h3>
 <p><em>Define a float argument option.</em> 
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-11-1">1</a></span>
-<span class="normal"><a href="#__codelineno-11-2">2</a></span>
-<span class="normal"><a href="#__codelineno-11-3">3</a></span>
-<span class="normal"><a href="#__codelineno-11-4">4</a></span>
-<span class="normal"><a href="#__codelineno-11-5">5</a></span>
-<span class="normal"><a href="#__codelineno-11-6">6</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1"></a><span class="cp">#define WSH_SHELL_OPT_FLOAT (</span>
-</span><span id="__span-11-2"><a id="__codelineno-11-2" name="__codelineno-11-2"></a><span class="w">    </span><span class="n">acc</span><span class="p">,</span>
-</span><span id="__span-11-3"><a id="__codelineno-11-3" name="__codelineno-11-3"></a><span class="w">    </span><span class="kt">short</span><span class="p">,</span>
-</span><span id="__span-11-4"><a id="__codelineno-11-4" name="__codelineno-11-4"></a><span class="w">    </span><span class="kt">long</span><span class="p">,</span>
-</span><span id="__span-11-5"><a id="__codelineno-11-5" name="__codelineno-11-5"></a><span class="w">    </span><span class="n">descr</span>
-</span><span id="__span-11-6"><a id="__codelineno-11-6" name="__codelineno-11-6"></a><span class="p">)</span><span class="w"> </span><span class="err">`</span><span class="n">WSH_SHELL_OPTION_FLOAT</span><span class="p">,</span><span class="w"> </span><span class="p">(</span><span class="n">acc</span><span class="p">),</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="p">(</span><span class="kt">short</span><span class="p">),</span><span class="w"> </span><span class="p">(</span><span class="kt">long</span><span class="p">),</span><span class="w"> </span><span class="n">WSH_SHELL_OPT_DESCR</span><span class="p">(</span><span class="n">descr</span><span class="p">)</span><span class="err">`</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-12-1">1</a></span>
+<span class="normal"><a href="#__codelineno-12-2">2</a></span>
+<span class="normal"><a href="#__codelineno-12-3">3</a></span>
+<span class="normal"><a href="#__codelineno-12-4">4</a></span>
+<span class="normal"><a href="#__codelineno-12-5">5</a></span>
+<span class="normal"><a href="#__codelineno-12-6">6</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1"></a><span class="cp">#define WSH_SHELL_OPT_FLOAT (</span>
+</span><span id="__span-12-2"><a id="__codelineno-12-2" name="__codelineno-12-2"></a><span class="w">    </span><span class="n">acc</span><span class="p">,</span>
+</span><span id="__span-12-3"><a id="__codelineno-12-3" name="__codelineno-12-3"></a><span class="w">    </span><span class="kt">short</span><span class="p">,</span>
+</span><span id="__span-12-4"><a id="__codelineno-12-4" name="__codelineno-12-4"></a><span class="w">    </span><span class="kt">long</span><span class="p">,</span>
+</span><span id="__span-12-5"><a id="__codelineno-12-5" name="__codelineno-12-5"></a><span class="w">    </span><span class="n">descr</span>
+</span><span id="__span-12-6"><a id="__codelineno-12-6" name="__codelineno-12-6"></a><span class="p">)</span><span class="w"> </span><span class="err">`</span><span class="n">WSH_SHELL_OPTION_FLOAT</span><span class="p">,</span><span class="w"> </span><span class="p">(</span><span class="n">acc</span><span class="p">),</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="p">(</span><span class="kt">short</span><span class="p">),</span><span class="w"> </span><span class="p">(</span><span class="kt">long</span><span class="p">),</span><span class="w"> </span><span class="n">WSH_SHELL_OPT_DESCR</span><span class="p">(</span><span class="n">descr</span><span class="p">)</span><span class="err">`</span>
 </span></code></pre></div></td></tr></table></div></p>
 <p><strong>Parameters:</strong></p>
 <ul>
@@ -3346,27 +3382,27 @@
 
 <h3 id="define-wsh_shell_opt_help">define WSH_SHELL_OPT_HELP</h3>
 <p><em>Define a built-in help option (e.g.</em> <code>"--help"</code> <em>or</em><code>"-h"</code> <em>).</em>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-12-1">1</a></span>
-<span class="normal"><a href="#__codelineno-12-2">2</a></span>
-<span class="normal"><a href="#__codelineno-12-3">3</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1"></a><span class="cp">#define WSH_SHELL_OPT_HELP (</span>
-</span><span id="__span-12-2"><a id="__codelineno-12-2" name="__codelineno-12-2"></a>
-</span><span id="__span-12-3"><a id="__codelineno-12-3" name="__codelineno-12-3"></a><span class="p">)</span><span class="w"> </span><span class="err">`</span><span class="cm">/* multi line expression */</span><span class="err">`</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-13-1">1</a></span>
+<span class="normal"><a href="#__codelineno-13-2">2</a></span>
+<span class="normal"><a href="#__codelineno-13-3">3</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1"></a><span class="cp">#define WSH_SHELL_OPT_HELP (</span>
+</span><span id="__span-13-2"><a id="__codelineno-13-2" name="__codelineno-13-2"></a>
+</span><span id="__span-13-3"><a id="__codelineno-13-3" name="__codelineno-13-3"></a><span class="p">)</span><span class="w"> </span><span class="err">`</span><span class="cm">/* multi line expression */</span><span class="err">`</span>
 </span></code></pre></div></td></tr></table></div></p>
 <hr>
 
 <h3 id="define-wsh_shell_opt_int">define WSH_SHELL_OPT_INT</h3>
 <p><em>Define an integer argument option.</em> 
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-13-1">1</a></span>
-<span class="normal"><a href="#__codelineno-13-2">2</a></span>
-<span class="normal"><a href="#__codelineno-13-3">3</a></span>
-<span class="normal"><a href="#__codelineno-13-4">4</a></span>
-<span class="normal"><a href="#__codelineno-13-5">5</a></span>
-<span class="normal"><a href="#__codelineno-13-6">6</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1"></a><span class="cp">#define WSH_SHELL_OPT_INT (</span>
-</span><span id="__span-13-2"><a id="__codelineno-13-2" name="__codelineno-13-2"></a><span class="w">    </span><span class="n">acc</span><span class="p">,</span>
-</span><span id="__span-13-3"><a id="__codelineno-13-3" name="__codelineno-13-3"></a><span class="w">    </span><span class="kt">short</span><span class="p">,</span>
-</span><span id="__span-13-4"><a id="__codelineno-13-4" name="__codelineno-13-4"></a><span class="w">    </span><span class="kt">long</span><span class="p">,</span>
-</span><span id="__span-13-5"><a id="__codelineno-13-5" name="__codelineno-13-5"></a><span class="w">    </span><span class="n">descr</span>
-</span><span id="__span-13-6"><a id="__codelineno-13-6" name="__codelineno-13-6"></a><span class="p">)</span><span class="w"> </span><span class="err">`</span><span class="n">WSH_SHELL_OPTION_INT</span><span class="p">,</span><span class="w"> </span><span class="p">(</span><span class="n">acc</span><span class="p">),</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="p">(</span><span class="kt">short</span><span class="p">),</span><span class="w"> </span><span class="p">(</span><span class="kt">long</span><span class="p">),</span><span class="w"> </span><span class="n">WSH_SHELL_OPT_DESCR</span><span class="p">(</span><span class="n">descr</span><span class="p">)</span><span class="err">`</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-14-1">1</a></span>
+<span class="normal"><a href="#__codelineno-14-2">2</a></span>
+<span class="normal"><a href="#__codelineno-14-3">3</a></span>
+<span class="normal"><a href="#__codelineno-14-4">4</a></span>
+<span class="normal"><a href="#__codelineno-14-5">5</a></span>
+<span class="normal"><a href="#__codelineno-14-6">6</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-14-1"><a id="__codelineno-14-1" name="__codelineno-14-1"></a><span class="cp">#define WSH_SHELL_OPT_INT (</span>
+</span><span id="__span-14-2"><a id="__codelineno-14-2" name="__codelineno-14-2"></a><span class="w">    </span><span class="n">acc</span><span class="p">,</span>
+</span><span id="__span-14-3"><a id="__codelineno-14-3" name="__codelineno-14-3"></a><span class="w">    </span><span class="kt">short</span><span class="p">,</span>
+</span><span id="__span-14-4"><a id="__codelineno-14-4" name="__codelineno-14-4"></a><span class="w">    </span><span class="kt">long</span><span class="p">,</span>
+</span><span id="__span-14-5"><a id="__codelineno-14-5" name="__codelineno-14-5"></a><span class="w">    </span><span class="n">descr</span>
+</span><span id="__span-14-6"><a id="__codelineno-14-6" name="__codelineno-14-6"></a><span class="p">)</span><span class="w"> </span><span class="err">`</span><span class="n">WSH_SHELL_OPTION_INT</span><span class="p">,</span><span class="w"> </span><span class="p">(</span><span class="n">acc</span><span class="p">),</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="p">(</span><span class="kt">short</span><span class="p">),</span><span class="w"> </span><span class="p">(</span><span class="kt">long</span><span class="p">),</span><span class="w"> </span><span class="n">WSH_SHELL_OPT_DESCR</span><span class="p">(</span><span class="n">descr</span><span class="p">)</span><span class="err">`</span>
 </span></code></pre></div></td></tr></table></div></p>
 <p><strong>Parameters:</strong></p>
 <ul>
@@ -3379,29 +3415,29 @@
 
 <h3 id="define-wsh_shell_opt_interact">define WSH_SHELL_OPT_INTERACT</h3>
 <p><em>Define an option for entering interactive mode.</em> 
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-14-1">1</a></span>
-<span class="normal"><a href="#__codelineno-14-2">2</a></span>
-<span class="normal"><a href="#__codelineno-14-3">3</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-14-1"><a id="__codelineno-14-1" name="__codelineno-14-1"></a><span class="cp">#define WSH_SHELL_OPT_INTERACT (</span>
-</span><span id="__span-14-2"><a id="__codelineno-14-2" name="__codelineno-14-2"></a>
-</span><span id="__span-14-3"><a id="__codelineno-14-3" name="__codelineno-14-3"></a><span class="p">)</span><span class="w"> </span><span class="err">`</span><span class="cm">/* multi line expression */</span><span class="err">`</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-15-1">1</a></span>
+<span class="normal"><a href="#__codelineno-15-2">2</a></span>
+<span class="normal"><a href="#__codelineno-15-3">3</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-15-1"><a id="__codelineno-15-1" name="__codelineno-15-1"></a><span class="cp">#define WSH_SHELL_OPT_INTERACT (</span>
+</span><span id="__span-15-2"><a id="__codelineno-15-2" name="__codelineno-15-2"></a><span class="w">    </span><span class="n">acc</span>
+</span><span id="__span-15-3"><a id="__codelineno-15-3" name="__codelineno-15-3"></a><span class="p">)</span><span class="w"> </span><span class="err">`</span><span class="cm">/* multi line expression */</span><span class="err">`</span>
 </span></code></pre></div></td></tr></table></div></p>
 <hr>
 
 <h3 id="define-wsh_shell_opt_multi_arg">define WSH_SHELL_OPT_MULTI_ARG</h3>
 <p><em>Define an option that accepts multiple arguments.</em> 
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-15-1">1</a></span>
-<span class="normal"><a href="#__codelineno-15-2">2</a></span>
-<span class="normal"><a href="#__codelineno-15-3">3</a></span>
-<span class="normal"><a href="#__codelineno-15-4">4</a></span>
-<span class="normal"><a href="#__codelineno-15-5">5</a></span>
-<span class="normal"><a href="#__codelineno-15-6">6</a></span>
-<span class="normal"><a href="#__codelineno-15-7">7</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-15-1"><a id="__codelineno-15-1" name="__codelineno-15-1"></a><span class="cp">#define WSH_SHELL_OPT_MULTI_ARG (</span>
-</span><span id="__span-15-2"><a id="__codelineno-15-2" name="__codelineno-15-2"></a><span class="w">    </span><span class="n">acc</span><span class="p">,</span>
-</span><span id="__span-15-3"><a id="__codelineno-15-3" name="__codelineno-15-3"></a><span class="w">    </span><span class="n">argnum</span><span class="p">,</span>
-</span><span id="__span-15-4"><a id="__codelineno-15-4" name="__codelineno-15-4"></a><span class="w">    </span><span class="kt">short</span><span class="p">,</span>
-</span><span id="__span-15-5"><a id="__codelineno-15-5" name="__codelineno-15-5"></a><span class="w">    </span><span class="kt">long</span><span class="p">,</span>
-</span><span id="__span-15-6"><a id="__codelineno-15-6" name="__codelineno-15-6"></a><span class="w">    </span><span class="n">descr</span>
-</span><span id="__span-15-7"><a id="__codelineno-15-7" name="__codelineno-15-7"></a><span class="p">)</span><span class="w"> </span><span class="err">`</span><span class="n">WSH_SHELL_OPTION_MULTI_ARG</span><span class="p">,</span><span class="w"> </span><span class="p">(</span><span class="n">acc</span><span class="p">),</span><span class="w"> </span><span class="p">(</span><span class="n">argnum</span><span class="p">),</span><span class="w"> </span><span class="p">(</span><span class="kt">short</span><span class="p">),</span><span class="w"> </span><span class="p">(</span><span class="kt">long</span><span class="p">),</span><span class="w"> </span><span class="n">WSH_SHELL_OPT_DESCR</span><span class="p">(</span><span class="n">descr</span><span class="p">)</span><span class="err">`</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-16-1">1</a></span>
+<span class="normal"><a href="#__codelineno-16-2">2</a></span>
+<span class="normal"><a href="#__codelineno-16-3">3</a></span>
+<span class="normal"><a href="#__codelineno-16-4">4</a></span>
+<span class="normal"><a href="#__codelineno-16-5">5</a></span>
+<span class="normal"><a href="#__codelineno-16-6">6</a></span>
+<span class="normal"><a href="#__codelineno-16-7">7</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-16-1"><a id="__codelineno-16-1" name="__codelineno-16-1"></a><span class="cp">#define WSH_SHELL_OPT_MULTI_ARG (</span>
+</span><span id="__span-16-2"><a id="__codelineno-16-2" name="__codelineno-16-2"></a><span class="w">    </span><span class="n">acc</span><span class="p">,</span>
+</span><span id="__span-16-3"><a id="__codelineno-16-3" name="__codelineno-16-3"></a><span class="w">    </span><span class="n">argnum</span><span class="p">,</span>
+</span><span id="__span-16-4"><a id="__codelineno-16-4" name="__codelineno-16-4"></a><span class="w">    </span><span class="kt">short</span><span class="p">,</span>
+</span><span id="__span-16-5"><a id="__codelineno-16-5" name="__codelineno-16-5"></a><span class="w">    </span><span class="kt">long</span><span class="p">,</span>
+</span><span id="__span-16-6"><a id="__codelineno-16-6" name="__codelineno-16-6"></a><span class="w">    </span><span class="n">descr</span>
+</span><span id="__span-16-7"><a id="__codelineno-16-7" name="__codelineno-16-7"></a><span class="p">)</span><span class="w"> </span><span class="err">`</span><span class="n">WSH_SHELL_OPTION_MULTI_ARG</span><span class="p">,</span><span class="w"> </span><span class="p">(</span><span class="n">acc</span><span class="p">),</span><span class="w"> </span><span class="p">(</span><span class="n">argnum</span><span class="p">),</span><span class="w"> </span><span class="p">(</span><span class="kt">short</span><span class="p">),</span><span class="w"> </span><span class="p">(</span><span class="kt">long</span><span class="p">),</span><span class="w"> </span><span class="n">WSH_SHELL_OPT_DESCR</span><span class="p">(</span><span class="n">descr</span><span class="p">)</span><span class="err">`</span>
 </span></code></pre></div></td></tr></table></div></p>
 <p><strong>Parameters:</strong></p>
 <ul>
@@ -3415,13 +3451,13 @@
 
 <h3 id="define-wsh_shell_opt_no">define WSH_SHELL_OPT_NO</h3>
 <p><em>Define a special option that matches the command name only (no flags).</em> 
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-16-1">1</a></span>
-<span class="normal"><a href="#__codelineno-16-2">2</a></span>
-<span class="normal"><a href="#__codelineno-16-3">3</a></span>
-<span class="normal"><a href="#__codelineno-16-4">4</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-16-1"><a id="__codelineno-16-1" name="__codelineno-16-1"></a><span class="cp">#define WSH_SHELL_OPT_NO (</span>
-</span><span id="__span-16-2"><a id="__codelineno-16-2" name="__codelineno-16-2"></a><span class="w">    </span><span class="n">acc</span><span class="p">,</span>
-</span><span id="__span-16-3"><a id="__codelineno-16-3" name="__codelineno-16-3"></a><span class="w">    </span><span class="n">descr</span>
-</span><span id="__span-16-4"><a id="__codelineno-16-4" name="__codelineno-16-4"></a><span class="p">)</span><span class="w"> </span><span class="err">`</span><span class="n">WSH_SHELL_OPTION_NO</span><span class="p">,</span><span class="w"> </span><span class="p">(</span><span class="n">acc</span><span class="p">),</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;--&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;---&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">WSH_SHELL_OPT_DESCR</span><span class="p">(</span><span class="n">descr</span><span class="p">)</span><span class="err">`</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-17-1">1</a></span>
+<span class="normal"><a href="#__codelineno-17-2">2</a></span>
+<span class="normal"><a href="#__codelineno-17-3">3</a></span>
+<span class="normal"><a href="#__codelineno-17-4">4</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-17-1"><a id="__codelineno-17-1" name="__codelineno-17-1"></a><span class="cp">#define WSH_SHELL_OPT_NO (</span>
+</span><span id="__span-17-2"><a id="__codelineno-17-2" name="__codelineno-17-2"></a><span class="w">    </span><span class="n">acc</span><span class="p">,</span>
+</span><span id="__span-17-3"><a id="__codelineno-17-3" name="__codelineno-17-3"></a><span class="w">    </span><span class="n">descr</span>
+</span><span id="__span-17-4"><a id="__codelineno-17-4" name="__codelineno-17-4"></a><span class="p">)</span><span class="w"> </span><span class="err">`</span><span class="n">WSH_SHELL_OPTION_NO</span><span class="p">,</span><span class="w"> </span><span class="p">(</span><span class="n">acc</span><span class="p">),</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;--&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;---&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">WSH_SHELL_OPT_DESCR</span><span class="p">(</span><span class="n">descr</span><span class="p">)</span><span class="err">`</span>
 </span></code></pre></div></td></tr></table></div></p>
 <p><strong>Parameters:</strong></p>
 <ul>
@@ -3431,17 +3467,17 @@
 
 <h3 id="define-wsh_shell_opt_str">define WSH_SHELL_OPT_STR</h3>
 <p><em>Define a string argument option.</em> 
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-17-1">1</a></span>
-<span class="normal"><a href="#__codelineno-17-2">2</a></span>
-<span class="normal"><a href="#__codelineno-17-3">3</a></span>
-<span class="normal"><a href="#__codelineno-17-4">4</a></span>
-<span class="normal"><a href="#__codelineno-17-5">5</a></span>
-<span class="normal"><a href="#__codelineno-17-6">6</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-17-1"><a id="__codelineno-17-1" name="__codelineno-17-1"></a><span class="cp">#define WSH_SHELL_OPT_STR (</span>
-</span><span id="__span-17-2"><a id="__codelineno-17-2" name="__codelineno-17-2"></a><span class="w">    </span><span class="n">acc</span><span class="p">,</span>
-</span><span id="__span-17-3"><a id="__codelineno-17-3" name="__codelineno-17-3"></a><span class="w">    </span><span class="kt">short</span><span class="p">,</span>
-</span><span id="__span-17-4"><a id="__codelineno-17-4" name="__codelineno-17-4"></a><span class="w">    </span><span class="kt">long</span><span class="p">,</span>
-</span><span id="__span-17-5"><a id="__codelineno-17-5" name="__codelineno-17-5"></a><span class="w">    </span><span class="n">descr</span>
-</span><span id="__span-17-6"><a id="__codelineno-17-6" name="__codelineno-17-6"></a><span class="p">)</span><span class="w"> </span><span class="err">`</span><span class="n">WSH_SHELL_OPTION_STR</span><span class="p">,</span><span class="w"> </span><span class="p">(</span><span class="n">acc</span><span class="p">),</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="p">(</span><span class="kt">short</span><span class="p">),</span><span class="w"> </span><span class="p">(</span><span class="kt">long</span><span class="p">),</span><span class="w"> </span><span class="n">WSH_SHELL_OPT_DESCR</span><span class="p">(</span><span class="n">descr</span><span class="p">)</span><span class="err">`</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-18-1">1</a></span>
+<span class="normal"><a href="#__codelineno-18-2">2</a></span>
+<span class="normal"><a href="#__codelineno-18-3">3</a></span>
+<span class="normal"><a href="#__codelineno-18-4">4</a></span>
+<span class="normal"><a href="#__codelineno-18-5">5</a></span>
+<span class="normal"><a href="#__codelineno-18-6">6</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-18-1"><a id="__codelineno-18-1" name="__codelineno-18-1"></a><span class="cp">#define WSH_SHELL_OPT_STR (</span>
+</span><span id="__span-18-2"><a id="__codelineno-18-2" name="__codelineno-18-2"></a><span class="w">    </span><span class="n">acc</span><span class="p">,</span>
+</span><span id="__span-18-3"><a id="__codelineno-18-3" name="__codelineno-18-3"></a><span class="w">    </span><span class="kt">short</span><span class="p">,</span>
+</span><span id="__span-18-4"><a id="__codelineno-18-4" name="__codelineno-18-4"></a><span class="w">    </span><span class="kt">long</span><span class="p">,</span>
+</span><span id="__span-18-5"><a id="__codelineno-18-5" name="__codelineno-18-5"></a><span class="w">    </span><span class="n">descr</span>
+</span><span id="__span-18-6"><a id="__codelineno-18-6" name="__codelineno-18-6"></a><span class="p">)</span><span class="w"> </span><span class="err">`</span><span class="n">WSH_SHELL_OPTION_STR</span><span class="p">,</span><span class="w"> </span><span class="p">(</span><span class="n">acc</span><span class="p">),</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="p">(</span><span class="kt">short</span><span class="p">),</span><span class="w"> </span><span class="p">(</span><span class="kt">long</span><span class="p">),</span><span class="w"> </span><span class="n">WSH_SHELL_OPT_DESCR</span><span class="p">(</span><span class="n">descr</span><span class="p">)</span><span class="err">`</span>
 </span></code></pre></div></td></tr></table></div></p>
 <p><strong>Parameters:</strong></p>
 <ul>
@@ -3454,11 +3490,11 @@
 
 <h3 id="define-wsh_shell_opt_waits_input">define WSH_SHELL_OPT_WAITS_INPUT</h3>
 <p><em>Define an option that triggers when input is provided with no flags.</em> 
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-18-1">1</a></span>
-<span class="normal"><a href="#__codelineno-18-2">2</a></span>
-<span class="normal"><a href="#__codelineno-18-3">3</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-18-1"><a id="__codelineno-18-1" name="__codelineno-18-1"></a><span class="cp">#define WSH_SHELL_OPT_WAITS_INPUT (</span>
-</span><span id="__span-18-2"><a id="__codelineno-18-2" name="__codelineno-18-2"></a><span class="w">    </span><span class="n">acc</span>
-</span><span id="__span-18-3"><a id="__codelineno-18-3" name="__codelineno-18-3"></a><span class="p">)</span><span class="w"> </span><span class="err">`</span><span class="n">WSH_SHELL_OPTION_WAITS_INPUT</span><span class="p">,</span><span class="w"> </span><span class="p">(</span><span class="n">acc</span><span class="p">),</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="nb">NULL</span><span class="p">,</span><span class="w"> </span><span class="nb">NULL</span><span class="p">,</span><span class="w"> </span><span class="nb">NULL</span><span class="err">`</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-19-1">1</a></span>
+<span class="normal"><a href="#__codelineno-19-2">2</a></span>
+<span class="normal"><a href="#__codelineno-19-3">3</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-19-1"><a id="__codelineno-19-1" name="__codelineno-19-1"></a><span class="cp">#define WSH_SHELL_OPT_WAITS_INPUT (</span>
+</span><span id="__span-19-2"><a id="__codelineno-19-2" name="__codelineno-19-2"></a><span class="w">    </span><span class="n">acc</span>
+</span><span id="__span-19-3"><a id="__codelineno-19-3" name="__codelineno-19-3"></a><span class="p">)</span><span class="w"> </span><span class="err">`</span><span class="n">WSH_SHELL_OPTION_WAITS_INPUT</span><span class="p">,</span><span class="w"> </span><span class="p">(</span><span class="n">acc</span><span class="p">),</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="nb">NULL</span><span class="p">,</span><span class="w"> </span><span class="nb">NULL</span><span class="p">,</span><span class="w"> </span><span class="nb">NULL</span><span class="err">`</span>
 </span></code></pre></div></td></tr></table></div></p>
 <p><strong>Parameters:</strong></p>
 <ul>
@@ -3468,17 +3504,17 @@
 
 <h3 id="define-wsh_shell_opt_wo_param">define WSH_SHELL_OPT_WO_PARAM</h3>
 <p><em>Define an option that requires no arguments.</em> 
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-19-1">1</a></span>
-<span class="normal"><a href="#__codelineno-19-2">2</a></span>
-<span class="normal"><a href="#__codelineno-19-3">3</a></span>
-<span class="normal"><a href="#__codelineno-19-4">4</a></span>
-<span class="normal"><a href="#__codelineno-19-5">5</a></span>
-<span class="normal"><a href="#__codelineno-19-6">6</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-19-1"><a id="__codelineno-19-1" name="__codelineno-19-1"></a><span class="cp">#define WSH_SHELL_OPT_WO_PARAM (</span>
-</span><span id="__span-19-2"><a id="__codelineno-19-2" name="__codelineno-19-2"></a><span class="w">    </span><span class="n">acc</span><span class="p">,</span>
-</span><span id="__span-19-3"><a id="__codelineno-19-3" name="__codelineno-19-3"></a><span class="w">    </span><span class="kt">short</span><span class="p">,</span>
-</span><span id="__span-19-4"><a id="__codelineno-19-4" name="__codelineno-19-4"></a><span class="w">    </span><span class="kt">long</span><span class="p">,</span>
-</span><span id="__span-19-5"><a id="__codelineno-19-5" name="__codelineno-19-5"></a><span class="w">    </span><span class="n">descr</span>
-</span><span id="__span-19-6"><a id="__codelineno-19-6" name="__codelineno-19-6"></a><span class="p">)</span><span class="w"> </span><span class="err">`</span><span class="n">WSH_SHELL_OPTION_WO_PARAM</span><span class="p">,</span><span class="w"> </span><span class="p">(</span><span class="n">acc</span><span class="p">),</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="p">(</span><span class="kt">short</span><span class="p">),</span><span class="w"> </span><span class="p">(</span><span class="kt">long</span><span class="p">),</span><span class="w"> </span><span class="n">WSH_SHELL_OPT_DESCR</span><span class="p">(</span><span class="n">descr</span><span class="p">)</span><span class="err">`</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-20-1">1</a></span>
+<span class="normal"><a href="#__codelineno-20-2">2</a></span>
+<span class="normal"><a href="#__codelineno-20-3">3</a></span>
+<span class="normal"><a href="#__codelineno-20-4">4</a></span>
+<span class="normal"><a href="#__codelineno-20-5">5</a></span>
+<span class="normal"><a href="#__codelineno-20-6">6</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-20-1"><a id="__codelineno-20-1" name="__codelineno-20-1"></a><span class="cp">#define WSH_SHELL_OPT_WO_PARAM (</span>
+</span><span id="__span-20-2"><a id="__codelineno-20-2" name="__codelineno-20-2"></a><span class="w">    </span><span class="n">acc</span><span class="p">,</span>
+</span><span id="__span-20-3"><a id="__codelineno-20-3" name="__codelineno-20-3"></a><span class="w">    </span><span class="kt">short</span><span class="p">,</span>
+</span><span id="__span-20-4"><a id="__codelineno-20-4" name="__codelineno-20-4"></a><span class="w">    </span><span class="kt">long</span><span class="p">,</span>
+</span><span id="__span-20-5"><a id="__codelineno-20-5" name="__codelineno-20-5"></a><span class="w">    </span><span class="n">descr</span>
+</span><span id="__span-20-6"><a id="__codelineno-20-6" name="__codelineno-20-6"></a><span class="p">)</span><span class="w"> </span><span class="err">`</span><span class="n">WSH_SHELL_OPTION_WO_PARAM</span><span class="p">,</span><span class="w"> </span><span class="p">(</span><span class="n">acc</span><span class="p">),</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="p">(</span><span class="kt">short</span><span class="p">),</span><span class="w"> </span><span class="p">(</span><span class="kt">long</span><span class="p">),</span><span class="w"> </span><span class="n">WSH_SHELL_OPT_DESCR</span><span class="p">(</span><span class="n">descr</span><span class="p">)</span><span class="err">`</span>
 </span></code></pre></div></td></tr></table></div></p>
 <p><strong>Parameters:</strong></p>
 <ul>
@@ -3490,17 +3526,6 @@
 <hr>
 
 <h3 id="define-x_entry">define X_ENTRY</h3>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-20-1">1</a></span>
-<span class="normal"><a href="#__codelineno-20-2">2</a></span>
-<span class="normal"><a href="#__codelineno-20-3">3</a></span>
-<span class="normal"><a href="#__codelineno-20-4">4</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-20-1"><a id="__codelineno-20-1" name="__codelineno-20-1"></a><span class="cp">#define X_ENTRY (</span>
-</span><span id="__span-20-2"><a id="__codelineno-20-2" name="__codelineno-20-2"></a><span class="w">    </span><span class="n">id</span><span class="p">,</span>
-</span><span id="__span-20-3"><a id="__codelineno-20-3" name="__codelineno-20-3"></a><span class="w">    </span><span class="n">str</span>
-</span><span id="__span-20-4"><a id="__codelineno-20-4" name="__codelineno-20-4"></a><span class="p">)</span><span class="w"> </span><span class="err">`</span><span class="n">id</span><span class="p">,</span><span class="err">`</span>
-</span></code></pre></div></td></tr></table></div>
-<hr>
-
-<h3 id="define-x_entry_1">define X_ENTRY</h3>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-21-1">1</a></span>
 <span class="normal"><a href="#__codelineno-21-2">2</a></span>
 <span class="normal"><a href="#__codelineno-21-3">3</a></span>
@@ -3508,6 +3533,17 @@
 </span><span id="__span-21-2"><a id="__codelineno-21-2" name="__codelineno-21-2"></a><span class="w">    </span><span class="n">id</span><span class="p">,</span>
 </span><span id="__span-21-3"><a id="__codelineno-21-3" name="__codelineno-21-3"></a><span class="w">    </span><span class="n">str</span>
 </span><span id="__span-21-4"><a id="__codelineno-21-4" name="__codelineno-21-4"></a><span class="p">)</span><span class="w"> </span><span class="err">`</span><span class="n">id</span><span class="p">,</span><span class="err">`</span>
+</span></code></pre></div></td></tr></table></div>
+<hr>
+
+<h3 id="define-x_entry_1">define X_ENTRY</h3>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-22-1">1</a></span>
+<span class="normal"><a href="#__codelineno-22-2">2</a></span>
+<span class="normal"><a href="#__codelineno-22-3">3</a></span>
+<span class="normal"><a href="#__codelineno-22-4">4</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-22-1"><a id="__codelineno-22-1" name="__codelineno-22-1"></a><span class="cp">#define X_ENTRY (</span>
+</span><span id="__span-22-2"><a id="__codelineno-22-2" name="__codelineno-22-2"></a><span class="w">    </span><span class="n">id</span><span class="p">,</span>
+</span><span id="__span-22-3"><a id="__codelineno-22-3" name="__codelineno-22-3"></a><span class="w">    </span><span class="n">str</span>
+</span><span id="__span-22-4"><a id="__codelineno-22-4" name="__codelineno-22-4"></a><span class="p">)</span><span class="w"> </span><span class="err">`</span><span class="n">id</span><span class="p">,</span><span class="err">`</span>
 </span></code></pre></div></td></tr></table></div>
 <hr>
 

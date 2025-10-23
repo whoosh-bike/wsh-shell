@@ -88,9 +88,9 @@
         </inbodydescription>
         <location file="src/wsh_shell.h" line="96" column="26" bodyfile="src/wsh_shell.h" bodystart="96" bodyend="-1"/>
       </memberdef>
-      <memberdef kind="variable" id="structWshShell__t_1ad96327b2f5beff8fb3dd3a94ab5e9f97" prot="public" static="no" mutable="no">
-        <type><ref refid="structWshShell__AuthContext__t" kindref="compound">WshShell_AuthContext_t</ref></type>
-        <definition>WshShell_AuthContext_t WshShell_t::TmpAuth</definition>
+      <memberdef kind="variable" id="structWshShell__t_1af5787d02c85fdab37cefacefc8e3d970" prot="public" static="no" mutable="no">
+        <type><ref refid="structWshShell__AuthCtx__t" kindref="compound">WshShell_AuthCtx_t</ref></type>
+        <definition>WshShell_AuthCtx_t WshShell_t::TmpAuth</definition>
         <argsstring></argsstring>
         <name>TmpAuth</name>
         <briefdescription>
@@ -100,7 +100,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/wsh_shell.h" line="97" column="28" bodyfile="src/wsh_shell.h" bodystart="97" bodyend="-1"/>
+        <location file="src/wsh_shell.h" line="97" column="24" bodyfile="src/wsh_shell.h" bodystart="97" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structWshShell__t_1aafe47c977357679bcbf2a720b6c06ebc" prot="public" static="no" mutable="no">
         <type><ref refid="structWshShellEsc__Storage__t" kindref="compound">WshShellEsc_Storage_t</ref></type>
@@ -225,7 +225,7 @@
         <label>WshShellHistory_Data_t</label>
         <link refid="structWshShellHistory__Data__t"/>
       </node>
-      <node id="15">
+      <node id="14">
         <label>WshShellUser_Table_t</label>
         <link refid="structWshShellUser__Table__t"/>
         <childnode refid="8" relation="usage">
@@ -250,6 +250,10 @@
         <childnode refid="10" relation="usage">
           <edgelabel>Handler</edgelabel>
         </childnode>
+      </node>
+      <node id="15">
+        <label>WshShell_AuthCtx_t</label>
+        <link refid="structWshShell__AuthCtx__t"/>
       </node>
       <node id="12">
         <label>WshShellCmd</label>
@@ -290,10 +294,10 @@
           <edgelabel>Commands</edgelabel>
         </childnode>
         <childnode refid="14" relation="usage">
-          <edgelabel>TmpAuth</edgelabel>
+          <edgelabel>Users</edgelabel>
         </childnode>
         <childnode refid="15" relation="usage">
-          <edgelabel>Users</edgelabel>
+          <edgelabel>TmpAuth</edgelabel>
         </childnode>
         <childnode refid="3" relation="usage">
           <edgelabel>CommandLine</edgelabel>
@@ -309,10 +313,6 @@
         <childnode refid="12" relation="usage">
           <edgelabel>List</edgelabel>
         </childnode>
-      </node>
-      <node id="14">
-        <label>WshShell_AuthContext_t</label>
-        <link refid="structWshShell__AuthContext__t"/>
       </node>
       <node id="2">
         <label>WshShell_Interact_t</label>
@@ -335,7 +335,7 @@
       <member refid="structWshShell__t_1a202bd37b1883d36b4af8c9a3a4bfffd9" prot="public" virt="non-virtual"><scope>WshShell_t</scope><name>PrevSym</name></member>
       <member refid="structWshShell__t_1a5e770f7b99c713ef8992aa92babb98bd" prot="public" virt="non-virtual"><scope>WshShell_t</scope><name>PromptWait</name></member>
       <member refid="structWshShell__t_1ad803062fc1744830dfc78d2169823724" prot="public" virt="non-virtual"><scope>WshShell_t</scope><name>PS1</name></member>
-      <member refid="structWshShell__t_1ad96327b2f5beff8fb3dd3a94ab5e9f97" prot="public" virt="non-virtual"><scope>WshShell_t</scope><name>TmpAuth</name></member>
+      <member refid="structWshShell__t_1af5787d02c85fdab37cefacefc8e3d970" prot="public" virt="non-virtual"><scope>WshShell_t</scope><name>TmpAuth</name></member>
       <member refid="structWshShell__t_1a9c531d31246a1f50fee3a956d06dfab0" prot="public" virt="non-virtual"><scope>WshShell_t</scope><name>Users</name></member>
       <member refid="structWshShell__t_1ae995d3cd7e3e8ad285f7d3583b09053d" prot="public" virt="non-virtual"><scope>WshShell_t</scope><name>Version</name></member>
     </listofallmembers>

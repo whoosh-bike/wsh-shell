@@ -68,7 +68,7 @@
 * **LimitIsReached** ([**WshShellHistory\_Data\_t**](structWshShellHistory__Data__t.md))
 * **Len** ([**WshShellIO\_CommandLine\_t**](structWshShellIO__CommandLine__t.md))
 * **LongName** ([**WshShellOption\_t**](structWshShellOption__t.md))
-* **Login** ([**WshShellUser\_t**](structWshShellUser__t.md), [**WshShell\_AuthContext\_t**](structWshShell__AuthContext__t.md))
+* **Login** ([**WshShellUser\_t**](structWshShellUser__t.md), [**WshShell\_AuthCtx\_t**](structWshShell__AuthCtx__t.md))
 
 
 ## n
@@ -81,13 +81,13 @@
 
 * **OptNum** ([**WshShellCmd**](structWshShellCmd.md))
 * **Options** ([**WshShellCmd**](structWshShellCmd.md))
-* **Option** ([**WshShellOption\_Context\_t**](structWshShellOption__Context__t.md))
+* **Option** ([**WshShellOption\_Ctx\_t**](structWshShellOption__Ctx__t.md))
 
 
 ## p
 
 * **PrevDir** ([**WshShellHistory\_Data\_t**](structWshShellHistory__Data__t.md))
-* **Pass** ([**WshShell\_AuthContext\_t**](structWshShell__AuthContext__t.md))
+* **Pass** ([**WshShell\_AuthCtx\_t**](structWshShell__AuthCtx__t.md))
 * **PS1** ([**WshShell\_t**](structWshShell__t.md))
 * **PrevSym** ([**WshShell\_t**](structWshShell__t.md))
 * **PromptWait** ([**WshShell\_t**](structWshShell__t.md))
@@ -111,7 +111,7 @@
 ## t
 
 * **TailIdx** ([**WshShellHistory\_Data\_t**](structWshShellHistory__Data__t.md))
-* **TokenPos** ([**WshShellOption\_Context\_t**](structWshShellOption__Context__t.md))
+* **TokenPos** ([**WshShellOption\_Ctx\_t**](structWshShellOption__Ctx__t.md))
 * **Type** ([**WshShellOption\_t**](structWshShellOption__t.md))
 * **TmpAuth** ([**WshShell\_t**](structWshShell__t.md))
 

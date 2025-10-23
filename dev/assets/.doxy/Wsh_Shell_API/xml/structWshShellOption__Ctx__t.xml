@@ -1,12 +1,12 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
 <doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
-  <compounddef id="structWshShellOption__Context__t" kind="struct" language="C++" prot="public">
-    <compoundname>WshShellOption_Context_t</compoundname>
+  <compounddef id="structWshShellOption__Ctx__t" kind="struct" language="C++" prot="public">
+    <compoundname>WshShellOption_Ctx_t</compoundname>
     <includes refid="wsh__shell__option_8h" local="no">wsh_shell_option.h</includes>
       <sectiondef kind="public-attrib">
-      <memberdef kind="variable" id="structWshShellOption__Context__t_1a01ebc749a0a3df9dece800e13a7513ba" prot="public" static="no" mutable="no">
+      <memberdef kind="variable" id="structWshShellOption__Ctx__t_1a02b2820aaf7495f27380f557c486b27b" prot="public" static="no" mutable="no">
         <type>const <ref refid="structWshShellOption__t" kindref="compound">WshShellOption_t</ref> *</type>
-        <definition>const WshShellOption_t* WshShellOption_Context_t::Option</definition>
+        <definition>const WshShellOption_t* WshShellOption_Ctx_t::Option</definition>
         <argsstring></argsstring>
         <name>Option</name>
         <briefdescription>
@@ -16,11 +16,11 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/wsh_shell_option.h" line="187" column="28" bodyfile="src/wsh_shell_option.h" bodystart="187" bodyend="-1"/>
+        <location file="src/wsh_shell_option.h" line="189" column="28" bodyfile="src/wsh_shell_option.h" bodystart="189" bodyend="-1"/>
       </memberdef>
-      <memberdef kind="variable" id="structWshShellOption__Context__t_1a6831403a69dc4221bc65d0ce794317b8" prot="public" static="no" mutable="no">
+      <memberdef kind="variable" id="structWshShellOption__Ctx__t_1a041c4f4ea7959c95f8b705964d75bd79" prot="public" static="no" mutable="no">
         <type>WshShell_Size_t</type>
-        <definition>WshShell_Size_t WshShellOption_Context_t::TokenPos</definition>
+        <definition>WshShell_Size_t WshShellOption_Ctx_t::TokenPos</definition>
         <argsstring></argsstring>
         <name>TokenPos</name>
         <briefdescription>
@@ -30,7 +30,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/wsh_shell_option.h" line="188" column="21" bodyfile="src/wsh_shell_option.h" bodystart="188" bodyend="-1"/>
+        <location file="src/wsh_shell_option.h" line="190" column="21" bodyfile="src/wsh_shell_option.h" bodystart="190" bodyend="-1"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
@@ -45,17 +45,17 @@
         <link refid="structWshShellOption__t"/>
       </node>
       <node id="1">
-        <label>WshShellOption_Context_t</label>
-        <link refid="structWshShellOption__Context__t"/>
+        <label>WshShellOption_Ctx_t</label>
+        <link refid="structWshShellOption__Ctx__t"/>
         <childnode refid="2" relation="usage">
           <edgelabel>Option</edgelabel>
         </childnode>
       </node>
     </collaborationgraph>
-    <location file="src/wsh_shell_option.h" line="186" column="1" bodyfile="src/wsh_shell_option.h" bodystart="186" bodyend="189"/>
+    <location file="src/wsh_shell_option.h" line="188" column="1" bodyfile="src/wsh_shell_option.h" bodystart="188" bodyend="191"/>
     <listofallmembers>
-      <member refid="structWshShellOption__Context__t_1a01ebc749a0a3df9dece800e13a7513ba" prot="public" virt="non-virtual"><scope>WshShellOption_Context_t</scope><name>Option</name></member>
-      <member refid="structWshShellOption__Context__t_1a6831403a69dc4221bc65d0ce794317b8" prot="public" virt="non-virtual"><scope>WshShellOption_Context_t</scope><name>TokenPos</name></member>
+      <member refid="structWshShellOption__Ctx__t_1a02b2820aaf7495f27380f557c486b27b" prot="public" virt="non-virtual"><scope>WshShellOption_Ctx_t</scope><name>Option</name></member>
+      <member refid="structWshShellOption__Ctx__t_1a041c4f4ea7959c95f8b705964d75bd79" prot="public" virt="non-virtual"><scope>WshShellOption_Ctx_t</scope><name>TokenPos</name></member>
     </listofallmembers>
   </compounddef>
 </doxygen>

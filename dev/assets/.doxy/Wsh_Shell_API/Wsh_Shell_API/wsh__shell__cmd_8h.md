@@ -72,8 +72,8 @@ _Shell command object definition and public API._ [More...](#detailed-descriptio
 |  void | [**WshShellCmd\_DeAttach**](#function-wshshellcmd_deattach) ([**WshShellCmd\_Table\_t**](structWshShellCmd__Table__t.md) \* pShellCommands) <br>_Frees or resets the command table._  |
 |  const [**WshShellCmd\_t**](wsh__shell__cmd_8h.md#typedef-wshshellcmd_t) \* | [**WshShellCmd\_GetCmdByIndex**](#function-wshshellcmd_getcmdbyindex) ([**WshShellCmd\_Table\_t**](structWshShellCmd__Table__t.md) \* pShellCommands, WshShell\_Size\_t idx) <br>_Retrieves a command by index._  |
 |  WshShell\_Size\_t | [**WshShellCmd\_GetCmdNum**](#function-wshshellcmd_getcmdnum) ([**WshShellCmd\_Table\_t**](structWshShellCmd__Table__t.md) \* pShellCommands) <br>_Returns the number of registered commands._  |
-|  WSH\_SHELL\_RET\_STATE\_t | [**WshShellCmd\_GetOptValue**](#function-wshshellcmd_getoptvalue) ([**WshShellOption\_Context\_t**](structWshShellOption__Context__t.md) \* pOptCtx, WshShell\_Size\_t argc, const WshShell\_Char\_t \* pArgv, WshShell\_Size\_t valueSize, void \* pValue) <br>_Retrieves the value associated with a parsed command option._  |
-|  [**WshShellOption\_Context\_t**](structWshShellOption__Context__t.md) | [**WshShellCmd\_ParseOpt**](#function-wshshellcmd_parseopt) (const [**WshShellCmd\_t**](wsh__shell__cmd_8h.md#typedef-wshshellcmd_t) \* pcCmd, WshShell\_Size\_t argc, const WshShell\_Char\_t \* pArgv, WshShell\_Size\_t \* pTokenPos) <br>_Parses a command-line option for a given shell command._  |
+|  WSH\_SHELL\_RET\_STATE\_t | [**WshShellCmd\_GetOptValue**](#function-wshshellcmd_getoptvalue) ([**WshShellOption\_Ctx\_t**](structWshShellOption__Ctx__t.md) \* pOptCtx, WshShell\_Size\_t argc, const WshShell\_Char\_t \* pArgv, WshShell\_Size\_t valueSize, void \* pValue) <br>_Retrieves the value associated with a parsed command option._  |
+|  [**WshShellOption\_Ctx\_t**](structWshShellOption__Ctx__t.md) | [**WshShellCmd\_ParseOpt**](#function-wshshellcmd_parseopt) (const [**WshShellCmd\_t**](wsh__shell__cmd_8h.md#typedef-wshshellcmd_t) \* pcCmd, WshShell\_Size\_t argc, const WshShell\_Char\_t \* pArgv, WshShell\_Size\_t rights, WshShell\_Size\_t \* pTokenPos) <br>_Parses a command-line option for a given shell command._  |
 |  void | [**WshShellCmd\_PrintOptionsOverview**](#function-wshshellcmd_printoptionsoverview) (const [**WshShellCmd\_t**](wsh__shell__cmd_8h.md#typedef-wshshellcmd_t) \* pcCmd) <br>_Prints detailed information about a shell command and its options._  |
 |  const [**WshShellCmd\_t**](wsh__shell__cmd_8h.md#typedef-wshshellcmd_t) \* | [**WshShellCmd\_SearchCmd**](#function-wshshellcmd_searchcmd) ([**WshShellCmd\_Table\_t**](structWshShellCmd__Table__t.md) \* pShellCommands, const WshShell\_Char\_t \* pcCmdName) <br>_Finds a command by its name._  |
 
@@ -137,7 +137,7 @@ Copyright (c) 2024
 
 _Function pointer type for shell command execution._ 
 ```C++
-typedef WSH_SHELL_RET_STATE_t(* WshShellCmdHandler_t) (const struct WshShellCmd *pcCmd, WshShell_Size_t argc, const WshShell_Char_t *pArgv[], void *pCtx);
+typedef WSH_SHELL_RET_STATE_t(* WshShellCmdHandler_t) (const struct WshShellCmd *pcCmd, WshShell_Size_t argc, const WshShell_Char_t *pArgv[], void *pShellCtx);
 ```
 
 
@@ -149,7 +149,8 @@ typedef WSH_SHELL_RET_STATE_t(* WshShellCmdHandler_t) (const struct WshShellCmd 
 
 * `pcCmd` Pointer to the command descriptor. 
 * `argc` Number of command-line arguments. 
-* `pArgv` Array of argument strings.
+* `pArgv` Array of argument strings. 
+* `pShellCtx` Parent shell context.
 
 
 
@@ -323,7 +324,7 @@ Number of commands.
 _Retrieves the value associated with a parsed command option._ 
 ```C++
 WSH_SHELL_RET_STATE_t WshShellCmd_GetOptValue (
-    WshShellOption_Context_t * pOptCtx,
+    WshShellOption_Ctx_t * pOptCtx,
     WshShell_Size_t argc,
     const WshShell_Char_t * pArgv,
     WshShell_Size_t valueSize,
@@ -396,10 +397,11 @@ WSH\_SHELL\_RET\_STATE\_ERR\_OVERFLOW if argument list is too short.
 
 _Parses a command-line option for a given shell command._ 
 ```C++
-WshShellOption_Context_t WshShellCmd_ParseOpt (
+WshShellOption_Ctx_t WshShellCmd_ParseOpt (
     const WshShellCmd_t * pcCmd,
     WshShell_Size_t argc,
     const WshShell_Char_t * pArgv,
+    WshShell_Size_t rights,
     WshShell_Size_t * pTokenPos
 ) 
 ```
@@ -420,6 +422,7 @@ If only the command name is present (i.e., `argc == 1`), the function checks for
 * `pcCmd` Pointer to the shell command definition. 
 * `argc` Number of arguments in the input array. 
 * `pArgv` Array of argument strings. 
+* `pArgv` User rights bitmask for access check. 
 * `pTokenPos` Pointer to the current token position in `pArgv`. Will be updated to point past the parsed option.
 
 

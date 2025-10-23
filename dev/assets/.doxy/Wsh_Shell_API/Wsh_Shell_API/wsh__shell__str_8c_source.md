@@ -94,16 +94,17 @@ void WshShellStr_AccessBitsToStr(WshShell_Size_t access, WshShell_Char_t* pOutSt
     pOutStr[0] = (access & WSH_SHELL_OPT_ACCESS_READ) ? 'r' : '-';
     pOutStr[1] = (access & WSH_SHELL_OPT_ACCESS_WRITE) ? 'w' : '-';
     pOutStr[2] = (access & WSH_SHELL_OPT_ACCESS_EXECUTE) ? 'x' : '-';
-    pOutStr[3] = (access == WSH_SHELL_OPT_ACCESS_ANY) ? 'A' : '\0';
+    pOutStr[3] = (access == WSH_SHELL_OPT_ACCESS_ADMIN) ? 'A' : '-';
     pOutStr[4] = '\0';
 }
 
-void WshShellStr_GroupBitsToStr(WshShell_Size_t group, WshShell_Char_t* pOutStr) {
+void WshShellStr_GroupBitsToStr(WshShell_Size_t group, WshShell_Size_t groupMaxNum,
+                                WshShell_Char_t* pOutStr) {
     WSH_SHELL_ASSERT(pOutStr);
     if (!pOutStr)
         return;
 
-    for (WshShell_S32_t groupIdx = WSH_SHELL_CMD_GROUP_MAX_COUNT - 1; groupIdx >= 0; --groupIdx) {
+    for (WshShell_S32_t groupIdx = groupMaxNum - 1; groupIdx >= 0; --groupIdx) {
         *pOutStr++ = (group == WSH_SHELL_CMD_GROUP_ALL || (group & (1U << groupIdx))) ? '*' : '-';
     }
     *pOutStr = '\0';

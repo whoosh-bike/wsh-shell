@@ -1,10 +1,10 @@
 
 
-# Struct WshShellOption\_Context\_t
+# Struct WshShellOption\_Ctx\_t
 
 
 
-[**ClassList**](annotated.md) **>** [**WshShellOption\_Context\_t**](structWshShellOption__Context__t.md)
+[**ClassList**](annotated.md) **>** [**WshShellOption\_Ctx\_t**](structWshShellOption__Ctx__t.md)
 
 
 
@@ -97,7 +97,7 @@ Used internally to reference which token matched which option.
 ### variable Option 
 
 ```C++
-const WshShellOption_t* WshShellOption_Context_t::Option;
+const WshShellOption_t* WshShellOption_Ctx_t::Option;
 ```
 
 
@@ -114,7 +114,7 @@ Pointer to matched option.
 ### variable TokenPos 
 
 ```C++
-WshShell_Size_t WshShellOption_Context_t::TokenPos;
+WshShell_Size_t WshShellOption_Ctx_t::TokenPos;
 ```
 
 

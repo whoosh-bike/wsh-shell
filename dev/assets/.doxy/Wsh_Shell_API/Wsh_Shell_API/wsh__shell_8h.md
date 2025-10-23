@@ -43,7 +43,7 @@ _Core shell interface for command parsing, user authentication, and terminal int
 
 | Type | Name |
 | ---: | :--- |
-| struct | [**WshShell\_AuthContext\_t**](structWshShell__AuthContext__t.md) <br>_Temporary authentication context for login input handling._  |
+| struct | [**WshShell\_AuthCtx\_t**](structWshShell__AuthCtx__t.md) <br>_Temporary authentication context for login input handling._  |
 | struct | [**WshShell\_ExtCallbacks\_t**](structWshShell__ExtCallbacks__t.md) <br>_Optional external callbacks invoked on user session changes._  |
 | struct | [**WshShell\_t**](structWshShell__t.md) <br>_Main shell structure containing state, configuration, user context, and subsystems._  |
 

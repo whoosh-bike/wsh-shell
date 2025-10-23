@@ -16,7 +16,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/wsh_shell_option.h" line="171" column="21" bodyfile="src/wsh_shell_option.h" bodystart="171" bodyend="-1"/>
+        <location file="src/wsh_shell_option.h" line="173" column="21" bodyfile="src/wsh_shell_option.h" bodystart="173" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structWshShellOption__t_1a5abf4d353b127ed4612ba689dbdce4e8" prot="public" static="no" mutable="no">
         <type><ref refid="wsh__shell__option_8h_1abacc485d17b3641078c496a9707d84df" kindref="member">WSH_SHELL_OPTION_TYPE_t</ref></type>
@@ -30,7 +30,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/wsh_shell_option.h" line="172" column="29" bodyfile="src/wsh_shell_option.h" bodystart="172" bodyend="-1"/>
+        <location file="src/wsh_shell_option.h" line="174" column="29" bodyfile="src/wsh_shell_option.h" bodystart="174" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structWshShellOption__t_1a32dc92bfbe6cf2dab997cd12b86a414c" prot="public" static="no" mutable="no">
         <type>WshShell_Size_t</type>
@@ -44,7 +44,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/wsh_shell_option.h" line="173" column="21" bodyfile="src/wsh_shell_option.h" bodystart="173" bodyend="-1"/>
+        <location file="src/wsh_shell_option.h" line="175" column="21" bodyfile="src/wsh_shell_option.h" bodystart="175" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structWshShellOption__t_1a5eb9ad77880b6e56bffdf44b7439348d" prot="public" static="no" mutable="no">
         <type>WshShell_Size_t</type>
@@ -58,7 +58,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/wsh_shell_option.h" line="174" column="21" bodyfile="src/wsh_shell_option.h" bodystart="174" bodyend="-1"/>
+        <location file="src/wsh_shell_option.h" line="176" column="21" bodyfile="src/wsh_shell_option.h" bodystart="176" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structWshShellOption__t_1a71d093bcc543a9a08ab1663c79e0b85c" prot="public" static="no" mutable="no">
         <type>const WshShell_Char_t *</type>
@@ -72,7 +72,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/wsh_shell_option.h" line="175" column="27" bodyfile="src/wsh_shell_option.h" bodystart="175" bodyend="-1"/>
+        <location file="src/wsh_shell_option.h" line="177" column="27" bodyfile="src/wsh_shell_option.h" bodystart="177" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structWshShellOption__t_1a9d629a1db4e0cfbc63d821ab64c96708" prot="public" static="no" mutable="no">
         <type>const WshShell_Char_t *</type>
@@ -86,7 +86,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/wsh_shell_option.h" line="176" column="27" bodyfile="src/wsh_shell_option.h" bodystart="176" bodyend="-1"/>
+        <location file="src/wsh_shell_option.h" line="178" column="27" bodyfile="src/wsh_shell_option.h" bodystart="178" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structWshShellOption__t_1aa1ec146a5fbd777345f79856d8b80891" prot="public" static="no" mutable="no">
         <type>const WshShell_Char_t *</type>
@@ -100,7 +100,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/wsh_shell_option.h" line="177" column="27" bodyfile="src/wsh_shell_option.h" bodystart="177" bodyend="-1"/>
+        <location file="src/wsh_shell_option.h" line="179" column="27" bodyfile="src/wsh_shell_option.h" bodystart="179" bodyend="-1"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
@@ -109,7 +109,7 @@
     <detaileddescription>
 <para>This structure describes a single command-line option used in a shell command. It contains type, access level, required arguments, and optional short/long flags and description. </para>
     </detaileddescription>
-    <location file="src/wsh_shell_option.h" line="170" column="1" bodyfile="src/wsh_shell_option.h" bodystart="170" bodyend="178"/>
+    <location file="src/wsh_shell_option.h" line="172" column="1" bodyfile="src/wsh_shell_option.h" bodystart="172" bodyend="180"/>
     <listofallmembers>
       <member refid="structWshShellOption__t_1a32dc92bfbe6cf2dab997cd12b86a414c" prot="public" virt="non-virtual"><scope>WshShellOption_t</scope><name>Access</name></member>
       <member refid="structWshShellOption__t_1a5eb9ad77880b6e56bffdf44b7439348d" prot="public" virt="non-virtual"><scope>WshShellOption_t</scope><name>ArgNum</name></member>

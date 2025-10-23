@@ -165,7 +165,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/wsh_shell_cmd_def.h" line="37" column="21" bodyfile="src/wsh_shell_cmd_def.c" bodystart="250" bodyend="252" declfile="src/wsh_shell_cmd_def.h" declline="37" declcolumn="21"/>
+        <location file="src/wsh_shell_cmd_def.h" line="37" column="21" bodyfile="src/wsh_shell_cmd_def.c" bodystart="258" bodyend="260" declfile="src/wsh_shell_cmd_def.h" declline="37" declcolumn="21"/>
       </memberdef>
       </sectiondef>
     <briefdescription>

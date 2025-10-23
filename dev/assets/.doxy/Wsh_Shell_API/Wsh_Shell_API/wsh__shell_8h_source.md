@@ -72,7 +72,7 @@ typedef struct {
 typedef struct {
     WshShell_Char_t Login[WSH_SHELL_LOGIN_LEN]; 
     WshShell_Char_t Pass[WSH_SHELL_PASS_LEN];   
-} WshShell_AuthContext_t;
+} WshShell_AuthCtx_t;
 
 typedef struct {
     WshShell_Char_t* Version;                           
@@ -81,7 +81,7 @@ typedef struct {
     WshShell_Char_t PrevSym;                            
     WshShellIO_CommandLine_t CommandLine; 
     const WshShellUser_t* CurrUser;       
-    WshShell_AuthContext_t TmpAuth;       
+    WshShell_AuthCtx_t TmpAuth;           
     WshShellEsc_Storage_t EscStorage;     
     WshShellUser_Table_t Users;   
     WshShellCmd_Table_t Commands; 

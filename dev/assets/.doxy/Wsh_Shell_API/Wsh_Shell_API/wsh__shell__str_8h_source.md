@@ -36,7 +36,8 @@ void WshShellStr_DecrInterCnt(WshShell_Size_t* pInterCnt);
 
 void WshShellStr_AccessBitsToStr(WshShell_Size_t access, WshShell_Char_t* pOutStr);
 
-void WshShellStr_GroupBitsToStr(WshShell_Size_t group, WshShell_Char_t* pOutStr);
+void WshShellStr_GroupBitsToStr(WshShell_Size_t group, WshShell_Size_t groupMaxNum,
+                                WshShell_Char_t* pOutStr);
 
 #ifdef __cplusplus
 }

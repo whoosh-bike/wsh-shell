@@ -1,8 +1,8 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
 <doxygenindex xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="index.xsd" version="1.9.1" xml:lang="en-US">
-  <compound refid="structWshShell__AuthContext__t" kind="struct"><name>WshShell_AuthContext_t</name>
-    <member refid="structWshShell__AuthContext__t_1aa817cc98c00092e09ae6b3227cb12a9f" kind="variable"><name>Login</name></member>
-    <member refid="structWshShell__AuthContext__t_1a521ca67b6cc9ddc125ceed039ee02a40" kind="variable"><name>Pass</name></member>
+  <compound refid="structWshShell__AuthCtx__t" kind="struct"><name>WshShell_AuthCtx_t</name>
+    <member refid="structWshShell__AuthCtx__t_1a711f5dad074e73af6b0b81eaad6ce2ee" kind="variable"><name>Login</name></member>
+    <member refid="structWshShell__AuthCtx__t_1afe33194afeb4487d1ac70d6b4af28b2a" kind="variable"><name>Pass</name></member>
   </compound>
   <compound refid="structWshShell__ExtCallbacks__t" kind="struct"><name>WshShell_ExtCallbacks_t</name>
     <member refid="structWshShell__ExtCallbacks__t_1a0b03edf67c931680283cbaba80cb7872" kind="variable"><name>Auth</name></member>
@@ -25,7 +25,7 @@
     <member refid="structWshShell__t_1a202bd37b1883d36b4af8c9a3a4bfffd9" kind="variable"><name>PrevSym</name></member>
     <member refid="structWshShell__t_1a0c0a582384d2b2e147478850f4ddf459" kind="variable"><name>CommandLine</name></member>
     <member refid="structWshShell__t_1a3e5bcf2149fe8274b17914d5fdd1d20a" kind="variable"><name>CurrUser</name></member>
-    <member refid="structWshShell__t_1ad96327b2f5beff8fb3dd3a94ab5e9f97" kind="variable"><name>TmpAuth</name></member>
+    <member refid="structWshShell__t_1af5787d02c85fdab37cefacefc8e3d970" kind="variable"><name>TmpAuth</name></member>
     <member refid="structWshShell__t_1aafe47c977357679bcbf2a720b6c06ebc" kind="variable"><name>EscStorage</name></member>
     <member refid="structWshShell__t_1a9c531d31246a1f50fee3a956d06dfab0" kind="variable"><name>Users</name></member>
     <member refid="structWshShell__t_1ab76826113e0cae0cb5e48c36e82d988d" kind="variable"><name>Commands</name></member>
@@ -75,9 +75,9 @@
     <member refid="structWshShellIO__CommandLine__t_1a9ceb70baa2d64af07f92632dd95f750d" kind="variable"><name>Len</name></member>
     <member refid="structWshShellIO__CommandLine__t_1a98a6251521984a9b61836fd327646555" kind="variable"><name>CursorPos</name></member>
   </compound>
-  <compound refid="structWshShellOption__Context__t" kind="struct"><name>WshShellOption_Context_t</name>
-    <member refid="structWshShellOption__Context__t_1a01ebc749a0a3df9dece800e13a7513ba" kind="variable"><name>Option</name></member>
-    <member refid="structWshShellOption__Context__t_1a6831403a69dc4221bc65d0ce794317b8" kind="variable"><name>TokenPos</name></member>
+  <compound refid="structWshShellOption__Ctx__t" kind="struct"><name>WshShellOption_Ctx_t</name>
+    <member refid="structWshShellOption__Ctx__t_1a02b2820aaf7495f27380f557c486b27b" kind="variable"><name>Option</name></member>
+    <member refid="structWshShellOption__Ctx__t_1a041c4f4ea7959c95f8b705964d75bd79" kind="variable"><name>TokenPos</name></member>
   </compound>
   <compound refid="structWshShellOption__t" kind="struct"><name>WshShellOption_t</name>
     <member refid="structWshShellOption__t_1a939aa63e34d9783de578999887073710" kind="variable"><name>ID</name></member>
@@ -158,15 +158,9 @@
     <member refid="wsh__shell__cfg__def_8h_1a195ecfaaa46050c35ea3ab9eb9628da3" kind="define"><name>WSH_SHELL_DEF_COMMAND</name></member>
     <member refid="wsh__shell__cfg__def_8h_1acac175a02863a35c570a3f9b3d8dbb1b" kind="define"><name>WSH_SHELL_PRINT_OPT_HELP_ENABLE</name></member>
     <member refid="wsh__shell__cfg__def_8h_1aa273f75ae3ac2350aaa0f0a89d482516" kind="define"><name>WSH_SHELL_CMD_PRINT_OPT_OVERVIEW</name></member>
-    <member refid="wsh__shell__cfg__def_8h_1a9cc874123e02a44f418562a8dd6cd892" kind="define"><name>WSH_SHELL_CMD_GROUP_NONE</name></member>
+    <member refid="wsh__shell__cfg__def_8h_1a48304861ef6f41365408856d8c192b7e" kind="define"><name>WSH_SHELL_CMD_GROUP_LIST</name></member>
+    <member refid="wsh__shell__cfg__def_8h_1a1ac243182f70bfa6a1548af0890bf89e" kind="define"><name>X_ENTRY</name></member>
     <member refid="wsh__shell__cfg__def_8h_1a1834ff972b1e3eb6a753dc272aafec41" kind="define"><name>WSH_SHELL_CMD_GROUP_ALL</name></member>
-    <member refid="wsh__shell__cfg__def_8h_1ac9697611a53211575b6eb7803b5f7dfa" kind="define"><name>WSH_SHELL_CMD_GROUP_MAX_COUNT</name></member>
-    <member refid="wsh__shell__cfg__def_8h_1aed6960fa68ee3f33501aea8afd03f2e4" kind="define"><name>WSH_SHELL_CMD_GROUP_ADMIN</name></member>
-    <member refid="wsh__shell__cfg__def_8h_1a61016ac6cab53a63c8f6448c376bca38" kind="define"><name>WSH_SHELL_CMD_GROUP_READER</name></member>
-    <member refid="wsh__shell__cfg__def_8h_1a590165eafe6f1045e737863dec55fe94" kind="define"><name>WSH_SHELL_USER_GROUP_ADMIN</name></member>
-    <member refid="wsh__shell__cfg__def_8h_1a1d1be3e3c4efba0946ba1cd48bf374a4" kind="define"><name>WSH_SHELL_USER_ACCESS_ADMIN</name></member>
-    <member refid="wsh__shell__cfg__def_8h_1a6c7c6f8c30816f1cecf1c5528e014b16" kind="define"><name>WSH_SHELL_USER_GROUP_READER</name></member>
-    <member refid="wsh__shell__cfg__def_8h_1a45f59a31e219c0d0d4dc5b41533afd1b" kind="define"><name>WSH_SHELL_USER_ACCESS_READER</name></member>
     <member refid="wsh__shell__cfg__def_8h_1a5b50d500fb7fe1030a651e4b5e921d32" kind="define"><name>WSH_SHELL_PRINT</name></member>
     <member refid="wsh__shell__cfg__def_8h_1a4885661933ff9dcdd023ee920e4bd8ab" kind="define"><name>WSH_SHELL_DEV_NAME_LEN</name></member>
     <member refid="wsh__shell__cfg__def_8h_1a63c776598f1f2124931154374fb52f2c" kind="define"><name>WSH_SHELL_OPTION_SHORT_NAME_LEN</name></member>
@@ -195,6 +189,8 @@
     <member refid="wsh__shell__cfg__def_8h_1a50805c7f390e5ce4dde1cfdcaaae86a7" kind="define"><name>WSH_SHELL_SNPRINTF</name></member>
     <member refid="wsh__shell__cfg__def_8h_1afeac7831da8c1d72496d93ea22648e7d" kind="define"><name>RET_STATE_MAP_TABLE</name></member>
     <member refid="wsh__shell__cfg__def_8h_1a81340832b4db62f2d31b410d3e748577" kind="define"><name>X_MAP_ENTRY</name></member>
+    <member refid="wsh__shell__cfg__def_8h_1a5787004c4cdfd1085e2cd2842f7fbd53" kind="enum"><name>WSH_SHELL_CMD_GROUP_t</name></member>
+    <member refid="wsh__shell__cfg__def_8h_1a5787004c4cdfd1085e2cd2842f7fbd53a74b9c90c04533e7d6bd41d5bf58699d7" kind="enumvalue"><name>WSH_SHELL_CMD_GROUP_LIST</name></member>
     <member refid="wsh__shell__cfg__def_8h_1a068cf4cbf2fe62a594ea8500e974547f" kind="function"><name>WshShellRetState_TranslateToProject</name></member>
   </compound>
   <compound refid="wsh__shell__cmd_8c" kind="file"><name>wsh_shell_cmd.c</name>
@@ -204,25 +200,28 @@
     <member refid="wsh__shell__cmd_8c_1a8a286fe8aab443066f1ad800933f1c1b" kind="function"><name>WshShellCmd_GetCmdByIndex</name></member>
     <member refid="wsh__shell__cmd_8c_1ae1d7f86e741ddb91641fbfcaef422a57" kind="function"><name>WshShellCmd_SearchCmd</name></member>
     <member refid="wsh__shell__cmd_8c_1a7357da9c5200dd2c43d1e018f653a17a" kind="function"><name>WshShellCmd_FindOpt</name></member>
-    <member refid="wsh__shell__cmd_8c_1a5cd874f0a8510966c8660784e13e6cf2" kind="function"><name>WshShellCmd_ParseOpt</name></member>
-    <member refid="wsh__shell__cmd_8c_1a0f5af176a91a47154bc00c6f9f515320" kind="function"><name>WshShellCmd_GetOptValue</name></member>
+    <member refid="wsh__shell__cmd_8c_1ab3e29d9ea337a63595c4bbf0a089260a" kind="function"><name>WshShellCmd_ParseOpt</name></member>
+    <member refid="wsh__shell__cmd_8c_1aa4a2287e381f3c76562ffda7d2639071" kind="function"><name>WshShellCmd_GetOptValue</name></member>
     <member refid="wsh__shell__cmd_8c_1a5db3a973370bfb723d3aa43f206623c3" kind="function"><name>WshShellCmd_PrintOptionsOverview</name></member>
   </compound>
   <compound refid="wsh__shell__cmd_8h" kind="file"><name>wsh_shell_cmd.h</name>
-    <member refid="wsh__shell__cmd_8h_1aa35fd0f2220510a8eb2896cf3f471f20" kind="typedef"><name>WshShellCmdHandler_t</name></member>
+    <member refid="wsh__shell__cmd_8h_1afee0de8a3b719f584f70dec661b735ab" kind="typedef"><name>WshShellCmdHandler_t</name></member>
     <member refid="wsh__shell__cmd_8h_1aa3eea9fbfe1d3d8b71415bc7667c65a3" kind="typedef"><name>WshShellCmd_t</name></member>
     <member refid="wsh__shell__cmd_8h_1a6f6410dfe6a397a64f3997ff37480a8a" kind="function"><name>WshShellCmd_Attach</name></member>
     <member refid="wsh__shell__cmd_8h_1ad05536acc78523bf2a7e4a5b55e54ee2" kind="function"><name>WshShellCmd_DeAttach</name></member>
     <member refid="wsh__shell__cmd_8h_1ae7f6b971812b4c5d59fda77e5db8516b" kind="function"><name>WshShellCmd_GetCmdNum</name></member>
     <member refid="wsh__shell__cmd_8h_1a8a286fe8aab443066f1ad800933f1c1b" kind="function"><name>WshShellCmd_GetCmdByIndex</name></member>
     <member refid="wsh__shell__cmd_8h_1ae1d7f86e741ddb91641fbfcaef422a57" kind="function"><name>WshShellCmd_SearchCmd</name></member>
-    <member refid="wsh__shell__cmd_8h_1a5cd874f0a8510966c8660784e13e6cf2" kind="function"><name>WshShellCmd_ParseOpt</name></member>
-    <member refid="wsh__shell__cmd_8h_1a0f5af176a91a47154bc00c6f9f515320" kind="function"><name>WshShellCmd_GetOptValue</name></member>
+    <member refid="wsh__shell__cmd_8h_1ab3e29d9ea337a63595c4bbf0a089260a" kind="function"><name>WshShellCmd_ParseOpt</name></member>
+    <member refid="wsh__shell__cmd_8h_1aa4a2287e381f3c76562ffda7d2639071" kind="function"><name>WshShellCmd_GetOptValue</name></member>
     <member refid="wsh__shell__cmd_8h_1a5db3a973370bfb723d3aa43f206623c3" kind="function"><name>WshShellCmd_PrintOptionsOverview</name></member>
   </compound>
   <compound refid="wsh__shell__cmd__def_8c" kind="file"><name>wsh_shell_cmd_def.c</name>
+    <member refid="wsh__shell__cmd__def_8c_1a1ac243182f70bfa6a1548af0890bf89e" kind="define"><name>X_ENTRY</name></member>
+    <member refid="wsh__shell__cmd__def_8c_1a528bcd070961ed8471c61479917de7ad" kind="define"><name>WSH_SHELL_CMD_GROUP_COUNT</name></member>
+    <member refid="wsh__shell__cmd__def_8c_1a5fe6616c293208435e675d34d702b3c4" kind="variable"><name>WshShell_CmdGroups</name></member>
     <member refid="wsh__shell__cmd__def_8c_1affa24e31b943d539d2e5c68c4fb7786b" kind="variable"><name>WshShellDefCmd</name></member>
-    <member refid="wsh__shell__cmd__def_8c_1ae65b687bc02a4afdecc9e609a9f2b4cd" kind="function"><name>WshShellCmdDef_Dummy</name></member>
+    <member refid="wsh__shell__cmd__def_8c_1a166f0126c872760516f29f2d1106cf4a" kind="function"><name>WshShellCmdDef_Dummy</name></member>
     <member refid="wsh__shell__cmd__def_8c_1a4b41924893e19aa40ea20bee8f0c6fef" kind="function"><name>WshShellDefCmd_GetPtr</name></member>
   </compound>
   <compound refid="wsh__shell__cmd__def_8h" kind="file"><name>wsh_shell_cmd_def.h</name>
@@ -349,16 +348,17 @@
     <member refid="wsh__shell__misc_8h_1a008d9a001d61629467efaaeb27f011dd" kind="function"><name>WshShellMisc_CalcJenkinsHash</name></member>
   </compound>
   <compound refid="wsh__shell__option_8h" kind="file"><name>wsh_shell_option.h</name>
-    <member refid="wsh__shell__option_8h_1a0b5d600d9e88a6855ca97c058f2053ed" kind="define"><name>WSH_SHELL_OPT_ACCESS_NONE</name></member>
+    <member refid="wsh__shell__option_8h_1a7f24ff47eda3e554462f041b83662513" kind="define"><name>WSH_SHELL_OPT_ACCESS_NO</name></member>
     <member refid="wsh__shell__option_8h_1aafc46423ec1eac0c09061c9f3a74ceef" kind="define"><name>WSH_SHELL_OPT_ACCESS_READ</name></member>
     <member refid="wsh__shell__option_8h_1a6a70c36f15e88901efe707ac8af288c6" kind="define"><name>WSH_SHELL_OPT_ACCESS_WRITE</name></member>
     <member refid="wsh__shell__option_8h_1abd175c5d64191219bec3114459a75de7" kind="define"><name>WSH_SHELL_OPT_ACCESS_EXECUTE</name></member>
+    <member refid="wsh__shell__option_8h_1a02932ebe95e7b2a045562e1052250197" kind="define"><name>WSH_SHELL_OPT_ACCESS_ADMIN</name></member>
     <member refid="wsh__shell__option_8h_1a8b770d9f81a1d599560cb95448f667ca" kind="define"><name>WSH_SHELL_OPT_ACCESS_ANY</name></member>
     <member refid="wsh__shell__option_8h_1a42d60084ba45f3c81a1d14465a9eb54c" kind="define"><name>WSH_SHELL_OPT_DESCR</name></member>
     <member refid="wsh__shell__option_8h_1aa175a98ec6b5be206c57a1b43735d140" kind="define"><name>WSH_SHELL_OPT_NO</name></member>
     <member refid="wsh__shell__option_8h_1a66b466e69cf81f23ed2f106eb4f4ea42" kind="define"><name>WSH_SHELL_OPT_WAITS_INPUT</name></member>
     <member refid="wsh__shell__option_8h_1a84ae8c9b94efef61acb485aa33c179b7" kind="define"><name>WSH_SHELL_OPT_HELP</name></member>
-    <member refid="wsh__shell__option_8h_1afa01544c11c0b5f24e98bf0c72380d7f" kind="define"><name>WSH_SHELL_OPT_INTERACT</name></member>
+    <member refid="wsh__shell__option_8h_1a33166c7b97b2477e4daa6ddfb6d87b8a" kind="define"><name>WSH_SHELL_OPT_INTERACT</name></member>
     <member refid="wsh__shell__option_8h_1a4d51f6a392c48c29a2e6ee795819c513" kind="define"><name>WSH_SHELL_OPT_WO_PARAM</name></member>
     <member refid="wsh__shell__option_8h_1a838537b988c65b6351ad4f73cf2f9cd9" kind="define"><name>WSH_SHELL_OPT_MULTI_ARG</name></member>
     <member refid="wsh__shell__option_8h_1af2706bb4c06ca3cd9cc10807a3141988" kind="define"><name>WSH_SHELL_OPT_STR</name></member>
@@ -402,7 +402,7 @@
     <member refid="wsh__shell__str_8c_1a717aa2a87c1d1b039e986781479199ba" kind="function"><name>WshShellStr_IncrInterCnt</name></member>
     <member refid="wsh__shell__str_8c_1ab4b7be929d544496dbab7a625bc70204" kind="function"><name>WshShellStr_DecrInterCnt</name></member>
     <member refid="wsh__shell__str_8c_1a10832dc9d2d88b0577df9bac3e6e533e" kind="function"><name>WshShellStr_AccessBitsToStr</name></member>
-    <member refid="wsh__shell__str_8c_1a97dee099f0ae0c2f8bbd5fada5231e9b" kind="function"><name>WshShellStr_GroupBitsToStr</name></member>
+    <member refid="wsh__shell__str_8c_1a3807da453046b6283184e6021dd83c10" kind="function"><name>WshShellStr_GroupBitsToStr</name></member>
   </compound>
   <compound refid="wsh__shell__str_8h" kind="file"><name>wsh_shell_str.h</name>
     <member refid="wsh__shell__str_8h_1ae15124c3c126711ff2169b77c4c0e96e" kind="define"><name>WSH_SHELL_PRESS_ENTER_TO_LOG_IN_STR</name></member>
@@ -412,7 +412,7 @@
     <member refid="wsh__shell__str_8h_1a717aa2a87c1d1b039e986781479199ba" kind="function"><name>WshShellStr_IncrInterCnt</name></member>
     <member refid="wsh__shell__str_8h_1ab4b7be929d544496dbab7a625bc70204" kind="function"><name>WshShellStr_DecrInterCnt</name></member>
     <member refid="wsh__shell__str_8h_1a10832dc9d2d88b0577df9bac3e6e533e" kind="function"><name>WshShellStr_AccessBitsToStr</name></member>
-    <member refid="wsh__shell__str_8h_1a97dee099f0ae0c2f8bbd5fada5231e9b" kind="function"><name>WshShellStr_GroupBitsToStr</name></member>
+    <member refid="wsh__shell__str_8h_1a3807da453046b6283184e6021dd83c10" kind="function"><name>WshShellStr_GroupBitsToStr</name></member>
   </compound>
   <compound refid="wsh__shell__types_8h" kind="file"><name>wsh_shell_types.h</name>
     <member refid="wsh__shell__types_8h_1a51feb5fc177dfc0f5a73b314593e1b9c" kind="define"><name>WSH_SHELL_ARR_LEN</name></member>

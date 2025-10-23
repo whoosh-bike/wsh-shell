@@ -233,7 +233,7 @@
       </node>
     </incdepgraph>
     <innerclass refid="structWshShell__ExtCallbacks__t" prot="public">WshShell_ExtCallbacks_t</innerclass>
-    <innerclass refid="structWshShell__AuthContext__t" prot="public">WshShell_AuthContext_t</innerclass>
+    <innerclass refid="structWshShell__AuthCtx__t" prot="public">WshShell_AuthCtx_t</innerclass>
     <innerclass refid="structWshShell__t" prot="public">WshShell_t</innerclass>
       <sectiondef kind="define">
       <memberdef kind="define" id="wsh__shell_8h_1a28102cfb12a549d1139ad1430fc21b73" prot="public" static="no">
@@ -510,7 +510,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/wsh_shell.h" line="165" column="6" bodyfile="src/wsh_shell.c" bodystart="284" bodyend="333" declfile="src/wsh_shell.h" declline="165" declcolumn="6"/>
+        <location file="src/wsh_shell.h" line="165" column="6" bodyfile="src/wsh_shell.c" bodystart="287" bodyend="336" declfile="src/wsh_shell.h" declline="165" declcolumn="6"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
@@ -586,10 +586,10 @@
 <codeline lineno="75" refid="structWshShell__ExtCallbacks__t_1a3d7c3cefe86078e837e5a6a21751a3ed" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="wsh__shell_8h_1a31ac89f2d478911c46e3e6c2142c1ac1" kindref="member">WshShell_ExtClbk_t</ref><sp/><ref refid="structWshShell__ExtCallbacks__t_1a3d7c3cefe86078e837e5a6a21751a3ed" kindref="member">SymbolIn</ref>;<sp/></highlight></codeline>
 <codeline lineno="76"><highlight class="normal">}<sp/><ref refid="structWshShell__ExtCallbacks__t" kindref="compound">WshShell_ExtCallbacks_t</ref>;</highlight></codeline>
 <codeline lineno="77"><highlight class="normal"></highlight></codeline>
-<codeline lineno="81" refid="structWshShell__AuthContext__t" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal">{</highlight></codeline>
-<codeline lineno="82" refid="structWshShell__AuthContext__t_1aa817cc98c00092e09ae6b3227cb12a9f" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>WshShell_Char_t<sp/>Login[WSH_SHELL_LOGIN_LEN];<sp/></highlight></codeline>
-<codeline lineno="83" refid="structWshShell__AuthContext__t_1a521ca67b6cc9ddc125ceed039ee02a40" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>WshShell_Char_t<sp/>Pass[WSH_SHELL_PASS_LEN];<sp/><sp/><sp/></highlight></codeline>
-<codeline lineno="84"><highlight class="normal">}<sp/><ref refid="structWshShell__AuthContext__t" kindref="compound">WshShell_AuthContext_t</ref>;</highlight></codeline>
+<codeline lineno="81" refid="structWshShell__AuthCtx__t" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="82" refid="structWshShell__AuthCtx__t_1a711f5dad074e73af6b0b81eaad6ce2ee" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>WshShell_Char_t<sp/>Login[WSH_SHELL_LOGIN_LEN];<sp/></highlight></codeline>
+<codeline lineno="83" refid="structWshShell__AuthCtx__t_1afe33194afeb4487d1ac70d6b4af28b2a" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>WshShell_Char_t<sp/>Pass[WSH_SHELL_PASS_LEN];<sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="84"><highlight class="normal">}<sp/><ref refid="structWshShell__AuthCtx__t" kindref="compound">WshShell_AuthCtx_t</ref>;</highlight></codeline>
 <codeline lineno="85"><highlight class="normal"></highlight></codeline>
 <codeline lineno="89" refid="structWshShell__t" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal">{</highlight></codeline>
 <codeline lineno="90" refid="structWshShell__t_1ae995d3cd7e3e8ad285f7d3583b09053d" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>WshShell_Char_t*<sp/><ref refid="structWshShell__t_1ae995d3cd7e3e8ad285f7d3583b09053d" kindref="member">Version</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
@@ -598,7 +598,7 @@
 <codeline lineno="93" refid="structWshShell__t_1a202bd37b1883d36b4af8c9a3a4bfffd9" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>WshShell_Char_t<sp/><ref refid="structWshShell__t_1a202bd37b1883d36b4af8c9a3a4bfffd9" kindref="member">PrevSym</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
 <codeline lineno="95" refid="structWshShell__t_1a0c0a582384d2b2e147478850f4ddf459" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="structWshShellIO__CommandLine__t" kindref="compound">WshShellIO_CommandLine_t</ref><sp/><ref refid="structWshShell__t_1a0c0a582384d2b2e147478850f4ddf459" kindref="member">CommandLine</ref>;<sp/></highlight></codeline>
 <codeline lineno="96" refid="structWshShell__t_1a3e5bcf2149fe8274b17914d5fdd1d20a" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="structWshShellUser__t" kindref="compound">WshShellUser_t</ref>*<sp/><ref refid="structWshShell__t_1a3e5bcf2149fe8274b17914d5fdd1d20a" kindref="member">CurrUser</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
-<codeline lineno="97" refid="structWshShell__t_1ad96327b2f5beff8fb3dd3a94ab5e9f97" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="structWshShell__AuthContext__t" kindref="compound">WshShell_AuthContext_t</ref><sp/><ref refid="structWshShell__t_1ad96327b2f5beff8fb3dd3a94ab5e9f97" kindref="member">TmpAuth</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="97" refid="structWshShell__t_1af5787d02c85fdab37cefacefc8e3d970" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="structWshShell__AuthCtx__t" kindref="compound">WshShell_AuthCtx_t</ref><sp/><ref refid="structWshShell__t_1af5787d02c85fdab37cefacefc8e3d970" kindref="member">TmpAuth</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
 <codeline lineno="98" refid="structWshShell__t_1aafe47c977357679bcbf2a720b6c06ebc" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="structWshShellEsc__Storage__t" kindref="compound">WshShellEsc_Storage_t</ref><sp/><ref refid="structWshShell__t_1aafe47c977357679bcbf2a720b6c06ebc" kindref="member">EscStorage</ref>;<sp/><sp/><sp/><sp/><sp/></highlight></codeline>
 <codeline lineno="100" refid="structWshShell__t_1a9c531d31246a1f50fee3a956d06dfab0" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="structWshShellUser__Table__t" kindref="compound">WshShellUser_Table_t</ref><sp/><ref refid="structWshShell__t_1a9c531d31246a1f50fee3a956d06dfab0" kindref="member">Users</ref>;<sp/><sp/><sp/></highlight></codeline>
 <codeline lineno="101" refid="structWshShell__t_1ab76826113e0cae0cb5e48c36e82d988d" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="structWshShellCmd__Table__t" kindref="compound">WshShellCmd_Table_t</ref><sp/><ref refid="structWshShell__t_1ab76826113e0cae0cb5e48c36e82d988d" kindref="member">Commands</ref>;<sp/></highlight></codeline>
