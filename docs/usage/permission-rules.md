@@ -1,6 +1,8 @@
 # Groups, Permissions and Access Rights
 
-## Command Flags Overview
+## Command Flags Access Rights Overview
+
+### Flags Definitions
 
 In WshShell, each command option has a set of access rights (access flags) that define what actions a user is allowed to perform with it.
 
@@ -29,7 +31,7 @@ Each option can be assigned one or more of the following masks:
 | `WSH_SHELL_OPT_ACCESS_ADMIN`   | `0x08`  | Restricted to admin users                  |
 | `WSH_SHELL_OPT_ACCESS_ANY`     | `0x07`  | Full read/write/execute access             |
 
-### Flags Access Rights Usage
+### Access Rights Usage
 
 Each option in the shell defines its access rights via a macro entry:
 

@@ -10,10 +10,40 @@ WSH_SHELL_RET_STATE_t WshShellCmd_Attach(WshShellCmd_Table_t* pShellCommands,
     if (pShellCommands->List != NULL)
         return WSH_SHELL_RET_STATE_ERR_BUSY;  // Already inited
 
+    WSH_SHELL_RET_STATE_t retState = WSH_SHELL_RET_STATE_SUCCESS;
+
+    for (WshShell_Size_t cmd = 0; cmd < cmdNum; cmd++) {
+        const WshShellCmd_t* pcCmd = pcCmdTable[cmd];
+        WSH_SHELL_ASSERT(pcCmd != NULL);
+
+        const WshShellOption_t* pcOptOuter = pcCmd->Options;
+        for (; pcOptOuter->Type != WSH_SHELL_OPTION_END; pcOptOuter++) {
+            const WshShellOption_t* pcOptInner = pcOptOuter + 1;
+
+            for (; pcOptInner->Type != WSH_SHELL_OPTION_END; pcOptInner++) {
+                if (pcOptOuter->ShortName[0] && pcOptInner->ShortName[0] &&
+                    strcmp(pcOptOuter->ShortName, pcOptInner->ShortName) == 0) {
+                    WSH_SHELL_PRINT_ERR("Duplicate short option name detected: %s %s\r\n",
+                                        pcCmd->Name, pcOptInner->ShortName);
+                    WSH_SHELL_ASSERT(0);
+                    retState = RET_STATE_ERROR;
+                }
+
+                if (pcOptOuter->LongName[0] && pcOptInner->LongName[0] &&
+                    strcmp(pcOptOuter->LongName, pcOptInner->LongName) == 0) {
+                    WSH_SHELL_PRINT_ERR("Duplicate long option name detected: %s %s\r\n",
+                                        pcCmd->Name, pcOptInner->LongName);
+                    WSH_SHELL_ASSERT(0);
+                    retState = RET_STATE_ERROR;
+                }
+            }
+        }
+    }
+
     pShellCommands->List = pcCmdTable;
     pShellCommands->Num  = cmdNum;
 
-    return WSH_SHELL_RET_STATE_SUCCESS;
+    return retState;
 }
 
 void WshShellCmd_DeAttach(WshShellCmd_Table_t* pShellCommands) {
