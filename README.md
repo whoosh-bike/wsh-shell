@@ -72,7 +72,7 @@ Wsh-Shell is a lightweight, portable, and fully static shell interpreter written
 - **<abalyberdin@whoosh.bike>** — initial MVP  
 - **<vignatov@whoosh.bike>** — improvements, refactoring
 - **<akrestinin@whoosh.bike>** — project separation (for submodule usage), main structure, PC/MCU examples  
-- **<sh@whoosh.bike>** — UX improvements, extra features, documentation, public release
+- **<sshilin@whoosh.bike>** — UX improvements, extra features, documentation, public release
 - **<eshamaev@whoosh.bike>**  — CI/CD, docs deployment, high-level PC command app
 
 ## ⚖️ License
