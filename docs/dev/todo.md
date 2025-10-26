@@ -21,7 +21,6 @@
 ## v2.1
 
 - [x] Support input range only from `space` till `~`
-- [x] Add USB CDC support for STM32F1 Blue Pill
 - [x] Change command table attachment from storing commands to storing pointers to commands
 - [x] Add an extra space (' ') on double-Tab during command autocompletion
 - [x] Implement input blocking while waiting for specific keys (Enter, Yes/No, etc.)
@@ -31,7 +30,7 @@
 
 ## v2.2
 
-- [x] Add support for storing passwords in encrypted(hashed) form in memory
+- [x] Add support for storing passwords in encrypted (hashed) form in memory
 
 ## v2.3
 

@@ -26,7 +26,7 @@ WSH_SHELL_RET_STATE_t WshShellCmd_Attach(WshShellCmd_Table_t* pShellCommands,
                     WSH_SHELL_PRINT_ERR("Duplicate short option name detected: %s %s\r\n",
                                         pcCmd->Name, pcOptInner->ShortName);
                     WSH_SHELL_ASSERT(0);
-                    retState = RET_STATE_ERROR;
+                    retState = WSH_SHELL_RET_STATE_ERROR;
                 }
 
                 if (pcOptOuter->LongName[0] && pcOptInner->LongName[0] &&
@@ -34,7 +34,7 @@ WSH_SHELL_RET_STATE_t WshShellCmd_Attach(WshShellCmd_Table_t* pShellCommands,
                     WSH_SHELL_PRINT_ERR("Duplicate long option name detected: %s %s\r\n",
                                         pcCmd->Name, pcOptInner->LongName);
                     WSH_SHELL_ASSERT(0);
-                    retState = RET_STATE_ERROR;
+                    retState = WSH_SHELL_RET_STATE_ERROR;
                 }
             }
         }
