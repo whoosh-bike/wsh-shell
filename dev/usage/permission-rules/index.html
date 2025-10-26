@@ -673,6 +673,30 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="Command Flags Overview">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#flags-access-rights-usage" class="md-nav__link">
+    <span class="md-ellipsis">
+      Flags Access Rights Usage
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example" class="md-nav__link">
+    <span class="md-ellipsis">
+      Example
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -698,6 +722,15 @@
   <a href="#group-usage" class="md-nav__link">
     <span class="md-ellipsis">
       Group Usage
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Example
     </span>
   </a>
   
@@ -2208,6 +2241,30 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="Command Flags Overview">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#flags-access-rights-usage" class="md-nav__link">
+    <span class="md-ellipsis">
+      Flags Access Rights Usage
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example" class="md-nav__link">
+    <span class="md-ellipsis">
+      Example
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -2233,6 +2290,15 @@
   <a href="#group-usage" class="md-nav__link">
     <span class="md-ellipsis">
       Group Usage
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Example
     </span>
   </a>
   
@@ -2341,6 +2407,7 @@
 </tr>
 </tbody>
 </table>
+<h3 id="flags-access-rights-usage">Flags Access Rights Usage</h3>
 <p>Each option in the shell defines its access rights via a macro entry:</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-1-1">1</a></span>
 <span class="normal"><a href="#__codelineno-1-2">2</a></span>
@@ -2394,9 +2461,12 @@
 <blockquote>
 <p>⚠️ WSH_SHELL_OPT_HELP flag always has WSH_SHELL_OPT_ACCESS_ANY flag and accessible for each user</p>
 </blockquote>
-<p>Example: Access denied due to access rights mismatch
-User: has <code>WSH_SHELL_OPT_ACCESS_ANY</code> rights
-Command option <code>-f</code>: has <code>WSH_SHELL_OPT_ACCESS_ADMIN</code> permissions</p>
+<h3 id="example">Example</h3>
+<p>Access denied due to access rights mismatch</p>
+<ul>
+<li>User: has <code>WSH_SHELL_OPT_ACCESS_ANY</code> rights</li>
+<li>Command option <code>-f</code>: has <code>WSH_SHELL_OPT_ACCESS_ADMIN</code> permissions</li>
+</ul>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-3-1">1</a></span>
 <span class="normal"><a href="#__codelineno-3-2">2</a></span>
 <span class="normal"><a href="#__codelineno-3-3">3</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1"></a><span class="n">blue</span><span class="o">-</span><span class="n">pill</span><span class="err">@</span><span class="n">user</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">def</span><span class="w"> </span><span class="o">-</span><span class="n">f</span><span class="w"> </span><span class="mf">1.0</span>
@@ -2506,9 +2576,12 @@ Command option <code>-f</code>: has <code>WSH_SHELL_OPT_ACCESS_ADMIN</code> perm
 </span><span id="__span-6-15"><a id="__codelineno-6-15" name="__codelineno-6-15"></a><span class="w">    </span><span class="p">},</span>
 </span><span id="__span-6-16"><a id="__codelineno-6-16" name="__codelineno-6-16"></a><span class="p">};</span>
 </span></code></pre></div></td></tr></table></div>
-<p>Example: Access denied due to group mismatch
-User: belongs to WSH_SHELL_CMD_GROUP_USER
-Command: belongs to WSH_SHELL_CMD_GROUP_HARDWARE</p>
+<h3 id="example_1">Example</h3>
+<p>Access denied due to group mismatch</p>
+<ul>
+<li>User: belongs to WSH_SHELL_CMD_GROUP_USER</li>
+<li>Command: belongs to WSH_SHELL_CMD_GROUP_HARDWARE</li>
+</ul>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-7-1">1</a></span>
 <span class="normal"><a href="#__codelineno-7-2">2</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1"></a>blue-pill@user<span class="w"> </span>&gt;<span class="w"> </span>led<span class="w"> </span>-h
 </span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2"></a>Access<span class="w"> </span>denied:<span class="w"> </span>no<span class="w"> </span>group<span class="w"> </span>intersection<span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="nb">command</span><span class="w"> </span><span class="s2">&quot;led&quot;</span><span class="w"> </span>and<span class="w"> </span>user<span class="w"> </span><span class="s2">&quot;user&quot;</span>!

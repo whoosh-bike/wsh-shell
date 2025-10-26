@@ -2304,9 +2304,11 @@
 <li><strong>Command Parsing &amp; Options</strong>:  <ul>
 <li>Supports short (<code>-h</code>) and long (<code>--help</code>) flags  </li>
 <li>Supports int, float, string and other option types</li>
-<li>Supports double-quoted strings  </li>
+<li>Supports double-quoted strings</li>
 </ul>
 </li>
+<li><strong>Group-based Access Control</strong> — each command belongs to one or more logical groups; users are granted access only if their group set intersects with the command’s group set</li>
+<li><strong>Fine-grained Option Access Rights</strong> — every command option (-f, --reset, etc.) has an associated access flag (read, write, execute, admin); the shell enforces these permissions at runtime and reports mismatches</li>
 <li><strong>Escape Sequence Handling</strong>:  <ul>
 <li>Parses VT100/ANSI sequences  </li>
 <li>Supports arrow keys, delete, backspace, sound alerts, etc.  </li>
@@ -2408,10 +2410,10 @@
 <span class="normal"><a href="#__codelineno-0-8">8</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1"></a>===============================================================================
 </span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2"></a><span class="gh"> Language            Files        Lines         Code     Comments       Blanks</span>
 </span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3"></a><span class="gh">===============================================================================</span>
-</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4"></a> C                      13         1971         1501           52          418
-</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5"></a><span class="gh"> C Header               17         1977          700         1042          235</span>
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4"></a> C                      13         2072         1585           52          435
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5"></a><span class="gh"> C Header               18         2334          889         1172          273</span>
 </span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6"></a><span class="gh">===============================================================================</span>
-</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7"></a><span class="gh"> Total                  30         3948         2201         1094          653</span>
+</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7"></a><span class="gh"> Total                  31         4406         2474         1224          708</span>
 </span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8"></a><span class="gh">===============================================================================</span>
 </span></code></pre></div></td></tr></table></div>
 <h2 id="authors">👨‍💻 Authors</h2>
@@ -2419,7 +2421,7 @@
 <li><strong><a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#97;&#98;&#97;&#108;&#121;&#98;&#101;&#114;&#100;&#105;&#110;&#64;&#119;&#104;&#111;&#111;&#115;&#104;&#46;&#98;&#105;&#107;&#101;">&#97;&#98;&#97;&#108;&#121;&#98;&#101;&#114;&#100;&#105;&#110;&#64;&#119;&#104;&#111;&#111;&#115;&#104;&#46;&#98;&#105;&#107;&#101;</a></strong> — initial MVP  </li>
 <li><strong><a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#118;&#105;&#103;&#110;&#97;&#116;&#111;&#118;&#64;&#119;&#104;&#111;&#111;&#115;&#104;&#46;&#98;&#105;&#107;&#101;">&#118;&#105;&#103;&#110;&#97;&#116;&#111;&#118;&#64;&#119;&#104;&#111;&#111;&#115;&#104;&#46;&#98;&#105;&#107;&#101;</a></strong> — improvements, refactoring</li>
 <li><strong><a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#97;&#107;&#114;&#101;&#115;&#116;&#105;&#110;&#105;&#110;&#64;&#119;&#104;&#111;&#111;&#115;&#104;&#46;&#98;&#105;&#107;&#101;">&#97;&#107;&#114;&#101;&#115;&#116;&#105;&#110;&#105;&#110;&#64;&#119;&#104;&#111;&#111;&#115;&#104;&#46;&#98;&#105;&#107;&#101;</a></strong> — project separation (for submodule usage), main structure, PC/MCU examples  </li>
-<li><strong><a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#115;&#104;&#64;&#119;&#104;&#111;&#111;&#115;&#104;&#46;&#98;&#105;&#107;&#101;">&#115;&#104;&#64;&#119;&#104;&#111;&#111;&#115;&#104;&#46;&#98;&#105;&#107;&#101;</a></strong> — UX improvements, extra features, documentation</li>
+<li><strong><a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#115;&#104;&#64;&#119;&#104;&#111;&#111;&#115;&#104;&#46;&#98;&#105;&#107;&#101;">&#115;&#104;&#64;&#119;&#104;&#111;&#111;&#115;&#104;&#46;&#98;&#105;&#107;&#101;</a></strong> — UX improvements, extra features, documentation, public release</li>
 <li><strong><a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#101;&#115;&#104;&#97;&#109;&#97;&#101;&#118;&#64;&#119;&#104;&#111;&#111;&#115;&#104;&#46;&#98;&#105;&#107;&#101;">&#101;&#115;&#104;&#97;&#109;&#97;&#101;&#118;&#64;&#119;&#104;&#111;&#111;&#115;&#104;&#46;&#98;&#105;&#107;&#101;</a></strong>  — CI/CD, docs deployment, high-level PC command app</li>
 </ul>
 <h2 id="license">⚖️ License</h2>
