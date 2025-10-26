@@ -226,47 +226,7 @@
         <label>stdio.h</label>
       </node>
     </incdepgraph>
-      <sectiondef kind="define">
-      <memberdef kind="define" id="wsh__shell__cmd__def_8c_1a1ac243182f70bfa6a1548af0890bf89e" prot="public" static="no">
-        <name>X_ENTRY</name>
-        <param><defname>name</defname></param>
-        <param><defname>value</defname></param>
-        <initializer>value,</initializer>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="src/wsh_shell_cmd_def.c" line="4" column="9" bodyfile="src/wsh_shell_cmd_def.c" bodystart="4" bodyend="-1"/>
-      </memberdef>
-      <memberdef kind="define" id="wsh__shell__cmd__def_8c_1a528bcd070961ed8471c61479917de7ad" prot="public" static="no">
-        <name>WSH_SHELL_CMD_GROUP_COUNT</name>
-        <initializer>(WSH_SHELL_ARR_LEN(WshShell_CmdGroups))</initializer>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="src/wsh_shell_cmd_def.c" line="8" column="9" bodyfile="src/wsh_shell_cmd_def.c" bodystart="8" bodyend="-1"/>
-      </memberdef>
-      </sectiondef>
       <sectiondef kind="var">
-      <memberdef kind="variable" id="wsh__shell__cmd__def_8c_1a5fe6616c293208435e675d34d702b3c4" prot="public" static="yes" mutable="no">
-        <type>const WSH_SHELL_CMD_GROUP_t</type>
-        <definition>const WSH_SHELL_CMD_GROUP_t WshShell_CmdGroups[]</definition>
-        <argsstring>[]</argsstring>
-        <name>WshShell_CmdGroups</name>
-        <initializer>= {WSH_SHELL_CMD_GROUP_LIST}</initializer>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="src/wsh_shell_cmd_def.c" line="5" column="36" bodyfile="src/wsh_shell_cmd_def.c" bodystart="5" bodyend="-1"/>
-      </memberdef>
       <memberdef kind="variable" id="wsh__shell__cmd__def_8c_1affa24e31b943d539d2e5c68c4fb7786b" prot="public" static="yes" mutable="no">
         <type>const <ref refid="wsh__shell__cmd_8h_1aa3eea9fbfe1d3d8b71415bc7667c65a3" kindref="member">WshShellCmd_t</ref></type>
         <definition>const WshShellCmd_t WshShellDefCmd</definition>
@@ -350,13 +310,13 @@
 <codeline lineno="1"><highlight class="preprocessor">#include<sp/>&quot;<ref refid="wsh__shell__cmd__def_8h" kindref="compound">wsh_shell_cmd_def.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="2"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="wsh__shell_8h" kindref="compound">wsh_shell.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="3"><highlight class="normal"></highlight></codeline>
-<codeline lineno="4"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>X_ENTRY(name,<sp/>value)<sp/>value,</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="5"><highlight class="normal"></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>WSH_SHELL_CMD_GROUP_t<sp/>WshShell_CmdGroups[]<sp/>=<sp/>{WSH_SHELL_CMD_GROUP_LIST};</highlight></codeline>
-<codeline lineno="6"><highlight class="normal"></highlight><highlight class="preprocessor">#undef<sp/>X_ENTRY</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="7"><highlight class="normal"></highlight></codeline>
-<codeline lineno="8"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>WSH_SHELL_CMD_GROUP_COUNT<sp/>(WSH_SHELL_ARR_LEN(WshShell_CmdGroups))</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="preprocessor">#if<sp/>WSH_SHELL_DEF_COMMAND</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="preprocessor"><sp/><sp/><sp/><sp/>#define<sp/>X_ENTRY(name,<sp/>value)<sp/>value,</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>WSH_SHELL_CMD_GROUP_t<sp/>WshShell_CmdGroups[]<sp/>=<sp/>{WSH_SHELL_CMD_GROUP_LIST};</highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight><highlight class="preprocessor"><sp/><sp/><sp/><sp/>#undef<sp/>X_ENTRY</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="9"><highlight class="normal"></highlight></codeline>
-<codeline lineno="10"><highlight class="normal"></highlight><highlight class="preprocessor">#if<sp/>WSH_SHELL_DEF_COMMAND</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight><highlight class="preprocessor"><sp/><sp/><sp/><sp/>#define<sp/>WSH_SHELL_CMD_GROUP_COUNT<sp/>(WSH_SHELL_ARR_LEN(WshShell_CmdGroups))</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="11"><highlight class="normal"></highlight></codeline>
 <codeline lineno="20"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>clang-format<sp/>off<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="21"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>WSH_SHELL_CMD_DEF_OPT_TABLE()<sp/>\</highlight></codeline>

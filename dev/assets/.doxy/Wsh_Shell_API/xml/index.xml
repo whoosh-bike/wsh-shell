@@ -217,9 +217,6 @@
     <member refid="wsh__shell__cmd_8h_1a5db3a973370bfb723d3aa43f206623c3" kind="function"><name>WshShellCmd_PrintOptionsOverview</name></member>
   </compound>
   <compound refid="wsh__shell__cmd__def_8c" kind="file"><name>wsh_shell_cmd_def.c</name>
-    <member refid="wsh__shell__cmd__def_8c_1a1ac243182f70bfa6a1548af0890bf89e" kind="define"><name>X_ENTRY</name></member>
-    <member refid="wsh__shell__cmd__def_8c_1a528bcd070961ed8471c61479917de7ad" kind="define"><name>WSH_SHELL_CMD_GROUP_COUNT</name></member>
-    <member refid="wsh__shell__cmd__def_8c_1a5fe6616c293208435e675d34d702b3c4" kind="variable"><name>WshShell_CmdGroups</name></member>
     <member refid="wsh__shell__cmd__def_8c_1affa24e31b943d539d2e5c68c4fb7786b" kind="variable"><name>WshShellDefCmd</name></member>
     <member refid="wsh__shell__cmd__def_8c_1a166f0126c872760516f29f2d1106cf4a" kind="function"><name>WshShellCmdDef_Dummy</name></member>
     <member refid="wsh__shell__cmd__def_8c_1a4b41924893e19aa40ea20bee8f0c6fef" kind="function"><name>WshShellDefCmd_GetPtr</name></member>

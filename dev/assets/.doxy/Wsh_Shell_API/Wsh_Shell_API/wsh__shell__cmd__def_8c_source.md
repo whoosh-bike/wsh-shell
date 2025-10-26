@@ -11,13 +11,13 @@
 #include "wsh_shell_cmd_def.h"
 #include "wsh_shell.h"
 
-#define X_ENTRY(name, value) value,
-static const WSH_SHELL_CMD_GROUP_t WshShell_CmdGroups[] = {WSH_SHELL_CMD_GROUP_LIST};
-#undef X_ENTRY
-
-#define WSH_SHELL_CMD_GROUP_COUNT (WSH_SHELL_ARR_LEN(WshShell_CmdGroups))
-
 #if WSH_SHELL_DEF_COMMAND
+
+    #define X_ENTRY(name, value) value,
+static const WSH_SHELL_CMD_GROUP_t WshShell_CmdGroups[] = {WSH_SHELL_CMD_GROUP_LIST};
+    #undef X_ENTRY
+
+    #define WSH_SHELL_CMD_GROUP_COUNT (WSH_SHELL_ARR_LEN(WshShell_CmdGroups))
 
 /* clang-format off */
 #define WSH_SHELL_CMD_DEF_OPT_TABLE() \

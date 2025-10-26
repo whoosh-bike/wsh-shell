@@ -40,7 +40,6 @@
 | Type | Name |
 | ---: | :--- |
 |  const [**WshShellCmd\_t**](wsh__shell__cmd_8h.md#typedef-wshshellcmd_t) | [**WshShellDefCmd**](#variable-wshshelldefcmd)   = `/* multi line expression */`<br> |
-|  const WSH\_SHELL\_CMD\_GROUP\_t | [**WshShell\_CmdGroups**](#variable-wshshell_cmdgroups)   = `{WSH\_SHELL\_CMD\_GROUP\_LIST}`<br> |
 
 
 
@@ -88,12 +87,6 @@
 
 
 
-## Macros
-
-| Type | Name |
-| ---: | :--- |
-| define  | [**WSH\_SHELL\_CMD\_GROUP\_COUNT**](wsh__shell__cmd__def_8c.md#define-wsh_shell_cmd_group_count)  `(WSH\_SHELL\_ARR\_LEN(WshShell\_CmdGroups))`<br> |
-| define  | [**X\_ENTRY**](wsh__shell__cmd__def_8c.md#define-x_entry) (name, value) `value,`<br> |
 
 ## Public Static Attributes Documentation
 
@@ -104,19 +97,6 @@
 
 ```C++
 const WshShellCmd_t WshShellDefCmd;
-```
-
-
-
-
-<hr>
-
-
-
-### variable WshShell\_CmdGroups 
-
-```C++
-const WSH_SHELL_CMD_GROUP_t WshShell_CmdGroups[];
 ```
 
 
@@ -171,38 +151,6 @@ const WshShellCmd\_t\* Pointer to the default command structure.
 
 
         
-
-<hr>
-## Macro Definition Documentation
-
-
-
-
-
-### define WSH\_SHELL\_CMD\_GROUP\_COUNT 
-
-```C++
-#define WSH_SHELL_CMD_GROUP_COUNT `(WSH_SHELL_ARR_LEN(WshShell_CmdGroups))`
-```
-
-
-
-
-<hr>
-
-
-
-### define X\_ENTRY 
-
-```C++
-#define X_ENTRY (
-    name,
-    value
-) `value,`
-```
-
-
-
 
 <hr>
 

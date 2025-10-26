@@ -15,7 +15,6 @@
 * **WshShellCmdHandler\_t** ([**wsh\_shell\_cmd.h**](wsh__shell__cmd_8h.md))
 * **WshShellCmd\_t** ([**wsh\_shell\_cmd.h**](wsh__shell__cmd_8h.md))
 * **WshShellDefCmd** ([**wsh\_shell\_cmd\_def.c**](wsh__shell__cmd__def_8c.md))
-* **WshShell\_CmdGroups** ([**wsh\_shell\_cmd\_def.c**](wsh__shell__cmd__def_8c.md))
 * **WshShellEsc\_SeqHandlers** ([**wsh\_shell\_esc.c**](wsh__shell__esc_8c.md))
 * **WshShellEsc\_Hadler\_t** ([**wsh\_shell\_esc.h**](wsh__shell__esc_8h.md))
 * **WSH\_SHELL\_HIST\_CMD\_DIR\_t** ([**wsh\_shell\_history.h**](wsh__shell__history_8h.md))
