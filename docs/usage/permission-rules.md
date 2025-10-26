@@ -29,6 +29,8 @@ Each option can be assigned one or more of the following masks:
 | `WSH_SHELL_OPT_ACCESS_ADMIN`   | `0x08`  | Restricted to admin users                  |
 | `WSH_SHELL_OPT_ACCESS_ANY`     | `0x07`  | Full read/write/execute access             |
 
+### Flags Access Rights Usage
+
 Each option in the shell defines its access rights via a macro entry:
 
 ```c
@@ -65,9 +67,12 @@ Options overview:
 
 > ⚠️ WSH_SHELL_OPT_HELP flag always has WSH_SHELL_OPT_ACCESS_ANY flag and accessible for each user
 
-Example: Access denied due to access rights mismatch
-User: has `WSH_SHELL_OPT_ACCESS_ANY` rights
-Command option `-f`: has `WSH_SHELL_OPT_ACCESS_ADMIN` permissions
+### Example
+
+Access denied due to access rights mismatch
+
+- User: has `WSH_SHELL_OPT_ACCESS_ANY` rights
+- Command option `-f`: has `WSH_SHELL_OPT_ACCESS_ADMIN` permissions
 
 ```c
 blue-pill@user > def -f 1.0
@@ -143,9 +148,12 @@ static const WshShellUser_t Shell_UserTable[] = {
 };
 ```
 
-Example: Access denied due to group mismatch
-User: belongs to WSH_SHELL_CMD_GROUP_USER
-Command: belongs to WSH_SHELL_CMD_GROUP_HARDWARE
+### Example
+
+Access denied due to group mismatch
+
+- User: belongs to WSH_SHELL_CMD_GROUP_USER
+- Command: belongs to WSH_SHELL_CMD_GROUP_HARDWARE
 
 ```shell
 blue-pill@user > led -h

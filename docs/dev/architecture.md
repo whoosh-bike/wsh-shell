@@ -91,5 +91,5 @@
     ├── elf-size-analyse.py
     ├── gen-launch.py
     ├── gen-pass.py
-    └── shell-banner-gen.py
+    └── gen-shell-banner.py
 ```

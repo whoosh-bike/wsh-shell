@@ -12,7 +12,9 @@ Wsh-Shell is a lightweight, portable, and fully static shell interpreter written
 - **Command Parsing & Options**:  
     - Supports short (`-h`) and long (`--help`) flags  
     - Supports int, float, string and other option types
-    - Supports double-quoted strings  
+    - Supports double-quoted strings
+- **Group-based Access Control** — each command belongs to one or more logical groups; users are granted access only if their group set intersects with the command’s group set
+- **Fine-grained Option Access Rights** — every command option (-f, --reset, etc.) has an associated access flag (read, write, execute, admin); the shell enforces these permissions at runtime and reports mismatches
 - **Escape Sequence Handling**:  
     - Parses VT100/ANSI sequences  
     - Supports arrow keys, delete, backspace, sound alerts, etc.  
@@ -57,10 +59,10 @@ Wsh-Shell is a lightweight, portable, and fully static shell interpreter written
 ===============================================================================
  Language            Files        Lines         Code     Comments       Blanks
 ===============================================================================
- C                      13         1971         1501           52          418
- C Header               17         1977          700         1042          235
+ C                      13         2072         1585           52          435
+ C Header               18         2334          889         1172          273
 ===============================================================================
- Total                  30         3948         2201         1094          653
+ Total                  31         4406         2474         1224          708
 ===============================================================================
 ```
 
@@ -69,7 +71,7 @@ Wsh-Shell is a lightweight, portable, and fully static shell interpreter written
 - **<abalyberdin@whoosh.bike>** — initial MVP  
 - **<vignatov@whoosh.bike>** — improvements, refactoring
 - **<akrestinin@whoosh.bike>** — project separation (for submodule usage), main structure, PC/MCU examples  
-- **<sh@whoosh.bike>** — UX improvements, extra features, documentation
+- **<sh@whoosh.bike>** — UX improvements, extra features, documentation, public release
 - **<eshamaev@whoosh.bike>**  — CI/CD, docs deployment, high-level PC command app
 
 ## ⚖️ License
