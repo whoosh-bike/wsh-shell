@@ -2330,6 +2330,7 @@
 <li><strong>Await Prompt</strong> — await for a specific key press</li>
 <li><strong>Different New Line Support</strong> - handle different terminals setup (<code>\r</code>, <code>\n</code> or <code>\r\n</code>)</li>
 <li><strong>Passwords Stored Salted &amp; Hashed</strong> — passwords are supplied and verified through a user-provided callback and always stored in a salted, hashed form; by default the module uses a lightweight Jenkins (non-cryptographic) hash, and no plaintext passwords are written to flash unless the integrator explicitly chooses to do so</li>
+<li><strong>Command Option Validation</strong> — during command registration, the shell automatically checks for duplicate short or long option flags within the same command and triggers an ASSERT if duplicates are detected</li>
 </ul>
 <h2 id="demo">👾 Demo</h2>
 <p><img alt="Demo" src="img/demo.gif" /></p>
