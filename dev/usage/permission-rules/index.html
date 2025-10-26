@@ -13,6 +13,10 @@
       
       
       
+        <link rel="prev" href="../rtos/">
+      
+      
+        <link rel="next" href="../../Wsh_Shell_API/files/">
       
       
       <link rel="icon" href="../../assets/images/favicon.png">
@@ -20,7 +24,7 @@
     
     
       
-        <title>File wsh_shell_io.c - Wsh-Shell Documentation</title>
+        <title>Permission Rules - Wsh-Shell Documentation</title>
       
     
     
@@ -70,7 +74,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#file-wsh_shell_ioc" class="md-skip">
+        <a href="#groups-permissions-and-access-rights" class="md-skip">
           Skip to content
         </a>
       
@@ -107,7 +111,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              File wsh_shell_io.c
+              Permission Rules
             
           </span>
         </div>
@@ -238,11 +242,13 @@
   
   
   
+    
+  
   
     
     
-      <li class="md-tabs__item">
-        <a href="../../usage/bare-metal/" class="md-tabs__link">
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../bare-metal/" class="md-tabs__link">
           
   
   
@@ -271,7 +277,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../files/" class="md-tabs__link">
+        <a href="../../Wsh_Shell_API/files/" class="md-tabs__link">
           
   
   
@@ -508,8 +514,10 @@
       
   
   
+    
   
   
+  
     
     
       
@@ -523,17 +531,20 @@
     
     
       
+        
+        
+      
       
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
         
           
-          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
             
   
   
@@ -546,7 +557,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_3">
             <span class="md-nav__icon md-icon"></span>
             Usage
@@ -560,7 +571,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../usage/bare-metal/" class="md-nav__link">
+      <a href="../bare-metal/" class="md-nav__link">
         
   
   
@@ -583,7 +594,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../usage/rtos/" class="md-nav__link">
+      <a href="../rtos/" class="md-nav__link">
         
   
   
@@ -603,10 +614,32 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../../usage/permission-rules/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    Permission Rules
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -617,6 +650,68 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#command-flags-overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      Command Flags Overview
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#groups-overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      Groups Overview
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Groups Overview">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#group-definitions" class="md-nav__link">
+    <span class="md-ellipsis">
+      Group Definitions
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#group-usage" class="md-nav__link">
+    <span class="md-ellipsis">
+      Group Usage
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -764,7 +859,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../files/" class="md-nav__link">
+      <a href="../../Wsh_Shell_API/files/" class="md-nav__link">
         
   
   
@@ -787,7 +882,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../functions/" class="md-nav__link">
+      <a href="../../Wsh_Shell_API/functions/" class="md-nav__link">
         
   
   
@@ -810,7 +905,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../macros/" class="md-nav__link">
+      <a href="../../Wsh_Shell_API/macros/" class="md-nav__link">
         
   
   
@@ -833,7 +928,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../variables/" class="md-nav__link">
+      <a href="../../Wsh_Shell_API/variables/" class="md-nav__link">
         
   
   
@@ -909,7 +1004,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../wsh__shell__autocomplete_8h/" class="md-nav__link">
+      <a href="../../Wsh_Shell_API/wsh__shell__autocomplete_8h/" class="md-nav__link">
         
   
   
@@ -985,7 +1080,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../wsh__shell__cfg__def_8h/" class="md-nav__link">
+      <a href="../../Wsh_Shell_API/wsh__shell__cfg__def_8h/" class="md-nav__link">
         
   
   
@@ -1061,7 +1156,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../wsh__shell__cmd__def_8h/" class="md-nav__link">
+      <a href="../../Wsh_Shell_API/wsh__shell__cmd__def_8h/" class="md-nav__link">
         
   
   
@@ -1137,7 +1232,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../wsh__shell__cmd_8h/" class="md-nav__link">
+      <a href="../../Wsh_Shell_API/wsh__shell__cmd_8h/" class="md-nav__link">
         
   
   
@@ -1213,7 +1308,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../wsh__shell__esc_8h/" class="md-nav__link">
+      <a href="../../Wsh_Shell_API/wsh__shell__esc_8h/" class="md-nav__link">
         
   
   
@@ -1289,7 +1384,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../wsh__shell__history_8h/" class="md-nav__link">
+      <a href="../../Wsh_Shell_API/wsh__shell__history_8h/" class="md-nav__link">
         
   
   
@@ -1365,7 +1460,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../wsh__shell__interact_8h/" class="md-nav__link">
+      <a href="../../Wsh_Shell_API/wsh__shell__interact_8h/" class="md-nav__link">
         
   
   
@@ -1441,7 +1536,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../wsh__shell__io_8h/" class="md-nav__link">
+      <a href="../../Wsh_Shell_API/wsh__shell__io_8h/" class="md-nav__link">
         
   
   
@@ -1517,7 +1612,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../wsh__shell__misc_8h/" class="md-nav__link">
+      <a href="../../Wsh_Shell_API/wsh__shell__misc_8h/" class="md-nav__link">
         
   
   
@@ -1593,7 +1688,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../wsh__shell__option_8h/" class="md-nav__link">
+      <a href="../../Wsh_Shell_API/wsh__shell__option_8h/" class="md-nav__link">
         
   
   
@@ -1669,7 +1764,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../wsh__shell__promptwait_8h/" class="md-nav__link">
+      <a href="../../Wsh_Shell_API/wsh__shell__promptwait_8h/" class="md-nav__link">
         
   
   
@@ -1745,7 +1840,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../wsh__shell__str_8h/" class="md-nav__link">
+      <a href="../../Wsh_Shell_API/wsh__shell__str_8h/" class="md-nav__link">
         
   
   
@@ -1821,7 +1916,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../wsh__shell__types_8h/" class="md-nav__link">
+      <a href="../../Wsh_Shell_API/wsh__shell__types_8h/" class="md-nav__link">
         
   
   
@@ -1897,7 +1992,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../wsh__shell__user_8h/" class="md-nav__link">
+      <a href="../../Wsh_Shell_API/wsh__shell__user_8h/" class="md-nav__link">
         
   
   
@@ -1973,7 +2068,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../wsh__shell__option_8h/" class="md-nav__link">
+      <a href="../../Wsh_Shell_API/wsh__shell__option_8h/" class="md-nav__link">
         
   
   
@@ -2049,7 +2144,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../wsh__shell_8h/" class="md-nav__link">
+      <a href="../../Wsh_Shell_API/wsh__shell_8h/" class="md-nav__link">
         
   
   
@@ -2107,106 +2202,37 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#public-static-attributes" class="md-nav__link">
+  <a href="#command-flags-overview" class="md-nav__link">
     <span class="md-ellipsis">
-      Public Static Attributes
+      Command Flags Overview
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#public-functions" class="md-nav__link">
+  <a href="#groups-overview" class="md-nav__link">
     <span class="md-ellipsis">
-      Public Functions
+      Groups Overview
     </span>
   </a>
   
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#public-static-attributes-documentation" class="md-nav__link">
-    <span class="md-ellipsis">
-      Public Static Attributes Documentation
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Public Static Attributes Documentation">
+    <nav class="md-nav" aria-label="Groups Overview">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#variable-wshshellio_insertstringtemplate" class="md-nav__link">
+  <a href="#group-definitions" class="md-nav__link">
     <span class="md-ellipsis">
-      variable WshShellIO_InsertStringTemplate
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#public-functions-documentation" class="md-nav__link">
-    <span class="md-ellipsis">
-      Public Functions Documentation
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Public Functions Documentation">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#function-wshshellio_clearinterbuff" class="md-nav__link">
-    <span class="md-ellipsis">
-      function WshShellIO_ClearInterBuff
+      Group Definitions
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#function-wshshellio_insertsymbol" class="md-nav__link">
+  <a href="#group-usage" class="md-nav__link">
     <span class="md-ellipsis">
-      function WshShellIO_InsertSymbol
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#function-wshshellio_printinterbuff" class="md-nav__link">
-    <span class="md-ellipsis">
-      function WshShellIO_PrintInterBuff
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#function-wshshellio_refreshconsolefrominterbuff" class="md-nav__link">
-    <span class="md-ellipsis">
-      function WshShellIO_RefreshConsoleFromInterBuff
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#function-wshshellio_removeleftsymbol" class="md-nav__link">
-    <span class="md-ellipsis">
-      function WshShellIO_RemoveLeftSymbol
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#function-wshshellio_writetointerbuff" class="md-nav__link">
-    <span class="md-ellipsis">
-      function WshShellIO_WriteToInterBuff
+      Group Usage
     </span>
   </a>
   
@@ -2233,7 +2259,7 @@
 
 
   
-    <a href="https://github.com/whoosh-bike/wsh-shell/edit/master/docs/Wsh_Shell_API/wsh__shell__io_8c.md" title="Edit this page" class="md-content__button md-icon" rel="edit">
+    <a href="https://github.com/whoosh-bike/wsh-shell/edit/master/docs/usage/permission-rules.md" title="Edit this page" class="md-content__button md-icon" rel="edit">
       
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"/></svg>
     </a>
@@ -2242,182 +2268,251 @@
     
       
     
-    <a href="https://github.com/whoosh-bike/wsh-shell/raw/master/docs/Wsh_Shell_API/wsh__shell__io_8c.md" title="View source of this page" class="md-content__button md-icon">
+    <a href="https://github.com/whoosh-bike/wsh-shell/raw/master/docs/usage/permission-rules.md" title="View source of this page" class="md-content__button md-icon">
       
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 18c.56 0 1 .44 1 1s-.44 1-1 1-1-.44-1-1 .44-1 1-1m0-3c-2.73 0-5.06 1.66-6 4 .94 2.34 3.27 4 6 4s5.06-1.66 6-4c-.94-2.34-3.27-4-6-4m0 6.5a2.5 2.5 0 0 1-2.5-2.5 2.5 2.5 0 0 1 2.5-2.5 2.5 2.5 0 0 1 2.5 2.5 2.5 2.5 0 0 1-2.5 2.5M9.27 20H6V4h7v5h5v4.07c.7.08 1.36.25 2 .49V8l-6-6H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h4.5a8.2 8.2 0 0 1-1.23-2"/></svg>
     </a>
   
 
 
-<h1 id="file-wsh_shell_ioc">File wsh_shell_io.c</h1>
-<p><a href="../files/"><strong>FileList</strong></a> <strong>&gt;</strong> <a href="../dir_68267d1309a1af8e8297ef4c3efbcdba/"><strong>src</strong></a> <strong>&gt;</strong> <a href="./"><strong>wsh_shell_io.c</strong></a></p>
-<p><a href="../wsh__shell__io_8c_source/">Go to the source code of this file</a></p>
-<ul>
-<li><code>#include "wsh_shell_io.h"</code></li>
-</ul>
-<h2 id="public-static-attributes">Public Static Attributes</h2>
-<table>
-<thead>
-<tr>
-<th style="text-align: right;">Type</th>
-<th style="text-align: left;">Name</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align: right;">const WshShell_Char_t *</td>
-<td style="text-align: left;"><a href="#variable-wshshellio_insertstringtemplate"><strong>WshShellIO_InsertStringTemplate</strong></a>   = <code>/* multi line expression */</code><br></td>
-</tr>
-</tbody>
-</table>
-<h2 id="public-functions">Public Functions</h2>
-<table>
-<thead>
-<tr>
-<th style="text-align: right;">Type</th>
-<th style="text-align: left;">Name</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align: right;">void</td>
-<td style="text-align: left;"><a href="#function-wshshellio_clearinterbuff"><strong>WshShellIO_ClearInterBuff</strong></a> (<a href="../structWshShellIO__CommandLine__t/"><strong>WshShellIO_CommandLine_t</strong></a> * pCommandLine) <br><em>Clears the interaction buffer.</em></td>
-</tr>
-<tr>
-<td style="text-align: right;">void</td>
-<td style="text-align: left;"><a href="#function-wshshellio_insertsymbol"><strong>WshShellIO_InsertSymbol</strong></a> (<a href="../structWshShellIO__CommandLine__t/"><strong>WshShellIO_CommandLine_t</strong></a> * pCommandLine, WshShell_Char_t ch, WshShell_Bool_t starsOrChars) <br><em>Inserts a symbol at the current cursor position in the input buffer.</em></td>
-</tr>
-<tr>
-<td style="text-align: right;">void</td>
-<td style="text-align: left;"><a href="#function-wshshellio_printinterbuff"><strong>WshShellIO_PrintInterBuff</strong></a> (<a href="../structWshShellIO__CommandLine__t/"><strong>WshShellIO_CommandLine_t</strong></a> * pCommandLine) <br><em>Prints the current interaction buffer to the terminal.</em></td>
-</tr>
-<tr>
-<td style="text-align: right;">void</td>
-<td style="text-align: left;"><a href="#function-wshshellio_refreshconsolefrominterbuff"><strong>WshShellIO_RefreshConsoleFromInterBuff</strong></a> (<a href="../structWshShellIO__CommandLine__t/"><strong>WshShellIO_CommandLine_t</strong></a> * pCommandLine) <br><em>Refreshes the terminal display using the interaction buffer.</em></td>
-</tr>
-<tr>
-<td style="text-align: right;">void</td>
-<td style="text-align: left;"><a href="#function-wshshellio_removeleftsymbol"><strong>WshShellIO_RemoveLeftSymbol</strong></a> (<a href="../structWshShellIO__CommandLine__t/"><strong>WshShellIO_CommandLine_t</strong></a> * pCommandLine) <br><em>Removes the symbol to the left of the cursor in the input buffer.</em></td>
-</tr>
-<tr>
-<td style="text-align: right;">void</td>
-<td style="text-align: left;"><a href="#function-wshshellio_writetointerbuff"><strong>WshShellIO_WriteToInterBuff</strong></a> (<a href="../structWshShellIO__CommandLine__t/"><strong>WshShellIO_CommandLine_t</strong></a> * pCommandLine, WshShell_Char_t symbol) <br><em>Writes a character into the interaction buffer at the cursor position.</em></td>
-</tr>
-</tbody>
-</table>
-<h2 id="public-static-attributes-documentation">Public Static Attributes Documentation</h2>
-<h3 id="variable-wshshellio_insertstringtemplate">variable WshShellIO_InsertStringTemplate</h3>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="k">const</span><span class="w"> </span><span class="n">WshShell_Char_t</span><span class="o">*</span><span class="w"> </span><span class="n">WshShellIO_InsertStringTemplate</span><span class="p">;</span>
+<h1 id="groups-permissions-and-access-rights">Groups, Permissions and Access Rights</h1>
+<h2 id="command-flags-overview">Command Flags Overview</h2>
+<p>In WshShell, each command option has a set of access rights (access flags) that define what actions a user is allowed to perform with it.</p>
+<blockquote>
+<p>⚠️ Access rights are assigned not to commands themselves, but to the options within commands.</p>
+</blockquote>
+<p>Each option can be assigned one or more of the following masks:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-1">1</a></span>
+<span class="normal"><a href="#__codelineno-0-2">2</a></span>
+<span class="normal"><a href="#__codelineno-0-3">3</a></span>
+<span class="normal"><a href="#__codelineno-0-4">4</a></span>
+<span class="normal"><a href="#__codelineno-0-5">5</a></span>
+<span class="normal"><a href="#__codelineno-0-6">6</a></span>
+<span class="normal"><a href="#__codelineno-0-7">7</a></span>
+<span class="normal"><a href="#__codelineno-0-8">8</a></span>
+<span class="normal"><a href="#__codelineno-0-9">9</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="cp">#define WSH_SHELL_OPT_ACCESS_NO      0x00 </span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2"></a><span class="cp">#define WSH_SHELL_OPT_ACCESS_READ    0x01</span>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3"></a><span class="cp">#define WSH_SHELL_OPT_ACCESS_WRITE   0x02</span>
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4"></a><span class="cp">#define WSH_SHELL_OPT_ACCESS_EXECUTE 0x04</span>
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5"></a><span class="cp">#define WSH_SHELL_OPT_ACCESS_ADMIN   0x08</span>
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6"></a><span class="cp">#define WSH_SHELL_OPT_ACCESS_ANY \</span>
+</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7"></a><span class="cp">    (WSH_SHELL_OPT_ACCESS_READ | \</span>
+</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8"></a><span class="cp">     WSH_SHELL_OPT_ACCESS_WRITE | \</span>
+</span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9"></a><span class="cp">     WSH_SHELL_OPT_ACCESS_EXECUTE)</span>
 </span></code></pre></div></td></tr></table></div>
-<hr>
-<h2 id="public-functions-documentation">Public Functions Documentation</h2>
-<h3 id="function-wshshellio_clearinterbuff">function WshShellIO_ClearInterBuff</h3>
-<p><em>Clears the interaction buffer.</em> 
+<table>
+<thead>
+<tr>
+<th>Flag</th>
+<th>Bitmask</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>WSH_SHELL_OPT_ACCESS_NO</code></td>
+<td><code>0x00</code></td>
+<td>No access at all</td>
+</tr>
+<tr>
+<td><code>WSH_SHELL_OPT_ACCESS_READ</code></td>
+<td><code>0x01</code></td>
+<td>Allows reading or retrieving information</td>
+</tr>
+<tr>
+<td><code>WSH_SHELL_OPT_ACCESS_WRITE</code></td>
+<td><code>0x02</code></td>
+<td>Allows modification or reset operations</td>
+</tr>
+<tr>
+<td><code>WSH_SHELL_OPT_ACCESS_EXECUTE</code></td>
+<td><code>0x04</code></td>
+<td>Allows performing actions or running logic</td>
+</tr>
+<tr>
+<td><code>WSH_SHELL_OPT_ACCESS_ADMIN</code></td>
+<td><code>0x08</code></td>
+<td>Restricted to admin users</td>
+</tr>
+<tr>
+<td><code>WSH_SHELL_OPT_ACCESS_ANY</code></td>
+<td><code>0x07</code></td>
+<td>Full read/write/execute access</td>
+</tr>
+</tbody>
+</table>
+<p>Each option in the shell defines its access rights via a macro entry:</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-1-1">1</a></span>
 <span class="normal"><a href="#__codelineno-1-2">2</a></span>
-<span class="normal"><a href="#__codelineno-1-3">3</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1"></a><span class="kt">void</span><span class="w"> </span><span class="n">WshShellIO_ClearInterBuff</span><span class="w"> </span><span class="p">(</span>
-</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2"></a><span class="w">    </span><span class="n">WshShellIO_CommandLine_t</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">pCommandLine</span>
-</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3"></a><span class="p">)</span><span class="w"> </span>
-</span></code></pre></div></td></tr></table></div></p>
-<p>Resets buffer contents, cursor position, and line length.</p>
-<p><strong>Parameters:</strong></p>
-<ul>
-<li><code>pCommandLine</code> Pointer to the interaction buffer. </li>
-</ul>
-<hr>
-
-<h3 id="function-wshshellio_insertsymbol">function WshShellIO_InsertSymbol</h3>
-<p><em>Inserts a symbol at the current cursor position in the input buffer.</em> 
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-2-1">1</a></span>
-<span class="normal"><a href="#__codelineno-2-2">2</a></span>
-<span class="normal"><a href="#__codelineno-2-3">3</a></span>
-<span class="normal"><a href="#__codelineno-2-4">4</a></span>
-<span class="normal"><a href="#__codelineno-2-5">5</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1"></a><span class="kt">void</span><span class="w"> </span><span class="n">WshShellIO_InsertSymbol</span><span class="w"> </span><span class="p">(</span>
-</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2"></a><span class="w">    </span><span class="n">WshShellIO_CommandLine_t</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">pCommandLine</span><span class="p">,</span>
-</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3"></a><span class="w">    </span><span class="n">WshShell_Char_t</span><span class="w"> </span><span class="n">ch</span><span class="p">,</span>
-</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4"></a><span class="w">    </span><span class="n">WshShell_Bool_t</span><span class="w"> </span><span class="n">starsOrChars</span>
-</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5"></a><span class="p">)</span><span class="w"> </span>
-</span></code></pre></div></td></tr></table></div></p>
-<p>This function handles character insertion into the interaction buffer:
-* If the cursor is in the middle of the line (not at the end), it shifts existing characters to the right to make space for the new symbol.
-* The character is then written into the buffer at the cursor position using <code>WshShellIO_WriteToInterBuff</code>.
-* The terminal is updated to reflect the insertion, printing either the actual symbol or an asterisk (<code>*</code>) if <code>starsOrChars</code> is true (used for password masking).</p>
-<p>Cursor position and buffer length are updated internally. Asserts that <code>pCommandLine</code> is valid and that <code>CursorPos &gt;= 1</code> before printing.</p>
-<p><strong>Parameters:</strong></p>
-<ul>
-<li><code>pCommandLine</code> Pointer to the interaction buffer. </li>
-<li><code>ch</code> The symbol to insert. </li>
-<li><code>starsOrChars</code> If true, prints <code>*</code> instead of the actual character. </li>
-</ul>
-<hr>
-
-<h3 id="function-wshshellio_printinterbuff">function WshShellIO_PrintInterBuff</h3>
-<p><em>Prints the current interaction buffer to the terminal.</em> 
+<span class="normal"><a href="#__codelineno-1-3">3</a></span>
+<span class="normal"><a href="#__codelineno-1-4">4</a></span>
+<span class="normal"><a href="#__codelineno-1-5">5</a></span>
+<span class="normal"><a href="#__codelineno-1-6">6</a></span>
+<span class="normal"><a href="#__codelineno-1-7">7</a></span>
+<span class="normal"><a href="#__codelineno-1-8">8</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1"></a><span class="cp">#define CMD_FS_OPT_TABLE() \</span>
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2"></a><span class="cp">X_CMD_ENTRY(CMD_FS_OPT_HELP, WSH_SHELL_OPT_HELP()) \</span>
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3"></a><span class="cp">X_CMD_ENTRY(CMD_FS_OPT_DISK_NUM, WSH_SHELL_OPT_INT(WSH_SHELL_OPT_ACCESS_WRITE, &quot;-d&quot;, &quot;--disc&quot;, &quot;Set disk root path number [0..n]&quot;)) \</span>
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4"></a><span class="cp">X_CMD_ENTRY(CMD_FS_OPT_SCAN, WSH_SHELL_OPT_WO_PARAM(WSH_SHELL_OPT_ACCESS_READ, &quot;-s&quot;, &quot;--scan&quot;, &quot;Scan files&quot;)) \</span>
+</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5"></a><span class="cp">X_CMD_ENTRY(CMD_FS_OPT_MSD, WSH_SHELL_OPT_INT(WSH_SHELL_OPT_ACCESS_EXECUTE, &quot;-m&quot;, &quot;--msd&quot;, &quot;Run MSD for specified amount of minutes [1..n]&quot;)) \</span>
+</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6"></a><span class="cp">X_CMD_ENTRY(CMD_FS_OPT_INFO, WSH_SHELL_OPT_WO_PARAM(WSH_SHELL_OPT_ACCESS_ANY, &quot;-i&quot;, &quot;--info&quot;, &quot;Show information about storage&quot;)) \</span>
+</span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7"></a><span class="cp">X_CMD_ENTRY(CMD_FS_OPT_TEST_SPEED, WSH_SHELL_OPT_WO_PARAM(WSH_SHELL_OPT_ACCESS_ADMIN, &quot;-t&quot;, &quot;--testspeed&quot;, &quot;Fast speed test&quot;)) \</span>
+</span><span id="__span-1-8"><a id="__codelineno-1-8" name="__codelineno-1-8"></a><span class="cp">X_CMD_ENTRY(CMD_FS_OPT_END, WSH_SHELL_OPT_END())</span>
+</span></code></pre></div></td></tr></table></div>
+<p>Users can list all available options and their assigned access flags:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-2-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-2-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-2-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-2-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-2-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-2-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-2-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-2-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-2-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-2-10">10</a></span>
+<span class="normal"><a href="#__codelineno-2-11">11</a></span>
+<span class="normal"><a href="#__codelineno-2-12">12</a></span>
+<span class="normal"><a href="#__codelineno-2-13">13</a></span>
+<span class="normal"><a href="#__codelineno-2-14">14</a></span>
+<span class="normal"><a href="#__codelineno-2-15">15</a></span>
+<span class="normal"><a href="#__codelineno-2-16">16</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1"></a>blue-pill@admin<span class="w"> </span>&gt;<span class="w"> </span>def<span class="w"> </span>-h
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2"></a>Default<span class="w"> </span><span class="nb">command</span><span class="w"> </span><span class="k">for</span><span class="w"> </span>configuring<span class="w"> </span>and<span class="w"> </span>querying<span class="w"> </span>the<span class="w"> </span>shell<span class="w"> </span>interface
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3"></a>Options<span class="w"> </span>overview:
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4"></a><span class="w">  </span>Short<span class="w">   </span>Long<span class="w">             </span>Type<span class="w">       </span>Access<span class="w"> </span>Descr
+</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5"></a><span class="w">  </span>--<span class="w">      </span>---<span class="w">              </span>EMPTY<span class="w">      </span>rwx-<span class="w">   </span>Print<span class="w"> </span>basic<span class="w"> </span>info<span class="w"> </span>about<span class="w"> </span>shell<span class="w"> </span>instance
+</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6"></a><span class="w">  </span>-h<span class="w">      </span>--help<span class="w">           </span>HELP<span class="w">       </span>rwx-<span class="w">   </span>Show<span class="w"> </span><span class="nb">command</span><span class="w"> </span><span class="nb">help</span><span class="w"> </span>information
+</span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7"></a><span class="w">  </span>-i<span class="w">      </span>--interactive<span class="w">    </span>INTERACT<span class="w">   </span>rwx-<span class="w">   </span>Run<span class="w"> </span><span class="nb">command</span><span class="w"> </span><span class="k">in</span><span class="w"> </span>interactive<span class="w"> </span>mode
+</span><span id="__span-2-8"><a id="__codelineno-2-8" name="__codelineno-2-8"></a><span class="w">  </span>-x<span class="w">      </span>--exec<span class="w">           </span>WO_PARAM<span class="w">   </span>r---<span class="w">   </span>Get<span class="w"> </span>info<span class="w"> </span>about<span class="w"> </span>accessible<span class="w"> </span>commands
+</span><span id="__span-2-9"><a id="__codelineno-2-9" name="__codelineno-2-9"></a><span class="w">  </span>-u<span class="w">      </span>--user<span class="w">           </span>WO_PARAM<span class="w">   </span>r---<span class="w">   </span>Get<span class="w"> </span>info<span class="w"> </span>about<span class="w"> </span>users
+</span><span id="__span-2-10"><a id="__codelineno-2-10" name="__codelineno-2-10"></a><span class="w">  </span>-c<span class="w">      </span>--cls<span class="w">            </span>WO_PARAM<span class="w">   </span>--x-<span class="w">   </span>Clear<span class="w"> </span>screen
+</span><span id="__span-2-11"><a id="__codelineno-2-11" name="__codelineno-2-11"></a><span class="w">  </span>-r<span class="w">      </span>--histrst<span class="w">        </span>WO_PARAM<span class="w">   </span>-w--<span class="w">   </span>Reset<span class="w"> </span><span class="nb">history</span><span class="w"> </span>storage
+</span><span id="__span-2-12"><a id="__codelineno-2-12" name="__codelineno-2-12"></a><span class="w">  </span>-p<span class="w">      </span>--histprint<span class="w">      </span>WO_PARAM<span class="w">   </span>r---<span class="w">   </span>Print<span class="w"> </span><span class="nb">history</span><span class="w"> </span>storage
+</span><span id="__span-2-13"><a id="__codelineno-2-13" name="__codelineno-2-13"></a><span class="w">  </span>-d<span class="w">      </span>--deauth<span class="w">         </span>WO_PARAM<span class="w">   </span>rwx-<span class="w">   </span>DeAuth<span class="w"> </span>and<span class="w"> </span>destroy<span class="w"> </span><span class="nb">history</span>
+</span><span id="__span-2-14"><a id="__codelineno-2-14" name="__codelineno-2-14"></a><span class="w">  </span>-s<span class="w">      </span>--str<span class="w">            </span>STR<span class="w">        </span>--x-<span class="w">   </span>Set<span class="w"> </span>string
+</span><span id="__span-2-15"><a id="__codelineno-2-15" name="__codelineno-2-15"></a><span class="w">  </span>-n<span class="w">      </span>--int<span class="w">            </span>INT<span class="w">        </span>--x-<span class="w">   </span>Set<span class="w"> </span>int
+</span><span id="__span-2-16"><a id="__codelineno-2-16" name="__codelineno-2-16"></a><span class="w">  </span>-f<span class="w">      </span>--flt<span class="w">            </span>FLOAT<span class="w">      </span>---A<span class="w">   </span>Set<span class="w"> </span>float
+</span></code></pre></div></td></tr></table></div>
+<blockquote>
+<p>⚠️ WSH_SHELL_OPT_HELP flag always has WSH_SHELL_OPT_ACCESS_ANY flag and accessible for each user</p>
+</blockquote>
+<p>Example: Access denied due to access rights mismatch
+User: has <code>WSH_SHELL_OPT_ACCESS_ANY</code> rights
+Command option <code>-f</code>: has <code>WSH_SHELL_OPT_ACCESS_ADMIN</code> permissions</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-3-1">1</a></span>
 <span class="normal"><a href="#__codelineno-3-2">2</a></span>
-<span class="normal"><a href="#__codelineno-3-3">3</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1"></a><span class="kt">void</span><span class="w"> </span><span class="n">WshShellIO_PrintInterBuff</span><span class="w"> </span><span class="p">(</span>
-</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2"></a><span class="w">    </span><span class="n">WshShellIO_CommandLine_t</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">pCommandLine</span>
-</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3"></a><span class="p">)</span><span class="w"> </span>
-</span></code></pre></div></td></tr></table></div></p>
-<p><strong>Parameters:</strong></p>
-<ul>
-<li><code>pCommandLine</code> Pointer to the interaction buffer. </li>
-</ul>
-<hr>
-
-<h3 id="function-wshshellio_refreshconsolefrominterbuff">function WshShellIO_RefreshConsoleFromInterBuff</h3>
-<p><em>Refreshes the terminal display using the interaction buffer.</em> 
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-4-1">1</a></span>
-<span class="normal"><a href="#__codelineno-4-2">2</a></span>
-<span class="normal"><a href="#__codelineno-4-3">3</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1"></a><span class="kt">void</span><span class="w"> </span><span class="n">WshShellIO_RefreshConsoleFromInterBuff</span><span class="w"> </span><span class="p">(</span>
-</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2"></a><span class="w">    </span><span class="n">WshShellIO_CommandLine_t</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">pCommandLine</span>
-</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3"></a><span class="p">)</span><span class="w"> </span>
-</span></code></pre></div></td></tr></table></div></p>
-<p>Clears the current line and reprints buffer contents.</p>
-<p><strong>Parameters:</strong></p>
-<ul>
-<li><code>pCommandLine</code> Pointer to the interaction buffer. </li>
-</ul>
-<hr>
-
-<h3 id="function-wshshellio_removeleftsymbol">function WshShellIO_RemoveLeftSymbol</h3>
-<p><em>Removes the symbol to the left of the cursor in the input buffer.</em> 
+<span class="normal"><a href="#__codelineno-3-3">3</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1"></a><span class="n">blue</span><span class="o">-</span><span class="n">pill</span><span class="err">@</span><span class="n">user</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">def</span><span class="w"> </span><span class="o">-</span><span class="n">f</span><span class="w"> </span><span class="mf">1.0</span>
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2"></a><span class="n">No</span><span class="w"> </span><span class="n">access</span><span class="w"> </span><span class="n">rights</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">option</span><span class="w"> </span><span class="s">&quot;-f&quot;</span><span class="w"> </span><span class="p">(</span><span class="o">---</span><span class="n">A</span><span class="p">)</span><span class="w"> </span><span class="n">and</span><span class="w"> </span><span class="n">user</span><span class="w"> </span><span class="p">(</span><span class="n">rwx</span><span class="o">-</span><span class="p">)</span>
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3"></a><span class="n">Command</span><span class="w"> </span><span class="n">execution</span><span class="o">:</span><span class="w"> </span><span class="n">ERR_EMPTY</span>
+</span></code></pre></div></td></tr></table></div>
+<h2 id="groups-overview">Groups Overview</h2>
+<p>Groups define logical associations between users and commands and serve as the primary layer of access control.</p>
+<p>Access in the shell is managed through bitmask-based command groups. Each user and each command can belong to one or more groups. When a command is executed, the shell checks if there is any intersection between the user's group set and the command's group set.</p>
+<h3 id="group-definitions">Group Definitions</h3>
+<p>Groups should be defined as a bitmask-based enumeration in <code>wsh_shell_cfg.h</code> file. Each group represents a logical access level or subsystem scope.</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-4-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-4-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-4-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-4-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-4-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-4-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-4-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-4-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-4-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-4-10">10</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1"></a><span class="cp">#define WSH_SHELL_CMD_GROUP_LIST                    </span>
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2"></a><span class="n">X_ENTRY</span><span class="p">(</span><span class="n">WSH_SHELL_CMD_GROUP_HARDWARE</span><span class="p">,</span><span class="w"> </span><span class="mh">0x01</span><span class="p">)</span><span class="w"> </span><span class="err">\</span><span class="w">  </span>
+</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3"></a><span class="n">X_ENTRY</span><span class="p">(</span><span class="n">WSH_SHELL_CMD_GROUP_TESTS</span><span class="p">,</span><span class="w"> </span><span class="mh">0x02</span><span class="p">)</span><span class="w"> </span>\
+</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4"></a><span class="n">X_ENTRY</span><span class="p">(</span><span class="n">WSH_SHELL_CMD_GROUP_USER</span><span class="p">,</span><span class="w"> </span><span class="mh">0x04</span><span class="p">)</span>
+</span><span id="__span-4-5"><a id="__codelineno-4-5" name="__codelineno-4-5"></a>
+</span><span id="__span-4-6"><a id="__codelineno-4-6" name="__codelineno-4-6"></a><span class="cp">#define X_ENTRY(name, value) name = value,</span>
+</span><span id="__span-4-7"><a id="__codelineno-4-7" name="__codelineno-4-7"></a><span class="k">typedef</span><span class="w"> </span><span class="k">enum</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">WSH_SHELL_CMD_GROUP_LIST</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="n">WSH_SHELL_CMD_GROUP_t</span><span class="p">;</span>
+</span><span id="__span-4-8"><a id="__codelineno-4-8" name="__codelineno-4-8"></a><span class="cp">#undef X_ENTRY</span>
+</span><span id="__span-4-9"><a id="__codelineno-4-9" name="__codelineno-4-9"></a>
+</span><span id="__span-4-10"><a id="__codelineno-4-10" name="__codelineno-4-10"></a><span class="cp">#define WSH_SHELL_CMD_GROUP_ALL ((WshShell_Size_t)(~0U))</span>
+</span></code></pre></div></td></tr></table></div>
+<table>
+<thead>
+<tr>
+<th>Group Enum Name</th>
+<th>Bitmask</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>WSH_SHELL_CMD_GROUP_HARDWARE</code></td>
+<td><code>0x01</code></td>
+</tr>
+<tr>
+<td><code>WSH_SHELL_CMD_GROUP_TESTS</code></td>
+<td><code>0x02</code></td>
+</tr>
+<tr>
+<td><code>WSH_SHELL_CMD_GROUP_USER</code></td>
+<td><code>0x04</code></td>
+</tr>
+<tr>
+<td><code>WSH_SHELL_CMD_GROUP_ALL</code></td>
+<td><code>~0U</code></td>
+</tr>
+</tbody>
+</table>
+<p>Groups can be combined using bitwise OR (<code>|</code>) to form composite access sets.</p>
+<h3 id="group-usage">Group Usage</h3>
+<p>Commands are assigned to one or more groups. During execution, the shell checks whether the current user’s group set intersects with the command’s group mask:</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-5-1">1</a></span>
 <span class="normal"><a href="#__codelineno-5-2">2</a></span>
-<span class="normal"><a href="#__codelineno-5-3">3</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1"></a><span class="kt">void</span><span class="w"> </span><span class="n">WshShellIO_RemoveLeftSymbol</span><span class="w"> </span><span class="p">(</span>
-</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2"></a><span class="w">    </span><span class="n">WshShellIO_CommandLine_t</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">pCommandLine</span>
-</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3"></a><span class="p">)</span><span class="w"> </span>
-</span></code></pre></div></td></tr></table></div></p>
-<p>This function handles backspace-like behavior:
-* If the cursor is not at the beginning of the line, it removes the symbol to the left of the cursor, shifts the rest of the line left, and updates both the buffer and terminal display.
-* If the cursor is beyond the line length (unexpected), only moves the cursor one position left.</p>
-<p>Also updates the internal buffer length and uses ANSI escape sequences to visually update the terminal.</p>
-<p><strong>Parameters:</strong></p>
-<ul>
-<li><code>pCommandLine</code> Pointer to the interaction buffer. </li>
-</ul>
-<hr>
-
-<h3 id="function-wshshellio_writetointerbuff">function WshShellIO_WriteToInterBuff</h3>
-<p><em>Writes a character into the interaction buffer at the cursor position.</em> 
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-6-1">1</a></span>
-<span class="normal"><a href="#__codelineno-6-2">2</a></span>
-<span class="normal"><a href="#__codelineno-6-3">3</a></span>
-<span class="normal"><a href="#__codelineno-6-4">4</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1"></a><span class="kt">void</span><span class="w"> </span><span class="n">WshShellIO_WriteToInterBuff</span><span class="w"> </span><span class="p">(</span>
-</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2"></a><span class="w">    </span><span class="n">WshShellIO_CommandLine_t</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">pCommandLine</span><span class="p">,</span>
-</span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3"></a><span class="w">    </span><span class="n">WshShell_Char_t</span><span class="w"> </span><span class="n">symbol</span>
-</span><span id="__span-6-4"><a id="__codelineno-6-4" name="__codelineno-6-4"></a><span class="p">)</span><span class="w"> </span>
-</span></code></pre></div></td></tr></table></div></p>
-<p>Increments cursor and line length accordingly.</p>
-<p><strong>Parameters:</strong></p>
-<ul>
-<li><code>pCommandLine</code> Pointer to the interaction buffer. </li>
-<li><code>symbol</code> Character to write. </li>
-</ul>
-<hr>
-
-<hr />
-<p>The documentation for this class was generated from the following file <code>src/wsh_shell_io.c</code></p>
+<span class="normal"><a href="#__codelineno-5-3">3</a></span>
+<span class="normal"><a href="#__codelineno-5-4">4</a></span>
+<span class="normal"><a href="#__codelineno-5-5">5</a></span>
+<span class="normal"><a href="#__codelineno-5-6">6</a></span>
+<span class="normal"><a href="#__codelineno-5-7">7</a></span>
+<span class="normal"><a href="#__codelineno-5-8">8</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1"></a><span class="k">const</span><span class="w"> </span><span class="n">WshShellCmd_t</span><span class="w"> </span><span class="n">Shell_DebugLogCmd</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2"></a><span class="w">    </span><span class="p">.</span><span class="n">Groups</span><span class="w">  </span><span class="o">=</span><span class="w"> </span><span class="n">WSH_SHELL_CMD_GROUP_USER</span><span class="p">,</span>
+</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3"></a><span class="w">    </span><span class="p">.</span><span class="n">Name</span><span class="w">    </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;log&quot;</span><span class="p">,</span>
+</span><span id="__span-5-4"><a id="__codelineno-5-4" name="__codelineno-5-4"></a><span class="w">    </span><span class="p">.</span><span class="n">Descr</span><span class="w">   </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Enable system log/debug output&quot;</span><span class="p">,</span>
+</span><span id="__span-5-5"><a id="__codelineno-5-5" name="__codelineno-5-5"></a><span class="w">    </span><span class="p">.</span><span class="n">Options</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">DebugOptArr</span><span class="p">,</span>
+</span><span id="__span-5-6"><a id="__codelineno-5-6" name="__codelineno-5-6"></a><span class="w">    </span><span class="p">.</span><span class="n">OptNum</span><span class="w">  </span><span class="o">=</span><span class="w"> </span><span class="n">CMD_DEBUG_LOG_OPT_ENUM_SIZE</span><span class="p">,</span>
+</span><span id="__span-5-7"><a id="__codelineno-5-7" name="__codelineno-5-7"></a><span class="w">    </span><span class="p">.</span><span class="n">Handler</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">shell_cmd_debug_log</span><span class="p">,</span>
+</span><span id="__span-5-8"><a id="__codelineno-5-8" name="__codelineno-5-8"></a><span class="p">};</span>
+</span></code></pre></div></td></tr></table></div>
+<p>Users are associated with their respective groups, each user record includes group membership:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-6-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-6-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-6-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-6-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-6-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-6-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-6-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-6-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-6-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-6-10">10</a></span>
+<span class="normal"><a href="#__codelineno-6-11">11</a></span>
+<span class="normal"><a href="#__codelineno-6-12">12</a></span>
+<span class="normal"><a href="#__codelineno-6-13">13</a></span>
+<span class="normal"><a href="#__codelineno-6-14">14</a></span>
+<span class="normal"><a href="#__codelineno-6-15">15</a></span>
+<span class="normal"><a href="#__codelineno-6-16">16</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1"></a><span class="k">static</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">WshShellUser_t</span><span class="w"> </span><span class="n">Shell_UserTable</span><span class="p">[]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2"></a><span class="w">    </span><span class="p">{</span>
+</span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3"></a><span class="w">        </span><span class="p">.</span><span class="n">Login</span><span class="w">  </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;admin&quot;</span><span class="p">,</span>
+</span><span id="__span-6-4"><a id="__codelineno-6-4" name="__codelineno-6-4"></a><span class="w">        </span><span class="p">.</span><span class="n">Salt</span><span class="w">   </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;a0523cb065ee08c1&quot;</span><span class="p">,</span>
+</span><span id="__span-6-5"><a id="__codelineno-6-5" name="__codelineno-6-5"></a><span class="w">        </span><span class="p">.</span><span class="n">Hash</span><span class="w">   </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;0632cee0&quot;</span><span class="p">,</span><span class="w">  </span><span class="c1">//1234</span>
+</span><span id="__span-6-6"><a id="__codelineno-6-6" name="__codelineno-6-6"></a><span class="w">        </span><span class="p">.</span><span class="n">Groups</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">WSH_SHELL_CMD_GROUP_ALL</span><span class="p">,</span>
+</span><span id="__span-6-7"><a id="__codelineno-6-7" name="__codelineno-6-7"></a><span class="w">        </span><span class="p">.</span><span class="n">Rights</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">WSH_SHELL_OPT_ACCESS_ADMIN</span><span class="p">,</span>
+</span><span id="__span-6-8"><a id="__codelineno-6-8" name="__codelineno-6-8"></a><span class="w">    </span><span class="p">},</span>
+</span><span id="__span-6-9"><a id="__codelineno-6-9" name="__codelineno-6-9"></a><span class="w">    </span><span class="p">{</span>
+</span><span id="__span-6-10"><a id="__codelineno-6-10" name="__codelineno-6-10"></a><span class="w">        </span><span class="p">.</span><span class="n">Login</span><span class="w">  </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;user&quot;</span><span class="p">,</span>
+</span><span id="__span-6-11"><a id="__codelineno-6-11" name="__codelineno-6-11"></a><span class="w">        </span><span class="p">.</span><span class="n">Salt</span><span class="w">   </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;aa89fee902ab12e4&quot;</span><span class="p">,</span>
+</span><span id="__span-6-12"><a id="__codelineno-6-12" name="__codelineno-6-12"></a><span class="w">        </span><span class="p">.</span><span class="n">Hash</span><span class="w">   </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;ff69cdab&quot;</span><span class="p">,</span><span class="w">  </span><span class="c1">//qwer</span>
+</span><span id="__span-6-13"><a id="__codelineno-6-13" name="__codelineno-6-13"></a><span class="w">        </span><span class="p">.</span><span class="n">Groups</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">WSH_SHELL_CMD_GROUP_USER</span><span class="p">,</span>
+</span><span id="__span-6-14"><a id="__codelineno-6-14" name="__codelineno-6-14"></a><span class="w">        </span><span class="p">.</span><span class="n">Rights</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">WSH_SHELL_OPT_ACCESS_ANY</span><span class="p">,</span>
+</span><span id="__span-6-15"><a id="__codelineno-6-15" name="__codelineno-6-15"></a><span class="w">    </span><span class="p">},</span>
+</span><span id="__span-6-16"><a id="__codelineno-6-16" name="__codelineno-6-16"></a><span class="p">};</span>
+</span></code></pre></div></td></tr></table></div>
+<p>Example: Access denied due to group mismatch
+User: belongs to WSH_SHELL_CMD_GROUP_USER
+Command: belongs to WSH_SHELL_CMD_GROUP_HARDWARE</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-7-1">1</a></span>
+<span class="normal"><a href="#__codelineno-7-2">2</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1"></a>blue-pill@user<span class="w"> </span>&gt;<span class="w"> </span>led<span class="w"> </span>-h
+</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2"></a>Access<span class="w"> </span>denied:<span class="w"> </span>no<span class="w"> </span>group<span class="w"> </span>intersection<span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="nb">command</span><span class="w"> </span><span class="s2">&quot;led&quot;</span><span class="w"> </span>and<span class="w"> </span>user<span class="w"> </span><span class="s2">&quot;user&quot;</span>!
+</span></code></pre></div></td></tr></table></div>
 
 
 
@@ -2448,6 +2543,44 @@
       
         <footer class="md-footer">
   
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../rtos/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Examples RTOS">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                Examples RTOS
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../../Wsh_Shell_API/files/" class="md-footer__link md-footer__link--next" aria-label="Next: File List">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                File List
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
     
   
   <div class="md-footer-meta md-typeset">
