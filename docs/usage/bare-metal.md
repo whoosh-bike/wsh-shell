@@ -154,7 +154,7 @@ bool Shell_Init(const char* pcHostName) {
     }
 
     // Optional: auto-login for development/testing
-    // WshShell_Auth(&Shell, Shell_UserTable[0].Login, Shell_UserTable[0].Pass);
+    // WshShell_Auth(&Shell, "admin", "1234");
 
     return true;
 }
