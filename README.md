@@ -39,20 +39,20 @@ Wsh-Shell is a lightweight, portable, and fully static shell interpreter written
 ## 💾 Memory footprint
 
 - Build options: cortex-m7, `-O1` optimization
-- sizeof(WshShell_t) = 336 bytes
+- sizeof(WshShell_t) = 404 bytes
 
 | Config                                | FLASH, KB | Comment                                              |
 | --------------------------------------| --------- | ---------------------------------------------------- |
-| All features disabled                 | 3.50781   |                                                      |
-| `+WSH_SHELL_PRINT_SYS/INFO/WARN/ERR`  | 3.8457    | Not recommended to disable shell messages            |
-| `+WSH_SHELL_INTERACTIVE_MODE`         | 3.94336   |                                                      |
-| `+WSH_SHELL_HISTORY`                  | 4.88672   |                                                      |
-| `+WSH_SHELL_AUTOCOMPLETE`             | 5.44531   |                                                      |
-| `+WSH_SHELL_PS1_CUSTOM`               | 5.91797   |                                                      |
-| `+WSH_SHELL_PROMPT_WAIT`              | 6.0332    |                                                      |
-| `+WSH_SHELL_DEF_COMMAND`              | 7.50586   |                                                      |
-| `+WSH_SHELL_PRINT_OPT_HELP`           | 7.50586   | Could be usefull on huge amount of external commands |
-| `+WSH_SHELL_CMD_PRINT_OPT_OVERVIEW`   | 7.75977   | Could be usefull on huge amount of external commands |
+| All features disabled                 | 4.06836   |                                                      |
+| `+WSH_SHELL_PRINT_SYS/INFO/WARN/ERR`  | 4.58008   | Not recommended to disable shell messages            |
+| `+WSH_SHELL_INTERACTIVE_MODE`         | 4.68164   |                                                      |
+| `+WSH_SHELL_HISTORY`                  | 5.63867   |                                                      |
+| `+WSH_SHELL_AUTOCOMPLETE`             | 6.19727   |                                                      |
+| `+WSH_SHELL_PS1_CUSTOM`               | 6.66992   |                                                      |
+| `+WSH_SHELL_PROMPT_WAIT`              | 6.78516   |                                                      |
+| `+WSH_SHELL_DEF_COMMAND`              | 8.44922   |                                                      |
+| `+WSH_SHELL_PRINT_OPT_HELP`           | 8.44922   | Could be usefull on huge amount of external commands |
+| `+WSH_SHELL_CMD_PRINT_OPT_OVERVIEW`   | 8.69922   | Could be usefull on huge amount of external commands |
 
 ## ⌨️ Code counting
 
