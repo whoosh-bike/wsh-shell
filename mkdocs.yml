@@ -80,6 +80,7 @@ nav:
   - Usage:
       - Examples Bare-Metal: usage/bare-metal.md
       - Examples RTOS: usage/rtos.md
+      - Permission Rules: usage/permission-rules.md
   - API:
       - General: 
         - Wsh_Shell_API/files.md
@@ -102,6 +103,8 @@ nav:
         - Wsh_Shell_API/wsh__shell__interact_8h.md
       - Input/Output Helpers:
         - Wsh_Shell_API/wsh__shell__io_8h.md
+      - Miscellaneous Functions:
+        - Wsh_Shell_API/wsh__shell__misc_8h.md
       - Command Options:
         - Wsh_Shell_API/wsh__shell__option_8h.md
       - Prompts Input Await:

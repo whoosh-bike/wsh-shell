@@ -32,8 +32,10 @@
 extern "C" {
 #endif
 
-typedef bool WshShell_Bool_t;  // just for better readability
-typedef char WshShell_Char_t;  // and common perception
+typedef bool WshShell_Bool_t;      // just for better
+typedef char WshShell_Char_t;      // readability
+typedef float WshShell_Float_t;    // and common
+typedef double WshShell_Double_t;  // perception
 typedef int8_t WshShell_S8_t;
 typedef uint8_t WshShell_U8_t;
 typedef int32_t WshShell_S32_t;

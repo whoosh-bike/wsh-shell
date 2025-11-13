@@ -1,6 +1,6 @@
 #include "wsh_shell.h"
 
-void WshShell_Stub_ExtClbk(void* pCtx) {
+static void WshShell_Stub_ExtClbk(void* pCtx) {
     (void)pCtx;
 }
 
@@ -66,12 +66,19 @@ WSH_SHELL_RET_STATE_t WshShell_Init(WshShell_t* pShell, const WshShell_Char_t* p
      * First out
      */
 
+    const WshShell_Char_t* pBuildType = "release";
+#if defined(WSH_SHELL_DEBUG_ENABLE)
+    pBuildType = "debug";
+#endif
+
     WSH_SHELL_PRINT("%c", WSH_SHELL_SYM_SOUND);
     WSH_SHELL_PRINT(WSH_SHELL_COLOR_PURPLE);
     WSH_SHELL_PRINT(pcCustomHeader ? pcCustomHeader : WSH_SHELL_HEADER);
-    WSH_SHELL_PRINT_SYS("Serial Shell Service (wsh-shell v%s) started on device "
-                        "(%s)\r\n" WSH_SHELL_PRESS_ENTER_TO_LOG_IN_STR "\r\n",
-                        pShell->Version, pShell->DeviceName);
+    WSH_SHELL_PRINT_SYS("Serial shell service started on %s device\r\n", pShell->DeviceName);
+    WSH_SHELL_PRINT_SYS("wsh-shell-v%s (%s), built in %s, at %s, with [%s], on [%s]\r\n",
+                        pShell->Version, pBuildType, __DATE__, __TIME__, COMPILER, OS_NAME);
+    (void)pBuildType;
+    WSH_SHELL_PRINT_SYS(WSH_SHELL_PRESS_ENTER_TO_LOG_IN_STR "\r\n");
 
     WshShellPromptWait_Attach(&(pShell->PromptWait), WshShellPromptWait_Enter, NULL);
 
@@ -183,28 +190,39 @@ static void WshShell_StringHandler(WshShell_t* pShell) {
         } else if ((pShell->CurrUser->Groups & pcCmd->Groups) != 0) {
             cmdHandler = pcCmd->Handler;
         } else {
-            WSH_SHELL_PRINT_WARN("Access denied for command \"%s\"\r\n", pсArgv[0]);
+            WSH_SHELL_PRINT_ERR(
+                "Access denied: no group intersection for command \"%s\" and user \"%s\"!\r\n",
+                pсArgv[0], pShell->CurrUser->Login);
+            return;
         }
     }
 
     if (cmdHandler) {
         WSH_SHELL_RET_STATE_t retState = cmdHandler(pcCmd, argc, pсArgv, pShell);
 
-        if (WSH_SHELL_INTER_CMD_EXISTS()) {
-            WshShell_PS1Data_t data = {
-                .UserName     = pShell->CurrUser->Login,
-                .DevName      = pShell->DeviceName,
-                .InterCmdName = pShell->Interact.CmdName,
-            };
-            WshShell_GeneratePS1(pShell->PS1, &data);
-        }
-
         if (retState != WSH_SHELL_RET_STATE_SUCCESS) {
-            WSH_SHELL_PRINT_ERR("Command handler internal error: %s\r\n",
-                                WshShell_GetRetStateStr(retState));
+            WSH_SHELL_PRINT_ERR("Command execution: %s\r\n", WshShell_GetRetStateStr(retState));
+        } else {
+            if (WSH_SHELL_INTER_CMD_EXISTS()) {
+                WshShell_PS1Data_t data = {
+                    .UserName     = pShell->CurrUser->Login,
+                    .DevName      = pShell->DeviceName,
+                    .InterCmdName = pShell->Interact.CmdName,
+                };
+                WshShell_GeneratePS1(pShell->PS1, &data);
+            }
         }
     }
 
+    WshShellIO_ClearInterBuff(&(pShell->CommandLine));
+}
+
+static void WshShell_StringInteractHandler(WshShell_t* pShell) {
+    pShell->CommandLine.Buff[pShell->CommandLine.Len] = 0;
+    const WshShell_Char_t* pcCmdStr                   = pShell->CommandLine.Buff;
+
+    WshShellHistory_SaveCmd(&(pShell->HistoryIO), pcCmdStr, WSH_SHELL_STRLEN(pcCmdStr));
+    pShell->Interact.Handler(&(pShell->CommandLine));
     WshShellIO_ClearInterBuff(&(pShell->CommandLine));
 }
 
@@ -298,8 +316,7 @@ void WshShell_InsertChar(WshShell_t* pShell, const WshShell_Char_t symbol) {
         }
 
         if (WSH_SHELL_INTER_CMD_EXISTS()) {
-            pShell->Interact.Handler(&(pShell->CommandLine));
-            WshShellIO_ClearInterBuff(&(pShell->CommandLine));
+            WshShell_StringInteractHandler(pShell);
         } else
             WshShell_StringHandler(pShell);
 

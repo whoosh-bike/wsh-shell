@@ -21,6 +21,15 @@
 
 /* 
  * ─────────────────────────────────────────────
+ * Target runtime environment 
+ * ───────────────────────────────────────────── 
+ */
+#define WSH_SHELL_TARGET_OS "Bare-metal"
+// #define WSH_SHELL_TARGET_OS "FreeRTOS"
+// #define WSH_SHELL_TARGET_OS "Zephyr"
+
+/* 
+ * ─────────────────────────────────────────────
  * Print objects customization
  * ───────────────────────────────────────────── 
  */
@@ -89,18 +98,17 @@
  * Command groups & access control
  * ───────────────────────────────────────────── 
  */
-#define WSH_SHELL_CMD_GROUP_NONE      0x00
-#define WSH_SHELL_CMD_GROUP_ALL       ((WshShell_Size_t)(~0U))
-#define WSH_SHELL_CMD_GROUP_MAX_COUNT 4
 
-#define WSH_SHELL_CMD_GROUP_ADMIN  0x01
-#define WSH_SHELL_CMD_GROUP_READER 0x02
+#define WSH_SHELL_CMD_GROUP_LIST                 \
+    X_ENTRY(WSH_SHELL_CMD_GROUP_LOW_LEVEL, 0x01) \
+    X_ENTRY(WSH_SHELL_CMD_GROUP_MANUFACT, 0x02)  \
+    X_ENTRY(WSH_SHELL_CMD_GROUP_USER, 0x04)
 
-#define WSH_SHELL_USER_GROUP_ADMIN  (WSH_SHELL_CMD_GROUP_ALL)
-#define WSH_SHELL_USER_ACCESS_ADMIN (WSH_SHELL_OPT_ACCESS_ANY)
+#define X_ENTRY(name, value) name = value,
+typedef enum { WSH_SHELL_CMD_GROUP_LIST } WSH_SHELL_CMD_GROUP_t;
+#undef X_ENTRY
 
-#define WSH_SHELL_USER_GROUP_READER  (WSH_SHELL_CMD_GROUP_READER)
-#define WSH_SHELL_USER_ACCESS_READER (WSH_SHELL_OPT_ACCESS_ANY)
+#define WSH_SHELL_CMD_GROUP_ALL ((WshShell_Size_t)(~0U))
 
 /* 
  * ─────────────────────────────────────────────

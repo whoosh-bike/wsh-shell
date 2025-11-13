@@ -108,14 +108,16 @@ void WshShellStr_AccessBitsToStr(WshShell_Size_t access, WshShell_Char_t* pOutSt
  *
  * Produces a fixed-length string of '*' and '-' characters from highest to lowest group index.
  * 
- * Example for 4 groups:
+ * Example for 2 groups:
  * - WSH_SHELL_CMD_GROUP_ADMIN  = bit 0 → rightmost char
  * - WSH_SHELL_CMD_GROUP_MANUF  = bit 3 → leftmost char
  *
- * @param[in]  group     Bitmask of groups.
- * @param[out] pOutStr   Output buffer (must be at least WSH_SHELL_GROUP_STR_LEN).
+ * @param[in]  group       Bitmask of groups.
+ * @param[in]  groupMaxNum Groups max number.
+ * @param[out] pOutStr     Output buffer (must be at least WSH_SHELL_GROUP_STR_LEN).
  */
-void WshShellStr_GroupBitsToStr(WshShell_Size_t group, WshShell_Char_t* pOutStr);
+void WshShellStr_GroupBitsToStr(WshShell_Size_t group, WshShell_Size_t groupMaxNum,
+                                WshShell_Char_t* pOutStr);
 
 #ifdef __cplusplus
 }

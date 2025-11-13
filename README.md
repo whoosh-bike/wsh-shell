@@ -12,7 +12,9 @@ Wsh-Shell is a lightweight, portable, and fully static shell interpreter written
 - **Command Parsing & Options**:  
     - Supports short (`-h`) and long (`--help`) flags  
     - Supports int, float, string and other option types
-    - Supports double-quoted strings  
+    - Supports double-quoted strings
+- **Group-based Access Control** — each command belongs to one or more logical groups; users are granted access only if their group set intersects with the command’s group set
+- **Fine-grained Option Access Rights** — every command option (-f, --reset, etc.) has an associated access flag (read, write, execute, admin); the shell enforces these permissions at runtime and reports mismatches
 - **Escape Sequence Handling**:  
     - Parses VT100/ANSI sequences  
     - Supports arrow keys, delete, backspace, sound alerts, etc.  
@@ -28,6 +30,7 @@ Wsh-Shell is a lightweight, portable, and fully static shell interpreter written
 - **Await Prompt** — await for a specific key press
 - **Different New Line Support** - handle different terminals setup (`\r`, `\n` or `\r\n`)
 - **Passwords Stored Salted & Hashed** — passwords are supplied and verified through a user-provided callback and always stored in a salted, hashed form; by default the module uses a lightweight Jenkins (non-cryptographic) hash, and no plaintext passwords are written to flash unless the integrator explicitly chooses to do so
+- **Command Option Validation** — during command registration, the shell automatically checks for duplicate short or long option flags within the same command and triggers an ASSERT if duplicates are detected
 
 ## 👾 Demo
 
@@ -36,20 +39,20 @@ Wsh-Shell is a lightweight, portable, and fully static shell interpreter written
 ## 💾 Memory footprint
 
 - Build options: cortex-m7, `-O1` optimization
-- sizeof(WshShell_t) = 336 bytes
+- sizeof(WshShell_t) = 404 bytes
 
 | Config                                | FLASH, KB | Comment                                              |
 | --------------------------------------| --------- | ---------------------------------------------------- |
-| All features disabled                 | 3.50781   |                                                      |
-| `+WSH_SHELL_PRINT_SYS/INFO/WARN/ERR`  | 3.8457    | Not recommended to disable shell messages            |
-| `+WSH_SHELL_INTERACTIVE_MODE`         | 3.94336   |                                                      |
-| `+WSH_SHELL_HISTORY`                  | 4.88672   |                                                      |
-| `+WSH_SHELL_AUTOCOMPLETE`             | 5.44531   |                                                      |
-| `+WSH_SHELL_PS1_CUSTOM`               | 5.91797   |                                                      |
-| `+WSH_SHELL_PROMPT_WAIT`              | 6.0332    |                                                      |
-| `+WSH_SHELL_DEF_COMMAND`              | 7.50586   |                                                      |
-| `+WSH_SHELL_PRINT_OPT_HELP`           | 7.50586   | Could be usefull on huge amount of external commands |
-| `+WSH_SHELL_CMD_PRINT_OPT_OVERVIEW`   | 7.75977   | Could be usefull on huge amount of external commands |
+| All features disabled                 | 4.06836   |                                                      |
+| `+WSH_SHELL_PRINT_SYS/INFO/WARN/ERR`  | 4.58008   | Not recommended to disable shell messages            |
+| `+WSH_SHELL_INTERACTIVE_MODE`         | 4.68164   |                                                      |
+| `+WSH_SHELL_HISTORY`                  | 5.63867   |                                                      |
+| `+WSH_SHELL_AUTOCOMPLETE`             | 6.19727   |                                                      |
+| `+WSH_SHELL_PS1_CUSTOM`               | 6.66992   |                                                      |
+| `+WSH_SHELL_PROMPT_WAIT`              | 6.78516   |                                                      |
+| `+WSH_SHELL_DEF_COMMAND`              | 8.44922   |                                                      |
+| `+WSH_SHELL_PRINT_OPT_HELP`           | 8.44922   | Could be usefull on huge amount of external commands |
+| `+WSH_SHELL_CMD_PRINT_OPT_OVERVIEW`   | 8.69922   | Could be usefull on huge amount of external commands |
 
 ## ⌨️ Code counting
 
@@ -57,10 +60,10 @@ Wsh-Shell is a lightweight, portable, and fully static shell interpreter written
 ===============================================================================
  Language            Files        Lines         Code     Comments       Blanks
 ===============================================================================
- C                      13         1971         1501           52          418
- C Header               17         1977          700         1042          235
+ C                      13         2102         1610           52          440
+ C Header               17         2093          758         1095          240
 ===============================================================================
- Total                  30         3948         2201         1094          653
+ Total                  30         4195         2368         1147          680
 ===============================================================================
 ```
 
@@ -69,7 +72,7 @@ Wsh-Shell is a lightweight, portable, and fully static shell interpreter written
 - **<abalyberdin@whoosh.bike>** — initial MVP  
 - **<vignatov@whoosh.bike>** — improvements, refactoring
 - **<akrestinin@whoosh.bike>** — project separation (for submodule usage), main structure, PC/MCU examples  
-- **<sh@whoosh.bike>** — UX improvements, extra features, documentation
+- **<sshilin@whoosh.bike>** — UX improvements, extra features, documentation, public release
 - **<eshamaev@whoosh.bike>**  — CI/CD, docs deployment, high-level PC command app
 
 ## ⚖️ License

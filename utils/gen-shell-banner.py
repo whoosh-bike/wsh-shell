@@ -4,7 +4,7 @@ import sys
 from pyfiglet import Figlet
 
 # source .venv/bin/activate
-# python3 ./utils/shell-banner-gen.py Hello, world!
+# python3 ./utils/gen-shell-banner.py Hello, world!
 
 FONTS = [
     "3-d",

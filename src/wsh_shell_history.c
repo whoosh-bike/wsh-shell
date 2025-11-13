@@ -4,7 +4,9 @@
 
 static void WshShellHistory_CalcHashAndWrite(WshShellHistory_IO_t* pHistIO,
                                              WshShellHistory_t history) {
-    WSH_SHELL_ASSERT(pHistIO);
+    WSH_SHELL_ASSERT(pHistIO->Write);
+    if (!pHistIO->Write)
+        return;
 
     history.Hash =
         WshShellMisc_CalcJenkinsHash((WshShell_U8_t*)&history.Data, sizeof(history.Data));
@@ -58,8 +60,12 @@ static void WshShellHistory_GetTokenFromBuffer(WshShell_Char_t* pDst, const WshS
 
 void WshShellHistory_SaveCmd(WshShellHistory_IO_t* pHistIO, const WshShell_Char_t* pcCmdStr,
                              WshShell_Size_t cmdStrLen) {
-    WSH_SHELL_ASSERT(pcCmdStr && cmdStrLen < WSH_SHELL_HISTORY_BUFF_SIZE);
-    if (!pcCmdStr || cmdStrLen == 0 || cmdStrLen >= WSH_SHELL_HISTORY_BUFF_SIZE)
+    WSH_SHELL_ASSERT(pHistIO && pcCmdStr && cmdStrLen < WSH_SHELL_HISTORY_BUFF_SIZE);
+    if (!pHistIO || !pcCmdStr || cmdStrLen == 0 || cmdStrLen >= WSH_SHELL_HISTORY_BUFF_SIZE)
+        return;
+
+    WSH_SHELL_ASSERT(pHistIO->Read);
+    if (!pHistIO->Read)
         return;
 
     WshShellHistory_t locHist = pHistIO->Read();
@@ -155,6 +161,10 @@ static WshShell_Size_t WshShellHistory_GetCmd(WshShellHistory_IO_t* pHistIO,
     if (!pHistIO || !pOutBuff || outBuffSize == 0)
         return 0;
 
+    WSH_SHELL_ASSERT(pHistIO->Read);
+    if (!pHistIO->Read)
+        return 0;
+
     WshShellHistory_t hist = pHistIO->Read();
     if (hist.Data.HeadIdx == 0 && hist.Data.TailIdx == 0 && hist.Data.LastSavedCmdIdx == 0)
         return 0;
@@ -200,6 +210,10 @@ WshShell_Size_t WshShellHistory_GetTokenNum(WshShellHistory_IO_t* pHistIO) {
     if (!pHistIO)
         return 0;
 
+    WSH_SHELL_ASSERT(pHistIO->Read);
+    if (!pHistIO->Read)
+        return 0;
+
     WshShellHistory_t hist        = pHistIO->Read();
     WshShellHistory_Data_t* pHist = &hist.Data;
     pHist->TailIdx                = pHist->HeadIdx;
@@ -219,6 +233,10 @@ WshShell_Size_t WshShellHistory_GetTokenByIndex(WshShellHistory_IO_t* pHistIO,
                                                 WshShell_Size_t index) {
     WSH_SHELL_ASSERT(pHistIO && pOutBuff && outBuffSize > 0);
     if (!pHistIO || !pOutBuff || outBuffSize == 0)
+        return 0;
+
+    WSH_SHELL_ASSERT(pHistIO->Read);
+    if (!pHistIO->Read)
         return 0;
 
     WshShellHistory_t hist        = pHistIO->Read();
