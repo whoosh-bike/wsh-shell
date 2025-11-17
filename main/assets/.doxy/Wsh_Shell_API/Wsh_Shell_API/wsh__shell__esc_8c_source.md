@@ -100,19 +100,29 @@ void WshShellEsc_Handler(WshShellHistory_IO_t* pHistIO, WshShellIO_CommandLine_t
     if (!pHistIO || !pCommandLine || !pEscStorage)
         return;
 
-    if (pEscStorage->Cnt >= WSH_SHELL_ESC_BUFF_LEN)
+    if (pEscStorage->Cnt >= WSH_SHELL_ESC_BUFF_LEN) {
+        WshShellEsc_ClearStorage(pEscStorage);
         return;
+    }
 
     pEscStorage->Buff[pEscStorage->Cnt++] = symbol;
 
     for (WshShell_Size_t seq = 0; seq < WSH_SHELL_ARR_LEN(WshShellEsc_SeqHandlers); seq++) {
-        if (WSH_SHELL_STRNCMP(WshShellEsc_SeqHandlers[seq].Sequence, pEscStorage->Buff,
-                              WSH_SHELL_ESC_BUFF_LEN) == 0) {
-            WshShellEsc_SeqHandlers[seq].Handler(pHistIO, pCommandLine);
-            WshShellEsc_ClearStorage(pEscStorage);
-            break;
+        const WshShell_Char_t* pcSeq = WshShellEsc_SeqHandlers[seq].Sequence;
+
+        if (WSH_SHELL_STRNCMP(pcSeq, pEscStorage->Buff, pEscStorage->Cnt) == 0) {
+            if (pcSeq[pEscStorage->Cnt] == '\0') {
+                WshShellEsc_SeqHandlers[seq].Handler(pHistIO, pCommandLine);
+                WshShellEsc_ClearStorage(pEscStorage);
+                break;
+            }
+
+            return;
         }
     }
+
+    if (pEscStorage->Cnt == WSH_SHELL_ESC_BUFF_LEN)
+        WshShellEsc_ClearStorage(pEscStorage);
 }
 
 void WshShellEsc_StartSeq(WshShellEsc_Storage_t* pEscStorage) {

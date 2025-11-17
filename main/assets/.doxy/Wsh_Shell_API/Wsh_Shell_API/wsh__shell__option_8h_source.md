@@ -18,11 +18,13 @@ extern "C" {
 
 #include "wsh_shell_types.h"
 
-#define WSH_SHELL_OPT_ACCESS_NONE    0x00
+#define WSH_SHELL_OPT_ACCESS_NO      0x00
 #define WSH_SHELL_OPT_ACCESS_READ    0x01
 #define WSH_SHELL_OPT_ACCESS_WRITE   0x02
 #define WSH_SHELL_OPT_ACCESS_EXECUTE 0x04
-#define WSH_SHELL_OPT_ACCESS_ANY     ((WshShell_Size_t)(~0U))
+#define WSH_SHELL_OPT_ACCESS_ADMIN   0x08
+#define WSH_SHELL_OPT_ACCESS_ANY \
+    (WSH_SHELL_OPT_ACCESS_READ | WSH_SHELL_OPT_ACCESS_WRITE | WSH_SHELL_OPT_ACCESS_EXECUTE)
 
 #if WSH_SHELL_PRINT_OPT_HELP_ENABLE
     #define WSH_SHELL_OPT_DESCR(descr) descr
@@ -30,7 +32,8 @@ extern "C" {
     #define WSH_SHELL_OPT_DESCR(descr) ""
 #endif
 
-#define WSH_SHELL_OPT_NO(acc) WSH_SHELL_OPTION_NO, (acc), 0, NULL, NULL, NULL
+#define WSH_SHELL_OPT_NO(acc, descr) \
+    WSH_SHELL_OPTION_NO, (acc), 0, "--", "---", WSH_SHELL_OPT_DESCR(descr)
 
 #define WSH_SHELL_OPT_WAITS_INPUT(acc) WSH_SHELL_OPTION_WAITS_INPUT, (acc), 0, NULL, NULL, NULL
 
@@ -38,8 +41,8 @@ extern "C" {
     WSH_SHELL_OPTION_HELP, WSH_SHELL_OPT_ACCESS_ANY, 0, "-h", "--help", \
         WSH_SHELL_OPT_DESCR("Show command help information")
 
-#define WSH_SHELL_OPT_INTERACT()                                                   \
-    WSH_SHELL_OPTION_INTERACT, WSH_SHELL_OPT_ACCESS_ANY, 0, "-i", "--interactive", \
+#define WSH_SHELL_OPT_INTERACT(acc)                             \
+    WSH_SHELL_OPTION_INTERACT, (acc), 0, "-i", "--interactive", \
         WSH_SHELL_OPT_DESCR("Run command in interactive mode")
 
 #define WSH_SHELL_OPT_WO_PARAM(acc, short, long, descr) \
@@ -60,7 +63,7 @@ extern "C" {
 #define WSH_SHELL_OPT_END() WSH_SHELL_OPTION_END, WSH_SHELL_OPT_ACCESS_ANY, 0, NULL, NULL, NULL
 
 #define WSH_SHELL_OPTION_TYPES_TABLE()                   \
-    X_ENTRY(WSH_SHELL_OPTION_NO, "NO")                   \
+    X_ENTRY(WSH_SHELL_OPTION_NO, "EMPTY")                \
     X_ENTRY(WSH_SHELL_OPTION_HELP, "HELP")               \
     X_ENTRY(WSH_SHELL_OPTION_INTERACT, "INTERACT")       \
     X_ENTRY(WSH_SHELL_OPTION_WO_PARAM, "WO_PARAM")       \
@@ -103,7 +106,7 @@ typedef struct {
 typedef struct {
     const WshShellOption_t* Option; 
     WshShell_Size_t TokenPos;       
-} WshShellOption_Context_t;
+} WshShellOption_Ctx_t;
 
 #ifdef __cplusplus
 }

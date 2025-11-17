@@ -342,14 +342,18 @@ Example: Input: <computeroutput>&quot;arg1 arg2 \&quot;quoted string" arg3&quot;
         </inbodydescription>
         <location file="src/wsh_shell_str.c" line="79" column="6" bodyfile="src/wsh_shell_str.c" bodystart="79" bodyend="89"/>
       </memberdef>
-      <memberdef kind="function" id="wsh__shell__str_8c_1a97dee099f0ae0c2f8bbd5fada5231e9b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="wsh__shell__str_8c_1a3807da453046b6283184e6021dd83c10" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
         <definition>void WshShellStr_GroupBitsToStr</definition>
-        <argsstring>(WshShell_Size_t group, WshShell_Char_t *pOutStr)</argsstring>
+        <argsstring>(WshShell_Size_t group, WshShell_Size_t groupMaxNum, WshShell_Char_t *pOutStr)</argsstring>
         <name>WshShellStr_GroupBitsToStr</name>
         <param>
           <type>WshShell_Size_t</type>
           <declname>group</declname>
+        </param>
+        <param>
+          <type>WshShell_Size_t</type>
+          <declname>groupMaxNum</declname>
         </param>
         <param>
           <type>WshShell_Char_t *</type>
@@ -360,7 +364,7 @@ Example: Input: <computeroutput>&quot;arg1 arg2 \&quot;quoted string" arg3&quot;
         </briefdescription>
         <detaileddescription>
 <para>Produces a fixed-length string of &apos;*&apos; and &apos;-&apos; characters from highest to lowest group index.</para>
-<para>Example for 4 groups:<itemizedlist>
+<para>Example for 2 groups:<itemizedlist>
 <listitem><para>WSH_SHELL_CMD_GROUP_ADMIN = bit 0 → rightmost char</para>
 </listitem><listitem><para>WSH_SHELL_CMD_GROUP_MANUF = bit 3 → leftmost char</para>
 </listitem></itemizedlist>
@@ -371,6 +375,14 @@ Example: Input: <computeroutput>&quot;arg1 arg2 \&quot;quoted string" arg3&quot;
 </parameternamelist>
 <parameterdescription>
 <para>Bitmask of groups. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">groupMaxNum</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Groups max number. </para>
 </parameterdescription>
 </parameteritem>
 <parameteritem>
@@ -386,7 +398,7 @@ Example: Input: <computeroutput>&quot;arg1 arg2 \&quot;quoted string" arg3&quot;
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/wsh_shell_str.c" line="91" column="6" bodyfile="src/wsh_shell_str.c" bodystart="91" bodyend="100"/>
+        <location file="src/wsh_shell_str.c" line="91" column="6" bodyfile="src/wsh_shell_str.c" bodystart="91" bodyend="101"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
@@ -480,20 +492,21 @@ Example: Input: <computeroutput>&quot;arg1 arg2 \&quot;quoted string" arg3&quot;
 <codeline lineno="84"><highlight class="normal"><sp/><sp/><sp/><sp/>pOutStr[0]<sp/>=<sp/>(access<sp/>&amp;<sp/>WSH_SHELL_OPT_ACCESS_READ)<sp/>?<sp/></highlight><highlight class="charliteral">&apos;r&apos;</highlight><highlight class="normal"><sp/>:<sp/></highlight><highlight class="charliteral">&apos;-&apos;</highlight><highlight class="normal">;</highlight></codeline>
 <codeline lineno="85"><highlight class="normal"><sp/><sp/><sp/><sp/>pOutStr[1]<sp/>=<sp/>(access<sp/>&amp;<sp/>WSH_SHELL_OPT_ACCESS_WRITE)<sp/>?<sp/></highlight><highlight class="charliteral">&apos;w&apos;</highlight><highlight class="normal"><sp/>:<sp/></highlight><highlight class="charliteral">&apos;-&apos;</highlight><highlight class="normal">;</highlight></codeline>
 <codeline lineno="86"><highlight class="normal"><sp/><sp/><sp/><sp/>pOutStr[2]<sp/>=<sp/>(access<sp/>&amp;<sp/>WSH_SHELL_OPT_ACCESS_EXECUTE)<sp/>?<sp/></highlight><highlight class="charliteral">&apos;x&apos;</highlight><highlight class="normal"><sp/>:<sp/></highlight><highlight class="charliteral">&apos;-&apos;</highlight><highlight class="normal">;</highlight></codeline>
-<codeline lineno="87"><highlight class="normal"><sp/><sp/><sp/><sp/>pOutStr[3]<sp/>=<sp/>(access<sp/>==<sp/>WSH_SHELL_OPT_ACCESS_ANY)<sp/>?<sp/></highlight><highlight class="charliteral">&apos;A&apos;</highlight><highlight class="normal"><sp/>:<sp/></highlight><highlight class="charliteral">&apos;\0&apos;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="87"><highlight class="normal"><sp/><sp/><sp/><sp/>pOutStr[3]<sp/>=<sp/>(access<sp/>==<sp/>WSH_SHELL_OPT_ACCESS_ADMIN)<sp/>?<sp/></highlight><highlight class="charliteral">&apos;A&apos;</highlight><highlight class="normal"><sp/>:<sp/></highlight><highlight class="charliteral">&apos;-&apos;</highlight><highlight class="normal">;</highlight></codeline>
 <codeline lineno="88"><highlight class="normal"><sp/><sp/><sp/><sp/>pOutStr[4]<sp/>=<sp/></highlight><highlight class="charliteral">&apos;\0&apos;</highlight><highlight class="normal">;</highlight></codeline>
 <codeline lineno="89"><highlight class="normal">}</highlight></codeline>
 <codeline lineno="90"><highlight class="normal"></highlight></codeline>
-<codeline lineno="91"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="wsh__shell__str_8h_1a97dee099f0ae0c2f8bbd5fada5231e9b" kindref="member">WshShellStr_GroupBitsToStr</ref>(WshShell_Size_t<sp/>group,<sp/>WshShell_Char_t*<sp/>pOutStr)<sp/>{</highlight></codeline>
-<codeline lineno="92"><highlight class="normal"><sp/><sp/><sp/><sp/>WSH_SHELL_ASSERT(pOutStr);</highlight></codeline>
-<codeline lineno="93"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(!pOutStr)</highlight></codeline>
-<codeline lineno="94"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal">;</highlight></codeline>
-<codeline lineno="95"><highlight class="normal"></highlight></codeline>
-<codeline lineno="96"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(WshShell_S32_t<sp/>groupIdx<sp/>=<sp/>WSH_SHELL_CMD_GROUP_MAX_COUNT<sp/>-<sp/>1;<sp/>groupIdx<sp/>&gt;=<sp/>0;<sp/>--groupIdx)<sp/>{</highlight></codeline>
-<codeline lineno="97"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*pOutStr++<sp/>=<sp/>(group<sp/>==<sp/>WSH_SHELL_CMD_GROUP_ALL<sp/>||<sp/>(group<sp/>&amp;<sp/>(1U<sp/>&lt;&lt;<sp/>groupIdx)))<sp/>?<sp/></highlight><highlight class="charliteral">&apos;*&apos;</highlight><highlight class="normal"><sp/>:<sp/></highlight><highlight class="charliteral">&apos;-&apos;</highlight><highlight class="normal">;</highlight></codeline>
-<codeline lineno="98"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
-<codeline lineno="99"><highlight class="normal"><sp/><sp/><sp/><sp/>*pOutStr<sp/>=<sp/></highlight><highlight class="charliteral">&apos;\0&apos;</highlight><highlight class="normal">;</highlight></codeline>
-<codeline lineno="100"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="91"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="wsh__shell__str_8h_1a3807da453046b6283184e6021dd83c10" kindref="member">WshShellStr_GroupBitsToStr</ref>(WshShell_Size_t<sp/>group,<sp/>WshShell_Size_t<sp/>groupMaxNum,</highlight></codeline>
+<codeline lineno="92"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>WshShell_Char_t*<sp/>pOutStr)<sp/>{</highlight></codeline>
+<codeline lineno="93"><highlight class="normal"><sp/><sp/><sp/><sp/>WSH_SHELL_ASSERT(pOutStr);</highlight></codeline>
+<codeline lineno="94"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(!pOutStr)</highlight></codeline>
+<codeline lineno="95"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="96"><highlight class="normal"></highlight></codeline>
+<codeline lineno="97"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(WshShell_S32_t<sp/>groupIdx<sp/>=<sp/>groupMaxNum<sp/>-<sp/>1;<sp/>groupIdx<sp/>&gt;=<sp/>0;<sp/>--groupIdx)<sp/>{</highlight></codeline>
+<codeline lineno="98"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*pOutStr++<sp/>=<sp/>(group<sp/>==<sp/>WSH_SHELL_CMD_GROUP_ALL<sp/>||<sp/>(group<sp/>&amp;<sp/>(1U<sp/>&lt;&lt;<sp/>groupIdx)))<sp/>?<sp/></highlight><highlight class="charliteral">&apos;*&apos;</highlight><highlight class="normal"><sp/>:<sp/></highlight><highlight class="charliteral">&apos;-&apos;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="99"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="100"><highlight class="normal"><sp/><sp/><sp/><sp/>*pOutStr<sp/>=<sp/></highlight><highlight class="charliteral">&apos;\0&apos;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="101"><highlight class="normal">}</highlight></codeline>
     </programlisting>
     <location file="src/wsh_shell_str.c"/>
   </compounddef>

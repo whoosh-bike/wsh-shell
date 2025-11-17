@@ -58,7 +58,7 @@
 
 | Type | Name |
 | ---: | :--- |
-|  WSH\_SHELL\_RET\_STATE\_t | [**WshShellCmdDef\_Dummy**](#function-wshshellcmddef_dummy) (const [**WshShellCmd\_t**](wsh__shell__cmd_8h.md#typedef-wshshellcmd_t) \* pcCmd, WshShell\_Size\_t argc, const WshShell\_Char\_t \* pArgv, void \* pCtx) <br> |
+|  WSH\_SHELL\_RET\_STATE\_t | [**WshShellCmdDef\_Dummy**](#function-wshshellcmddef_dummy) (const [**WshShellCmd\_t**](wsh__shell__cmd_8h.md#typedef-wshshellcmd_t) \* pcCmd, WshShell\_Size\_t argc, const WshShell\_Char\_t \* pArgv, void \* pShellCtx) <br> |
 |  const [**WshShellCmd\_t**](wsh__shell__cmd_8h.md#typedef-wshshellcmd_t) \* | [**WshShellDefCmd\_GetPtr**](#function-wshshelldefcmd_getptr) (void) <br>_Get a pointer to the default shell command structure._  |
 
 
@@ -115,7 +115,7 @@ WSH_SHELL_RET_STATE_t WshShellCmdDef_Dummy (
     const WshShellCmd_t * pcCmd,
     WshShell_Size_t argc,
     const WshShell_Char_t * pArgv,
-    void * pCtx
+    void * pShellCtx
 ) 
 ```
 

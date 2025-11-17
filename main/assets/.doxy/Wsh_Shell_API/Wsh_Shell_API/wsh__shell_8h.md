@@ -43,7 +43,7 @@ _Core shell interface for command parsing, user authentication, and terminal int
 
 | Type | Name |
 | ---: | :--- |
-| struct | [**WshShell\_AuthContext\_t**](structWshShell__AuthContext__t.md) <br>_Temporary authentication context for login input handling._  |
+| struct | [**WshShell\_AuthCtx\_t**](structWshShell__AuthCtx__t.md) <br>_Temporary authentication context for login input handling._  |
 | struct | [**WshShell\_ExtCallbacks\_t**](structWshShell__ExtCallbacks__t.md) <br>_Optional external callbacks invoked on user session changes._  |
 | struct | [**WshShell\_t**](structWshShell__t.md) <br>_Main shell structure containing state, configuration, user context, and subsystems._  |
 
@@ -109,6 +109,12 @@ _Core shell interface for command parsing, user authentication, and terminal int
 
 
 
+## Macros
+
+| Type | Name |
+| ---: | :--- |
+| define  | [**COMPILER**](wsh__shell_8h.md#define-compiler)  `"Unknown Compiler"`<br> |
+| define  | [**OS\_NAME**](wsh__shell_8h.md#define-os_name)  `WSH\_SHELL\_TARGET\_OS`<br> |
 
 ## Detailed Description
 
@@ -332,6 +338,35 @@ WshShell_Bool_t WshShell_IsAuth (
 
 
         
+
+<hr>
+## Macro Definition Documentation
+
+
+
+
+
+### define COMPILER 
+
+```C++
+#define COMPILER `"Unknown Compiler"`
+```
+
+
+
+
+<hr>
+
+
+
+### define OS\_NAME 
+
+```C++
+#define OS_NAME `WSH_SHELL_TARGET_OS`
+```
+
+
+
 
 <hr>
 

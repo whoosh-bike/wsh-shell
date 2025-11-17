@@ -1,10 +1,10 @@
 
 
-# Struct WshShell\_AuthContext\_t
+# Struct WshShell\_AuthCtx\_t
 
 
 
-[**ClassList**](annotated.md) **>** [**WshShell\_AuthContext\_t**](structWshShell__AuthContext__t.md)
+[**ClassList**](annotated.md) **>** [**WshShell\_AuthCtx\_t**](structWshShell__AuthCtx__t.md)
 
 
 
@@ -90,7 +90,7 @@ _Temporary authentication context for login input handling._
 ### variable Login 
 
 ```C++
-WshShell_Char_t WshShell_AuthContext_t::Login[WSH_SHELL_LOGIN_LEN];
+WshShell_Char_t WshShell_AuthCtx_t::Login[WSH_SHELL_LOGIN_LEN];
 ```
 
 
@@ -107,7 +107,7 @@ Input buffer for username.
 ### variable Pass 
 
 ```C++
-WshShell_Char_t WshShell_AuthContext_t::Pass[WSH_SHELL_PASS_LEN];
+WshShell_Char_t WshShell_AuthCtx_t::Pass[WSH_SHELL_PASS_LEN];
 ```
 
 

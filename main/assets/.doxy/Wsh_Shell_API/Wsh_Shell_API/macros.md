@@ -3,6 +3,16 @@
 
 
 
+## c
+
+* **COMPILER** ([**wsh\_shell.h**](wsh__shell_8h.md))
+
+
+## o
+
+* **OS\_NAME** ([**wsh\_shell.h**](wsh__shell_8h.md))
+
+
 ## r
 
 * **RET\_STATE\_MAP\_TABLE** ([**wsh\_shell\_cfg\_def.h**](wsh__shell__cfg__def_8h.md))
@@ -24,11 +34,8 @@
 * **WSH\_SHELL\_AUTOCOMPLETE\_PAD\_LEN** ([**wsh\_shell\_cfg\_def.h**](wsh__shell__cfg__def_8h.md))
 * **WSH\_SHELL\_AUTOCOMPLETE\_PAD\_SYM** ([**wsh\_shell\_cfg\_def.h**](wsh__shell__cfg__def_8h.md))
 * **WSH\_SHELL\_CMD\_ARGS\_MAX\_NUM** ([**wsh\_shell\_cfg\_def.h**](wsh__shell__cfg__def_8h.md))
-* **WSH\_SHELL\_CMD\_GROUP\_ADMIN** ([**wsh\_shell\_cfg\_def.h**](wsh__shell__cfg__def_8h.md))
 * **WSH\_SHELL\_CMD\_GROUP\_ALL** ([**wsh\_shell\_cfg\_def.h**](wsh__shell__cfg__def_8h.md))
-* **WSH\_SHELL\_CMD\_GROUP\_MAX\_COUNT** ([**wsh\_shell\_cfg\_def.h**](wsh__shell__cfg__def_8h.md))
-* **WSH\_SHELL\_CMD\_GROUP\_NONE** ([**wsh\_shell\_cfg\_def.h**](wsh__shell__cfg__def_8h.md))
-* **WSH\_SHELL\_CMD\_GROUP\_READER** ([**wsh\_shell\_cfg\_def.h**](wsh__shell__cfg__def_8h.md))
+* **WSH\_SHELL\_CMD\_GROUP\_LIST** ([**wsh\_shell\_cfg\_def.h**](wsh__shell__cfg__def_8h.md))
 * **WSH\_SHELL\_CMD\_NAME\_LEN** ([**wsh\_shell\_cfg\_def.h**](wsh__shell__cfg__def_8h.md))
 * **WSH\_SHELL\_CMD\_OPTIONS\_MAX\_NUM** ([**wsh\_shell\_cfg\_def.h**](wsh__shell__cfg__def_8h.md))
 * **WSH\_SHELL\_CMD\_PRINT\_OPT\_OVERVIEW** ([**wsh\_shell\_cfg\_def.h**](wsh__shell__cfg__def_8h.md))
@@ -68,10 +75,7 @@
 * **WSH\_SHELL\_STRNLEN** ([**wsh\_shell\_cfg\_def.h**](wsh__shell__cfg__def_8h.md))
 * **WSH\_SHELL\_STRTOF** ([**wsh\_shell\_cfg\_def.h**](wsh__shell__cfg__def_8h.md))
 * **WSH\_SHELL\_STRTOL** ([**wsh\_shell\_cfg\_def.h**](wsh__shell__cfg__def_8h.md))
-* **WSH\_SHELL\_USER\_ACCESS\_ADMIN** ([**wsh\_shell\_cfg\_def.h**](wsh__shell__cfg__def_8h.md))
-* **WSH\_SHELL\_USER\_ACCESS\_READER** ([**wsh\_shell\_cfg\_def.h**](wsh__shell__cfg__def_8h.md))
-* **WSH\_SHELL\_USER\_GROUP\_ADMIN** ([**wsh\_shell\_cfg\_def.h**](wsh__shell__cfg__def_8h.md))
-* **WSH\_SHELL\_USER\_GROUP\_READER** ([**wsh\_shell\_cfg\_def.h**](wsh__shell__cfg__def_8h.md))
+* **WSH\_SHELL\_TARGET\_OS** ([**wsh\_shell\_cfg\_def.h**](wsh__shell__cfg__def_8h.md))
 * **WSH\_SHELL\_CHAR\_CR** ([**wsh\_shell\_io.h**](wsh__shell__io_8h.md))
 * **WSH\_SHELL\_CHAR\_LF** ([**wsh\_shell\_io.h**](wsh__shell__io_8h.md))
 * **WSH\_SHELL\_COLOR\_BLACK** ([**wsh\_shell\_io.h**](wsh__shell__io_8h.md))
@@ -105,6 +109,7 @@
 * **WSH\_SHELL\_ESC\_SEQ\_START\_STR** ([**wsh\_shell\_io.h**](wsh__shell__io_8h.md))
 * **WSH\_SHELL\_PRINT\_ERR** ([**wsh\_shell\_io.h**](wsh__shell__io_8h.md))
 * **WSH\_SHELL\_PRINT\_INFO** ([**wsh\_shell\_io.h**](wsh__shell__io_8h.md))
+* **WSH\_SHELL\_PRINT\_LEVEL** ([**wsh\_shell\_io.h**](wsh__shell__io_8h.md))
 * **WSH\_SHELL\_PRINT\_SYS** ([**wsh\_shell\_io.h**](wsh__shell__io_8h.md))
 * **WSH\_SHELL\_PRINT\_WARN** ([**wsh\_shell\_io.h**](wsh__shell__io_8h.md))
 * **WSH\_SHELL\_SYM\_BACKSPACE** ([**wsh\_shell\_io.h**](wsh__shell__io_8h.md))
@@ -113,9 +118,10 @@
 * **WSH\_SHELL\_SYM\_SOUND** ([**wsh\_shell\_io.h**](wsh__shell__io_8h.md))
 * **WSH\_SHELL\_SYM\_TAB** ([**wsh\_shell\_io.h**](wsh__shell__io_8h.md))
 * **WSH\_SHELL\_OPTION\_TYPES\_TABLE** ([**wsh\_shell\_option.h**](wsh__shell__option_8h.md))
+* **WSH\_SHELL\_OPT\_ACCESS\_ADMIN** ([**wsh\_shell\_option.h**](wsh__shell__option_8h.md))
 * **WSH\_SHELL\_OPT\_ACCESS\_ANY** ([**wsh\_shell\_option.h**](wsh__shell__option_8h.md))
 * **WSH\_SHELL\_OPT\_ACCESS\_EXECUTE** ([**wsh\_shell\_option.h**](wsh__shell__option_8h.md))
-* **WSH\_SHELL\_OPT\_ACCESS\_NONE** ([**wsh\_shell\_option.h**](wsh__shell__option_8h.md))
+* **WSH\_SHELL\_OPT\_ACCESS\_NO** ([**wsh\_shell\_option.h**](wsh__shell__option_8h.md))
 * **WSH\_SHELL\_OPT\_ACCESS\_READ** ([**wsh\_shell\_option.h**](wsh__shell__option_8h.md))
 * **WSH\_SHELL\_OPT\_ACCESS\_WRITE** ([**wsh\_shell\_option.h**](wsh__shell__option_8h.md))
 * **WSH\_SHELL\_OPT\_DESCR** ([**wsh\_shell\_option.h**](wsh__shell__option_8h.md))
@@ -139,8 +145,8 @@
 
 ## x
 
+* **X\_ENTRY** ([**wsh\_shell\_cfg\_def.h**](wsh__shell__cfg__def_8h.md), [**wsh\_shell\_option.h**](wsh__shell__option_8h.md), [**wsh\_shell\_types.h**](wsh__shell__types_8h.md))
 * **X\_MAP\_ENTRY** ([**wsh\_shell\_cfg\_def.h**](wsh__shell__cfg__def_8h.md))
-* **X\_ENTRY** ([**wsh\_shell\_option.h**](wsh__shell__option_8h.md), [**wsh\_shell\_types.h**](wsh__shell__types_8h.md))
 
 
 ## _

@@ -47,7 +47,7 @@ _Main shell structure containing state, configuration, user context, and subsyst
 |  WshShell\_Char\_t | [**PS1**](#variable-ps1)  <br> |
 |  WshShell\_Char\_t | [**PrevSym**](#variable-prevsym)  <br> |
 |  [**WshShellPromptWait\_t**](wsh__shell__promptwait_8h.md#typedef-wshshellpromptwait_t) | [**PromptWait**](#variable-promptwait)  <br> |
-|  [**WshShell\_AuthContext\_t**](structWshShell__AuthContext__t.md) | [**TmpAuth**](#variable-tmpauth)  <br> |
+|  [**WshShell\_AuthCtx\_t**](structWshShell__AuthCtx__t.md) | [**TmpAuth**](#variable-tmpauth)  <br> |
 |  [**WshShellUser\_Table\_t**](structWshShellUser__Table__t.md) | [**Users**](#variable-users)  <br> |
 |  WshShell\_Char\_t \* | [**Version**](#variable-version)  <br> |
 
@@ -285,7 +285,7 @@ WshShellPromptWait_t WshShell_t::PromptWait;
 ### variable TmpAuth 
 
 ```C++
-WshShell_AuthContext_t WshShell_t::TmpAuth;
+WshShell_AuthCtx_t WshShell_t::TmpAuth;
 ```
 
 

@@ -456,14 +456,18 @@ Example: Input: <computeroutput>&quot;arg1 arg2 \&quot;quoted string" arg3&quot;
         </inbodydescription>
         <location file="src/wsh_shell_str.h" line="104" column="6" bodyfile="src/wsh_shell_str.c" bodystart="79" bodyend="89" declfile="src/wsh_shell_str.h" declline="104" declcolumn="6"/>
       </memberdef>
-      <memberdef kind="function" id="wsh__shell__str_8h_1a97dee099f0ae0c2f8bbd5fada5231e9b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="wsh__shell__str_8h_1a3807da453046b6283184e6021dd83c10" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
         <definition>void WshShellStr_GroupBitsToStr</definition>
-        <argsstring>(WshShell_Size_t group, WshShell_Char_t *pOutStr)</argsstring>
+        <argsstring>(WshShell_Size_t group, WshShell_Size_t groupMaxNum, WshShell_Char_t *pOutStr)</argsstring>
         <name>WshShellStr_GroupBitsToStr</name>
         <param>
           <type>WshShell_Size_t</type>
           <declname>group</declname>
+        </param>
+        <param>
+          <type>WshShell_Size_t</type>
+          <declname>groupMaxNum</declname>
         </param>
         <param>
           <type>WshShell_Char_t *</type>
@@ -474,7 +478,7 @@ Example: Input: <computeroutput>&quot;arg1 arg2 \&quot;quoted string" arg3&quot;
         </briefdescription>
         <detaileddescription>
 <para>Produces a fixed-length string of &apos;*&apos; and &apos;-&apos; characters from highest to lowest group index.</para>
-<para>Example for 4 groups:<itemizedlist>
+<para>Example for 2 groups:<itemizedlist>
 <listitem><para>WSH_SHELL_CMD_GROUP_ADMIN = bit 0 → rightmost char</para>
 </listitem><listitem><para>WSH_SHELL_CMD_GROUP_MANUF = bit 3 → leftmost char</para>
 </listitem></itemizedlist>
@@ -485,6 +489,14 @@ Example: Input: <computeroutput>&quot;arg1 arg2 \&quot;quoted string" arg3&quot;
 </parameternamelist>
 <parameterdescription>
 <para>Bitmask of groups. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">groupMaxNum</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Groups max number. </para>
 </parameterdescription>
 </parameteritem>
 <parameteritem>
@@ -500,7 +512,7 @@ Example: Input: <computeroutput>&quot;arg1 arg2 \&quot;quoted string" arg3&quot;
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/wsh_shell_str.h" line="118" column="6" bodyfile="src/wsh_shell_str.c" bodystart="91" bodyend="100" declfile="src/wsh_shell_str.h" declline="118" declcolumn="6"/>
+        <location file="src/wsh_shell_str.h" line="119" column="6" bodyfile="src/wsh_shell_str.c" bodystart="91" bodyend="101" declfile="src/wsh_shell_str.h" declline="119" declcolumn="6"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
@@ -542,13 +554,14 @@ Example: Input: <computeroutput>&quot;arg1 arg2 \&quot;quoted string" arg3&quot;
 <codeline lineno="82"><highlight class="normal"></highlight></codeline>
 <codeline lineno="104"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="wsh__shell__str_8h_1a10832dc9d2d88b0577df9bac3e6e533e" kindref="member">WshShellStr_AccessBitsToStr</ref>(WshShell_Size_t<sp/>access,<sp/>WshShell_Char_t*<sp/>pOutStr);</highlight></codeline>
 <codeline lineno="105"><highlight class="normal"></highlight></codeline>
-<codeline lineno="118"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="wsh__shell__str_8h_1a97dee099f0ae0c2f8bbd5fada5231e9b" kindref="member">WshShellStr_GroupBitsToStr</ref>(WshShell_Size_t<sp/>group,<sp/>WshShell_Char_t*<sp/>pOutStr);</highlight></codeline>
-<codeline lineno="119"><highlight class="normal"></highlight></codeline>
-<codeline lineno="120"><highlight class="normal"></highlight><highlight class="preprocessor">#ifdef<sp/>__cplusplus</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="121"><highlight class="normal">}</highlight></codeline>
-<codeline lineno="122"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="123"><highlight class="normal"></highlight></codeline>
-<codeline lineno="124"><highlight class="normal"></highlight><highlight class="preprocessor">#endif<sp/></highlight><highlight class="comment">/*<sp/>__WSH_SHELL_STR_H<sp/>*/</highlight><highlight class="preprocessor"></highlight></codeline>
+<codeline lineno="119"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="wsh__shell__str_8h_1a3807da453046b6283184e6021dd83c10" kindref="member">WshShellStr_GroupBitsToStr</ref>(WshShell_Size_t<sp/>group,<sp/>WshShell_Size_t<sp/>groupMaxNum,</highlight></codeline>
+<codeline lineno="120"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>WshShell_Char_t*<sp/>pOutStr);</highlight></codeline>
+<codeline lineno="121"><highlight class="normal"></highlight></codeline>
+<codeline lineno="122"><highlight class="normal"></highlight><highlight class="preprocessor">#ifdef<sp/>__cplusplus</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="123"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="124"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="125"><highlight class="normal"></highlight></codeline>
+<codeline lineno="126"><highlight class="normal"></highlight><highlight class="preprocessor">#endif<sp/></highlight><highlight class="comment">/*<sp/>__WSH_SHELL_STR_H<sp/>*/</highlight><highlight class="preprocessor"></highlight></codeline>
     </programlisting>
     <location file="src/wsh_shell_str.h"/>
   </compounddef>

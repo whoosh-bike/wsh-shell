@@ -233,8 +233,32 @@
       </node>
     </incdepgraph>
     <innerclass refid="structWshShell__ExtCallbacks__t" prot="public">WshShell_ExtCallbacks_t</innerclass>
-    <innerclass refid="structWshShell__AuthContext__t" prot="public">WshShell_AuthContext_t</innerclass>
+    <innerclass refid="structWshShell__AuthCtx__t" prot="public">WshShell_AuthCtx_t</innerclass>
     <innerclass refid="structWshShell__t" prot="public">WshShell_t</innerclass>
+      <sectiondef kind="define">
+      <memberdef kind="define" id="wsh__shell_8h_1a28102cfb12a549d1139ad1430fc21b73" prot="public" static="no">
+        <name>OS_NAME</name>
+        <initializer>WSH_SHELL_TARGET_OS</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/wsh_shell.h" line="42" column="14" bodyfile="src/wsh_shell.h" bodystart="42" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="wsh__shell_8h_1a63f2e19ce36089fbdd99a7a46c62afbe" prot="public" static="no">
+        <name>COMPILER</name>
+        <initializer>&quot;Unknown Compiler&quot;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/wsh_shell.h" line="57" column="14" bodyfile="src/wsh_shell.h" bodystart="57" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
       <sectiondef kind="typedef">
       <memberdef kind="typedef" id="wsh__shell_8h_1a31ac89f2d478911c46e3e6c2142c1ac1" prot="public" static="no">
         <type>void(*</type>
@@ -248,7 +272,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/wsh_shell.h" line="37" column="9" bodyfile="src/wsh_shell.h" bodystart="37" bodyend="-1"/>
+        <location file="src/wsh_shell.h" line="67" column="9" bodyfile="src/wsh_shell.h" bodystart="67" bodyend="-1"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="func">
@@ -319,7 +343,7 @@
 <para>Init</para>
 <para>First out</para>
         </inbodydescription>
-        <location file="src/wsh_shell.h" line="92" column="23" bodyfile="src/wsh_shell.c" bodystart="26" bodyend="79" declfile="src/wsh_shell.h" declline="92" declcolumn="23"/>
+        <location file="src/wsh_shell.h" line="122" column="23" bodyfile="src/wsh_shell.c" bodystart="26" bodyend="86" declfile="src/wsh_shell.h" declline="122" declcolumn="23"/>
       </memberdef>
       <memberdef kind="function" id="wsh__shell_8h_1ab27020809267df0016455a90c03d6f63" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>WshShell_Bool_t</type>
@@ -374,7 +398,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/wsh_shell.h" line="106" column="17" bodyfile="src/wsh_shell.c" bodystart="81" bodyend="100" declfile="src/wsh_shell.h" declline="106" declcolumn="17"/>
+        <location file="src/wsh_shell.h" line="136" column="17" bodyfile="src/wsh_shell.c" bodystart="88" bodyend="107" declfile="src/wsh_shell.h" declline="136" declcolumn="17"/>
       </memberdef>
       <memberdef kind="function" id="wsh__shell_8h_1a68eefe18055efabdbcd86c9081ef456e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>WshShell_Bool_t</type>
@@ -404,7 +428,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/wsh_shell.h" line="115" column="17" bodyfile="src/wsh_shell.c" bodystart="102" bodyend="108" declfile="src/wsh_shell.h" declline="115" declcolumn="17"/>
+        <location file="src/wsh_shell.h" line="145" column="17" bodyfile="src/wsh_shell.c" bodystart="109" bodyend="115" declfile="src/wsh_shell.h" declline="145" declcolumn="17"/>
       </memberdef>
       <memberdef kind="function" id="wsh__shell_8h_1a0273d5c96a995ee6439c2a7d650aef52" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -445,7 +469,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/wsh_shell.h" line="125" column="6" bodyfile="src/wsh_shell.c" bodystart="110" bodyend="124" declfile="src/wsh_shell.h" declline="125" declcolumn="6"/>
+        <location file="src/wsh_shell.h" line="155" column="6" bodyfile="src/wsh_shell.c" bodystart="117" bodyend="131" declfile="src/wsh_shell.h" declline="155" declcolumn="6"/>
       </memberdef>
       <memberdef kind="function" id="wsh__shell_8h_1a3e1b413a08637a56173ae77a25899226" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -486,7 +510,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/wsh_shell.h" line="135" column="6" bodyfile="src/wsh_shell.c" bodystart="270" bodyend="320" declfile="src/wsh_shell.h" declline="135" declcolumn="6"/>
+        <location file="src/wsh_shell.h" line="165" column="6" bodyfile="src/wsh_shell.c" bodystart="288" bodyend="337" declfile="src/wsh_shell.h" declline="165" declcolumn="6"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
@@ -520,59 +544,89 @@
 <codeline lineno="27"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="wsh__shell__user_8h" kindref="compound">wsh_shell_user.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="28"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;wsh_shell_version.h&quot;</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="29"><highlight class="normal"></highlight></codeline>
-<codeline lineno="30"><highlight class="normal"></highlight><highlight class="preprocessor">#ifdef<sp/>__cplusplus</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="31"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/></highlight><highlight class="stringliteral">&quot;C&quot;</highlight><highlight class="normal"><sp/>{</highlight></codeline>
-<codeline lineno="32"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="33"><highlight class="normal"></highlight></codeline>
-<codeline lineno="37" refid="wsh__shell_8h_1a31ac89f2d478911c46e3e6c2142c1ac1" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/>void<sp/>(*<ref refid="wsh__shell_8h_1a31ac89f2d478911c46e3e6c2142c1ac1" kindref="member">WshShell_ExtClbk_t</ref>)(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">*<sp/>pCtx);</highlight></codeline>
-<codeline lineno="38"><highlight class="normal"></highlight></codeline>
-<codeline lineno="42" refid="structWshShell__ExtCallbacks__t" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal">{</highlight></codeline>
-<codeline lineno="43" refid="structWshShell__ExtCallbacks__t_1a0b03edf67c931680283cbaba80cb7872" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="wsh__shell_8h_1a31ac89f2d478911c46e3e6c2142c1ac1" kindref="member">WshShell_ExtClbk_t</ref><sp/><ref refid="structWshShell__ExtCallbacks__t_1a0b03edf67c931680283cbaba80cb7872" kindref="member">Auth</ref>;<sp/><sp/><sp/><sp/><sp/></highlight></codeline>
-<codeline lineno="44" refid="structWshShell__ExtCallbacks__t_1ac6085f9f20e72db0b2bf065803b05ac2" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="wsh__shell_8h_1a31ac89f2d478911c46e3e6c2142c1ac1" kindref="member">WshShell_ExtClbk_t</ref><sp/><ref refid="structWshShell__ExtCallbacks__t_1ac6085f9f20e72db0b2bf065803b05ac2" kindref="member">DeAuth</ref>;<sp/><sp/><sp/></highlight></codeline>
-<codeline lineno="45" refid="structWshShell__ExtCallbacks__t_1a3d7c3cefe86078e837e5a6a21751a3ed" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="wsh__shell_8h_1a31ac89f2d478911c46e3e6c2142c1ac1" kindref="member">WshShell_ExtClbk_t</ref><sp/><ref refid="structWshShell__ExtCallbacks__t_1a3d7c3cefe86078e837e5a6a21751a3ed" kindref="member">SymbolIn</ref>;<sp/></highlight></codeline>
-<codeline lineno="46"><highlight class="normal">}<sp/><ref refid="structWshShell__ExtCallbacks__t" kindref="compound">WshShell_ExtCallbacks_t</ref>;</highlight></codeline>
-<codeline lineno="47"><highlight class="normal"></highlight></codeline>
-<codeline lineno="51" refid="structWshShell__AuthContext__t" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal">{</highlight></codeline>
-<codeline lineno="52" refid="structWshShell__AuthContext__t_1aa817cc98c00092e09ae6b3227cb12a9f" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>WshShell_Char_t<sp/>Login[WSH_SHELL_LOGIN_LEN];<sp/></highlight></codeline>
-<codeline lineno="53" refid="structWshShell__AuthContext__t_1a521ca67b6cc9ddc125ceed039ee02a40" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>WshShell_Char_t<sp/>Pass[WSH_SHELL_PASS_LEN];<sp/><sp/><sp/></highlight></codeline>
-<codeline lineno="54"><highlight class="normal">}<sp/><ref refid="structWshShell__AuthContext__t" kindref="compound">WshShell_AuthContext_t</ref>;</highlight></codeline>
-<codeline lineno="55"><highlight class="normal"></highlight></codeline>
-<codeline lineno="59" refid="structWshShell__t" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal">{</highlight></codeline>
-<codeline lineno="60" refid="structWshShell__t_1ae995d3cd7e3e8ad285f7d3583b09053d" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>WshShell_Char_t*<sp/><ref refid="structWshShell__t_1ae995d3cd7e3e8ad285f7d3583b09053d" kindref="member">Version</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
-<codeline lineno="61" refid="structWshShell__t_1a465834dce871f37473a41e0cda7205cc" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>WshShell_Char_t<sp/>DeviceName[WSH_SHELL_DEV_NAME_LEN];<sp/></highlight></codeline>
-<codeline lineno="62" refid="structWshShell__t_1ad803062fc1744830dfc78d2169823724" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>WshShell_Char_t<sp/>PS1[WSH_SHELL_PS1_MAX_LEN];<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
-<codeline lineno="63" refid="structWshShell__t_1a202bd37b1883d36b4af8c9a3a4bfffd9" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>WshShell_Char_t<sp/><ref refid="structWshShell__t_1a202bd37b1883d36b4af8c9a3a4bfffd9" kindref="member">PrevSym</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
-<codeline lineno="65" refid="structWshShell__t_1a0c0a582384d2b2e147478850f4ddf459" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="structWshShellIO__CommandLine__t" kindref="compound">WshShellIO_CommandLine_t</ref><sp/><ref refid="structWshShell__t_1a0c0a582384d2b2e147478850f4ddf459" kindref="member">CommandLine</ref>;<sp/></highlight></codeline>
-<codeline lineno="66" refid="structWshShell__t_1a3e5bcf2149fe8274b17914d5fdd1d20a" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="structWshShellUser__t" kindref="compound">WshShellUser_t</ref>*<sp/><ref refid="structWshShell__t_1a3e5bcf2149fe8274b17914d5fdd1d20a" kindref="member">CurrUser</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
-<codeline lineno="67" refid="structWshShell__t_1ad96327b2f5beff8fb3dd3a94ab5e9f97" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="structWshShell__AuthContext__t" kindref="compound">WshShell_AuthContext_t</ref><sp/><ref refid="structWshShell__t_1ad96327b2f5beff8fb3dd3a94ab5e9f97" kindref="member">TmpAuth</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
-<codeline lineno="68" refid="structWshShell__t_1aafe47c977357679bcbf2a720b6c06ebc" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="structWshShellEsc__Storage__t" kindref="compound">WshShellEsc_Storage_t</ref><sp/><ref refid="structWshShell__t_1aafe47c977357679bcbf2a720b6c06ebc" kindref="member">EscStorage</ref>;<sp/><sp/><sp/><sp/><sp/></highlight></codeline>
-<codeline lineno="70" refid="structWshShell__t_1a9c531d31246a1f50fee3a956d06dfab0" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="structWshShellUser__Table__t" kindref="compound">WshShellUser_Table_t</ref><sp/><ref refid="structWshShell__t_1a9c531d31246a1f50fee3a956d06dfab0" kindref="member">Users</ref>;<sp/><sp/><sp/></highlight></codeline>
-<codeline lineno="71" refid="structWshShell__t_1ab76826113e0cae0cb5e48c36e82d988d" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="structWshShellCmd__Table__t" kindref="compound">WshShellCmd_Table_t</ref><sp/><ref refid="structWshShell__t_1ab76826113e0cae0cb5e48c36e82d988d" kindref="member">Commands</ref>;<sp/></highlight></codeline>
-<codeline lineno="73" refid="structWshShell__t_1ad0fac6af46e913be00b4a5076d2ce820" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="structWshShellHistory__IO__t" kindref="compound">WshShellHistory_IO_t</ref><sp/><ref refid="structWshShell__t_1ad0fac6af46e913be00b4a5076d2ce820" kindref="member">HistoryIO</ref>;<sp/></highlight></codeline>
-<codeline lineno="74" refid="structWshShell__t_1adcf54d0d820296e96c8f7c0b78f4f346" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="structWshShell__Interact__t" kindref="compound">WshShell_Interact_t</ref><sp/><ref refid="structWshShell__t_1adcf54d0d820296e96c8f7c0b78f4f346" kindref="member">Interact</ref>;<sp/><sp/><sp/></highlight></codeline>
-<codeline lineno="75"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="structWshShellPromptWait" kindref="compound">WshShellPromptWait_t</ref><sp/>PromptWait;</highlight></codeline>
-<codeline lineno="76"><highlight class="normal"></highlight></codeline>
-<codeline lineno="77" refid="structWshShell__t_1a9b39a6d10daf9781ffff84d3eaddd3f1" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="structWshShell__ExtCallbacks__t" kindref="compound">WshShell_ExtCallbacks_t</ref><sp/><ref refid="structWshShell__t_1a9b39a6d10daf9781ffff84d3eaddd3f1" kindref="member">ExtCallbacks</ref>;<sp/></highlight></codeline>
-<codeline lineno="78"><highlight class="normal">}<sp/><ref refid="structWshShell__t" kindref="compound">WshShell_t</ref>;</highlight></codeline>
-<codeline lineno="79"><highlight class="normal"></highlight></codeline>
-<codeline lineno="92"><highlight class="normal">WSH_SHELL_RET_STATE_t<sp/><ref refid="wsh__shell_8h_1a90b21ffe631e62fdce47691786645383" kindref="member">WshShell_Init</ref>(<ref refid="structWshShell__t" kindref="compound">WshShell_t</ref>*<sp/>pShell,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>WshShell_Char_t*<sp/>pcDevName,</highlight></codeline>
-<codeline lineno="93"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>WshShell_Char_t*<sp/>pcCustomHeader,</highlight></codeline>
-<codeline lineno="94"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="structWshShell__ExtCallbacks__t" kindref="compound">WshShell_ExtCallbacks_t</ref>*<sp/>pExtClbks);</highlight></codeline>
-<codeline lineno="95"><highlight class="normal"></highlight></codeline>
-<codeline lineno="106"><highlight class="normal">WshShell_Bool_t<sp/><ref refid="wsh__shell_8h_1ab27020809267df0016455a90c03d6f63" kindref="member">WshShell_Auth</ref>(<ref refid="structWshShell__t" kindref="compound">WshShell_t</ref>*<sp/>pShell,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>WshShell_Char_t*<sp/>pcLogin,</highlight></codeline>
-<codeline lineno="107"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>WshShell_Char_t*<sp/>pcPass);</highlight></codeline>
-<codeline lineno="108"><highlight class="normal"></highlight></codeline>
-<codeline lineno="115"><highlight class="normal">WshShell_Bool_t<sp/><ref refid="wsh__shell_8h_1a68eefe18055efabdbcd86c9081ef456e" kindref="member">WshShell_IsAuth</ref>(<ref refid="structWshShell__t" kindref="compound">WshShell_t</ref>*<sp/>pShell);</highlight></codeline>
-<codeline lineno="116"><highlight class="normal"></highlight></codeline>
-<codeline lineno="125"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="wsh__shell_8h_1a0273d5c96a995ee6439c2a7d650aef52" kindref="member">WshShell_DeAuth</ref>(<ref refid="structWshShell__t" kindref="compound">WshShell_t</ref>*<sp/>pShell,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>WshShell_Char_t*<sp/>pcReason);</highlight></codeline>
-<codeline lineno="126"><highlight class="normal"></highlight></codeline>
-<codeline lineno="135"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="wsh__shell_8h_1a3e1b413a08637a56173ae77a25899226" kindref="member">WshShell_InsertChar</ref>(<ref refid="structWshShell__t" kindref="compound">WshShell_t</ref>*<sp/>pShell,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>WshShell_Char_t<sp/>symbol);</highlight></codeline>
-<codeline lineno="136"><highlight class="normal"></highlight></codeline>
-<codeline lineno="137"><highlight class="normal"></highlight><highlight class="preprocessor">#ifdef<sp/>__cplusplus</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="138"><highlight class="normal">}</highlight></codeline>
-<codeline lineno="139"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="140"><highlight class="normal"></highlight></codeline>
-<codeline lineno="141"><highlight class="normal"></highlight><highlight class="preprocessor">#endif<sp/></highlight><highlight class="comment">/*<sp/>__WSH_SHELL_H<sp/>*/</highlight><highlight class="preprocessor"></highlight></codeline>
+<codeline lineno="30"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>detect<sp/>operating<sp/>system<sp/>name<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="31"><highlight class="normal"></highlight><highlight class="preprocessor">#if<sp/>defined(__linux)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="32"><highlight class="normal"></highlight><highlight class="preprocessor"><sp/><sp/><sp/><sp/>#define<sp/>OS_NAME<sp/>&quot;Linux&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="33"><highlight class="normal"></highlight><highlight class="preprocessor">#elif<sp/>defined(__unix)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="34"><highlight class="normal"></highlight><highlight class="preprocessor"><sp/><sp/><sp/><sp/>#define<sp/>OS_NAME<sp/>&quot;Unix&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="35"><highlight class="normal"></highlight><highlight class="preprocessor">#elif<sp/>defined(__APPLE__)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="36"><highlight class="normal"></highlight><highlight class="preprocessor"><sp/><sp/><sp/><sp/>#define<sp/>OS_NAME<sp/>&quot;Darwin&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="37"><highlight class="normal"></highlight><highlight class="preprocessor">#elif<sp/>defined(_WIN32)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="38"><highlight class="normal"></highlight><highlight class="preprocessor"><sp/><sp/><sp/><sp/>#define<sp/>OS_NAME<sp/>&quot;Windows&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="39"><highlight class="normal"></highlight><highlight class="preprocessor">#elif<sp/>defined(tskKERNEL_VERSION_NUMBER)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="40"><highlight class="normal"></highlight><highlight class="preprocessor"><sp/><sp/><sp/><sp/>#define<sp/>OS_NAME<sp/>&quot;FreeRTOS<sp/>&quot;</highlight><highlight class="normal"><sp/>tskKERNEL_VERSION_NUMBER</highlight></codeline>
+<codeline lineno="41"><highlight class="normal"></highlight><highlight class="preprocessor">#else</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="42"><highlight class="normal"></highlight><highlight class="preprocessor"><sp/><sp/><sp/><sp/>#define<sp/>OS_NAME<sp/>WSH_SHELL_TARGET_OS</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="43"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="44"><highlight class="normal"></highlight></codeline>
+<codeline lineno="45"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>detect<sp/>compiler<sp/>name<sp/>and<sp/>version<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="46"><highlight class="normal"></highlight><highlight class="preprocessor">#if<sp/>defined(__clang__)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="47"><highlight class="normal"></highlight><highlight class="preprocessor"><sp/><sp/><sp/><sp/>#define<sp/>COMPILER<sp/>&quot;clang<sp/>&quot;</highlight><highlight class="normal"><sp/>__clang_version__</highlight></codeline>
+<codeline lineno="48"><highlight class="normal"></highlight><highlight class="preprocessor">#elif<sp/>defined(__GNUC__)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="49"><highlight class="normal"></highlight><highlight class="preprocessor"><sp/><sp/><sp/><sp/>#define<sp/>COMPILER<sp/>&quot;GCC<sp/>&quot;</highlight><highlight class="normal"><sp/>__VERSION__</highlight></codeline>
+<codeline lineno="50"><highlight class="normal"></highlight><highlight class="preprocessor">#elif<sp/>defined(_MSC_VER)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="51"><highlight class="normal"></highlight><highlight class="preprocessor"><sp/><sp/><sp/><sp/>#define<sp/>COMPILER<sp/>&quot;MSVC&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="52"><highlight class="normal"></highlight><highlight class="preprocessor">#elif<sp/>defined(__CC_ARM)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="53"><highlight class="normal"></highlight><highlight class="preprocessor"><sp/><sp/><sp/><sp/>#define<sp/>COMPILER<sp/>&quot;ARMCC&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="54"><highlight class="normal"></highlight><highlight class="preprocessor">#elif<sp/>defined(__ICCARM__)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="55"><highlight class="normal"></highlight><highlight class="preprocessor"><sp/><sp/><sp/><sp/>#define<sp/>COMPILER<sp/>&quot;IAR&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="56"><highlight class="normal"></highlight><highlight class="preprocessor">#else</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="57"><highlight class="normal"></highlight><highlight class="preprocessor"><sp/><sp/><sp/><sp/>#define<sp/>COMPILER<sp/>&quot;Unknown<sp/>Compiler&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="58"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="59"><highlight class="normal"></highlight></codeline>
+<codeline lineno="60"><highlight class="normal"></highlight><highlight class="preprocessor">#ifdef<sp/>__cplusplus</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="61"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/></highlight><highlight class="stringliteral">&quot;C&quot;</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline lineno="62"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="63"><highlight class="normal"></highlight></codeline>
+<codeline lineno="67" refid="wsh__shell_8h_1a31ac89f2d478911c46e3e6c2142c1ac1" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/>void<sp/>(*<ref refid="wsh__shell_8h_1a31ac89f2d478911c46e3e6c2142c1ac1" kindref="member">WshShell_ExtClbk_t</ref>)(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">*<sp/>pCtx);</highlight></codeline>
+<codeline lineno="68"><highlight class="normal"></highlight></codeline>
+<codeline lineno="72" refid="structWshShell__ExtCallbacks__t" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="73" refid="structWshShell__ExtCallbacks__t_1a0b03edf67c931680283cbaba80cb7872" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="wsh__shell_8h_1a31ac89f2d478911c46e3e6c2142c1ac1" kindref="member">WshShell_ExtClbk_t</ref><sp/><ref refid="structWshShell__ExtCallbacks__t_1a0b03edf67c931680283cbaba80cb7872" kindref="member">Auth</ref>;<sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="74" refid="structWshShell__ExtCallbacks__t_1ac6085f9f20e72db0b2bf065803b05ac2" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="wsh__shell_8h_1a31ac89f2d478911c46e3e6c2142c1ac1" kindref="member">WshShell_ExtClbk_t</ref><sp/><ref refid="structWshShell__ExtCallbacks__t_1ac6085f9f20e72db0b2bf065803b05ac2" kindref="member">DeAuth</ref>;<sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="75" refid="structWshShell__ExtCallbacks__t_1a3d7c3cefe86078e837e5a6a21751a3ed" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="wsh__shell_8h_1a31ac89f2d478911c46e3e6c2142c1ac1" kindref="member">WshShell_ExtClbk_t</ref><sp/><ref refid="structWshShell__ExtCallbacks__t_1a3d7c3cefe86078e837e5a6a21751a3ed" kindref="member">SymbolIn</ref>;<sp/></highlight></codeline>
+<codeline lineno="76"><highlight class="normal">}<sp/><ref refid="structWshShell__ExtCallbacks__t" kindref="compound">WshShell_ExtCallbacks_t</ref>;</highlight></codeline>
+<codeline lineno="77"><highlight class="normal"></highlight></codeline>
+<codeline lineno="81" refid="structWshShell__AuthCtx__t" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="82" refid="structWshShell__AuthCtx__t_1a711f5dad074e73af6b0b81eaad6ce2ee" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>WshShell_Char_t<sp/>Login[WSH_SHELL_LOGIN_LEN];<sp/></highlight></codeline>
+<codeline lineno="83" refid="structWshShell__AuthCtx__t_1afe33194afeb4487d1ac70d6b4af28b2a" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>WshShell_Char_t<sp/>Pass[WSH_SHELL_PASS_LEN];<sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="84"><highlight class="normal">}<sp/><ref refid="structWshShell__AuthCtx__t" kindref="compound">WshShell_AuthCtx_t</ref>;</highlight></codeline>
+<codeline lineno="85"><highlight class="normal"></highlight></codeline>
+<codeline lineno="89" refid="structWshShell__t" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="90" refid="structWshShell__t_1ae995d3cd7e3e8ad285f7d3583b09053d" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>WshShell_Char_t*<sp/><ref refid="structWshShell__t_1ae995d3cd7e3e8ad285f7d3583b09053d" kindref="member">Version</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="91" refid="structWshShell__t_1a465834dce871f37473a41e0cda7205cc" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>WshShell_Char_t<sp/>DeviceName[WSH_SHELL_DEV_NAME_LEN];<sp/></highlight></codeline>
+<codeline lineno="92" refid="structWshShell__t_1ad803062fc1744830dfc78d2169823724" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>WshShell_Char_t<sp/>PS1[WSH_SHELL_PS1_MAX_LEN];<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="93" refid="structWshShell__t_1a202bd37b1883d36b4af8c9a3a4bfffd9" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>WshShell_Char_t<sp/><ref refid="structWshShell__t_1a202bd37b1883d36b4af8c9a3a4bfffd9" kindref="member">PrevSym</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="95" refid="structWshShell__t_1a0c0a582384d2b2e147478850f4ddf459" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="structWshShellIO__CommandLine__t" kindref="compound">WshShellIO_CommandLine_t</ref><sp/><ref refid="structWshShell__t_1a0c0a582384d2b2e147478850f4ddf459" kindref="member">CommandLine</ref>;<sp/></highlight></codeline>
+<codeline lineno="96" refid="structWshShell__t_1a3e5bcf2149fe8274b17914d5fdd1d20a" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="structWshShellUser__t" kindref="compound">WshShellUser_t</ref>*<sp/><ref refid="structWshShell__t_1a3e5bcf2149fe8274b17914d5fdd1d20a" kindref="member">CurrUser</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="97" refid="structWshShell__t_1af5787d02c85fdab37cefacefc8e3d970" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="structWshShell__AuthCtx__t" kindref="compound">WshShell_AuthCtx_t</ref><sp/><ref refid="structWshShell__t_1af5787d02c85fdab37cefacefc8e3d970" kindref="member">TmpAuth</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="98" refid="structWshShell__t_1aafe47c977357679bcbf2a720b6c06ebc" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="structWshShellEsc__Storage__t" kindref="compound">WshShellEsc_Storage_t</ref><sp/><ref refid="structWshShell__t_1aafe47c977357679bcbf2a720b6c06ebc" kindref="member">EscStorage</ref>;<sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="100" refid="structWshShell__t_1a9c531d31246a1f50fee3a956d06dfab0" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="structWshShellUser__Table__t" kindref="compound">WshShellUser_Table_t</ref><sp/><ref refid="structWshShell__t_1a9c531d31246a1f50fee3a956d06dfab0" kindref="member">Users</ref>;<sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="101" refid="structWshShell__t_1ab76826113e0cae0cb5e48c36e82d988d" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="structWshShellCmd__Table__t" kindref="compound">WshShellCmd_Table_t</ref><sp/><ref refid="structWshShell__t_1ab76826113e0cae0cb5e48c36e82d988d" kindref="member">Commands</ref>;<sp/></highlight></codeline>
+<codeline lineno="103" refid="structWshShell__t_1ad0fac6af46e913be00b4a5076d2ce820" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="structWshShellHistory__IO__t" kindref="compound">WshShellHistory_IO_t</ref><sp/><ref refid="structWshShell__t_1ad0fac6af46e913be00b4a5076d2ce820" kindref="member">HistoryIO</ref>;<sp/></highlight></codeline>
+<codeline lineno="104" refid="structWshShell__t_1adcf54d0d820296e96c8f7c0b78f4f346" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="structWshShell__Interact__t" kindref="compound">WshShell_Interact_t</ref><sp/><ref refid="structWshShell__t_1adcf54d0d820296e96c8f7c0b78f4f346" kindref="member">Interact</ref>;<sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="105"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="structWshShellPromptWait" kindref="compound">WshShellPromptWait_t</ref><sp/>PromptWait;</highlight></codeline>
+<codeline lineno="106"><highlight class="normal"></highlight></codeline>
+<codeline lineno="107" refid="structWshShell__t_1a9b39a6d10daf9781ffff84d3eaddd3f1" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="structWshShell__ExtCallbacks__t" kindref="compound">WshShell_ExtCallbacks_t</ref><sp/><ref refid="structWshShell__t_1a9b39a6d10daf9781ffff84d3eaddd3f1" kindref="member">ExtCallbacks</ref>;<sp/></highlight></codeline>
+<codeline lineno="108"><highlight class="normal">}<sp/><ref refid="structWshShell__t" kindref="compound">WshShell_t</ref>;</highlight></codeline>
+<codeline lineno="109"><highlight class="normal"></highlight></codeline>
+<codeline lineno="122"><highlight class="normal">WSH_SHELL_RET_STATE_t<sp/><ref refid="wsh__shell_8h_1a90b21ffe631e62fdce47691786645383" kindref="member">WshShell_Init</ref>(<ref refid="structWshShell__t" kindref="compound">WshShell_t</ref>*<sp/>pShell,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>WshShell_Char_t*<sp/>pcDevName,</highlight></codeline>
+<codeline lineno="123"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>WshShell_Char_t*<sp/>pcCustomHeader,</highlight></codeline>
+<codeline lineno="124"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="structWshShell__ExtCallbacks__t" kindref="compound">WshShell_ExtCallbacks_t</ref>*<sp/>pExtClbks);</highlight></codeline>
+<codeline lineno="125"><highlight class="normal"></highlight></codeline>
+<codeline lineno="136"><highlight class="normal">WshShell_Bool_t<sp/><ref refid="wsh__shell_8h_1ab27020809267df0016455a90c03d6f63" kindref="member">WshShell_Auth</ref>(<ref refid="structWshShell__t" kindref="compound">WshShell_t</ref>*<sp/>pShell,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>WshShell_Char_t*<sp/>pcLogin,</highlight></codeline>
+<codeline lineno="137"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>WshShell_Char_t*<sp/>pcPass);</highlight></codeline>
+<codeline lineno="138"><highlight class="normal"></highlight></codeline>
+<codeline lineno="145"><highlight class="normal">WshShell_Bool_t<sp/><ref refid="wsh__shell_8h_1a68eefe18055efabdbcd86c9081ef456e" kindref="member">WshShell_IsAuth</ref>(<ref refid="structWshShell__t" kindref="compound">WshShell_t</ref>*<sp/>pShell);</highlight></codeline>
+<codeline lineno="146"><highlight class="normal"></highlight></codeline>
+<codeline lineno="155"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="wsh__shell_8h_1a0273d5c96a995ee6439c2a7d650aef52" kindref="member">WshShell_DeAuth</ref>(<ref refid="structWshShell__t" kindref="compound">WshShell_t</ref>*<sp/>pShell,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>WshShell_Char_t*<sp/>pcReason);</highlight></codeline>
+<codeline lineno="156"><highlight class="normal"></highlight></codeline>
+<codeline lineno="165"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="wsh__shell_8h_1a3e1b413a08637a56173ae77a25899226" kindref="member">WshShell_InsertChar</ref>(<ref refid="structWshShell__t" kindref="compound">WshShell_t</ref>*<sp/>pShell,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>WshShell_Char_t<sp/>symbol);</highlight></codeline>
+<codeline lineno="166"><highlight class="normal"></highlight></codeline>
+<codeline lineno="167"><highlight class="normal"></highlight><highlight class="preprocessor">#ifdef<sp/>__cplusplus</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="168"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="169"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="170"><highlight class="normal"></highlight></codeline>
+<codeline lineno="171"><highlight class="normal"></highlight><highlight class="preprocessor">#endif<sp/></highlight><highlight class="comment">/*<sp/>__WSH_SHELL_H<sp/>*/</highlight><highlight class="preprocessor"></highlight></codeline>
     </programlisting>
     <location file="src/wsh_shell.h"/>
   </compounddef>

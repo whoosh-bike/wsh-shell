@@ -201,7 +201,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/wsh_shell_esc.h" line="55" column="6" bodyfile="src/wsh_shell_esc.c" bodystart="87" bodyend="106" declfile="src/wsh_shell_esc.h" declline="55" declcolumn="6"/>
+        <location file="src/wsh_shell_esc.h" line="55" column="6" bodyfile="src/wsh_shell_esc.c" bodystart="87" bodyend="116" declfile="src/wsh_shell_esc.h" declline="55" declcolumn="6"/>
       </memberdef>
       <memberdef kind="function" id="wsh__shell__esc_8h_1a31c8a37296536f7e7a16070945416b35" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -230,7 +230,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/wsh_shell_esc.h" line="65" column="6" bodyfile="src/wsh_shell_esc.c" bodystart="108" bodyend="115" declfile="src/wsh_shell_esc.h" declline="65" declcolumn="6"/>
+        <location file="src/wsh_shell_esc.h" line="65" column="6" bodyfile="src/wsh_shell_esc.c" bodystart="118" bodyend="125" declfile="src/wsh_shell_esc.h" declline="65" declcolumn="6"/>
       </memberdef>
       <memberdef kind="function" id="wsh__shell__esc_8h_1a07c38fd3528e0db9ad60440514f8c22a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>WshShell_Bool_t</type>
@@ -260,7 +260,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/wsh_shell_esc.h" line="73" column="17" bodyfile="src/wsh_shell_esc.c" bodystart="117" bodyend="124" declfile="src/wsh_shell_esc.h" declline="73" declcolumn="17"/>
+        <location file="src/wsh_shell_esc.h" line="73" column="17" bodyfile="src/wsh_shell_esc.c" bodystart="127" bodyend="134" declfile="src/wsh_shell_esc.h" declline="73" declcolumn="17"/>
       </memberdef>
       </sectiondef>
     <briefdescription>

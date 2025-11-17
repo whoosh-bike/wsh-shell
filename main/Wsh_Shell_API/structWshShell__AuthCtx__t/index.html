@@ -15,19 +15,22 @@
       
       
       
+        
+      
+      
       <link rel="icon" href="../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.20">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.0">
     
     
       
-        <title>Struct WshShellOption_Context_t - Wsh-Shell Documentation</title>
+        <title>Struct WshShell_AuthCtx_t - Wsh-Shell Documentation</title>
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.e53b48f4.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.618322db.min.css">
       
         
-        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
       
       
 
@@ -52,7 +55,6 @@
 
     
     
-    
   </head>
   
   
@@ -70,7 +72,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#struct-wshshelloption_context_t" class="md-skip">
+        <a href="#struct-wshshell_authctx_t" class="md-skip">
           Skip to content
         </a>
       
@@ -107,7 +109,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Struct WshShellOption_Context_t
+              Struct WshShell_AuthCtx_t
             
           </span>
         </div>
@@ -171,7 +173,7 @@
         <a href="https://github.com/whoosh-bike/wsh-shell" title="Go to repository" class="md-source" data-md-component="source">
   <div class="md-source__icon md-icon">
     
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
   </div>
   <div class="md-source__repository">
     GitHub
@@ -322,7 +324,7 @@
       <a href="https://github.com/whoosh-bike/wsh-shell" title="Go to repository" class="md-source" data-md-component="source">
   <div class="md-source__icon md-icon">
     
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
   </div>
   <div class="md-source__repository">
     GitHub
@@ -344,9 +346,14 @@
   
   
   <span class="md-ellipsis">
+    
+  
     Home
+  
+
     
   </span>
+  
   
 
       </a>
@@ -390,9 +397,14 @@
   
   
   <span class="md-ellipsis">
+    
+  
     Developer Guide
+  
+
     
   </span>
+  
   
 
             <span class="md-nav__icon md-icon"></span>
@@ -401,7 +413,11 @@
         <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_2">
             <span class="md-nav__icon md-icon"></span>
-            Developer Guide
+            
+  
+    Developer Guide
+  
+
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -417,9 +433,14 @@
   
   
   <span class="md-ellipsis">
+    
+  
     Initial Requirements
+  
+
     
   </span>
+  
   
 
       </a>
@@ -440,9 +461,14 @@
   
   
   <span class="md-ellipsis">
+    
+  
     Architecture
+  
+
     
   </span>
+  
   
 
       </a>
@@ -463,9 +489,14 @@
   
   
   <span class="md-ellipsis">
+    
+  
     Build Instructions
+  
+
     
   </span>
+  
   
 
       </a>
@@ -486,9 +517,14 @@
   
   
   <span class="md-ellipsis">
+    
+  
     ToDo
+  
+
     
   </span>
+  
   
 
       </a>
@@ -512,6 +548,8 @@
   
     
     
+      
+        
       
         
       
@@ -536,9 +574,14 @@
   
   
   <span class="md-ellipsis">
+    
+  
     Usage
+  
+
     
   </span>
+  
   
 
             <span class="md-nav__icon md-icon"></span>
@@ -547,7 +590,11 @@
         <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_3">
             <span class="md-nav__icon md-icon"></span>
-            Usage
+            
+  
+    Usage
+  
+
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -563,9 +610,14 @@
   
   
   <span class="md-ellipsis">
+    
+  
     Examples Bare-Metal
+  
+
     
   </span>
+  
   
 
       </a>
@@ -586,9 +638,42 @@
   
   
   <span class="md-ellipsis">
+    
+  
     Examples RTOS
+  
+
     
   </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../usage/permission-rules/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Permission Rules
+  
+
+    
+  </span>
+  
   
 
       </a>
@@ -612,6 +697,8 @@
   
     
     
+      
+        
       
         
       
@@ -664,9 +751,14 @@
   
   
   <span class="md-ellipsis">
+    
+  
     API
+  
+
     
   </span>
+  
   
 
             <span class="md-nav__icon md-icon"></span>
@@ -675,7 +767,11 @@
         <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_4">
             <span class="md-nav__icon md-icon"></span>
-            API
+            
+  
+    API
+  
+
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -715,9 +811,14 @@
   
   
   <span class="md-ellipsis">
+    
+  
     General
+  
+
     
   </span>
+  
   
 
             <span class="md-nav__icon md-icon"></span>
@@ -726,7 +827,11 @@
         <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_1_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_4_1">
             <span class="md-nav__icon md-icon"></span>
-            General
+            
+  
+    General
+  
+
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -742,9 +847,14 @@
   
   
   <span class="md-ellipsis">
+    
+  
     File List
+  
+
     
   </span>
+  
   
 
       </a>
@@ -765,9 +875,14 @@
   
   
   <span class="md-ellipsis">
+    
+  
     Functions
+  
+
     
   </span>
+  
   
 
       </a>
@@ -788,9 +903,14 @@
   
   
   <span class="md-ellipsis">
+    
+  
     Macros
+  
+
     
   </span>
+  
   
 
       </a>
@@ -811,9 +931,14 @@
   
   
   <span class="md-ellipsis">
+    
+  
     Variables
+  
+
     
   </span>
+  
   
 
       </a>
@@ -860,9 +985,14 @@
   
   
   <span class="md-ellipsis">
+    
+  
     Autocomplete
+  
+
     
   </span>
+  
   
 
             <span class="md-nav__icon md-icon"></span>
@@ -871,7 +1001,11 @@
         <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_2_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_4_2">
             <span class="md-nav__icon md-icon"></span>
-            Autocomplete
+            
+  
+    Autocomplete
+  
+
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -887,9 +1021,14 @@
   
   
   <span class="md-ellipsis">
+    
+  
     File wsh_shell_autocomplete.h
+  
+
     
   </span>
+  
   
 
       </a>
@@ -936,9 +1075,14 @@
   
   
   <span class="md-ellipsis">
+    
+  
     Default Config
+  
+
     
   </span>
+  
   
 
             <span class="md-nav__icon md-icon"></span>
@@ -947,7 +1091,11 @@
         <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_3_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_4_3">
             <span class="md-nav__icon md-icon"></span>
-            Default Config
+            
+  
+    Default Config
+  
+
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -963,9 +1111,14 @@
   
   
   <span class="md-ellipsis">
+    
+  
     File wsh_shell_cfg_def.h
+  
+
     
   </span>
+  
   
 
       </a>
@@ -1012,9 +1165,14 @@
   
   
   <span class="md-ellipsis">
+    
+  
     Default Commands
+  
+
     
   </span>
+  
   
 
             <span class="md-nav__icon md-icon"></span>
@@ -1023,7 +1181,11 @@
         <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_4_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_4_4">
             <span class="md-nav__icon md-icon"></span>
-            Default Commands
+            
+  
+    Default Commands
+  
+
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -1039,9 +1201,14 @@
   
   
   <span class="md-ellipsis">
+    
+  
     File wsh_shell_cmd_def.h
+  
+
     
   </span>
+  
   
 
       </a>
@@ -1088,9 +1255,14 @@
   
   
   <span class="md-ellipsis">
+    
+  
     Commands Managemet
+  
+
     
   </span>
+  
   
 
             <span class="md-nav__icon md-icon"></span>
@@ -1099,7 +1271,11 @@
         <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_5_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_4_5">
             <span class="md-nav__icon md-icon"></span>
-            Commands Managemet
+            
+  
+    Commands Managemet
+  
+
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -1115,9 +1291,14 @@
   
   
   <span class="md-ellipsis">
+    
+  
     File wsh_shell_cmd.h
+  
+
     
   </span>
+  
   
 
       </a>
@@ -1164,9 +1345,14 @@
   
   
   <span class="md-ellipsis">
+    
+  
     Escape sequences
+  
+
     
   </span>
+  
   
 
             <span class="md-nav__icon md-icon"></span>
@@ -1175,7 +1361,11 @@
         <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_6_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_4_6">
             <span class="md-nav__icon md-icon"></span>
-            Escape sequences
+            
+  
+    Escape sequences
+  
+
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -1191,9 +1381,14 @@
   
   
   <span class="md-ellipsis">
+    
+  
     File wsh_shell_esc.h
+  
+
     
   </span>
+  
   
 
       </a>
@@ -1240,9 +1435,14 @@
   
   
   <span class="md-ellipsis">
+    
+  
     History
+  
+
     
   </span>
+  
   
 
             <span class="md-nav__icon md-icon"></span>
@@ -1251,7 +1451,11 @@
         <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_7_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_4_7">
             <span class="md-nav__icon md-icon"></span>
-            History
+            
+  
+    History
+  
+
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -1267,9 +1471,14 @@
   
   
   <span class="md-ellipsis">
+    
+  
     File wsh_shell_history.h
+  
+
     
   </span>
+  
   
 
       </a>
@@ -1316,9 +1525,14 @@
   
   
   <span class="md-ellipsis">
+    
+  
     Interactive Command
+  
+
     
   </span>
+  
   
 
             <span class="md-nav__icon md-icon"></span>
@@ -1327,7 +1541,11 @@
         <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_8_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_4_8">
             <span class="md-nav__icon md-icon"></span>
-            Interactive Command
+            
+  
+    Interactive Command
+  
+
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -1343,9 +1561,14 @@
   
   
   <span class="md-ellipsis">
+    
+  
     File wsh_shell_interact.h
+  
+
     
   </span>
+  
   
 
       </a>
@@ -1392,9 +1615,14 @@
   
   
   <span class="md-ellipsis">
+    
+  
     Input/Output Helpers
+  
+
     
   </span>
+  
   
 
             <span class="md-nav__icon md-icon"></span>
@@ -1403,7 +1631,11 @@
         <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_9_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_4_9">
             <span class="md-nav__icon md-icon"></span>
-            Input/Output Helpers
+            
+  
+    Input/Output Helpers
+  
+
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -1419,9 +1651,14 @@
   
   
   <span class="md-ellipsis">
+    
+  
     File wsh_shell_io.h
+  
+
     
   </span>
+  
   
 
       </a>
@@ -1468,9 +1705,14 @@
   
   
   <span class="md-ellipsis">
-    Command Options
+    
+  
+    Miscellaneous Functions
+  
+
     
   </span>
+  
   
 
             <span class="md-nav__icon md-icon"></span>
@@ -1479,7 +1721,11 @@
         <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_10_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_4_10">
             <span class="md-nav__icon md-icon"></span>
-            Command Options
+            
+  
+    Miscellaneous Functions
+  
+
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -1490,14 +1736,19 @@
   
   
     <li class="md-nav__item">
-      <a href="../wsh__shell__option_8h/" class="md-nav__link">
+      <a href="../wsh__shell__misc_8h/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
-    File wsh_shell_option.h
+    
+  
+    File wsh_shell_misc.h
+  
+
     
   </span>
+  
   
 
       </a>
@@ -1544,9 +1795,14 @@
   
   
   <span class="md-ellipsis">
-    Prompts Input Await
+    
+  
+    Command Options
+  
+
     
   </span>
+  
   
 
             <span class="md-nav__icon md-icon"></span>
@@ -1555,7 +1811,11 @@
         <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_11_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_4_11">
             <span class="md-nav__icon md-icon"></span>
-            Prompts Input Await
+            
+  
+    Command Options
+  
+
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -1566,14 +1826,19 @@
   
   
     <li class="md-nav__item">
-      <a href="../wsh__shell__promptwait_8h/" class="md-nav__link">
+      <a href="../wsh__shell__option_8h/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
-    File wsh_shell_promptwait.h
+    
+  
+    File wsh_shell_option.h
+  
+
     
   </span>
+  
   
 
       </a>
@@ -1620,9 +1885,14 @@
   
   
   <span class="md-ellipsis">
-    Strings Handlers
+    
+  
+    Prompts Input Await
+  
+
     
   </span>
+  
   
 
             <span class="md-nav__icon md-icon"></span>
@@ -1631,7 +1901,11 @@
         <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_12_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_4_12">
             <span class="md-nav__icon md-icon"></span>
-            Strings Handlers
+            
+  
+    Prompts Input Await
+  
+
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -1642,14 +1916,19 @@
   
   
     <li class="md-nav__item">
-      <a href="../wsh__shell__str_8h/" class="md-nav__link">
+      <a href="../wsh__shell__promptwait_8h/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
-    File wsh_shell_str.h
+    
+  
+    File wsh_shell_promptwait.h
+  
+
     
   </span>
+  
   
 
       </a>
@@ -1696,9 +1975,14 @@
   
   
   <span class="md-ellipsis">
-    Global Types
+    
+  
+    Strings Handlers
+  
+
     
   </span>
+  
   
 
             <span class="md-nav__icon md-icon"></span>
@@ -1707,7 +1991,11 @@
         <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_13_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_4_13">
             <span class="md-nav__icon md-icon"></span>
-            Global Types
+            
+  
+    Strings Handlers
+  
+
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -1718,14 +2006,19 @@
   
   
     <li class="md-nav__item">
-      <a href="../wsh__shell__types_8h/" class="md-nav__link">
+      <a href="../wsh__shell__str_8h/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
-    File wsh_shell_types.h
+    
+  
+    File wsh_shell_str.h
+  
+
     
   </span>
+  
   
 
       </a>
@@ -1772,9 +2065,14 @@
   
   
   <span class="md-ellipsis">
-    User Managemet
+    
+  
+    Global Types
+  
+
     
   </span>
+  
   
 
             <span class="md-nav__icon md-icon"></span>
@@ -1783,7 +2081,11 @@
         <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_14_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_4_14">
             <span class="md-nav__icon md-icon"></span>
-            User Managemet
+            
+  
+    Global Types
+  
+
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -1794,14 +2096,19 @@
   
   
     <li class="md-nav__item">
-      <a href="../wsh__shell__user_8h/" class="md-nav__link">
+      <a href="../wsh__shell__types_8h/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
-    File wsh_shell_user.h
+    
+  
+    File wsh_shell_types.h
+  
+
     
   </span>
+  
   
 
       </a>
@@ -1848,9 +2155,14 @@
   
   
   <span class="md-ellipsis">
-    Version Definition
+    
+  
+    User Managemet
+  
+
     
   </span>
+  
   
 
             <span class="md-nav__icon md-icon"></span>
@@ -1859,7 +2171,11 @@
         <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_15_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_4_15">
             <span class="md-nav__icon md-icon"></span>
-            Version Definition
+            
+  
+    User Managemet
+  
+
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -1870,14 +2186,19 @@
   
   
     <li class="md-nav__item">
-      <a href="../wsh__shell__option_8h/" class="md-nav__link">
+      <a href="../wsh__shell__user_8h/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
-    File wsh_shell_option.h
+    
+  
+    File wsh_shell_user.h
+  
+
     
   </span>
+  
   
 
       </a>
@@ -1924,9 +2245,14 @@
   
   
   <span class="md-ellipsis">
-    Shell Core / Auth
+    
+  
+    Version Definition
+  
+
     
   </span>
+  
   
 
             <span class="md-nav__icon md-icon"></span>
@@ -1935,7 +2261,101 @@
         <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_16_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_4_16">
             <span class="md-nav__icon md-icon"></span>
-            Shell Core / Auth
+            
+  
+    Version Definition
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../wsh__shell__option_8h/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    File wsh_shell_option.h
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_17" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_17" id="__nav_4_17_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Shell Core / Auth
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_17_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_17">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Shell Core / Auth
+  
+
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -1951,9 +2371,14 @@
   
   
   <span class="md-ellipsis">
+    
+  
     File wsh_shell.h
+  
+
     
   </span>
+  
   
 
       </a>
@@ -2006,16 +2431,9 @@
         <li class="md-nav__item">
   <a href="#public-attributes" class="md-nav__link">
     <span class="md-ellipsis">
-      Public Attributes
-    </span>
-  </a>
-  
-</li>
       
-        <li class="md-nav__item">
-  <a href="#detailed-description" class="md-nav__link">
-    <span class="md-ellipsis">
-      Detailed Description
+        Public Attributes
+      
     </span>
   </a>
   
@@ -2024,7 +2442,9 @@
         <li class="md-nav__item">
   <a href="#public-attributes-documentation" class="md-nav__link">
     <span class="md-ellipsis">
-      Public Attributes Documentation
+      
+        Public Attributes Documentation
+      
     </span>
   </a>
   
@@ -2032,18 +2452,22 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#variable-option" class="md-nav__link">
+  <a href="#variable-login" class="md-nav__link">
     <span class="md-ellipsis">
-      variable Option
+      
+        variable Login
+      
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#variable-tokenpos" class="md-nav__link">
+  <a href="#variable-pass" class="md-nav__link">
     <span class="md-ellipsis">
-      variable TokenPos
+      
+        variable Pass
+      
     </span>
   </a>
   
@@ -2064,13 +2488,22 @@
           
           
             <div class="md-content" data-md-component="content">
+              
+                
+
+
+
+  
+
+
+              
               <article class="md-content__inner md-typeset">
                 
                   
 
 
   
-    <a href="https://github.com/whoosh-bike/wsh-shell/edit/master/docs/Wsh_Shell_API/structWshShellOption__Context__t.md" title="Edit this page" class="md-content__button md-icon" rel="edit">
+    <a href="https://github.com/whoosh-bike/wsh-shell/edit/master/docs/Wsh_Shell_API/structWshShell__AuthCtx__t.md" title="Edit this page" class="md-content__button md-icon" rel="edit">
       
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"/></svg>
     </a>
@@ -2079,18 +2512,18 @@
     
       
     
-    <a href="https://github.com/whoosh-bike/wsh-shell/raw/master/docs/Wsh_Shell_API/structWshShellOption__Context__t.md" title="View source of this page" class="md-content__button md-icon">
+    <a href="https://github.com/whoosh-bike/wsh-shell/raw/master/docs/Wsh_Shell_API/structWshShell__AuthCtx__t.md" title="View source of this page" class="md-content__button md-icon">
       
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 18c.56 0 1 .44 1 1s-.44 1-1 1-1-.44-1-1 .44-1 1-1m0-3c-2.73 0-5.06 1.66-6 4 .94 2.34 3.27 4 6 4s5.06-1.66 6-4c-.94-2.34-3.27-4-6-4m0 6.5a2.5 2.5 0 0 1-2.5-2.5 2.5 2.5 0 0 1 2.5-2.5 2.5 2.5 0 0 1 2.5 2.5 2.5 2.5 0 0 1-2.5 2.5M9.27 20H6V4h7v5h5v4.07c.7.08 1.36.25 2 .49V8l-6-6H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h4.5a8.2 8.2 0 0 1-1.23-2"/></svg>
     </a>
   
 
 
-<h1 id="struct-wshshelloption_context_t">Struct WshShellOption_Context_t</h1>
-<p><a href="../annotated/"><strong>ClassList</strong></a> <strong>&gt;</strong> <a href="./"><strong>WshShellOption_Context_t</strong></a></p>
-<p><em>Option usage context during parsing.</em> <a href="#detailed-description">More...</a></p>
+<h1 id="struct-wshshell_authctx_t">Struct WshShell_AuthCtx_t</h1>
+<p><a href="../annotated/"><strong>ClassList</strong></a> <strong>&gt;</strong> <a href="./"><strong>WshShell_AuthCtx_t</strong></a></p>
+<p><em>Temporary authentication context for login input handling.</em> </p>
 <ul>
-<li><code>#include &lt;wsh_shell_option.h&gt;</code></li>
+<li><code>#include &lt;wsh_shell.h&gt;</code></li>
 </ul>
 <h2 id="public-attributes">Public Attributes</h2>
 <table>
@@ -2102,32 +2535,30 @@
 </thead>
 <tbody>
 <tr>
-<td style="text-align: right;">const <a href="../structWshShellOption__t/"><strong>WshShellOption_t</strong></a> *</td>
-<td style="text-align: left;"><a href="#variable-option"><strong>Option</strong></a>  <br></td>
+<td style="text-align: right;">WshShell_Char_t</td>
+<td style="text-align: left;"><a href="#variable-login"><strong>Login</strong></a>  <br></td>
 </tr>
 <tr>
-<td style="text-align: right;">WshShell_Size_t</td>
-<td style="text-align: left;"><a href="#variable-tokenpos"><strong>TokenPos</strong></a>  <br></td>
+<td style="text-align: right;">WshShell_Char_t</td>
+<td style="text-align: left;"><a href="#variable-pass"><strong>Pass</strong></a>  <br></td>
 </tr>
 </tbody>
 </table>
-<h2 id="detailed-description">Detailed Description</h2>
-<p>Used internally to reference which token matched which option. </p>
 <h2 id="public-attributes-documentation">Public Attributes Documentation</h2>
-<h3 id="variable-option">variable Option</h3>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="k">const</span><span class="w"> </span><span class="n">WshShellOption_t</span><span class="o">*</span><span class="w"> </span><span class="n">WshShellOption_Context_t</span><span class="o">::</span><span class="n">Option</span><span class="p">;</span>
+<h3 id="variable-login">variable Login</h3>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="n">WshShell_Char_t</span><span class="w"> </span><span class="n">WshShell_AuthCtx_t</span><span class="o">::</span><span class="n">Login</span><span class="p">[</span><span class="n">WSH_SHELL_LOGIN_LEN</span><span class="p">];</span>
 </span></code></pre></div></td></tr></table></div>
-<p>Pointer to matched option. </p>
+<p>Input buffer for username. </p>
 <hr>
 
-<h3 id="variable-tokenpos">variable TokenPos</h3>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-1-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1"></a><span class="n">WshShell_Size_t</span><span class="w"> </span><span class="n">WshShellOption_Context_t</span><span class="o">::</span><span class="n">TokenPos</span><span class="p">;</span>
+<h3 id="variable-pass">variable Pass</h3>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-1-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1"></a><span class="n">WshShell_Char_t</span><span class="w"> </span><span class="n">WshShell_AuthCtx_t</span><span class="o">::</span><span class="n">Pass</span><span class="p">[</span><span class="n">WSH_SHELL_PASS_LEN</span><span class="p">];</span>
 </span></code></pre></div></td></tr></table></div>
-<p>Position of the matching token in command line. </p>
+<p>Input buffer for password. </p>
 <hr>
 
 <hr />
-<p>The documentation for this class was generated from the following file <code>src/wsh_shell_option.h</code></p>
+<p>The documentation for this class was generated from the following file <code>src/wsh_shell.h</code></p>
 
 
 
@@ -2184,10 +2615,11 @@
     
     
       
-      <script id="__config" type="application/json">{"base": "../..", "features": ["announce.dismiss", "content.action.edit", "content.action.view", "content.code.annotate", "content.code.copy", "content.tooltips", "navigation.footer", "navigation.indexes", "navigation.path", "navigation.tabs", "navigation.top", "navigation.tracking", "search.highlight", "search.share", "search.suggest", "toc.follow"], "search": "../../assets/javascripts/workers/search.973d3a69.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"provider": "mike"}}</script>
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["announce.dismiss", "content.action.edit", "content.action.view", "content.code.annotate", "content.code.copy", "content.tooltips", "navigation.footer", "navigation.indexes", "navigation.path", "navigation.tabs", "navigation.top", "navigation.tracking", "search.highlight", "search.share", "search.suggest", "toc.follow"], "search": "../../assets/javascripts/workers/search.7a47a382.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"provider": "mike"}}</script>
     
     
-      <script src="../../assets/javascripts/bundle.f55a23d4.min.js"></script>
+      <script src="../../assets/javascripts/bundle.e71a0d61.min.js"></script>
       
     
   </body>

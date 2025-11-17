@@ -16,7 +16,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/wsh_shell_cmd.h" line="45" column="27" bodyfile="src/wsh_shell_cmd.h" bodystart="45" bodyend="-1"/>
+        <location file="src/wsh_shell_cmd.h" line="47" column="27" bodyfile="src/wsh_shell_cmd.h" bodystart="47" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structWshShellCmd_1a14eb6d76a57bc514d5cc7a6e931e27b0" prot="public" static="no" mutable="no">
         <type>const WshShell_Char_t *</type>
@@ -30,7 +30,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/wsh_shell_cmd.h" line="46" column="27" bodyfile="src/wsh_shell_cmd.h" bodystart="46" bodyend="-1"/>
+        <location file="src/wsh_shell_cmd.h" line="48" column="27" bodyfile="src/wsh_shell_cmd.h" bodystart="48" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structWshShellCmd_1a0545d6ea9332223f6e6a5d81a43c38c4" prot="public" static="no" mutable="no">
         <type>WshShell_Size_t</type>
@@ -44,7 +44,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/wsh_shell_cmd.h" line="47" column="21" bodyfile="src/wsh_shell_cmd.h" bodystart="47" bodyend="-1"/>
+        <location file="src/wsh_shell_cmd.h" line="49" column="21" bodyfile="src/wsh_shell_cmd.h" bodystart="49" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structWshShellCmd_1ab6d5436e6a42b7ab55514192a350ab47" prot="public" static="no" mutable="no">
         <type>const <ref refid="structWshShellOption__t" kindref="compound">WshShellOption_t</ref> *</type>
@@ -58,7 +58,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/wsh_shell_cmd.h" line="48" column="28" bodyfile="src/wsh_shell_cmd.h" bodystart="48" bodyend="-1"/>
+        <location file="src/wsh_shell_cmd.h" line="50" column="28" bodyfile="src/wsh_shell_cmd.h" bodystart="50" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structWshShellCmd_1ac02bc1357a43896c73c63863c83d74c6" prot="public" static="no" mutable="no">
         <type>WshShell_Size_t</type>
@@ -72,10 +72,10 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/wsh_shell_cmd.h" line="49" column="21" bodyfile="src/wsh_shell_cmd.h" bodystart="49" bodyend="-1"/>
+        <location file="src/wsh_shell_cmd.h" line="51" column="21" bodyfile="src/wsh_shell_cmd.h" bodystart="51" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structWshShellCmd_1a67ee124125be63a4c00d3152560155c1" prot="public" static="no" mutable="no">
-        <type><ref refid="wsh__shell__cmd_8h_1aa35fd0f2220510a8eb2896cf3f471f20" kindref="member">WshShellCmdHandler_t</ref></type>
+        <type><ref refid="wsh__shell__cmd_8h_1afee0de8a3b719f584f70dec661b735ab" kindref="member">WshShellCmdHandler_t</ref></type>
         <definition>WshShellCmdHandler_t WshShellCmd::Handler</definition>
         <argsstring></argsstring>
         <name>Handler</name>
@@ -86,7 +86,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/wsh_shell_cmd.h" line="50" column="26" bodyfile="src/wsh_shell_cmd.h" bodystart="50" bodyend="-1"/>
+        <location file="src/wsh_shell_cmd.h" line="52" column="26" bodyfile="src/wsh_shell_cmd.h" bodystart="52" bodyend="-1"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
@@ -110,7 +110,7 @@
         </childnode>
       </node>
     </collaborationgraph>
-    <location file="src/wsh_shell_cmd.h" line="44" column="1" bodyfile="src/wsh_shell_cmd.h" bodystart="44" bodyend="51"/>
+    <location file="src/wsh_shell_cmd.h" line="46" column="1" bodyfile="src/wsh_shell_cmd.h" bodystart="46" bodyend="53"/>
     <listofallmembers>
       <member refid="structWshShellCmd_1a14eb6d76a57bc514d5cc7a6e931e27b0" prot="public" virt="non-virtual"><scope>WshShellCmd</scope><name>Descr</name></member>
       <member refid="structWshShellCmd_1a0545d6ea9332223f6e6a5d81a43c38c4" prot="public" virt="non-virtual"><scope>WshShellCmd</scope><name>Groups</name></member>

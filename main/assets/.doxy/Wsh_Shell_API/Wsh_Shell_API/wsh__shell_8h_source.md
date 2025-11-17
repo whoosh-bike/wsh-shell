@@ -27,6 +27,36 @@
 #include "wsh_shell_user.h"
 #include "wsh_shell_version.h"
 
+/* detect operating system name */
+#if defined(__linux)
+    #define OS_NAME "Linux"
+#elif defined(__unix)
+    #define OS_NAME "Unix"
+#elif defined(__APPLE__)
+    #define OS_NAME "Darwin"
+#elif defined(_WIN32)
+    #define OS_NAME "Windows"
+#elif defined(tskKERNEL_VERSION_NUMBER)
+    #define OS_NAME "FreeRTOS " tskKERNEL_VERSION_NUMBER
+#else
+    #define OS_NAME WSH_SHELL_TARGET_OS
+#endif
+
+/* detect compiler name and version */
+#if defined(__clang__)
+    #define COMPILER "clang " __clang_version__
+#elif defined(__GNUC__)
+    #define COMPILER "GCC " __VERSION__
+#elif defined(_MSC_VER)
+    #define COMPILER "MSVC"
+#elif defined(__CC_ARM)
+    #define COMPILER "ARMCC"
+#elif defined(__ICCARM__)
+    #define COMPILER "IAR"
+#else
+    #define COMPILER "Unknown Compiler"
+#endif
+
 #ifdef __cplusplus
 extern "C" {
 #endif
@@ -42,7 +72,7 @@ typedef struct {
 typedef struct {
     WshShell_Char_t Login[WSH_SHELL_LOGIN_LEN]; 
     WshShell_Char_t Pass[WSH_SHELL_PASS_LEN];   
-} WshShell_AuthContext_t;
+} WshShell_AuthCtx_t;
 
 typedef struct {
     WshShell_Char_t* Version;                           
@@ -51,7 +81,7 @@ typedef struct {
     WshShell_Char_t PrevSym;                            
     WshShellIO_CommandLine_t CommandLine; 
     const WshShellUser_t* CurrUser;       
-    WshShell_AuthContext_t TmpAuth;       
+    WshShell_AuthCtx_t TmpAuth;           
     WshShellEsc_Storage_t EscStorage;     
     WshShellUser_Table_t Users;   
     WshShellCmd_Table_t Commands; 

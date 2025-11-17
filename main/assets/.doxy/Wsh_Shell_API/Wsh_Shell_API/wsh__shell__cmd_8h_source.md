@@ -27,7 +27,8 @@ struct WshShellCmd;
 
 typedef WSH_SHELL_RET_STATE_t (*WshShellCmdHandler_t)(const struct WshShellCmd* pcCmd,
                                                       WshShell_Size_t argc,
-                                                      const WshShell_Char_t* pArgv[], void* pCtx);
+                                                      const WshShell_Char_t* pArgv[],
+                                                      void* pShellCtx);
 
 typedef struct WshShellCmd {
     const WshShell_Char_t* Name;  
@@ -56,12 +57,12 @@ const WshShellCmd_t* WshShellCmd_GetCmdByIndex(WshShellCmd_Table_t* pShellComman
 const WshShellCmd_t* WshShellCmd_SearchCmd(WshShellCmd_Table_t* pShellCommands,
                                            const WshShell_Char_t* pcCmdName);
 
-WshShellOption_Context_t WshShellCmd_ParseOpt(const WshShellCmd_t* pcCmd, WshShell_Size_t argc,
-                                              const WshShell_Char_t* pArgv[],
-                                              WshShell_Size_t* pTokenPos);
+WshShellOption_Ctx_t WshShellCmd_ParseOpt(const WshShellCmd_t* pcCmd, WshShell_Size_t argc,
+                                          const WshShell_Char_t* pArgv[], WshShell_Size_t rights,
+                                          WshShell_Size_t* pTokenPos);
 
-WSH_SHELL_RET_STATE_t WshShellCmd_GetOptValue(WshShellOption_Context_t* pOptCtx,
-                                              WshShell_Size_t argc, const WshShell_Char_t* pArgv[],
+WSH_SHELL_RET_STATE_t WshShellCmd_GetOptValue(WshShellOption_Ctx_t* pOptCtx, WshShell_Size_t argc,
+                                              const WshShell_Char_t* pArgv[],
                                               WshShell_Size_t valueSize, void* pValue);
 
 void WshShellCmd_PrintOptionsOverview(const WshShellCmd_t* pcCmd);

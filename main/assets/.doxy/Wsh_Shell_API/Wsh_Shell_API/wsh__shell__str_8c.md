@@ -54,7 +54,7 @@
 | ---: | :--- |
 |  void | [**WshShellStr\_AccessBitsToStr**](#function-wshshellstr_accessbitstostr) (WshShell\_Size\_t access, WshShell\_Char\_t \* pOutStr) <br>_Converts access permission bits to a human-readable string like "rwx"._  |
 |  void | [**WshShellStr\_DecrInterCnt**](#function-wshshellstr_decrintercnt) (WshShell\_Size\_t \* pInterCnt) <br>_Decrease buffer counter._  |
-|  void | [**WshShellStr\_GroupBitsToStr**](#function-wshshellstr_groupbitstostr) (WshShell\_Size\_t group, WshShell\_Char\_t \* pOutStr) <br>_Converts group bitmask into symbolic group string (e.g. "\*--\*", "---\*", etc)._  |
+|  void | [**WshShellStr\_GroupBitsToStr**](#function-wshshellstr_groupbitstostr) (WshShell\_Size\_t group, WshShell\_Size\_t groupMaxNum, WshShell\_Char\_t \* pOutStr) <br>_Converts group bitmask into symbolic group string (e.g. "\*--\*", "---\*", etc)._  |
 |  void | [**WshShellStr\_IncrInterCnt**](#function-wshshellstr_incrintercnt) (WshShell\_Size\_t \* pInterCnt, WshShell\_Size\_t buffSize) <br>_Increase buffer counter._  |
 |  WshShell\_Bool\_t | [**WshShellStr\_IsPrintableAscii**](#function-wshshellstr_isprintableascii) (WshShell\_Char\_t ch) <br>_Check whether the given character is a printable ASCII symbol._  |
 |  void | [**WshShellStr\_ParseToArgcArgv**](#function-wshshellstr_parsetoargcargv) (WshShell\_Char\_t \* pStr, WshShell\_Size\_t \* pArgNum, const WshShell\_Char\_t \* pArgBuff, WshShell\_Size\_t maxArgNum) <br>_Parse a string into space-separated tokens, handling quoted substrings as single tokens._  |
@@ -172,6 +172,7 @@ _Converts group bitmask into symbolic group string (e.g. "\*--\*", "---\*", etc)
 ```C++
 void WshShellStr_GroupBitsToStr (
     WshShell_Size_t group,
+    WshShell_Size_t groupMaxNum,
     WshShell_Char_t * pOutStr
 ) 
 ```
@@ -181,7 +182,7 @@ void WshShellStr_GroupBitsToStr (
 Produces a fixed-length string of '\*' and '-' characters from highest to lowest group index.
 
 
-Example for 4 groups:
+Example for 2 groups:
 * WSH\_SHELL\_CMD\_GROUP\_ADMIN = bit 0 → rightmost char
 * WSH\_SHELL\_CMD\_GROUP\_MANUF = bit 3 → leftmost char
 
@@ -194,6 +195,7 @@ Example for 4 groups:
 
 
 * `group` Bitmask of groups. 
+* `groupMaxNum` Groups max number. 
 * `pOutStr` Output buffer (must be at least WSH\_SHELL\_GROUP\_STR\_LEN). 
 
 

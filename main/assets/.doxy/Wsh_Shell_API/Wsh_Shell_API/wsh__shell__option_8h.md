@@ -30,7 +30,7 @@ _Definition of shell command-line option object and creation macros._ [More...](
 
 | Type | Name |
 | ---: | :--- |
-| struct | [**WshShellOption\_Context\_t**](structWshShellOption__Context__t.md) <br>_Option usage context during parsing._  |
+| struct | [**WshShellOption\_Ctx\_t**](structWshShellOption__Ctx__t.md) <br>_Option usage context during parsing._  |
 | struct | [**WshShellOption\_t**](structWshShellOption__t.md) <br>_Represents a shell command-line option._  |
 
 
@@ -101,9 +101,10 @@ _Definition of shell command-line option object and creation macros._ [More...](
 | Type | Name |
 | ---: | :--- |
 | define  | [**WSH\_SHELL\_OPTION\_TYPES\_TABLE**](wsh__shell__option_8h.md#define-wsh_shell_option_types_table) () `/* multi line expression */`<br>_Internal macro: full list of option types._  |
-| define  | [**WSH\_SHELL\_OPT\_ACCESS\_ANY**](wsh__shell__option_8h.md#define-wsh_shell_opt_access_any)  `((WshShell\_Size\_t)(~0U))`<br> |
+| define  | [**WSH\_SHELL\_OPT\_ACCESS\_ADMIN**](wsh__shell__option_8h.md#define-wsh_shell_opt_access_admin)  `0x08`<br> |
+| define  | [**WSH\_SHELL\_OPT\_ACCESS\_ANY**](wsh__shell__option_8h.md#define-wsh_shell_opt_access_any)  `(WSH\_SHELL\_OPT\_ACCESS\_READ \| WSH\_SHELL\_OPT\_ACCESS\_WRITE \| WSH\_SHELL\_OPT\_ACCESS\_EXECUTE)`<br> |
 | define  | [**WSH\_SHELL\_OPT\_ACCESS\_EXECUTE**](wsh__shell__option_8h.md#define-wsh_shell_opt_access_execute)  `0x04`<br> |
-| define  | [**WSH\_SHELL\_OPT\_ACCESS\_NONE**](wsh__shell__option_8h.md#define-wsh_shell_opt_access_none)  `0x00`<br> |
+| define  | [**WSH\_SHELL\_OPT\_ACCESS\_NO**](wsh__shell__option_8h.md#define-wsh_shell_opt_access_no)  `0x00`<br> |
 | define  | [**WSH\_SHELL\_OPT\_ACCESS\_READ**](wsh__shell__option_8h.md#define-wsh_shell_opt_access_read)  `0x01`<br> |
 | define  | [**WSH\_SHELL\_OPT\_ACCESS\_WRITE**](wsh__shell__option_8h.md#define-wsh_shell_opt_access_write)  `0x02`<br> |
 | define  | [**WSH\_SHELL\_OPT\_DESCR**](wsh__shell__option_8h.md#define-wsh_shell_opt_descr) (descr) `""`<br> |
@@ -111,9 +112,9 @@ _Definition of shell command-line option object and creation macros._ [More...](
 | define  | [**WSH\_SHELL\_OPT\_FLOAT**](wsh__shell__option_8h.md#define-wsh_shell_opt_float) (acc, short, long, descr) `WSH\_SHELL\_OPTION\_FLOAT, (acc), 1, (short), (long), WSH\_SHELL\_OPT\_DESCR(descr)`<br>_Define a float argument option._  |
 | define  | [**WSH\_SHELL\_OPT\_HELP**](wsh__shell__option_8h.md#define-wsh_shell_opt_help) () `/* multi line expression */`<br>_Define a built-in help option (e.g._ `"--help"` _or_`"-h"` _)._ |
 | define  | [**WSH\_SHELL\_OPT\_INT**](wsh__shell__option_8h.md#define-wsh_shell_opt_int) (acc, short, long, descr) `WSH\_SHELL\_OPTION\_INT, (acc), 1, (short), (long), WSH\_SHELL\_OPT\_DESCR(descr)`<br>_Define an integer argument option._  |
-| define  | [**WSH\_SHELL\_OPT\_INTERACT**](wsh__shell__option_8h.md#define-wsh_shell_opt_interact) () `/* multi line expression */`<br>_Define an option for entering interactive mode._  |
+| define  | [**WSH\_SHELL\_OPT\_INTERACT**](wsh__shell__option_8h.md#define-wsh_shell_opt_interact) (acc) `/* multi line expression */`<br>_Define an option for entering interactive mode._  |
 | define  | [**WSH\_SHELL\_OPT\_MULTI\_ARG**](wsh__shell__option_8h.md#define-wsh_shell_opt_multi_arg) (acc, argnum, short, long, descr) `WSH\_SHELL\_OPTION\_MULTI\_ARG, (acc), (argnum), (short), (long), WSH\_SHELL\_OPT\_DESCR(descr)`<br>_Define an option that accepts multiple arguments._  |
-| define  | [**WSH\_SHELL\_OPT\_NO**](wsh__shell__option_8h.md#define-wsh_shell_opt_no) (acc) `WSH\_SHELL\_OPTION\_NO, (acc), 0, NULL, NULL, NULL`<br>_Define a special option that matches the command name only (no flags)._  |
+| define  | [**WSH\_SHELL\_OPT\_NO**](wsh__shell__option_8h.md#define-wsh_shell_opt_no) (acc, descr) `WSH\_SHELL\_OPTION\_NO, (acc), 0, "--", "---", WSH\_SHELL\_OPT\_DESCR(descr)`<br>_Define a special option that matches the command name only (no flags)._  |
 | define  | [**WSH\_SHELL\_OPT\_STR**](wsh__shell__option_8h.md#define-wsh_shell_opt_str) (acc, short, long, descr) `WSH\_SHELL\_OPTION\_STR, (acc), 1, (short), (long), WSH\_SHELL\_OPT\_DESCR(descr)`<br>_Define a string argument option._  |
 | define  | [**WSH\_SHELL\_OPT\_WAITS\_INPUT**](wsh__shell__option_8h.md#define-wsh_shell_opt_waits_input) (acc) `WSH\_SHELL\_OPTION\_WAITS\_INPUT, (acc), 0, NULL, NULL, NULL`<br>_Define an option that triggers when input is provided with no flags._  |
 | define  | [**WSH\_SHELL\_OPT\_WO\_PARAM**](wsh__shell__option_8h.md#define-wsh_shell_opt_wo_param) (acc, short, long, descr) `WSH\_SHELL\_OPTION\_WO\_PARAM, (acc), 0, (short), (long), WSH\_SHELL\_OPT\_DESCR(descr)`<br>_Define an option that requires no arguments._  |
@@ -236,10 +237,23 @@ _Internal macro: full list of option types._
 
 
 
+### define WSH\_SHELL\_OPT\_ACCESS\_ADMIN 
+
+```C++
+#define WSH_SHELL_OPT_ACCESS_ADMIN `0x08`
+```
+
+
+
+
+<hr>
+
+
+
 ### define WSH\_SHELL\_OPT\_ACCESS\_ANY 
 
 ```C++
-#define WSH_SHELL_OPT_ACCESS_ANY `((WshShell_Size_t)(~0U))`
+#define WSH_SHELL_OPT_ACCESS_ANY `(WSH_SHELL_OPT_ACCESS_READ | WSH_SHELL_OPT_ACCESS_WRITE | WSH_SHELL_OPT_ACCESS_EXECUTE)`
 ```
 
 
@@ -262,10 +276,10 @@ _Internal macro: full list of option types._
 
 
 
-### define WSH\_SHELL\_OPT\_ACCESS\_NONE 
+### define WSH\_SHELL\_OPT\_ACCESS\_NO 
 
 ```C++
-#define WSH_SHELL_OPT_ACCESS_NONE `0x00`
+#define WSH_SHELL_OPT_ACCESS_NO `0x00`
 ```
 
 
@@ -419,7 +433,7 @@ _Define an integer argument option._
 _Define an option for entering interactive mode._ 
 ```C++
 #define WSH_SHELL_OPT_INTERACT (
-    
+    acc
 ) `/* multi line expression */`
 ```
 
@@ -470,8 +484,9 @@ _Define an option that accepts multiple arguments._
 _Define a special option that matches the command name only (no flags)._ 
 ```C++
 #define WSH_SHELL_OPT_NO (
-    acc
-) `WSH_SHELL_OPTION_NO, (acc), 0, NULL, NULL, NULL`
+    acc,
+    descr
+) `WSH_SHELL_OPTION_NO, (acc), 0, "--", "---", WSH_SHELL_OPT_DESCR(descr)`
 ```
 
 
