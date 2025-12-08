@@ -3,7 +3,7 @@
     "problemMatcher": "$gcc",
     "tasks": [
                 {
-            "label": "clean",
+            "label": "🧼 clean",
             "type": "shell",
             "command": "make clean",
             "group": {
@@ -12,7 +12,7 @@
             }
         },
         {
-            "label": "build all",
+            "label": "⚒️ build all",
             "type": "shell",
             "command": "make all",
             "group": {
@@ -21,7 +21,7 @@
             }
         },
         {
-            "label": "build example (debug)",
+            "label": "⚒️ build example (debug)",
             "type": "shell",
             "command": "make example",
             "group": {
@@ -30,13 +30,26 @@
             }
         },
         {
-            "label": "build example (release)",
+            "label": "⚒️ build example (release)",
             "type": "shell",
             "command": "make example BUILD=Release",
             "group": {
                 "kind": "build",
                 "isDefault": true
             }
-        }
+        },
+        {
+            "label": "⌨️ create python env",
+            "type": "shell",
+            "command": "bash",
+            "args": [
+                "-c",
+                "python3 -m venv .venv && source .venv/bin/activate && pip install --upgrade pip && pip install -r requirements.txt"
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            }
+        },
     ]
 }

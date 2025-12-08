@@ -27,6 +27,8 @@ pip install --upgrade pip
 pip install -r requirements.txt
 ```
 
+Or just run `setup python env` vacode task
+
 ---
 
 ## Changing the Compiler
