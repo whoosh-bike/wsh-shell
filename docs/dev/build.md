@@ -100,7 +100,10 @@ make
 
 ### Example on Hardware
 
-It has been moved to <https://github.com/katbert-92/wsh-shell-blue-pill-example> repo
+It has been moved to another repo's:
+
+- <https://github.com/whoosh-bike/wsh-shell-blue-pill-example>
+- <https://github.com/whoosh-bike/wsh-shell-black-pill-example>
 
 ---
 
