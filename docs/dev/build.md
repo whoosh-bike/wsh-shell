@@ -61,8 +61,6 @@ To build with the **Release** preset:
 make BUILD=Release
 ```
 
-This works for all examples (e.g., `basic` and `blue_pill`).
-
 ---
 
 ## Cleaning the Build
@@ -87,15 +85,8 @@ This example runs locally on your machine:
 ```bash
 make clean && make example
 ./example/build/example
-```
 
-or
-
-```bash
-cd example
-make clean
-make
-./build/example
+# Default example usename `root` and password `1234`
 ```
 
 ### Example on Hardware
@@ -109,5 +100,5 @@ It has been moved to another repo's:
 
 ## Additional Notes
 
-- You can adjust build presets or flags in the **Makefile** (e.g., optimization level, debug symbols).
-- If using Windows, please do all in WSL enviroment.
+- You can adjust build presets or flags in the **Makefile** (e.g., optimization level, debug symbols and so on)
+- If using Windows, please do in WSL enviroment
