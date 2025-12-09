@@ -2804,7 +2804,6 @@
 To build with the <strong>Release</strong> preset:</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-4-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1"></a>make<span class="w"> </span><span class="nv">BUILD</span><span class="o">=</span>Release
 </span></code></pre></div></td></tr></table></div>
-<p>This works for all examples (e.g., <code>basic</code> and <code>blue_pill</code>).</p>
 <hr />
 <h2 id="cleaning-the-build">Cleaning the Build</h2>
 <p>To remove temporary build files while keeping your configuration:</p>
@@ -2819,17 +2818,12 @@ Remove it manually if you want to regenerate it from the default template.</p>
 <h3 id="default-example-pc">Default Example (PC)</h3>
 <p>This example runs locally on your machine:</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-6-1">1</a></span>
-<span class="normal"><a href="#__codelineno-6-2">2</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1"></a>make<span class="w"> </span>clean<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>make<span class="w"> </span>example
+<span class="normal"><a href="#__codelineno-6-2">2</a></span>
+<span class="normal"><a href="#__codelineno-6-3">3</a></span>
+<span class="normal"><a href="#__codelineno-6-4">4</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1"></a>make<span class="w"> </span>clean<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>make<span class="w"> </span>example
 </span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2"></a>./example/build/example
-</span></code></pre></div></td></tr></table></div>
-<p>or</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-7-1">1</a></span>
-<span class="normal"><a href="#__codelineno-7-2">2</a></span>
-<span class="normal"><a href="#__codelineno-7-3">3</a></span>
-<span class="normal"><a href="#__codelineno-7-4">4</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1"></a><span class="nb">cd</span><span class="w"> </span>example
-</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2"></a>make<span class="w"> </span>clean
-</span><span id="__span-7-3"><a id="__codelineno-7-3" name="__codelineno-7-3"></a>make
-</span><span id="__span-7-4"><a id="__codelineno-7-4" name="__codelineno-7-4"></a>./build/example
+</span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3"></a>
+</span><span id="__span-6-4"><a id="__codelineno-6-4" name="__codelineno-6-4"></a><span class="c1"># Default example usename `root` and password `1234`</span>
 </span></code></pre></div></td></tr></table></div>
 <h3 id="example-on-hardware">Example on Hardware</h3>
 <p>It has been moved to another repo's:</p>
@@ -2840,8 +2834,8 @@ Remove it manually if you want to regenerate it from the default template.</p>
 <hr />
 <h2 id="additional-notes">Additional Notes</h2>
 <ul>
-<li>You can adjust build presets or flags in the <strong>Makefile</strong> (e.g., optimization level, debug symbols).</li>
-<li>If using Windows, please do all in WSL enviroment.</li>
+<li>You can adjust build presets or flags in the <strong>Makefile</strong> (e.g., optimization level, debug symbols and so on)</li>
+<li>If using Windows, please do in WSL enviroment</li>
 </ul>
 
 
