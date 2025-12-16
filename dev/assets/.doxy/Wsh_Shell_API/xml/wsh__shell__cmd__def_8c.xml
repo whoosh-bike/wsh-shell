@@ -234,7 +234,7 @@
         <name>WshShellDefCmd</name>
         <initializer>= {
     .Groups  = WSH_SHELL_CMD_GROUP_ALL,
-    .Name    = &quot;def&quot;,
+    .Name    = &quot;wsh&quot;,
     .Descr   = &quot;&quot;,
     .Options = NULL,
     .OptNum  = 0,
@@ -377,7 +377,7 @@
 <codeline lineno="82"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}<sp/></highlight><highlight class="keywordflow">break</highlight><highlight class="normal">;</highlight></codeline>
 <codeline lineno="83"><highlight class="normal"></highlight></codeline>
 <codeline lineno="84"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">case</highlight><highlight class="normal"><sp/>WSH_SHELL_DEF_OPT_INTERACT:<sp/>{</highlight></codeline>
-<codeline lineno="85"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="wsh__shell__interact_8h_1a5f248670e419f7a14026e1266fda5a56" kindref="member">WshShellInteract_Attach</ref>(&amp;(pParentShell-&gt;<ref refid="structWshShell__t_1adcf54d0d820296e96c8f7c0b78f4f346" kindref="member">Interact</ref>),<sp/>pcCmd-&gt;<ref refid="structWshShellCmd_1aa3f13d3d7a3fe30c89ea635528662672" kindref="member">Name</ref>,</highlight></codeline>
+<codeline lineno="85"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="wsh__shell__interact_8h_1ad06e7c0a1663110fda91077392b65536" kindref="member">WshShellInteract_Attach</ref>(&amp;(pParentShell-&gt;<ref refid="structWshShell__t_1a8667413f25fe83318731ad1529ab7bea" kindref="member">Interact</ref>),<sp/>pcCmd-&gt;<ref refid="structWshShellCmd_1aa3f13d3d7a3fe30c89ea635528662672" kindref="member">Name</ref>,</highlight></codeline>
 <codeline lineno="86"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>WshShell_CmdDefInteractive);</highlight></codeline>
 <codeline lineno="87"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}<sp/></highlight><highlight class="keywordflow">break</highlight><highlight class="normal">;</highlight></codeline>
 <codeline lineno="88"><highlight class="normal"></highlight></codeline>
@@ -525,7 +525,7 @@
 <codeline lineno="230"><highlight class="normal"></highlight></codeline>
 <codeline lineno="231"><highlight class="normal"></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="structWshShellCmd" kindref="compound">WshShellCmd_t</ref><sp/>WshShellDefCmd<sp/>=<sp/>{</highlight></codeline>
 <codeline lineno="232"><highlight class="normal"><sp/><sp/><sp/><sp/>.<ref refid="structWshShellCmd_1a0545d6ea9332223f6e6a5d81a43c38c4" kindref="member">Groups</ref><sp/><sp/>=<sp/>WSH_SHELL_CMD_GROUP_ALL,</highlight></codeline>
-<codeline lineno="233"><highlight class="normal"><sp/><sp/><sp/><sp/>.Name<sp/><sp/><sp/><sp/>=<sp/></highlight><highlight class="stringliteral">&quot;def&quot;</highlight><highlight class="normal">,</highlight></codeline>
+<codeline lineno="233"><highlight class="normal"><sp/><sp/><sp/><sp/>.Name<sp/><sp/><sp/><sp/>=<sp/></highlight><highlight class="stringliteral">&quot;wsh&quot;</highlight><highlight class="normal">,</highlight></codeline>
 <codeline lineno="234"><highlight class="normal"><sp/><sp/><sp/><sp/>.Descr<sp/><sp/><sp/>=<sp/></highlight><highlight class="stringliteral">&quot;Default<sp/>command<sp/>for<sp/>configuring<sp/>and<sp/>querying<sp/>the<sp/>shell<sp/>interface&quot;</highlight><highlight class="normal">,</highlight></codeline>
 <codeline lineno="235"><highlight class="normal"><sp/><sp/><sp/><sp/>.Options<sp/>=<sp/>WshShell_OptArr,</highlight></codeline>
 <codeline lineno="236"><highlight class="normal"><sp/><sp/><sp/><sp/>.OptNum<sp/><sp/>=<sp/>WSH_SHELL_ARR_LEN(WshShell_OptArr),</highlight></codeline>
@@ -541,7 +541,7 @@
 <codeline lineno="246"><highlight class="normal"></highlight></codeline>
 <codeline lineno="247"><highlight class="normal"></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="structWshShellCmd" kindref="compound">WshShellCmd_t</ref><sp/>WshShellDefCmd<sp/>=<sp/>{</highlight></codeline>
 <codeline lineno="248"><highlight class="normal"><sp/><sp/><sp/><sp/>.<ref refid="structWshShellCmd_1a0545d6ea9332223f6e6a5d81a43c38c4" kindref="member">Groups</ref><sp/><sp/>=<sp/>WSH_SHELL_CMD_GROUP_ALL,</highlight></codeline>
-<codeline lineno="249"><highlight class="normal"><sp/><sp/><sp/><sp/>.Name<sp/><sp/><sp/><sp/>=<sp/></highlight><highlight class="stringliteral">&quot;def&quot;</highlight><highlight class="normal">,</highlight></codeline>
+<codeline lineno="249"><highlight class="normal"><sp/><sp/><sp/><sp/>.Name<sp/><sp/><sp/><sp/>=<sp/></highlight><highlight class="stringliteral">&quot;wsh&quot;</highlight><highlight class="normal">,</highlight></codeline>
 <codeline lineno="250"><highlight class="normal"><sp/><sp/><sp/><sp/>.Descr<sp/><sp/><sp/>=<sp/></highlight><highlight class="stringliteral">&quot;&quot;</highlight><highlight class="normal">,</highlight></codeline>
 <codeline lineno="251"><highlight class="normal"><sp/><sp/><sp/><sp/>.Options<sp/>=<sp/>NULL,</highlight></codeline>
 <codeline lineno="252"><highlight class="normal"><sp/><sp/><sp/><sp/>.OptNum<sp/><sp/>=<sp/>0,</highlight></codeline>

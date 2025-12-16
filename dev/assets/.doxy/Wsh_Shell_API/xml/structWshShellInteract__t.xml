@@ -1,12 +1,12 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
 <doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
-  <compounddef id="structWshShell__Interact__t" kind="struct" language="C++" prot="public">
-    <compoundname>WshShell_Interact_t</compoundname>
+  <compounddef id="structWshShellInteract__t" kind="struct" language="C++" prot="public">
+    <compoundname>WshShellInteract_t</compoundname>
     <includes refid="wsh__shell__interact_8h" local="no">wsh_shell_interact.h</includes>
       <sectiondef kind="public-attrib">
-      <memberdef kind="variable" id="structWshShell__Interact__t_1ad2a2c2639c19852b31e839ac6253ee89" prot="public" static="no" mutable="no">
+      <memberdef kind="variable" id="structWshShellInteract__t_1aa9e6d620085f9075fac967a1a3db9d0f" prot="public" static="no" mutable="no">
         <type><ref refid="wsh__shell__interact_8h_1a35ab4479cd1af794ef9f06de445b2d86" kindref="member">WshShellInteractive_CmdHandler_t</ref></type>
-        <definition>WshShellInteractive_CmdHandler_t WshShell_Interact_t::Handler</definition>
+        <definition>WshShellInteractive_CmdHandler_t WshShellInteract_t::Handler</definition>
         <argsstring></argsstring>
         <name>Handler</name>
         <briefdescription>
@@ -18,9 +18,9 @@
         </inbodydescription>
         <location file="src/wsh_shell_interact.h" line="40" column="38" bodyfile="src/wsh_shell_interact.h" bodystart="40" bodyend="-1"/>
       </memberdef>
-      <memberdef kind="variable" id="structWshShell__Interact__t_1a9ba12ecd5cb74beb9443284ca23ef8ff" prot="public" static="no" mutable="no">
+      <memberdef kind="variable" id="structWshShellInteract__t_1af1971ff48e9a704cd75e61857ef485e5" prot="public" static="no" mutable="no">
         <type>WshShell_Char_t</type>
-        <definition>WshShell_Char_t WshShell_Interact_t::CmdName[WSH_SHELL_CMD_NAME_LEN]</definition>
+        <definition>WshShell_Char_t WshShellInteract_t::CmdName[WSH_SHELL_CMD_NAME_LEN]</definition>
         <argsstring>[WSH_SHELL_CMD_NAME_LEN]</argsstring>
         <name>CmdName</name>
         <briefdescription>
@@ -45,8 +45,8 @@
         <link refid="structWshShellIO__CommandLine__t"/>
       </node>
       <node id="1">
-        <label>WshShell_Interact_t</label>
-        <link refid="structWshShell__Interact__t"/>
+        <label>WshShellInteract_t</label>
+        <link refid="structWshShellInteract__t"/>
         <childnode refid="2" relation="usage">
           <edgelabel>Handler</edgelabel>
         </childnode>
@@ -54,8 +54,8 @@
     </collaborationgraph>
     <location file="src/wsh_shell_interact.h" line="39" column="1" bodyfile="src/wsh_shell_interact.h" bodystart="39" bodyend="42"/>
     <listofallmembers>
-      <member refid="structWshShell__Interact__t_1a9ba12ecd5cb74beb9443284ca23ef8ff" prot="public" virt="non-virtual"><scope>WshShell_Interact_t</scope><name>CmdName</name></member>
-      <member refid="structWshShell__Interact__t_1ad2a2c2639c19852b31e839ac6253ee89" prot="public" virt="non-virtual"><scope>WshShell_Interact_t</scope><name>Handler</name></member>
+      <member refid="structWshShellInteract__t_1af1971ff48e9a704cd75e61857ef485e5" prot="public" virt="non-virtual"><scope>WshShellInteract_t</scope><name>CmdName</name></member>
+      <member refid="structWshShellInteract__t_1aa9e6d620085f9075fac967a1a3db9d0f" prot="public" virt="non-virtual"><scope>WshShellInteract_t</scope><name>Handler</name></member>
     </listofallmembers>
   </compounddef>
 </doxygen>

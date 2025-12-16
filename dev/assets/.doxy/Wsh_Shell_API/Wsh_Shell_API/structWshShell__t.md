@@ -41,13 +41,13 @@ _Main shell structure containing state, configuration, user context, and subsyst
 |  const [**WshShellUser\_t**](structWshShellUser__t.md) \* | [**CurrUser**](#variable-curruser)  <br> |
 |  WshShell\_Char\_t | [**DeviceName**](#variable-devicename)  <br> |
 |  [**WshShellEsc\_Storage\_t**](structWshShellEsc__Storage__t.md) | [**EscStorage**](#variable-escstorage)  <br> |
-|  [**WshShell\_ExtCallbacks\_t**](structWshShell__ExtCallbacks__t.md) | [**ExtCallbacks**](#variable-extcallbacks)  <br> |
+|  [**WshShellExtCallbacks\_t**](structWshShellExtCallbacks__t.md) | [**ExtCallbacks**](#variable-extcallbacks)  <br> |
 |  [**WshShellHistory\_IO\_t**](structWshShellHistory__IO__t.md) | [**HistoryIO**](#variable-historyio)  <br> |
-|  [**WshShell\_Interact\_t**](structWshShell__Interact__t.md) | [**Interact**](#variable-interact)  <br> |
+|  [**WshShellInteract\_t**](structWshShellInteract__t.md) | [**Interact**](#variable-interact)  <br> |
 |  WshShell\_Char\_t | [**PS1**](#variable-ps1)  <br> |
 |  WshShell\_Char\_t | [**PrevSym**](#variable-prevsym)  <br> |
 |  [**WshShellPromptWait\_t**](wsh__shell__promptwait_8h.md#typedef-wshshellpromptwait_t) | [**PromptWait**](#variable-promptwait)  <br> |
-|  [**WshShell\_AuthCtx\_t**](structWshShell__AuthCtx__t.md) | [**TmpAuth**](#variable-tmpauth)  <br> |
+|  [**WshShellAuthCtx\_t**](structWshShellAuthCtx__t.md) | [**TmpAuth**](#variable-tmpauth)  <br> |
 |  [**WshShellUser\_Table\_t**](structWshShellUser__Table__t.md) | [**Users**](#variable-users)  <br> |
 |  WshShell\_Char\_t \* | [**Version**](#variable-version)  <br> |
 
@@ -187,7 +187,7 @@ Escape sequence state storage.
 ### variable ExtCallbacks 
 
 ```C++
-WshShell_ExtCallbacks_t WshShell_t::ExtCallbacks;
+WshShellExtCallbacks_t WshShell_t::ExtCallbacks;
 ```
 
 
@@ -221,7 +221,7 @@ Command history buffer and ops.
 ### variable Interact 
 
 ```C++
-WshShell_Interact_t WshShell_t::Interact;
+WshShellInteract_t WshShell_t::Interact;
 ```
 
 
@@ -285,7 +285,7 @@ WshShellPromptWait_t WshShell_t::PromptWait;
 ### variable TmpAuth 
 
 ```C++
-WshShell_AuthCtx_t WshShell_t::TmpAuth;
+WshShellAuthCtx_t WshShell_t::TmpAuth;
 ```
 
 

@@ -35,7 +35,7 @@ static void WshShell_InvitationPrint(WshShell_t* pShell) {
 
 WSH_SHELL_RET_STATE_t WshShell_Init(WshShell_t* pShell, const WshShell_Char_t* pcDevName,
                                     const WshShell_Char_t* pcCustomHeader,
-                                    WshShell_ExtCallbacks_t* pExtClbks) {
+                                    WshShellExtCallbacks_t* pExtClbks) {
     WSH_SHELL_ASSERT(pShell && pcDevName);
     if (!pShell || !pcDevName)
         return WSH_SHELL_RET_STATE_ERR_PARAM;

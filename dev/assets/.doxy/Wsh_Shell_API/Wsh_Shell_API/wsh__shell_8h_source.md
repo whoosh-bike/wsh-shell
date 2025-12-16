@@ -67,12 +67,12 @@ typedef struct {
     WshShell_ExtClbk_t Auth;     
     WshShell_ExtClbk_t DeAuth;   
     WshShell_ExtClbk_t SymbolIn; 
-} WshShell_ExtCallbacks_t;
+} WshShellExtCallbacks_t;
 
 typedef struct {
     WshShell_Char_t Login[WSH_SHELL_LOGIN_LEN]; 
     WshShell_Char_t Pass[WSH_SHELL_PASS_LEN];   
-} WshShell_AuthCtx_t;
+} WshShellAuthCtx_t;
 
 typedef struct {
     WshShell_Char_t* Version;                           
@@ -81,20 +81,20 @@ typedef struct {
     WshShell_Char_t PrevSym;                            
     WshShellIO_CommandLine_t CommandLine; 
     const WshShellUser_t* CurrUser;       
-    WshShell_AuthCtx_t TmpAuth;           
+    WshShellAuthCtx_t TmpAuth;            
     WshShellEsc_Storage_t EscStorage;     
     WshShellUser_Table_t Users;   
     WshShellCmd_Table_t Commands; 
     WshShellHistory_IO_t HistoryIO; 
-    WshShell_Interact_t Interact;   
+    WshShellInteract_t Interact;    
     WshShellPromptWait_t PromptWait;
 
-    WshShell_ExtCallbacks_t ExtCallbacks; 
+    WshShellExtCallbacks_t ExtCallbacks; 
 } WshShell_t;
 
 WSH_SHELL_RET_STATE_t WshShell_Init(WshShell_t* pShell, const WshShell_Char_t* pcDevName,
                                     const WshShell_Char_t* pcCustomHeader,
-                                    WshShell_ExtCallbacks_t* pExtClbks);
+                                    WshShellExtCallbacks_t* pExtClbks);
 
 WshShell_Bool_t WshShell_Auth(WshShell_t* pShell, const WshShell_Char_t* pcLogin,
                               const WshShell_Char_t* pcPass);

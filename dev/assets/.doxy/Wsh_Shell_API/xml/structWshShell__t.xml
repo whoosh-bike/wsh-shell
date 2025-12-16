@@ -88,9 +88,9 @@
         </inbodydescription>
         <location file="src/wsh_shell.h" line="96" column="26" bodyfile="src/wsh_shell.h" bodystart="96" bodyend="-1"/>
       </memberdef>
-      <memberdef kind="variable" id="structWshShell__t_1af5787d02c85fdab37cefacefc8e3d970" prot="public" static="no" mutable="no">
-        <type><ref refid="structWshShell__AuthCtx__t" kindref="compound">WshShell_AuthCtx_t</ref></type>
-        <definition>WshShell_AuthCtx_t WshShell_t::TmpAuth</definition>
+      <memberdef kind="variable" id="structWshShell__t_1aa41e1cabab35da3a22e51ae99471555c" prot="public" static="no" mutable="no">
+        <type><ref refid="structWshShellAuthCtx__t" kindref="compound">WshShellAuthCtx_t</ref></type>
+        <definition>WshShellAuthCtx_t WshShell_t::TmpAuth</definition>
         <argsstring></argsstring>
         <name>TmpAuth</name>
         <briefdescription>
@@ -100,7 +100,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/wsh_shell.h" line="97" column="24" bodyfile="src/wsh_shell.h" bodystart="97" bodyend="-1"/>
+        <location file="src/wsh_shell.h" line="97" column="23" bodyfile="src/wsh_shell.h" bodystart="97" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structWshShell__t_1aafe47c977357679bcbf2a720b6c06ebc" prot="public" static="no" mutable="no">
         <type><ref refid="structWshShellEsc__Storage__t" kindref="compound">WshShellEsc_Storage_t</ref></type>
@@ -158,9 +158,9 @@
         </inbodydescription>
         <location file="src/wsh_shell.h" line="103" column="26" bodyfile="src/wsh_shell.h" bodystart="103" bodyend="-1"/>
       </memberdef>
-      <memberdef kind="variable" id="structWshShell__t_1adcf54d0d820296e96c8f7c0b78f4f346" prot="public" static="no" mutable="no">
-        <type><ref refid="structWshShell__Interact__t" kindref="compound">WshShell_Interact_t</ref></type>
-        <definition>WshShell_Interact_t WshShell_t::Interact</definition>
+      <memberdef kind="variable" id="structWshShell__t_1a8667413f25fe83318731ad1529ab7bea" prot="public" static="no" mutable="no">
+        <type><ref refid="structWshShellInteract__t" kindref="compound">WshShellInteract_t</ref></type>
+        <definition>WshShellInteract_t WshShell_t::Interact</definition>
         <argsstring></argsstring>
         <name>Interact</name>
         <briefdescription>
@@ -170,7 +170,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/wsh_shell.h" line="104" column="25" bodyfile="src/wsh_shell.h" bodystart="104" bodyend="-1"/>
+        <location file="src/wsh_shell.h" line="104" column="24" bodyfile="src/wsh_shell.h" bodystart="104" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structWshShell__t_1a5e770f7b99c713ef8992aa92babb98bd" prot="public" static="no" mutable="no">
         <type><ref refid="wsh__shell__promptwait_8h_1ae016420bafdc2a872eff41aa9a95d110" kindref="member">WshShellPromptWait_t</ref></type>
@@ -185,9 +185,9 @@
         </inbodydescription>
         <location file="src/wsh_shell.h" line="105" column="26" bodyfile="src/wsh_shell.h" bodystart="105" bodyend="-1"/>
       </memberdef>
-      <memberdef kind="variable" id="structWshShell__t_1a9b39a6d10daf9781ffff84d3eaddd3f1" prot="public" static="no" mutable="no">
-        <type><ref refid="structWshShell__ExtCallbacks__t" kindref="compound">WshShell_ExtCallbacks_t</ref></type>
-        <definition>WshShell_ExtCallbacks_t WshShell_t::ExtCallbacks</definition>
+      <memberdef kind="variable" id="structWshShell__t_1a306d31e5a26bdbb7f37d93203c0a7512" prot="public" static="no" mutable="no">
+        <type><ref refid="structWshShellExtCallbacks__t" kindref="compound">WshShellExtCallbacks_t</ref></type>
+        <definition>WshShellExtCallbacks_t WshShell_t::ExtCallbacks</definition>
         <argsstring></argsstring>
         <name>ExtCallbacks</name>
         <briefdescription>
@@ -197,7 +197,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/wsh_shell.h" line="107" column="29" bodyfile="src/wsh_shell.h" bodystart="107" bodyend="-1"/>
+        <location file="src/wsh_shell.h" line="107" column="28" bodyfile="src/wsh_shell.h" bodystart="107" bodyend="-1"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
@@ -206,66 +206,77 @@
     <detaileddescription>
     </detaileddescription>
     <collaborationgraph>
-      <node id="3">
+      <node id="13">
         <label>WshShellIO_CommandLine_t</label>
         <link refid="structWshShellIO__CommandLine__t"/>
       </node>
-      <node id="13">
+      <node id="15">
+        <label>WshShellAuthCtx_t</label>
+        <link refid="structWshShellAuthCtx__t"/>
+      </node>
+      <node id="11">
         <label>WshShellOption_t</label>
         <link refid="structWshShellOption__t"/>
       </node>
-      <node id="5">
+      <node id="3">
         <label>WshShellHistory_t</label>
         <link refid="structWshShellHistory__t"/>
-        <childnode refid="6" relation="usage">
+        <childnode refid="4" relation="usage">
           <edgelabel>Data</edgelabel>
         </childnode>
       </node>
-      <node id="6">
+      <node id="4">
         <label>WshShellHistory_Data_t</label>
         <link refid="structWshShellHistory__Data__t"/>
+      </node>
+      <node id="12">
+        <label>WshShellInteract_t</label>
+        <link refid="structWshShellInteract__t"/>
+        <childnode refid="13" relation="usage">
+          <edgelabel>Handler</edgelabel>
+        </childnode>
+      </node>
+      <node id="5">
+        <label>WshShellExtCallbacks_t</label>
+        <link refid="structWshShellExtCallbacks__t"/>
       </node>
       <node id="14">
         <label>WshShellUser_Table_t</label>
         <link refid="structWshShellUser__Table__t"/>
-        <childnode refid="8" relation="usage">
+        <childnode refid="6" relation="usage">
           <edgelabel>List</edgelabel>
         </childnode>
       </node>
-      <node id="8">
+      <node id="6">
         <label>WshShellUser_t</label>
         <link refid="structWshShellUser__t"/>
       </node>
-      <node id="4">
+      <node id="2">
         <label>WshShellHistory_IO_t</label>
         <link refid="structWshShellHistory__IO__t"/>
-        <childnode refid="5" relation="usage">
+        <childnode refid="3" relation="usage">
           <edgelabel>Read</edgelabel>
           <edgelabel>Write</edgelabel>
         </childnode>
       </node>
-      <node id="10">
+      <node id="8">
         <label>WshShellPromptWait</label>
         <link refid="structWshShellPromptWait"/>
+        <childnode refid="8" relation="usage">
+          <edgelabel>Handler</edgelabel>
+        </childnode>
+      </node>
+      <node id="10">
+        <label>WshShellCmd</label>
+        <link refid="structWshShellCmd"/>
         <childnode refid="10" relation="usage">
           <edgelabel>Handler</edgelabel>
         </childnode>
-      </node>
-      <node id="15">
-        <label>WshShell_AuthCtx_t</label>
-        <link refid="structWshShell__AuthCtx__t"/>
-      </node>
-      <node id="12">
-        <label>WshShellCmd</label>
-        <link refid="structWshShellCmd"/>
-        <childnode refid="12" relation="usage">
-          <edgelabel>Handler</edgelabel>
-        </childnode>
-        <childnode refid="13" relation="usage">
+        <childnode refid="11" relation="usage">
           <edgelabel>Options</edgelabel>
         </childnode>
       </node>
-      <node id="9">
+      <node id="7">
         <label>WshShellEsc_Storage_t</label>
         <link refid="structWshShellEsc__Storage__t"/>
       </node>
@@ -273,52 +284,41 @@
         <label>WshShell_t</label>
         <link refid="structWshShell__t"/>
         <childnode refid="2" relation="usage">
-          <edgelabel>Interact</edgelabel>
-        </childnode>
-        <childnode refid="4" relation="usage">
           <edgelabel>HistoryIO</edgelabel>
         </childnode>
-        <childnode refid="7" relation="usage">
+        <childnode refid="5" relation="usage">
           <edgelabel>ExtCallbacks</edgelabel>
         </childnode>
-        <childnode refid="8" relation="usage">
+        <childnode refid="6" relation="usage">
           <edgelabel>CurrUser</edgelabel>
         </childnode>
-        <childnode refid="9" relation="usage">
+        <childnode refid="7" relation="usage">
           <edgelabel>EscStorage</edgelabel>
         </childnode>
-        <childnode refid="10" relation="usage">
+        <childnode refid="8" relation="usage">
           <edgelabel>PromptWait</edgelabel>
         </childnode>
-        <childnode refid="11" relation="usage">
+        <childnode refid="9" relation="usage">
           <edgelabel>Commands</edgelabel>
+        </childnode>
+        <childnode refid="12" relation="usage">
+          <edgelabel>Interact</edgelabel>
         </childnode>
         <childnode refid="14" relation="usage">
           <edgelabel>Users</edgelabel>
         </childnode>
+        <childnode refid="13" relation="usage">
+          <edgelabel>CommandLine</edgelabel>
+        </childnode>
         <childnode refid="15" relation="usage">
           <edgelabel>TmpAuth</edgelabel>
         </childnode>
-        <childnode refid="3" relation="usage">
-          <edgelabel>CommandLine</edgelabel>
-        </childnode>
       </node>
-      <node id="7">
-        <label>WshShell_ExtCallbacks_t</label>
-        <link refid="structWshShell__ExtCallbacks__t"/>
-      </node>
-      <node id="11">
+      <node id="9">
         <label>WshShellCmd_Table_t</label>
         <link refid="structWshShellCmd__Table__t"/>
-        <childnode refid="12" relation="usage">
+        <childnode refid="10" relation="usage">
           <edgelabel>List</edgelabel>
-        </childnode>
-      </node>
-      <node id="2">
-        <label>WshShell_Interact_t</label>
-        <link refid="structWshShell__Interact__t"/>
-        <childnode refid="3" relation="usage">
-          <edgelabel>Handler</edgelabel>
         </childnode>
       </node>
     </collaborationgraph>
@@ -329,13 +329,13 @@
       <member refid="structWshShell__t_1a3e5bcf2149fe8274b17914d5fdd1d20a" prot="public" virt="non-virtual"><scope>WshShell_t</scope><name>CurrUser</name></member>
       <member refid="structWshShell__t_1a465834dce871f37473a41e0cda7205cc" prot="public" virt="non-virtual"><scope>WshShell_t</scope><name>DeviceName</name></member>
       <member refid="structWshShell__t_1aafe47c977357679bcbf2a720b6c06ebc" prot="public" virt="non-virtual"><scope>WshShell_t</scope><name>EscStorage</name></member>
-      <member refid="structWshShell__t_1a9b39a6d10daf9781ffff84d3eaddd3f1" prot="public" virt="non-virtual"><scope>WshShell_t</scope><name>ExtCallbacks</name></member>
+      <member refid="structWshShell__t_1a306d31e5a26bdbb7f37d93203c0a7512" prot="public" virt="non-virtual"><scope>WshShell_t</scope><name>ExtCallbacks</name></member>
       <member refid="structWshShell__t_1ad0fac6af46e913be00b4a5076d2ce820" prot="public" virt="non-virtual"><scope>WshShell_t</scope><name>HistoryIO</name></member>
-      <member refid="structWshShell__t_1adcf54d0d820296e96c8f7c0b78f4f346" prot="public" virt="non-virtual"><scope>WshShell_t</scope><name>Interact</name></member>
+      <member refid="structWshShell__t_1a8667413f25fe83318731ad1529ab7bea" prot="public" virt="non-virtual"><scope>WshShell_t</scope><name>Interact</name></member>
       <member refid="structWshShell__t_1a202bd37b1883d36b4af8c9a3a4bfffd9" prot="public" virt="non-virtual"><scope>WshShell_t</scope><name>PrevSym</name></member>
       <member refid="structWshShell__t_1a5e770f7b99c713ef8992aa92babb98bd" prot="public" virt="non-virtual"><scope>WshShell_t</scope><name>PromptWait</name></member>
       <member refid="structWshShell__t_1ad803062fc1744830dfc78d2169823724" prot="public" virt="non-virtual"><scope>WshShell_t</scope><name>PS1</name></member>
-      <member refid="structWshShell__t_1af5787d02c85fdab37cefacefc8e3d970" prot="public" virt="non-virtual"><scope>WshShell_t</scope><name>TmpAuth</name></member>
+      <member refid="structWshShell__t_1aa41e1cabab35da3a22e51ae99471555c" prot="public" virt="non-virtual"><scope>WshShell_t</scope><name>TmpAuth</name></member>
       <member refid="structWshShell__t_1a9c531d31246a1f50fee3a956d06dfab0" prot="public" virt="non-virtual"><scope>WshShell_t</scope><name>Users</name></member>
       <member refid="structWshShell__t_1ae995d3cd7e3e8ad285f7d3583b09053d" prot="public" virt="non-virtual"><scope>WshShell_t</scope><name>Version</name></member>
     </listofallmembers>

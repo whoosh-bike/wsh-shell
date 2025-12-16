@@ -23,7 +23,7 @@
     
     
       
-        <title>Struct WshShell_Interact_t - Wsh-Shell Documentation</title>
+        <title>Struct WshShellAuthCtx_t - Wsh-Shell Documentation</title>
       
     
     
@@ -72,7 +72,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#struct-wshshell_interact_t" class="md-skip">
+        <a href="#struct-wshshellauthctx_t" class="md-skip">
           Skip to content
         </a>
       
@@ -109,7 +109,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Struct WshShell_Interact_t
+              Struct WshShellAuthCtx_t
             
           </span>
         </div>
@@ -2440,17 +2440,6 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#detailed-description" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Detailed Description
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#public-attributes-documentation" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -2463,10 +2452,10 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#variable-cmdname" class="md-nav__link">
+  <a href="#variable-login" class="md-nav__link">
     <span class="md-ellipsis">
       
-        variable CmdName
+        variable Login
       
     </span>
   </a>
@@ -2474,10 +2463,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#variable-handler" class="md-nav__link">
+  <a href="#variable-pass" class="md-nav__link">
     <span class="md-ellipsis">
       
-        variable Handler
+        variable Pass
       
     </span>
   </a>
@@ -2514,7 +2503,7 @@
 
 
   
-    <a href="https://github.com/whoosh-bike/wsh-shell/edit/master/docs/Wsh_Shell_API/structWshShell__Interact__t.md" title="Edit this page" class="md-content__button md-icon" rel="edit">
+    <a href="https://github.com/whoosh-bike/wsh-shell/edit/master/docs/Wsh_Shell_API/structWshShellAuthCtx__t.md" title="Edit this page" class="md-content__button md-icon" rel="edit">
       
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"/></svg>
     </a>
@@ -2523,18 +2512,18 @@
     
       
     
-    <a href="https://github.com/whoosh-bike/wsh-shell/raw/master/docs/Wsh_Shell_API/structWshShell__Interact__t.md" title="View source of this page" class="md-content__button md-icon">
+    <a href="https://github.com/whoosh-bike/wsh-shell/raw/master/docs/Wsh_Shell_API/structWshShellAuthCtx__t.md" title="View source of this page" class="md-content__button md-icon">
       
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 18c.56 0 1 .44 1 1s-.44 1-1 1-1-.44-1-1 .44-1 1-1m0-3c-2.73 0-5.06 1.66-6 4 .94 2.34 3.27 4 6 4s5.06-1.66 6-4c-.94-2.34-3.27-4-6-4m0 6.5a2.5 2.5 0 0 1-2.5-2.5 2.5 2.5 0 0 1 2.5-2.5 2.5 2.5 0 0 1 2.5 2.5 2.5 2.5 0 0 1-2.5 2.5M9.27 20H6V4h7v5h5v4.07c.7.08 1.36.25 2 .49V8l-6-6H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h4.5a8.2 8.2 0 0 1-1.23-2"/></svg>
     </a>
   
 
 
-<h1 id="struct-wshshell_interact_t">Struct WshShell_Interact_t</h1>
-<p><a href="../annotated/"><strong>ClassList</strong></a> <strong>&gt;</strong> <a href="./"><strong>WshShell_Interact_t</strong></a></p>
-<p><em>Interactive command registration structure.</em> <a href="#detailed-description">More...</a></p>
+<h1 id="struct-wshshellauthctx_t">Struct WshShellAuthCtx_t</h1>
+<p><a href="../annotated/"><strong>ClassList</strong></a> <strong>&gt;</strong> <a href="./"><strong>WshShellAuthCtx_t</strong></a></p>
+<p><em>Temporary authentication context for login input handling.</em> </p>
 <ul>
-<li><code>#include &lt;wsh_shell_interact.h&gt;</code></li>
+<li><code>#include &lt;wsh_shell.h&gt;</code></li>
 </ul>
 <h2 id="public-attributes">Public Attributes</h2>
 <table>
@@ -2547,31 +2536,29 @@
 <tbody>
 <tr>
 <td style="text-align: right;">WshShell_Char_t</td>
-<td style="text-align: left;"><a href="#variable-cmdname"><strong>CmdName</strong></a>  <br></td>
+<td style="text-align: left;"><a href="#variable-login"><strong>Login</strong></a>  <br></td>
 </tr>
 <tr>
-<td style="text-align: right;"><a href="../wsh__shell__interact_8h/#typedef-wshshellinteractive_cmdhandler_t"><strong>WshShellInteractive_CmdHandler_t</strong></a></td>
-<td style="text-align: left;"><a href="#variable-handler"><strong>Handler</strong></a>  <br></td>
+<td style="text-align: right;">WshShell_Char_t</td>
+<td style="text-align: left;"><a href="#variable-pass"><strong>Pass</strong></a>  <br></td>
 </tr>
 </tbody>
 </table>
-<h2 id="detailed-description">Detailed Description</h2>
-<p>Stores the name of the interactive command and the corresponding execution function. </p>
 <h2 id="public-attributes-documentation">Public Attributes Documentation</h2>
-<h3 id="variable-cmdname">variable CmdName</h3>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="n">WshShell_Char_t</span><span class="w"> </span><span class="n">WshShell_Interact_t</span><span class="o">::</span><span class="n">CmdName</span><span class="p">[</span><span class="n">WSH_SHELL_CMD_NAME_LEN</span><span class="p">];</span>
+<h3 id="variable-login">variable Login</h3>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="n">WshShell_Char_t</span><span class="w"> </span><span class="n">WshShellAuthCtx_t</span><span class="o">::</span><span class="n">Login</span><span class="p">[</span><span class="n">WSH_SHELL_LOGIN_LEN</span><span class="p">];</span>
 </span></code></pre></div></td></tr></table></div>
-<p>Name of the interactive command. </p>
+<p>Input buffer for username. </p>
 <hr>
 
-<h3 id="variable-handler">variable Handler</h3>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-1-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1"></a><span class="n">WshShellInteractive_CmdHandler_t</span><span class="w"> </span><span class="n">WshShell_Interact_t</span><span class="o">::</span><span class="n">Handler</span><span class="p">;</span>
+<h3 id="variable-pass">variable Pass</h3>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-1-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1"></a><span class="n">WshShell_Char_t</span><span class="w"> </span><span class="n">WshShellAuthCtx_t</span><span class="o">::</span><span class="n">Pass</span><span class="p">[</span><span class="n">WSH_SHELL_PASS_LEN</span><span class="p">];</span>
 </span></code></pre></div></td></tr></table></div>
-<p>Function to be executed in interactive mode. </p>
+<p>Input buffer for password. </p>
 <hr>
 
 <hr />
-<p>The documentation for this class was generated from the following file <code>src/wsh_shell_interact.h</code></p>
+<p>The documentation for this class was generated from the following file <code>src/wsh_shell.h</code></p>
 
 
 

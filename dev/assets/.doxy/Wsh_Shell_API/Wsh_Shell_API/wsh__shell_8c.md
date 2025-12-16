@@ -54,7 +54,7 @@
 | ---: | :--- |
 |  WshShell\_Bool\_t | [**WshShell\_Auth**](#function-wshshell_auth) ([**WshShell\_t**](structWshShell__t.md) \* pShell, const WshShell\_Char\_t \* pcLogin, const WshShell\_Char\_t \* pcPass) <br>_Attempt to authenticate a user with given login credentials._  |
 |  void | [**WshShell\_DeAuth**](#function-wshshell_deauth) ([**WshShell\_t**](structWshShell__t.md) \* pShell, const WshShell\_Char\_t \* pcReason) <br>_De-authenticate the currently logged-in user._  |
-|  WSH\_SHELL\_RET\_STATE\_t | [**WshShell\_Init**](#function-wshshell_init) ([**WshShell\_t**](structWshShell__t.md) \* pShell, const WshShell\_Char\_t \* pcDevName, const WshShell\_Char\_t \* pcCustomHeader, [**WshShell\_ExtCallbacks\_t**](structWshShell__ExtCallbacks__t.md) \* pExtClbks) <br>_Initialize a shell instance._  |
+|  WSH\_SHELL\_RET\_STATE\_t | [**WshShell\_Init**](#function-wshshell_init) ([**WshShell\_t**](structWshShell__t.md) \* pShell, const WshShell\_Char\_t \* pcDevName, const WshShell\_Char\_t \* pcCustomHeader, [**WshShellExtCallbacks\_t**](structWshShellExtCallbacks__t.md) \* pExtClbks) <br>_Initialize a shell instance._  |
 |  void | [**WshShell\_InsertChar**](#function-wshshell_insertchar) ([**WshShell\_t**](structWshShell__t.md) \* pShell, const WshShell\_Char\_t symbol) <br>_Process a new character entered by the user._  |
 |  WshShell\_Bool\_t | [**WshShell\_IsAuth**](#function-wshshell_isauth) ([**WshShell\_t**](structWshShell__t.md) \* pShell) <br>_Check if a user is currently authenticated._  |
 
@@ -190,7 +190,7 @@ WSH_SHELL_RET_STATE_t WshShell_Init (
     WshShell_t * pShell,
     const WshShell_Char_t * pcDevName,
     const WshShell_Char_t * pcCustomHeader,
-    WshShell_ExtCallbacks_t * pExtClbks
+    WshShellExtCallbacks_t * pExtClbks
 ) 
 ```
 

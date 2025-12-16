@@ -2551,11 +2551,11 @@
 </tr>
 <tr>
 <td style="text-align: right;">void</td>
-<td style="text-align: left;"><a href="#function-wshshellinteract_attach"><strong>WshShellInteract_Attach</strong></a> (<a href="../structWshShell__Interact__t/"><strong>WshShell_Interact_t</strong></a> * pInteract, const WshShell_Char_t * pcName, <a href="../wsh__shell__interact_8h/#typedef-wshshellinteractive_cmdhandler_t"><strong>WshShellInteractive_CmdHandler_t</strong></a> handler) <br><em>Registers an interactive command.</em></td>
+<td style="text-align: left;"><a href="#function-wshshellinteract_attach"><strong>WshShellInteract_Attach</strong></a> (<a href="../structWshShellInteract__t/"><strong>WshShellInteract_t</strong></a> * pInteract, const WshShell_Char_t * pcName, <a href="../wsh__shell__interact_8h/#typedef-wshshellinteractive_cmdhandler_t"><strong>WshShellInteractive_CmdHandler_t</strong></a> handler) <br><em>Registers an interactive command.</em></td>
 </tr>
 <tr>
 <td style="text-align: right;">void</td>
-<td style="text-align: left;"><a href="#function-wshshellinteract_flush"><strong>WshShellInteract_Flush</strong></a> (<a href="../structWshShell__Interact__t/"><strong>WshShell_Interact_t</strong></a> * pInteract) <br><em>Clears the contents of an interactive command slot.</em></td>
+<td style="text-align: left;"><a href="#function-wshshellinteract_flush"><strong>WshShellInteract_Flush</strong></a> (<a href="../structWshShellInteract__t/"><strong>WshShellInteract_t</strong></a> * pInteract) <br><em>Clears the contents of an interactive command slot.</em></td>
 </tr>
 </tbody>
 </table>
@@ -2583,7 +2583,7 @@
 <span class="normal"><a href="#__codelineno-1-3">3</a></span>
 <span class="normal"><a href="#__codelineno-1-4">4</a></span>
 <span class="normal"><a href="#__codelineno-1-5">5</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1"></a><span class="kt">void</span><span class="w"> </span><span class="n">WshShellInteract_Attach</span><span class="w"> </span><span class="p">(</span>
-</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2"></a><span class="w">    </span><span class="n">WshShell_Interact_t</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">pInteract</span><span class="p">,</span>
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2"></a><span class="w">    </span><span class="n">WshShellInteract_t</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">pInteract</span><span class="p">,</span>
 </span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3"></a><span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="n">WshShell_Char_t</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">pcName</span><span class="p">,</span>
 </span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4"></a><span class="w">    </span><span class="n">WshShellInteractive_CmdHandler_t</span><span class="w"> </span><span class="n">handler</span>
 </span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5"></a><span class="p">)</span><span class="w"> </span>
@@ -2602,7 +2602,7 @@
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-2-1">1</a></span>
 <span class="normal"><a href="#__codelineno-2-2">2</a></span>
 <span class="normal"><a href="#__codelineno-2-3">3</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1"></a><span class="kt">void</span><span class="w"> </span><span class="n">WshShellInteract_Flush</span><span class="w"> </span><span class="p">(</span>
-</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2"></a><span class="w">    </span><span class="n">WshShell_Interact_t</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">pInteract</span>
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2"></a><span class="w">    </span><span class="n">WshShellInteract_t</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">pInteract</span>
 </span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3"></a><span class="p">)</span><span class="w"> </span>
 </span></code></pre></div></td></tr></table></div></p>
 <p>Resets the execution function pointer to <code>NULL</code> and clears the command name buffer. This effectively "removes" the interactive command from the shell registry.</p>
