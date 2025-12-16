@@ -230,7 +230,7 @@ static WSH_SHELL_RET_STATE_t WshShellCmdDef(const WshShellCmd_t* pcCmd, WshShell
 
 static const WshShellCmd_t WshShellDefCmd = {
     .Groups  = WSH_SHELL_CMD_GROUP_ALL,
-    .Name    = "def",
+    .Name    = "wsh",
     .Descr   = "Default command for configuring and querying the shell interface",
     .Options = WshShell_OptArr,
     .OptNum  = WSH_SHELL_ARR_LEN(WshShell_OptArr),
@@ -246,7 +246,7 @@ WSH_SHELL_RET_STATE_t WshShellCmdDef_Dummy(const WshShellCmd_t* pcCmd, WshShell_
 
 static const WshShellCmd_t WshShellDefCmd = {
     .Groups  = WSH_SHELL_CMD_GROUP_ALL,
-    .Name    = "def",
+    .Name    = "wsh",
     .Descr   = "",
     .Options = NULL,
     .OptNum  = 0,
