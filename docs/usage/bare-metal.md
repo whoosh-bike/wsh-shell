@@ -34,7 +34,7 @@ bool Shell_Commands_Init(WshShell_t* pShell) {
 }
 ```
 
-`Shell_LedCmd` structure shoud be created before in another module (look for Blue Pill example)
+`Shell_LedCmd` structure should be created before in another module (look for Blue Pill example)
 
 ```c
 const WshShellCmd_t Shell_LedCmd = {

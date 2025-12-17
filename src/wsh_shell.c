@@ -193,6 +193,8 @@ static void WshShell_StringHandler(WshShell_t* pShell) {
             WSH_SHELL_PRINT_ERR(
                 "Access denied: no group intersection for command \"%s\" and user \"%s\"!\r\n",
                 pсArgv[0], pShell->CurrUser->Login);
+
+            WshShellIO_ClearInterBuff(&(pShell->CommandLine));
             return;
         }
     }

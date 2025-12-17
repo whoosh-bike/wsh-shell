@@ -27,7 +27,7 @@ pip install --upgrade pip
 pip install -r requirements.txt
 ```
 
-Or just run `setup python env` vacode task
+Or just run `setup python env` vscode task
 
 ---
 
@@ -101,4 +101,4 @@ It has been moved to another repo's:
 ## Additional Notes
 
 - You can adjust build presets or flags in the **Makefile** (e.g., optimization level, debug symbols and so on)
-- If using Windows, please do in WSL enviroment
+- If using Windows, please do in WSL environment
