@@ -25,6 +25,7 @@ Wsh-Shell is a lightweight, portable, and fully static shell interpreter written
     - Navigable with arrow keys (↑, ↓)  
 - **Autocomplete**:  
     - Tab / double-Tab completion for commands and flags  
+- **Interactive Command Mode** — commands can take exclusive control over user input, temporarily suspending the shell and routing all data to a single handler
 - **Multi-User Support** — groups, access rights, and more  
 - **Customizable PS1 Prompt** — user-defined templates for prompt appearance
 - **Await Prompt** — await for a specific key press
