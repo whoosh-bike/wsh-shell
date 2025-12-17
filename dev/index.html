@@ -2657,9 +2657,9 @@
 <h2 id="features">🚀 Features</h2>
 <ul>
 <li><strong>Cross-platform, Highly Portable</strong> — only one header file to include</li>
+<li><strong>Modular Design</strong> — ability to disable submodules for memory footprint optimization</li>
 <li><strong>Single State Structure</strong> — all shell state contained in a single <code>WshShell_t</code> instance  </li>
 <li><strong>Static Memory Only</strong> — no <code>malloc</code>, no heap; all buffers are statically allocated  </li>
-<li><strong>Modular Design</strong> — ability to disable submodules for memory footprint optimization</li>
 <li><strong>Command-line Editing</strong> — supports cursor movement, character deletion, and insert mode  </li>
 <li><strong>Command Parsing &amp; Options</strong>:  <ul>
 <li>Supports short (<code>-h</code>) and long (<code>--help</code>) flags  </li>
@@ -2667,6 +2667,7 @@
 <li>Supports double-quoted strings</li>
 </ul>
 </li>
+<li><strong>Multi-User Support</strong> — multiple users, groups, access rights, and more  </li>
 <li><strong>Group-based Access Control</strong> — each command belongs to one or more logical groups; users are granted access only if their group set intersects with the command’s group set</li>
 <li><strong>Fine-grained Option Access Rights</strong> — every command option (-f, --reset, etc.) has an associated access flag (read, write, execute, admin); the shell enforces these permissions at runtime and reports mismatches</li>
 <li><strong>Escape Sequence Handling</strong>:  <ul>
@@ -2686,7 +2687,6 @@
 </ul>
 </li>
 <li><strong>Interactive Command Mode</strong> — commands can take exclusive control over user input, temporarily suspending the shell and routing all data to a single handler</li>
-<li><strong>Multi-User Support</strong> — groups, access rights, and more  </li>
 <li><strong>Customizable PS1 Prompt</strong> — user-defined templates for prompt appearance</li>
 <li><strong>Await Prompt</strong> — await for a specific key press</li>
 <li><strong>Different New Line Support</strong> - handle different terminals setup (<code>\r</code>, <code>\n</code> or <code>\r\n</code>)</li>

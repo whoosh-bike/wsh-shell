@@ -42,7 +42,7 @@ _Main shell structure containing state, configuration, user context, and subsyst
 |  WshShell\_Char\_t | [**DeviceName**](#variable-devicename)  <br> |
 |  [**WshShellEsc\_Storage\_t**](structWshShellEsc__Storage__t.md) | [**EscStorage**](#variable-escstorage)  <br> |
 |  [**WshShellExtCallbacks\_t**](structWshShellExtCallbacks__t.md) | [**ExtCallbacks**](#variable-extcallbacks)  <br> |
-|  [**WshShellHistory\_IO\_t**](structWshShellHistory__IO__t.md) | [**HistoryIO**](#variable-historyio)  <br> |
+|  [**WshShellHistoryIO\_t**](structWshShellHistoryIO__t.md) | [**HistoryIO**](#variable-historyio)  <br> |
 |  [**WshShellInteract\_t**](structWshShellInteract__t.md) | [**Interact**](#variable-interact)  <br> |
 |  WshShell\_Char\_t | [**PS1**](#variable-ps1)  <br> |
 |  WshShell\_Char\_t | [**PrevSym**](#variable-prevsym)  <br> |
@@ -204,7 +204,7 @@ Optional external auth callbacks.
 ### variable HistoryIO 
 
 ```C++
-WshShellHistory_IO_t WshShell_t::HistoryIO;
+WshShellHistoryIO_t WshShell_t::HistoryIO;
 ```
 
 

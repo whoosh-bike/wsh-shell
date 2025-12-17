@@ -95,7 +95,7 @@
 
 ## r
 
-* **Read** ([**WshShellHistory\_IO\_t**](structWshShellHistory__IO__t.md))
+* **Read** ([**WshShellHistoryIO\_t**](structWshShellHistoryIO__t.md))
 * **Rights** ([**WshShellUser\_t**](structWshShellUser__t.md))
 
 
@@ -129,7 +129,7 @@
 
 ## w
 
-* **Write** ([**WshShellHistory\_IO\_t**](structWshShellHistory__IO__t.md))
+* **Write** ([**WshShellHistoryIO\_t**](structWshShellHistoryIO__t.md))
 
 
 

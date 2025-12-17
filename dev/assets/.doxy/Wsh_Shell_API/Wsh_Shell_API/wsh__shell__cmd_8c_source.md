@@ -133,7 +133,6 @@ static const WshShellOption_t* WshShellCmd_FindOpt(const WshShellCmd_t* pcCmd,
 
     return pcWaitsInputOpt;
 }
-
 WshShellOption_Ctx_t WshShellCmd_ParseOpt(const WshShellCmd_t* pcCmd, WshShell_Size_t argc,
                                           const WshShell_Char_t* pArgv[], WshShell_Size_t rights,
                                           WshShell_Size_t* pTokenPos) {
@@ -143,39 +142,17 @@ WshShellOption_Ctx_t WshShellCmd_ParseOpt(const WshShellCmd_t* pcCmd, WshShell_S
     if (!pcCmd || !pArgv || argc == 0 || !pTokenPos || *pTokenPos >= argc)
         return optCtx;
 
-    if (argc == 1) {  // Only command without options
-        const WshShellOption_t* pcOpt = pcCmd->Options;
-        for (; pcOpt->Type != WSH_SHELL_OPTION_END; pcOpt++) {
-            if (pcOpt->Type == WSH_SHELL_OPTION_NO) {
-                optCtx.Option = pcOpt;
-                break;
-            }
-        }
-
-        (*pTokenPos)++;
-        return optCtx;
-    }
-
-    if (*pTokenPos == 0)  // Skip command token if not yet skipped
+    /* Always skip command token */
+    if (*pTokenPos == 0)
         (*pTokenPos)++;
 
+    /* Try to find option in argv */
     while (*pTokenPos < argc) {
         const WshShell_Char_t* pcStr  = pArgv[*pTokenPos];
         WshShell_Size_t strLen        = WSH_SHELL_STRLEN(pcStr);
         const WshShellOption_t* pcOpt = WshShellCmd_FindOpt(pcCmd, pcStr, strLen);
-        if (!pcOpt) {
-            (*pTokenPos)++;
-            continue;
-        }
 
-        if (((pcOpt->Access & rights) == 0) && !(rights & WSH_SHELL_OPT_ACCESS_ADMIN)) {
-            WshShell_Char_t optRightsRow[5];
-            WshShell_Char_t usrRightsRow[5];
-            WshShellStr_AccessBitsToStr(pcOpt->Access, optRightsRow);
-            WshShellStr_AccessBitsToStr(rights, usrRightsRow);
-            WSH_SHELL_PRINT_ERR("No access rights for option \"%s\" (%s) and user (%s)\r\n", pcStr,
-                                optRightsRow, usrRightsRow);
-            *pTokenPos += pcOpt->ArgNum;
+        if (!pcOpt) {
             (*pTokenPos)++;
             continue;
         }
@@ -184,14 +161,40 @@ WshShellOption_Ctx_t WshShellCmd_ParseOpt(const WshShellCmd_t* pcCmd, WshShell_S
         optCtx.TokenPos = *pTokenPos;
 
         if (pcOpt->Type == WSH_SHELL_OPTION_WAITS_INPUT) {
-            // Consume all remaining arguments
             *pTokenPos = argc;
         } else {
-            *pTokenPos += pcOpt->ArgNum;
+            *pTokenPos += pcOpt->ArgNum + 1;
         }
 
-        (*pTokenPos)++;
         break;
+    }
+
+    /* If no option found — use OPTION_NO */
+    if (!optCtx.Option) {
+        const WshShellOption_t* pcOpt = pcCmd->Options;
+        for (; pcOpt->Type != WSH_SHELL_OPTION_END; pcOpt++) {
+            if (pcOpt->Type == WSH_SHELL_OPTION_NO) {
+                optCtx.Option   = pcOpt;
+                optCtx.TokenPos = *pTokenPos;
+                break;
+            }
+        }
+    }
+
+    /* Access rights check (single point) */
+    if (optCtx.Option) {
+        if (((optCtx.Option->Access & rights) == 0) && !(rights & WSH_SHELL_OPT_ACCESS_ADMIN)) {
+
+            WshShell_Char_t optRightsRow[5];
+            WshShell_Char_t usrRightsRow[5];
+            WshShellStr_AccessBitsToStr(optCtx.Option->Access, optRightsRow);
+            WshShellStr_AccessBitsToStr(rights, usrRightsRow);
+
+            WSH_SHELL_PRINT_ERR("No access rights for option (%s), user (%s)\r\n", optRightsRow,
+                                usrRightsRow);
+
+            optCtx.Option = NULL;
+        }
     }
 
     return optCtx;

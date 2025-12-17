@@ -10,8 +10,8 @@ This inheritance list is sorted roughly, but not completely, alphabetically:
 * **struct** [**WshShellEsc\_Action\_t**](structWshShellEsc__Action__t.md) _Escape sequence to handler mapping._ 
 * **struct** [**WshShellEsc\_Storage\_t**](structWshShellEsc__Storage__t.md) _Escape sequence input state tracker._ 
 * **struct** [**WshShellExtCallbacks\_t**](structWshShellExtCallbacks__t.md) _Optional external callbacks invoked on user session changes._ 
+* **struct** [**WshShellHistoryIO\_t**](structWshShellHistoryIO__t.md) _Structure holding function pointers for history persistence I/O._ 
 * **struct** [**WshShellHistory\_Data\_t**](structWshShellHistory__Data__t.md) _Internal structure for storing command history buffer._ 
-* **struct** [**WshShellHistory\_IO\_t**](structWshShellHistory__IO__t.md) _Structure holding function pointers for history persistence I/O._ 
 * **struct** [**WshShellHistory\_t**](structWshShellHistory__t.md) _Shell history structure with integrity check._ 
 * **struct** [**WshShellIO\_CommandLine\_t**](structWshShellIO__CommandLine__t.md) _Structure representing the current user input interaction state._ 
 * **struct** [**WshShellInteract\_t**](structWshShellInteract__t.md) _Interactive command registration structure._ 

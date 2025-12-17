@@ -85,8 +85,8 @@ typedef struct {
     WshShellEsc_Storage_t EscStorage;     
     WshShellUser_Table_t Users;   
     WshShellCmd_Table_t Commands; 
-    WshShellHistory_IO_t HistoryIO; 
-    WshShellInteract_t Interact;    
+    WshShellHistoryIO_t HistoryIO; 
+    WshShellInteract_t Interact;   
     WshShellPromptWait_t PromptWait;
 
     WshShellExtCallbacks_t ExtCallbacks; 

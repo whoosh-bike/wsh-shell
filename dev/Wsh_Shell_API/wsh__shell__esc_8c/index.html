@@ -2684,7 +2684,7 @@
 <tbody>
 <tr>
 <td style="text-align: right;">void</td>
-<td style="text-align: left;"><a href="#function-wshshellesc_handler"><strong>WshShellEsc_Handler</strong></a> (<a href="../structWshShellHistory__IO__t/"><strong>WshShellHistory_IO_t</strong></a> * pHistIO, <a href="../structWshShellIO__CommandLine__t/"><strong>WshShellIO_CommandLine_t</strong></a> * pCommandLine, <a href="../structWshShellEsc__Storage__t/"><strong>WshShellEsc_Storage_t</strong></a> * pEscStorage, const WshShell_Char_t symbol) <br><em>Handles incoming escape sequence character.</em></td>
+<td style="text-align: left;"><a href="#function-wshshellesc_handler"><strong>WshShellEsc_Handler</strong></a> (<a href="../structWshShellHistoryIO__t/"><strong>WshShellHistoryIO_t</strong></a> * pHistIO, <a href="../structWshShellIO__CommandLine__t/"><strong>WshShellIO_CommandLine_t</strong></a> * pCommandLine, <a href="../structWshShellEsc__Storage__t/"><strong>WshShellEsc_Storage_t</strong></a> * pEscStorage, const WshShell_Char_t symbol) <br><em>Handles incoming escape sequence character.</em></td>
 </tr>
 <tr>
 <td style="text-align: right;">WshShell_Bool_t</td>
@@ -2707,19 +2707,19 @@
 <tbody>
 <tr>
 <td style="text-align: right;">void</td>
-<td style="text-align: left;"><a href="#function-wshshellesc_arrowdown"><strong>WshShellEsc_ArrowDown</strong></a> (<a href="../structWshShellHistory__IO__t/"><strong>WshShellHistory_IO_t</strong></a> * pHistIO, <a href="../structWshShellIO__CommandLine__t/"><strong>WshShellIO_CommandLine_t</strong></a> * pCommandLine) <br></td>
+<td style="text-align: left;"><a href="#function-wshshellesc_arrowdown"><strong>WshShellEsc_ArrowDown</strong></a> (<a href="../structWshShellHistoryIO__t/"><strong>WshShellHistoryIO_t</strong></a> * pHistIO, <a href="../structWshShellIO__CommandLine__t/"><strong>WshShellIO_CommandLine_t</strong></a> * pCommandLine) <br></td>
 </tr>
 <tr>
 <td style="text-align: right;">void</td>
-<td style="text-align: left;"><a href="#function-wshshellesc_arrowleft"><strong>WshShellEsc_ArrowLeft</strong></a> (<a href="../structWshShellHistory__IO__t/"><strong>WshShellHistory_IO_t</strong></a> * pHistIO, <a href="../structWshShellIO__CommandLine__t/"><strong>WshShellIO_CommandLine_t</strong></a> * pCommandLine) <br></td>
+<td style="text-align: left;"><a href="#function-wshshellesc_arrowleft"><strong>WshShellEsc_ArrowLeft</strong></a> (<a href="../structWshShellHistoryIO__t/"><strong>WshShellHistoryIO_t</strong></a> * pHistIO, <a href="../structWshShellIO__CommandLine__t/"><strong>WshShellIO_CommandLine_t</strong></a> * pCommandLine) <br></td>
 </tr>
 <tr>
 <td style="text-align: right;">void</td>
-<td style="text-align: left;"><a href="#function-wshshellesc_arrowright"><strong>WshShellEsc_ArrowRight</strong></a> (<a href="../structWshShellHistory__IO__t/"><strong>WshShellHistory_IO_t</strong></a> * pHistIO, <a href="../structWshShellIO__CommandLine__t/"><strong>WshShellIO_CommandLine_t</strong></a> * pCommandLine) <br></td>
+<td style="text-align: left;"><a href="#function-wshshellesc_arrowright"><strong>WshShellEsc_ArrowRight</strong></a> (<a href="../structWshShellHistoryIO__t/"><strong>WshShellHistoryIO_t</strong></a> * pHistIO, <a href="../structWshShellIO__CommandLine__t/"><strong>WshShellIO_CommandLine_t</strong></a> * pCommandLine) <br></td>
 </tr>
 <tr>
 <td style="text-align: right;">void</td>
-<td style="text-align: left;"><a href="#function-wshshellesc_arrowup"><strong>WshShellEsc_ArrowUp</strong></a> (<a href="../structWshShellHistory__IO__t/"><strong>WshShellHistory_IO_t</strong></a> * pHistIO, <a href="../structWshShellIO__CommandLine__t/"><strong>WshShellIO_CommandLine_t</strong></a> * pCommandLine) <br></td>
+<td style="text-align: left;"><a href="#function-wshshellesc_arrowup"><strong>WshShellEsc_ArrowUp</strong></a> (<a href="../structWshShellHistoryIO__t/"><strong>WshShellHistoryIO_t</strong></a> * pHistIO, <a href="../structWshShellIO__CommandLine__t/"><strong>WshShellIO_CommandLine_t</strong></a> * pCommandLine) <br></td>
 </tr>
 <tr>
 <td style="text-align: right;">void</td>
@@ -2741,7 +2741,7 @@
 <span class="normal"><a href="#__codelineno-1-4">4</a></span>
 <span class="normal"><a href="#__codelineno-1-5">5</a></span>
 <span class="normal"><a href="#__codelineno-1-6">6</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1"></a><span class="kt">void</span><span class="w"> </span><span class="n">WshShellEsc_Handler</span><span class="w"> </span><span class="p">(</span>
-</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2"></a><span class="w">    </span><span class="n">WshShellHistory_IO_t</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">pHistIO</span><span class="p">,</span>
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2"></a><span class="w">    </span><span class="n">WshShellHistoryIO_t</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">pHistIO</span><span class="p">,</span>
 </span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3"></a><span class="w">    </span><span class="n">WshShellIO_CommandLine_t</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">pCommandLine</span><span class="p">,</span>
 </span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4"></a><span class="w">    </span><span class="n">WshShellEsc_Storage_t</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">pEscStorage</span><span class="p">,</span>
 </span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5"></a><span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="n">WshShell_Char_t</span><span class="w"> </span><span class="n">symbol</span>
@@ -2793,7 +2793,7 @@
 <span class="normal"><a href="#__codelineno-4-2">2</a></span>
 <span class="normal"><a href="#__codelineno-4-3">3</a></span>
 <span class="normal"><a href="#__codelineno-4-4">4</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1"></a><span class="k">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="n">WshShellEsc_ArrowDown</span><span class="w"> </span><span class="p">(</span>
-</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2"></a><span class="w">    </span><span class="n">WshShellHistory_IO_t</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">pHistIO</span><span class="p">,</span>
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2"></a><span class="w">    </span><span class="n">WshShellHistoryIO_t</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">pHistIO</span><span class="p">,</span>
 </span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3"></a><span class="w">    </span><span class="n">WshShellIO_CommandLine_t</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">pCommandLine</span>
 </span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4"></a><span class="p">)</span><span class="w"> </span>
 </span></code></pre></div></td></tr></table></div>
@@ -2804,7 +2804,7 @@
 <span class="normal"><a href="#__codelineno-5-2">2</a></span>
 <span class="normal"><a href="#__codelineno-5-3">3</a></span>
 <span class="normal"><a href="#__codelineno-5-4">4</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1"></a><span class="k">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="n">WshShellEsc_ArrowLeft</span><span class="w"> </span><span class="p">(</span>
-</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2"></a><span class="w">    </span><span class="n">WshShellHistory_IO_t</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">pHistIO</span><span class="p">,</span>
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2"></a><span class="w">    </span><span class="n">WshShellHistoryIO_t</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">pHistIO</span><span class="p">,</span>
 </span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3"></a><span class="w">    </span><span class="n">WshShellIO_CommandLine_t</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">pCommandLine</span>
 </span><span id="__span-5-4"><a id="__codelineno-5-4" name="__codelineno-5-4"></a><span class="p">)</span><span class="w"> </span>
 </span></code></pre></div></td></tr></table></div>
@@ -2815,7 +2815,7 @@
 <span class="normal"><a href="#__codelineno-6-2">2</a></span>
 <span class="normal"><a href="#__codelineno-6-3">3</a></span>
 <span class="normal"><a href="#__codelineno-6-4">4</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1"></a><span class="k">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="n">WshShellEsc_ArrowRight</span><span class="w"> </span><span class="p">(</span>
-</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2"></a><span class="w">    </span><span class="n">WshShellHistory_IO_t</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">pHistIO</span><span class="p">,</span>
+</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2"></a><span class="w">    </span><span class="n">WshShellHistoryIO_t</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">pHistIO</span><span class="p">,</span>
 </span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3"></a><span class="w">    </span><span class="n">WshShellIO_CommandLine_t</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">pCommandLine</span>
 </span><span id="__span-6-4"><a id="__codelineno-6-4" name="__codelineno-6-4"></a><span class="p">)</span><span class="w"> </span>
 </span></code></pre></div></td></tr></table></div>
@@ -2826,7 +2826,7 @@
 <span class="normal"><a href="#__codelineno-7-2">2</a></span>
 <span class="normal"><a href="#__codelineno-7-3">3</a></span>
 <span class="normal"><a href="#__codelineno-7-4">4</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1"></a><span class="k">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="n">WshShellEsc_ArrowUp</span><span class="w"> </span><span class="p">(</span>
-</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2"></a><span class="w">    </span><span class="n">WshShellHistory_IO_t</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">pHistIO</span><span class="p">,</span>
+</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2"></a><span class="w">    </span><span class="n">WshShellHistoryIO_t</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">pHistIO</span><span class="p">,</span>
 </span><span id="__span-7-3"><a id="__codelineno-7-3" name="__codelineno-7-3"></a><span class="w">    </span><span class="n">WshShellIO_CommandLine_t</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">pCommandLine</span>
 </span><span id="__span-7-4"><a id="__codelineno-7-4" name="__codelineno-7-4"></a><span class="p">)</span><span class="w"> </span>
 </span></code></pre></div></td></tr></table></div>

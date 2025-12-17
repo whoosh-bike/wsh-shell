@@ -470,7 +470,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/wsh_shell_cmd.h" line="136" column="22" bodyfile="src/wsh_shell_cmd.c" bodystart="127" bodyend="188" declfile="src/wsh_shell_cmd.h" declline="136" declcolumn="22"/>
+        <location file="src/wsh_shell_cmd.h" line="136" column="22" bodyfile="src/wsh_shell_cmd.c" bodystart="126" bodyend="191" declfile="src/wsh_shell_cmd.h" declline="136" declcolumn="22"/>
       </memberdef>
       <memberdef kind="function" id="wsh__shell__cmd_8h_1aa4a2287e381f3c76562ffda7d2639071" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>WSH_SHELL_RET_STATE_t</type>
@@ -562,7 +562,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/wsh_shell_cmd.h" line="163" column="23" bodyfile="src/wsh_shell_cmd.c" bodystart="190" bodyend="231" declfile="src/wsh_shell_cmd.h" declline="163" declcolumn="23"/>
+        <location file="src/wsh_shell_cmd.h" line="163" column="23" bodyfile="src/wsh_shell_cmd.c" bodystart="193" bodyend="234" declfile="src/wsh_shell_cmd.h" declline="163" declcolumn="23"/>
       </memberdef>
       <memberdef kind="function" id="wsh__shell__cmd_8h_1a5db3a973370bfb723d3aa43f206623c3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -600,7 +600,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/wsh_shell_cmd.h" line="186" column="6" bodyfile="src/wsh_shell_cmd.c" bodystart="233" bodyend="277" declfile="src/wsh_shell_cmd.h" declline="186" declcolumn="6"/>
+        <location file="src/wsh_shell_cmd.h" line="186" column="6" bodyfile="src/wsh_shell_cmd.c" bodystart="236" bodyend="280" declfile="src/wsh_shell_cmd.h" declline="186" declcolumn="6"/>
       </memberdef>
       </sectiondef>
     <briefdescription>

@@ -16,7 +16,7 @@
     <member refid="structWshShell__t_1aafe47c977357679bcbf2a720b6c06ebc" kind="variable"><name>EscStorage</name></member>
     <member refid="structWshShell__t_1a9c531d31246a1f50fee3a956d06dfab0" kind="variable"><name>Users</name></member>
     <member refid="structWshShell__t_1ab76826113e0cae0cb5e48c36e82d988d" kind="variable"><name>Commands</name></member>
-    <member refid="structWshShell__t_1ad0fac6af46e913be00b4a5076d2ce820" kind="variable"><name>HistoryIO</name></member>
+    <member refid="structWshShell__t_1ad6150a9f4ef22761f9887fda9776dc95" kind="variable"><name>HistoryIO</name></member>
     <member refid="structWshShell__t_1a8667413f25fe83318731ad1529ab7bea" kind="variable"><name>Interact</name></member>
     <member refid="structWshShell__t_1a5e770f7b99c713ef8992aa92babb98bd" kind="variable"><name>PromptWait</name></member>
     <member refid="structWshShell__t_1a306d31e5a26bdbb7f37d93203c0a7512" kind="variable"><name>ExtCallbacks</name></member>
@@ -58,13 +58,13 @@
     <member refid="structWshShellHistory__Data__t_1a03c83742c1d136dc5f2fc8c61bc8636a" kind="variable"><name>PrevDir</name></member>
     <member refid="structWshShellHistory__Data__t_1ae0e19b90028ead2731d3d9c1636b7a39" kind="variable"><name>LimitIsReached</name></member>
   </compound>
-  <compound refid="structWshShellHistory__IO__t" kind="struct"><name>WshShellHistory_IO_t</name>
-    <member refid="structWshShellHistory__IO__t_1a94e168c22b74260b6e6d7b1c555ec1e1" kind="variable"><name>Read</name></member>
-    <member refid="structWshShellHistory__IO__t_1af3f6eccf6e1be7d473a390f24b7c1bdc" kind="variable"><name>Write</name></member>
-  </compound>
   <compound refid="structWshShellHistory__t" kind="struct"><name>WshShellHistory_t</name>
     <member refid="structWshShellHistory__t_1afbc51d2827096815477d4b0b91e957fd" kind="variable"><name>Hash</name></member>
     <member refid="structWshShellHistory__t_1a588e7536135d4b14774b8a87ca233547" kind="variable"><name>Data</name></member>
+  </compound>
+  <compound refid="structWshShellHistoryIO__t" kind="struct"><name>WshShellHistoryIO_t</name>
+    <member refid="structWshShellHistoryIO__t_1a32a7aa1ac4ef4dc2aa768dad0ec14e1d" kind="variable"><name>Read</name></member>
+    <member refid="structWshShellHistoryIO__t_1a4b8db2d89384b8c5996ba50ceb4bd5a6" kind="variable"><name>Write</name></member>
   </compound>
   <compound refid="structWshShellInteract__t" kind="struct"><name>WshShellInteract_t</name>
     <member refid="structWshShellInteract__t_1aa9e6d620085f9075fac967a1a3db9d0f" kind="variable"><name>Handler</name></member>
@@ -226,29 +226,29 @@
   </compound>
   <compound refid="wsh__shell__esc_8c" kind="file"><name>wsh_shell_esc.c</name>
     <member refid="wsh__shell__esc_8c_1a7ade46c3ffb495512a1121c06e2bdd9b" kind="variable"><name>WshShellEsc_SeqHandlers</name></member>
-    <member refid="wsh__shell__esc_8c_1af055e26e8f4d3739a56be91c8f9e4a95" kind="function"><name>WshShellEsc_ArrowUp</name></member>
-    <member refid="wsh__shell__esc_8c_1af2ceaed0ac1ab1af8771ebcedc6e4868" kind="function"><name>WshShellEsc_ArrowDown</name></member>
-    <member refid="wsh__shell__esc_8c_1a39105d83d84f40df5e16c433c9485e79" kind="function"><name>WshShellEsc_ArrowRight</name></member>
-    <member refid="wsh__shell__esc_8c_1a12de738e37970bb39fe7b50b6a6d57cd" kind="function"><name>WshShellEsc_ArrowLeft</name></member>
+    <member refid="wsh__shell__esc_8c_1a6ee09fbc91211ceebca73ffc6896fba6" kind="function"><name>WshShellEsc_ArrowUp</name></member>
+    <member refid="wsh__shell__esc_8c_1a5daedae55b813d44bbcbc8494363ffbd" kind="function"><name>WshShellEsc_ArrowDown</name></member>
+    <member refid="wsh__shell__esc_8c_1a53a89535835a5fddee698d5240448377" kind="function"><name>WshShellEsc_ArrowRight</name></member>
+    <member refid="wsh__shell__esc_8c_1a52b766f508dbc6f8d3cb4b48c0e5003e" kind="function"><name>WshShellEsc_ArrowLeft</name></member>
     <member refid="wsh__shell__esc_8c_1a68ebcf567e9f61673b5cb4344fbce838" kind="function"><name>WshShellEsc_ClearStorage</name></member>
-    <member refid="wsh__shell__esc_8c_1af4bcf72f65829cd0ac65da2ab6985f99" kind="function"><name>WshShellEsc_Handler</name></member>
+    <member refid="wsh__shell__esc_8c_1af344e2f5aa3e5729be440074772722e9" kind="function"><name>WshShellEsc_Handler</name></member>
     <member refid="wsh__shell__esc_8c_1a31c8a37296536f7e7a16070945416b35" kind="function"><name>WshShellEsc_StartSeq</name></member>
     <member refid="wsh__shell__esc_8c_1a07c38fd3528e0db9ad60440514f8c22a" kind="function"><name>WshShellEsc_IsSeqStarted</name></member>
   </compound>
   <compound refid="wsh__shell__esc_8h" kind="file"><name>wsh_shell_esc.h</name>
-    <member refid="wsh__shell__esc_8h_1a67d41ca544ed4097586248da3ec1b125" kind="typedef"><name>WshShellEsc_Hadler_t</name></member>
-    <member refid="wsh__shell__esc_8h_1af4bcf72f65829cd0ac65da2ab6985f99" kind="function"><name>WshShellEsc_Handler</name></member>
+    <member refid="wsh__shell__esc_8h_1a3bb94fa99f8ce55cc10ab698b5883452" kind="typedef"><name>WshShellEsc_Hadler_t</name></member>
+    <member refid="wsh__shell__esc_8h_1af344e2f5aa3e5729be440074772722e9" kind="function"><name>WshShellEsc_Handler</name></member>
     <member refid="wsh__shell__esc_8h_1a31c8a37296536f7e7a16070945416b35" kind="function"><name>WshShellEsc_StartSeq</name></member>
     <member refid="wsh__shell__esc_8h_1a07c38fd3528e0db9ad60440514f8c22a" kind="function"><name>WshShellEsc_IsSeqStarted</name></member>
   </compound>
   <compound refid="wsh__shell__history_8c" kind="file"><name>wsh_shell_history.c</name>
-    <member refid="wsh__shell__history_8c_1a6901119a26ff598ae3ad85ad6e918f74" kind="function"><name>WshShellHistory_Init</name></member>
-    <member refid="wsh__shell__history_8c_1a67a10560defd9e51aa9caa17fc974b99" kind="function"><name>WshShellHistory_SaveCmd</name></member>
-    <member refid="wsh__shell__history_8c_1a1e747efc6ac5cedda5cb4ba85326db6f" kind="function"><name>WshShellHistory_GetPrevCmd</name></member>
-    <member refid="wsh__shell__history_8c_1a44207937739d4295df858ad57b42b29b" kind="function"><name>WshShellHistory_GetNextCmd</name></member>
-    <member refid="wsh__shell__history_8c_1a1b4586617b550312b9493a08228a9f71" kind="function"><name>WshShellHistory_GetTokenNum</name></member>
-    <member refid="wsh__shell__history_8c_1ad22b979dd885a6890f39ed7ac743c1d7" kind="function"><name>WshShellHistory_GetTokenByIndex</name></member>
-    <member refid="wsh__shell__history_8c_1aee963c89139b4ea9419b13dfdc6b64a1" kind="function"><name>WshShellHistory_Flush</name></member>
+    <member refid="wsh__shell__history_8c_1aed2006e067226b0f762f2e6b322874df" kind="function"><name>WshShellHistory_Init</name></member>
+    <member refid="wsh__shell__history_8c_1a39c9d7a6e368d601a2071733721de8bb" kind="function"><name>WshShellHistory_SaveCmd</name></member>
+    <member refid="wsh__shell__history_8c_1a7d023247022276a694826e3797eadb8f" kind="function"><name>WshShellHistory_GetPrevCmd</name></member>
+    <member refid="wsh__shell__history_8c_1a40632cd1c16806aa226b21efa9636bb1" kind="function"><name>WshShellHistory_GetNextCmd</name></member>
+    <member refid="wsh__shell__history_8c_1a14a9bb940533ed3fe236ca54e248faf4" kind="function"><name>WshShellHistory_GetTokenNum</name></member>
+    <member refid="wsh__shell__history_8c_1a70f1c52c232d74554197e87db727090e" kind="function"><name>WshShellHistory_GetTokenByIndex</name></member>
+    <member refid="wsh__shell__history_8c_1a355889fab9547a5dc045776d56793f44" kind="function"><name>WshShellHistory_Flush</name></member>
   </compound>
   <compound refid="wsh__shell__history_8h" kind="file"><name>wsh_shell_history.h</name>
     <member refid="wsh__shell__history_8h_1a036107f17cb0ba9105b8832cd7a91e25" kind="enum"><name>WSH_SHELL_HIST_CMD_DIR_t</name></member>
@@ -256,13 +256,13 @@
     <member refid="wsh__shell__history_8h_1a036107f17cb0ba9105b8832cd7a91e25a38b5d298484d91a2a373289e6f068fee" kind="enumvalue"><name>WSH_SHELL_HIST_CMD_NEXT</name></member>
     <member refid="wsh__shell__history_8h_1a6deaaf9be341ddc04ffb1cf8e78d3e11" kind="typedef"><name>WshShellHistory_ReadHandler_t</name></member>
     <member refid="wsh__shell__history_8h_1a6c3f231f284abd001c0c405bde299bde" kind="typedef"><name>WshShellHistory_WriteHandler_t</name></member>
-    <member refid="wsh__shell__history_8h_1a6901119a26ff598ae3ad85ad6e918f74" kind="function"><name>WshShellHistory_Init</name></member>
-    <member refid="wsh__shell__history_8h_1a67a10560defd9e51aa9caa17fc974b99" kind="function"><name>WshShellHistory_SaveCmd</name></member>
-    <member refid="wsh__shell__history_8h_1a1e747efc6ac5cedda5cb4ba85326db6f" kind="function"><name>WshShellHistory_GetPrevCmd</name></member>
-    <member refid="wsh__shell__history_8h_1a44207937739d4295df858ad57b42b29b" kind="function"><name>WshShellHistory_GetNextCmd</name></member>
-    <member refid="wsh__shell__history_8h_1a1b4586617b550312b9493a08228a9f71" kind="function"><name>WshShellHistory_GetTokenNum</name></member>
-    <member refid="wsh__shell__history_8h_1ad22b979dd885a6890f39ed7ac743c1d7" kind="function"><name>WshShellHistory_GetTokenByIndex</name></member>
-    <member refid="wsh__shell__history_8h_1aee963c89139b4ea9419b13dfdc6b64a1" kind="function"><name>WshShellHistory_Flush</name></member>
+    <member refid="wsh__shell__history_8h_1aed2006e067226b0f762f2e6b322874df" kind="function"><name>WshShellHistory_Init</name></member>
+    <member refid="wsh__shell__history_8h_1a39c9d7a6e368d601a2071733721de8bb" kind="function"><name>WshShellHistory_SaveCmd</name></member>
+    <member refid="wsh__shell__history_8h_1a7d023247022276a694826e3797eadb8f" kind="function"><name>WshShellHistory_GetPrevCmd</name></member>
+    <member refid="wsh__shell__history_8h_1a40632cd1c16806aa226b21efa9636bb1" kind="function"><name>WshShellHistory_GetNextCmd</name></member>
+    <member refid="wsh__shell__history_8h_1a14a9bb940533ed3fe236ca54e248faf4" kind="function"><name>WshShellHistory_GetTokenNum</name></member>
+    <member refid="wsh__shell__history_8h_1a70f1c52c232d74554197e87db727090e" kind="function"><name>WshShellHistory_GetTokenByIndex</name></member>
+    <member refid="wsh__shell__history_8h_1a355889fab9547a5dc045776d56793f44" kind="function"><name>WshShellHistory_Flush</name></member>
   </compound>
   <compound refid="wsh__shell__interact_8c" kind="file"><name>wsh_shell_interact.c</name>
     <member refid="wsh__shell__interact_8c_1ad06e7c0a1663110fda91077392b65536" kind="function"><name>WshShellInteract_Attach</name></member>

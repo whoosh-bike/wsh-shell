@@ -144,9 +144,9 @@
         </inbodydescription>
         <location file="src/wsh_shell.h" line="101" column="25" bodyfile="src/wsh_shell.h" bodystart="101" bodyend="-1"/>
       </memberdef>
-      <memberdef kind="variable" id="structWshShell__t_1ad0fac6af46e913be00b4a5076d2ce820" prot="public" static="no" mutable="no">
-        <type><ref refid="structWshShellHistory__IO__t" kindref="compound">WshShellHistory_IO_t</ref></type>
-        <definition>WshShellHistory_IO_t WshShell_t::HistoryIO</definition>
+      <memberdef kind="variable" id="structWshShell__t_1ad6150a9f4ef22761f9887fda9776dc95" prot="public" static="no" mutable="no">
+        <type><ref refid="structWshShellHistoryIO__t" kindref="compound">WshShellHistoryIO_t</ref></type>
+        <definition>WshShellHistoryIO_t WshShell_t::HistoryIO</definition>
         <argsstring></argsstring>
         <name>HistoryIO</name>
         <briefdescription>
@@ -156,7 +156,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/wsh_shell.h" line="103" column="26" bodyfile="src/wsh_shell.h" bodystart="103" bodyend="-1"/>
+        <location file="src/wsh_shell.h" line="103" column="25" bodyfile="src/wsh_shell.h" bodystart="103" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structWshShell__t_1a8667413f25fe83318731ad1529ab7bea" prot="public" static="no" mutable="no">
         <type><ref refid="structWshShellInteract__t" kindref="compound">WshShellInteract_t</ref></type>
@@ -252,8 +252,8 @@
         <link refid="structWshShellUser__t"/>
       </node>
       <node id="2">
-        <label>WshShellHistory_IO_t</label>
-        <link refid="structWshShellHistory__IO__t"/>
+        <label>WshShellHistoryIO_t</label>
+        <link refid="structWshShellHistoryIO__t"/>
         <childnode refid="3" relation="usage">
           <edgelabel>Read</edgelabel>
           <edgelabel>Write</edgelabel>
@@ -330,7 +330,7 @@
       <member refid="structWshShell__t_1a465834dce871f37473a41e0cda7205cc" prot="public" virt="non-virtual"><scope>WshShell_t</scope><name>DeviceName</name></member>
       <member refid="structWshShell__t_1aafe47c977357679bcbf2a720b6c06ebc" prot="public" virt="non-virtual"><scope>WshShell_t</scope><name>EscStorage</name></member>
       <member refid="structWshShell__t_1a306d31e5a26bdbb7f37d93203c0a7512" prot="public" virt="non-virtual"><scope>WshShell_t</scope><name>ExtCallbacks</name></member>
-      <member refid="structWshShell__t_1ad0fac6af46e913be00b4a5076d2ce820" prot="public" virt="non-virtual"><scope>WshShell_t</scope><name>HistoryIO</name></member>
+      <member refid="structWshShell__t_1ad6150a9f4ef22761f9887fda9776dc95" prot="public" virt="non-virtual"><scope>WshShell_t</scope><name>HistoryIO</name></member>
       <member refid="structWshShell__t_1a8667413f25fe83318731ad1529ab7bea" prot="public" virt="non-virtual"><scope>WshShell_t</scope><name>Interact</name></member>
       <member refid="structWshShell__t_1a202bd37b1883d36b4af8c9a3a4bfffd9" prot="public" virt="non-virtual"><scope>WshShell_t</scope><name>PrevSym</name></member>
       <member refid="structWshShell__t_1a5e770f7b99c713ef8992aa92babb98bd" prot="public" virt="non-virtual"><scope>WshShell_t</scope><name>PromptWait</name></member>

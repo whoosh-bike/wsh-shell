@@ -510,7 +510,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/wsh_shell.h" line="165" column="6" bodyfile="src/wsh_shell.c" bodystart="288" bodyend="337" declfile="src/wsh_shell.h" declline="165" declcolumn="6"/>
+        <location file="src/wsh_shell.h" line="165" column="6" bodyfile="src/wsh_shell.c" bodystart="290" bodyend="339" declfile="src/wsh_shell.h" declline="165" declcolumn="6"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
@@ -602,8 +602,8 @@
 <codeline lineno="98" refid="structWshShell__t_1aafe47c977357679bcbf2a720b6c06ebc" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="structWshShellEsc__Storage__t" kindref="compound">WshShellEsc_Storage_t</ref><sp/><ref refid="structWshShell__t_1aafe47c977357679bcbf2a720b6c06ebc" kindref="member">EscStorage</ref>;<sp/><sp/><sp/><sp/><sp/></highlight></codeline>
 <codeline lineno="100" refid="structWshShell__t_1a9c531d31246a1f50fee3a956d06dfab0" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="structWshShellUser__Table__t" kindref="compound">WshShellUser_Table_t</ref><sp/><ref refid="structWshShell__t_1a9c531d31246a1f50fee3a956d06dfab0" kindref="member">Users</ref>;<sp/><sp/><sp/></highlight></codeline>
 <codeline lineno="101" refid="structWshShell__t_1ab76826113e0cae0cb5e48c36e82d988d" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="structWshShellCmd__Table__t" kindref="compound">WshShellCmd_Table_t</ref><sp/><ref refid="structWshShell__t_1ab76826113e0cae0cb5e48c36e82d988d" kindref="member">Commands</ref>;<sp/></highlight></codeline>
-<codeline lineno="103" refid="structWshShell__t_1ad0fac6af46e913be00b4a5076d2ce820" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="structWshShellHistory__IO__t" kindref="compound">WshShellHistory_IO_t</ref><sp/><ref refid="structWshShell__t_1ad0fac6af46e913be00b4a5076d2ce820" kindref="member">HistoryIO</ref>;<sp/></highlight></codeline>
-<codeline lineno="104" refid="structWshShell__t_1a8667413f25fe83318731ad1529ab7bea" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="structWshShellInteract__t" kindref="compound">WshShellInteract_t</ref><sp/><ref refid="structWshShell__t_1a8667413f25fe83318731ad1529ab7bea" kindref="member">Interact</ref>;<sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="103" refid="structWshShell__t_1ad6150a9f4ef22761f9887fda9776dc95" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="structWshShellHistoryIO__t" kindref="compound">WshShellHistoryIO_t</ref><sp/><ref refid="structWshShell__t_1ad6150a9f4ef22761f9887fda9776dc95" kindref="member">HistoryIO</ref>;<sp/></highlight></codeline>
+<codeline lineno="104" refid="structWshShell__t_1a8667413f25fe83318731ad1529ab7bea" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="structWshShellInteract__t" kindref="compound">WshShellInteract_t</ref><sp/><ref refid="structWshShell__t_1a8667413f25fe83318731ad1529ab7bea" kindref="member">Interact</ref>;<sp/><sp/><sp/></highlight></codeline>
 <codeline lineno="105"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="structWshShellPromptWait" kindref="compound">WshShellPromptWait_t</ref><sp/>PromptWait;</highlight></codeline>
 <codeline lineno="106"><highlight class="normal"></highlight></codeline>
 <codeline lineno="107" refid="structWshShell__t_1a306d31e5a26bdbb7f37d93203c0a7512" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="structWshShellExtCallbacks__t" kindref="compound">WshShellExtCallbacks_t</ref><sp/><ref refid="structWshShell__t_1a306d31e5a26bdbb7f37d93203c0a7512" kindref="member">ExtCallbacks</ref>;<sp/></highlight></codeline>

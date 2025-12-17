@@ -2994,11 +2994,11 @@
 <tbody>
 <tr>
 <td style="text-align: right;">struct</td>
-<td style="text-align: left;"><a href="../structWshShellHistory__Data__t/"><strong>WshShellHistory_Data_t</strong></a> <br><em>Internal structure for storing command history buffer.</em></td>
+<td style="text-align: left;"><a href="../structWshShellHistoryIO__t/"><strong>WshShellHistoryIO_t</strong></a> <br><em>Structure holding function pointers for history persistence I/O.</em></td>
 </tr>
 <tr>
 <td style="text-align: right;">struct</td>
-<td style="text-align: left;"><a href="../structWshShellHistory__IO__t/"><strong>WshShellHistory_IO_t</strong></a> <br><em>Structure holding function pointers for history persistence I/O.</em></td>
+<td style="text-align: left;"><a href="../structWshShellHistory__Data__t/"><strong>WshShellHistory_Data_t</strong></a> <br><em>Internal structure for storing command history buffer.</em></td>
 </tr>
 <tr>
 <td style="text-align: right;">struct</td>
@@ -3040,31 +3040,31 @@
 <tbody>
 <tr>
 <td style="text-align: right;">void</td>
-<td style="text-align: left;"><a href="#function-wshshellhistory_flush"><strong>WshShellHistory_Flush</strong></a> (<a href="../structWshShellHistory__IO__t/"><strong>WshShellHistory_IO_t</strong></a> * pHistIO) <br><em>Clear the command history buffer.</em></td>
+<td style="text-align: left;"><a href="#function-wshshellhistory_flush"><strong>WshShellHistory_Flush</strong></a> (<a href="../structWshShellHistoryIO__t/"><strong>WshShellHistoryIO_t</strong></a> * pHistIO) <br><em>Clear the command history buffer.</em></td>
 </tr>
 <tr>
 <td style="text-align: right;">WshShell_Size_t</td>
-<td style="text-align: left;"><a href="#function-wshshellhistory_getnextcmd"><strong>WshShellHistory_GetNextCmd</strong></a> (<a href="../structWshShellHistory__IO__t/"><strong>WshShellHistory_IO_t</strong></a> * pHistIO, WshShell_Char_t * pOutBuff, WshShell_Size_t outBuffSize) <br><em>Retrieve the next command from history.</em></td>
+<td style="text-align: left;"><a href="#function-wshshellhistory_getnextcmd"><strong>WshShellHistory_GetNextCmd</strong></a> (<a href="../structWshShellHistoryIO__t/"><strong>WshShellHistoryIO_t</strong></a> * pHistIO, WshShell_Char_t * pOutBuff, WshShell_Size_t outBuffSize) <br><em>Retrieve the next command from history.</em></td>
 </tr>
 <tr>
 <td style="text-align: right;">WshShell_Size_t</td>
-<td style="text-align: left;"><a href="#function-wshshellhistory_getprevcmd"><strong>WshShellHistory_GetPrevCmd</strong></a> (<a href="../structWshShellHistory__IO__t/"><strong>WshShellHistory_IO_t</strong></a> * pHistIO, WshShell_Char_t * pOutBuff, WshShell_Size_t outBuffSize) <br><em>Retrieve the previous command from history.</em></td>
+<td style="text-align: left;"><a href="#function-wshshellhistory_getprevcmd"><strong>WshShellHistory_GetPrevCmd</strong></a> (<a href="../structWshShellHistoryIO__t/"><strong>WshShellHistoryIO_t</strong></a> * pHistIO, WshShell_Char_t * pOutBuff, WshShell_Size_t outBuffSize) <br><em>Retrieve the previous command from history.</em></td>
 </tr>
 <tr>
 <td style="text-align: right;">WshShell_Size_t</td>
-<td style="text-align: left;"><a href="#function-wshshellhistory_gettokenbyindex"><strong>WshShellHistory_GetTokenByIndex</strong></a> (<a href="../structWshShellHistory__IO__t/"><strong>WshShellHistory_IO_t</strong></a> * pHistIO, WshShell_Char_t * pOutBuff, WshShell_Size_t outBuffSize, WshShell_Size_t index) <br><em>Retrieve a command from history by its index.</em></td>
+<td style="text-align: left;"><a href="#function-wshshellhistory_gettokenbyindex"><strong>WshShellHistory_GetTokenByIndex</strong></a> (<a href="../structWshShellHistoryIO__t/"><strong>WshShellHistoryIO_t</strong></a> * pHistIO, WshShell_Char_t * pOutBuff, WshShell_Size_t outBuffSize, WshShell_Size_t index) <br><em>Retrieve a command from history by its index.</em></td>
 </tr>
 <tr>
 <td style="text-align: right;">WshShell_Size_t</td>
-<td style="text-align: left;"><a href="#function-wshshellhistory_gettokennum"><strong>WshShellHistory_GetTokenNum</strong></a> (<a href="../structWshShellHistory__IO__t/"><strong>WshShellHistory_IO_t</strong></a> * pHistIO) <br><em>Get the total number of commands stored in history.</em></td>
+<td style="text-align: left;"><a href="#function-wshshellhistory_gettokennum"><strong>WshShellHistory_GetTokenNum</strong></a> (<a href="../structWshShellHistoryIO__t/"><strong>WshShellHistoryIO_t</strong></a> * pHistIO) <br><em>Get the total number of commands stored in history.</em></td>
 </tr>
 <tr>
 <td style="text-align: right;">void</td>
-<td style="text-align: left;"><a href="#function-wshshellhistory_init"><strong>WshShellHistory_Init</strong></a> (<a href="../structWshShellHistory__IO__t/"><strong>WshShellHistory_IO_t</strong></a> * pHistIO, <a href="./#typedef-wshshellhistory_readhandler_t"><strong>WshShellHistory_ReadHandler_t</strong></a> readFn, <a href="./#typedef-wshshellhistory_writehandler_t"><strong>WshShellHistory_WriteHandler_t</strong></a> writeFn) <br><em>Initialize the shell history system with custom I/O functions.</em></td>
+<td style="text-align: left;"><a href="#function-wshshellhistory_init"><strong>WshShellHistory_Init</strong></a> (<a href="../structWshShellHistoryIO__t/"><strong>WshShellHistoryIO_t</strong></a> * pHistIO, <a href="./#typedef-wshshellhistory_readhandler_t"><strong>WshShellHistory_ReadHandler_t</strong></a> readFn, <a href="./#typedef-wshshellhistory_writehandler_t"><strong>WshShellHistory_WriteHandler_t</strong></a> writeFn) <br><em>Initialize the shell history system with custom I/O functions.</em></td>
 </tr>
 <tr>
 <td style="text-align: right;">void</td>
-<td style="text-align: left;"><a href="#function-wshshellhistory_savecmd"><strong>WshShellHistory_SaveCmd</strong></a> (<a href="../structWshShellHistory__IO__t/"><strong>WshShellHistory_IO_t</strong></a> * pHistIO, const WshShell_Char_t * pcCmdStr, WshShell_Size_t cmdStrLen) <br><em>Save a new command to the history buffer.</em></td>
+<td style="text-align: left;"><a href="#function-wshshellhistory_savecmd"><strong>WshShellHistory_SaveCmd</strong></a> (<a href="../structWshShellHistoryIO__t/"><strong>WshShellHistoryIO_t</strong></a> * pHistIO, const WshShell_Char_t * pcCmdStr, WshShell_Size_t cmdStrLen) <br><em>Save a new command to the history buffer.</em></td>
 </tr>
 </tbody>
 </table>
@@ -3104,7 +3104,7 @@
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-3-1">1</a></span>
 <span class="normal"><a href="#__codelineno-3-2">2</a></span>
 <span class="normal"><a href="#__codelineno-3-3">3</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1"></a><span class="kt">void</span><span class="w"> </span><span class="n">WshShellHistory_Flush</span><span class="w"> </span><span class="p">(</span>
-</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2"></a><span class="w">    </span><span class="n">WshShellHistory_IO_t</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">pHistIO</span>
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2"></a><span class="w">    </span><span class="n">WshShellHistoryIO_t</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">pHistIO</span>
 </span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3"></a><span class="p">)</span><span class="w"> </span>
 </span></code></pre></div></td></tr></table></div></p>
 <p><strong>Parameters:</strong></p>
@@ -3120,7 +3120,7 @@
 <span class="normal"><a href="#__codelineno-4-3">3</a></span>
 <span class="normal"><a href="#__codelineno-4-4">4</a></span>
 <span class="normal"><a href="#__codelineno-4-5">5</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1"></a><span class="n">WshShell_Size_t</span><span class="w"> </span><span class="n">WshShellHistory_GetNextCmd</span><span class="w"> </span><span class="p">(</span>
-</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2"></a><span class="w">    </span><span class="n">WshShellHistory_IO_t</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">pHistIO</span><span class="p">,</span>
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2"></a><span class="w">    </span><span class="n">WshShellHistoryIO_t</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">pHistIO</span><span class="p">,</span>
 </span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3"></a><span class="w">    </span><span class="n">WshShell_Char_t</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">pOutBuff</span><span class="p">,</span>
 </span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4"></a><span class="w">    </span><span class="n">WshShell_Size_t</span><span class="w"> </span><span class="n">outBuffSize</span>
 </span><span id="__span-4-5"><a id="__codelineno-4-5" name="__codelineno-4-5"></a><span class="p">)</span><span class="w"> </span>
@@ -3142,7 +3142,7 @@
 <span class="normal"><a href="#__codelineno-5-3">3</a></span>
 <span class="normal"><a href="#__codelineno-5-4">4</a></span>
 <span class="normal"><a href="#__codelineno-5-5">5</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1"></a><span class="n">WshShell_Size_t</span><span class="w"> </span><span class="n">WshShellHistory_GetPrevCmd</span><span class="w"> </span><span class="p">(</span>
-</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2"></a><span class="w">    </span><span class="n">WshShellHistory_IO_t</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">pHistIO</span><span class="p">,</span>
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2"></a><span class="w">    </span><span class="n">WshShellHistoryIO_t</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">pHistIO</span><span class="p">,</span>
 </span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3"></a><span class="w">    </span><span class="n">WshShell_Char_t</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">pOutBuff</span><span class="p">,</span>
 </span><span id="__span-5-4"><a id="__codelineno-5-4" name="__codelineno-5-4"></a><span class="w">    </span><span class="n">WshShell_Size_t</span><span class="w"> </span><span class="n">outBuffSize</span>
 </span><span id="__span-5-5"><a id="__codelineno-5-5" name="__codelineno-5-5"></a><span class="p">)</span><span class="w"> </span>
@@ -3165,7 +3165,7 @@
 <span class="normal"><a href="#__codelineno-6-4">4</a></span>
 <span class="normal"><a href="#__codelineno-6-5">5</a></span>
 <span class="normal"><a href="#__codelineno-6-6">6</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1"></a><span class="n">WshShell_Size_t</span><span class="w"> </span><span class="n">WshShellHistory_GetTokenByIndex</span><span class="w"> </span><span class="p">(</span>
-</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2"></a><span class="w">    </span><span class="n">WshShellHistory_IO_t</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">pHistIO</span><span class="p">,</span>
+</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2"></a><span class="w">    </span><span class="n">WshShellHistoryIO_t</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">pHistIO</span><span class="p">,</span>
 </span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3"></a><span class="w">    </span><span class="n">WshShell_Char_t</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">pOutBuff</span><span class="p">,</span>
 </span><span id="__span-6-4"><a id="__codelineno-6-4" name="__codelineno-6-4"></a><span class="w">    </span><span class="n">WshShell_Size_t</span><span class="w"> </span><span class="n">outBuffSize</span><span class="p">,</span>
 </span><span id="__span-6-5"><a id="__codelineno-6-5" name="__codelineno-6-5"></a><span class="w">    </span><span class="n">WshShell_Size_t</span><span class="w"> </span><span class="n">index</span>
@@ -3188,7 +3188,7 @@
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-7-1">1</a></span>
 <span class="normal"><a href="#__codelineno-7-2">2</a></span>
 <span class="normal"><a href="#__codelineno-7-3">3</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1"></a><span class="n">WshShell_Size_t</span><span class="w"> </span><span class="n">WshShellHistory_GetTokenNum</span><span class="w"> </span><span class="p">(</span>
-</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2"></a><span class="w">    </span><span class="n">WshShellHistory_IO_t</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">pHistIO</span>
+</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2"></a><span class="w">    </span><span class="n">WshShellHistoryIO_t</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">pHistIO</span>
 </span><span id="__span-7-3"><a id="__codelineno-7-3" name="__codelineno-7-3"></a><span class="p">)</span><span class="w"> </span>
 </span></code></pre></div></td></tr></table></div></p>
 <p>Starts from the most recently saved command and iterates backwards through the history buffer to count all stored commands.</p>
@@ -3207,7 +3207,7 @@
 <span class="normal"><a href="#__codelineno-8-3">3</a></span>
 <span class="normal"><a href="#__codelineno-8-4">4</a></span>
 <span class="normal"><a href="#__codelineno-8-5">5</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1"></a><span class="kt">void</span><span class="w"> </span><span class="n">WshShellHistory_Init</span><span class="w"> </span><span class="p">(</span>
-</span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2"></a><span class="w">    </span><span class="n">WshShellHistory_IO_t</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">pHistIO</span><span class="p">,</span>
+</span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2"></a><span class="w">    </span><span class="n">WshShellHistoryIO_t</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">pHistIO</span><span class="p">,</span>
 </span><span id="__span-8-3"><a id="__codelineno-8-3" name="__codelineno-8-3"></a><span class="w">    </span><span class="n">WshShellHistory_ReadHandler_t</span><span class="w"> </span><span class="n">readFn</span><span class="p">,</span>
 </span><span id="__span-8-4"><a id="__codelineno-8-4" name="__codelineno-8-4"></a><span class="w">    </span><span class="n">WshShellHistory_WriteHandler_t</span><span class="w"> </span><span class="n">writeFn</span>
 </span><span id="__span-8-5"><a id="__codelineno-8-5" name="__codelineno-8-5"></a><span class="p">)</span><span class="w"> </span>
@@ -3228,7 +3228,7 @@
 <span class="normal"><a href="#__codelineno-9-3">3</a></span>
 <span class="normal"><a href="#__codelineno-9-4">4</a></span>
 <span class="normal"><a href="#__codelineno-9-5">5</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1"></a><span class="kt">void</span><span class="w"> </span><span class="n">WshShellHistory_SaveCmd</span><span class="w"> </span><span class="p">(</span>
-</span><span id="__span-9-2"><a id="__codelineno-9-2" name="__codelineno-9-2"></a><span class="w">    </span><span class="n">WshShellHistory_IO_t</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">pHistIO</span><span class="p">,</span>
+</span><span id="__span-9-2"><a id="__codelineno-9-2" name="__codelineno-9-2"></a><span class="w">    </span><span class="n">WshShellHistoryIO_t</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">pHistIO</span><span class="p">,</span>
 </span><span id="__span-9-3"><a id="__codelineno-9-3" name="__codelineno-9-3"></a><span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="n">WshShell_Char_t</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">pcCmdStr</span><span class="p">,</span>
 </span><span id="__span-9-4"><a id="__codelineno-9-4" name="__codelineno-9-4"></a><span class="w">    </span><span class="n">WshShell_Size_t</span><span class="w"> </span><span class="n">cmdStrLen</span>
 </span><span id="__span-9-5"><a id="__codelineno-9-5" name="__codelineno-9-5"></a><span class="p">)</span><span class="w"> </span>

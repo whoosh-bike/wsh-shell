@@ -1,10 +1,10 @@
 
 
-# Struct WshShellHistory\_IO\_t
+# Struct WshShellHistoryIO\_t
 
 
 
-[**ClassList**](annotated.md) **>** [**WshShellHistory\_IO\_t**](structWshShellHistory__IO__t.md)
+[**ClassList**](annotated.md) **>** [**WshShellHistoryIO\_t**](structWshShellHistoryIO__t.md)
 
 
 
@@ -97,7 +97,7 @@ This allows the shell history system to remain storage-agnostic by delegating re
 ### variable Read 
 
 ```C++
-WshShellHistory_ReadHandler_t WshShellHistory_IO_t::Read;
+WshShellHistory_ReadHandler_t WshShellHistoryIO_t::Read;
 ```
 
 
@@ -114,7 +114,7 @@ Callback for loading saved history.
 ### variable Write 
 
 ```C++
-WshShellHistory_WriteHandler_t WshShellHistory_IO_t::Write;
+WshShellHistory_WriteHandler_t WshShellHistoryIO_t::Write;
 ```
 
 

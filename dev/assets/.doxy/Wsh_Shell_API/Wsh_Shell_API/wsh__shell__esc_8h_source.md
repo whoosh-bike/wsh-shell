@@ -20,7 +20,7 @@
 extern "C" {
 #endif
 
-typedef void (*WshShellEsc_Hadler_t)(WshShellHistory_IO_t* pHistIO,
+typedef void (*WshShellEsc_Hadler_t)(WshShellHistoryIO_t* pHistIO,
                                      WshShellIO_CommandLine_t* pCommandLine);
 
 typedef struct {
@@ -33,7 +33,7 @@ typedef struct {
     WshShell_Char_t Buff[WSH_SHELL_ESC_BUFF_LEN]; 
 } WshShellEsc_Storage_t;
 
-void WshShellEsc_Handler(WshShellHistory_IO_t* pHistIO, WshShellIO_CommandLine_t* pCommandLine,
+void WshShellEsc_Handler(WshShellHistoryIO_t* pHistIO, WshShellIO_CommandLine_t* pCommandLine,
                          WshShellEsc_Storage_t* pEscStorage, const WshShell_Char_t symbol);
 
 void WshShellEsc_StartSeq(WshShellEsc_Storage_t* pEscStorage);
