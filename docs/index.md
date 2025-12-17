@@ -5,14 +5,15 @@ Wsh-Shell is a lightweight, portable, and fully static shell interpreter written
 ## 🚀 Features
 
 - **Cross-platform, Highly Portable** — only one header file to include
+- **Modular Design** — ability to disable submodules for memory footprint optimization
 - **Single State Structure** — all shell state contained in a single `WshShell_t` instance  
 - **Static Memory Only** — no `malloc`, no heap; all buffers are statically allocated  
-- **Modular Design** — ability to disable submodules for memory footprint optimization
 - **Command-line Editing** — supports cursor movement, character deletion, and insert mode  
 - **Command Parsing & Options**:  
     - Supports short (`-h`) and long (`--help`) flags  
     - Supports int, float, string and other option types
     - Supports double-quoted strings
+- **Multi-User Support** — multiple users, groups, access rights, and more  
 - **Group-based Access Control** — each command belongs to one or more logical groups; users are granted access only if their group set intersects with the command’s group set
 - **Fine-grained Option Access Rights** — every command option (-f, --reset, etc.) has an associated access flag (read, write, execute, admin); the shell enforces these permissions at runtime and reports mismatches
 - **Escape Sequence Handling**:  
@@ -26,7 +27,6 @@ Wsh-Shell is a lightweight, portable, and fully static shell interpreter written
 - **Autocomplete**:  
     - Tab / double-Tab completion for commands and flags  
 - **Interactive Command Mode** — commands can take exclusive control over user input, temporarily suspending the shell and routing all data to a single handler
-- **Multi-User Support** — groups, access rights, and more  
 - **Customizable PS1 Prompt** — user-defined templates for prompt appearance
 - **Await Prompt** — await for a specific key press
 - **Different New Line Support** - handle different terminals setup (`\r`, `\n` or `\r\n`)

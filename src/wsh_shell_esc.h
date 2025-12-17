@@ -23,7 +23,7 @@ extern "C" {
 /**
  * @brief Escape sequence handler function type
  */
-typedef void (*WshShellEsc_Hadler_t)(WshShellHistory_IO_t* pHistIO,
+typedef void (*WshShellEsc_Hadler_t)(WshShellHistoryIO_t* pHistIO,
                                      WshShellIO_CommandLine_t* pCommandLine);
 
 /**
@@ -52,7 +52,7 @@ typedef struct {
  * @param pEscStorage Pointer to escape sequence buffer
  * @param symbol Incoming character to append
  */
-void WshShellEsc_Handler(WshShellHistory_IO_t* pHistIO, WshShellIO_CommandLine_t* pCommandLine,
+void WshShellEsc_Handler(WshShellHistoryIO_t* pHistIO, WshShellIO_CommandLine_t* pCommandLine,
                          WshShellEsc_Storage_t* pEscStorage, const WshShell_Char_t symbol);
 
 /**

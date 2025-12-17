@@ -51,10 +51,6 @@ ifeq ($(findstring clang,$(CC)),clang)
     COMMON_FLAGS += -Wno-gnu-zero-variadic-macro-arguments
 endif
 
-# ===== Submodules =====
-$(shell git submodule update --init --recursive)
-# ET_SRCS := $(wildcard et/Embedded-Test/et/*.c)
-
 # ===== Targets =====
 .PHONY: all clean example format cppcheck
 

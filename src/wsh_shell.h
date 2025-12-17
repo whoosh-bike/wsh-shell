@@ -100,8 +100,8 @@ typedef struct {
     WshShellUser_Table_t Users;   /**< Table of available users. */
     WshShellCmd_Table_t Commands; /**< Registered command table. */
 
-    WshShellHistory_IO_t HistoryIO; /**< Command history buffer and ops. */
-    WshShellInteract_t Interact;    /**< Interactive command interface. */
+    WshShellHistoryIO_t HistoryIO; /**< Command history buffer and ops. */
+    WshShellInteract_t Interact;   /**< Interactive command interface. */
     WshShellPromptWait_t PromptWait;
 
     WshShellExtCallbacks_t ExtCallbacks; /**< Optional external auth callbacks. */

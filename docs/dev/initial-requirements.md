@@ -29,7 +29,7 @@ The **Wsh-Shell** module must satisfy two main categories of requirements:
 6. **User Authorization**  
     - Require user login with a password before executing commands.
 
-7. **Interface Switching**  
+7. **Hardware Interfaces Switching**  
     - Allow switching between hardware interfaces (e.g., USB, UART) **without reflashing** the firmware.
 
 8. **Sub-Shell Support**  
@@ -37,9 +37,6 @@ The **Wsh-Shell** module must satisfy two main categories of requirements:
 
 9. **Cross-Platform Operation**  
     - Run on various platforms without modification.
-
-10. **Multiple Hardware Interfaces**  
-     - Support different hardware I/O backends (USB, UART, etc.) transparently.
 
 ---
 
