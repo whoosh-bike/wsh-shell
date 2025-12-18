@@ -29,7 +29,7 @@
       </memberdef>
       <memberdef kind="define" id="wsh__shell__version_8h_1a062fa26f9b7fdfee5e65d6a25862c172" prot="public" static="no">
         <name>WSH_SHELL_VERSION_MINOR</name>
-        <initializer>3</initializer>
+        <initializer>4</initializer>
         <briefdescription>
         </briefdescription>
         <detaileddescription>
@@ -83,7 +83,7 @@
 <codeline lineno="2"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>__WSH_SHELL_VERSION_H</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="3"><highlight class="normal"></highlight></codeline>
 <codeline lineno="4"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>WSH_SHELL_VERSION_MAJOR<sp/>2</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="5"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>WSH_SHELL_VERSION_MINOR<sp/>3</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>WSH_SHELL_VERSION_MINOR<sp/>4</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="6"><highlight class="normal"></highlight></codeline>
 <codeline lineno="7"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>_WSH_SHELL_STR_HELPER(x)<sp/>#x</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="8"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>_WSH_SHELL_STR(x)<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>_WSH_SHELL_STR_HELPER(x)</highlight><highlight class="normal"></highlight></codeline>
