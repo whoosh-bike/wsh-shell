@@ -35,7 +35,7 @@ def main():
     h1 = make_sha256(data)
     h2 = make_jenkins(data)
 
-    print(f"data: {data}")
+    print(f"data salt|pass: {data}")
     print(f'sha256 hash(salt|pass): "{h1}"')
     print(f'jenkins hash(salt|pass): "{h2}"')
 
