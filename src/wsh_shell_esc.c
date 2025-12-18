@@ -2,7 +2,7 @@
 
 #if WSH_SHELL_HISTORY
 
-static void WshShellEsc_ArrowUp(WshShellHistory_IO_t* pHistIO,
+static void WshShellEsc_ArrowUp(WshShellHistoryIO_t* pHistIO,
                                 WshShellIO_CommandLine_t* pCommandLine) {
     WSH_SHELL_ASSERT(pHistIO && pCommandLine);
     if (!pHistIO || !pCommandLine)
@@ -14,7 +14,7 @@ static void WshShellEsc_ArrowUp(WshShellHistory_IO_t* pHistIO,
     return;
 }
 
-static void WshShellEsc_ArrowDown(WshShellHistory_IO_t* pHistIO,
+static void WshShellEsc_ArrowDown(WshShellHistoryIO_t* pHistIO,
                                   WshShellIO_CommandLine_t* pCommandLine) {
     WSH_SHELL_ASSERT(pHistIO && pCommandLine);
     if (!pHistIO || !pCommandLine)
@@ -28,19 +28,19 @@ static void WshShellEsc_ArrowDown(WshShellHistory_IO_t* pHistIO,
 
 #else /* WSH_SHELL_HISTORY */
 
-static void WshShellEsc_ArrowUp(WshShellHistory_IO_t* pHistIO,
+static void WshShellEsc_ArrowUp(WshShellHistoryIO_t* pHistIO,
                                 WshShellIO_CommandLine_t* pCommandLine) {
     return;
 }
 
-static void WshShellEsc_ArrowDown(WshShellHistory_IO_t* pHistIO,
+static void WshShellEsc_ArrowDown(WshShellHistoryIO_t* pHistIO,
                                   WshShellIO_CommandLine_t* pCommandLine) {
     return;
 }
 
 #endif /* WSH_SHELL_HISTORY */
 
-static void WshShellEsc_ArrowRight(WshShellHistory_IO_t* pHistIO,
+static void WshShellEsc_ArrowRight(WshShellHistoryIO_t* pHistIO,
                                    WshShellIO_CommandLine_t* pCommandLine) {
     (void)pHistIO;
 
@@ -54,7 +54,7 @@ static void WshShellEsc_ArrowRight(WshShellHistory_IO_t* pHistIO,
     }
 }
 
-static void WshShellEsc_ArrowLeft(WshShellHistory_IO_t* pHistIO,
+static void WshShellEsc_ArrowLeft(WshShellHistoryIO_t* pHistIO,
                                   WshShellIO_CommandLine_t* pCommandLine) {
     (void)pHistIO;
 
@@ -84,7 +84,7 @@ static const WshShellEsc_Action_t WshShellEsc_SeqHandlers[] = {
     {WSH_SHELL_ESC_ARROW_RIGHT, WshShellEsc_ArrowRight},
 };
 
-void WshShellEsc_Handler(WshShellHistory_IO_t* pHistIO, WshShellIO_CommandLine_t* pCommandLine,
+void WshShellEsc_Handler(WshShellHistoryIO_t* pHistIO, WshShellIO_CommandLine_t* pCommandLine,
                          WshShellEsc_Storage_t* pEscStorage, const WshShell_Char_t symbol) {
     WSH_SHELL_ASSERT(pHistIO && pCommandLine && pEscStorage);
     if (!pHistIO || !pCommandLine || !pEscStorage)

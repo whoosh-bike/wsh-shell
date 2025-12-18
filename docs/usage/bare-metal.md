@@ -34,7 +34,7 @@ bool Shell_Commands_Init(WshShell_t* pShell) {
 }
 ```
 
-`Shell_LedCmd` structure shoud be created before in another module (look for Blue Pill example)
+`Shell_LedCmd` structure should be created before in another module (look for Blue Pill example)
 
 ```c
 const WshShellCmd_t Shell_LedCmd = {
@@ -124,7 +124,7 @@ static void Shell_AuthClbk(void* pCtx)   { (void)(pCtx); }
 static void Shell_DeAuthClbk(void* pCtx) { (void)(pCtx); }
 static void Shell_SymInClbk(void* pCtx)  { (void)(pCtx); }
 
-static WshShell_ExtCallbacks_t Shell_Callbacks = {
+static WshShellExtCallbacks_t Shell_Callbacks = {
     .Auth     = Shell_AuthClbk,
     .DeAuth   = Shell_DeAuthClbk,
     .SymbolIn = Shell_SymInClbk,

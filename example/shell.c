@@ -36,7 +36,7 @@ static void Shell_SymInClbk(void* pCtx) {
     (void)(pCtx);
 }
 
-static WshShell_ExtCallbacks_t Shell_Callbacks = {
+static WshShellExtCallbacks_t Shell_Callbacks = {
     .Auth     = Shell_AuthClbk,
     .DeAuth   = Shell_DeAuthClbk,
     .SymbolIn = Shell_SymInClbk,

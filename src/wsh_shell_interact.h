@@ -39,7 +39,7 @@ typedef void (*WshShellInteractive_CmdHandler_t)(WshShellIO_CommandLine_t* pComm
 typedef struct {
     WshShellInteractive_CmdHandler_t Handler; /**< Function to be executed in interactive mode. */
     WshShell_Char_t CmdName[WSH_SHELL_CMD_NAME_LEN]; /**< Name of the interactive command. */
-} WshShell_Interact_t;
+} WshShellInteract_t;
 
 /**
  * @brief Registers an interactive command.
@@ -51,7 +51,7 @@ typedef struct {
  * @param[in]  pcName    Null-terminated name of the interactive command.
  * @param[in]  handler   Function pointer to be called when the command is executed.
  */
-void WshShellInteract_Attach(WshShell_Interact_t* pInteract, const WshShell_Char_t* pcName,
+void WshShellInteract_Attach(WshShellInteract_t* pInteract, const WshShell_Char_t* pcName,
                              WshShellInteractive_CmdHandler_t handler);
 
 /**
@@ -74,7 +74,7 @@ void WshShellInteract_AppendLineBreak(WshShellIO_CommandLine_t* pCommandLine);
  *
  * @param[in,out] pInteract Pointer to the interact structure to flush.
  */
-void WshShellInteract_Flush(WshShell_Interact_t* pInteract);
+void WshShellInteract_Flush(WshShellInteract_t* pInteract);
 
 #ifdef __cplusplus
 }

@@ -15,8 +15,6 @@ RM := rm -rf
 SRC_DIR := src
 BUILD_DIR := build
 OBJ_DIR := $(BUILD_DIR)/obj/$(SRC_DIR)
-# TEST_DIR := test
-# TEST_BUILD_DIR := $(BUILD_DIR)/obj/$(TEST_DIR)
 EXAMPLE_DIR := example
 
 # ===== Source Files =====
@@ -24,31 +22,34 @@ SRCS := $(wildcard $(SRC_DIR)/*.c)
 OBJS := $(SRCS:$(SRC_DIR)/%.c=$(OBJ_DIR)/%.o)
 DEPS := $(OBJS:.o=.d)
 
-# ===== Test Sources =====
-# TEST_SRCS := $(wildcard $(TEST_DIR)/test_*.c)
-# TEST_BINS := $(TEST_SRCS:$(TEST_DIR)/%.c=$(BUILD_DIR)/test/%_bin)
-
 # ===== Include Paths =====
 INC_FLAGS := $(addprefix -I, $(shell find $(SRC_DIR) -type d))
-# TEST_INC := -Iet/Embedded-Test/et -I$(TEST_DIR)
+
+# ===== Debug/Release Flags =====
+DEBUG_FLAGS := -O0 -g -DWSH_SHELL_DEBUG_ENABLE -DWSH_SHELL_ASSERT_ENABLE
+RELEASE_FLAGS := -O2 -DNDEBUG
 
 # ===== Compiler Flags =====
-COMMON_FLAGS := $(INC_FLAGS) -MMD -Wall -Wextra -Wpedantic -Wno-unused-parameter -Wno-format
+C_FLAGS += -std=gnu11
+C_FLAGS += -Wall
+C_FLAGS += -Wextra
+C_FLAGS += -Wpedantic
+C_FLAGS += -Wno-unused-function
+C_FLAGS += -Wno-unused-parameter
+C_FLAGS += -Wno-format
+C_FLAGS += -MMD
+
+COMPILE_FLAGS += $(INC_FLAGS) $(C_FLAGS)
+
+ifeq ($(BUILD),Debug)
+    COMPILE_FLAGS += $(DEBUG_FLAGS) 
+else
+    COMPILE_FLAGS += $(RELEASE_FLAGS)
+endif
 
 ifeq ($(findstring clang,$(CC)),clang)
     COMMON_FLAGS += -Wno-gnu-zero-variadic-macro-arguments
 endif
-
-# $(info [MAKE] BUILD=$(BUILD))
-ifeq ($(BUILD),Debug)
-    CFLAGS := $(COMMON_FLAGS) -O0 -g -DWSH_SHELL_DEBUG_ENABLE -DWSH_SHELL_ASSERT_ENABLE
-else
-    CFLAGS := $(COMMON_FLAGS) -O2 -DNDEBUG
-endif
-
-# ===== Submodules =====
-$(shell git submodule update --init --recursive)
-# ET_SRCS := $(wildcard et/Embedded-Test/et/*.c)
 
 # ===== Targets =====
 .PHONY: all clean example format cppcheck
@@ -63,7 +64,7 @@ $(BUILD_DIR)/lib$(TARGET).a: src/wsh_shell_cfg.h $(OBJS)
 $(OBJ_DIR)/%.o: $(SRC_DIR)/%.c
 	@echo "[CC] $<"
 	@$(MKDIR) $(dir $@)
-	@$(CC) $(CFLAGS) -c $< -o $@
+	@$(CC) $(COMPILE_FLAGS) -c $< -o $@
 
 src/wsh_shell_cfg.h:
 	@echo "[GEN] $@ from default"
@@ -73,17 +74,6 @@ clean:
 	@echo "[CLEAN] Removing build artifacts"
 	@$(RM) $(BUILD_DIR)
 	@$(MAKE) -C $(EXAMPLE_DIR) clean
-
-# test: $(TEST_BINS)
-# 	@for test_exec in $(TEST_BINS); do \
-# 		echo "[RUN] $$test_exec"; \
-# 		$$test_exec || exit 1; \
-# 	done
-
-# $(BUILD_DIR)/test/%_bin: $(TEST_DIR)/%.c $(ET_SRCS) $(SRCS)
-# 	@echo "[TEST_CC] $<"
-# 	@$(MKDIR) $(dir $@)
-# 	@$(CC) $(CFLAGS) $(TEST_INC) $^ -o $@
 
 example:
 	@echo "[MAKE] Building example"

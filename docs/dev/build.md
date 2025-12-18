@@ -27,6 +27,8 @@ pip install --upgrade pip
 pip install -r requirements.txt
 ```
 
+Or just run `setup python env` vscode task
+
 ---
 
 ## Changing the Compiler
@@ -59,8 +61,6 @@ To build with the **Release** preset:
 make BUILD=Release
 ```
 
-This works for all examples (e.g., `basic` and `blue_pill`).
-
 ---
 
 ## Cleaning the Build
@@ -85,24 +85,20 @@ This example runs locally on your machine:
 ```bash
 make clean && make example
 ./example/build/example
-```
 
-or
-
-```bash
-cd example
-make clean
-make
-./build/example
+# Default example usename `root` and password `1234`
 ```
 
 ### Example on Hardware
 
-It has been moved to <https://github.com/katbert-92/wsh-shell-blue-pill-example> repo
+It has been moved to another repo's:
+
+- <https://github.com/whoosh-bike/wsh-shell-blue-pill-example>
+- <https://github.com/whoosh-bike/wsh-shell-black-pill-example>
 
 ---
 
 ## Additional Notes
 
-- You can adjust build presets or flags in the **Makefile** (e.g., optimization level, debug symbols).
-- If using Windows, please do all in WSL enviroment.
+- You can adjust build presets or flags in the **Makefile** (e.g., optimization level, debug symbols and so on)
+- If using Windows, please do in WSL environment

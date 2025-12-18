@@ -73,7 +73,7 @@ typedef struct {
     WshShell_ExtClbk_t Auth;     /**< Called when a user successfully authenticates. */
     WshShell_ExtClbk_t DeAuth;   /**< Called when a user is de-authenticated or logs out. */
     WshShell_ExtClbk_t SymbolIn; /**< Called when a sybol was received and inserted */
-} WshShell_ExtCallbacks_t;
+} WshShellExtCallbacks_t;
 
 /**
  * @brief Temporary authentication context for login input handling.
@@ -81,7 +81,7 @@ typedef struct {
 typedef struct {
     WshShell_Char_t Login[WSH_SHELL_LOGIN_LEN]; /**< Input buffer for username. */
     WshShell_Char_t Pass[WSH_SHELL_PASS_LEN];   /**< Input buffer for password. */
-} WshShell_AuthCtx_t;
+} WshShellAuthCtx_t;
 
 /**
  * @brief Main shell structure containing state, configuration, user context, and subsystems.
@@ -94,17 +94,17 @@ typedef struct {
 
     WshShellIO_CommandLine_t CommandLine; /**< Terminal input/output interface. */
     const WshShellUser_t* CurrUser;       /**< Currently authenticated user. */
-    WshShell_AuthCtx_t TmpAuth;           /**< Temporary auth input storage. */
+    WshShellAuthCtx_t TmpAuth;            /**< Temporary auth input storage. */
     WshShellEsc_Storage_t EscStorage;     /**< Escape sequence state storage. */
 
     WshShellUser_Table_t Users;   /**< Table of available users. */
     WshShellCmd_Table_t Commands; /**< Registered command table. */
 
-    WshShellHistory_IO_t HistoryIO; /**< Command history buffer and ops. */
-    WshShell_Interact_t Interact;   /**< Interactive command interface. */
+    WshShellHistoryIO_t HistoryIO; /**< Command history buffer and ops. */
+    WshShellInteract_t Interact;   /**< Interactive command interface. */
     WshShellPromptWait_t PromptWait;
 
-    WshShell_ExtCallbacks_t ExtCallbacks; /**< Optional external auth callbacks. */
+    WshShellExtCallbacks_t ExtCallbacks; /**< Optional external auth callbacks. */
 } WshShell_t;
 
 /**
@@ -121,7 +121,7 @@ typedef struct {
  */
 WSH_SHELL_RET_STATE_t WshShell_Init(WshShell_t* pShell, const WshShell_Char_t* pcDevName,
                                     const WshShell_Char_t* pcCustomHeader,
-                                    WshShell_ExtCallbacks_t* pExtClbks);
+                                    WshShellExtCallbacks_t* pExtClbks);
 
 /**
  * @brief Attempt to authenticate a user with given login credentials.
