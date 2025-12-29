@@ -24,7 +24,10 @@ WSH_SHELL_RET_STATE_t WshShellCmd_Attach(WshShellCmd_Table_t* pShellCommands,
 
     for (WshShell_Size_t cmd = 0; cmd < cmdNum; cmd++) {
         const WshShellCmd_t* pcCmd = pcCmdTable[cmd];
-        WSH_SHELL_ASSERT(pcCmd != NULL);
+        if (pcCmd == NULL) {
+            WSH_SHELL_ASSERT(0);
+            continue;
+        }
 
         const WshShellOption_t* pcOptOuter = pcCmd->Options;
         for (; pcOptOuter->Type != WSH_SHELL_OPTION_END; pcOptOuter++) {
