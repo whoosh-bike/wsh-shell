@@ -362,8 +362,10 @@
 </para>
         </detaileddescription>
         <inbodydescription>
+<para>Constant-time comparison to prevent timing attacks. Standard strcmp/strncmp exit early on first mismatch, allowing attackers to guess credentials byte-by-byte by measuring response time differences.</para>
+<para>Mem zeroing</para>
         </inbodydescription>
-        <location file="src/wsh_shell_user.h" line="111" column="17" bodyfile="src/wsh_shell_user.c" bodystart="68" bodyend="99" declfile="src/wsh_shell_user.h" declline="111" declcolumn="17"/>
+        <location file="src/wsh_shell_user.h" line="111" column="17" bodyfile="src/wsh_shell_user.c" bodystart="68" bodyend="132" declfile="src/wsh_shell_user.h" declline="111" declcolumn="17"/>
       </memberdef>
       <memberdef kind="function" id="wsh__shell__user_8h_1aeb6134783fd1a2d6d887de0d174b80f3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>const <ref refid="structWshShellUser__t" kindref="compound">WshShellUser_t</ref> *</type>
@@ -420,7 +422,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/wsh_shell_user.h" line="130" column="22" bodyfile="src/wsh_shell_user.c" bodystart="101" bodyend="114" declfile="src/wsh_shell_user.h" declline="130" declcolumn="22"/>
+        <location file="src/wsh_shell_user.h" line="130" column="22" bodyfile="src/wsh_shell_user.c" bodystart="134" bodyend="147" declfile="src/wsh_shell_user.h" declline="130" declcolumn="22"/>
       </memberdef>
       </sectiondef>
     <briefdescription>

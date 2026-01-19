@@ -88,24 +88,48 @@ WshShell_Bool_t WshShellUser_CheckCredentials(WshShellUser_Table_t* pShellUsers,
     if (UserID >= pShellUsers->Num)
         return false;
 
-    WshShell_Size_t loginLen = WSH_SHELL_STRNLEN(pcLogin, WSH_SHELL_LOGIN_LEN + 1);
-    WshShell_Size_t passLen  = WSH_SHELL_STRNLEN(pcPass, WSH_SHELL_PASS_LEN + 1);
+    WshShell_Size_t extLoginLen = WSH_SHELL_STRNLEN(pcLogin, WSH_SHELL_LOGIN_LEN + 1);
+    WshShell_Size_t extPassLen  = WSH_SHELL_STRNLEN(pcPass, WSH_SHELL_PASS_LEN + 1);
+    if (extLoginLen == 0 || extLoginLen > WSH_SHELL_LOGIN_LEN || extPassLen == 0 ||
+        extPassLen > WSH_SHELL_PASS_LEN) {
+        return false;
+    }
 
-    if (loginLen > WSH_SHELL_LOGIN_LEN || passLen > WSH_SHELL_PASS_LEN)
+    const WshShellUser_t* pcUser = &pShellUsers->List[UserID];
+
+    WshShell_Size_t intLoginLen = WSH_SHELL_STRNLEN(pcUser->Login, WSH_SHELL_LOGIN_LEN + 1);
+    if (intLoginLen == 0 || intLoginLen > WSH_SHELL_LOGIN_LEN)
         return false;
 
-    const WshShellUser_t* pUser = &pShellUsers->List[UserID];
+    if (intLoginLen != extLoginLen)
+        return false;
 
-    if (WSH_SHELL_STRNCMP(pUser->Login, pcLogin, loginLen) != 0)
+    WshShell_Size_t loginMatch = 0;
+    for (WshShell_Size_t i = 0; i < intLoginLen; i++)
+        loginMatch |= (pcUser->Login[i] ^ pcLogin[i]);
+    loginMatch |= (pcUser->Login[intLoginLen] ^ pcLogin[intLoginLen]);
+    if (loginMatch != 0)
         return false;
 
     WshShell_Char_t locSaltPassHash[WSH_SHELL_SALT_PASS_HASH_LEN + 1] = {0};
-    pShellUsers->Hash(pUser->Salt, pcPass, locSaltPassHash);
+    pShellUsers->Hash(pcUser->Salt, pcPass, locSaltPassHash);
 
-    if (WSH_SHELL_STRNCMP(locSaltPassHash, pUser->Hash, WSH_SHELL_SALT_PASS_HASH_LEN + 1) != 0)
+    WshShell_Size_t intHashLen = WSH_SHELL_STRNLEN(pcUser->Hash, WSH_SHELL_SALT_PASS_HASH_LEN + 1);
+    WshShell_Size_t locHashLen =
+        WSH_SHELL_STRNLEN(locSaltPassHash, WSH_SHELL_SALT_PASS_HASH_LEN + 1);
+
+    if (intHashLen != locHashLen)
         return false;
 
-    return true;
+    WshShell_Size_t hashMatch = 0;
+    for (WshShell_Size_t i = 0; i < intHashLen; i++)
+        hashMatch |= (locSaltPassHash[i] ^ pcUser->Hash[i]);
+    hashMatch |= (locSaltPassHash[intHashLen] ^ pcUser->Hash[intHashLen]);
+
+    for (volatile WshShell_Size_t i = 0; i < WSH_SHELL_SALT_PASS_HASH_LEN + 1; i++)
+        locSaltPassHash[i] = '\0';
+
+    return (hashMatch == 0);
 }
 
 const WshShellUser_t* WshShellUser_FindByCredentials(WshShellUser_Table_t* pShellUsers,
