@@ -95,7 +95,7 @@ static const WshShellOption_t* WshShellCmd_FindOpt(const WshShellCmd_t* pcCmd,
                                                    const WshShell_Char_t* pcStr,
                                                    WshShell_Size_t strLen) {
     WSH_SHELL_ASSERT(pcCmd && pcStr);
-    if (!pcCmd || !pcCmd)
+    if (!pcCmd || !pcStr)
         return NULL;
 
     const WshShellOption_t* pcWaitsInputOpt = NULL;

@@ -19,6 +19,11 @@ static void WshShellUser_DefHashFunc(const WshShell_Char_t* pcSalt, const WshShe
         WshShellMisc_CalcJenkinsHash((const WshShell_U8_t*)saltPass, saltLen + passLen);
 
     WSH_SHELL_SNPRINTF(pHash, WSH_SHELL_SALT_PASS_HASH_LEN + 1, "%08x", hash);
+
+    // Secure erase sensitive data from stack (prevent compiler optimization)
+    for (volatile WshShell_Size_t i = 0; i < sizeof(saltPass); i++) {
+        saltPass[i] = 0;
+    }
 }
 
 WSH_SHELL_RET_STATE_t WshShellUser_Attach(WshShellUser_Table_t* pShellUsers,
@@ -99,8 +104,9 @@ WshShell_Bool_t WshShellUser_CheckCredentials(WshShellUser_Table_t* pShellUsers,
      * Standard strcmp/strncmp exit early on first mismatch,
      * allowing attackers to guess credentials byte-by-byte
      * by measuring response time differences.
+     * Use volatile to prevent compiler optimization.
      */
-    WshShell_Size_t loginMatch = 0;
+    volatile WshShell_Size_t loginMatch = 0;
     for (WshShell_Size_t i = 0; i < intLoginLen; i++)
         loginMatch |= (pcUser->Login[i] ^ pcLogin[i]);
     loginMatch |= (pcUser->Login[intLoginLen] ^ pcLogin[intLoginLen]);
@@ -117,7 +123,7 @@ WshShell_Bool_t WshShellUser_CheckCredentials(WshShellUser_Table_t* pShellUsers,
     if (intHashLen != locHashLen)
         return false;
 
-    WshShell_Size_t hashMatch = 0;
+    volatile WshShell_Size_t hashMatch = 0;
     for (WshShell_Size_t i = 0; i < intHashLen; i++)
         hashMatch |= (locSaltPassHash[i] ^ pcUser->Hash[i]);
     hashMatch |= (locSaltPassHash[intHashLen] ^ pcUser->Hash[intHashLen]);
