@@ -638,6 +638,67 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#v24-security-robustness-developer-experience" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        v2.4 (Security, Robustness &amp; Developer Experience)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="v2.4 (Security, Robustness &amp; Developer Experience)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#security-improvements" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Security Improvements
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#robustness-bug-fixes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Robustness &amp; Bug Fixes
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#features-enhancements" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Features &amp; Enhancements
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#documentation-tooling" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Documentation &amp; Tooling
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#v30" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -2608,6 +2669,67 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#v24-security-robustness-developer-experience" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        v2.4 (Security, Robustness &amp; Developer Experience)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="v2.4 (Security, Robustness &amp; Developer Experience)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#security-improvements" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Security Improvements
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#robustness-bug-fixes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Robustness &amp; Bug Fixes
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#features-enhancements" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Features &amp; Enhancements
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#documentation-tooling" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Documentation &amp; Tooling
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#v30" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -2738,6 +2860,42 @@
 <li class="task-list-item"><input type="checkbox" disabled checked/> Fix fault on history read and write callbacks if history isn't inited</li>
 <li class="task-list-item"><input type="checkbox" disabled checked/> Review groups, permissions, and access levels for commands, users, and options; document them</li>
 <li class="task-list-item"><input type="checkbox" disabled checked/> Check the same names for commands and options (if short and long options repited in one command or commands are same)</li>
+</ul>
+<h2 id="v24-security-robustness-developer-experience">v2.4 (Security, Robustness &amp; Developer Experience)</h2>
+<h3 id="security-improvements">Security Improvements</h3>
+<ul class="task-list">
+<li class="task-list-item"><input type="checkbox" disabled checked/> Implement constant-time comparison for login/password validation to prevent timing attacks</li>
+<li class="task-list-item"><input type="checkbox" disabled checked/> Add secure memory zeroing for sensitive data (password hash buffer) using volatile loop</li>
+<li class="task-list-item"><input type="checkbox" disabled checked/> Add comprehensive input validation for login and password lengths</li>
+<li class="task-list-item"><input type="checkbox" disabled checked/> Improve credential checking with length validation before comparison</li>
+</ul>
+<h3 id="robustness-bug-fixes">Robustness &amp; Bug Fixes</h3>
+<ul class="task-list">
+<li class="task-list-item"><input type="checkbox" disabled checked/> Fix potential fault in history read/write callbacks when history is not initialized</li>
+<li class="task-list-item"><input type="checkbox" disabled checked/> Fix escape sequence bug in input handling</li>
+<li class="task-list-item"><input type="checkbox" disabled checked/> Add duplicate detection for short and long option flags within commands (triggers ASSERT)</li>
+<li class="task-list-item"><input type="checkbox" disabled checked/> Fix command line flush bug</li>
+<li class="task-list-item"><input type="checkbox" disabled checked/> Fix argument processing flow</li>
+<li class="task-list-item"><input type="checkbox" disabled checked/> Multiple small fixes and code quality improvements</li>
+</ul>
+<h3 id="features-enhancements">Features &amp; Enhancements</h3>
+<ul class="task-list">
+<li class="task-list-item"><input type="checkbox" disabled checked/> Add history save support for interactive commands</li>
+<li class="task-list-item"><input type="checkbox" disabled checked/> Add default command description to help output</li>
+<li class="task-list-item"><input type="checkbox" disabled checked/> Add more detailed build information to shell startup banner (compiler, OS, build date/time)</li>
+<li class="task-list-item"><input type="checkbox" disabled checked/> Add FreeRTOS version detection support</li>
+<li class="task-list-item"><input type="checkbox" disabled checked/> Add <code>WSH_SHELL_PRINT_LEVEL</code> macro for better print control</li>
+<li class="task-list-item"><input type="checkbox" disabled checked/> Add debug build flag support</li>
+<li class="task-list-item"><input type="checkbox" disabled checked/> Review and document groups, permissions, and access levels system</li>
+</ul>
+<h3 id="documentation-tooling">Documentation &amp; Tooling</h3>
+<ul class="task-list">
+<li class="task-list-item"><input type="checkbox" disabled checked/> Update documentation for permission rules and access control</li>
+<li class="task-list-item"><input type="checkbox" disabled checked/> Add ELF size analysis utility script</li>
+<li class="task-list-item"><input type="checkbox" disabled checked/> Fix grammar and typos in documentation</li>
+<li class="task-list-item"><input type="checkbox" disabled checked/> Update README with clearer examples</li>
+<li class="task-list-item"><input type="checkbox" disabled checked/> Fix VSCode task configurations</li>
+<li class="task-list-item"><input type="checkbox" disabled checked/> Improve Makefile structure</li>
 </ul>
 <h2 id="v30">v3.0</h2>
 <ul class="task-list">
