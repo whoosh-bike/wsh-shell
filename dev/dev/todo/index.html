@@ -699,6 +699,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#v25-security-stability-fixes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        v2.5 (Security &amp; Stability Fixes)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#v30" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -2730,6 +2741,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#v25-security-stability-fixes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        v2.5 (Security &amp; Stability Fixes)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#v30" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -2896,6 +2918,15 @@
 <li class="task-list-item"><input type="checkbox" disabled checked/> Update README with clearer examples</li>
 <li class="task-list-item"><input type="checkbox" disabled checked/> Fix VSCode task configurations</li>
 <li class="task-list-item"><input type="checkbox" disabled checked/> Improve Makefile structure</li>
+</ul>
+<h2 id="v25-security-stability-fixes">v2.5 (Security &amp; Stability Fixes)</h2>
+<ul class="task-list">
+<li class="task-list-item"><input type="checkbox" disabled checked/> Fix typo in <code>WshShellCmd_FindOpt</code> parameter validation (<code>pcCmd || pcCmd</code> → <code>pcCmd || pcStr</code>)</li>
+<li class="task-list-item"><input type="checkbox" disabled checked/> Add VLA stack overflow protection in autocomplete (check against <code>WSH_SHELL_AUTOCOMPLETE_MAX_CANDIDATES</code>)</li>
+<li class="task-list-item"><input type="checkbox" disabled checked/> Add bounds checking before buffer copy in autocomplete to prevent buffer overflow</li>
+<li class="task-list-item"><input type="checkbox" disabled checked/> Add secure erase of sensitive data (<code>saltPass</code>) in default hash function using volatile loop</li>
+<li class="task-list-item"><input type="checkbox" disabled checked/> Add <code>volatile</code> qualifier to constant-time comparison variables to prevent compiler optimization</li>
+<li class="task-list-item"><input type="checkbox" disabled checked/> Add validation for unclosed quotes in command parsing (<code>WshShellStr_ParseToArgcArgv</code>)</li>
 </ul>
 <h2 id="v30">v3.0</h2>
 <ul class="task-list">

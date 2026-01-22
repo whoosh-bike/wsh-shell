@@ -334,7 +334,7 @@ Example: Input: <computeroutput>&quot;arg1 arg2 \&quot;quoted string" arg3&quot;
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/wsh_shell_str.h" line="65" column="6" bodyfile="src/wsh_shell_str.c" bodystart="26" bodyend="59" declfile="src/wsh_shell_str.h" declline="65" declcolumn="6"/>
+        <location file="src/wsh_shell_str.h" line="65" column="6" bodyfile="src/wsh_shell_str.c" bodystart="26" bodyend="65" declfile="src/wsh_shell_str.h" declline="65" declcolumn="6"/>
       </memberdef>
       <memberdef kind="function" id="wsh__shell__str_8h_1a717aa2a87c1d1b039e986781479199ba" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -374,7 +374,7 @@ Example: Input: <computeroutput>&quot;arg1 arg2 \&quot;quoted string" arg3&quot;
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/wsh_shell_str.h" line="74" column="6" bodyfile="src/wsh_shell_str.c" bodystart="61" bodyend="68" declfile="src/wsh_shell_str.h" declline="74" declcolumn="6"/>
+        <location file="src/wsh_shell_str.h" line="74" column="6" bodyfile="src/wsh_shell_str.c" bodystart="67" bodyend="74" declfile="src/wsh_shell_str.h" declline="74" declcolumn="6"/>
       </memberdef>
       <memberdef kind="function" id="wsh__shell__str_8h_1ab4b7be929d544496dbab7a625bc70204" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -402,7 +402,7 @@ Example: Input: <computeroutput>&quot;arg1 arg2 \&quot;quoted string" arg3&quot;
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/wsh_shell_str.h" line="81" column="6" bodyfile="src/wsh_shell_str.c" bodystart="70" bodyend="77" declfile="src/wsh_shell_str.h" declline="81" declcolumn="6"/>
+        <location file="src/wsh_shell_str.h" line="81" column="6" bodyfile="src/wsh_shell_str.c" bodystart="76" bodyend="83" declfile="src/wsh_shell_str.h" declline="81" declcolumn="6"/>
       </memberdef>
       <memberdef kind="function" id="wsh__shell__str_8h_1a10832dc9d2d88b0577df9bac3e6e533e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -454,7 +454,7 @@ Example: Input: <computeroutput>&quot;arg1 arg2 \&quot;quoted string" arg3&quot;
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/wsh_shell_str.h" line="104" column="6" bodyfile="src/wsh_shell_str.c" bodystart="79" bodyend="89" declfile="src/wsh_shell_str.h" declline="104" declcolumn="6"/>
+        <location file="src/wsh_shell_str.h" line="104" column="6" bodyfile="src/wsh_shell_str.c" bodystart="85" bodyend="95" declfile="src/wsh_shell_str.h" declline="104" declcolumn="6"/>
       </memberdef>
       <memberdef kind="function" id="wsh__shell__str_8h_1a3807da453046b6283184e6021dd83c10" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -512,7 +512,7 @@ Example: Input: <computeroutput>&quot;arg1 arg2 \&quot;quoted string" arg3&quot;
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/wsh_shell_str.h" line="119" column="6" bodyfile="src/wsh_shell_str.c" bodystart="91" bodyend="101" declfile="src/wsh_shell_str.h" declline="119" declcolumn="6"/>
+        <location file="src/wsh_shell_str.h" line="119" column="6" bodyfile="src/wsh_shell_str.c" bodystart="97" bodyend="107" declfile="src/wsh_shell_str.h" declline="119" declcolumn="6"/>
       </memberdef>
       </sectiondef>
     <briefdescription>

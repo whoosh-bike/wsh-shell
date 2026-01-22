@@ -151,6 +151,7 @@
     <member refid="wsh__shell__cfg__def_8h_1aec8b61547ddf92fdef3cfff83bfa4c69" kind="define"><name>WSH_SHELL_AUTOCOMPLETE</name></member>
     <member refid="wsh__shell__cfg__def_8h_1a06a74857c8c0d5425f50e800c88d2f71" kind="define"><name>WSH_SHELL_AUTOCOMPLETE_PAD_LEN</name></member>
     <member refid="wsh__shell__cfg__def_8h_1ad78f3df270e130b8ea51a11bf1cabd60" kind="define"><name>WSH_SHELL_AUTOCOMPLETE_PAD_SYM</name></member>
+    <member refid="wsh__shell__cfg__def_8h_1ab37407b2ce6e4f223611ac88adb6412c" kind="define"><name>WSH_SHELL_AUTOCOMPLETE_MAX_CANDIDATES</name></member>
     <member refid="wsh__shell__cfg__def_8h_1ace6c2248b6a226bf1af40670065a1f17" kind="define"><name>WSH_SHELL_PS1_CUSTOM</name></member>
     <member refid="wsh__shell__cfg__def_8h_1a3892b3ae21a06cdb78603080f14e3f20" kind="define"><name>WSH_SHELL_PS1_TEMPLATE</name></member>
     <member refid="wsh__shell__cfg__def_8h_1a01654c8758d856de9ad5a6c90218c5e8" kind="define"><name>WSH_SHELL_PS1_MAX_LEN</name></member>
