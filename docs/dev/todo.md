@@ -72,6 +72,14 @@
 - [x] Fix VSCode task configurations
 - [x] Improve Makefile structure
 
+## v2.5 (Security & Stability Fixes)
+
+- [x] Fix typo in `WshShellCmd_FindOpt` parameter validation (`pcCmd || pcCmd` → `pcCmd || pcStr`)
+- [x] Add VLA stack overflow protection in autocomplete (check against `WSH_SHELL_AUTOCOMPLETE_MAX_CANDIDATES`)
+- [x] Add bounds checking before buffer copy in autocomplete to prevent buffer overflow
+- [x] Add secure erase of sensitive data (`saltPass`) in default hash function using volatile loop
+- [x] Add `volatile` qualifier to constant-time comparison variables to prevent compiler optimization
+- [x] Add validation for unclosed quotes in command parsing (`WshShellStr_ParseToArgcArgv`)
 
 ## v3.0
 

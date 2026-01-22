@@ -18,6 +18,14 @@ WshShell_Bool_t WshShellAutocomplete_Try(WshShell_Char_t* pInBuff, WshShell_Size
     const WshShellCmd_t* pcDefCmd = WshShellDefCmd_GetPtr();
 
     WshShell_Size_t cmdNum = WshShellCmd_GetCmdNum(pShellCommands);
+
+    // Check if number of commands exceeds safe stack allocation limit
+    if (cmdNum + 1 > WSH_SHELL_AUTOCOMPLETE_MAX_CANDIDATES) {
+        WSH_SHELL_PRINT_WARN("Too many commands for autocomplete (%d > %d)\r\n", cmdNum + 1,
+                             WSH_SHELL_AUTOCOMPLETE_MAX_CANDIDATES);
+        return false;
+    }
+
     WshShell_Char_t candidates[cmdNum + 1][WSH_SHELL_CMD_NAME_LEN];  // + one more for default cmd
     WshShell_Size_t matchCount      = 0;
     const WshShellCmd_t* pcCmdMatch = NULL;
@@ -79,7 +87,14 @@ WshShell_Bool_t WshShellAutocomplete_Try(WshShell_Char_t* pInBuff, WshShell_Size
             return false;
         }
 
-        WshShell_Size_t candLen  = WSH_SHELL_STRLEN(candidates[0]);
+        WshShell_Size_t candLen = WSH_SHELL_STRLEN(candidates[0]);
+
+        // Check if we have space for command + space + null terminator
+        if (candLen + 2 > WSH_SHELL_INTR_BUFF_LEN) {
+            WSH_SHELL_PRINT_WARN("Command name too long for buffer\r\n");
+            return false;
+        }
+
         candidates[0][candLen++] = ' ';  //add extra space if command found
         WSH_SHELL_STRNCPY(pInBuff, candidates[0], candLen);
         pInBuff[candLen] = '\0';
@@ -105,6 +120,11 @@ WshShell_Bool_t WshShellAutocomplete_Try(WshShell_Char_t* pInBuff, WshShell_Size
 
     // If common prefix is longer than input, extend input
     if (prefixLen > inBuffLen) {
+        // Check if prefix fits in buffer
+        if (prefixLen + 1 > WSH_SHELL_INTR_BUFF_LEN) {
+            WSH_SHELL_PRINT_WARN("Common prefix too long for buffer\r\n");
+            return false;
+        }
         WSH_SHELL_MEMCPY((void*)&pInBuff[inBuffLen], (void*)&candidates[0][inBuffLen],
                          prefixLen - inBuffLen);
         pInBuff[prefixLen] = '\0';
