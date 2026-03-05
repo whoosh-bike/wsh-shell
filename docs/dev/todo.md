@@ -39,6 +39,48 @@
 - [x] Review groups, permissions, and access levels for commands, users, and options; document them
 - [x] Check the same names for commands and options (if short and long options repited in one command or commands are same)
 
+## v2.4 (Security, Robustness & Developer Experience)
+
+### Security Improvements
+- [x] Implement constant-time comparison for login/password validation to prevent timing attacks
+- [x] Add secure memory zeroing for sensitive data (password hash buffer) using volatile loop
+- [x] Add comprehensive input validation for login and password lengths
+- [x] Improve credential checking with length validation before comparison
+
+### Robustness & Bug Fixes
+- [x] Fix potential fault in history read/write callbacks when history is not initialized
+- [x] Fix escape sequence bug in input handling
+- [x] Add duplicate detection for short and long option flags within commands (triggers ASSERT)
+- [x] Fix command line flush bug
+- [x] Fix argument processing flow
+- [x] Multiple small fixes and code quality improvements
+
+### Features & Enhancements
+- [x] Add history save support for interactive commands
+- [x] Add default command description to help output
+- [x] Add more detailed build information to shell startup banner (compiler, OS, build date/time)
+- [x] Add FreeRTOS version detection support
+- [x] Add `WSH_SHELL_PRINT_LEVEL` macro for better print control
+- [x] Add debug build flag support
+- [x] Review and document groups, permissions, and access levels system
+
+### Documentation & Tooling
+- [x] Update documentation for permission rules and access control
+- [x] Add ELF size analysis utility script
+- [x] Fix grammar and typos in documentation
+- [x] Update README with clearer examples
+- [x] Fix VSCode task configurations
+- [x] Improve Makefile structure
+
+## v2.5 (Security & Stability Fixes)
+
+- [x] Fix typo in `WshShellCmd_FindOpt` parameter validation (`pcCmd || pcCmd` → `pcCmd || pcStr`)
+- [x] Add VLA stack overflow protection in autocomplete (check against `WSH_SHELL_AUTOCOMPLETE_MAX_CANDIDATES`)
+- [x] Add bounds checking before buffer copy in autocomplete to prevent buffer overflow
+- [x] Add secure erase of sensitive data (`saltPass`) in default hash function using volatile loop
+- [x] Add `volatile` qualifier to constant-time comparison variables to prevent compiler optimization
+- [x] Add validation for unclosed quotes in command parsing (`WshShellStr_ParseToArgcArgv`)
+
 ## v3.0
 
 - [ ] Automate build and test runs via GitHub Actions

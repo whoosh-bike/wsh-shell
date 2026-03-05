@@ -59,6 +59,7 @@ build/
 .env
 .cmake
 .venv/
+*__pycache__*
 *.log
 .cache
 tags

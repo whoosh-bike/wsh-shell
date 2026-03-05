@@ -30,8 +30,8 @@ void WshShellStr_ParseToArgcArgv(WshShell_Char_t* pStr, WshShell_Size_t* pArgNum
         return;
 
     *pArgNum                 = 0;
-    WshShell_Bool_t inQuotes = false;
     WshShell_Size_t len      = WSH_SHELL_STRLEN(pStr);
+    WshShell_Bool_t inQuotes = false;
 
     for (WshShell_Size_t idx = 0; idx < len; idx++) {
         if (pStr[idx] == '\"') {
@@ -40,6 +40,12 @@ void WshShellStr_ParseToArgcArgv(WshShell_Char_t* pStr, WshShell_Size_t* pArgNum
         } else if (!inQuotes && pStr[idx] == ' ') {
             pStr[idx] = '\0';
         }
+    }
+
+    // Check for unclosed quotes
+    if (inQuotes) {
+        WSH_SHELL_PRINT_ERR("Parse error: unclosed quote\r\n");
+        return;
     }
 
     // Extract pointers to tokens
