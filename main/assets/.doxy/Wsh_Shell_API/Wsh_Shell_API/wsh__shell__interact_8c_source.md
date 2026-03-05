@@ -12,7 +12,7 @@
 
 #if WSH_SHELL_INTERACTIVE_MODE
 
-void WshShellInteract_Attach(WshShell_Interact_t* pInteract, const WshShell_Char_t* pcName,
+void WshShellInteract_Attach(WshShellInteract_t* pInteract, const WshShell_Char_t* pcName,
                              WshShellInteractive_CmdHandler_t handler) {
     WSH_SHELL_ASSERT(pInteract && pcName && handler);
     if (!pInteract || !pcName || !handler)
@@ -46,7 +46,7 @@ void WshShellInteract_AppendLineBreak(WshShellIO_CommandLine_t* pCommandLine) {
     }
 }
 
-void WshShellInteract_Flush(WshShell_Interact_t* pInteract) {
+void WshShellInteract_Flush(WshShellInteract_t* pInteract) {
     WSH_SHELL_ASSERT(pInteract);
     if (!pInteract)
         return;
@@ -57,7 +57,7 @@ void WshShellInteract_Flush(WshShell_Interact_t* pInteract) {
 
 #else /* WSH_SHELL_INTERACTIVE_MODE */
 
-void WshShellInteract_Attach(WshShell_Interact_t* pInteract, const WshShell_Char_t* pcName,
+void WshShellInteract_Attach(WshShellInteract_t* pInteract, const WshShell_Char_t* pcName,
                              WshShellInteractive_CmdHandler_t handler) {
     (void)(pInteract);
     (void)(pcName);
@@ -70,7 +70,7 @@ void WshShellInteract_AppendLineBreak(WshShellIO_CommandLine_t* pCommandLine) {
     (void)(pCommandLine);
 }
 
-void WshShellInteract_Flush(WshShell_Interact_t* pInteract) {
+void WshShellInteract_Flush(WshShellInteract_t* pInteract) {
     (void)(pInteract);
 }
 

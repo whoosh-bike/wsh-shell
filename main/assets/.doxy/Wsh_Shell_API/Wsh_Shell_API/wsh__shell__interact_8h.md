@@ -31,7 +31,7 @@ _Interactive command registration and line editing utilities for WshShell._ [Mor
 
 | Type | Name |
 | ---: | :--- |
-| struct | [**WshShell\_Interact\_t**](structWshShell__Interact__t.md) <br>_Interactive command registration structure._  |
+| struct | [**WshShellInteract\_t**](structWshShellInteract__t.md) <br>_Interactive command registration structure._  |
 
 
 ## Public Types
@@ -64,8 +64,8 @@ _Interactive command registration and line editing utilities for WshShell._ [Mor
 | Type | Name |
 | ---: | :--- |
 |  void | [**WshShellInteract\_AppendLineBreak**](#function-wshshellinteract_appendlinebreak) ([**WshShellIO\_CommandLine\_t**](structWshShellIO__CommandLine__t.md) \* pCommandLine) <br>_Appends a CRLF (_ `\r\n` _) sequence to the interaction buffer._ |
-|  void | [**WshShellInteract\_Attach**](#function-wshshellinteract_attach) ([**WshShell\_Interact\_t**](structWshShell__Interact__t.md) \* pInteract, const WshShell\_Char\_t \* pcName, [**WshShellInteractive\_CmdHandler\_t**](wsh__shell__interact_8h.md#typedef-wshshellinteractive_cmdhandler_t) handler) <br>_Registers an interactive command._  |
-|  void | [**WshShellInteract\_Flush**](#function-wshshellinteract_flush) ([**WshShell\_Interact\_t**](structWshShell__Interact__t.md) \* pInteract) <br>_Clears the contents of an interactive command slot._  |
+|  void | [**WshShellInteract\_Attach**](#function-wshshellinteract_attach) ([**WshShellInteract\_t**](structWshShellInteract__t.md) \* pInteract, const WshShell\_Char\_t \* pcName, [**WshShellInteractive\_CmdHandler\_t**](wsh__shell__interact_8h.md#typedef-wshshellinteractive_cmdhandler_t) handler) <br>_Registers an interactive command._  |
+|  void | [**WshShellInteract\_Flush**](#function-wshshellinteract_flush) ([**WshShellInteract\_t**](structWshShellInteract__t.md) \* pInteract) <br>_Clears the contents of an interactive command slot._  |
 
 
 
@@ -184,7 +184,7 @@ If the buffer is too full to append both characters, an error is printed.
 _Registers an interactive command._ 
 ```C++
 void WshShellInteract_Attach (
-    WshShell_Interact_t * pInteract,
+    WshShellInteract_t * pInteract,
     const WshShell_Char_t * pcName,
     WshShellInteractive_CmdHandler_t handler
 ) 
@@ -218,7 +218,7 @@ Attaches a named command and its execution function to the given interact struct
 _Clears the contents of an interactive command slot._ 
 ```C++
 void WshShellInteract_Flush (
-    WshShell_Interact_t * pInteract
+    WshShellInteract_t * pInteract
 ) 
 ```
 

@@ -65,7 +65,7 @@ _Escape sequence handling logic for WSH shell._ [More...](#detailed-description)
 
 | Type | Name |
 | ---: | :--- |
-|  void | [**WshShellEsc\_Handler**](#function-wshshellesc_handler) ([**WshShellHistory\_IO\_t**](structWshShellHistory__IO__t.md) \* pHistIO, [**WshShellIO\_CommandLine\_t**](structWshShellIO__CommandLine__t.md) \* pCommandLine, [**WshShellEsc\_Storage\_t**](structWshShellEsc__Storage__t.md) \* pEscStorage, const WshShell\_Char\_t symbol) <br>_Handles incoming escape sequence character._  |
+|  void | [**WshShellEsc\_Handler**](#function-wshshellesc_handler) ([**WshShellHistoryIO\_t**](structWshShellHistoryIO__t.md) \* pHistIO, [**WshShellIO\_CommandLine\_t**](structWshShellIO__CommandLine__t.md) \* pCommandLine, [**WshShellEsc\_Storage\_t**](structWshShellEsc__Storage__t.md) \* pEscStorage, const WshShell\_Char\_t symbol) <br>_Handles incoming escape sequence character._  |
 |  WshShell\_Bool\_t | [**WshShellEsc\_IsSeqStarted**](#function-wshshellesc_isseqstarted) ([**WshShellEsc\_Storage\_t**](structWshShellEsc__Storage__t.md) \* pEscStorage) <br>_Checks if escape sequence is in progress._  |
 |  void | [**WshShellEsc\_StartSeq**](#function-wshshellesc_startseq) ([**WshShellEsc\_Storage\_t**](structWshShellEsc__Storage__t.md) \* pEscStorage) <br>_Starts a new escape sequence._  |
 
@@ -129,7 +129,7 @@ Copyright (c) 2025
 
 _Escape sequence handler function type._ 
 ```C++
-typedef void(* WshShellEsc_Hadler_t) (WshShellHistory_IO_t *pHistIO, WshShellIO_CommandLine_t *pCommandLine);
+typedef void(* WshShellEsc_Hadler_t) (WshShellHistoryIO_t *pHistIO, WshShellIO_CommandLine_t *pCommandLine);
 ```
 
 
@@ -146,7 +146,7 @@ typedef void(* WshShellEsc_Hadler_t) (WshShellHistory_IO_t *pHistIO, WshShellIO_
 _Handles incoming escape sequence character._ 
 ```C++
 void WshShellEsc_Handler (
-    WshShellHistory_IO_t * pHistIO,
+    WshShellHistoryIO_t * pHistIO,
     WshShellIO_CommandLine_t * pCommandLine,
     WshShellEsc_Storage_t * pEscStorage,
     const WshShell_Char_t symbol

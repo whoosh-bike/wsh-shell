@@ -35,7 +35,7 @@ static void WshShell_InvitationPrint(WshShell_t* pShell) {
 
 WSH_SHELL_RET_STATE_t WshShell_Init(WshShell_t* pShell, const WshShell_Char_t* pcDevName,
                                     const WshShell_Char_t* pcCustomHeader,
-                                    WshShell_ExtCallbacks_t* pExtClbks) {
+                                    WshShellExtCallbacks_t* pExtClbks) {
     WSH_SHELL_ASSERT(pShell && pcDevName);
     if (!pShell || !pcDevName)
         return WSH_SHELL_RET_STATE_ERR_PARAM;
@@ -175,8 +175,12 @@ static void WshShell_StringHandler(WshShell_t* pShell) {
     const WshShell_Char_t* pсArgv[WSH_SHELL_CMD_ARGS_MAX_NUM] = {0};
 
     WshShellStr_ParseToArgcArgv(cmdStr, &argc, pсArgv, WSH_SHELL_CMD_ARGS_MAX_NUM);
-    if (argc == 0)
+    if (argc == 0) {
+        if (pShell->CommandLine.Len != 0)
+            WshShellIO_ClearInterBuff(&(pShell->CommandLine));
+
         return;
+    }
 
     WshShellHistory_SaveCmd(&(pShell->HistoryIO), pcCmdStr, WSH_SHELL_STRLEN(pcCmdStr));
 
@@ -195,6 +199,8 @@ static void WshShell_StringHandler(WshShell_t* pShell) {
             WSH_SHELL_PRINT_ERR(
                 "Access denied: no group intersection for command \"%s\" and user \"%s\"!\r\n",
                 pсArgv[0], pShell->CurrUser->Login);
+
+            WshShellIO_ClearInterBuff(&(pShell->CommandLine));
             return;
         }
     }

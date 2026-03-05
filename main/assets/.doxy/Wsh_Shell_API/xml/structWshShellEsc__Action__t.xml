@@ -19,7 +19,7 @@
         <location file="src/wsh_shell_esc.h" line="33" column="27" bodyfile="src/wsh_shell_esc.h" bodystart="33" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structWshShellEsc__Action__t_1afa794b7216c5acd42bcb94fa0297e177" prot="public" static="no" mutable="no">
-        <type><ref refid="wsh__shell__esc_8h_1a67d41ca544ed4097586248da3ec1b125" kindref="member">WshShellEsc_Hadler_t</ref></type>
+        <type><ref refid="wsh__shell__esc_8h_1a3bb94fa99f8ce55cc10ab698b5883452" kindref="member">WshShellEsc_Hadler_t</ref></type>
         <definition>WshShellEsc_Hadler_t WshShellEsc_Action_t::Handler</definition>
         <argsstring></argsstring>
         <name>Handler</name>
@@ -51,8 +51,8 @@
         <link refid="structWshShellHistory__Data__t"/>
       </node>
       <node id="2">
-        <label>WshShellHistory_IO_t</label>
-        <link refid="structWshShellHistory__IO__t"/>
+        <label>WshShellHistoryIO_t</label>
+        <link refid="structWshShellHistoryIO__t"/>
         <childnode refid="3" relation="usage">
           <edgelabel>Read</edgelabel>
           <edgelabel>Write</edgelabel>

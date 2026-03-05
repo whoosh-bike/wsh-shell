@@ -1,12 +1,12 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
 <doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
-  <compounddef id="structWshShell__ExtCallbacks__t" kind="struct" language="C++" prot="public">
-    <compoundname>WshShell_ExtCallbacks_t</compoundname>
+  <compounddef id="structWshShellExtCallbacks__t" kind="struct" language="C++" prot="public">
+    <compoundname>WshShellExtCallbacks_t</compoundname>
     <includes refid="wsh__shell_8h" local="no">wsh_shell.h</includes>
       <sectiondef kind="public-attrib">
-      <memberdef kind="variable" id="structWshShell__ExtCallbacks__t_1a0b03edf67c931680283cbaba80cb7872" prot="public" static="no" mutable="no">
+      <memberdef kind="variable" id="structWshShellExtCallbacks__t_1a03fb0506610537a45ac0a6206b1b8489" prot="public" static="no" mutable="no">
         <type><ref refid="wsh__shell_8h_1a31ac89f2d478911c46e3e6c2142c1ac1" kindref="member">WshShell_ExtClbk_t</ref></type>
-        <definition>WshShell_ExtClbk_t WshShell_ExtCallbacks_t::Auth</definition>
+        <definition>WshShell_ExtClbk_t WshShellExtCallbacks_t::Auth</definition>
         <argsstring></argsstring>
         <name>Auth</name>
         <briefdescription>
@@ -18,9 +18,9 @@
         </inbodydescription>
         <location file="src/wsh_shell.h" line="73" column="24" bodyfile="src/wsh_shell.h" bodystart="73" bodyend="-1"/>
       </memberdef>
-      <memberdef kind="variable" id="structWshShell__ExtCallbacks__t_1ac6085f9f20e72db0b2bf065803b05ac2" prot="public" static="no" mutable="no">
+      <memberdef kind="variable" id="structWshShellExtCallbacks__t_1ac73c17731bcc32026ce0d3a647887d96" prot="public" static="no" mutable="no">
         <type><ref refid="wsh__shell_8h_1a31ac89f2d478911c46e3e6c2142c1ac1" kindref="member">WshShell_ExtClbk_t</ref></type>
-        <definition>WshShell_ExtClbk_t WshShell_ExtCallbacks_t::DeAuth</definition>
+        <definition>WshShell_ExtClbk_t WshShellExtCallbacks_t::DeAuth</definition>
         <argsstring></argsstring>
         <name>DeAuth</name>
         <briefdescription>
@@ -32,9 +32,9 @@
         </inbodydescription>
         <location file="src/wsh_shell.h" line="74" column="24" bodyfile="src/wsh_shell.h" bodystart="74" bodyend="-1"/>
       </memberdef>
-      <memberdef kind="variable" id="structWshShell__ExtCallbacks__t_1a3d7c3cefe86078e837e5a6a21751a3ed" prot="public" static="no" mutable="no">
+      <memberdef kind="variable" id="structWshShellExtCallbacks__t_1a73dbdf5ca3361a36147dc391a251be18" prot="public" static="no" mutable="no">
         <type><ref refid="wsh__shell_8h_1a31ac89f2d478911c46e3e6c2142c1ac1" kindref="member">WshShell_ExtClbk_t</ref></type>
-        <definition>WshShell_ExtClbk_t WshShell_ExtCallbacks_t::SymbolIn</definition>
+        <definition>WshShell_ExtClbk_t WshShellExtCallbacks_t::SymbolIn</definition>
         <argsstring></argsstring>
         <name>SymbolIn</name>
         <briefdescription>
@@ -54,9 +54,9 @@
     </detaileddescription>
     <location file="src/wsh_shell.h" line="72" column="1" bodyfile="src/wsh_shell.h" bodystart="72" bodyend="76"/>
     <listofallmembers>
-      <member refid="structWshShell__ExtCallbacks__t_1a0b03edf67c931680283cbaba80cb7872" prot="public" virt="non-virtual"><scope>WshShell_ExtCallbacks_t</scope><name>Auth</name></member>
-      <member refid="structWshShell__ExtCallbacks__t_1ac6085f9f20e72db0b2bf065803b05ac2" prot="public" virt="non-virtual"><scope>WshShell_ExtCallbacks_t</scope><name>DeAuth</name></member>
-      <member refid="structWshShell__ExtCallbacks__t_1a3d7c3cefe86078e837e5a6a21751a3ed" prot="public" virt="non-virtual"><scope>WshShell_ExtCallbacks_t</scope><name>SymbolIn</name></member>
+      <member refid="structWshShellExtCallbacks__t_1a03fb0506610537a45ac0a6206b1b8489" prot="public" virt="non-virtual"><scope>WshShellExtCallbacks_t</scope><name>Auth</name></member>
+      <member refid="structWshShellExtCallbacks__t_1ac73c17731bcc32026ce0d3a647887d96" prot="public" virt="non-virtual"><scope>WshShellExtCallbacks_t</scope><name>DeAuth</name></member>
+      <member refid="structWshShellExtCallbacks__t_1a73dbdf5ca3361a36147dc391a251be18" prot="public" virt="non-virtual"><scope>WshShellExtCallbacks_t</scope><name>SymbolIn</name></member>
     </listofallmembers>
   </compounddef>
 </doxygen>

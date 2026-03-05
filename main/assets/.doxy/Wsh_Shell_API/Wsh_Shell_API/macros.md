@@ -31,6 +31,7 @@
 * **WSH\_SHELL\_USER\_IS\_AUTH** ([**wsh\_shell.c**](wsh__shell_8c.md))
 * **WSH\_SHELL\_ASSERT** ([**wsh\_shell\_cfg\_def.h**](wsh__shell__cfg__def_8h.md))
 * **WSH\_SHELL\_AUTOCOMPLETE** ([**wsh\_shell\_cfg\_def.h**](wsh__shell__cfg__def_8h.md))
+* **WSH\_SHELL\_AUTOCOMPLETE\_MAX\_CANDIDATES** ([**wsh\_shell\_cfg\_def.h**](wsh__shell__cfg__def_8h.md))
 * **WSH\_SHELL\_AUTOCOMPLETE\_PAD\_LEN** ([**wsh\_shell\_cfg\_def.h**](wsh__shell__cfg__def_8h.md))
 * **WSH\_SHELL\_AUTOCOMPLETE\_PAD\_SYM** ([**wsh\_shell\_cfg\_def.h**](wsh__shell__cfg__def_8h.md))
 * **WSH\_SHELL\_CMD\_ARGS\_MAX\_NUM** ([**wsh\_shell\_cfg\_def.h**](wsh__shell__cfg__def_8h.md))

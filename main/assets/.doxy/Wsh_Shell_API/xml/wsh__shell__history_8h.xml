@@ -138,7 +138,7 @@
     </invincdepgraph>
     <innerclass refid="structWshShellHistory__Data__t" prot="public">WshShellHistory_Data_t</innerclass>
     <innerclass refid="structWshShellHistory__t" prot="public">WshShellHistory_t</innerclass>
-    <innerclass refid="structWshShellHistory__IO__t" prot="public">WshShellHistory_IO_t</innerclass>
+    <innerclass refid="structWshShellHistoryIO__t" prot="public">WshShellHistoryIO_t</innerclass>
       <sectiondef kind="enum">
       <memberdef kind="enum" id="wsh__shell__history_8h_1a036107f17cb0ba9105b8832cd7a91e25" prot="public" static="no" strong="no">
         <type></type>
@@ -201,13 +201,13 @@
       </memberdef>
       </sectiondef>
       <sectiondef kind="func">
-      <memberdef kind="function" id="wsh__shell__history_8h_1a6901119a26ff598ae3ad85ad6e918f74" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="wsh__shell__history_8h_1aed2006e067226b0f762f2e6b322874df" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
         <definition>void WshShellHistory_Init</definition>
-        <argsstring>(WshShellHistory_IO_t *pHistIO, WshShellHistory_ReadHandler_t readFn, WshShellHistory_WriteHandler_t writeFn)</argsstring>
+        <argsstring>(WshShellHistoryIO_t *pHistIO, WshShellHistory_ReadHandler_t readFn, WshShellHistory_WriteHandler_t writeFn)</argsstring>
         <name>WshShellHistory_Init</name>
         <param>
-          <type><ref refid="structWshShellHistory__IO__t" kindref="compound">WshShellHistory_IO_t</ref> *</type>
+          <type><ref refid="structWshShellHistoryIO__t" kindref="compound">WshShellHistoryIO_t</ref> *</type>
           <declname>pHistIO</declname>
         </param>
         <param>
@@ -254,13 +254,13 @@
         </inbodydescription>
         <location file="src/wsh_shell_history.h" line="88" column="6" bodyfile="src/wsh_shell_history.c" bodystart="274" bodyend="279" declfile="src/wsh_shell_history.h" declline="88" declcolumn="6"/>
       </memberdef>
-      <memberdef kind="function" id="wsh__shell__history_8h_1a67a10560defd9e51aa9caa17fc974b99" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="wsh__shell__history_8h_1a39c9d7a6e368d601a2071733721de8bb" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
         <definition>void WshShellHistory_SaveCmd</definition>
-        <argsstring>(WshShellHistory_IO_t *pHistIO, const WshShell_Char_t *pcCmdStr, WshShell_Size_t cmdStrLen)</argsstring>
+        <argsstring>(WshShellHistoryIO_t *pHistIO, const WshShell_Char_t *pcCmdStr, WshShell_Size_t cmdStrLen)</argsstring>
         <name>WshShellHistory_SaveCmd</name>
         <param>
-          <type><ref refid="structWshShellHistory__IO__t" kindref="compound">WshShellHistory_IO_t</ref> *</type>
+          <type><ref refid="structWshShellHistoryIO__t" kindref="compound">WshShellHistoryIO_t</ref> *</type>
           <declname>pHistIO</declname>
         </param>
         <param>
@@ -306,13 +306,13 @@
         </inbodydescription>
         <location file="src/wsh_shell_history.h" line="98" column="6" bodyfile="src/wsh_shell_history.c" bodystart="281" bodyend="286" declfile="src/wsh_shell_history.h" declline="98" declcolumn="6"/>
       </memberdef>
-      <memberdef kind="function" id="wsh__shell__history_8h_1a1e747efc6ac5cedda5cb4ba85326db6f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="wsh__shell__history_8h_1a7d023247022276a694826e3797eadb8f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>WshShell_Size_t</type>
         <definition>WshShell_Size_t WshShellHistory_GetPrevCmd</definition>
-        <argsstring>(WshShellHistory_IO_t *pHistIO, WshShell_Char_t *pOutBuff, WshShell_Size_t outBuffSize)</argsstring>
+        <argsstring>(WshShellHistoryIO_t *pHistIO, WshShell_Char_t *pOutBuff, WshShell_Size_t outBuffSize)</argsstring>
         <name>WshShellHistory_GetPrevCmd</name>
         <param>
-          <type><ref refid="structWshShellHistory__IO__t" kindref="compound">WshShellHistory_IO_t</ref> *</type>
+          <type><ref refid="structWshShellHistoryIO__t" kindref="compound">WshShellHistoryIO_t</ref> *</type>
           <declname>pHistIO</declname>
         </param>
         <param>
@@ -360,13 +360,13 @@
         </inbodydescription>
         <location file="src/wsh_shell_history.h" line="110" column="17" bodyfile="src/wsh_shell_history.c" bodystart="288" bodyend="295" declfile="src/wsh_shell_history.h" declline="110" declcolumn="17"/>
       </memberdef>
-      <memberdef kind="function" id="wsh__shell__history_8h_1a44207937739d4295df858ad57b42b29b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="wsh__shell__history_8h_1a40632cd1c16806aa226b21efa9636bb1" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>WshShell_Size_t</type>
         <definition>WshShell_Size_t WshShellHistory_GetNextCmd</definition>
-        <argsstring>(WshShellHistory_IO_t *pHistIO, WshShell_Char_t *pOutBuff, WshShell_Size_t outBuffSize)</argsstring>
+        <argsstring>(WshShellHistoryIO_t *pHistIO, WshShell_Char_t *pOutBuff, WshShell_Size_t outBuffSize)</argsstring>
         <name>WshShellHistory_GetNextCmd</name>
         <param>
-          <type><ref refid="structWshShellHistory__IO__t" kindref="compound">WshShellHistory_IO_t</ref> *</type>
+          <type><ref refid="structWshShellHistoryIO__t" kindref="compound">WshShellHistoryIO_t</ref> *</type>
           <declname>pHistIO</declname>
         </param>
         <param>
@@ -414,13 +414,13 @@
         </inbodydescription>
         <location file="src/wsh_shell_history.h" line="122" column="17" bodyfile="src/wsh_shell_history.c" bodystart="297" bodyend="304" declfile="src/wsh_shell_history.h" declline="122" declcolumn="17"/>
       </memberdef>
-      <memberdef kind="function" id="wsh__shell__history_8h_1a1b4586617b550312b9493a08228a9f71" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="wsh__shell__history_8h_1a14a9bb940533ed3fe236ca54e248faf4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>WshShell_Size_t</type>
         <definition>WshShell_Size_t WshShellHistory_GetTokenNum</definition>
-        <argsstring>(WshShellHistory_IO_t *pHistIO)</argsstring>
+        <argsstring>(WshShellHistoryIO_t *pHistIO)</argsstring>
         <name>WshShellHistory_GetTokenNum</name>
         <param>
-          <type><ref refid="structWshShellHistory__IO__t" kindref="compound">WshShellHistory_IO_t</ref> *</type>
+          <type><ref refid="structWshShellHistoryIO__t" kindref="compound">WshShellHistoryIO_t</ref> *</type>
           <declname>pHistIO</declname>
         </param>
         <briefdescription>
@@ -445,13 +445,13 @@
         </inbodydescription>
         <location file="src/wsh_shell_history.h" line="135" column="17" bodyfile="src/wsh_shell_history.c" bodystart="306" bodyend="310" declfile="src/wsh_shell_history.h" declline="135" declcolumn="17"/>
       </memberdef>
-      <memberdef kind="function" id="wsh__shell__history_8h_1ad22b979dd885a6890f39ed7ac743c1d7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="wsh__shell__history_8h_1a70f1c52c232d74554197e87db727090e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>WshShell_Size_t</type>
         <definition>WshShell_Size_t WshShellHistory_GetTokenByIndex</definition>
-        <argsstring>(WshShellHistory_IO_t *pHistIO, WshShell_Char_t *pOutBuff, WshShell_Size_t outBuffSize, WshShell_Size_t index)</argsstring>
+        <argsstring>(WshShellHistoryIO_t *pHistIO, WshShell_Char_t *pOutBuff, WshShell_Size_t outBuffSize, WshShell_Size_t index)</argsstring>
         <name>WshShellHistory_GetTokenByIndex</name>
         <param>
-          <type><ref refid="structWshShellHistory__IO__t" kindref="compound">WshShellHistory_IO_t</ref> *</type>
+          <type><ref refid="structWshShellHistoryIO__t" kindref="compound">WshShellHistoryIO_t</ref> *</type>
           <declname>pHistIO</declname>
         </param>
         <param>
@@ -512,13 +512,13 @@
         </inbodydescription>
         <location file="src/wsh_shell_history.h" line="150" column="17" bodyfile="src/wsh_shell_history.c" bodystart="312" bodyend="322" declfile="src/wsh_shell_history.h" declline="150" declcolumn="17"/>
       </memberdef>
-      <memberdef kind="function" id="wsh__shell__history_8h_1aee963c89139b4ea9419b13dfdc6b64a1" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="wsh__shell__history_8h_1a355889fab9547a5dc045776d56793f44" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
         <definition>void WshShellHistory_Flush</definition>
-        <argsstring>(WshShellHistory_IO_t *pHistIO)</argsstring>
+        <argsstring>(WshShellHistoryIO_t *pHistIO)</argsstring>
         <name>WshShellHistory_Flush</name>
         <param>
-          <type><ref refid="structWshShellHistory__IO__t" kindref="compound">WshShellHistory_IO_t</ref> *</type>
+          <type><ref refid="structWshShellHistoryIO__t" kindref="compound">WshShellHistoryIO_t</ref> *</type>
           <declname>pHistIO</declname>
         </param>
         <briefdescription>
@@ -589,30 +589,30 @@
 <codeline lineno="61"><highlight class="normal"></highlight></codeline>
 <codeline lineno="65" refid="wsh__shell__history_8h_1a6c3f231f284abd001c0c405bde299bde" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/>void<sp/>(*<ref refid="wsh__shell__history_8h_1a6c3f231f284abd001c0c405bde299bde" kindref="member">WshShellHistory_WriteHandler_t</ref>)(<ref refid="structWshShellHistory__t" kindref="compound">WshShellHistory_t</ref>);</highlight></codeline>
 <codeline lineno="66"><highlight class="normal"></highlight></codeline>
-<codeline lineno="73" refid="structWshShellHistory__IO__t" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal">{</highlight></codeline>
-<codeline lineno="74" refid="structWshShellHistory__IO__t_1a94e168c22b74260b6e6d7b1c555ec1e1" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="wsh__shell__history_8h_1a6deaaf9be341ddc04ffb1cf8e78d3e11" kindref="member">WshShellHistory_ReadHandler_t</ref><sp/><ref refid="structWshShellHistory__IO__t_1a94e168c22b74260b6e6d7b1c555ec1e1" kindref="member">Read</ref>;<sp/><sp/><sp/></highlight></codeline>
-<codeline lineno="75" refid="structWshShellHistory__IO__t_1af3f6eccf6e1be7d473a390f24b7c1bdc" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="wsh__shell__history_8h_1a6c3f231f284abd001c0c405bde299bde" kindref="member">WshShellHistory_WriteHandler_t</ref><sp/><ref refid="structWshShellHistory__IO__t_1af3f6eccf6e1be7d473a390f24b7c1bdc" kindref="member">Write</ref>;<sp/></highlight></codeline>
-<codeline lineno="76"><highlight class="normal">}<sp/><ref refid="structWshShellHistory__IO__t" kindref="compound">WshShellHistory_IO_t</ref>;</highlight></codeline>
+<codeline lineno="73" refid="structWshShellHistoryIO__t" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="74" refid="structWshShellHistoryIO__t_1a32a7aa1ac4ef4dc2aa768dad0ec14e1d" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="wsh__shell__history_8h_1a6deaaf9be341ddc04ffb1cf8e78d3e11" kindref="member">WshShellHistory_ReadHandler_t</ref><sp/><ref refid="structWshShellHistoryIO__t_1a32a7aa1ac4ef4dc2aa768dad0ec14e1d" kindref="member">Read</ref>;<sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="75" refid="structWshShellHistoryIO__t_1a4b8db2d89384b8c5996ba50ceb4bd5a6" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="wsh__shell__history_8h_1a6c3f231f284abd001c0c405bde299bde" kindref="member">WshShellHistory_WriteHandler_t</ref><sp/><ref refid="structWshShellHistoryIO__t_1a4b8db2d89384b8c5996ba50ceb4bd5a6" kindref="member">Write</ref>;<sp/></highlight></codeline>
+<codeline lineno="76"><highlight class="normal">}<sp/><ref refid="structWshShellHistoryIO__t" kindref="compound">WshShellHistoryIO_t</ref>;</highlight></codeline>
 <codeline lineno="77"><highlight class="normal"></highlight></codeline>
-<codeline lineno="88"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="wsh__shell__history_8h_1a6901119a26ff598ae3ad85ad6e918f74" kindref="member">WshShellHistory_Init</ref>(<ref refid="structWshShellHistory__IO__t" kindref="compound">WshShellHistory_IO_t</ref>*<sp/>pHistIO,<sp/><ref refid="wsh__shell__history_8h_1a6deaaf9be341ddc04ffb1cf8e78d3e11" kindref="member">WshShellHistory_ReadHandler_t</ref><sp/>readFn,</highlight></codeline>
+<codeline lineno="88"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="wsh__shell__history_8h_1aed2006e067226b0f762f2e6b322874df" kindref="member">WshShellHistory_Init</ref>(<ref refid="structWshShellHistoryIO__t" kindref="compound">WshShellHistoryIO_t</ref>*<sp/>pHistIO,<sp/><ref refid="wsh__shell__history_8h_1a6deaaf9be341ddc04ffb1cf8e78d3e11" kindref="member">WshShellHistory_ReadHandler_t</ref><sp/>readFn,</highlight></codeline>
 <codeline lineno="89"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="wsh__shell__history_8h_1a6c3f231f284abd001c0c405bde299bde" kindref="member">WshShellHistory_WriteHandler_t</ref><sp/>writeFn);</highlight></codeline>
 <codeline lineno="90"><highlight class="normal"></highlight></codeline>
-<codeline lineno="98"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="wsh__shell__history_8h_1a67a10560defd9e51aa9caa17fc974b99" kindref="member">WshShellHistory_SaveCmd</ref>(<ref refid="structWshShellHistory__IO__t" kindref="compound">WshShellHistory_IO_t</ref>*<sp/>pHistIO,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>WshShell_Char_t*<sp/>pcCmdStr,</highlight></codeline>
+<codeline lineno="98"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="wsh__shell__history_8h_1a39c9d7a6e368d601a2071733721de8bb" kindref="member">WshShellHistory_SaveCmd</ref>(<ref refid="structWshShellHistoryIO__t" kindref="compound">WshShellHistoryIO_t</ref>*<sp/>pHistIO,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>WshShell_Char_t*<sp/>pcCmdStr,</highlight></codeline>
 <codeline lineno="99"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>WshShell_Size_t<sp/>cmdStrLen);</highlight></codeline>
 <codeline lineno="100"><highlight class="normal"></highlight></codeline>
-<codeline lineno="110"><highlight class="normal">WshShell_Size_t<sp/><ref refid="wsh__shell__history_8h_1a1e747efc6ac5cedda5cb4ba85326db6f" kindref="member">WshShellHistory_GetPrevCmd</ref>(<ref refid="structWshShellHistory__IO__t" kindref="compound">WshShellHistory_IO_t</ref>*<sp/>pHistIO,<sp/>WshShell_Char_t*<sp/>pOutBuff,</highlight></codeline>
+<codeline lineno="110"><highlight class="normal">WshShell_Size_t<sp/><ref refid="wsh__shell__history_8h_1a7d023247022276a694826e3797eadb8f" kindref="member">WshShellHistory_GetPrevCmd</ref>(<ref refid="structWshShellHistoryIO__t" kindref="compound">WshShellHistoryIO_t</ref>*<sp/>pHistIO,<sp/>WshShell_Char_t*<sp/>pOutBuff,</highlight></codeline>
 <codeline lineno="111"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>WshShell_Size_t<sp/>outBuffSize);</highlight></codeline>
 <codeline lineno="112"><highlight class="normal"></highlight></codeline>
-<codeline lineno="122"><highlight class="normal">WshShell_Size_t<sp/><ref refid="wsh__shell__history_8h_1a44207937739d4295df858ad57b42b29b" kindref="member">WshShellHistory_GetNextCmd</ref>(<ref refid="structWshShellHistory__IO__t" kindref="compound">WshShellHistory_IO_t</ref>*<sp/>pHistIO,<sp/>WshShell_Char_t*<sp/>pOutBuff,</highlight></codeline>
+<codeline lineno="122"><highlight class="normal">WshShell_Size_t<sp/><ref refid="wsh__shell__history_8h_1a40632cd1c16806aa226b21efa9636bb1" kindref="member">WshShellHistory_GetNextCmd</ref>(<ref refid="structWshShellHistoryIO__t" kindref="compound">WshShellHistoryIO_t</ref>*<sp/>pHistIO,<sp/>WshShell_Char_t*<sp/>pOutBuff,</highlight></codeline>
 <codeline lineno="123"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>WshShell_Size_t<sp/>outBuffSize);</highlight></codeline>
 <codeline lineno="124"><highlight class="normal"></highlight></codeline>
-<codeline lineno="135"><highlight class="normal">WshShell_Size_t<sp/><ref refid="wsh__shell__history_8h_1a1b4586617b550312b9493a08228a9f71" kindref="member">WshShellHistory_GetTokenNum</ref>(<ref refid="structWshShellHistory__IO__t" kindref="compound">WshShellHistory_IO_t</ref>*<sp/>pHistIO);</highlight></codeline>
+<codeline lineno="135"><highlight class="normal">WshShell_Size_t<sp/><ref refid="wsh__shell__history_8h_1a14a9bb940533ed3fe236ca54e248faf4" kindref="member">WshShellHistory_GetTokenNum</ref>(<ref refid="structWshShellHistoryIO__t" kindref="compound">WshShellHistoryIO_t</ref>*<sp/>pHistIO);</highlight></codeline>
 <codeline lineno="136"><highlight class="normal"></highlight></codeline>
-<codeline lineno="150"><highlight class="normal">WshShell_Size_t<sp/><ref refid="wsh__shell__history_8h_1ad22b979dd885a6890f39ed7ac743c1d7" kindref="member">WshShellHistory_GetTokenByIndex</ref>(<ref refid="structWshShellHistory__IO__t" kindref="compound">WshShellHistory_IO_t</ref>*<sp/>pHistIO,</highlight></codeline>
+<codeline lineno="150"><highlight class="normal">WshShell_Size_t<sp/><ref refid="wsh__shell__history_8h_1a70f1c52c232d74554197e87db727090e" kindref="member">WshShellHistory_GetTokenByIndex</ref>(<ref refid="structWshShellHistoryIO__t" kindref="compound">WshShellHistoryIO_t</ref>*<sp/>pHistIO,</highlight></codeline>
 <codeline lineno="151"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>WshShell_Char_t*<sp/>pOutBuff,</highlight></codeline>
 <codeline lineno="152"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>WshShell_Size_t<sp/>outBuffSize,<sp/>WshShell_Size_t<sp/>index);</highlight></codeline>
 <codeline lineno="153"><highlight class="normal"></highlight></codeline>
-<codeline lineno="159"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="wsh__shell__history_8h_1aee963c89139b4ea9419b13dfdc6b64a1" kindref="member">WshShellHistory_Flush</ref>(<ref refid="structWshShellHistory__IO__t" kindref="compound">WshShellHistory_IO_t</ref>*<sp/>pHistIO);</highlight></codeline>
+<codeline lineno="159"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="wsh__shell__history_8h_1a355889fab9547a5dc045776d56793f44" kindref="member">WshShellHistory_Flush</ref>(<ref refid="structWshShellHistoryIO__t" kindref="compound">WshShellHistoryIO_t</ref>*<sp/>pHistIO);</highlight></codeline>
 <codeline lineno="160"><highlight class="normal"></highlight></codeline>
 <codeline lineno="161"><highlight class="normal"></highlight><highlight class="preprocessor">#ifdef<sp/>__cplusplus</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="162"><highlight class="normal">}</highlight></codeline>

@@ -33,8 +33,8 @@ _Shell history management API._ [More...](#detailed-description)
 
 | Type | Name |
 | ---: | :--- |
+| struct | [**WshShellHistoryIO\_t**](structWshShellHistoryIO__t.md) <br>_Structure holding function pointers for history persistence I/O._  |
 | struct | [**WshShellHistory\_Data\_t**](structWshShellHistory__Data__t.md) <br>_Internal structure for storing command history buffer._  |
-| struct | [**WshShellHistory\_IO\_t**](structWshShellHistory__IO__t.md) <br>_Structure holding function pointers for history persistence I/O._  |
 | struct | [**WshShellHistory\_t**](structWshShellHistory__t.md) <br>_Shell history structure with integrity check._  |
 
 
@@ -69,13 +69,13 @@ _Shell history management API._ [More...](#detailed-description)
 
 | Type | Name |
 | ---: | :--- |
-|  void | [**WshShellHistory\_Flush**](#function-wshshellhistory_flush) ([**WshShellHistory\_IO\_t**](structWshShellHistory__IO__t.md) \* pHistIO) <br>_Clear the command history buffer._  |
-|  WshShell\_Size\_t | [**WshShellHistory\_GetNextCmd**](#function-wshshellhistory_getnextcmd) ([**WshShellHistory\_IO\_t**](structWshShellHistory__IO__t.md) \* pHistIO, WshShell\_Char\_t \* pOutBuff, WshShell\_Size\_t outBuffSize) <br>_Retrieve the next command from history._  |
-|  WshShell\_Size\_t | [**WshShellHistory\_GetPrevCmd**](#function-wshshellhistory_getprevcmd) ([**WshShellHistory\_IO\_t**](structWshShellHistory__IO__t.md) \* pHistIO, WshShell\_Char\_t \* pOutBuff, WshShell\_Size\_t outBuffSize) <br>_Retrieve the previous command from history._  |
-|  WshShell\_Size\_t | [**WshShellHistory\_GetTokenByIndex**](#function-wshshellhistory_gettokenbyindex) ([**WshShellHistory\_IO\_t**](structWshShellHistory__IO__t.md) \* pHistIO, WshShell\_Char\_t \* pOutBuff, WshShell\_Size\_t outBuffSize, WshShell\_Size\_t index) <br>_Retrieve a command from history by its index._  |
-|  WshShell\_Size\_t | [**WshShellHistory\_GetTokenNum**](#function-wshshellhistory_gettokennum) ([**WshShellHistory\_IO\_t**](structWshShellHistory__IO__t.md) \* pHistIO) <br>_Get the total number of commands stored in history._  |
-|  void | [**WshShellHistory\_Init**](#function-wshshellhistory_init) ([**WshShellHistory\_IO\_t**](structWshShellHistory__IO__t.md) \* pHistIO, [**WshShellHistory\_ReadHandler\_t**](wsh__shell__history_8h.md#typedef-wshshellhistory_readhandler_t) readFn, [**WshShellHistory\_WriteHandler\_t**](wsh__shell__history_8h.md#typedef-wshshellhistory_writehandler_t) writeFn) <br>_Initialize the shell history system with custom I/O functions._  |
-|  void | [**WshShellHistory\_SaveCmd**](#function-wshshellhistory_savecmd) ([**WshShellHistory\_IO\_t**](structWshShellHistory__IO__t.md) \* pHistIO, const WshShell\_Char\_t \* pcCmdStr, WshShell\_Size\_t cmdStrLen) <br>_Save a new command to the history buffer._  |
+|  void | [**WshShellHistory\_Flush**](#function-wshshellhistory_flush) ([**WshShellHistoryIO\_t**](structWshShellHistoryIO__t.md) \* pHistIO) <br>_Clear the command history buffer._  |
+|  WshShell\_Size\_t | [**WshShellHistory\_GetNextCmd**](#function-wshshellhistory_getnextcmd) ([**WshShellHistoryIO\_t**](structWshShellHistoryIO__t.md) \* pHistIO, WshShell\_Char\_t \* pOutBuff, WshShell\_Size\_t outBuffSize) <br>_Retrieve the next command from history._  |
+|  WshShell\_Size\_t | [**WshShellHistory\_GetPrevCmd**](#function-wshshellhistory_getprevcmd) ([**WshShellHistoryIO\_t**](structWshShellHistoryIO__t.md) \* pHistIO, WshShell\_Char\_t \* pOutBuff, WshShell\_Size\_t outBuffSize) <br>_Retrieve the previous command from history._  |
+|  WshShell\_Size\_t | [**WshShellHistory\_GetTokenByIndex**](#function-wshshellhistory_gettokenbyindex) ([**WshShellHistoryIO\_t**](structWshShellHistoryIO__t.md) \* pHistIO, WshShell\_Char\_t \* pOutBuff, WshShell\_Size\_t outBuffSize, WshShell\_Size\_t index) <br>_Retrieve a command from history by its index._  |
+|  WshShell\_Size\_t | [**WshShellHistory\_GetTokenNum**](#function-wshshellhistory_gettokennum) ([**WshShellHistoryIO\_t**](structWshShellHistoryIO__t.md) \* pHistIO) <br>_Get the total number of commands stored in history._  |
+|  void | [**WshShellHistory\_Init**](#function-wshshellhistory_init) ([**WshShellHistoryIO\_t**](structWshShellHistoryIO__t.md) \* pHistIO, [**WshShellHistory\_ReadHandler\_t**](wsh__shell__history_8h.md#typedef-wshshellhistory_readhandler_t) readFn, [**WshShellHistory\_WriteHandler\_t**](wsh__shell__history_8h.md#typedef-wshshellhistory_writehandler_t) writeFn) <br>_Initialize the shell history system with custom I/O functions._  |
+|  void | [**WshShellHistory\_SaveCmd**](#function-wshshellhistory_savecmd) ([**WshShellHistoryIO\_t**](structWshShellHistoryIO__t.md) \* pHistIO, const WshShell\_Char\_t \* pcCmdStr, WshShell\_Size\_t cmdStrLen) <br>_Save a new command to the history buffer._  |
 
 
 
@@ -185,7 +185,7 @@ typedef void(* WshShellHistory_WriteHandler_t) (WshShellHistory_t);
 _Clear the command history buffer._ 
 ```C++
 void WshShellHistory_Flush (
-    WshShellHistory_IO_t * pHistIO
+    WshShellHistoryIO_t * pHistIO
 ) 
 ```
 
@@ -212,7 +212,7 @@ void WshShellHistory_Flush (
 _Retrieve the next command from history._ 
 ```C++
 WshShell_Size_t WshShellHistory_GetNextCmd (
-    WshShellHistory_IO_t * pHistIO,
+    WshShellHistoryIO_t * pHistIO,
     WshShell_Char_t * pOutBuff,
     WshShell_Size_t outBuffSize
 ) 
@@ -250,7 +250,7 @@ Length of the retrieved command.
 _Retrieve the previous command from history._ 
 ```C++
 WshShell_Size_t WshShellHistory_GetPrevCmd (
-    WshShellHistory_IO_t * pHistIO,
+    WshShellHistoryIO_t * pHistIO,
     WshShell_Char_t * pOutBuff,
     WshShell_Size_t outBuffSize
 ) 
@@ -288,7 +288,7 @@ Length of the retrieved command.
 _Retrieve a command from history by its index._ 
 ```C++
 WshShell_Size_t WshShellHistory_GetTokenByIndex (
-    WshShellHistory_IO_t * pHistIO,
+    WshShellHistoryIO_t * pHistIO,
     WshShell_Char_t * pOutBuff,
     WshShell_Size_t outBuffSize,
     WshShell_Size_t index
@@ -331,7 +331,7 @@ Length of the retrieved command, or 0 if not found or buffer too small.
 _Get the total number of commands stored in history._ 
 ```C++
 WshShell_Size_t WshShellHistory_GetTokenNum (
-    WshShellHistory_IO_t * pHistIO
+    WshShellHistoryIO_t * pHistIO
 ) 
 ```
 
@@ -368,7 +368,7 @@ Number of stored commands in history.
 _Initialize the shell history system with custom I/O functions._ 
 ```C++
 void WshShellHistory_Init (
-    WshShellHistory_IO_t * pHistIO,
+    WshShellHistoryIO_t * pHistIO,
     WshShellHistory_ReadHandler_t readFn,
     WshShellHistory_WriteHandler_t writeFn
 ) 
@@ -402,7 +402,7 @@ This function sets up the internal history system and loads existing history usi
 _Save a new command to the history buffer._ 
 ```C++
 void WshShellHistory_SaveCmd (
-    WshShellHistory_IO_t * pHistIO,
+    WshShellHistoryIO_t * pHistIO,
     const WshShell_Char_t * pcCmdStr,
     WshShell_Size_t cmdStrLen
 ) 

@@ -1,10 +1,10 @@
 
 
-# Struct WshShell\_ExtCallbacks\_t
+# Struct WshShellExtCallbacks\_t
 
 
 
-[**ClassList**](annotated.md) **>** [**WshShell\_ExtCallbacks\_t**](structWshShell__ExtCallbacks__t.md)
+[**ClassList**](annotated.md) **>** [**WshShellExtCallbacks\_t**](structWshShellExtCallbacks__t.md)
 
 
 
@@ -91,7 +91,7 @@ _Optional external callbacks invoked on user session changes._
 ### variable Auth 
 
 ```C++
-WshShell_ExtClbk_t WshShell_ExtCallbacks_t::Auth;
+WshShell_ExtClbk_t WshShellExtCallbacks_t::Auth;
 ```
 
 
@@ -108,7 +108,7 @@ Called when a user successfully authenticates.
 ### variable DeAuth 
 
 ```C++
-WshShell_ExtClbk_t WshShell_ExtCallbacks_t::DeAuth;
+WshShell_ExtClbk_t WshShellExtCallbacks_t::DeAuth;
 ```
 
 
@@ -125,7 +125,7 @@ Called when a user is de-authenticated or logs out.
 ### variable SymbolIn 
 
 ```C++
-WshShell_ExtClbk_t WshShell_ExtCallbacks_t::SymbolIn;
+WshShell_ExtClbk_t WshShellExtCallbacks_t::SymbolIn;
 ```
 
 

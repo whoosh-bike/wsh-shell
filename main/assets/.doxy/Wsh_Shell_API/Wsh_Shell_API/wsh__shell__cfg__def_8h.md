@@ -92,6 +92,7 @@
 | define  | [**RET\_STATE\_MAP\_TABLE**](wsh__shell__cfg__def_8h.md#define-ret_state_map_table) () `/* multi line expression */`<br> |
 | define  | [**WSH\_SHELL\_ASSERT**](wsh__shell__cfg__def_8h.md#define-wsh_shell_assert) (exp) <br> |
 | define  | [**WSH\_SHELL\_AUTOCOMPLETE**](wsh__shell__cfg__def_8h.md#define-wsh_shell_autocomplete)  `1`<br> |
+| define  | [**WSH\_SHELL\_AUTOCOMPLETE\_MAX\_CANDIDATES**](wsh__shell__cfg__def_8h.md#define-wsh_shell_autocomplete_max_candidates)  `32`<br> |
 | define  | [**WSH\_SHELL\_AUTOCOMPLETE\_PAD\_LEN**](wsh__shell__cfg__def_8h.md#define-wsh_shell_autocomplete_pad_len)  `32`<br> |
 | define  | [**WSH\_SHELL\_AUTOCOMPLETE\_PAD\_SYM**](wsh__shell__cfg__def_8h.md#define-wsh_shell_autocomplete_pad_sym)  `'.'`<br> |
 | define  | [**WSH\_SHELL\_CMD\_ARGS\_MAX\_NUM**](wsh__shell__cfg__def_8h.md#define-wsh_shell_cmd_args_max_num)  `16`<br> |
@@ -214,6 +215,19 @@ static inline bool WshShellRetState_TranslateToProject (
 
 ```C++
 #define WSH_SHELL_AUTOCOMPLETE `1`
+```
+
+
+
+
+<hr>
+
+
+
+### define WSH\_SHELL\_AUTOCOMPLETE\_MAX\_CANDIDATES 
+
+```C++
+#define WSH_SHELL_AUTOCOMPLETE_MAX_CANDIDATES `32`
 ```
 
 

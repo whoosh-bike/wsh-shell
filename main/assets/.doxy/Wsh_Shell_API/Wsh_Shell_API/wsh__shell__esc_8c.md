@@ -57,7 +57,7 @@
 
 | Type | Name |
 | ---: | :--- |
-|  void | [**WshShellEsc\_Handler**](#function-wshshellesc_handler) ([**WshShellHistory\_IO\_t**](structWshShellHistory__IO__t.md) \* pHistIO, [**WshShellIO\_CommandLine\_t**](structWshShellIO__CommandLine__t.md) \* pCommandLine, [**WshShellEsc\_Storage\_t**](structWshShellEsc__Storage__t.md) \* pEscStorage, const WshShell\_Char\_t symbol) <br>_Handles incoming escape sequence character._  |
+|  void | [**WshShellEsc\_Handler**](#function-wshshellesc_handler) ([**WshShellHistoryIO\_t**](structWshShellHistoryIO__t.md) \* pHistIO, [**WshShellIO\_CommandLine\_t**](structWshShellIO__CommandLine__t.md) \* pCommandLine, [**WshShellEsc\_Storage\_t**](structWshShellEsc__Storage__t.md) \* pEscStorage, const WshShell\_Char\_t symbol) <br>_Handles incoming escape sequence character._  |
 |  WshShell\_Bool\_t | [**WshShellEsc\_IsSeqStarted**](#function-wshshellesc_isseqstarted) ([**WshShellEsc\_Storage\_t**](structWshShellEsc__Storage__t.md) \* pEscStorage) <br>_Checks if escape sequence is in progress._  |
 |  void | [**WshShellEsc\_StartSeq**](#function-wshshellesc_startseq) ([**WshShellEsc\_Storage\_t**](structWshShellEsc__Storage__t.md) \* pEscStorage) <br>_Starts a new escape sequence._  |
 
@@ -66,10 +66,10 @@
 
 | Type | Name |
 | ---: | :--- |
-|  void | [**WshShellEsc\_ArrowDown**](#function-wshshellesc_arrowdown) ([**WshShellHistory\_IO\_t**](structWshShellHistory__IO__t.md) \* pHistIO, [**WshShellIO\_CommandLine\_t**](structWshShellIO__CommandLine__t.md) \* pCommandLine) <br> |
-|  void | [**WshShellEsc\_ArrowLeft**](#function-wshshellesc_arrowleft) ([**WshShellHistory\_IO\_t**](structWshShellHistory__IO__t.md) \* pHistIO, [**WshShellIO\_CommandLine\_t**](structWshShellIO__CommandLine__t.md) \* pCommandLine) <br> |
-|  void | [**WshShellEsc\_ArrowRight**](#function-wshshellesc_arrowright) ([**WshShellHistory\_IO\_t**](structWshShellHistory__IO__t.md) \* pHistIO, [**WshShellIO\_CommandLine\_t**](structWshShellIO__CommandLine__t.md) \* pCommandLine) <br> |
-|  void | [**WshShellEsc\_ArrowUp**](#function-wshshellesc_arrowup) ([**WshShellHistory\_IO\_t**](structWshShellHistory__IO__t.md) \* pHistIO, [**WshShellIO\_CommandLine\_t**](structWshShellIO__CommandLine__t.md) \* pCommandLine) <br> |
+|  void | [**WshShellEsc\_ArrowDown**](#function-wshshellesc_arrowdown) ([**WshShellHistoryIO\_t**](structWshShellHistoryIO__t.md) \* pHistIO, [**WshShellIO\_CommandLine\_t**](structWshShellIO__CommandLine__t.md) \* pCommandLine) <br> |
+|  void | [**WshShellEsc\_ArrowLeft**](#function-wshshellesc_arrowleft) ([**WshShellHistoryIO\_t**](structWshShellHistoryIO__t.md) \* pHistIO, [**WshShellIO\_CommandLine\_t**](structWshShellIO__CommandLine__t.md) \* pCommandLine) <br> |
+|  void | [**WshShellEsc\_ArrowRight**](#function-wshshellesc_arrowright) ([**WshShellHistoryIO\_t**](structWshShellHistoryIO__t.md) \* pHistIO, [**WshShellIO\_CommandLine\_t**](structWshShellIO__CommandLine__t.md) \* pCommandLine) <br> |
+|  void | [**WshShellEsc\_ArrowUp**](#function-wshshellesc_arrowup) ([**WshShellHistoryIO\_t**](structWshShellHistoryIO__t.md) \* pHistIO, [**WshShellIO\_CommandLine\_t**](structWshShellIO__CommandLine__t.md) \* pCommandLine) <br> |
 |  void | [**WshShellEsc\_ClearStorage**](#function-wshshellesc_clearstorage) ([**WshShellEsc\_Storage\_t**](structWshShellEsc__Storage__t.md) \* pEscStorage) <br> |
 
 
@@ -122,7 +122,7 @@ const WshShellEsc_Action_t WshShellEsc_SeqHandlers[];
 _Handles incoming escape sequence character._ 
 ```C++
 void WshShellEsc_Handler (
-    WshShellHistory_IO_t * pHistIO,
+    WshShellHistoryIO_t * pHistIO,
     WshShellIO_CommandLine_t * pCommandLine,
     WshShellEsc_Storage_t * pEscStorage,
     const WshShell_Char_t symbol
@@ -223,7 +223,7 @@ Initializes the escape buffer with ESC char.
 
 ```C++
 static void WshShellEsc_ArrowDown (
-    WshShellHistory_IO_t * pHistIO,
+    WshShellHistoryIO_t * pHistIO,
     WshShellIO_CommandLine_t * pCommandLine
 ) 
 ```
@@ -239,7 +239,7 @@ static void WshShellEsc_ArrowDown (
 
 ```C++
 static void WshShellEsc_ArrowLeft (
-    WshShellHistory_IO_t * pHistIO,
+    WshShellHistoryIO_t * pHistIO,
     WshShellIO_CommandLine_t * pCommandLine
 ) 
 ```
@@ -255,7 +255,7 @@ static void WshShellEsc_ArrowLeft (
 
 ```C++
 static void WshShellEsc_ArrowRight (
-    WshShellHistory_IO_t * pHistIO,
+    WshShellHistoryIO_t * pHistIO,
     WshShellIO_CommandLine_t * pCommandLine
 ) 
 ```
@@ -271,7 +271,7 @@ static void WshShellEsc_ArrowRight (
 
 ```C++
 static void WshShellEsc_ArrowUp (
-    WshShellHistory_IO_t * pHistIO,
+    WshShellHistoryIO_t * pHistIO,
     WshShellIO_CommandLine_t * pCommandLine
 ) 
 ```

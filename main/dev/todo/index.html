@@ -23,7 +23,7 @@
       
       
       <link rel="icon" href="../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.0">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.4">
     
     
       
@@ -31,7 +31,7 @@
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.618322db.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
       
         
         <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
@@ -631,6 +631,78 @@
     <span class="md-ellipsis">
       
         v2.3
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#v24-security-robustness-developer-experience" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        v2.4 (Security, Robustness &amp; Developer Experience)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="v2.4 (Security, Robustness &amp; Developer Experience)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#security-improvements" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Security Improvements
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#robustness-bug-fixes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Robustness &amp; Bug Fixes
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#features-enhancements" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Features &amp; Enhancements
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#documentation-tooling" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Documentation &amp; Tooling
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#v25-security-stability-fixes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        v2.5 (Security &amp; Stability Fixes)
       
     </span>
   </a>
@@ -2608,6 +2680,78 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#v24-security-robustness-developer-experience" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        v2.4 (Security, Robustness &amp; Developer Experience)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="v2.4 (Security, Robustness &amp; Developer Experience)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#security-improvements" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Security Improvements
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#robustness-bug-fixes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Robustness &amp; Bug Fixes
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#features-enhancements" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Features &amp; Enhancements
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#documentation-tooling" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Documentation &amp; Tooling
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#v25-security-stability-fixes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        v2.5 (Security &amp; Stability Fixes)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#v30" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -2739,6 +2883,51 @@
 <li class="task-list-item"><input type="checkbox" disabled checked/> Review groups, permissions, and access levels for commands, users, and options; document them</li>
 <li class="task-list-item"><input type="checkbox" disabled checked/> Check the same names for commands and options (if short and long options repited in one command or commands are same)</li>
 </ul>
+<h2 id="v24-security-robustness-developer-experience">v2.4 (Security, Robustness &amp; Developer Experience)</h2>
+<h3 id="security-improvements">Security Improvements</h3>
+<ul class="task-list">
+<li class="task-list-item"><input type="checkbox" disabled checked/> Implement constant-time comparison for login/password validation to prevent timing attacks</li>
+<li class="task-list-item"><input type="checkbox" disabled checked/> Add secure memory zeroing for sensitive data (password hash buffer) using volatile loop</li>
+<li class="task-list-item"><input type="checkbox" disabled checked/> Add comprehensive input validation for login and password lengths</li>
+<li class="task-list-item"><input type="checkbox" disabled checked/> Improve credential checking with length validation before comparison</li>
+</ul>
+<h3 id="robustness-bug-fixes">Robustness &amp; Bug Fixes</h3>
+<ul class="task-list">
+<li class="task-list-item"><input type="checkbox" disabled checked/> Fix potential fault in history read/write callbacks when history is not initialized</li>
+<li class="task-list-item"><input type="checkbox" disabled checked/> Fix escape sequence bug in input handling</li>
+<li class="task-list-item"><input type="checkbox" disabled checked/> Add duplicate detection for short and long option flags within commands (triggers ASSERT)</li>
+<li class="task-list-item"><input type="checkbox" disabled checked/> Fix command line flush bug</li>
+<li class="task-list-item"><input type="checkbox" disabled checked/> Fix argument processing flow</li>
+<li class="task-list-item"><input type="checkbox" disabled checked/> Multiple small fixes and code quality improvements</li>
+</ul>
+<h3 id="features-enhancements">Features &amp; Enhancements</h3>
+<ul class="task-list">
+<li class="task-list-item"><input type="checkbox" disabled checked/> Add history save support for interactive commands</li>
+<li class="task-list-item"><input type="checkbox" disabled checked/> Add default command description to help output</li>
+<li class="task-list-item"><input type="checkbox" disabled checked/> Add more detailed build information to shell startup banner (compiler, OS, build date/time)</li>
+<li class="task-list-item"><input type="checkbox" disabled checked/> Add FreeRTOS version detection support</li>
+<li class="task-list-item"><input type="checkbox" disabled checked/> Add <code>WSH_SHELL_PRINT_LEVEL</code> macro for better print control</li>
+<li class="task-list-item"><input type="checkbox" disabled checked/> Add debug build flag support</li>
+<li class="task-list-item"><input type="checkbox" disabled checked/> Review and document groups, permissions, and access levels system</li>
+</ul>
+<h3 id="documentation-tooling">Documentation &amp; Tooling</h3>
+<ul class="task-list">
+<li class="task-list-item"><input type="checkbox" disabled checked/> Update documentation for permission rules and access control</li>
+<li class="task-list-item"><input type="checkbox" disabled checked/> Add ELF size analysis utility script</li>
+<li class="task-list-item"><input type="checkbox" disabled checked/> Fix grammar and typos in documentation</li>
+<li class="task-list-item"><input type="checkbox" disabled checked/> Update README with clearer examples</li>
+<li class="task-list-item"><input type="checkbox" disabled checked/> Fix VSCode task configurations</li>
+<li class="task-list-item"><input type="checkbox" disabled checked/> Improve Makefile structure</li>
+</ul>
+<h2 id="v25-security-stability-fixes">v2.5 (Security &amp; Stability Fixes)</h2>
+<ul class="task-list">
+<li class="task-list-item"><input type="checkbox" disabled checked/> Fix typo in <code>WshShellCmd_FindOpt</code> parameter validation (<code>pcCmd || pcCmd</code> → <code>pcCmd || pcStr</code>)</li>
+<li class="task-list-item"><input type="checkbox" disabled checked/> Add VLA stack overflow protection in autocomplete (check against <code>WSH_SHELL_AUTOCOMPLETE_MAX_CANDIDATES</code>)</li>
+<li class="task-list-item"><input type="checkbox" disabled checked/> Add bounds checking before buffer copy in autocomplete to prevent buffer overflow</li>
+<li class="task-list-item"><input type="checkbox" disabled checked/> Add secure erase of sensitive data (<code>saltPass</code>) in default hash function using volatile loop</li>
+<li class="task-list-item"><input type="checkbox" disabled checked/> Add <code>volatile</code> qualifier to constant-time comparison variables to prevent compiler optimization</li>
+<li class="task-list-item"><input type="checkbox" disabled checked/> Add validation for unclosed quotes in command parsing (<code>WshShellStr_ParseToArgcArgv</code>)</li>
+</ul>
 <h2 id="v30">v3.0</h2>
 <ul class="task-list">
 <li class="task-list-item"><input type="checkbox" disabled/> Automate build and test runs via GitHub Actions</li>
@@ -2838,10 +3027,10 @@
     
       
       
-      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["announce.dismiss", "content.action.edit", "content.action.view", "content.code.annotate", "content.code.copy", "content.tooltips", "navigation.footer", "navigation.indexes", "navigation.path", "navigation.tabs", "navigation.top", "navigation.tracking", "search.highlight", "search.share", "search.suggest", "toc.follow"], "search": "../../assets/javascripts/workers/search.7a47a382.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"provider": "mike"}}</script>
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["announce.dismiss", "content.action.edit", "content.action.view", "content.code.annotate", "content.code.copy", "content.tooltips", "navigation.footer", "navigation.indexes", "navigation.path", "navigation.tabs", "navigation.top", "navigation.tracking", "search.highlight", "search.share", "search.suggest", "toc.follow"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"provider": "mike"}}</script>
     
     
-      <script src="../../assets/javascripts/bundle.e71a0d61.min.js"></script>
+      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
       
     
   </body>

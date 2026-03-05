@@ -47,27 +47,27 @@ typedef void (*WshShellHistory_WriteHandler_t)(WshShellHistory_t);
 typedef struct {
     WshShellHistory_ReadHandler_t Read;   
     WshShellHistory_WriteHandler_t Write; 
-} WshShellHistory_IO_t;
+} WshShellHistoryIO_t;
 
-void WshShellHistory_Init(WshShellHistory_IO_t* pHistIO, WshShellHistory_ReadHandler_t readFn,
+void WshShellHistory_Init(WshShellHistoryIO_t* pHistIO, WshShellHistory_ReadHandler_t readFn,
                           WshShellHistory_WriteHandler_t writeFn);
 
-void WshShellHistory_SaveCmd(WshShellHistory_IO_t* pHistIO, const WshShell_Char_t* pcCmdStr,
+void WshShellHistory_SaveCmd(WshShellHistoryIO_t* pHistIO, const WshShell_Char_t* pcCmdStr,
                              WshShell_Size_t cmdStrLen);
 
-WshShell_Size_t WshShellHistory_GetPrevCmd(WshShellHistory_IO_t* pHistIO, WshShell_Char_t* pOutBuff,
+WshShell_Size_t WshShellHistory_GetPrevCmd(WshShellHistoryIO_t* pHistIO, WshShell_Char_t* pOutBuff,
                                            WshShell_Size_t outBuffSize);
 
-WshShell_Size_t WshShellHistory_GetNextCmd(WshShellHistory_IO_t* pHistIO, WshShell_Char_t* pOutBuff,
+WshShell_Size_t WshShellHistory_GetNextCmd(WshShellHistoryIO_t* pHistIO, WshShell_Char_t* pOutBuff,
                                            WshShell_Size_t outBuffSize);
 
-WshShell_Size_t WshShellHistory_GetTokenNum(WshShellHistory_IO_t* pHistIO);
+WshShell_Size_t WshShellHistory_GetTokenNum(WshShellHistoryIO_t* pHistIO);
 
-WshShell_Size_t WshShellHistory_GetTokenByIndex(WshShellHistory_IO_t* pHistIO,
+WshShell_Size_t WshShellHistory_GetTokenByIndex(WshShellHistoryIO_t* pHistIO,
                                                 WshShell_Char_t* pOutBuff,
                                                 WshShell_Size_t outBuffSize, WshShell_Size_t index);
 
-void WshShellHistory_Flush(WshShellHistory_IO_t* pHistIO);
+void WshShellHistory_Flush(WshShellHistoryIO_t* pHistIO);
 
 #ifdef __cplusplus
 }
