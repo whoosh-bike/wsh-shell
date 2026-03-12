@@ -107,8 +107,7 @@ _Terminal input/output definitions and interaction buffer API for WshShell._ [Mo
 | define  | [**WSH\_SHELL\_COLOR\_CYAN**](wsh__shell__io_8h.md#define-wsh_shell_color_cyan)  `[**WSH\_SHELL\_ESC\_SEQ\_START\_STR**](wsh__shell__io_8h.md#define-wsh_shell_esc_seq_start_str) "[36m"`<br> |
 | define  | [**WSH\_SHELL\_COLOR\_ERROR**](wsh__shell__io_8h.md#define-wsh_shell_color_error)  `WSH\_SHELL\_COLOR\_RED`<br> |
 | define  | [**WSH\_SHELL\_COLOR\_GREEN**](wsh__shell__io_8h.md#define-wsh_shell_color_green)  `[**WSH\_SHELL\_ESC\_SEQ\_START\_STR**](wsh__shell__io_8h.md#define-wsh_shell_esc_seq_start_str) "[32m"`<br> |
-| define  | [**WSH\_SHELL\_COLOR\_INFO**](wsh__shell__io_8h.md#define-wsh_shell_color_info)  `WSH\_SHELL\_COLOR\_WHITE`<br> |
-| define  | [**WSH\_SHELL\_COLOR\_OK**](wsh__shell__io_8h.md#define-wsh_shell_color_ok)  `WSH\_SHELL\_COLOR\_GREEN`<br> |
+| define  | [**WSH\_SHELL\_COLOR\_INFO**](wsh__shell__io_8h.md#define-wsh_shell_color_info)  `WSH\_SHELL\_COLOR\_GREEN`<br> |
 | define  | [**WSH\_SHELL\_COLOR\_PURPLE**](wsh__shell__io_8h.md#define-wsh_shell_color_purple)  `[**WSH\_SHELL\_ESC\_SEQ\_START\_STR**](wsh__shell__io_8h.md#define-wsh_shell_esc_seq_start_str) "[35m"`<br> |
 | define  | [**WSH\_SHELL\_COLOR\_RED**](wsh__shell__io_8h.md#define-wsh_shell_color_red)  `[**WSH\_SHELL\_ESC\_SEQ\_START\_STR**](wsh__shell__io_8h.md#define-wsh_shell_esc_seq_start_str) "[31m"`<br> |
 | define  | [**WSH\_SHELL\_COLOR\_SYS**](wsh__shell__io_8h.md#define-wsh_shell_color_sys)  `WSH\_SHELL\_COLOR\_CYAN`<br> |
@@ -509,20 +508,7 @@ Line feed
 ### define WSH\_SHELL\_COLOR\_INFO 
 
 ```C++
-#define WSH_SHELL_COLOR_INFO `WSH_SHELL_COLOR_WHITE`
-```
-
-
-
-
-<hr>
-
-
-
-### define WSH\_SHELL\_COLOR\_OK 
-
-```C++
-#define WSH_SHELL_COLOR_OK `WSH_SHELL_COLOR_GREEN`
+#define WSH_SHELL_COLOR_INFO `WSH_SHELL_COLOR_GREEN`
 ```
 
 

@@ -85,7 +85,6 @@
 * **WSH\_SHELL\_COLOR\_ERROR** ([**wsh\_shell\_io.h**](wsh__shell__io_8h.md))
 * **WSH\_SHELL\_COLOR\_GREEN** ([**wsh\_shell\_io.h**](wsh__shell__io_8h.md))
 * **WSH\_SHELL\_COLOR\_INFO** ([**wsh\_shell\_io.h**](wsh__shell__io_8h.md))
-* **WSH\_SHELL\_COLOR\_OK** ([**wsh\_shell\_io.h**](wsh__shell__io_8h.md))
 * **WSH\_SHELL\_COLOR\_PURPLE** ([**wsh\_shell\_io.h**](wsh__shell__io_8h.md))
 * **WSH\_SHELL\_COLOR\_RED** ([**wsh\_shell\_io.h**](wsh__shell__io_8h.md))
 * **WSH\_SHELL\_COLOR\_SYS** ([**wsh\_shell\_io.h**](wsh__shell__io_8h.md))

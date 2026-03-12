@@ -23,7 +23,7 @@
       
       
       <link rel="icon" href="../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.1">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.5">
     
     
       
@@ -566,10 +566,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#changing-the-compiler" class="md-nav__link">
+  <a href="#project-structure" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Changing the Compiler
+        Project Structure
       
     </span>
   </a>
@@ -577,10 +577,21 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#main-build" class="md-nav__link">
+  <a href="#building-and-running-example" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Main Build
+        Building and Running Example
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#generating-config-only" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Generating Config Only
       
     </span>
   </a>
@@ -599,29 +610,6 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#building-and-running-example" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Building and Running Example
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Building and Running Example">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#default-example-pc" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Default Example (PC)
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
   <a href="#example-on-hardware" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -631,9 +619,15 @@
   </a>
   
 </li>
-        
-      </ul>
-    </nav>
+      
+        <li class="md-nav__item">
+  <a href="#changing-the-compiler" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Changing the Compiler
+      
+    </span>
+  </a>
   
 </li>
       
@@ -2592,10 +2586,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#changing-the-compiler" class="md-nav__link">
+  <a href="#project-structure" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Changing the Compiler
+        Project Structure
       
     </span>
   </a>
@@ -2603,10 +2597,21 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#main-build" class="md-nav__link">
+  <a href="#building-and-running-example" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Main Build
+        Building and Running Example
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#generating-config-only" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Generating Config Only
       
     </span>
   </a>
@@ -2625,29 +2630,6 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#building-and-running-example" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Building and Running Example
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Building and Running Example">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#default-example-pc" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Default Example (PC)
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
   <a href="#example-on-hardware" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -2657,9 +2639,15 @@
   </a>
   
 </li>
-        
-      </ul>
-    </nav>
+      
+        <li class="md-nav__item">
+  <a href="#changing-the-compiler" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Changing the Compiler
+      
+    </span>
+  </a>
   
 </li>
       
@@ -2756,7 +2744,7 @@
 
 
 <h1 id="build-guide">Build Guide</h1>
-<p>This guide explains how to build the Wsh-Shell library and run its example applications both on a PC and on embedded hardware.</p>
+<p>This guide explains how to build the Wsh-Shell example application both on a PC and on embedded hardware.</p>
 <hr />
 <h2 id="prerequisites">Prerequisites</h2>
 <p>Ensure the required toolchain components are installed on your system:</p>
@@ -2770,10 +2758,7 @@
 </span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4"></a>openocd<span class="w"> </span>--version<span class="w"> </span><span class="c1"># for MCU flash burn</span>
 </span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5"></a>doxygen<span class="w"> </span>--version<span class="w"> </span><span class="c1"># for docs generation with `mkdocs serve` on local machine</span>
 </span></code></pre></div></td></tr></table></div>
-<blockquote>
-<p>💡 You can also use <code>clang</code> instead of <code>gcc</code> for PC builds.</p>
-</blockquote>
-<p>For exra actions you should use python virtualenv with <code>requirements.txt</code>:</p>
+<p>For extra actions you should use python virtualenv with <code>requirements.txt</code>:</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-1-1">1</a></span>
 <span class="normal"><a href="#__codelineno-1-2">2</a></span>
 <span class="normal"><a href="#__codelineno-1-3">3</a></span>
@@ -2784,58 +2769,70 @@
 </span></code></pre></div></td></tr></table></div>
 <p>Or just run <code>setup python env</code> vscode task</p>
 <hr />
-<h2 id="changing-the-compiler">Changing the Compiler</h2>
-<p>You can change the compiler in the project’s <strong>Makefile</strong>:</p>
+<h2 id="project-structure">Project Structure</h2>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-2-1">1</a></span>
 <span class="normal"><a href="#__codelineno-2-2">2</a></span>
 <span class="normal"><a href="#__codelineno-2-3">3</a></span>
-<span class="normal"><a href="#__codelineno-2-4">4</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1"></a><span class="c"># ===== Toolchain =====</span>
-</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2"></a><span class="nv">CC</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span>gcc
-</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3"></a><span class="c"># or</span>
-</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4"></a><span class="nv">CC</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span>clang
+<span class="normal"><a href="#__codelineno-2-4">4</a></span>
+<span class="normal"><a href="#__codelineno-2-5">5</a></span>
+<span class="normal"><a href="#__codelineno-2-6">6</a></span>
+<span class="normal"><a href="#__codelineno-2-7">7</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1"></a>wsh-shell/
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2"></a>├── src/                    # Library source files
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3"></a>│   ├── wsh_shell_cfg_def.h # Default configuration template
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4"></a>│   └── ...
+</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5"></a>└── example/                # Example application
+</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6"></a>    ├── wsh_shell_cfg.h     # Generated config (copy of cfg_def.h, gitignored)
+</span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7"></a>    └── ...
+</span></code></pre></div></td></tr></table></div>
+<p>The configuration file <code>wsh_shell_cfg.h</code> is not tracked in git. It is generated automatically in the <code>example/</code> directory when building the example.</p>
+<hr />
+<h2 id="building-and-running-example">Building and Running Example</h2>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-3-1">1</a></span>
+<span class="normal"><a href="#__codelineno-3-2">2</a></span>
+<span class="normal"><a href="#__codelineno-3-3">3</a></span>
+<span class="normal"><a href="#__codelineno-3-4">4</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1"></a>make<span class="w"> </span>example
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2"></a>./example/build/example
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3"></a>
+</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4"></a><span class="c1"># Default example username `root` and password `1234`</span>
+</span></code></pre></div></td></tr></table></div>
+<p>By default, the project is built in <strong>Debug</strong> mode.
+To build with the <strong>Release</strong> preset:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-4-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1"></a>make<span class="w"> </span>example<span class="w"> </span><span class="nv">BUILD</span><span class="o">=</span>release
 </span></code></pre></div></td></tr></table></div>
 <hr />
-<h2 id="main-build">Main Build</h2>
-<p>To build the default library:</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-3-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1"></a>make
+<h2 id="generating-config-only">Generating Config Only</h2>
+<p>To copy the default config template into <code>example/</code> without building:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-5-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1"></a>make<span class="w"> </span>gen-config
 </span></code></pre></div></td></tr></table></div>
-<p>During the first build, the default configuration file <code>wsh_shell_cfg_def.h</code> will be copied to <code>wsh_shell_cfg.h</code>, which is used in the build process.</p>
-<p>By default, the project is built in <strong>Debug</strong> mode.<br />
-To build with the <strong>Release</strong> preset:</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-4-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1"></a>make<span class="w"> </span><span class="nv">BUILD</span><span class="o">=</span>Release
-</span></code></pre></div></td></tr></table></div>
+<p>This creates <code>example/wsh_shell_cfg.h</code> from <code>src/wsh_shell_cfg_def.h</code>.
+Edit this file to customize the shell configuration for your project.</p>
 <hr />
 <h2 id="cleaning-the-build">Cleaning the Build</h2>
-<p>To remove temporary build files while keeping your configuration:</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-5-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1"></a>make<span class="w"> </span>clean
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-6-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1"></a>make<span class="w"> </span>clean
 </span></code></pre></div></td></tr></table></div>
 <blockquote>
-<p>⚠️ This does <strong>not</strong> delete <code>wsh_shell_cfg.h</code>.<br />
+<p>⚠️ This does <strong>not</strong> delete <code>example/wsh_shell_cfg.h</code>.
 Remove it manually if you want to regenerate it from the default template.</p>
 </blockquote>
 <hr />
-<h2 id="building-and-running-example">Building and Running Example</h2>
-<h3 id="default-example-pc">Default Example (PC)</h3>
-<p>This example runs locally on your machine:</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-6-1">1</a></span>
-<span class="normal"><a href="#__codelineno-6-2">2</a></span>
-<span class="normal"><a href="#__codelineno-6-3">3</a></span>
-<span class="normal"><a href="#__codelineno-6-4">4</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1"></a>make<span class="w"> </span>clean<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>make<span class="w"> </span>example
-</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2"></a>./example/build/example
-</span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3"></a>
-</span><span id="__span-6-4"><a id="__codelineno-6-4" name="__codelineno-6-4"></a><span class="c1"># Default example usename `root` and password `1234`</span>
-</span></code></pre></div></td></tr></table></div>
-<h3 id="example-on-hardware">Example on Hardware</h3>
-<p>It has been moved to another repo's:</p>
+<h2 id="example-on-hardware">Example on Hardware</h2>
+<p>It has been moved to separate repos:</p>
 <ul>
 <li><a href="https://github.com/whoosh-bike/wsh-shell-blue-pill-example">https://github.com/whoosh-bike/wsh-shell-blue-pill-example</a></li>
 <li><a href="https://github.com/whoosh-bike/wsh-shell-black-pill-example">https://github.com/whoosh-bike/wsh-shell-black-pill-example</a></li>
 </ul>
 <hr />
+<h2 id="changing-the-compiler">Changing the Compiler</h2>
+<p>By default <code>gcc</code> is used. To switch to <code>clang</code>:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-7-1">1</a></span>
+<span class="normal"><a href="#__codelineno-7-2">2</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1"></a>make<span class="w"> </span><span class="nv">CC</span><span class="o">=</span>clang
+</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2"></a>make<span class="w"> </span><span class="nv">CC</span><span class="o">=</span>clang<span class="w"> </span><span class="nv">BUILD</span><span class="o">=</span>release
+</span></code></pre></div></td></tr></table></div>
+<hr />
 <h2 id="additional-notes">Additional Notes</h2>
 <ul>
-<li>You can adjust build presets or flags in the <strong>Makefile</strong> (e.g., optimization level, debug symbols and so on)</li>
-<li>If using Windows, please do in WSL environment</li>
+<li>You can adjust build flags in <code>example/Makefile</code> (optimization level, debug symbols, etc.)</li>
+<li>If using Windows, please use a WSL environment</li>
 </ul>
 
 

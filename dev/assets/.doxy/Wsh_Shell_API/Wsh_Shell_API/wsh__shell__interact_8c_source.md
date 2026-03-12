@@ -27,6 +27,8 @@ void WshShellInteract_Attach(WshShellInteract_t* pInteract, const WshShell_Char_
 
     WSH_SHELL_MEMCPY(pInteract->CmdName, pcName, len);
     pInteract->CmdName[len] = '\0';
+
+    WSH_SHELL_PRINT_INFO("Entered interactive mode: %s (Ctrl+D for exit)\r\n", pInteract->CmdName);
 }
 
 void WshShellInteract_AppendLineBreak(WshShellIO_CommandLine_t* pCommandLine) {
@@ -50,6 +52,9 @@ void WshShellInteract_Flush(WshShellInteract_t* pInteract) {
     WSH_SHELL_ASSERT(pInteract);
     if (!pInteract)
         return;
+
+    WSH_SHELL_PRINT("\r\n");
+    WSH_SHELL_PRINT_INFO("Left interactive mode: %s", pInteract->CmdName);
 
     pInteract->Handler = NULL;
     WSH_SHELL_MEMSET((void*)pInteract->CmdName, 0, sizeof(pInteract->CmdName));

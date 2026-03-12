@@ -23,7 +23,7 @@
       
       
       <link rel="icon" href="../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.1">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.5">
     
     
       
@@ -703,6 +703,17 @@
     <span class="md-ellipsis">
       
         v2.5 (Security &amp; Stability Fixes)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#v26-build-system-ux-developer-tooling" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        v2.6 (Build System, UX &amp; Developer Tooling)
       
     </span>
   </a>
@@ -2752,6 +2763,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#v26-build-system-ux-developer-tooling" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        v2.6 (Build System, UX &amp; Developer Tooling)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#v30" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -2927,6 +2949,19 @@
 <li class="task-list-item"><input type="checkbox" disabled checked/> Add secure erase of sensitive data (<code>saltPass</code>) in default hash function using volatile loop</li>
 <li class="task-list-item"><input type="checkbox" disabled checked/> Add <code>volatile</code> qualifier to constant-time comparison variables to prevent compiler optimization</li>
 <li class="task-list-item"><input type="checkbox" disabled checked/> Add validation for unclosed quotes in command parsing (<code>WshShellStr_ParseToArgcArgv</code>)</li>
+</ul>
+<h2 id="v26-build-system-ux-developer-tooling">v2.6 (Build System, UX &amp; Developer Tooling)</h2>
+<ul class="task-list">
+<li class="task-list-item"><input type="checkbox" disabled checked/> Restructure build system: remove static library target, add <code>gen-config</code> target, move config generation to <code>example/</code> directory</li>
+<li class="task-list-item"><input type="checkbox" disabled checked/> Add compiler selection support (<code>CC ?= gcc</code> / <code>clang</code>) with passthrough from top-level Makefile</li>
+<li class="task-list-item"><input type="checkbox" disabled checked/> Add <code>--ping</code> / <code>-p</code> flag to default <code>wsh</code> command for adapter health check</li>
+<li class="task-list-item"><input type="checkbox" disabled checked/> Improve print macros format: add colored <code>[TAG]</code> prefix to <code>INFO/WARN/ERR</code> messages for easier log parsing</li>
+<li class="task-list-item"><input type="checkbox" disabled checked/> Fix unknown token handling: print <code>[WARN]</code> for unrecognized options instead of silently falling back to default behavior</li>
+<li class="task-list-item"><input type="checkbox" disabled checked/> Fix spurious <code>ERR_EMPTY</code> response when valid options are followed by unknown tokens in the same command call</li>
+<li class="task-list-item"><input type="checkbox" disabled checked/> Add entry/exit info messages for interactive mode</li>
+<li class="task-list-item"><input type="checkbox" disabled checked/> Fix IntelliSense configuration (<code>c_cpp_properties.json</code>)</li>
+<li class="task-list-item"><input type="checkbox" disabled checked/> Update and improve documentation</li>
+<li class="task-list-item"><input type="checkbox" disabled checked/> Extend autocomplete to support flag suggestions (not just command names)</li>
 </ul>
 <h2 id="v30">v3.0</h2>
 <ul class="task-list">
