@@ -139,6 +139,8 @@ WshShellOption_Ctx_t WshShellCmd_ParseOpt(const WshShellCmd_t* pcCmd, WshShell_S
     if (*pTokenPos == 0)
         (*pTokenPos)++;
 
+    WshShell_Size_t startTokenPos = *pTokenPos;
+
     /* Try to find option in argv */
     while (*pTokenPos < argc) {
         const WshShell_Char_t* pcStr  = pArgv[*pTokenPos];
@@ -146,6 +148,7 @@ WshShellOption_Ctx_t WshShellCmd_ParseOpt(const WshShellCmd_t* pcCmd, WshShell_S
         const WshShellOption_t* pcOpt = WshShellCmd_FindOpt(pcCmd, pcStr, strLen);
 
         if (!pcOpt) {
+            WSH_SHELL_PRINT_WARN("Unknown option: %s\r\n", pcStr);
             (*pTokenPos)++;
             continue;
         }
@@ -162,8 +165,8 @@ WshShellOption_Ctx_t WshShellCmd_ParseOpt(const WshShellCmd_t* pcCmd, WshShell_S
         break;
     }
 
-    /* If no option found — use OPTION_NO */
-    if (!optCtx.Option) {
+    /* If no option found and no tokens were skipped — use OPTION_NO (empty call) */
+    if (!optCtx.Option && *pTokenPos == startTokenPos) {
         const WshShellOption_t* pcOpt = pcCmd->Options;
         for (; pcOpt->Type != WSH_SHELL_OPTION_END; pcOpt++) {
             if (pcOpt->Type == WSH_SHELL_OPTION_NO) {

@@ -60,7 +60,6 @@
 │   ├── wsh_shell.h
 │   ├── wsh_shell_autocomplete.c
 │   ├── wsh_shell_autocomplete.h
-│   ├── wsh_shell_cfg.h
 │   ├── wsh_shell_cfg_def.h
 │   ├── wsh_shell_cmd.c
 │   ├── wsh_shell_cmd.h

@@ -64,7 +64,7 @@ build/
 .cache
 tags
 compile_commands.json
-src/wsh_shell_cfg.h
+example/wsh_shell_cfg.h
 *.DS_Store
 docs/html
 docs/xml

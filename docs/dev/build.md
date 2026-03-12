@@ -1,6 +1,6 @@
 # Build Guide
 
-This guide explains how to build the Wsh-Shell library and run its example applications both on a PC and on embedded hardware.
+This guide explains how to build the Wsh-Shell example application both on a PC and on embedded hardware.
 
 ---
 
@@ -16,9 +16,7 @@ openocd --version # for MCU flash burn
 doxygen --version # for docs generation with `mkdocs serve` on local machine
 ```
 
-> 💡 You can also use `clang` instead of `gcc` for PC builds.
-
-For exra actions you should use python virtualenv with `requirements.txt`:
+For extra actions you should use python virtualenv with `requirements.txt`:
 
 ```bash
 python3 -m venv .venv
@@ -31,74 +29,85 @@ Or just run `setup python env` vscode task
 
 ---
 
-## Changing the Compiler
+## Project Structure
 
-You can change the compiler in the project’s **Makefile**:
-
-```makefile
-# ===== Toolchain =====
-CC := gcc
-# or
-CC := clang
+```
+wsh-shell/
+├── src/                    # Library source files
+│   ├── wsh_shell_cfg_def.h # Default configuration template
+│   └── ...
+└── example/                # Example application
+    ├── wsh_shell_cfg.h     # Generated config (copy of cfg_def.h, gitignored)
+    └── ...
 ```
 
----
-
-## Main Build
-
-To build the default library:
-
-```bash
-make
-```
-
-During the first build, the default configuration file `wsh_shell_cfg_def.h` will be copied to `wsh_shell_cfg.h`, which is used in the build process.
-
-By default, the project is built in **Debug** mode.  
-To build with the **Release** preset:
-
-```bash
-make BUILD=Release
-```
-
----
-
-## Cleaning the Build
-
-To remove temporary build files while keeping your configuration:
-
-```bash
-make clean
-```
-
-> ⚠️ This does **not** delete `wsh_shell_cfg.h`.  
-> Remove it manually if you want to regenerate it from the default template.
+The configuration file `wsh_shell_cfg.h` is not tracked in git. It is generated automatically in the `example/` directory when building the example.
 
 ---
 
 ## Building and Running Example
 
-### Default Example (PC)
-
-This example runs locally on your machine:
-
 ```bash
-make clean && make example
+make example
 ./example/build/example
 
-# Default example usename `root` and password `1234`
+# Default example username `root` and password `1234`
 ```
 
-### Example on Hardware
+By default, the project is built in **Debug** mode.
+To build with the **Release** preset:
 
-It has been moved to another repo's:
+```bash
+make example BUILD=release
+```
+
+---
+
+## Generating Config Only
+
+To copy the default config template into `example/` without building:
+
+```bash
+make gen-config
+```
+
+This creates `example/wsh_shell_cfg.h` from `src/wsh_shell_cfg_def.h`.
+Edit this file to customize the shell configuration for your project.
+
+---
+
+## Cleaning the Build
+
+```bash
+make clean
+```
+
+> ⚠️ This does **not** delete `example/wsh_shell_cfg.h`.
+> Remove it manually if you want to regenerate it from the default template.
+
+---
+
+## Example on Hardware
+
+It has been moved to separate repos:
 
 - <https://github.com/whoosh-bike/wsh-shell-blue-pill-example>
 - <https://github.com/whoosh-bike/wsh-shell-black-pill-example>
 
 ---
 
+## Changing the Compiler
+
+By default `gcc` is used. To switch to `clang`:
+
+```bash
+make CC=clang
+make CC=clang BUILD=release
+```
+
+---
+
 ## Additional Notes
 
-- You can adjust build presets or flags in the **Makefile** (e.g., optimization level, debug symbols and so on)
-- If using Windows, please do in WSL environment
+- You can adjust build flags in `example/Makefile` (optimization level, debug symbols, etc.)
+- If using Windows, please use a WSL environment
