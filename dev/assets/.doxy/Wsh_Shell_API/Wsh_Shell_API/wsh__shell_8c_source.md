@@ -40,8 +40,6 @@ WSH_SHELL_RET_STATE_t WshShell_Init(WshShell_t* pShell, const WshShell_Char_t* p
     if (!pShell || !pcDevName)
         return WSH_SHELL_RET_STATE_ERR_PARAM;
 
-    WSH_SHELL_ASSERT(0);
-
     WSH_SHELL_MEMSET((void*)pShell, 0, sizeof(WshShell_t));
 
     WshShell_Size_t bufSize = sizeof(pShell->DeviceName);
