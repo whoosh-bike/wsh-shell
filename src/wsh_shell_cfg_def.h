@@ -147,16 +147,8 @@ typedef enum { WSH_SHELL_CMD_GROUP_LIST } WSH_SHELL_CMD_GROUP_t;
  */
 #ifdef WSH_SHELL_ASSERT_ENABLE
     #include <assert.h>
-    #include <signal.h>
     #ifndef WSH_SHELL_ASSERT
-        #define WSH_SHELL_ASSERT(exp) \
-            do {                      \
-                if (!(exp)) {         \
-                    raise(SIGTRAP);   \
-                    while (1) {       \
-                    }                 \
-                }                     \
-            } while (0)
+        #define WSH_SHELL_ASSERT(exp) assert(exp)
     #endif
 #else
     #ifndef WSH_SHELL_ASSERT

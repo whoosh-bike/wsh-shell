@@ -5,12 +5,11 @@
             "compilerPath": "${config:compiler_path}",
             "includePath": [
                 "${workspaceFolder}/example",
-                "${workspaceFolder}/src" 
+                "${workspaceFolder}/src"
             ],
             "cStandard": "c11",
             "cppStandard": "c++17",
-            "intelliSenseMode": "linux-gcc-arm",
-            "configurationProvider": "ms-vscode.makefile-tools"
+            "intelliSenseMode": "linux-gcc-arm"
         }
     ],
     "version": 4

@@ -42,30 +42,30 @@ Wsh-Shell is a lightweight, portable, and fully static shell interpreter written
 - Build options: cortex-m7, `-O1` optimization
 - sizeof(WshShell_t) = 404 bytes
 
-| Config                                | FLASH, KB | Comment                                              |
-| --------------------------------------| --------- | ---------------------------------------------------- |
-| All features disabled                 | 4.06836   |                                                      |
-| `+WSH_SHELL_PRINT_SYS/INFO/WARN/ERR`  | 4.58008   | Not recommended to disable shell messages            |
-| `+WSH_SHELL_INTERACTIVE_MODE`         | 4.68164   |                                                      |
-| `+WSH_SHELL_HISTORY`                  | 5.63867   |                                                      |
-| `+WSH_SHELL_AUTOCOMPLETE`             | 6.19727   |                                                      |
-| `+WSH_SHELL_PS1_CUSTOM`               | 6.66992   |                                                      |
-| `+WSH_SHELL_PROMPT_WAIT`              | 6.78516   |                                                      |
-| `+WSH_SHELL_DEF_COMMAND`              | 8.44922   |                                                      |
-| `+WSH_SHELL_PRINT_OPT_HELP`           | 8.44922   | Could be usefull on huge amount of external commands |
-| `+WSH_SHELL_CMD_PRINT_OPT_OVERVIEW`   | 8.69922   | Could be usefull on huge amount of external commands |
+| Config                                | FLASH, KB | Comment                                             |
+| --------------------------------------| --------- | --------------------------------------------------- |
+| All features disabled                 | 4.06836   |                                                     |
+| `+WSH_SHELL_PRINT_SYS/INFO/WARN/ERR`  | 4.58008   | Not recommended to disable shell messages           |
+| `+WSH_SHELL_INTERACTIVE_MODE`         | 4.68164   |                                                     |
+| `+WSH_SHELL_HISTORY`                  | 5.63867   |                                                     |
+| `+WSH_SHELL_AUTOCOMPLETE`             | 6.19727   |                                                     |
+| `+WSH_SHELL_PS1_CUSTOM`               | 6.66992   |                                                     |
+| `+WSH_SHELL_PROMPT_WAIT`              | 6.78516   |                                                     |
+| `+WSH_SHELL_DEF_COMMAND`              | 8.44922   |                                                     |
+| `+WSH_SHELL_PRINT_OPT_HELP`           | 8.44922   | Could be useful on huge amount of external commands |
+| `+WSH_SHELL_CMD_PRINT_OPT_OVERVIEW`   | 8.69922   | Could be useful on huge amount of external commands |
 
 ## ⌨️ Code counting
 
 ```markdown
-===============================================================================
- Language            Files        Lines         Code     Comments       Blanks
-===============================================================================
- C                      13         2102         1610           52          440
- C Header               17         2093          758         1095          240
-===============================================================================
- Total                  30         4195         2368         1147          680
-===============================================================================
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+ Language              Files        Lines         Code     Comments       Blanks
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+ C                        13         2284         1742           75          467
+ C Header                 17         2096          761         1095          240
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+ Total                    30         4380         2503         1170          707
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 ```
 
 ## 👨‍💻 Authors

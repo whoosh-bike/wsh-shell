@@ -2,10 +2,10 @@
 
 # ===== Project Configuration =====
 TARGET := example
-BUILD ?= Debug
+BUILD ?= debug
 
 # ===== Toolchain =====
-CC := gcc
+CC ?= gcc
 MKDIR := mkdir -p
 RM := rm -rf
 
@@ -43,13 +43,13 @@ C_FLAGS += -MMD
 
 COMPILE_FLAGS += $(INC_FLAGS) $(C_FLAGS)
 
-ifeq ($(BUILD),Debug)
+ifeq ($(BUILD),debug)
     COMPILE_FLAGS += $(DEBUG_FLAGS) 
 else
     COMPILE_FLAGS += $(RELEASE_FLAGS)
 endif
 
-ifeq ($(findstring clang,$(CC)),clang)
+ifeq ($(findstring clang,$(shell $(CC) --version 2>&1 | head -1)),clang)
     COMPILE_FLAGS += -Wno-gnu-zero-variadic-macro-arguments
 endif
 
