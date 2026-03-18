@@ -2662,24 +2662,24 @@
 </span><span id="__span-0-60"><a id="__codelineno-0-60" name="__codelineno-0-60"></a><span class="cp">#endif</span>
 </span><span id="__span-0-61"><a id="__codelineno-0-61" name="__codelineno-0-61"></a>
 </span><span id="__span-0-62"><a id="__codelineno-0-62" name="__codelineno-0-62"></a><span class="cp">#if WSH_SHELL_PRINT_INFO_ENABLE</span>
-</span><span id="__span-0-63"><a id="__codelineno-0-63" name="__codelineno-0-63"></a><span class="w">    </span><span class="cp">#define WSH_SHELL_PRINT_INFO(_f_, ...)                                                  \</span>
-</span><span id="__span-0-64"><a id="__codelineno-0-64" name="__codelineno-0-64"></a><span class="cp">        WSH_SHELL_PRINT(&quot;[&quot; WSH_SHELL_COLOR_INFO &quot;INFO&quot; WSH_SHELL_ESC_RESET_STYLE &quot;] &quot; _f_, \</span>
+</span><span id="__span-0-63"><a id="__codelineno-0-63" name="__codelineno-0-63"></a><span class="w">    </span><span class="cp">#define WSH_SHELL_PRINT_INFO(_f_, ...)                                                                        \</span>
+</span><span id="__span-0-64"><a id="__codelineno-0-64" name="__codelineno-0-64"></a><span class="cp">        WSH_SHELL_PRINT(WSH_SHELL_ESC_RESET_STYLE &quot;[&quot; WSH_SHELL_COLOR_INFO &quot;INFO&quot; WSH_SHELL_ESC_RESET_STYLE &quot;] &quot; _f_, \</span>
 </span><span id="__span-0-65"><a id="__codelineno-0-65" name="__codelineno-0-65"></a><span class="cp">                        ##__VA_ARGS__)</span>
 </span><span id="__span-0-66"><a id="__codelineno-0-66" name="__codelineno-0-66"></a><span class="cp">#else</span>
 </span><span id="__span-0-67"><a id="__codelineno-0-67" name="__codelineno-0-67"></a><span class="w">    </span><span class="cp">#define WSH_SHELL_PRINT_INFO(_f_, ...)</span>
 </span><span id="__span-0-68"><a id="__codelineno-0-68" name="__codelineno-0-68"></a><span class="cp">#endif</span>
 </span><span id="__span-0-69"><a id="__codelineno-0-69" name="__codelineno-0-69"></a>
 </span><span id="__span-0-70"><a id="__codelineno-0-70" name="__codelineno-0-70"></a><span class="cp">#if WSH_SHELL_PRINT_WARN_ENABLE</span>
-</span><span id="__span-0-71"><a id="__codelineno-0-71" name="__codelineno-0-71"></a><span class="w">    </span><span class="cp">#define WSH_SHELL_PRINT_WARN(_f_, ...)                                                  \</span>
-</span><span id="__span-0-72"><a id="__codelineno-0-72" name="__codelineno-0-72"></a><span class="cp">        WSH_SHELL_PRINT(&quot;[&quot; WSH_SHELL_COLOR_WARN &quot;WARN&quot; WSH_SHELL_ESC_RESET_STYLE &quot;] &quot; _f_, \</span>
+</span><span id="__span-0-71"><a id="__codelineno-0-71" name="__codelineno-0-71"></a><span class="w">    </span><span class="cp">#define WSH_SHELL_PRINT_WARN(_f_, ...)                                                                        \</span>
+</span><span id="__span-0-72"><a id="__codelineno-0-72" name="__codelineno-0-72"></a><span class="cp">        WSH_SHELL_PRINT(WSH_SHELL_ESC_RESET_STYLE &quot;[&quot; WSH_SHELL_COLOR_WARN &quot;WARN&quot; WSH_SHELL_ESC_RESET_STYLE &quot;] &quot; _f_, \</span>
 </span><span id="__span-0-73"><a id="__codelineno-0-73" name="__codelineno-0-73"></a><span class="cp">                        ##__VA_ARGS__)</span>
 </span><span id="__span-0-74"><a id="__codelineno-0-74" name="__codelineno-0-74"></a><span class="cp">#else</span>
 </span><span id="__span-0-75"><a id="__codelineno-0-75" name="__codelineno-0-75"></a><span class="w">    </span><span class="cp">#define WSH_SHELL_PRINT_WARN(_f_, ...)</span>
 </span><span id="__span-0-76"><a id="__codelineno-0-76" name="__codelineno-0-76"></a><span class="cp">#endif</span>
 </span><span id="__span-0-77"><a id="__codelineno-0-77" name="__codelineno-0-77"></a>
 </span><span id="__span-0-78"><a id="__codelineno-0-78" name="__codelineno-0-78"></a><span class="cp">#if WSH_SHELL_PRINT_ERR_ENABLE</span>
-</span><span id="__span-0-79"><a id="__codelineno-0-79" name="__codelineno-0-79"></a><span class="w">    </span><span class="cp">#define WSH_SHELL_PRINT_ERR(_f_, ...)                                                    \</span>
-</span><span id="__span-0-80"><a id="__codelineno-0-80" name="__codelineno-0-80"></a><span class="cp">        WSH_SHELL_PRINT(&quot;[&quot; WSH_SHELL_COLOR_ERROR &quot;ERR &quot; WSH_SHELL_ESC_RESET_STYLE &quot;] &quot; _f_, \</span>
+</span><span id="__span-0-79"><a id="__codelineno-0-79" name="__codelineno-0-79"></a><span class="w">    </span><span class="cp">#define WSH_SHELL_PRINT_ERR(_f_, ...)                                                                         \</span>
+</span><span id="__span-0-80"><a id="__codelineno-0-80" name="__codelineno-0-80"></a><span class="cp">        WSH_SHELL_PRINT(WSH_SHELL_ESC_RESET_STYLE &quot;[&quot; WSH_SHELL_COLOR_ERROR &quot;ERR &quot; WSH_SHELL_ESC_RESET_STYLE &quot;] &quot; _f_, \</span>
 </span><span id="__span-0-81"><a id="__codelineno-0-81" name="__codelineno-0-81"></a><span class="cp">                        ##__VA_ARGS__)</span>
 </span><span id="__span-0-82"><a id="__codelineno-0-82" name="__codelineno-0-82"></a><span class="cp">#else</span>
 </span><span id="__span-0-83"><a id="__codelineno-0-83" name="__codelineno-0-83"></a><span class="w">    </span><span class="cp">#define WSH_SHELL_PRINT_ERR(_f_, ...)</span>
