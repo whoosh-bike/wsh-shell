@@ -1,7 +1,28 @@
 image: $DOCKER_IMAGE
 
 stages:
+  - test
   - deploy
+
+# Template for test jobs
+.test_python_template:
+  stage: test
+  before_script:
+    - apt-get update && apt-get install -y --no-install-recommends python3-venv
+    - python3 -m venv .venv
+    - . .venv/bin/activate
+    - pip install -r wsh_shell_adapter/requirements.txt
+    - pip install -r tests/requirements.txt
+  script:
+    - make example
+    - pytest -q tests -vv
+
+# Job for adapter tests
+test_wsh_shell_adapter:
+  extends: .test_python_template
+  rules:
+    - if: '$CI_PIPELINE_SOURCE == "merge_request_event"'
+    - if: '$CI_PIPELINE_SOURCE == "push" && ($CI_COMMIT_BRANCH == "dev" || $CI_COMMIT_BRANCH == "main")'
 
 # Template for deploy jobs
 .deploy_github_pages_template:

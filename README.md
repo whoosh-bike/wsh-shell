@@ -37,6 +37,13 @@ Wsh-Shell is a lightweight, portable, and fully static shell interpreter written
 
 Find setup instructions, build guides, API references, and advanced usage examples in the [documentation](https://whoosh-bike.github.io/wsh-shell/main/) page
 
+## 🐍 Python adapter
+
+Repository also includes Python adapter utilities in [`wsh_shell_adapter/`](wsh_shell_adapter/):
+
+- adapter usage and helper scripts: [`wsh_shell_adapter/README.md`](wsh_shell_adapter/README.md)
+- adapter test guide: [`tests/README.md`](tests/README.md)
+
 ## 👾 Demo
 
 ![Demo](/docs/img/demo.gif)
