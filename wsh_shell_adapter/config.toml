@@ -1,0 +1,28 @@
+[adapter]
+port = ""
+baudrate = 115200 # 9600 115200 
+# vid = 8137
+# pid = 158
+login = "root"
+password = "1234"
+newline = "\r"
+sync_timeout_s = 6.0
+command_timeout_s = 3.0
+retries = 1
+read_chunk_size = 4096
+auto_recover = true
+ping_command_and_response = ["wsh --ping", "pong"]
+prompt_regex = "^(?:[^\\r\\n]+@[^\\r\\n]+\\s*>|wsh-shell>)\\s*$"
+sync_enter_interval_s = 0.2
+sync_idle_enter_interval_s = 0.6
+sync_poll_sleep_s = 0.03
+read_poll_sleep_s = 0.02
+pre_command_drain_s = 0.05
+recover_soft_sync_timeout_cap_s = 2.0
+recover_soft_command_timeout_cap_s = 2.0
+recover_hard_sync_timeout_cap_s = 3.0
+debug = false
+
+[local_shell]
+binary = "example/build/example"
+cwd = "."
