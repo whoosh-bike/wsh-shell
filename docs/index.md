@@ -33,6 +33,10 @@ Wsh-Shell is a lightweight, portable, and fully static shell interpreter written
 - **Passwords Stored Salted & Hashed** — passwords are supplied and verified through a user-provided callback and always stored in a salted, hashed form; by default the module uses a lightweight Jenkins (non-cryptographic) hash, and no plaintext passwords are written to flash unless the integrator explicitly chooses to do so
 - **Command Option Validation** — during command registration, the shell automatically checks for duplicate short or long option flags within the same command and triggers an ASSERT if duplicates are detected
 
+## 🐍 Python adapter
+
+Repository also includes a Python adapter for connecting to `wsh-shell`, running commands, and parsing responses from a host machine.
+
 ## 👾 Demo
 
 ![Demo](img/demo.gif)

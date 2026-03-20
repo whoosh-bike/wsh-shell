@@ -98,6 +98,13 @@
 - [x] Update and improve documentation
 - [x] Extend autocomplete to support flag suggestions (not just command names)
 
-## v3.0
+## v3.0 (Python Adapter, Tests & CI)
 
-- [ ] Automate build and test runs via GitHub Actions
+- [x] Add Python `wsh_shell_adapter` package with serial/UART and local PTY transports
+- [x] Implement shell sync/auth flow with command execution, retry logic, sync probe verification, and structured output parsing
+- [x] Add TOML-based adapter configuration
+- [x] Add serial port auto-discovery by fixed `port` or `vid/pid`, including interactive port selection helpers
+- [x] Add adapter unit tests for sync/login flow, JSON parsing, fragmented writes, timeout retry, empty command validation, and config loading
+- [x] Add integration tests for running against `example/build/example` via PTY and for non-zero exit on failed `WSH_SHELL_ASSERT`
+- [x] Add adapter and test documentation
+- [x] Automate adapter test runs in GitLab CI
