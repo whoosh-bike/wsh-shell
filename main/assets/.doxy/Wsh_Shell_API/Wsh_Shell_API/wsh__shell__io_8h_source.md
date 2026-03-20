@@ -58,9 +58,8 @@ extern "C" {
 #define WSH_SHELL_COLOR_CYAN   WSH_SHELL_ESC_SEQ_START_STR "[36m"
 #define WSH_SHELL_COLOR_WHITE  WSH_SHELL_ESC_SEQ_START_STR "[37m"
 
-#define WSH_SHELL_COLOR_INFO  WSH_SHELL_COLOR_WHITE
+#define WSH_SHELL_COLOR_INFO  WSH_SHELL_COLOR_GREEN
 #define WSH_SHELL_COLOR_SYS   WSH_SHELL_COLOR_CYAN
-#define WSH_SHELL_COLOR_OK    WSH_SHELL_COLOR_GREEN
 #define WSH_SHELL_COLOR_WARN  WSH_SHELL_COLOR_YELLOW
 #define WSH_SHELL_COLOR_ERROR WSH_SHELL_COLOR_RED
 
@@ -72,22 +71,25 @@ extern "C" {
 #endif
 
 #if WSH_SHELL_PRINT_INFO_ENABLE
-    #define WSH_SHELL_PRINT_INFO(_f_, ...) \
-        WSH_SHELL_PRINT(WSH_SHELL_COLOR_INFO _f_ WSH_SHELL_ESC_RESET_STYLE, ##__VA_ARGS__)
+    #define WSH_SHELL_PRINT_INFO(_f_, ...)                                                                        \
+        WSH_SHELL_PRINT(WSH_SHELL_ESC_RESET_STYLE "[" WSH_SHELL_COLOR_INFO "INFO" WSH_SHELL_ESC_RESET_STYLE "] " _f_, \
+                        ##__VA_ARGS__)
 #else
     #define WSH_SHELL_PRINT_INFO(_f_, ...)
 #endif
 
 #if WSH_SHELL_PRINT_WARN_ENABLE
-    #define WSH_SHELL_PRINT_WARN(_f_, ...) \
-        WSH_SHELL_PRINT(WSH_SHELL_COLOR_WARN _f_ WSH_SHELL_ESC_RESET_STYLE, ##__VA_ARGS__)
+    #define WSH_SHELL_PRINT_WARN(_f_, ...)                                                                        \
+        WSH_SHELL_PRINT(WSH_SHELL_ESC_RESET_STYLE "[" WSH_SHELL_COLOR_WARN "WARN" WSH_SHELL_ESC_RESET_STYLE "] " _f_, \
+                        ##__VA_ARGS__)
 #else
     #define WSH_SHELL_PRINT_WARN(_f_, ...)
 #endif
 
 #if WSH_SHELL_PRINT_ERR_ENABLE
-    #define WSH_SHELL_PRINT_ERR(_f_, ...) \
-        WSH_SHELL_PRINT(WSH_SHELL_COLOR_ERROR _f_ WSH_SHELL_ESC_RESET_STYLE, ##__VA_ARGS__)
+    #define WSH_SHELL_PRINT_ERR(_f_, ...)                                                                         \
+        WSH_SHELL_PRINT(WSH_SHELL_ESC_RESET_STYLE "[" WSH_SHELL_COLOR_ERROR "ERR " WSH_SHELL_ESC_RESET_STYLE "] " _f_, \
+                        ##__VA_ARGS__)
 #else
     #define WSH_SHELL_PRINT_ERR(_f_, ...)
 #endif

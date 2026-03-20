@@ -78,8 +78,8 @@
 
 | Type | Name |
 | ---: | :--- |
-| define  | [**WSH\_SHELL\_VERSION\_MAJOR**](wsh__shell__version_8h.md#define-wsh_shell_version_major)  `2`<br> |
-| define  | [**WSH\_SHELL\_VERSION\_MINOR**](wsh__shell__version_8h.md#define-wsh_shell_version_minor)  `5`<br> |
+| define  | [**WSH\_SHELL\_VERSION\_MAJOR**](wsh__shell__version_8h.md#define-wsh_shell_version_major)  `3`<br> |
+| define  | [**WSH\_SHELL\_VERSION\_MINOR**](wsh__shell__version_8h.md#define-wsh_shell_version_minor)  `0`<br> |
 | define  | [**WSH\_SHELL\_VERSION\_STR**](wsh__shell__version_8h.md#define-wsh_shell_version_str)  `\_WSH\_SHELL\_STR(WSH\_SHELL\_VERSION\_MAJOR) "." \_WSH\_SHELL\_STR(WSH\_SHELL\_VERSION\_MINOR)`<br> |
 | define  | [**\_WSH\_SHELL\_STR**](wsh__shell__version_8h.md#define-_wsh_shell_str) (x) `\_WSH\_SHELL\_STR\_HELPER(x)`<br> |
 | define  | [**\_WSH\_SHELL\_STR\_HELPER**](wsh__shell__version_8h.md#define-_wsh_shell_str_helper) (x) `#x`<br> |
@@ -93,7 +93,7 @@
 ### define WSH\_SHELL\_VERSION\_MAJOR 
 
 ```C++
-#define WSH_SHELL_VERSION_MAJOR `2`
+#define WSH_SHELL_VERSION_MAJOR `3`
 ```
 
 
@@ -106,7 +106,7 @@
 ### define WSH\_SHELL\_VERSION\_MINOR 
 
 ```C++
-#define WSH_SHELL_VERSION_MINOR `5`
+#define WSH_SHELL_VERSION_MINOR `0`
 ```
 
 

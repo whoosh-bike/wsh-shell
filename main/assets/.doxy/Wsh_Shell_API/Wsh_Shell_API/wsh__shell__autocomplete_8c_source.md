@@ -12,6 +12,28 @@
 
 #if WSH_SHELL_AUTOCOMPLETE
 
+static WshShell_Size_t WshShellAutocomplete_CommonPrefixLen(const WshShell_Char_t* pFirst,
+                                                            WshShell_Size_t stride,
+                                                            WshShell_Size_t count,
+                                                            WshShell_Size_t startLen,
+                                                            WshShell_Size_t maxLen) {
+    WshShell_Size_t prefixLen = startLen;
+    while (prefixLen < maxLen) {
+        WshShell_Char_t nextChar = pFirst[prefixLen];
+        WshShell_Bool_t match    = true;
+        for (WshShell_Size_t i = 1; i < count; i++) {
+            if ((pFirst + i * stride)[prefixLen] != nextChar) {
+                match = false;
+                break;
+            }
+        }
+        if (!match)
+            break;
+        prefixLen++;
+    }
+    return prefixLen;
+}
+
 WshShell_Bool_t WshShellAutocomplete_Try(WshShell_Char_t* pInBuff, WshShell_Size_t inBuffLen,
                                          WshShellCmd_Table_t* pShellCommands) {
     WSH_SHELL_ASSERT(pInBuff && pShellCommands);
@@ -67,6 +89,114 @@ WshShell_Bool_t WshShellAutocomplete_Try(WshShell_Char_t* pInBuff, WshShell_Size
     sysMsgShift[0]      = ' ';
     sysMsgShift[padLen] = '\0';
 
+    // If input contains a space — try flag autocomplete for the last typed token
+    WshShell_Size_t firstSpaceIdx = inputCopyTrimmedLen;
+    WshShell_Size_t lastSpaceIdx  = inputCopyTrimmedLen;
+    for (WshShell_Size_t i = 0; i < inputCopyTrimmedLen; i++) {
+        if (pcInputCopyTrimmed[i] == ' ') {
+            if (firstSpaceIdx == inputCopyTrimmedLen)
+                firstSpaceIdx = i;
+            lastSpaceIdx = i;
+        }
+    }
+
+    if (firstSpaceIdx < inputCopyTrimmedLen) {
+        WshShell_Size_t cmdPartLen        = firstSpaceIdx;
+        const WshShell_Char_t* pcFlagPart = pcInputCopyTrimmed + lastSpaceIdx + 1;
+        WshShell_Size_t flagPartLen       = WSH_SHELL_STRLEN(pcFlagPart);
+
+        // Find command matching first token (exact)
+        const WshShellCmd_t* pcTargetCmd = NULL;
+        if (WSH_SHELL_STRLEN(pcDefCmd->Name) == cmdPartLen &&
+            WSH_SHELL_STRNCMP(pcInputCopyTrimmed, pcDefCmd->Name, cmdPartLen) == 0) {
+            pcTargetCmd = pcDefCmd;
+        }
+        for (WshShell_Size_t i = 0; !pcTargetCmd && i < cmdNum; i++) {
+            const WshShellCmd_t* pcCmd = WshShellCmd_GetCmdByIndex(pShellCommands, i);
+            if (WSH_SHELL_STRLEN(pcCmd->Name) == cmdPartLen &&
+                WSH_SHELL_STRNCMP(pcInputCopyTrimmed, pcCmd->Name, cmdPartLen) == 0) {
+                pcTargetCmd = pcCmd;
+            }
+        }
+
+        if (!pcTargetCmd) {
+            WSH_SHELL_PRINT_SYS("%s /autocomplete: unknown command\r\n", sysMsgShift);
+            return false;
+        }
+
+        // Collect flags matching partial flag token
+        WshShell_Char_t flagCandidates[WSH_SHELL_CMD_OPTIONS_MAX_NUM][WSH_SHELL_OPTION_LONG_NAME_LEN];
+        WshShell_Size_t flagMatchCount = 0;
+
+        const WshShellOption_t* pOpt = pcTargetCmd->Options;
+        for (; pOpt->Type != WSH_SHELL_OPTION_END && flagMatchCount < WSH_SHELL_CMD_OPTIONS_MAX_NUM;
+             pOpt++) {
+            if (pOpt->Type == WSH_SHELL_OPTION_NO || pOpt->Type == WSH_SHELL_OPTION_WAITS_INPUT)
+                continue;
+
+            const WshShell_Char_t* pcName = NULL;
+            if (pOpt->LongName[0] &&
+                WSH_SHELL_STRNCMP(pcFlagPart, pOpt->LongName, flagPartLen) == 0) {
+                pcName = pOpt->LongName;
+            } else if (flagPartLen <= WSH_SHELL_OPTION_SHORT_NAME_LEN && pOpt->ShortName[0] &&
+                       WSH_SHELL_STRNCMP(pcFlagPart, pOpt->ShortName, flagPartLen) == 0) {
+                pcName = pOpt->ShortName;
+            }
+
+            if (pcName) {
+                WSH_SHELL_STRNCPY(flagCandidates[flagMatchCount], pcName,
+                                  WSH_SHELL_OPTION_LONG_NAME_LEN - 1);
+                flagCandidates[flagMatchCount][WSH_SHELL_OPTION_LONG_NAME_LEN - 1] = '\0';
+                flagMatchCount++;
+            }
+        }
+
+        if (flagMatchCount == 0) {
+            WSH_SHELL_PRINT_SYS("%s /autocomplete: no matches\r\n", sysMsgShift);
+            return false;
+        }
+
+        if (flagMatchCount == 1) {
+            WshShell_Size_t flagLen = WSH_SHELL_STRLEN(flagCandidates[0]);
+            WshShell_Size_t newLen  = cmdPartLen + 1 + flagLen;
+            if (newLen + 2 > WSH_SHELL_INTR_BUFF_LEN) {
+                WSH_SHELL_PRINT_WARN("Flag name too long for buffer\r\n");
+                return false;
+            }
+            WSH_SHELL_STRNCPY(pInBuff, pcInputCopyTrimmed, cmdPartLen);
+            pInBuff[cmdPartLen] = ' ';
+            WSH_SHELL_MEMCPY(pInBuff + cmdPartLen + 1, flagCandidates[0], flagLen);
+            pInBuff[cmdPartLen + 1 + flagLen]     = ' ';
+            pInBuff[cmdPartLen + 1 + flagLen + 1] = '\0';
+            return true;
+        }
+
+        // Find longest common prefix among flag candidates
+        WshShell_Size_t flagPrefixLen = WshShellAutocomplete_CommonPrefixLen(
+            flagCandidates[0], WSH_SHELL_OPTION_LONG_NAME_LEN, flagMatchCount, flagPartLen,
+            WSH_SHELL_OPTION_LONG_NAME_LEN);
+
+        if (flagPrefixLen > flagPartLen) {
+            WshShell_Size_t newLen = cmdPartLen + 1 + flagPrefixLen;
+            if (newLen + 1 > WSH_SHELL_INTR_BUFF_LEN) {
+                WSH_SHELL_PRINT_WARN("Flag prefix too long for buffer\r\n");
+                return false;
+            }
+            WSH_SHELL_STRNCPY(pInBuff, pcInputCopyTrimmed, cmdPartLen);
+            pInBuff[cmdPartLen] = ' ';
+            WSH_SHELL_MEMCPY(pInBuff + cmdPartLen + 1, flagCandidates[0], flagPrefixLen);
+            pInBuff[newLen] = '\0';
+            return true;
+        }
+
+        // Print all matching flag candidates
+        WSH_SHELL_PRINT_SYS("%s /autocomplete flags found: ", sysMsgShift);
+        for (WshShell_Size_t cnt = 0; cnt < flagMatchCount; cnt++)
+            WSH_SHELL_PRINT("[%s] ", flagCandidates[cnt]);
+        WSH_SHELL_PRINT("\r\n");
+        return false;
+    }
+
     // No matches found
     if (matchCount == 0) {
         WSH_SHELL_PRINT_SYS("%s /autocomplete: no matches\r\n", sysMsgShift);
@@ -89,11 +219,11 @@ WshShell_Bool_t WshShellAutocomplete_Try(WshShell_Char_t* pInBuff, WshShell_Size
                         continue;
 
                     optFound = true;
-                    WSH_SHELL_PRINT_INFO("[%s/%s] ", pOpt->ShortName, pOpt->LongName);
+                    WSH_SHELL_PRINT("[%s/%s] ", pOpt->ShortName, pOpt->LongName);
                 }
             }
 
-            WSH_SHELL_PRINT_INFO("%s\r\n", optFound ? "" : "none");
+            WSH_SHELL_PRINT("%s\r\n", optFound ? "" : "none");
             return false;
         }
 
@@ -112,21 +242,8 @@ WshShell_Bool_t WshShellAutocomplete_Try(WshShell_Char_t* pInBuff, WshShell_Size
     }
 
     // Determine longest common prefix among all matches
-    WshShell_Size_t prefixLen = inBuffLen;
-    WshShell_Bool_t match     = true;
-
-    while (match && prefixLen < WSH_SHELL_CMD_NAME_LEN) {
-        WshShell_Char_t nextChar = candidates[0][prefixLen];
-        for (WshShell_Size_t cnt = 1; cnt < matchCount; cnt++) {
-            if (candidates[cnt][prefixLen] != nextChar) {
-                match = false;
-                break;
-            }
-        }
-
-        if (match)
-            prefixLen++;
-    }
+    WshShell_Size_t prefixLen = WshShellAutocomplete_CommonPrefixLen(
+        candidates[0], WSH_SHELL_CMD_NAME_LEN, matchCount, inBuffLen, WSH_SHELL_CMD_NAME_LEN);
 
     // If common prefix is longer than input, extend input
     if (prefixLen > inBuffLen) {
@@ -144,7 +261,7 @@ WshShell_Bool_t WshShellAutocomplete_Try(WshShell_Char_t* pInBuff, WshShell_Size
     // Print all candidates as options
     WSH_SHELL_PRINT_SYS("%s /autocomplete cmd found: ", sysMsgShift);
     for (WshShell_Size_t cnt = 0; cnt < matchCount; cnt++)
-        WSH_SHELL_PRINT_INFO("%s ", candidates[cnt]);
+        WSH_SHELL_PRINT("%s ", candidates[cnt]);
 
     WSH_SHELL_PRINT("\r\n");
 

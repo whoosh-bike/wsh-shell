@@ -319,7 +319,6 @@
     <member refid="wsh__shell__io_8h_1afef0b2831fae66d817f4a716d7922f5d" kind="define"><name>WSH_SHELL_COLOR_WHITE</name></member>
     <member refid="wsh__shell__io_8h_1a51aa0d927d485f3f6b0fe9abccf5c997" kind="define"><name>WSH_SHELL_COLOR_INFO</name></member>
     <member refid="wsh__shell__io_8h_1ac74bdea5e2e52121433370df8134e47d" kind="define"><name>WSH_SHELL_COLOR_SYS</name></member>
-    <member refid="wsh__shell__io_8h_1a4ebfc1e1765ee9f181d18130e33c604f" kind="define"><name>WSH_SHELL_COLOR_OK</name></member>
     <member refid="wsh__shell__io_8h_1a26c5b57f2110ed0de16a318dc99e01f0" kind="define"><name>WSH_SHELL_COLOR_WARN</name></member>
     <member refid="wsh__shell__io_8h_1ab9fb7648ff251d6d13974fff8c6d2f40" kind="define"><name>WSH_SHELL_COLOR_ERROR</name></member>
     <member refid="wsh__shell__io_8h_1a05f412acee3be3b6736a0271c74e47b2" kind="define"><name>WSH_SHELL_PRINT_SYS</name></member>
