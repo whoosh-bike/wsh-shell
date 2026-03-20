@@ -16,7 +16,7 @@
         <link rel="prev" href="../build/">
       
       
-        <link rel="next" href="../../usage/bare-metal/">
+        <link rel="next" href="../../usage/python-adapter/">
       
       
         
@@ -250,7 +250,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../usage/bare-metal/" class="md-tabs__link">
+        <a href="../../usage/python-adapter/" class="md-tabs__link">
           
   
   
@@ -721,10 +721,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#v30" class="md-nav__link">
+  <a href="#v30-python-adapter-tests-ci" class="md-nav__link">
     <span class="md-ellipsis">
       
-        v3.0
+        v3.0 (Python Adapter, Tests &amp; CI)
       
     </span>
   </a>
@@ -755,6 +755,8 @@
   
     
     
+      
+        
       
         
       
@@ -804,6 +806,34 @@
 
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../usage/python-adapter/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Python Adapter
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
             
               
                 
@@ -2774,10 +2804,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#v30" class="md-nav__link">
+  <a href="#v30-python-adapter-tests-ci" class="md-nav__link">
     <span class="md-ellipsis">
       
-        v3.0
+        v3.0 (Python Adapter, Tests &amp; CI)
       
     </span>
   </a>
@@ -2963,9 +2993,16 @@
 <li class="task-list-item"><input type="checkbox" disabled checked/> Update and improve documentation</li>
 <li class="task-list-item"><input type="checkbox" disabled checked/> Extend autocomplete to support flag suggestions (not just command names)</li>
 </ul>
-<h2 id="v30">v3.0</h2>
+<h2 id="v30-python-adapter-tests-ci">v3.0 (Python Adapter, Tests &amp; CI)</h2>
 <ul class="task-list">
-<li class="task-list-item"><input type="checkbox" disabled/> Automate build and test runs via GitHub Actions</li>
+<li class="task-list-item"><input type="checkbox" disabled checked/> Add Python <code>wsh_shell_adapter</code> package with serial/UART and local PTY transports</li>
+<li class="task-list-item"><input type="checkbox" disabled checked/> Implement shell sync/auth flow with command execution, retry logic, sync probe verification, and structured output parsing</li>
+<li class="task-list-item"><input type="checkbox" disabled checked/> Add TOML-based adapter configuration</li>
+<li class="task-list-item"><input type="checkbox" disabled checked/> Add serial port auto-discovery by fixed <code>port</code> or <code>vid/pid</code>, including interactive port selection helpers</li>
+<li class="task-list-item"><input type="checkbox" disabled checked/> Add adapter unit tests for sync/login flow, JSON parsing, fragmented writes, timeout retry, empty command validation, and config loading</li>
+<li class="task-list-item"><input type="checkbox" disabled checked/> Add integration tests for running against <code>example/build/example</code> via PTY and for non-zero exit on failed <code>WSH_SHELL_ASSERT</code></li>
+<li class="task-list-item"><input type="checkbox" disabled checked/> Add adapter and test documentation</li>
+<li class="task-list-item"><input type="checkbox" disabled checked/> Automate adapter test runs in GitLab CI</li>
 </ul>
 
 
@@ -3019,13 +3056,13 @@
         
         
           
-          <a href="../../usage/bare-metal/" class="md-footer__link md-footer__link--next" aria-label="Next: Examples Bare-Metal">
+          <a href="../../usage/python-adapter/" class="md-footer__link md-footer__link--next" aria-label="Next: Python Adapter">
             <div class="md-footer__title">
               <span class="md-footer__direction">
                 Next
               </span>
               <div class="md-ellipsis">
-                Examples Bare-Metal
+                Python Adapter
               </div>
             </div>
             <div class="md-footer__button md-icon">
