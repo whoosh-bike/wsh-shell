@@ -50,7 +50,7 @@ const WshShellCmd_t Shell_LedCmd = {
 ## 4. Define users
 
 - Add at least one user with credentials, groups, and rights
-- Add custom function for passwords decryption
+- Add custom function for password hashing
 
 ```c
 #include "crypto.h"

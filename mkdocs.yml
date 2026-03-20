@@ -78,6 +78,7 @@ nav:
       - Build Instructions: dev/build.md
       - ToDo: dev/todo.md
   - Usage:
+      - Python Adapter: usage/python-adapter.md
       - Examples Bare-Metal: usage/bare-metal.md
       - Examples RTOS: usage/rtos.md
       - Permission Rules: usage/permission-rules.md
