@@ -125,7 +125,8 @@ WshShell_Bool_t WshShellAutocomplete_Try(WshShell_Char_t* pInBuff, WshShell_Size
         }
 
         // Collect flags matching partial flag token
-        WshShell_Char_t flagCandidates[WSH_SHELL_CMD_OPTIONS_MAX_NUM][WSH_SHELL_OPTION_LONG_NAME_LEN];
+        WshShell_Char_t flagCandidates[WSH_SHELL_CMD_OPTIONS_MAX_NUM]
+                                      [WSH_SHELL_OPTION_LONG_NAME_LEN];
         WshShell_Size_t flagMatchCount = 0;
 
         const WshShellOption_t* pOpt = pcTargetCmd->Options;
