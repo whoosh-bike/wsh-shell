@@ -31,7 +31,7 @@ Or just run `setup python env` vscode task
 
 ## Project Structure
 
-```
+```bash
 wsh-shell/
 ├── src/                    # Library source files
 │   ├── wsh_shell_cfg_def.h # Default configuration template

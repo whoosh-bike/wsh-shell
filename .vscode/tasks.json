@@ -12,15 +12,6 @@
             }
         },
         {
-            "label": "⚒️ build all",
-            "type": "shell",
-            "command": "make all",
-            "group": {
-                "kind": "build",
-                "isDefault": true
-            }
-        },
-        {
             "label": "⚒️ build example (debug)",
             "type": "shell",
             "command": "make example",
@@ -46,6 +37,15 @@
                 "-c",
                 "python3 -m venv .venv && source .venv/bin/activate && pip install --upgrade pip && pip install -r requirements.txt"
             ],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            }
+        },
+        {
+            "label": "📝 Format project",
+            "type": "shell",
+            "command": "./utils/code-format.sh",
             "group": {
                 "kind": "build",
                 "isDefault": true
