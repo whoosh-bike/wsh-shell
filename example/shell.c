@@ -42,7 +42,7 @@ static WshShellExtCallbacks_t Shell_Callbacks = {
     .SymbolIn = Shell_SymInClbk,
 };
 
-bool Shell_Init(const char* pcHostName) {
+bool Shell_Init(const char* pcHostName, const char* pcLogin, const char* pcPass) {
     if (WshShell_Init(&Shell, pcHostName, NULL, &Shell_Callbacks) != WSH_SHELL_RET_STATE_SUCCESS) {
         return false;
     }
@@ -54,7 +54,9 @@ bool Shell_Init(const char* pcHostName) {
 
     WshShellHistory_Init(&Shell.HistoryIO, WshShellHistory_Read, WshShellHistory_Write);
 
-    // WshShell_Auth(&Shell, "root", "1234");  //For quick auth
+    if (pcLogin != NULL && pcPass != NULL) {
+        WshShell_Auth(&Shell, pcLogin, pcPass);
+    }
 
     return true;
 }

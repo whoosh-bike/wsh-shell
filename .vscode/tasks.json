@@ -30,6 +30,15 @@
             }
         },
         {
+            "label": "▶️ run example (auto-login)",
+            "type": "shell",
+            "command": "./example/build/example -l root -p 1234",
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            }
+        },
+        {
             "label": "⌨️ create python env",
             "type": "shell",
             "command": "bash",
