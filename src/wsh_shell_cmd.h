@@ -50,6 +50,10 @@ typedef struct WshShellCmd {
     const WshShellOption_t* Options; /**< Pointer to the command's options array. */
     WshShell_Size_t OptNum;          /**< Number of defined options. */
     WshShellCmdHandler_t Handler;    /**< Execution callback function. */
+#if WSH_SHELL_SUBCOMMANDS
+    const struct WshShellCmd* const* SubCmds; /**< Array of pointers to nested subcommands. */
+    WshShell_Size_t SubCmdNum;                /**< Number of subcommands in the array. */
+#endif
 } WshShellCmd_t;
 
 /**
@@ -109,6 +113,35 @@ const WshShellCmd_t* WshShellCmd_GetCmdByIndex(WshShellCmd_Table_t* pShellComman
  */
 const WshShellCmd_t* WshShellCmd_SearchCmd(WshShellCmd_Table_t* pShellCommands,
                                            const WshShell_Char_t* pcCmdName);
+
+#if WSH_SHELL_SUBCOMMANDS
+/**
+ * @brief Returns the number of direct subcommands of a command.
+ *
+ * @param[in] pcCmd Pointer to the command descriptor.
+ * @return Number of subcommands, or 0 if none or NULL.
+ */
+WshShell_Size_t WshShellCmd_GetSubCmdNum(const WshShellCmd_t* pcCmd);
+
+/**
+ * @brief Retrieves a subcommand by index.
+ *
+ * @param[in] pcCmd Pointer to the parent command.
+ * @param[in] idx   Subcommand index.
+ * @return Pointer to the subcommand descriptor or NULL if out-of-bounds.
+ */
+const WshShellCmd_t* WshShellCmd_GetSubCmdByIndex(const WshShellCmd_t* pcCmd, WshShell_Size_t idx);
+
+/**
+ * @brief Finds a direct subcommand of a command by its name.
+ *
+ * @param[in] pcCmd     Parent command descriptor.
+ * @param[in] pcSubName Subcommand name to look up.
+ * @return Pointer to the matching subcommand or NULL if not found.
+ */
+const WshShellCmd_t* WshShellCmd_SearchSubCmd(const WshShellCmd_t* pcCmd,
+                                              const WshShell_Char_t* pcSubName);
+#endif /* WSH_SHELL_SUBCOMMANDS */
 
 /**
  * @brief Parses a command-line option for a given shell command.

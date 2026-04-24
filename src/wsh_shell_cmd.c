@@ -1,5 +1,86 @@
 #include "wsh_shell_cmd.h"
 
+static WSH_SHELL_RET_STATE_t WshShellCmd_ValidateCmd(const WshShellCmd_t* pcCmd);
+
+static WSH_SHELL_RET_STATE_t WshShellCmd_ValidateOptions(const WshShellCmd_t* pcCmd) {
+    WSH_SHELL_RET_STATE_t retState = WSH_SHELL_RET_STATE_SUCCESS;
+
+    if (!pcCmd->Options)
+        return retState;
+
+    const WshShellOption_t* pcOptOuter = pcCmd->Options;
+    for (; pcOptOuter->Type != WSH_SHELL_OPTION_END; pcOptOuter++) {
+        const WshShellOption_t* pcOptInner = pcOptOuter + 1;
+
+        for (; pcOptInner->Type != WSH_SHELL_OPTION_END; pcOptInner++) {
+            if (pcOptOuter->ShortName && pcOptInner->ShortName && pcOptOuter->ShortName[0] &&
+                pcOptInner->ShortName[0] &&
+                strcmp(pcOptOuter->ShortName, pcOptInner->ShortName) == 0) {
+                WSH_SHELL_PRINT_ERR("Duplicate short option name detected: %s %s\r\n", pcCmd->Name,
+                                    pcOptInner->ShortName);
+                WSH_SHELL_ASSERT(0);
+                retState = WSH_SHELL_RET_STATE_ERROR;
+            }
+
+            if (pcOptOuter->LongName && pcOptInner->LongName && pcOptOuter->LongName[0] &&
+                pcOptInner->LongName[0] &&
+                strcmp(pcOptOuter->LongName, pcOptInner->LongName) == 0) {
+                WSH_SHELL_PRINT_ERR("Duplicate long option name detected: %s %s\r\n", pcCmd->Name,
+                                    pcOptInner->LongName);
+                WSH_SHELL_ASSERT(0);
+                retState = WSH_SHELL_RET_STATE_ERROR;
+            }
+        }
+    }
+
+    return retState;
+}
+
+#if WSH_SHELL_SUBCOMMANDS
+static WSH_SHELL_RET_STATE_t WshShellCmd_ValidateSubCmds(const WshShellCmd_t* pcCmd) {
+    WSH_SHELL_RET_STATE_t retState = WSH_SHELL_RET_STATE_SUCCESS;
+
+    if (pcCmd->SubCmdNum == 0 || !pcCmd->SubCmds)
+        return retState;
+
+    for (WshShell_Size_t i = 0; i < pcCmd->SubCmdNum; i++) {
+        const WshShellCmd_t* pcSubI = pcCmd->SubCmds[i];
+        if (!pcSubI) {
+            WSH_SHELL_PRINT_ERR("Null subcommand pointer in %s [%d]\r\n", pcCmd->Name, (int)i);
+            WSH_SHELL_ASSERT(0);
+            retState = WSH_SHELL_RET_STATE_ERROR;
+            continue;
+        }
+
+        for (WshShell_Size_t j = i + 1; j < pcCmd->SubCmdNum; j++) {
+            const WshShellCmd_t* pcSubJ = pcCmd->SubCmds[j];
+            if (pcSubJ && pcSubI->Name && pcSubJ->Name && strcmp(pcSubI->Name, pcSubJ->Name) == 0) {
+                WSH_SHELL_PRINT_ERR("Duplicate subcommand name detected: %s %s\r\n", pcCmd->Name,
+                                    pcSubJ->Name);
+                WSH_SHELL_ASSERT(0);
+                retState = WSH_SHELL_RET_STATE_ERROR;
+            }
+        }
+
+        WSH_SHELL_RET_STATE_t subRet = WshShellCmd_ValidateCmd(pcSubI);
+        if (subRet != WSH_SHELL_RET_STATE_SUCCESS)
+            retState = subRet;
+    }
+
+    return retState;
+}
+#endif /* WSH_SHELL_SUBCOMMANDS */
+
+static WSH_SHELL_RET_STATE_t WshShellCmd_ValidateCmd(const WshShellCmd_t* pcCmd) {
+    WSH_SHELL_RET_STATE_t retState = WshShellCmd_ValidateOptions(pcCmd);
+#if WSH_SHELL_SUBCOMMANDS
+    WSH_SHELL_RET_STATE_t subRet = WshShellCmd_ValidateSubCmds(pcCmd);
+    if (subRet != WSH_SHELL_RET_STATE_SUCCESS)
+        retState = subRet;
+#endif
+    return retState;
+}
+
 WSH_SHELL_RET_STATE_t WshShellCmd_Attach(WshShellCmd_Table_t* pShellCommands,
                                          const WshShellCmd_t* pcCmdTable[],
                                          WshShell_Size_t cmdNum) {
@@ -19,28 +100,9 @@ WSH_SHELL_RET_STATE_t WshShellCmd_Attach(WshShellCmd_Table_t* pShellCommands,
             continue;
         }
 
-        const WshShellOption_t* pcOptOuter = pcCmd->Options;
-        for (; pcOptOuter->Type != WSH_SHELL_OPTION_END; pcOptOuter++) {
-            const WshShellOption_t* pcOptInner = pcOptOuter + 1;
-
-            for (; pcOptInner->Type != WSH_SHELL_OPTION_END; pcOptInner++) {
-                if (pcOptOuter->ShortName[0] && pcOptInner->ShortName[0] &&
-                    strcmp(pcOptOuter->ShortName, pcOptInner->ShortName) == 0) {
-                    WSH_SHELL_PRINT_ERR("Duplicate short option name detected: %s %s\r\n",
-                                        pcCmd->Name, pcOptInner->ShortName);
-                    WSH_SHELL_ASSERT(0);
-                    retState = WSH_SHELL_RET_STATE_ERROR;
-                }
-
-                if (pcOptOuter->LongName[0] && pcOptInner->LongName[0] &&
-                    strcmp(pcOptOuter->LongName, pcOptInner->LongName) == 0) {
-                    WSH_SHELL_PRINT_ERR("Duplicate long option name detected: %s %s\r\n",
-                                        pcCmd->Name, pcOptInner->LongName);
-                    WSH_SHELL_ASSERT(0);
-                    retState = WSH_SHELL_RET_STATE_ERROR;
-                }
-            }
-        }
+        WSH_SHELL_RET_STATE_t vRet = WshShellCmd_ValidateCmd(pcCmd);
+        if (vRet != WSH_SHELL_RET_STATE_SUCCESS)
+            retState = vRet;
     }
 
     pShellCommands->List = pcCmdTable;
@@ -90,6 +152,39 @@ const WshShellCmd_t* WshShellCmd_SearchCmd(WshShellCmd_Table_t* pShellCommands,
 
     return NULL;
 }
+
+#if WSH_SHELL_SUBCOMMANDS
+WshShell_Size_t WshShellCmd_GetSubCmdNum(const WshShellCmd_t* pcCmd) {
+    if (!pcCmd || !pcCmd->SubCmds)
+        return 0;
+
+    return pcCmd->SubCmdNum;
+}
+
+const WshShellCmd_t* WshShellCmd_GetSubCmdByIndex(const WshShellCmd_t* pcCmd, WshShell_Size_t idx) {
+    if (!pcCmd || !pcCmd->SubCmds || idx >= pcCmd->SubCmdNum)
+        return NULL;
+
+    return pcCmd->SubCmds[idx];
+}
+
+const WshShellCmd_t* WshShellCmd_SearchSubCmd(const WshShellCmd_t* pcCmd,
+                                              const WshShell_Char_t* pcSubName) {
+    if (!pcCmd || !pcSubName || !pcCmd->SubCmds)
+        return NULL;
+
+    for (WshShell_Size_t i = 0; i < pcCmd->SubCmdNum; i++) {
+        const WshShellCmd_t* pcSub = pcCmd->SubCmds[i];
+        if (!pcSub || !pcSub->Name)
+            continue;
+
+        if (WSH_SHELL_STRNCMP(pcSub->Name, pcSubName, WSH_SHELL_CMD_NAME_LEN) == 0)
+            return pcSub;
+    }
+
+    return NULL;
+}
+#endif /* WSH_SHELL_SUBCOMMANDS */
 
 static const WshShellOption_t* WshShellCmd_FindOpt(const WshShellCmd_t* pcCmd,
                                                    const WshShell_Char_t* pcStr,
@@ -248,35 +343,62 @@ void WshShellCmd_PrintOptionsOverview(const WshShellCmd_t* pcCmd) {
 
 #if WSH_SHELL_CMD_PRINT_OPT_OVERVIEW
 
-    WSH_SHELL_PRINT_SYS("Options overview:\r\n");
-
     const WshShell_Size_t shortNameMaxLen = WSH_SHELL_OPTION_SHORT_NAME_LEN + 5;
     const WshShell_Size_t longNameMaxLen  = WSH_SHELL_OPTION_LONG_NAME_LEN;
     const WshShell_Size_t typeMaxLen      = 10;
     const WshShell_Size_t accessMaxLen    = 6;
 
-    WshShell_Char_t headTemplate[64];
-    WSH_SHELL_SNPRINTF(headTemplate, sizeof(headTemplate),
-                       WSH_SHELL_COLOR_SYS
-                       "  %%-%ds %%-%ds %%-%ds %%-%ds %%s\r\n" WSH_SHELL_ESC_RESET_STYLE,
-                       shortNameMaxLen, longNameMaxLen, typeMaxLen, accessMaxLen);
+    if (pcCmd->Options) {
+        WSH_SHELL_PRINT_SYS("\r\nOptions overview:\r\n");
 
-    WSH_SHELL_PRINT(headTemplate, "Short", "Long", "Type", "Access", "Descr");
+        WshShell_Char_t headTemplate[64];
+        WSH_SHELL_SNPRINTF(headTemplate, sizeof(headTemplate),
+                           WSH_SHELL_COLOR_SYS
+                           "  %%-%ds %%-%ds %%-%ds %%-%ds %%s\r\n" WSH_SHELL_ESC_RESET_STYLE,
+                           shortNameMaxLen, longNameMaxLen, typeMaxLen, accessMaxLen);
 
-    WshShell_Char_t rowTemplate[64];
-    WSH_SHELL_SNPRINTF(rowTemplate, sizeof(rowTemplate), "  %%-%ds %%-%ds %%-%ds %%-%ds %%s\r\n",
-                       shortNameMaxLen, longNameMaxLen, typeMaxLen, accessMaxLen);
+        WSH_SHELL_PRINT(headTemplate, "Short", "Long", "Type", "Access", "Descr");
 
-    const WshShellOption_t* pcOpt = pcCmd->Options;
-    for (; pcOpt->Type != WSH_SHELL_OPTION_END; pcOpt++) {
-        if (pcOpt->Type == WSH_SHELL_OPTION_WAITS_INPUT)
-            continue;
+        WshShell_Char_t rowTemplate[64];
+        WSH_SHELL_SNPRINTF(rowTemplate, sizeof(rowTemplate),
+                           "  %%-%ds %%-%ds %%-%ds %%-%ds %%s\r\n", shortNameMaxLen, longNameMaxLen,
+                           typeMaxLen, accessMaxLen);
 
-        WshShell_Char_t accessRow[8];
-        WshShellStr_AccessBitsToStr(pcOpt->Access, accessRow);
-        WSH_SHELL_PRINT(rowTemplate, pcOpt->ShortName, pcOpt->LongName,
-                        WshShell_OptTypeStr_Get(pcOpt->Type), accessRow, pcOpt->Descr);
+        const WshShellOption_t* pcOpt = pcCmd->Options;
+        for (; pcOpt->Type != WSH_SHELL_OPTION_END; pcOpt++) {
+            if (pcOpt->Type == WSH_SHELL_OPTION_WAITS_INPUT)
+                continue;
+
+            WshShell_Char_t accessRow[8];
+            WshShellStr_AccessBitsToStr(pcOpt->Access, accessRow);
+            WSH_SHELL_PRINT(rowTemplate, pcOpt->ShortName, pcOpt->LongName,
+                            WshShell_OptTypeStr_Get(pcOpt->Type), accessRow, pcOpt->Descr);
+        }
     }
+
+    #if WSH_SHELL_SUBCOMMANDS
+    if (pcCmd->SubCmdNum > 0 && pcCmd->SubCmds != NULL) {
+        const WshShell_Size_t subNameMaxLen = WSH_SHELL_CMD_NAME_LEN;
+
+        WshShell_Char_t subHeadTemplate[64];
+        WSH_SHELL_SNPRINTF(subHeadTemplate, sizeof(subHeadTemplate),
+                           WSH_SHELL_COLOR_SYS
+                           "\r\nSubcommands:\r\n  %%-%ds %%s\r\n" WSH_SHELL_ESC_RESET_STYLE,
+                           subNameMaxLen);
+        WSH_SHELL_PRINT(subHeadTemplate, "Name", "Descr");
+
+        WshShell_Char_t subRowTemplate[32];
+        WSH_SHELL_SNPRINTF(subRowTemplate, sizeof(subRowTemplate), "  %%-%ds %%s\r\n",
+                           subNameMaxLen);
+
+        for (WshShell_Size_t i = 0; i < pcCmd->SubCmdNum; i++) {
+            const WshShellCmd_t* pcSub = pcCmd->SubCmds[i];
+            if (!pcSub || !pcSub->Name)
+                continue;
+            WSH_SHELL_PRINT(subRowTemplate, pcSub->Name, pcSub->Descr ? pcSub->Descr : "");
+        }
+    }
+    #endif /* WSH_SHELL_SUBCOMMANDS */
 
 #else /* WSH_SHELL_CMD_PRINT_OPT_OVERVIEW */
 

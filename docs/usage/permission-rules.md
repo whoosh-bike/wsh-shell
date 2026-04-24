@@ -57,7 +57,6 @@ Options overview:
   -h      --help           HELP       rwx-   Show command help information
   -i      --interactive    INTERACT   rwx-   Run command in interactive mode
   -x      --exec           WO_PARAM   r---   Get info about accessible commands
-  -u      --user           WO_PARAM   r---   Get info about users
   -c      --cls            WO_PARAM   --x-   Clear screen
   -r      --histrst        WO_PARAM   -w--   Reset history storage
   -p      --histprint      WO_PARAM   r---   Print history storage

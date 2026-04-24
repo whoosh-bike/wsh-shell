@@ -79,12 +79,20 @@
  */
 #define WSH_SHELL_PROMPT_WAIT 1
 
-/* 
+/*
  * ─────────────────────────────────────────────
  * Default shell command (executed at startup)
- * ───────────────────────────────────────────── 
+ * ─────────────────────────────────────────────
  */
 #define WSH_SHELL_DEF_COMMAND 1
+
+/*
+ * ─────────────────────────────────────────────
+ * Subcommand tree (nested commands, e.g. `wsh user list`)
+ * ─────────────────────────────────────────────
+ */
+#define WSH_SHELL_SUBCOMMANDS           1
+#define WSH_SHELL_SUBCOMMANDS_MAX_DEPTH 3
 
 /* 
  * ─────────────────────────────────────────────
