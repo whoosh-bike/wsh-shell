@@ -32,6 +32,20 @@
         </inbodydescription>
         <location file="src/wsh_shell_option.h" line="190" column="21" bodyfile="src/wsh_shell_option.h" bodystart="190" bodyend="-1"/>
       </memberdef>
+      <memberdef kind="variable" id="structWshShellOption__Ctx__t_1a0c86bdf27a1b06fa03846083398579db" prot="public" static="no" mutable="no">
+        <type>WshShell_Bool_t</type>
+        <definition>WshShell_Bool_t WshShellOption_Ctx_t::ParseError</definition>
+        <argsstring></argsstring>
+        <name>ParseError</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>True when an unknown option token was encountered. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/wsh_shell_option.h" line="191" column="21" bodyfile="src/wsh_shell_option.h" bodystart="191" bodyend="-1"/>
+      </memberdef>
       </sectiondef>
     <briefdescription>
 <para>Option usage context during parsing. </para>
@@ -52,9 +66,10 @@
         </childnode>
       </node>
     </collaborationgraph>
-    <location file="src/wsh_shell_option.h" line="188" column="1" bodyfile="src/wsh_shell_option.h" bodystart="188" bodyend="191"/>
+    <location file="src/wsh_shell_option.h" line="188" column="1" bodyfile="src/wsh_shell_option.h" bodystart="188" bodyend="192"/>
     <listofallmembers>
       <member refid="structWshShellOption__Ctx__t_1a02b2820aaf7495f27380f557c486b27b" prot="public" virt="non-virtual"><scope>WshShellOption_Ctx_t</scope><name>Option</name></member>
+      <member refid="structWshShellOption__Ctx__t_1a0c86bdf27a1b06fa03846083398579db" prot="public" virt="non-virtual"><scope>WshShellOption_Ctx_t</scope><name>ParseError</name></member>
       <member refid="structWshShellOption__Ctx__t_1a041c4f4ea7959c95f8b705964d75bd79" prot="public" virt="non-virtual"><scope>WshShellOption_Ctx_t</scope><name>TokenPos</name></member>
     </listofallmembers>
   </compounddef>

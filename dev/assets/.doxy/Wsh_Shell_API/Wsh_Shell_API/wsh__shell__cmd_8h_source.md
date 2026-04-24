@@ -37,6 +37,10 @@ typedef struct WshShellCmd {
     const WshShellOption_t* Options; 
     WshShell_Size_t OptNum;          
     WshShellCmdHandler_t Handler;    
+#if WSH_SHELL_SUBCOMMANDS
+    const struct WshShellCmd* const* SubCmds; 
+    WshShell_Size_t SubCmdNum;                
+#endif
 } WshShellCmd_t;
 
 typedef struct {
@@ -56,6 +60,15 @@ const WshShellCmd_t* WshShellCmd_GetCmdByIndex(WshShellCmd_Table_t* pShellComman
 
 const WshShellCmd_t* WshShellCmd_SearchCmd(WshShellCmd_Table_t* pShellCommands,
                                            const WshShell_Char_t* pcCmdName);
+
+#if WSH_SHELL_SUBCOMMANDS
+WshShell_Size_t WshShellCmd_GetSubCmdNum(const WshShellCmd_t* pcCmd);
+
+const WshShellCmd_t* WshShellCmd_GetSubCmdByIndex(const WshShellCmd_t* pcCmd, WshShell_Size_t idx);
+
+const WshShellCmd_t* WshShellCmd_SearchSubCmd(const WshShellCmd_t* pcCmd,
+                                              const WshShell_Char_t* pcSubName);
+#endif /* WSH_SHELL_SUBCOMMANDS */
 
 WshShellOption_Ctx_t WshShellCmd_ParseOpt(const WshShellCmd_t* pcCmd, WshShell_Size_t argc,
                                           const WshShell_Char_t* pArgv[], WshShell_Size_t rights,

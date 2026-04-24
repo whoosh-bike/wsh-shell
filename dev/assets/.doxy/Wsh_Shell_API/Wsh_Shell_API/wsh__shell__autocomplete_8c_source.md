@@ -124,22 +124,182 @@ WshShell_Bool_t WshShellAutocomplete_Try(WshShell_Char_t* pInBuff, WshShell_Size
             return false;
         }
 
+        /*
+         * prefixEnd tracks where in the input string the "context" prefix
+         * ends — i.e. the first token plus any fully-matched subcommand
+         * tokens. The partial being completed starts right after the final
+         * space of that prefix.
+         */
+        WshShell_Size_t prefixEnd = cmdPartLen;
+
+#if WSH_SHELL_SUBCOMMANDS
+        /*
+         * Descend the subcommand tree using the tokens between the first
+         * and last space. Only tokens that exactly match a direct subcommand
+         * name advance the context; on the first non-matching or flag-like
+         * token we stop and match the remainder as options/subcommand
+         * partials of the current node.
+         */
+        WshShell_Size_t walkPos = firstSpaceIdx;
+        while (walkPos < lastSpaceIdx) {
+            while (walkPos < lastSpaceIdx && pcInputCopyTrimmed[walkPos] == ' ')
+                walkPos++;
+            if (walkPos >= lastSpaceIdx)
+                break;
+
+            if (pcInputCopyTrimmed[walkPos] == '-')
+                break;
+
+            WshShell_Size_t tokStart = walkPos;
+            while (walkPos < lastSpaceIdx && pcInputCopyTrimmed[walkPos] != ' ')
+                walkPos++;
+            WshShell_Size_t tokLen = walkPos - tokStart;
+
+            WshShell_Char_t tokBuf[WSH_SHELL_CMD_NAME_LEN] = {0};
+            WshShell_Size_t copyLen =
+                tokLen < (WSH_SHELL_CMD_NAME_LEN - 1) ? tokLen : (WSH_SHELL_CMD_NAME_LEN - 1);
+            WSH_SHELL_MEMCPY(tokBuf, pcInputCopyTrimmed + tokStart, copyLen);
+            tokBuf[copyLen] = '\0';
+
+            const WshShellCmd_t* pcChild = WshShellCmd_SearchSubCmd(pcTargetCmd, tokBuf);
+            if (!pcChild)
+                break;
+
+            pcTargetCmd = pcChild;
+            prefixEnd   = walkPos;
+        }
+#endif /* WSH_SHELL_SUBCOMMANDS */
+
+        const WshShell_Bool_t isFlagPartial = (flagPartLen == 0) || (pcFlagPart[0] == '-');
+
+        if (!isFlagPartial) {
+#if WSH_SHELL_SUBCOMMANDS
+            /* Subcommand-name completion path. */
+            if (pcTargetCmd->SubCmdNum == 0 || !pcTargetCmd->SubCmds) {
+                WSH_SHELL_PRINT_SYS("%s /autocomplete: no matches\r\n", sysMsgShift);
+                return false;
+            }
+
+            WshShell_Char_t subCandidates[WSH_SHELL_AUTOCOMPLETE_MAX_CANDIDATES]
+                                         [WSH_SHELL_CMD_NAME_LEN];
+            WshShell_Size_t subMatchCount = 0;
+
+            for (WshShell_Size_t i = 0; i < pcTargetCmd->SubCmdNum &&
+                                        subMatchCount < WSH_SHELL_AUTOCOMPLETE_MAX_CANDIDATES;
+                 i++) {
+                const WshShellCmd_t* pcSub = pcTargetCmd->SubCmds[i];
+                if (!pcSub || !pcSub->Name)
+                    continue;
+                if (flagPartLen > 0 && WSH_SHELL_STRNCMP(pcFlagPart, pcSub->Name, flagPartLen) != 0)
+                    continue;
+
+                WSH_SHELL_STRNCPY(subCandidates[subMatchCount], pcSub->Name,
+                                  WSH_SHELL_CMD_NAME_LEN - 1);
+                subCandidates[subMatchCount][WSH_SHELL_CMD_NAME_LEN - 1] = '\0';
+                subMatchCount++;
+            }
+
+            if (subMatchCount == 0) {
+                WSH_SHELL_PRINT_SYS("%s /autocomplete: no matches\r\n", sysMsgShift);
+                return false;
+            }
+
+            if (subMatchCount == 1) {
+                WshShell_Size_t subLen = WSH_SHELL_STRLEN(subCandidates[0]);
+
+                /*
+                 * Exact match: user has already typed the full subcommand name.
+                 * Instead of re-completing to the same text, list the subcommand's
+                 * own options and children so the user can keep drilling down.
+                 */
+                if (subLen == flagPartLen &&
+                    WSH_SHELL_STRNCMP(subCandidates[0], pcFlagPart, flagPartLen) == 0) {
+                    const WshShellCmd_t* pcLeaf =
+                        WshShellCmd_SearchSubCmd(pcTargetCmd, subCandidates[0]);
+                    if (pcLeaf) {
+                        WSH_SHELL_PRINT_SYS("%s /autocomplete flags found: ", sysMsgShift);
+                        WshShell_Bool_t anyFound     = false;
+                        const WshShellOption_t* pOpt = pcLeaf->Options;
+                        for (; pOpt && pOpt->Type != WSH_SHELL_OPTION_END; pOpt++) {
+                            if (pOpt->Type == WSH_SHELL_OPTION_NO ||
+                                pOpt->Type == WSH_SHELL_OPTION_WAITS_INPUT)
+                                continue;
+                            anyFound = true;
+                            WSH_SHELL_PRINT("[%s/%s] ", pOpt->ShortName, pOpt->LongName);
+                        }
+                        if (pcLeaf->SubCmdNum > 0 && pcLeaf->SubCmds != NULL) {
+                            for (WshShell_Size_t i = 0; i < pcLeaf->SubCmdNum; i++) {
+                                const WshShellCmd_t* pcSub = pcLeaf->SubCmds[i];
+                                if (!pcSub || !pcSub->Name)
+                                    continue;
+                                anyFound = true;
+                                WSH_SHELL_PRINT("[%s] ", pcSub->Name);
+                            }
+                        }
+                        WSH_SHELL_PRINT("%s\r\n", anyFound ? "" : "none");
+                        return false;
+                    }
+                }
+
+                WshShell_Size_t newLen = prefixEnd + 1 + subLen;
+                if (newLen + 2 > WSH_SHELL_INTR_BUFF_LEN) {
+                    WSH_SHELL_PRINT_WARN("Subcommand name too long for buffer\r\n");
+                    return false;
+                }
+                WSH_SHELL_STRNCPY(pInBuff, pcInputCopyTrimmed, prefixEnd);
+                pInBuff[prefixEnd] = ' ';
+                WSH_SHELL_MEMCPY(pInBuff + prefixEnd + 1, subCandidates[0], subLen);
+                pInBuff[prefixEnd + 1 + subLen]     = ' ';
+                pInBuff[prefixEnd + 1 + subLen + 1] = '\0';
+                return true;
+            }
+
+            WshShell_Size_t subPrefixLen = WshShellAutocomplete_CommonPrefixLen(
+                subCandidates[0], WSH_SHELL_CMD_NAME_LEN, subMatchCount, flagPartLen,
+                WSH_SHELL_CMD_NAME_LEN);
+
+            if (subPrefixLen > flagPartLen) {
+                WshShell_Size_t newLen = prefixEnd + 1 + subPrefixLen;
+                if (newLen + 1 > WSH_SHELL_INTR_BUFF_LEN) {
+                    WSH_SHELL_PRINT_WARN("Subcommand prefix too long for buffer\r\n");
+                    return false;
+                }
+                WSH_SHELL_STRNCPY(pInBuff, pcInputCopyTrimmed, prefixEnd);
+                pInBuff[prefixEnd] = ' ';
+                WSH_SHELL_MEMCPY(pInBuff + prefixEnd + 1, subCandidates[0], subPrefixLen);
+                pInBuff[newLen] = '\0';
+                return true;
+            }
+
+            WSH_SHELL_PRINT_SYS("%s /autocomplete subcmds found: ", sysMsgShift);
+            for (WshShell_Size_t cnt = 0; cnt < subMatchCount; cnt++)
+                WSH_SHELL_PRINT("[%s] ", subCandidates[cnt]);
+            WSH_SHELL_PRINT("\r\n");
+            return false;
+#else  /* WSH_SHELL_SUBCOMMANDS */
+            WSH_SHELL_PRINT_SYS("%s /autocomplete: no matches\r\n", sysMsgShift);
+            return false;
+#endif /* WSH_SHELL_SUBCOMMANDS */
+        }
+
         // Collect flags matching partial flag token
         WshShell_Char_t flagCandidates[WSH_SHELL_CMD_OPTIONS_MAX_NUM]
                                       [WSH_SHELL_OPTION_LONG_NAME_LEN];
         WshShell_Size_t flagMatchCount = 0;
 
         const WshShellOption_t* pOpt = pcTargetCmd->Options;
-        for (; pOpt->Type != WSH_SHELL_OPTION_END && flagMatchCount < WSH_SHELL_CMD_OPTIONS_MAX_NUM;
+        for (; pOpt && pOpt->Type != WSH_SHELL_OPTION_END &&
+               flagMatchCount < WSH_SHELL_CMD_OPTIONS_MAX_NUM;
              pOpt++) {
             if (pOpt->Type == WSH_SHELL_OPTION_NO || pOpt->Type == WSH_SHELL_OPTION_WAITS_INPUT)
                 continue;
 
             const WshShell_Char_t* pcName = NULL;
-            if (pOpt->LongName[0] &&
+            if (pOpt->LongName && pOpt->LongName[0] &&
                 WSH_SHELL_STRNCMP(pcFlagPart, pOpt->LongName, flagPartLen) == 0) {
                 pcName = pOpt->LongName;
-            } else if (flagPartLen <= WSH_SHELL_OPTION_SHORT_NAME_LEN && pOpt->ShortName[0] &&
+            } else if (flagPartLen <= WSH_SHELL_OPTION_SHORT_NAME_LEN && pOpt->ShortName &&
+                       pOpt->ShortName[0] &&
                        WSH_SHELL_STRNCMP(pcFlagPart, pOpt->ShortName, flagPartLen) == 0) {
                 pcName = pOpt->ShortName;
             }
@@ -159,16 +319,16 @@ WshShell_Bool_t WshShellAutocomplete_Try(WshShell_Char_t* pInBuff, WshShell_Size
 
         if (flagMatchCount == 1) {
             WshShell_Size_t flagLen = WSH_SHELL_STRLEN(flagCandidates[0]);
-            WshShell_Size_t newLen  = cmdPartLen + 1 + flagLen;
+            WshShell_Size_t newLen  = prefixEnd + 1 + flagLen;
             if (newLen + 2 > WSH_SHELL_INTR_BUFF_LEN) {
                 WSH_SHELL_PRINT_WARN("Flag name too long for buffer\r\n");
                 return false;
             }
-            WSH_SHELL_STRNCPY(pInBuff, pcInputCopyTrimmed, cmdPartLen);
-            pInBuff[cmdPartLen] = ' ';
-            WSH_SHELL_MEMCPY(pInBuff + cmdPartLen + 1, flagCandidates[0], flagLen);
-            pInBuff[cmdPartLen + 1 + flagLen]     = ' ';
-            pInBuff[cmdPartLen + 1 + flagLen + 1] = '\0';
+            WSH_SHELL_STRNCPY(pInBuff, pcInputCopyTrimmed, prefixEnd);
+            pInBuff[prefixEnd] = ' ';
+            WSH_SHELL_MEMCPY(pInBuff + prefixEnd + 1, flagCandidates[0], flagLen);
+            pInBuff[prefixEnd + 1 + flagLen]     = ' ';
+            pInBuff[prefixEnd + 1 + flagLen + 1] = '\0';
             return true;
         }
 
@@ -178,14 +338,14 @@ WshShell_Bool_t WshShellAutocomplete_Try(WshShell_Char_t* pInBuff, WshShell_Size
             WSH_SHELL_OPTION_LONG_NAME_LEN);
 
         if (flagPrefixLen > flagPartLen) {
-            WshShell_Size_t newLen = cmdPartLen + 1 + flagPrefixLen;
+            WshShell_Size_t newLen = prefixEnd + 1 + flagPrefixLen;
             if (newLen + 1 > WSH_SHELL_INTR_BUFF_LEN) {
                 WSH_SHELL_PRINT_WARN("Flag prefix too long for buffer\r\n");
                 return false;
             }
-            WSH_SHELL_STRNCPY(pInBuff, pcInputCopyTrimmed, cmdPartLen);
-            pInBuff[cmdPartLen] = ' ';
-            WSH_SHELL_MEMCPY(pInBuff + cmdPartLen + 1, flagCandidates[0], flagPrefixLen);
+            WSH_SHELL_STRNCPY(pInBuff, pcInputCopyTrimmed, prefixEnd);
+            pInBuff[prefixEnd] = ' ';
+            WSH_SHELL_MEMCPY(pInBuff + prefixEnd + 1, flagCandidates[0], flagPrefixLen);
             pInBuff[newLen] = '\0';
             return true;
         }
@@ -212,19 +372,31 @@ WshShell_Bool_t WshShellAutocomplete_Try(WshShell_Char_t* pInBuff, WshShell_Size
             WSH_SHELL_PRINT_SYS("%s /autocomplete flags found: ", sysMsgShift);
 
             const WshShellOption_t* pOpt = pcCmdMatch->Options;
-            WshShell_Bool_t optFound     = false;
+            WshShell_Bool_t anyFound     = false;
             if (pOpt != NULL) {
                 for (; pOpt->Type != WSH_SHELL_OPTION_END; pOpt++) {
                     if (pOpt->Type == WSH_SHELL_OPTION_NO ||
                         pOpt->Type == WSH_SHELL_OPTION_WAITS_INPUT)
                         continue;
 
-                    optFound = true;
+                    anyFound = true;
                     WSH_SHELL_PRINT("[%s/%s] ", pOpt->ShortName, pOpt->LongName);
                 }
             }
 
-            WSH_SHELL_PRINT("%s\r\n", optFound ? "" : "none");
+#if WSH_SHELL_SUBCOMMANDS
+            if (pcCmdMatch->SubCmdNum > 0 && pcCmdMatch->SubCmds != NULL) {
+                for (WshShell_Size_t i = 0; i < pcCmdMatch->SubCmdNum; i++) {
+                    const WshShellCmd_t* pcSub = pcCmdMatch->SubCmds[i];
+                    if (!pcSub || !pcSub->Name)
+                        continue;
+                    anyFound = true;
+                    WSH_SHELL_PRINT("[%s] ", pcSub->Name);
+                }
+            }
+#endif
+
+            WSH_SHELL_PRINT("%s\r\n", anyFound ? "" : "none");
             return false;
         }
 

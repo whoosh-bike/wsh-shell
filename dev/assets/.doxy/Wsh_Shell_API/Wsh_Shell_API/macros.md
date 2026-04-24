@@ -76,6 +76,8 @@
 * **WSH\_SHELL\_STRNLEN** ([**wsh\_shell\_cfg\_def.h**](wsh__shell__cfg__def_8h.md))
 * **WSH\_SHELL\_STRTOF** ([**wsh\_shell\_cfg\_def.h**](wsh__shell__cfg__def_8h.md))
 * **WSH\_SHELL\_STRTOL** ([**wsh\_shell\_cfg\_def.h**](wsh__shell__cfg__def_8h.md))
+* **WSH\_SHELL\_SUBCOMMANDS** ([**wsh\_shell\_cfg\_def.h**](wsh__shell__cfg__def_8h.md))
+* **WSH\_SHELL\_SUBCOMMANDS\_MAX\_DEPTH** ([**wsh\_shell\_cfg\_def.h**](wsh__shell__cfg__def_8h.md))
 * **WSH\_SHELL\_TARGET\_OS** ([**wsh\_shell\_cfg\_def.h**](wsh__shell__cfg__def_8h.md))
 * **WSH\_SHELL\_CHAR\_CR** ([**wsh\_shell\_io.h**](wsh__shell__io_8h.md))
 * **WSH\_SHELL\_CHAR\_LF** ([**wsh\_shell\_io.h**](wsh__shell__io_8h.md))
