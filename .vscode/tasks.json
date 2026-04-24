@@ -52,7 +52,7 @@
             }
         },
         {
-            "label": "📝 Format project",
+            "label": "📝 format project",
             "type": "shell",
             "command": "./utils/code-format.sh",
             "group": {

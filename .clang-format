@@ -20,7 +20,7 @@ AlignAfterOpenBracket: Align
 AlignConsecutiveAssignments: AcrossComments
 AlignConsecutiveMacros: AcrossComments
 AlignEscapedNewlines: Left
-IndentPPDirectives: BeforeHash
+# IndentPPDirectives: BeforeHash
 BreakBeforeBraces: Attach
 ColumnLimit: 100
 ...

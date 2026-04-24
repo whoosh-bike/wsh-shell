@@ -376,7 +376,7 @@ void WshShellCmd_PrintOptionsOverview(const WshShellCmd_t* pcCmd) {
         }
     }
 
-    #if WSH_SHELL_SUBCOMMANDS
+#if WSH_SHELL_SUBCOMMANDS
     if (pcCmd->SubCmdNum > 0 && pcCmd->SubCmds != NULL) {
         const WshShell_Size_t subNameMaxLen = WSH_SHELL_CMD_NAME_LEN;
 
@@ -398,7 +398,7 @@ void WshShellCmd_PrintOptionsOverview(const WshShellCmd_t* pcCmd) {
             WSH_SHELL_PRINT(subRowTemplate, pcSub->Name, pcSub->Descr ? pcSub->Descr : "");
         }
     }
-    #endif /* WSH_SHELL_SUBCOMMANDS */
+#endif /* WSH_SHELL_SUBCOMMANDS */
 
 #else /* WSH_SHELL_CMD_PRINT_OPT_OVERVIEW */
 

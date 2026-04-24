@@ -122,7 +122,7 @@ WshShell_Bool_t WshShellAutocomplete_Try(WshShell_Char_t* pInBuff, WshShell_Size
          */
         WshShell_Size_t prefixEnd = cmdPartLen;
 
-    #if WSH_SHELL_SUBCOMMANDS
+#if WSH_SHELL_SUBCOMMANDS
         /*
          * Descend the subcommand tree using the tokens between the first
          * and last space. Only tokens that exactly match a direct subcommand
@@ -158,12 +158,12 @@ WshShell_Bool_t WshShellAutocomplete_Try(WshShell_Char_t* pInBuff, WshShell_Size
             pcTargetCmd = pcChild;
             prefixEnd   = walkPos;
         }
-    #endif /* WSH_SHELL_SUBCOMMANDS */
+#endif /* WSH_SHELL_SUBCOMMANDS */
 
         const WshShell_Bool_t isFlagPartial = (flagPartLen == 0) || (pcFlagPart[0] == '-');
 
         if (!isFlagPartial) {
-    #if WSH_SHELL_SUBCOMMANDS
+#if WSH_SHELL_SUBCOMMANDS
             /* Subcommand-name completion path. */
             if (pcTargetCmd->SubCmdNum == 0 || !pcTargetCmd->SubCmds) {
                 WSH_SHELL_PRINT_SYS("%s /autocomplete: no matches\r\n", sysMsgShift);
@@ -266,10 +266,10 @@ WshShell_Bool_t WshShellAutocomplete_Try(WshShell_Char_t* pInBuff, WshShell_Size
                 WSH_SHELL_PRINT("[%s] ", subCandidates[cnt]);
             WSH_SHELL_PRINT("\r\n");
             return false;
-    #else  /* WSH_SHELL_SUBCOMMANDS */
+#else  /* WSH_SHELL_SUBCOMMANDS */
             WSH_SHELL_PRINT_SYS("%s /autocomplete: no matches\r\n", sysMsgShift);
             return false;
-    #endif /* WSH_SHELL_SUBCOMMANDS */
+#endif /* WSH_SHELL_SUBCOMMANDS */
         }
 
         // Collect flags matching partial flag token
@@ -374,7 +374,7 @@ WshShell_Bool_t WshShellAutocomplete_Try(WshShell_Char_t* pInBuff, WshShell_Size
                 }
             }
 
-    #if WSH_SHELL_SUBCOMMANDS
+#if WSH_SHELL_SUBCOMMANDS
             if (pcCmdMatch->SubCmdNum > 0 && pcCmdMatch->SubCmds != NULL) {
                 for (WshShell_Size_t i = 0; i < pcCmdMatch->SubCmdNum; i++) {
                     const WshShellCmd_t* pcSub = pcCmdMatch->SubCmds[i];
@@ -384,7 +384,7 @@ WshShell_Bool_t WshShellAutocomplete_Try(WshShell_Char_t* pInBuff, WshShell_Size
                     WSH_SHELL_PRINT("[%s] ", pcSub->Name);
                 }
             }
-    #endif
+#endif
 
             WSH_SHELL_PRINT("%s\r\n", anyFound ? "" : "none");
             return false;

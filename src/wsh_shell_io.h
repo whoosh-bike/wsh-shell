@@ -99,37 +99,37 @@ extern "C" {
 /** @name Print macros (log levels) */
 ///@{
 #if WSH_SHELL_PRINT_SYS_ENABLE
-    #define WSH_SHELL_PRINT_SYS(_f_, ...) \
-        WSH_SHELL_PRINT(WSH_SHELL_COLOR_SYS _f_ WSH_SHELL_ESC_RESET_STYLE, ##__VA_ARGS__)
+#define WSH_SHELL_PRINT_SYS(_f_, ...) \
+    WSH_SHELL_PRINT(WSH_SHELL_COLOR_SYS _f_ WSH_SHELL_ESC_RESET_STYLE, ##__VA_ARGS__)
 #else
-    #define WSH_SHELL_PRINT_SYS(_f_, ...)
+#define WSH_SHELL_PRINT_SYS(_f_, ...)
 #endif
 
 #if WSH_SHELL_PRINT_INFO_ENABLE
-    /* clang-format off */
+/* clang-format off */
     #define WSH_SHELL_PRINT_INFO(_f_, ...) \
         WSH_SHELL_PRINT(WSH_SHELL_ESC_RESET_STYLE "[" WSH_SHELL_COLOR_INFO "INFO" WSH_SHELL_ESC_RESET_STYLE "] " _f_, ##__VA_ARGS__)
-    /* clang-format on */
+/* clang-format on */
 #else
-    #define WSH_SHELL_PRINT_INFO(_f_, ...)
+#define WSH_SHELL_PRINT_INFO(_f_, ...)
 #endif
 
 #if WSH_SHELL_PRINT_WARN_ENABLE
-    /* clang-format off */
+/* clang-format off */
     #define WSH_SHELL_PRINT_WARN(_f_, ...) \
         WSH_SHELL_PRINT(WSH_SHELL_ESC_RESET_STYLE "[" WSH_SHELL_COLOR_WARN "WARN" WSH_SHELL_ESC_RESET_STYLE "] " _f_, ##__VA_ARGS__)
-    /* clang-format on */
+/* clang-format on */
 #else
-    #define WSH_SHELL_PRINT_WARN(_f_, ...)
+#define WSH_SHELL_PRINT_WARN(_f_, ...)
 #endif
 
 #if WSH_SHELL_PRINT_ERR_ENABLE
-    /* clang-format off */
+/* clang-format off */
     #define WSH_SHELL_PRINT_ERR(_f_, ...) \
         WSH_SHELL_PRINT(WSH_SHELL_ESC_RESET_STYLE "[" WSH_SHELL_COLOR_ERROR "ERR " WSH_SHELL_ESC_RESET_STYLE "] " _f_, ##__VA_ARGS__)
-    /* clang-format on */
+/* clang-format on */
 #else
-    #define WSH_SHELL_PRINT_ERR(_f_, ...)
+#define WSH_SHELL_PRINT_ERR(_f_, ...)
 #endif
 
 ///@}

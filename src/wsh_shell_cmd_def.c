@@ -3,13 +3,13 @@
 
 #if WSH_SHELL_DEF_COMMAND
 
-    #define X_ENTRY(name, value) value,
+#define X_ENTRY(name, value) value,
 static const WSH_SHELL_CMD_GROUP_t WshShell_CmdGroups[] = {WSH_SHELL_CMD_GROUP_LIST};
-    #undef X_ENTRY
+#undef X_ENTRY
 
-    #define WSH_SHELL_CMD_GROUP_COUNT (WSH_SHELL_ARR_LEN(WshShell_CmdGroups))
+#define WSH_SHELL_CMD_GROUP_COUNT (WSH_SHELL_ARR_LEN(WshShell_CmdGroups))
 
-    /**
+/**
  * @def WSH_SHELL_CMD_DEF_OPT_TABLE
  * @brief Macro defining the default shell command options using X-Macros.
  * 
@@ -17,19 +17,18 @@ static const WSH_SHELL_CMD_GROUP_t WshShell_CmdGroups[] = {WSH_SHELL_CMD_GROUP_L
  * an available option for the default shell command. Used for both option 
  * structure definitions and enumeration.
  */
-    /*
+/*
  * When subcommands are enabled, `wsh user list` supersedes the flat -u flag.
  * When subcommands are disabled, inject -u back so the user table is still
  * reachable. A slot macro keeps the X-macro table structure clean.
  */
-    #if WSH_SHELL_SUBCOMMANDS
-        #define WSH_SHELL_CMD_DEF_OPT_USER_SLOT()
-    #else
-        #define WSH_SHELL_CMD_DEF_OPT_USER_SLOT()                                         \
-            X_CMD_ENTRY(WSH_SHELL_DEF_OPT_USER,                                           \
-                        WSH_SHELL_OPT_WO_PARAM(WSH_SHELL_OPT_ACCESS_READ, "-u", "--user", \
-                                               "Get info about users"))
-    #endif
+#if WSH_SHELL_SUBCOMMANDS
+#define WSH_SHELL_CMD_DEF_OPT_USER_SLOT()
+#else
+#define WSH_SHELL_CMD_DEF_OPT_USER_SLOT()                                                       \
+    X_CMD_ENTRY(WSH_SHELL_DEF_OPT_USER, WSH_SHELL_OPT_WO_PARAM(WSH_SHELL_OPT_ACCESS_READ, "-u", \
+                                                               "--user", "Get info about users"))
+#endif
 
 /* clang-format off */
 #define WSH_SHELL_CMD_DEF_OPT_TABLE() \
@@ -53,14 +52,14 @@ static const WSH_SHELL_CMD_GROUP_t WshShell_CmdGroups[] = {WSH_SHELL_CMD_GROUP_L
  * Each value corresponds to an entry from the WSH_SHELL_CMD_DEF_OPT_TABLE.
  */
 typedef enum {
-    #define X_CMD_ENTRY(en, m) en,
+#define X_CMD_ENTRY(en, m) en,
     WSH_SHELL_CMD_DEF_OPT_TABLE() WSH_SHELL_CMD_DEF_OPT_ENUM_SIZE
-    #undef X_CMD_ENTRY
+#undef X_CMD_ENTRY
 } WSH_SHELL_DEF_OPT_t;
 
-    #define X_CMD_ENTRY(enum, opt) {enum, opt},
+#define X_CMD_ENTRY(enum, opt) {enum, opt},
 static const WshShellOption_t WshShell_OptArr[] = {WSH_SHELL_CMD_DEF_OPT_TABLE()};
-    #undef X_CMD_ENTRY
+#undef X_CMD_ENTRY
 
 static void WshShell_CmdDefInteractive(WshShellIO_CommandLine_t* pInter) {
     WshShellInteract_AppendLineBreak(pInter);
@@ -99,9 +98,9 @@ static void WshShellDef_PrintUserHead(WshShell_Char_t* pRowTemplate,
                        groupMaxLen, rightsMaxLen);
 }
 
-    #if WSH_SHELL_SUBCOMMANDS
+#if WSH_SHELL_SUBCOMMANDS
 
-    /* clang-format off */
+/* clang-format off */
 #define WSH_SHELL_CMD_USER_LIST_OPT_TABLE() \
     X_CMD_ENTRY(USER_LIST_OPT_DEF,   WSH_SHELL_OPT_NO(WSH_SHELL_OPT_ACCESS_READ, "Print registered users as a table")) \
     X_CMD_ENTRY(USER_LIST_OPT_HELP,  WSH_SHELL_OPT_HELP()) \
@@ -110,14 +109,14 @@ static void WshShellDef_PrintUserHead(WshShell_Char_t* pRowTemplate,
 /* clang-format on */
 
 typedef enum {
-        #define X_CMD_ENTRY(en, m) en,
+#define X_CMD_ENTRY(en, m) en,
     WSH_SHELL_CMD_USER_LIST_OPT_TABLE() USER_LIST_OPT_ENUM_SIZE
-        #undef X_CMD_ENTRY
+#undef X_CMD_ENTRY
 } USER_LIST_OPT_t;
 
-        #define X_CMD_ENTRY(en, m) {en, m},
+#define X_CMD_ENTRY(en, m) {en, m},
 static const WshShellOption_t WshShellDefUserListOptArr[] = {WSH_SHELL_CMD_USER_LIST_OPT_TABLE()};
-        #undef X_CMD_ENTRY
+#undef X_CMD_ENTRY
 
 static WSH_SHELL_RET_STATE_t WshShellCmdDef_UserList(const WshShellCmd_t* pcCmd,
                                                      WshShell_Size_t argc,
@@ -189,7 +188,7 @@ static const WshShellCmd_t WshShellDefUserListCmd = {
     .Handler = WshShellCmdDef_UserList,
 };
 
-    /* clang-format off */
+/* clang-format off */
 #define WSH_SHELL_CMD_USER_WHOAMI_OPT_TABLE() \
     X_CMD_ENTRY(USER_WHOAMI_OPT_DEF,    WSH_SHELL_OPT_NO(WSH_SHELL_OPT_ACCESS_READ, "Print full current session row")) \
     X_CMD_ENTRY(USER_WHOAMI_OPT_HELP,   WSH_SHELL_OPT_HELP()) \
@@ -199,18 +198,18 @@ static const WshShellCmd_t WshShellDefUserListCmd = {
 /* clang-format on */
 
 typedef enum {
-        #define X_CMD_ENTRY(en, m) en,
+#define X_CMD_ENTRY(en, m) en,
     WSH_SHELL_CMD_USER_WHOAMI_OPT_TABLE() USER_WHOAMI_OPT_ENUM_SIZE
-        #undef X_CMD_ENTRY
+#undef X_CMD_ENTRY
 } USER_WHOAMI_OPT_t;
 
-        #define X_CMD_ENTRY(en, m) {en, m},
+#define X_CMD_ENTRY(en, m) {en, m},
 static const WshShellOption_t WshShellDefUserWhoamiOptArr[] = {
     WSH_SHELL_CMD_USER_WHOAMI_OPT_TABLE()};
-        #undef X_CMD_ENTRY
+#undef X_CMD_ENTRY
 
-        #define USER_WHOAMI_FIELD_NAME   (1u << 0)
-        #define USER_WHOAMI_FIELD_GROUPS (1u << 1)
+#define USER_WHOAMI_FIELD_NAME   (1u << 0)
+#define USER_WHOAMI_FIELD_GROUPS (1u << 1)
 
 static WSH_SHELL_RET_STATE_t WshShellCmdDef_UserWhoami(const WshShellCmd_t* pcCmd,
                                                        WshShell_Size_t argc,
@@ -290,7 +289,7 @@ static const WshShellCmd_t* const WshShellDefUserSubCmds[] = {
     &WshShellDefUserWhoamiCmd,
 };
 
-    /* clang-format off */
+/* clang-format off */
 #define WSH_SHELL_CMD_USER_OPT_TABLE() \
     X_CMD_ENTRY(USER_OPT_DEF,    WSH_SHELL_OPT_NO(WSH_SHELL_OPT_ACCESS_ANY, "Print user subcommand overview")) \
     X_CMD_ENTRY(USER_OPT_HELP,   WSH_SHELL_OPT_HELP()) \
@@ -299,14 +298,14 @@ static const WshShellCmd_t* const WshShellDefUserSubCmds[] = {
 /* clang-format on */
 
 typedef enum {
-        #define X_CMD_ENTRY(en, m) en,
+#define X_CMD_ENTRY(en, m) en,
     WSH_SHELL_CMD_USER_OPT_TABLE() USER_OPT_ENUM_SIZE
-        #undef X_CMD_ENTRY
+#undef X_CMD_ENTRY
 } USER_OPT_t;
 
-        #define X_CMD_ENTRY(en, m) {en, m},
+#define X_CMD_ENTRY(en, m) {en, m},
 static const WshShellOption_t WshShellDefUserOptArr[] = {WSH_SHELL_CMD_USER_OPT_TABLE()};
-        #undef X_CMD_ENTRY
+#undef X_CMD_ENTRY
 
 static WSH_SHELL_RET_STATE_t WshShellCmdDef_User(const WshShellCmd_t* pcCmd, WshShell_Size_t argc,
                                                  const WshShell_Char_t* pArgv[], void* pShellCtx) {
@@ -352,7 +351,7 @@ static const WshShellCmd_t* const WshShellDefSubCmds[] = {
     &WshShellDefUserCmd,
 };
 
-    #endif /* WSH_SHELL_SUBCOMMANDS */
+#endif /* WSH_SHELL_SUBCOMMANDS */
 
 static WSH_SHELL_RET_STATE_t WshShellCmdDef(const WshShellCmd_t* pcCmd, WshShell_Size_t argc,
                                             const WshShell_Char_t* pArgv[], void* pShellCtx) {
@@ -430,7 +429,7 @@ static WSH_SHELL_RET_STATE_t WshShellCmdDef(const WshShellCmd_t* pcCmd, WshShell
                 }
             } break;
 
-    #if !WSH_SHELL_SUBCOMMANDS
+#if !WSH_SHELL_SUBCOMMANDS
             case WSH_SHELL_DEF_OPT_USER: {
                 WSH_SHELL_PRINT("Registered users:\r\n");
                 WshShell_Char_t rowTemplate[64];
@@ -443,7 +442,7 @@ static WSH_SHELL_RET_STATE_t WshShellCmdDef(const WshShellCmd_t* pcCmd, WshShell
                         WshShellDef_PrintUserRow(pcUser, rowTemplate);
                 }
             } break;
-    #endif /* !WSH_SHELL_SUBCOMMANDS */
+#endif /* !WSH_SHELL_SUBCOMMANDS */
 
             case WSH_SHELL_DEF_OPT_CLS: {
                 WSH_SHELL_PRINT(WSH_SHELL_ECS_CLR_SCREEN);
@@ -491,10 +490,10 @@ static const WshShellCmd_t WshShellDefCmd = {
     .Options = WshShell_OptArr,
     .OptNum  = WSH_SHELL_ARR_LEN(WshShell_OptArr),
     .Handler = WshShellCmdDef,
-    #if WSH_SHELL_SUBCOMMANDS
+#if WSH_SHELL_SUBCOMMANDS
     .SubCmds   = WshShellDefSubCmds,
     .SubCmdNum = WSH_SHELL_ARR_LEN(WshShellDefSubCmds),
-    #endif
+#endif
 };
 
 #else /* WSH_SHELL_DEF_COMMAND */

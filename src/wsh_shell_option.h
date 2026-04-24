@@ -27,9 +27,9 @@ extern "C" {
     (WSH_SHELL_OPT_ACCESS_READ | WSH_SHELL_OPT_ACCESS_WRITE | WSH_SHELL_OPT_ACCESS_EXECUTE)
 
 #if WSH_SHELL_PRINT_OPT_HELP_ENABLE
-    #define WSH_SHELL_OPT_DESCR(descr) descr
+#define WSH_SHELL_OPT_DESCR(descr) descr
 #else
-    #define WSH_SHELL_OPT_DESCR(descr) ""
+#define WSH_SHELL_OPT_DESCR(descr) ""
 #endif
 
 /**
