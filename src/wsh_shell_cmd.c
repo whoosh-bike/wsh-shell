@@ -252,6 +252,15 @@ WshShellOption_Ctx_t WshShellCmd_ParseOpt(const WshShellCmd_t* pcCmd, WshShell_S
             break;
         }
 
+        /* Verify enough tokens follow for all required arguments */
+        if (pcOpt->ArgNum > 0 && *pTokenPos + pcOpt->ArgNum >= argc) {
+            WSH_SHELL_PRINT_WARN("Option %s requires %d argument(s)\r\n", pcStr,
+                                 (int)pcOpt->ArgNum);
+            optCtx.ParseError = true;
+            (*pTokenPos)++;
+            break;
+        }
+
         optCtx.Option   = pcOpt;
         optCtx.TokenPos = *pTokenPos;
 
@@ -306,10 +315,8 @@ WSH_SHELL_RET_STATE_t WshShellCmd_GetOptValue(WshShellOption_Ctx_t* pOptCtx, Wsh
         return WSH_SHELL_RET_STATE_ERR_EMPTY;
 
     WshShell_Size_t valIdx = pOptCtx->TokenPos + 1;
-    if (valIdx >= argc) {
-        WSH_SHELL_ASSERT(false);
-        return WSH_SHELL_RET_STATE_ERROR;
-    }
+    if (valIdx >= argc)
+        return WSH_SHELL_RET_STATE_ERR_EMPTY;
 
     switch (pOptCtx->Option->Type) {
         case WSH_SHELL_OPTION_STR:
@@ -317,7 +324,8 @@ WSH_SHELL_RET_STATE_t WshShellCmd_GetOptValue(WshShellOption_Ctx_t* pOptCtx, Wsh
             break;
 
         case WSH_SHELL_OPTION_INT:
-            *((WshShell_Size_t*)pValue) = WSH_SHELL_STRTOL(pArgv[valIdx], NULL, 10);
+            /* base 0 → auto-detect: 0x prefix → hex, 0 prefix → octal, else decimal */
+            *((WshShell_Size_t*)pValue) = WSH_SHELL_STRTOL(pArgv[valIdx], NULL, 0);
             break;
 
         case WSH_SHELL_OPTION_FLOAT:

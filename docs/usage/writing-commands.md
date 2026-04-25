@@ -145,7 +145,7 @@ If you intentionally want lenient behavior — for example, a parent command tha
 | `WSH_SHELL_OPT_INTERACT` | `WSH_SHELL_OPTION_INTERACT` | 0 | `-i / --interactive` |
 | `WSH_SHELL_OPT_WO_PARAM` | `WSH_SHELL_OPTION_WO_PARAM` | 0 | flag without value (`--verbose`) |
 | `WSH_SHELL_OPT_STR` | `WSH_SHELL_OPTION_STR` | 1 | flag with string value (`--name foo`) |
-| `WSH_SHELL_OPT_INT` | `WSH_SHELL_OPTION_INT` | 1 | flag with integer value (`--count 5`) |
+| `WSH_SHELL_OPT_INT` | `WSH_SHELL_OPTION_INT` | 1 | flag with integer value — decimal, `0x` hex, or `0` octal (`--count 5`, `--mask 0xFF`) |
 | `WSH_SHELL_OPT_FLOAT` | `WSH_SHELL_OPTION_FLOAT` | 1 | flag with float value (`--rate 1.5`) |
 | `WSH_SHELL_OPT_MULTI_ARG` | `WSH_SHELL_OPTION_MULTI_ARG` | N | flag consuming N tokens |
 | `WSH_SHELL_OPT_WAITS_INPUT` | `WSH_SHELL_OPTION_WAITS_INPUT` | 0 | handler waits for subsequent input |

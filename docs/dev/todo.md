@@ -126,3 +126,9 @@
 - [x] Update all handlers (including `WshShellCmdDef`) to check `ParseError` and return `ERR_PARAM` on unknown flags
 - [x] Document subcommand feature (`usage/subcommands.md`, index.md feature list)
 - [x] Add `usage/writing-commands.md` — standard handler template with X-macro tables, parse loop, and `ParseError` explanation
+
+### Numeric Literal Base Auto-Detect
+
+- [x] Change `WSH_SHELL_STRTOL` base from `10` to `0` in `WshShellCmd_GetOptValue` — `0x` prefix → hex, `0` prefix → octal, else decimal; no API change
+- [x] Add missing-argument guard in `WshShellCmd_ParseOpt` — if flag requires N args but fewer tokens follow, print `[WARN]` and set `ParseError` instead of crashing in `GetOptValue`
+- [x] Replace `ASSERT(false)` in `WshShellCmd_GetOptValue` bounds check with graceful `ERR_EMPTY`

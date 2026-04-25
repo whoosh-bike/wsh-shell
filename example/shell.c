@@ -12,6 +12,20 @@ static const WshShellUser_t Shell_UserTable[] = {
         .Groups = WSH_SHELL_CMD_GROUP_ALL,
         .Rights = WSH_SHELL_OPT_ACCESS_ANY,
     },
+    {
+        .Login  = "mfg",
+        .Salt   = "b1734dc176ff19e2",
+        .Hash   = "a3c17f42",  //mfg1
+        .Groups = WSH_SHELL_CMD_GROUP_LOW_LEVEL | WSH_SHELL_CMD_GROUP_MANUFACT,
+        .Rights = WSH_SHELL_OPT_ACCESS_READ | WSH_SHELL_OPT_ACCESS_EXECUTE,
+    },
+    {
+        .Login  = "user",
+        .Salt   = "aa89fee902ab12e4",
+        .Hash   = "ff69cdab",  //qwer
+        .Groups = WSH_SHELL_CMD_GROUP_USER,
+        .Rights = WSH_SHELL_OPT_ACCESS_READ,
+    },
 };
 
 static WshShellHistory_t Shell_HistoryStorage;

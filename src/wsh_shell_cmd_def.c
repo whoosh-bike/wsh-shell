@@ -102,9 +102,9 @@ static void WshShellDef_PrintUserHead(WshShell_Char_t* pRowTemplate,
 
 /* clang-format off */
 #define WSH_SHELL_CMD_USER_LIST_OPT_TABLE() \
-    X_CMD_ENTRY(USER_LIST_OPT_DEF,   WSH_SHELL_OPT_NO(WSH_SHELL_OPT_ACCESS_READ, "Print registered users as a table")) \
-    X_CMD_ENTRY(USER_LIST_OPT_HELP,  WSH_SHELL_OPT_HELP()) \
-    X_CMD_ENTRY(USER_LIST_OPT_SHORT, WSH_SHELL_OPT_WO_PARAM(WSH_SHELL_OPT_ACCESS_READ, "-s", "--short", "Print logins only, one per line")) \
+    X_CMD_ENTRY(USER_LIST_OPT_DEF,    WSH_SHELL_OPT_NO(WSH_SHELL_OPT_ACCESS_READ, "Print registered users as a table")) \
+    X_CMD_ENTRY(USER_LIST_OPT_HELP,   WSH_SHELL_OPT_HELP()) \
+    X_CMD_ENTRY(USER_LIST_OPT_SHORT,  WSH_SHELL_OPT_WO_PARAM(WSH_SHELL_OPT_ACCESS_READ, "-s", "--short", "Print logins only, one per line")) \
     X_CMD_ENTRY(USER_LIST_OPT_END_ID, WSH_SHELL_OPT_END())
 /* clang-format on */
 
