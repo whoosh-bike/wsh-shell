@@ -144,6 +144,19 @@ const WshShellCmd_t* WshShellCmd_SearchSubCmd(const WshShellCmd_t* pcCmd,
 #endif /* WSH_SHELL_SUBCOMMANDS */
 
 /**
+ * @brief Finds an option in a command's table by short or long name.
+ *
+ * Searches the command's option array for an entry whose ShortName or LongName
+ * matches @p pcName exactly. Used internally by autocomplete for ENUM value completion.
+ *
+ * @param[in] pcCmd  Command descriptor.
+ * @param[in] pcName Flag string to search for (e.g. `"-f"` or `"--format"`).
+ * @return Pointer to the matching option, or NULL if not found.
+ */
+const WshShellOption_t* WshShellCmd_FindOptByName(const WshShellCmd_t* pcCmd,
+                                                  const WshShell_Char_t* pcName);
+
+/**
  * @brief Parses a command-line option for a given shell command.
  *
  * This function analyzes the current token in the argument list and attempts

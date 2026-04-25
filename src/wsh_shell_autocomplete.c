@@ -19,8 +19,10 @@ static WshShell_Size_t WshShellAutocomplete_CommonPrefixLen(const WshShell_Char_
         }
         if (!match)
             break;
+
         prefixLen++;
     }
+
     return prefixLen;
 }
 
@@ -32,6 +34,10 @@ WshShell_Bool_t WshShellAutocomplete_Try(WshShell_Char_t* pInBuff, WshShell_Size
 
     WshShell_Char_t inputCopy[WSH_SHELL_INTR_BUFF_LEN] = {0};
     WSH_SHELL_STRNCPY(inputCopy, pInBuff, inBuffLen);
+
+    /* Detect trailing space BEFORE TrimString — signals cursor is past the last token */
+    WshShell_Bool_t hadTrailingSpace =
+        (inBuffLen > 0 && (pInBuff[inBuffLen - 1] == ' ' || pInBuff[inBuffLen - 1] == '\t'));
 
     const WshShell_Char_t* pcInputCopyTrimmed =
         WshShellStr_TrimString(inputCopy, WSH_SHELL_STRLEN(inputCopy));
@@ -163,6 +169,78 @@ WshShell_Bool_t WshShellAutocomplete_Try(WshShell_Char_t* pInBuff, WshShell_Size
         const WshShell_Bool_t isFlagPartial = (flagPartLen == 0) || (pcFlagPart[0] == '-');
 
         if (!isFlagPartial) {
+            /*
+             * Check whether the token immediately before the last space is an
+             * ENUM-type flag. If it is, pcFlagPart is a partial enum value —
+             * complete it against the allowed list instead of subcommand names.
+             *
+             * Example: `wsh user list --format ta<TAB>`
+             *   prevTok  = "--format"
+             *   pcFlagPart = "ta"  →  completes to "table"
+             */
+            {
+                WshShell_Size_t prevEnd = lastSpaceIdx;
+                while (prevEnd > prefixEnd && pcInputCopyTrimmed[prevEnd - 1] == ' ')
+                    prevEnd--;
+                WshShell_Size_t prevStart = prevEnd;
+                while (prevStart > prefixEnd && pcInputCopyTrimmed[prevStart - 1] != ' ')
+                    prevStart--;
+
+                if (prevStart < prevEnd) {
+                    WshShell_Char_t prevTok[WSH_SHELL_OPTION_LONG_NAME_LEN] = {0};
+                    WshShell_Size_t prevTokLen                              = prevEnd - prevStart;
+                    if (prevTokLen > WSH_SHELL_OPTION_LONG_NAME_LEN - 1)
+                        prevTokLen = WSH_SHELL_OPTION_LONG_NAME_LEN - 1;
+                    WSH_SHELL_MEMCPY(prevTok, pcInputCopyTrimmed + prevStart, prevTokLen);
+
+                    const WshShellOption_t* pPrevOpt =
+                        WshShellCmd_FindOptByName(pcTargetCmd, prevTok);
+                    if (pPrevOpt && pPrevOpt->Type == WSH_SHELL_OPTION_ENUM && pPrevOpt->Enum) {
+                        const WshShellOptionEnum_t* pEnum = pPrevOpt->Enum;
+                        WshShell_Char_t valCandidates[WSH_SHELL_AUTOCOMPLETE_MAX_CANDIDATES]
+                                                     [WSH_SHELL_ENUM_VALUE_MAX_LEN];
+                        WshShell_Size_t valMatchCount = 0;
+
+                        for (WshShell_Size_t i = 0;
+                             i < pEnum->Count &&
+                             valMatchCount < WSH_SHELL_AUTOCOMPLETE_MAX_CANDIDATES;
+                             i++) {
+                            if (flagPartLen > 0 &&
+                                WSH_SHELL_STRNCMP(pcFlagPart, pEnum->Values[i], flagPartLen) != 0)
+                                continue;
+                            WSH_SHELL_STRNCPY(valCandidates[valMatchCount], pEnum->Values[i],
+                                              WSH_SHELL_ENUM_VALUE_MAX_LEN - 1);
+                            valCandidates[valMatchCount][WSH_SHELL_ENUM_VALUE_MAX_LEN - 1] = '\0';
+                            valMatchCount++;
+                        }
+
+                        if (valMatchCount == 0) {
+                            WSH_SHELL_PRINT_SYS("%s /autocomplete: no matches\r\n", sysMsgShift);
+                            return false;
+                        }
+
+                        if (valMatchCount == 1) {
+                            WshShell_Size_t valLen   = WSH_SHELL_STRLEN(valCandidates[0]);
+                            WshShell_Size_t totalLen = lastSpaceIdx + 1 + valLen;
+                            if (totalLen + 2 > WSH_SHELL_INTR_BUFF_LEN) {
+                                WSH_SHELL_PRINT_WARN("Enum value too long for buffer\r\n");
+                                return false;
+                            }
+                            WSH_SHELL_STRNCPY(pInBuff, pcInputCopyTrimmed, lastSpaceIdx + 1);
+                            WSH_SHELL_MEMCPY(pInBuff + lastSpaceIdx + 1, valCandidates[0], valLen);
+                            pInBuff[totalLen]     = ' ';
+                            pInBuff[totalLen + 1] = '\0';
+                            return true;
+                        }
+
+                        WSH_SHELL_PRINT_SYS("%s /autocomplete values: ", sysMsgShift);
+                        for (WshShell_Size_t i = 0; i < valMatchCount; i++)
+                            WSH_SHELL_PRINT("[%s] ", valCandidates[i]);
+                        WSH_SHELL_PRINT("\r\n");
+                        return false;
+                    }
+                }
+            }
 #if WSH_SHELL_SUBCOMMANDS
             /* Subcommand-name completion path. */
             if (pcTargetCmd->SubCmdNum == 0 || !pcTargetCmd->SubCmds) {
@@ -309,6 +387,24 @@ WshShell_Bool_t WshShellAutocomplete_Try(WshShell_Char_t* pInBuff, WshShell_Size
 
         if (flagMatchCount == 1) {
             WshShell_Size_t flagLen = WSH_SHELL_STRLEN(flagCandidates[0]);
+            /*
+             * Exact flag match + cursor already past the flag (trailing space):
+             * show all allowed enum values so the user can choose one.
+             *
+             * Example: `wsh user list --format <TAB>`
+             *   flagCandidates[0] = "--format", flagLen == flagPartLen, hadTrailingSpace
+             */
+            if (flagLen == flagPartLen && hadTrailingSpace) {
+                const WshShellOption_t* pEnumOpt =
+                    WshShellCmd_FindOptByName(pcTargetCmd, flagCandidates[0]);
+                if (pEnumOpt && pEnumOpt->Type == WSH_SHELL_OPTION_ENUM && pEnumOpt->Enum) {
+                    WSH_SHELL_PRINT_SYS("%s /autocomplete values: ", sysMsgShift);
+                    for (WshShell_Size_t i = 0; i < pEnumOpt->Enum->Count; i++)
+                        WSH_SHELL_PRINT("[%s] ", pEnumOpt->Enum->Values[i]);
+                    WSH_SHELL_PRINT("\r\n");
+                    return false;
+                }
+            }
             WshShell_Size_t newLen  = prefixEnd + 1 + flagLen;
             if (newLen + 2 > WSH_SHELL_INTR_BUFF_LEN) {
                 WSH_SHELL_PRINT_WARN("Flag name too long for buffer\r\n");

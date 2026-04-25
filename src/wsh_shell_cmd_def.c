@@ -32,17 +32,14 @@ static const WSH_SHELL_CMD_GROUP_t WshShell_CmdGroups[] = {WSH_SHELL_CMD_GROUP_L
 
 /* clang-format off */
 #define WSH_SHELL_CMD_DEF_OPT_TABLE() \
-    X_CMD_ENTRY(WSH_SHELL_DEF_OPT_DEF, WSH_SHELL_OPT_NO(WSH_SHELL_OPT_ACCESS_ANY, "Print basic info about shell instance")) \
-    X_CMD_ENTRY(WSH_SHELL_DEF_OPT_HELP, WSH_SHELL_OPT_HELP()) \
-    X_CMD_ENTRY(WSH_SHELL_DEF_OPT_INTERACT, WSH_SHELL_OPT_INTERACT(WSH_SHELL_OPT_ACCESS_ANY)) \
-    X_CMD_ENTRY(WSH_SHELL_DEF_OPT_EXEC, WSH_SHELL_OPT_WO_PARAM(WSH_SHELL_OPT_ACCESS_READ, "-x", "--exec", "Get info about accessible commands")) \
+    X_CMD_ENTRY(WSH_SHELL_DEF_OPT_DEF,    WSH_SHELL_OPT_NO(WSH_SHELL_OPT_ACCESS_ANY, "Print shell status (version, device, user)")) \
+    X_CMD_ENTRY(WSH_SHELL_DEF_OPT_HELP,   WSH_SHELL_OPT_HELP()) \
+    X_CMD_ENTRY(WSH_SHELL_DEF_OPT_EXEC,   WSH_SHELL_OPT_WO_PARAM(WSH_SHELL_OPT_ACCESS_READ,    "-x", "--exec",   "List accessible commands")) \
+    X_CMD_ENTRY(WSH_SHELL_DEF_OPT_CLS,    WSH_SHELL_OPT_WO_PARAM(WSH_SHELL_OPT_ACCESS_EXECUTE, "-c", "--cls",    "Clear screen")) \
+    X_CMD_ENTRY(WSH_SHELL_DEF_OPT_PING,   WSH_SHELL_OPT_WO_PARAM(WSH_SHELL_OPT_ACCESS_ANY,     "-p", "--ping",   "Ping shell")) \
+    X_CMD_ENTRY(WSH_SHELL_DEF_OPT_DEAUTH, WSH_SHELL_OPT_WO_PARAM(WSH_SHELL_OPT_ACCESS_ANY,     "-d", "--deauth", "Logout and clear history")) \
     WSH_SHELL_CMD_DEF_OPT_USER_SLOT() \
-    X_CMD_ENTRY(WSH_SHELL_DEF_OPT_CLS, WSH_SHELL_OPT_WO_PARAM(WSH_SHELL_OPT_ACCESS_EXECUTE, "-c", "--cls", "Clear screen")) \
-    X_CMD_ENTRY(WSH_SHELL_DEF_OPT_HIST_CLEAR, WSH_SHELL_OPT_WO_PARAM(WSH_SHELL_OPT_ACCESS_WRITE, "-r", "--histrst", "Reset history storage")) \
-    X_CMD_ENTRY(WSH_SHELL_DEF_OPT_HIST_PRINT, WSH_SHELL_OPT_WO_PARAM(WSH_SHELL_OPT_ACCESS_READ, "-g", "--histprint", "Print history storage")) \
-    X_CMD_ENTRY(WSH_SHELL_DEF_OPT_DEAUTH, WSH_SHELL_OPT_WO_PARAM(WSH_SHELL_OPT_ACCESS_ANY, "-d", "--deauth", "DeAuth and destroy history")) \
-    X_CMD_ENTRY(WSH_SHELL_DEF_OPT_PING, WSH_SHELL_OPT_WO_PARAM(WSH_SHELL_OPT_ACCESS_ANY, "-p", "--ping", "Ping shell")) \
-    X_CMD_ENTRY(WSH_SHELL_DEF_OPT_END, WSH_SHELL_OPT_END())
+    X_CMD_ENTRY(WSH_SHELL_DEF_OPT_END,    WSH_SHELL_OPT_END())
 /* clang-format on */
 
 /**
@@ -60,12 +57,6 @@ typedef enum {
 #define X_CMD_ENTRY(enum, opt) {enum, opt},
 static const WshShellOption_t WshShell_OptArr[] = {WSH_SHELL_CMD_DEF_OPT_TABLE()};
 #undef X_CMD_ENTRY
-
-static void WshShell_CmdDefInteractive(WshShellIO_CommandLine_t* pInter) {
-    WshShellInteract_AppendLineBreak(pInter);
-
-    WSH_SHELL_PRINT("Just echo of interactive command: %s", pInter->Buff);
-}
 
 /* Shared helpers — used by the -u flat flag (no subcommands) and by wsh user
  * subcommand handlers (subcommands enabled). Defined unconditionally so both
@@ -100,11 +91,15 @@ static void WshShellDef_PrintUserHead(WshShell_Char_t* pRowTemplate,
 
 #if WSH_SHELL_SUBCOMMANDS
 
+static const WshShell_Char_t* const WshShellDefUserListFmtVals[] = {"table", "short"};
+static const WshShellOptionEnum_t WshShellDefUserListFmt         = {
+    WshShellDefUserListFmtVals, WSH_SHELL_ARR_LEN(WshShellDefUserListFmtVals)};
+
 /* clang-format off */
 #define WSH_SHELL_CMD_USER_LIST_OPT_TABLE() \
-    X_CMD_ENTRY(USER_LIST_OPT_DEF,    WSH_SHELL_OPT_NO(WSH_SHELL_OPT_ACCESS_READ, "Print registered users as a table")) \
+    X_CMD_ENTRY(USER_LIST_OPT_DEF,    WSH_SHELL_OPT_NO(WSH_SHELL_OPT_ACCESS_READ, "Print registered users")) \
     X_CMD_ENTRY(USER_LIST_OPT_HELP,   WSH_SHELL_OPT_HELP()) \
-    X_CMD_ENTRY(USER_LIST_OPT_SHORT,  WSH_SHELL_OPT_WO_PARAM(WSH_SHELL_OPT_ACCESS_READ, "-s", "--short", "Print logins only, one per line")) \
+    X_CMD_ENTRY(USER_LIST_OPT_FORMAT, WSH_SHELL_OPT_ENUM(WSH_SHELL_OPT_ACCESS_READ, "-f", "--format", &WshShellDefUserListFmt, "Output format (table, short)")) \
     X_CMD_ENTRY(USER_LIST_OPT_END_ID, WSH_SHELL_OPT_END())
 /* clang-format on */
 
@@ -142,9 +137,14 @@ static WSH_SHELL_RET_STATE_t WshShellCmdDef_UserList(const WshShellCmd_t* pcCmd,
             case USER_LIST_OPT_HELP:
                 helpOnly = true;
                 break;
-            case USER_LIST_OPT_SHORT:
-                shortForm = true;
-                break;
+            case USER_LIST_OPT_FORMAT: {
+                WshShell_Char_t fmtBuf[WSH_SHELL_ENUM_VALUE_MAX_LEN] = {0};
+                if (WshShellCmd_GetOptValue(&optCtx, argc, pArgv, sizeof(fmtBuf), fmtBuf) ==
+                    WSH_SHELL_RET_STATE_SUCCESS) {
+                    if (WSH_SHELL_STRCMP(fmtBuf, "short") == 0)
+                        shortForm = true;
+                }
+            } break;
             case USER_LIST_OPT_DEF:
             default:
                 break;
@@ -297,9 +297,8 @@ static const WshShellCmd_t* const WshShellDefUserSubCmds[] = {
 
 /* clang-format off */
 #define WSH_SHELL_CMD_USER_OPT_TABLE() \
-    X_CMD_ENTRY(USER_OPT_DEF,    WSH_SHELL_OPT_NO(WSH_SHELL_OPT_ACCESS_ANY, "Print user subcommand overview")) \
+    X_CMD_ENTRY(USER_OPT_DEF,    WSH_SHELL_OPT_NO(WSH_SHELL_OPT_ACCESS_ANY, "User management subcommands")) \
     X_CMD_ENTRY(USER_OPT_HELP,   WSH_SHELL_OPT_HELP()) \
-    X_CMD_ENTRY(USER_OPT_COUNT,  WSH_SHELL_OPT_WO_PARAM(WSH_SHELL_OPT_ACCESS_READ, "-c", "--count", "Print total number of registered users")) \
     X_CMD_ENTRY(USER_OPT_END_ID, WSH_SHELL_OPT_END())
 /* clang-format on */
 
@@ -328,18 +327,7 @@ static WSH_SHELL_RET_STATE_t WshShellCmdDef_User(const WshShellCmd_t* pcCmd, Wsh
                 return WSH_SHELL_RET_STATE_ERR_PARAM;
             break;
         }
-
-        switch (optCtx.Option->ID) {
-            case USER_OPT_COUNT:
-                WSH_SHELL_PRINT("Users: %d\r\n",
-                                (int)WshShellUser_GetUsersNum(&(pParentShell->Users)));
-                break;
-            case USER_OPT_DEF:
-            case USER_OPT_HELP:
-            default:
-                WshShellCmd_PrintOptionsOverview(pcCmd);
-                break;
-        }
+        WshShellCmd_PrintOptionsOverview(pcCmd);
     }
 
     return WSH_SHELL_RET_STATE_SUCCESS;
@@ -356,8 +344,181 @@ static const WshShellCmd_t WshShellDefUserCmd = {
     .SubCmdNum = WSH_SHELL_ARR_LEN(WshShellDefUserSubCmds),
 };
 
+/* clang-format off */
+#define WSH_SHELL_CMD_HIST_LIST_OPT_TABLE() \
+    X_CMD_ENTRY(HIST_LIST_OPT_DEF,    WSH_SHELL_OPT_NO(WSH_SHELL_OPT_ACCESS_READ, "Print command history")) \
+    X_CMD_ENTRY(HIST_LIST_OPT_HELP,   WSH_SHELL_OPT_HELP()) \
+    X_CMD_ENTRY(HIST_LIST_OPT_END_ID, WSH_SHELL_OPT_END())
+/* clang-format on */
+
+typedef enum {
+#define X_CMD_ENTRY(en, m) en,
+    WSH_SHELL_CMD_HIST_LIST_OPT_TABLE() HIST_LIST_OPT_ENUM_SIZE
+#undef X_CMD_ENTRY
+} HIST_LIST_OPT_t;
+
+#define X_CMD_ENTRY(en, m) {en, m},
+static const WshShellOption_t WshShellDefHistListOptArr[] = {WSH_SHELL_CMD_HIST_LIST_OPT_TABLE()};
+#undef X_CMD_ENTRY
+
+static WSH_SHELL_RET_STATE_t WshShellCmdDef_HistList(const WshShellCmd_t* pcCmd,
+                                                     WshShell_Size_t argc,
+                                                     const WshShell_Char_t* pArgv[],
+                                                     void* pShellCtx) {
+    if (!pcCmd || !pShellCtx || (argc > 0 && !pArgv))
+        return WSH_SHELL_RET_STATE_ERR_PARAM;
+
+    WshShell_t* pParentShell = (WshShell_t*)pShellCtx;
+
+    for (WshShell_Size_t tokenPos = 0; tokenPos < argc;) {
+        WshShellOption_Ctx_t optCtx =
+            WshShellCmd_ParseOpt(pcCmd, argc, pArgv, pParentShell->CurrUser->Rights, &tokenPos);
+        if (!optCtx.Option) {
+            if (optCtx.ParseError)
+                return WSH_SHELL_RET_STATE_ERR_PARAM;
+            break;
+        }
+        if (optCtx.Option->ID == HIST_LIST_OPT_HELP) {
+            WshShellCmd_PrintOptionsOverview(pcCmd);
+            return WSH_SHELL_RET_STATE_SUCCESS;
+        }
+    }
+
+    WshShell_Char_t cmdBuff[WSH_SHELL_INTR_BUFF_LEN];
+    WshShell_Size_t cmdNum = WshShellHistory_GetTokenNum(&(pParentShell->HistoryIO));
+
+    WSH_SHELL_PRINT("History (%d):\r\n", (int)cmdNum);
+    for (WshShell_Size_t i = cmdNum; i > 0; i--) {
+        if (WshShellHistory_GetTokenByIndex(&(pParentShell->HistoryIO), cmdBuff, sizeof(cmdBuff),
+                                            i - 1))
+            WSH_SHELL_PRINT("  [%2d] %s\r\n", (int)(cmdNum - i + 1), cmdBuff);
+    }
+
+    return WSH_SHELL_RET_STATE_SUCCESS;
+}
+
+static const WshShellCmd_t WshShellDefHistListCmd = {
+    .Groups  = WSH_SHELL_CMD_GROUP_ALL,
+    .Name    = "list",
+    .Descr   = "Print command history",
+    .Options = WshShellDefHistListOptArr,
+    .OptNum  = WSH_SHELL_ARR_LEN(WshShellDefHistListOptArr),
+    .Handler = WshShellCmdDef_HistList,
+};
+
+/* clang-format off */
+#define WSH_SHELL_CMD_HIST_CLEAR_OPT_TABLE() \
+    X_CMD_ENTRY(HIST_CLEAR_OPT_DEF,    WSH_SHELL_OPT_NO(WSH_SHELL_OPT_ACCESS_WRITE, "Clear command history")) \
+    X_CMD_ENTRY(HIST_CLEAR_OPT_HELP,   WSH_SHELL_OPT_HELP()) \
+    X_CMD_ENTRY(HIST_CLEAR_OPT_END_ID, WSH_SHELL_OPT_END())
+/* clang-format on */
+
+typedef enum {
+#define X_CMD_ENTRY(en, m) en,
+    WSH_SHELL_CMD_HIST_CLEAR_OPT_TABLE() HIST_CLEAR_OPT_ENUM_SIZE
+#undef X_CMD_ENTRY
+} HIST_CLEAR_OPT_t;
+
+#define X_CMD_ENTRY(en, m) {en, m},
+static const WshShellOption_t WshShellDefHistClearOptArr[] = {WSH_SHELL_CMD_HIST_CLEAR_OPT_TABLE()};
+#undef X_CMD_ENTRY
+
+static WSH_SHELL_RET_STATE_t WshShellCmdDef_HistClear(const WshShellCmd_t* pcCmd,
+                                                      WshShell_Size_t argc,
+                                                      const WshShell_Char_t* pArgv[],
+                                                      void* pShellCtx) {
+    if (!pcCmd || !pShellCtx || (argc > 0 && !pArgv))
+        return WSH_SHELL_RET_STATE_ERR_PARAM;
+
+    WshShell_t* pParentShell = (WshShell_t*)pShellCtx;
+
+    for (WshShell_Size_t tokenPos = 0; tokenPos < argc;) {
+        WshShellOption_Ctx_t optCtx =
+            WshShellCmd_ParseOpt(pcCmd, argc, pArgv, pParentShell->CurrUser->Rights, &tokenPos);
+        if (!optCtx.Option) {
+            if (optCtx.ParseError)
+                return WSH_SHELL_RET_STATE_ERR_PARAM;
+            break;
+        }
+        if (optCtx.Option->ID == HIST_CLEAR_OPT_HELP) {
+            WshShellCmd_PrintOptionsOverview(pcCmd);
+            return WSH_SHELL_RET_STATE_SUCCESS;
+        }
+    }
+
+    WshShellHistory_Flush(&(pParentShell->HistoryIO));
+    WSH_SHELL_PRINT_INFO("History cleared\r\n");
+    return WSH_SHELL_RET_STATE_SUCCESS;
+}
+
+static const WshShellCmd_t WshShellDefHistClearCmd = {
+    .Groups  = WSH_SHELL_CMD_GROUP_ALL,
+    .Name    = "clear",
+    .Descr   = "Clear command history",
+    .Options = WshShellDefHistClearOptArr,
+    .OptNum  = WSH_SHELL_ARR_LEN(WshShellDefHistClearOptArr),
+    .Handler = WshShellCmdDef_HistClear,
+};
+
+static const WshShellCmd_t* const WshShellDefHistSubCmds[] = {
+    &WshShellDefHistListCmd,
+    &WshShellDefHistClearCmd,
+};
+
+/* clang-format off */
+#define WSH_SHELL_CMD_HIST_OPT_TABLE() \
+    X_CMD_ENTRY(HIST_OPT_DEF,    WSH_SHELL_OPT_NO(WSH_SHELL_OPT_ACCESS_ANY, "History subcommands")) \
+    X_CMD_ENTRY(HIST_OPT_HELP,   WSH_SHELL_OPT_HELP()) \
+    X_CMD_ENTRY(HIST_OPT_END_ID, WSH_SHELL_OPT_END())
+/* clang-format on */
+
+typedef enum {
+#define X_CMD_ENTRY(en, m) en,
+    WSH_SHELL_CMD_HIST_OPT_TABLE() HIST_OPT_ENUM_SIZE
+#undef X_CMD_ENTRY
+} HIST_OPT_t;
+
+#define X_CMD_ENTRY(en, m) {en, m},
+static const WshShellOption_t WshShellDefHistOptArr[] = {WSH_SHELL_CMD_HIST_OPT_TABLE()};
+#undef X_CMD_ENTRY
+
+static WSH_SHELL_RET_STATE_t WshShellCmdDef_History(const WshShellCmd_t* pcCmd,
+                                                    WshShell_Size_t argc,
+                                                    const WshShell_Char_t* pArgv[],
+                                                    void* pShellCtx) {
+    if (!pcCmd || !pShellCtx || (argc > 0 && !pArgv))
+        return WSH_SHELL_RET_STATE_ERR_PARAM;
+
+    WshShell_t* pParentShell = (WshShell_t*)pShellCtx;
+
+    for (WshShell_Size_t tokenPos = 0; tokenPos < argc;) {
+        WshShellOption_Ctx_t optCtx =
+            WshShellCmd_ParseOpt(pcCmd, argc, pArgv, pParentShell->CurrUser->Rights, &tokenPos);
+        if (!optCtx.Option) {
+            if (optCtx.ParseError)
+                return WSH_SHELL_RET_STATE_ERR_PARAM;
+            break;
+        }
+        WshShellCmd_PrintOptionsOverview(pcCmd);
+    }
+
+    return WSH_SHELL_RET_STATE_SUCCESS;
+}
+
+static const WshShellCmd_t WshShellDefHistCmd = {
+    .Groups    = WSH_SHELL_CMD_GROUP_ALL,
+    .Name      = "history",
+    .Descr     = "Command history management",
+    .Options   = WshShellDefHistOptArr,
+    .OptNum    = WSH_SHELL_ARR_LEN(WshShellDefHistOptArr),
+    .Handler   = WshShellCmdDef_History,
+    .SubCmds   = WshShellDefHistSubCmds,
+    .SubCmdNum = WSH_SHELL_ARR_LEN(WshShellDefHistSubCmds),
+};
+
 static const WshShellCmd_t* const WshShellDefSubCmds[] = {
     &WshShellDefUserCmd,
+    &WshShellDefHistCmd,
 };
 
 #endif /* WSH_SHELL_SUBCOMMANDS */
@@ -388,11 +549,6 @@ static WSH_SHELL_RET_STATE_t WshShellCmdDef(const WshShellCmd_t* pcCmd, WshShell
 
             case WSH_SHELL_DEF_OPT_HELP: {
                 WshShellCmd_PrintOptionsOverview(pcCmd);
-            } break;
-
-            case WSH_SHELL_DEF_OPT_INTERACT: {
-                WshShellInteract_Attach(&(pParentShell->Interact), pcCmd->Name,
-                                        WshShell_CmdDefInteractive);
             } break;
 
             case WSH_SHELL_DEF_OPT_EXEC: {
@@ -458,24 +614,6 @@ static WSH_SHELL_RET_STATE_t WshShellCmdDef(const WshShellCmd_t* pcCmd, WshShell
 
             case WSH_SHELL_DEF_OPT_CLS: {
                 WSH_SHELL_PRINT(WSH_SHELL_ECS_CLR_SCREEN);
-            } break;
-
-            case WSH_SHELL_DEF_OPT_HIST_CLEAR: {
-                WshShellHistory_Flush(&(pParentShell->HistoryIO));
-                WSH_SHELL_PRINT_INFO("History flushed\r\n");
-            } break;
-
-            case WSH_SHELL_DEF_OPT_HIST_PRINT: {
-                WshShell_Char_t cmdBuff[WSH_SHELL_INTR_BUFF_LEN];
-                WshShell_Size_t cmdNum = WshShellHistory_GetTokenNum(&(pParentShell->HistoryIO));
-
-                WSH_SHELL_PRINT("History len: %d\r\n", cmdNum);
-                for (WshShell_Size_t cmdIdx = cmdNum; cmdIdx > 0; cmdIdx--) {
-                    if (WshShellHistory_GetTokenByIndex(&(pParentShell->HistoryIO), cmdBuff,
-                                                        sizeof(cmdBuff), cmdIdx - 1)) {
-                        WSH_SHELL_PRINT("  hist[%2d]: %s\r\n", cmdNum - cmdIdx + 1, cmdBuff);
-                    }
-                }
             } break;
 
             case WSH_SHELL_DEF_OPT_PING: {

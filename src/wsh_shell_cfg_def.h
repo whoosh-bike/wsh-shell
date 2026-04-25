@@ -94,6 +94,13 @@
 #define WSH_SHELL_SUBCOMMANDS           1
 #define WSH_SHELL_SUBCOMMANDS_MAX_DEPTH 3
 
+/*
+ * ─────────────────────────────────────────────
+ * Enum option type (closed-set string values with autocomplete)
+ * ─────────────────────────────────────────────
+ */
+#define WSH_SHELL_ENUM_VALUE_MAX_LEN 16 /* max length of a single enum value string */
+
 /* 
  * ─────────────────────────────────────────────
  * Command descriptions(help) - store and print

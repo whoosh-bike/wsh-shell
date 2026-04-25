@@ -186,6 +186,23 @@ const WshShellCmd_t* WshShellCmd_SearchSubCmd(const WshShellCmd_t* pcCmd,
 }
 #endif /* WSH_SHELL_SUBCOMMANDS */
 
+const WshShellOption_t* WshShellCmd_FindOptByName(const WshShellCmd_t* pcCmd,
+                                                  const WshShell_Char_t* pcName) {
+    if (!pcCmd || !pcName || !pcCmd->Options)
+        return NULL;
+
+    const WshShellOption_t* pcOpt = pcCmd->Options;
+    for (; pcOpt->Type != WSH_SHELL_OPTION_END; pcOpt++) {
+        if (pcOpt->ShortName &&
+            WSH_SHELL_STRNCMP(pcOpt->ShortName, pcName, WSH_SHELL_OPTION_SHORT_NAME_LEN + 1) == 0)
+            return pcOpt;
+        if (pcOpt->LongName &&
+            WSH_SHELL_STRNCMP(pcOpt->LongName, pcName, WSH_SHELL_OPTION_LONG_NAME_LEN) == 0)
+            return pcOpt;
+    }
+    return NULL;
+}
+
 static const WshShellOption_t* WshShellCmd_FindOpt(const WshShellCmd_t* pcCmd,
                                                    const WshShell_Char_t* pcStr,
                                                    WshShell_Size_t strLen) {
@@ -330,6 +347,26 @@ WSH_SHELL_RET_STATE_t WshShellCmd_GetOptValue(WshShellOption_Ctx_t* pOptCtx, Wsh
 
         case WSH_SHELL_OPTION_FLOAT:
             *((float*)pValue) = WSH_SHELL_STRTOF(pArgv[valIdx], NULL);
+            break;
+
+        case WSH_SHELL_OPTION_ENUM:
+            if (pOptCtx->Option->Enum) {
+                const WshShellOptionEnum_t* pEnum = pOptCtx->Option->Enum;
+                WshShell_Bool_t found             = false;
+                for (WshShell_Size_t i = 0; i < pEnum->Count; i++) {
+                    if (WSH_SHELL_STRNCMP(pArgv[valIdx], pEnum->Values[i],
+                                          WSH_SHELL_ENUM_VALUE_MAX_LEN) == 0) {
+                        found = true;
+                        break;
+                    }
+                }
+                if (!found) {
+                    WSH_SHELL_PRINT_WARN("Invalid value \"%s\" for %s\r\n", pArgv[valIdx],
+                                         pOptCtx->Option->LongName);
+                    return WSH_SHELL_RET_STATE_ERR_PARAM;
+                }
+            }
+            WSH_SHELL_STRNCPY((WshShell_Char_t*)pValue, pArgv[valIdx], valueSize);
             break;
 
         case WSH_SHELL_OPTION_NO:
