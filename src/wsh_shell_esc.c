@@ -2,8 +2,7 @@
 
 #if WSH_SHELL_HISTORY
 
-static void WshShellEsc_ArrowUp(WshShellHistoryIO_t* pHistIO,
-                                WshShellIO_CommandLine_t* pCommandLine) {
+static void WshShellEsc_ArrowUp(WshShellHistoryIO_t* pHistIO, WshShellIO_CommandLine_t* pCommandLine) {
     WSH_SHELL_ASSERT(pHistIO && pCommandLine);
     if (!pHistIO || !pCommandLine)
         return;
@@ -14,8 +13,7 @@ static void WshShellEsc_ArrowUp(WshShellHistoryIO_t* pHistIO,
     return;
 }
 
-static void WshShellEsc_ArrowDown(WshShellHistoryIO_t* pHistIO,
-                                  WshShellIO_CommandLine_t* pCommandLine) {
+static void WshShellEsc_ArrowDown(WshShellHistoryIO_t* pHistIO, WshShellIO_CommandLine_t* pCommandLine) {
     WSH_SHELL_ASSERT(pHistIO && pCommandLine);
     if (!pHistIO || !pCommandLine)
         return;
@@ -28,20 +26,17 @@ static void WshShellEsc_ArrowDown(WshShellHistoryIO_t* pHistIO,
 
 #else /* WSH_SHELL_HISTORY */
 
-static void WshShellEsc_ArrowUp(WshShellHistoryIO_t* pHistIO,
-                                WshShellIO_CommandLine_t* pCommandLine) {
+static void WshShellEsc_ArrowUp(WshShellHistoryIO_t* pHistIO, WshShellIO_CommandLine_t* pCommandLine) {
     return;
 }
 
-static void WshShellEsc_ArrowDown(WshShellHistoryIO_t* pHistIO,
-                                  WshShellIO_CommandLine_t* pCommandLine) {
+static void WshShellEsc_ArrowDown(WshShellHistoryIO_t* pHistIO, WshShellIO_CommandLine_t* pCommandLine) {
     return;
 }
 
 #endif /* WSH_SHELL_HISTORY */
 
-static void WshShellEsc_ArrowRight(WshShellHistoryIO_t* pHistIO,
-                                   WshShellIO_CommandLine_t* pCommandLine) {
+static void WshShellEsc_ArrowRight(WshShellHistoryIO_t* pHistIO, WshShellIO_CommandLine_t* pCommandLine) {
     (void)pHistIO;
 
     WSH_SHELL_ASSERT(pCommandLine);
@@ -54,8 +49,7 @@ static void WshShellEsc_ArrowRight(WshShellHistoryIO_t* pHistIO,
     }
 }
 
-static void WshShellEsc_ArrowLeft(WshShellHistoryIO_t* pHistIO,
-                                  WshShellIO_CommandLine_t* pCommandLine) {
+static void WshShellEsc_ArrowLeft(WshShellHistoryIO_t* pHistIO, WshShellIO_CommandLine_t* pCommandLine) {
     (void)pHistIO;
 
     WSH_SHELL_ASSERT(pCommandLine);
@@ -129,6 +123,5 @@ WshShell_Bool_t WshShellEsc_IsSeqStarted(WshShellEsc_Storage_t* pEscStorage) {
     if (!pEscStorage)
         return false;
 
-    return (WshShell_Bool_t)(pEscStorage->Cnt > 0 &&
-                             pEscStorage->Buff[0] == WSH_SHELL_ESC_SEQ_START_CHAR);
+    return (WshShell_Bool_t)(pEscStorage->Cnt > 0 && pEscStorage->Buff[0] == WSH_SHELL_ESC_SEQ_START_CHAR);
 }

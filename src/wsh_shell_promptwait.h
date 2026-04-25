@@ -31,8 +31,7 @@ struct WshShellPromptWait;
  * @param symbol The character that was entered by the user.
  * @param pCtx   Optional user context passed to the handler.
  */
-typedef WshShell_Bool_t (*WshShellPromptWait_Handler_t)(WshShell_Char_t symbol,
-                                                        struct WshShellPromptWait* pWait);
+typedef WshShell_Bool_t (*WshShellPromptWait_Handler_t)(WshShell_Char_t symbol, struct WshShellPromptWait* pWait);
 
 /**
  * @brief Prompt-wait control structure.
@@ -66,8 +65,7 @@ void WshShellPromptWait_Flush(WshShellPromptWait_t* pWait);
  * @param[in]     handler Callback function to invoke on user input.
  * @param[in]     pCtx    Optional pointer to user context.
  */
-void WshShellPromptWait_Attach(WshShellPromptWait_t* pWait, WshShellPromptWait_Handler_t handler,
-                               void* pCtx);
+void WshShellPromptWait_Attach(WshShellPromptWait_t* pWait, WshShellPromptWait_Handler_t handler, void* pCtx);
 
 /**
  * @brief Handle a symbol when in prompt-wait mode.
@@ -81,8 +79,7 @@ void WshShellPromptWait_Attach(WshShellPromptWait_t* pWait, WshShellPromptWait_H
  *          WSH_SHELL_RET_STATE_ERR_BUSY if normal shell processing should continue
  *          WSH_SHELL_RET_STATE_SUCCESS if the symbol was handled by the prompt-wait mechanism
  */
-WSH_SHELL_RET_STATE_t WshShellPromptWait_Handle(WshShellPromptWait_t* pWait,
-                                                WshShell_Char_t symbol);
+WSH_SHELL_RET_STATE_t WshShellPromptWait_Handle(WshShellPromptWait_t* pWait, WshShell_Char_t symbol);
 
 /**
  * @brief User input handler for prompt-wait mode.

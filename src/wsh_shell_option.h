@@ -23,8 +23,7 @@ extern "C" {
 #define WSH_SHELL_OPT_ACCESS_WRITE   0x02
 #define WSH_SHELL_OPT_ACCESS_EXECUTE 0x04
 #define WSH_SHELL_OPT_ACCESS_ADMIN   0x08
-#define WSH_SHELL_OPT_ACCESS_ANY \
-    (WSH_SHELL_OPT_ACCESS_READ | WSH_SHELL_OPT_ACCESS_WRITE | WSH_SHELL_OPT_ACCESS_EXECUTE)
+#define WSH_SHELL_OPT_ACCESS_ANY (WSH_SHELL_OPT_ACCESS_READ | WSH_SHELL_OPT_ACCESS_WRITE | WSH_SHELL_OPT_ACCESS_EXECUTE)
 
 #if WSH_SHELL_PRINT_OPT_HELP_ENABLE
 #define WSH_SHELL_OPT_DESCR(descr) descr
@@ -47,8 +46,7 @@ extern "C" {
  * @brief Define an option that triggers when input is provided with no flags.
  * @param[in] acc Access rights mask.
  */
-#define WSH_SHELL_OPT_WAITS_INPUT(acc) \
-    WSH_SHELL_OPTION_WAITS_INPUT, (acc), 0, NULL, NULL, NULL WSH_SHELL_OPT_ENUM_TAIL
+#define WSH_SHELL_OPT_WAITS_INPUT(acc) WSH_SHELL_OPTION_WAITS_INPUT, (acc), 0, NULL, NULL, NULL WSH_SHELL_OPT_ENUM_TAIL
 
 /**
  * @brief Define a built-in help option (e.g. `"--help"` or `"-h"`).
@@ -133,8 +131,7 @@ extern "C" {
 /**
  * @brief Marks the end of an option array.
  */
-#define WSH_SHELL_OPT_END() \
-    WSH_SHELL_OPTION_END, WSH_SHELL_OPT_ACCESS_ANY, 0, NULL, NULL, NULL WSH_SHELL_OPT_ENUM_TAIL
+#define WSH_SHELL_OPT_END() WSH_SHELL_OPTION_END, WSH_SHELL_OPT_ACCESS_ANY, 0, NULL, NULL, NULL WSH_SHELL_OPT_ENUM_TAIL
 
 /**
  * @brief Internal macro: full list of option types.

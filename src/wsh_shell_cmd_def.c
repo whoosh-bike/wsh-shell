@@ -25,9 +25,9 @@ static const WSH_SHELL_CMD_GROUP_t WshShell_CmdGroups[] = {WSH_SHELL_CMD_GROUP_L
 #if WSH_SHELL_SUBCOMMANDS
 #define WSH_SHELL_CMD_DEF_OPT_USER_SLOT()
 #else
-#define WSH_SHELL_CMD_DEF_OPT_USER_SLOT()                                                       \
-    X_CMD_ENTRY(WSH_SHELL_DEF_OPT_USER, WSH_SHELL_OPT_WO_PARAM(WSH_SHELL_OPT_ACCESS_READ, "-u", \
-                                                               "--user", "Get info about users"))
+#define WSH_SHELL_CMD_DEF_OPT_USER_SLOT() \
+    X_CMD_ENTRY(WSH_SHELL_DEF_OPT_USER,   \
+                WSH_SHELL_OPT_WO_PARAM(WSH_SHELL_OPT_ACCESS_READ, "-u", "--user", "Get info about users"))
 #endif
 
 /* clang-format off */
@@ -61,8 +61,7 @@ static const WshShellOption_t WshShell_OptArr[] = {WSH_SHELL_CMD_DEF_OPT_TABLE()
 /* Shared helpers — used by the -u flat flag (no subcommands) and by wsh user
  * subcommand handlers (subcommands enabled). Defined unconditionally so both
  * paths can call them without duplication. */
-static void WshShellDef_PrintUserRow(const WshShellUser_t* pcUser,
-                                     const WshShell_Char_t* pRowTemplate) {
+static void WshShellDef_PrintUserRow(const WshShellUser_t* pcUser, const WshShell_Char_t* pRowTemplate) {
     WshShell_Char_t groupRow[WSH_SHELL_CMD_GROUP_COUNT + 1];
     WshShellStr_GroupBitsToStr(pcUser->Groups, WSH_SHELL_CMD_GROUP_COUNT, groupRow);
 
@@ -72,28 +71,29 @@ static void WshShellDef_PrintUserRow(const WshShellUser_t* pcUser,
     WSH_SHELL_PRINT(pRowTemplate, pcUser->Login, groupRow, rightsRow);
 }
 
-static void WshShellDef_PrintUserHead(WshShell_Char_t* pRowTemplate,
-                                      WshShell_Size_t rowTemplateLen) {
+static void WshShellDef_PrintUserHead(WshShell_Char_t* pRowTemplate, WshShell_Size_t rowTemplateLen) {
     const WshShell_Size_t loginMaxLen  = WSH_SHELL_LOGIN_LEN;
     const WshShell_Size_t groupMaxLen  = WSH_SHELL_CMD_GROUP_COUNT + 3;
     const WshShell_Size_t rightsMaxLen = 6;
 
     WshShell_Char_t headTemplate[64];
     WSH_SHELL_SNPRINTF(headTemplate, sizeof(headTemplate),
-                       WSH_SHELL_COLOR_SYS "  %%-%ds %%-%ds %%-%ds\r\n" WSH_SHELL_ESC_RESET_STYLE,
-                       loginMaxLen, groupMaxLen, rightsMaxLen);
+                       WSH_SHELL_COLOR_SYS "  %%-%ds %%-%ds %%-%ds\r\n" WSH_SHELL_ESC_RESET_STYLE, loginMaxLen,
+                       groupMaxLen, rightsMaxLen);
 
     WSH_SHELL_PRINT(headTemplate, "Login", "Groups", "Rights");
 
-    WSH_SHELL_SNPRINTF(pRowTemplate, rowTemplateLen, "  %%-%ds %%-%ds %%-%ds\r\n", loginMaxLen,
-                       groupMaxLen, rightsMaxLen);
+    WSH_SHELL_SNPRINTF(pRowTemplate, rowTemplateLen, "  %%-%ds %%-%ds %%-%ds\r\n", loginMaxLen, groupMaxLen,
+                       rightsMaxLen);
 }
 
 #if WSH_SHELL_SUBCOMMANDS
 
 static const WshShell_Char_t* const WshShellDefUserListFmtVals[] = {"table", "short"};
 static const WshShellOptionEnum_t WshShellDefUserListFmt         = {
-    WshShellDefUserListFmtVals, WSH_SHELL_ARR_LEN(WshShellDefUserListFmtVals)};
+    WshShellDefUserListFmtVals,
+    WSH_SHELL_ARR_LEN(WshShellDefUserListFmtVals),
+};
 
 /* clang-format off */
 #define WSH_SHELL_CMD_USER_LIST_OPT_TABLE() \
@@ -113,10 +113,8 @@ typedef enum {
 static const WshShellOption_t WshShellDefUserListOptArr[] = {WSH_SHELL_CMD_USER_LIST_OPT_TABLE()};
 #undef X_CMD_ENTRY
 
-static WSH_SHELL_RET_STATE_t WshShellCmdDef_UserList(const WshShellCmd_t* pcCmd,
-                                                     WshShell_Size_t argc,
-                                                     const WshShell_Char_t* pArgv[],
-                                                     void* pShellCtx) {
+static WSH_SHELL_RET_STATE_t WshShellCmdDef_UserList(const WshShellCmd_t* pcCmd, WshShell_Size_t argc,
+                                                     const WshShell_Char_t* pArgv[], void* pShellCtx) {
     if (!pcCmd || !pShellCtx || (argc > 0 && !pArgv))
         return WSH_SHELL_RET_STATE_ERR_PARAM;
 
@@ -160,8 +158,7 @@ static WSH_SHELL_RET_STATE_t WshShellCmdDef_UserList(const WshShellCmd_t* pcCmd,
 
     if (shortForm) {
         for (WshShell_Size_t user = 0; user < usersNum; user++) {
-            const WshShellUser_t* pcUser =
-                WshShellUser_GetUserByIndex(&(pParentShell->Users), user);
+            const WshShellUser_t* pcUser = WshShellUser_GetUserByIndex(&(pParentShell->Users), user);
             if (pcUser)
                 WSH_SHELL_PRINT("%s\r\n", pcUser->Login);
         }
@@ -207,17 +204,14 @@ typedef enum {
 } USER_WHOAMI_OPT_t;
 
 #define X_CMD_ENTRY(en, m) {en, m},
-static const WshShellOption_t WshShellDefUserWhoamiOptArr[] = {
-    WSH_SHELL_CMD_USER_WHOAMI_OPT_TABLE()};
+static const WshShellOption_t WshShellDefUserWhoamiOptArr[] = {WSH_SHELL_CMD_USER_WHOAMI_OPT_TABLE()};
 #undef X_CMD_ENTRY
 
 #define USER_WHOAMI_FIELD_NAME   (1u << 0)
 #define USER_WHOAMI_FIELD_GROUPS (1u << 1)
 
-static WSH_SHELL_RET_STATE_t WshShellCmdDef_UserWhoami(const WshShellCmd_t* pcCmd,
-                                                       WshShell_Size_t argc,
-                                                       const WshShell_Char_t* pArgv[],
-                                                       void* pShellCtx) {
+static WSH_SHELL_RET_STATE_t WshShellCmdDef_UserWhoami(const WshShellCmd_t* pcCmd, WshShell_Size_t argc,
+                                                       const WshShell_Char_t* pArgv[], void* pShellCtx) {
     if (!pcCmd || !pShellCtx || (argc > 0 && !pArgv))
         return WSH_SHELL_RET_STATE_ERR_PARAM;
 
@@ -273,8 +267,7 @@ static WSH_SHELL_RET_STATE_t WshShellCmdDef_UserWhoami(const WshShellCmd_t* pcCm
 
     if (fieldMask & USER_WHOAMI_FIELD_GROUPS) {
         WshShell_Char_t groupRow[WSH_SHELL_CMD_GROUP_COUNT + 1];
-        WshShellStr_GroupBitsToStr(pParentShell->CurrUser->Groups, WSH_SHELL_CMD_GROUP_COUNT,
-                                   groupRow);
+        WshShellStr_GroupBitsToStr(pParentShell->CurrUser->Groups, WSH_SHELL_CMD_GROUP_COUNT, groupRow);
         WSH_SHELL_PRINT("groups: %s\r\n", groupRow);
     }
 
@@ -361,10 +354,8 @@ typedef enum {
 static const WshShellOption_t WshShellDefHistListOptArr[] = {WSH_SHELL_CMD_HIST_LIST_OPT_TABLE()};
 #undef X_CMD_ENTRY
 
-static WSH_SHELL_RET_STATE_t WshShellCmdDef_HistList(const WshShellCmd_t* pcCmd,
-                                                     WshShell_Size_t argc,
-                                                     const WshShell_Char_t* pArgv[],
-                                                     void* pShellCtx) {
+static WSH_SHELL_RET_STATE_t WshShellCmdDef_HistList(const WshShellCmd_t* pcCmd, WshShell_Size_t argc,
+                                                     const WshShell_Char_t* pArgv[], void* pShellCtx) {
     if (!pcCmd || !pShellCtx || (argc > 0 && !pArgv))
         return WSH_SHELL_RET_STATE_ERR_PARAM;
 
@@ -389,8 +380,7 @@ static WSH_SHELL_RET_STATE_t WshShellCmdDef_HistList(const WshShellCmd_t* pcCmd,
 
     WSH_SHELL_PRINT("History (%d):\r\n", (int)cmdNum);
     for (WshShell_Size_t i = cmdNum; i > 0; i--) {
-        if (WshShellHistory_GetTokenByIndex(&(pParentShell->HistoryIO), cmdBuff, sizeof(cmdBuff),
-                                            i - 1))
+        if (WshShellHistory_GetTokenByIndex(&(pParentShell->HistoryIO), cmdBuff, sizeof(cmdBuff), i - 1))
             WSH_SHELL_PRINT("  [%2d] %s\r\n", (int)(cmdNum - i + 1), cmdBuff);
     }
 
@@ -423,10 +413,8 @@ typedef enum {
 static const WshShellOption_t WshShellDefHistClearOptArr[] = {WSH_SHELL_CMD_HIST_CLEAR_OPT_TABLE()};
 #undef X_CMD_ENTRY
 
-static WSH_SHELL_RET_STATE_t WshShellCmdDef_HistClear(const WshShellCmd_t* pcCmd,
-                                                      WshShell_Size_t argc,
-                                                      const WshShell_Char_t* pArgv[],
-                                                      void* pShellCtx) {
+static WSH_SHELL_RET_STATE_t WshShellCmdDef_HistClear(const WshShellCmd_t* pcCmd, WshShell_Size_t argc,
+                                                      const WshShell_Char_t* pArgv[], void* pShellCtx) {
     if (!pcCmd || !pShellCtx || (argc > 0 && !pArgv))
         return WSH_SHELL_RET_STATE_ERR_PARAM;
 
@@ -482,10 +470,8 @@ typedef enum {
 static const WshShellOption_t WshShellDefHistOptArr[] = {WSH_SHELL_CMD_HIST_OPT_TABLE()};
 #undef X_CMD_ENTRY
 
-static WSH_SHELL_RET_STATE_t WshShellCmdDef_History(const WshShellCmd_t* pcCmd,
-                                                    WshShell_Size_t argc,
-                                                    const WshShell_Char_t* pArgv[],
-                                                    void* pShellCtx) {
+static WSH_SHELL_RET_STATE_t WshShellCmdDef_History(const WshShellCmd_t* pcCmd, WshShell_Size_t argc,
+                                                    const WshShell_Char_t* pArgv[], void* pShellCtx) {
     if (!pcCmd || !pShellCtx || (argc > 0 && !pArgv))
         return WSH_SHELL_RET_STATE_ERR_PARAM;
 
@@ -560,40 +546,34 @@ static WSH_SHELL_RET_STATE_t WshShellCmdDef(const WshShellCmd_t* pcCmd, WshShell
 
                 WshShell_Char_t headTemplate[64];
                 WSH_SHELL_SNPRINTF(headTemplate, sizeof(headTemplate),
-                                   WSH_SHELL_COLOR_SYS
-                                   "  %%-%ds %%-%ds %%-%ds %%s\r\n" WSH_SHELL_ESC_RESET_STYLE,
+                                   WSH_SHELL_COLOR_SYS "  %%-%ds %%-%ds %%-%ds %%s\r\n" WSH_SHELL_ESC_RESET_STYLE,
                                    cmdMaxLen, optMaxLen, groupMaxLen);
 
                 WSH_SHELL_PRINT(headTemplate, "Command", "Opts", "Groups", "Descr");
 
                 WshShell_Char_t rowTemplate[64];
-                WSH_SHELL_SNPRINTF(rowTemplate, sizeof(rowTemplate),
-                                   "  %%-%ds %%-%dd %%-%ds %%s\r\n", cmdMaxLen, optMaxLen,
-                                   groupMaxLen);
+                WSH_SHELL_SNPRINTF(rowTemplate, sizeof(rowTemplate), "  %%-%ds %%-%dd %%-%ds %%s\r\n", cmdMaxLen,
+                                   optMaxLen, groupMaxLen);
 
                 const WshShellCmd_t* pcDefCmd = WshShellDefCmd_GetPtr();
                 if (pcDefCmd != NULL) {
                     WshShell_Char_t groupRow[WSH_SHELL_CMD_GROUP_COUNT + 1];
-                    WshShellStr_GroupBitsToStr(pcDefCmd->Groups, WSH_SHELL_CMD_GROUP_COUNT,
-                                               groupRow);
-                    WSH_SHELL_PRINT(rowTemplate, pcDefCmd->Name, pcDefCmd->OptNum - 1, groupRow,
-                                    pcDefCmd->Descr);
+                    WshShellStr_GroupBitsToStr(pcDefCmd->Groups, WSH_SHELL_CMD_GROUP_COUNT, groupRow);
+                    WSH_SHELL_PRINT(rowTemplate, pcDefCmd->Name, pcDefCmd->OptNum - 1, groupRow, pcDefCmd->Descr);
                 }
 
                 WshShell_Size_t commandsNum = WshShellCmd_GetCmdNum(&(pParentShell->Commands));
                 for (WshShell_Size_t cmd = 0; cmd < commandsNum; cmd++) {
-                    const WshShellCmd_t* pcTargetCmd =
-                        WshShellCmd_GetCmdByIndex(&(pParentShell->Commands), cmd);
+                    const WshShellCmd_t* pcTargetCmd = WshShellCmd_GetCmdByIndex(&(pParentShell->Commands), cmd);
 
                     if (pcTargetCmd == NULL)
                         continue;
 
                     WshShell_Char_t groupRow[WSH_SHELL_CMD_GROUP_COUNT + 1];
-                    WshShellStr_GroupBitsToStr(pcTargetCmd->Groups, WSH_SHELL_CMD_GROUP_COUNT,
-                                               groupRow);
+                    WshShellStr_GroupBitsToStr(pcTargetCmd->Groups, WSH_SHELL_CMD_GROUP_COUNT, groupRow);
 
-                    WSH_SHELL_PRINT(rowTemplate, pcTargetCmd->Name, pcTargetCmd->OptNum - 1,
-                                    groupRow, pcTargetCmd->Descr);
+                    WSH_SHELL_PRINT(rowTemplate, pcTargetCmd->Name, pcTargetCmd->OptNum - 1, groupRow,
+                                    pcTargetCmd->Descr);
                 }
             } break;
 
@@ -604,8 +584,7 @@ static WSH_SHELL_RET_STATE_t WshShellCmdDef(const WshShellCmd_t* pcCmd, WshShell
                 WshShellDef_PrintUserHead(rowTemplate, sizeof(rowTemplate));
                 const WshShell_Size_t usersNum = WshShellUser_GetUsersNum(&(pParentShell->Users));
                 for (WshShell_Size_t user = 0; user < usersNum; user++) {
-                    const WshShellUser_t* pcUser =
-                        WshShellUser_GetUserByIndex(&(pParentShell->Users), user);
+                    const WshShellUser_t* pcUser = WshShellUser_GetUserByIndex(&(pParentShell->Users), user);
                     if (pcUser)
                         WshShellDef_PrintUserRow(pcUser, rowTemplate);
                 }

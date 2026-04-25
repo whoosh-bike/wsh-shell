@@ -23,8 +23,7 @@ extern "C" {
 /**
  * @brief Escape sequence handler function type
  */
-typedef void (*WshShellEsc_Hadler_t)(WshShellHistoryIO_t* pHistIO,
-                                     WshShellIO_CommandLine_t* pCommandLine);
+typedef void (*WshShellEsc_Hadler_t)(WshShellHistoryIO_t* pHistIO, WshShellIO_CommandLine_t* pCommandLine);
 
 /**
  * @brief Escape sequence to handler mapping

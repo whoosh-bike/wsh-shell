@@ -39,9 +39,9 @@ typedef struct {
     WshShell_Char_t StorageBuff[WSH_SHELL_HISTORY_BUFF_SIZE]; /**< Circular buffer for commands. */
     WshShell_Size_t HeadIdx;                                  /**< Index of the buffer start. */
     WshShell_Size_t TailIdx;                                  /**< Index of the buffer end. */
-    WshShell_Size_t LastSavedCmdIdx;  /**< Index of the last saved command. */
-    WSH_SHELL_HIST_CMD_DIR_t PrevDir; /**< Last direction of history navigation. */
-    WshShell_Bool_t LimitIsReached;   /**< Flag indicating buffer search boundary reached. */
+    WshShell_Size_t LastSavedCmdIdx;                          /**< Index of the last saved command. */
+    WSH_SHELL_HIST_CMD_DIR_t PrevDir;                         /**< Last direction of history navigation. */
+    WshShell_Bool_t LimitIsReached;                           /**< Flag indicating buffer search boundary reached. */
 } WshShellHistory_Data_t;
 
 /**
@@ -95,8 +95,7 @@ void WshShellHistory_Init(WshShellHistoryIO_t* pHistIO, WshShellHistory_ReadHand
  * @param[in] pcCmdStr   Pointer to the command string (without EOL).
  * @param[in] cmdStrLen  Length of the command string.
  */
-void WshShellHistory_SaveCmd(WshShellHistoryIO_t* pHistIO, const WshShell_Char_t* pcCmdStr,
-                             WshShell_Size_t cmdStrLen);
+void WshShellHistory_SaveCmd(WshShellHistoryIO_t* pHistIO, const WshShell_Char_t* pcCmdStr, WshShell_Size_t cmdStrLen);
 
 /**
  * @brief Retrieve the previous command from history.
@@ -147,8 +146,7 @@ WshShell_Size_t WshShellHistory_GetTokenNum(WshShellHistoryIO_t* pHistIO);
  * 
  * @return Length of the retrieved command, or 0 if not found or buffer too small.
  */
-WshShell_Size_t WshShellHistory_GetTokenByIndex(WshShellHistoryIO_t* pHistIO,
-                                                WshShell_Char_t* pOutBuff,
+WshShell_Size_t WshShellHistory_GetTokenByIndex(WshShellHistoryIO_t* pHistIO, WshShell_Char_t* pOutBuff,
                                                 WshShell_Size_t outBuffSize, WshShell_Size_t index);
 
 /**

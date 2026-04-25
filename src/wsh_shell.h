@@ -120,8 +120,7 @@ typedef struct {
  * @return Initialization status code.
  */
 WSH_SHELL_RET_STATE_t WshShell_Init(WshShell_t* pShell, const WshShell_Char_t* pcDevName,
-                                    const WshShell_Char_t* pcCustomHeader,
-                                    WshShellExtCallbacks_t* pExtClbks);
+                                    const WshShell_Char_t* pcCustomHeader, WshShellExtCallbacks_t* pExtClbks);
 
 /**
  * @brief Attempt to authenticate a user with given login credentials.
@@ -133,8 +132,7 @@ WSH_SHELL_RET_STATE_t WshShell_Init(WshShell_t* pShell, const WshShell_Char_t* p
  * @param pcPass Password.
  * @return Is auth OK?
  */
-WshShell_Bool_t WshShell_Auth(WshShell_t* pShell, const WshShell_Char_t* pcLogin,
-                              const WshShell_Char_t* pcPass);
+WshShell_Bool_t WshShell_Auth(WshShell_t* pShell, const WshShell_Char_t* pcLogin, const WshShell_Char_t* pcPass);
 
 /**
  * @brief Check if a user is currently authenticated.

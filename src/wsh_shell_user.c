@@ -15,8 +15,7 @@ static void WshShellUser_DefHashFunc(const WshShell_Char_t* pcSalt, const WshShe
     WSH_SHELL_MEMCPY(saltPass + saltLen, pcPass, passLen);
     saltPass[saltLen + passLen] = '\0';
 
-    WshShell_Size_t hash =
-        WshShellMisc_CalcJenkinsHash((const WshShell_U8_t*)saltPass, saltLen + passLen);
+    WshShell_Size_t hash = WshShellMisc_CalcJenkinsHash((const WshShell_U8_t*)saltPass, saltLen + passLen);
 
     WSH_SHELL_SNPRINTF(pHash, WSH_SHELL_SALT_PASS_HASH_LEN + 1, "%08x", hash);
 
@@ -26,10 +25,8 @@ static void WshShellUser_DefHashFunc(const WshShell_Char_t* pcSalt, const WshShe
     }
 }
 
-WSH_SHELL_RET_STATE_t WshShellUser_Attach(WshShellUser_Table_t* pShellUsers,
-                                          const WshShellUser_t* pcUserTable,
-                                          WshShell_Size_t userNum,
-                                          WshShellUser_HashFunc_t extHashFunc) {
+WSH_SHELL_RET_STATE_t WshShellUser_Attach(WshShellUser_Table_t* pShellUsers, const WshShellUser_t* pcUserTable,
+                                          WshShell_Size_t userNum, WshShellUser_HashFunc_t extHashFunc) {
     WSH_SHELL_ASSERT(pShellUsers && pcUserTable && userNum > 0);
     if (!pShellUsers || !pcUserTable || userNum == 0)
         return WSH_SHELL_RET_STATE_ERR_PARAM;
@@ -59,8 +56,7 @@ WshShell_Size_t WshShellUser_GetUsersNum(WshShellUser_Table_t* pShellUsers) {
     return pShellUsers->Num;
 }
 
-const WshShellUser_t* WshShellUser_GetUserByIndex(WshShellUser_Table_t* pShellUsers,
-                                                  WshShell_Size_t idx) {
+const WshShellUser_t* WshShellUser_GetUserByIndex(WshShellUser_Table_t* pShellUsers, WshShell_Size_t idx) {
     WSH_SHELL_ASSERT(pShellUsers);
     if (!pShellUsers || !pShellUsers->List)
         return NULL;
@@ -70,10 +66,8 @@ const WshShellUser_t* WshShellUser_GetUserByIndex(WshShellUser_Table_t* pShellUs
     return idx < pShellUsers->Num ? &pShellUsers->List[idx] : NULL;
 }
 
-WshShell_Bool_t WshShellUser_CheckCredentials(WshShellUser_Table_t* pShellUsers,
-                                              WshShell_Size_t UserID,
-                                              const WshShell_Char_t* pcLogin,
-                                              const WshShell_Char_t* pcPass) {
+WshShell_Bool_t WshShellUser_CheckCredentials(WshShellUser_Table_t* pShellUsers, WshShell_Size_t UserID,
+                                              const WshShell_Char_t* pcLogin, const WshShell_Char_t* pcPass) {
     WSH_SHELL_ASSERT(pShellUsers && pcLogin && pcPass);
     if (!pShellUsers || !pShellUsers->List || !pcLogin || !pcPass)
         return false;
@@ -85,8 +79,7 @@ WshShell_Bool_t WshShellUser_CheckCredentials(WshShellUser_Table_t* pShellUsers,
 
     WshShell_Size_t extLoginLen = WSH_SHELL_STRNLEN(pcLogin, WSH_SHELL_LOGIN_LEN + 1);
     WshShell_Size_t extPassLen  = WSH_SHELL_STRNLEN(pcPass, WSH_SHELL_PASS_LEN + 1);
-    if (extLoginLen == 0 || extLoginLen > WSH_SHELL_LOGIN_LEN || extPassLen == 0 ||
-        extPassLen > WSH_SHELL_PASS_LEN) {
+    if (extLoginLen == 0 || extLoginLen > WSH_SHELL_LOGIN_LEN || extPassLen == 0 || extPassLen > WSH_SHELL_PASS_LEN) {
         return false;
     }
 
@@ -117,8 +110,7 @@ WshShell_Bool_t WshShellUser_CheckCredentials(WshShellUser_Table_t* pShellUsers,
     pShellUsers->Hash(pcUser->Salt, pcPass, locSaltPassHash);
 
     WshShell_Size_t intHashLen = WSH_SHELL_STRNLEN(pcUser->Hash, WSH_SHELL_SALT_PASS_HASH_LEN + 1);
-    WshShell_Size_t locHashLen =
-        WSH_SHELL_STRNLEN(locSaltPassHash, WSH_SHELL_SALT_PASS_HASH_LEN + 1);
+    WshShell_Size_t locHashLen = WSH_SHELL_STRNLEN(locSaltPassHash, WSH_SHELL_SALT_PASS_HASH_LEN + 1);
 
     if (intHashLen != locHashLen)
         return false;
@@ -137,8 +129,7 @@ WshShell_Bool_t WshShellUser_CheckCredentials(WshShellUser_Table_t* pShellUsers,
     return (hashMatch == 0);
 }
 
-const WshShellUser_t* WshShellUser_FindByCredentials(WshShellUser_Table_t* pShellUsers,
-                                                     const WshShell_Char_t* pcLogin,
+const WshShellUser_t* WshShellUser_FindByCredentials(WshShellUser_Table_t* pShellUsers, const WshShell_Char_t* pcLogin,
                                                      const WshShell_Char_t* pcPass) {
     WSH_SHELL_ASSERT(pShellUsers && pcLogin && pcPass);
     if (!pShellUsers || !pShellUsers->List || !pcLogin || !pcPass)

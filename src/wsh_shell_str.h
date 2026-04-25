@@ -62,8 +62,8 @@ WshShell_Char_t* WshShellStr_TrimString(WshShell_Char_t* pString, WshShell_Size_
  * @param[out] pArgBuff Array of string pointers (tokens). Must be large enough to hold all tokens.
  * @param[in] maxArgNum Maximum number of tokens that can be stored in `pArgBuff`. Excess tokens are discarded.
  */
-void WshShellStr_ParseToArgcArgv(WshShell_Char_t* pStr, WshShell_Size_t* pArgNum,
-                                 const WshShell_Char_t* pArgBuff[], WshShell_Size_t maxArgNum);
+void WshShellStr_ParseToArgcArgv(WshShell_Char_t* pStr, WshShell_Size_t* pArgNum, const WshShell_Char_t* pArgBuff[],
+                                 WshShell_Size_t maxArgNum);
 
 /**
  * @brief Increase buffer counter.
@@ -116,8 +116,7 @@ void WshShellStr_AccessBitsToStr(WshShell_Size_t access, WshShell_Char_t* pOutSt
  * @param[in]  groupMaxNum Groups max number.
  * @param[out] pOutStr     Output buffer (must be at least WSH_SHELL_GROUP_STR_LEN).
  */
-void WshShellStr_GroupBitsToStr(WshShell_Size_t group, WshShell_Size_t groupMaxNum,
-                                WshShell_Char_t* pOutStr);
+void WshShellStr_GroupBitsToStr(WshShell_Size_t group, WshShell_Size_t groupMaxNum, WshShell_Char_t* pOutStr);
 
 #ifdef __cplusplus
 }

@@ -10,8 +10,7 @@ void WshShellPromptWait_Flush(WshShellPromptWait_t* pWait) {
 }
 
 #if WSH_SHELL_PROMPT_WAIT
-void WshShellPromptWait_Attach(WshShellPromptWait_t* pWait, WshShellPromptWait_Handler_t handler,
-                               void* pCtx) {
+void WshShellPromptWait_Attach(WshShellPromptWait_t* pWait, WshShellPromptWait_Handler_t handler, void* pCtx) {
     WSH_SHELL_ASSERT(pWait && handler);
     if (!pWait || !handler)
         return;
@@ -20,8 +19,7 @@ void WshShellPromptWait_Attach(WshShellPromptWait_t* pWait, WshShellPromptWait_H
     pWait->Ctx     = pCtx;
 }
 
-WSH_SHELL_RET_STATE_t WshShellPromptWait_Handle(WshShellPromptWait_t* pWait,
-                                                WshShell_Char_t symbol) {
+WSH_SHELL_RET_STATE_t WshShellPromptWait_Handle(WshShellPromptWait_t* pWait, WshShell_Char_t symbol) {
     WSH_SHELL_ASSERT(pWait);
     if (!pWait)
         return WSH_SHELL_RET_STATE_ERR_PARAM;
@@ -66,13 +64,11 @@ WshShell_Bool_t WshShellPromptWait_YesNo(WshShell_Char_t symbol, WshShellPromptW
 
 #else /* WSH_SHELL_PROMPT_WAIT */
 
-void WshShellPromptWait_Attach(WshShellPromptWait_t* pWait, WshShellPromptWait_Handler_t handler,
-                               void* pCtx) {
+void WshShellPromptWait_Attach(WshShellPromptWait_t* pWait, WshShellPromptWait_Handler_t handler, void* pCtx) {
     return;
 }
 
-WSH_SHELL_RET_STATE_t WshShellPromptWait_Handle(WshShellPromptWait_t* pWait,
-                                                WshShell_Char_t symbol) {
+WSH_SHELL_RET_STATE_t WshShellPromptWait_Handle(WshShellPromptWait_t* pWait, WshShell_Char_t symbol) {
     return WSH_SHELL_RET_STATE_SUCCESS;
 }
 
