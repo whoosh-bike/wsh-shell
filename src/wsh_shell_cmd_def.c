@@ -502,9 +502,92 @@ static const WshShellCmd_t WshShellDefHistCmd = {
     .SubCmdNum = WSH_SHELL_ARR_LEN(WshShellDefHistSubCmds),
 };
 
+#if WSH_SHELL_INTERACTIVE_MODE
+
+static void WshShellCmdDef_TokenizeCallback(WshShellIO_CommandLine_t* pInter) {
+    WshShellInteract_AppendLineBreak(pInter);
+
+    /* ParseToArgcArgv modifies the string in-place — work on a copy.
+     * Strip trailing \r\n so they don't leak into the last token. */
+    WshShell_Char_t lineCopy[WSH_SHELL_INTR_BUFF_LEN];
+    WSH_SHELL_STRNCPY(lineCopy, pInter->Buff, WSH_SHELL_INTR_BUFF_LEN - 1);
+    lineCopy[WSH_SHELL_INTR_BUFF_LEN - 1] = '\0';
+    WshShell_Size_t copyLen               = WSH_SHELL_STRLEN(lineCopy);
+    while (copyLen > 0 && (lineCopy[copyLen - 1] == '\r' || lineCopy[copyLen - 1] == '\n'))
+        lineCopy[--copyLen] = '\0';
+
+    const WshShell_Char_t* argv[WSH_SHELL_CMD_ARGS_MAX_NUM];
+    WshShell_Size_t argc = 0;
+    WshShellStr_ParseToArgcArgv(lineCopy, &argc, argv, WSH_SHELL_CMD_ARGS_MAX_NUM);
+
+    if (argc == 0) {
+        WSH_SHELL_PRINT("  (empty)\r\n");
+        return;
+    }
+
+    for (WshShell_Size_t i = 0; i < argc; i++)
+        WSH_SHELL_PRINT("  [%d] \"%s\"\r\n", i, argv[i]);
+}
+
+/* clang-format off */
+#define WSH_SHELL_CMD_TOKENIZE_OPT_TABLE() \
+    X_CMD_ENTRY(TOKENIZE_OPT_DEF,    WSH_SHELL_OPT_NO(WSH_SHELL_OPT_ACCESS_ANY, "Split input into tokens (interactive)")) \
+    X_CMD_ENTRY(TOKENIZE_OPT_HELP,   WSH_SHELL_OPT_HELP()) \
+    X_CMD_ENTRY(TOKENIZE_OPT_END_ID, WSH_SHELL_OPT_END())
+/* clang-format on */
+
+typedef enum {
+#define X_CMD_ENTRY(en, m) en,
+    WSH_SHELL_CMD_TOKENIZE_OPT_TABLE() TOKENIZE_OPT_ENUM_SIZE
+#undef X_CMD_ENTRY
+} TOKENIZE_OPT_t;
+
+#define X_CMD_ENTRY(en, m) {en, m},
+static const WshShellOption_t WshShellDefTokenizeOptArr[] = {WSH_SHELL_CMD_TOKENIZE_OPT_TABLE()};
+#undef X_CMD_ENTRY
+
+static WSH_SHELL_RET_STATE_t WshShellCmdDef_Tokenize(const WshShellCmd_t* pcCmd, WshShell_Size_t argc,
+                                                     const WshShell_Char_t* pArgv[], void* pShellCtx) {
+    if (!pcCmd || !pShellCtx || (argc > 0 && !pArgv))
+        return WSH_SHELL_RET_STATE_ERR_PARAM;
+
+    WshShell_t* pParentShell = (WshShell_t*)pShellCtx;
+
+    for (WshShell_Size_t tokenPos = 0; tokenPos < argc;) {
+        WshShellOption_Ctx_t optCtx =
+            WshShellCmd_ParseOpt(pcCmd, argc, pArgv, pParentShell->CurrUser->Rights, &tokenPos);
+        if (!optCtx.Option) {
+            if (optCtx.ParseError)
+                return WSH_SHELL_RET_STATE_ERR_PARAM;
+            break;
+        }
+        if (optCtx.Option->ID == TOKENIZE_OPT_HELP) {
+            WshShellCmd_PrintOptionsOverview(pcCmd);
+            return WSH_SHELL_RET_STATE_SUCCESS;
+        }
+        WshShellInteract_Attach(&(pParentShell->Interact), pcCmd->Name, WshShellCmdDef_TokenizeCallback);
+    }
+
+    return WSH_SHELL_RET_STATE_SUCCESS;
+}
+
+static const WshShellCmd_t WshShellDefTokenizeCmd = {
+    .Groups  = WSH_SHELL_CMD_GROUP_ALL,
+    .Name    = "tokenize",
+    .Descr   = "Split each input line into tokens (interactive mode)",
+    .Options = WshShellDefTokenizeOptArr,
+    .OptNum  = WSH_SHELL_ARR_LEN(WshShellDefTokenizeOptArr),
+    .Handler = WshShellCmdDef_Tokenize,
+};
+
+#endif /* WSH_SHELL_INTERACTIVE_MODE */
+
 static const WshShellCmd_t* const WshShellDefSubCmds[] = {
     &WshShellDefUserCmd,
     &WshShellDefHistCmd,
+#if WSH_SHELL_INTERACTIVE_MODE
+    &WshShellDefTokenizeCmd,
+#endif
 };
 
 #endif /* WSH_SHELL_SUBCOMMANDS */

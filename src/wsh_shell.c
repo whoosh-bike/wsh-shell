@@ -225,9 +225,9 @@ static void WshShell_StringHandler(WshShell_t* pShell) {
             }
 
             if ((pShell->CurrUser->Groups & pcSub->Groups) == 0) {
-                WSH_SHELL_PRINT_ERR("Access denied: no group intersection for subcommand \"%s %s\" "
-                                    "and user \"%s\"!\r\n",
-                                    pcCmd->Name, pcSub->Name, pShell->CurrUser->Login);
+                WSH_SHELL_PRINT_ERR(
+                    "Access denied: no group intersection for subcommand \"%s %s\" and user \"%s\"!\r\n", pcCmd->Name,
+                    pcSub->Name, pShell->CurrUser->Login);
                 WshShellIO_ClearInterBuff(&(pShell->CommandLine));
                 return;
             }
