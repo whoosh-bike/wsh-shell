@@ -150,7 +150,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/wsh_shell_ps1_custom.h" line="64" column="6" bodyfile="src/wsh_shell_ps1_custom.c" bodystart="106" bodyend="128" declfile="src/wsh_shell_ps1_custom.h" declline="64" declcolumn="6"/>
+        <location file="src/wsh_shell_ps1_custom.h" line="64" column="6" bodyfile="src/wsh_shell_ps1_custom.c" bodystart="105" bodyend="126" declfile="src/wsh_shell_ps1_custom.h" declline="64" declcolumn="6"/>
       </memberdef>
       </sectiondef>
     <briefdescription>

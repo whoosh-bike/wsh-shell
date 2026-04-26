@@ -20,6 +20,7 @@
 * **Cnt** ([**WshShellEsc\_Storage\_t**](structWshShellEsc__Storage__t.md))
 * **CursorPos** ([**WshShellIO\_CommandLine\_t**](structWshShellIO__CommandLine__t.md))
 * **CmdName** ([**WshShellInteract\_t**](structWshShellInteract__t.md))
+* **Count** ([**WshShellOptionEnum\_t**](structWshShellOptionEnum__t.md))
 * **Ctx** ([**WshShellPromptWait**](structWshShellPromptWait.md))
 * **CommandLine** ([**WshShell\_t**](structWshShell__t.md))
 * **Commands** ([**WshShell\_t**](structWshShell__t.md))
@@ -37,6 +38,7 @@
 
 ## e
 
+* **Enum** ([**WshShellOption\_t**](structWshShellOption__t.md))
 * **EscStorage** ([**WshShell\_t**](structWshShell__t.md))
 * **ExtCallbacks** ([**WshShell\_t**](structWshShell__t.md))
 
@@ -125,6 +127,7 @@
 
 ## v
 
+* **Values** ([**WshShellOptionEnum\_t**](structWshShellOptionEnum__t.md))
 * **Version** ([**WshShell\_t**](structWshShell__t.md))
 
 

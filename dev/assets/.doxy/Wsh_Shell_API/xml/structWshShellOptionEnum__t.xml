@@ -1,0 +1,47 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="structWshShellOptionEnum__t" kind="struct" language="C++" prot="public">
+    <compoundname>WshShellOptionEnum_t</compoundname>
+    <includes refid="wsh__shell__option_8h" local="no">wsh_shell_option.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structWshShellOptionEnum__t_1a4cb78a7398eb9d7e0964c3514e2e9711" prot="public" static="no" mutable="no">
+        <type>const WshShell_Char_t *const  *</type>
+        <definition>const WshShell_Char_t* const* WshShellOptionEnum_t::Values</definition>
+        <argsstring></argsstring>
+        <name>Values</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>NULL-free array of allowed value strings. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/wsh_shell_option.h" line="189" column="33" bodyfile="src/wsh_shell_option.h" bodystart="189" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structWshShellOptionEnum__t_1ade0636f5eb968e36f3bd7b35ddc183f8" prot="public" static="no" mutable="no">
+        <type>WshShell_Size_t</type>
+        <definition>WshShell_Size_t WshShellOptionEnum_t::Count</definition>
+        <argsstring></argsstring>
+        <name>Count</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Number of entries in Values[]. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/wsh_shell_option.h" line="190" column="21" bodyfile="src/wsh_shell_option.h" bodystart="190" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Describes the closed set of string values for an ENUM option. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="src/wsh_shell_option.h" line="188" column="1" bodyfile="src/wsh_shell_option.h" bodystart="188" bodyend="191"/>
+    <listofallmembers>
+      <member refid="structWshShellOptionEnum__t_1ade0636f5eb968e36f3bd7b35ddc183f8" prot="public" virt="non-virtual"><scope>WshShellOptionEnum_t</scope><name>Count</name></member>
+      <member refid="structWshShellOptionEnum__t_1a4cb78a7398eb9d7e0964c3514e2e9711" prot="public" virt="non-virtual"><scope>WshShellOptionEnum_t</scope><name>Values</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

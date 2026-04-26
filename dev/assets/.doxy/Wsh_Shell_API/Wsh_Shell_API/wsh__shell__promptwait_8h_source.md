@@ -22,8 +22,7 @@ extern "C" {
 // Forward declaration of command structure
 struct WshShellPromptWait;
 
-typedef WshShell_Bool_t (*WshShellPromptWait_Handler_t)(WshShell_Char_t symbol,
-                                                        struct WshShellPromptWait* pWait);
+typedef WshShell_Bool_t (*WshShellPromptWait_Handler_t)(WshShell_Char_t symbol, struct WshShellPromptWait* pWait);
 
 typedef struct WshShellPromptWait {
     WshShellPromptWait_Handler_t Handler;
@@ -32,11 +31,9 @@ typedef struct WshShellPromptWait {
 
 void WshShellPromptWait_Flush(WshShellPromptWait_t* pWait);
 
-void WshShellPromptWait_Attach(WshShellPromptWait_t* pWait, WshShellPromptWait_Handler_t handler,
-                               void* pCtx);
+void WshShellPromptWait_Attach(WshShellPromptWait_t* pWait, WshShellPromptWait_Handler_t handler, void* pCtx);
 
-WSH_SHELL_RET_STATE_t WshShellPromptWait_Handle(WshShellPromptWait_t* pWait,
-                                                WshShell_Char_t symbol);
+WSH_SHELL_RET_STATE_t WshShellPromptWait_Handle(WshShellPromptWait_t* pWait, WshShell_Char_t symbol);
 
 WshShell_Bool_t WshShellPromptWait_Enter(WshShell_Char_t symbol, WshShellPromptWait_t* pWait);
 WshShell_Bool_t WshShellPromptWait_YesNo(WshShell_Char_t symbol, WshShellPromptWait_t* pWait);

@@ -2385,6 +2385,17 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#define-wsh_shell_sym_cancel" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        define WSH_SHELL_SYM_CANCEL
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#define-wsh_shell_sym_delete" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -3778,6 +3789,17 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#define-wsh_shell_sym_cancel" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        define WSH_SHELL_SYM_CANCEL
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#define-wsh_shell_sym_delete" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -4158,6 +4180,10 @@
 <tr>
 <td style="text-align: right;">define</td>
 <td style="text-align: left;"><a href="./#define-wsh_shell_sym_backspace"><strong>WSH_SHELL_SYM_BACKSPACE</strong></a>  <code>'\b'</code><br></td>
+</tr>
+<tr>
+<td style="text-align: right;">define</td>
+<td style="text-align: left;"><a href="./#define-wsh_shell_sym_cancel"><strong>WSH_SHELL_SYM_CANCEL</strong></a>  <code>0x03</code><br></td>
 </tr>
 <tr>
 <td style="text-align: right;">define</td>
@@ -4544,26 +4570,32 @@
 <p>Backspace character </p>
 <hr>
 
+<h3 id="define-wsh_shell_sym_cancel">define WSH_SHELL_SYM_CANCEL</h3>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-44-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-44-1"><a id="__codelineno-44-1" name="__codelineno-44-1"></a><span class="cp">#define WSH_SHELL_SYM_CANCEL `0x03`</span>
+</span></code></pre></div></td></tr></table></div>
+<p>Ctrl + C (cancel / interrupt) </p>
+<hr>
+
 <h3 id="define-wsh_shell_sym_delete">define WSH_SHELL_SYM_DELETE</h3>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-44-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-44-1"><a id="__codelineno-44-1" name="__codelineno-44-1"></a><span class="cp">#define WSH_SHELL_SYM_DELETE `0x7f`</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-45-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-45-1"><a id="__codelineno-45-1" name="__codelineno-45-1"></a><span class="cp">#define WSH_SHELL_SYM_DELETE `0x7f`</span>
 </span></code></pre></div></td></tr></table></div>
 <p>Delete (DEL) character </p>
 <hr>
 
 <h3 id="define-wsh_shell_sym_exit">define WSH_SHELL_SYM_EXIT</h3>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-45-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-45-1"><a id="__codelineno-45-1" name="__codelineno-45-1"></a><span class="cp">#define WSH_SHELL_SYM_EXIT `0x04`</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-46-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-46-1"><a id="__codelineno-46-1" name="__codelineno-46-1"></a><span class="cp">#define WSH_SHELL_SYM_EXIT `0x04`</span>
 </span></code></pre></div></td></tr></table></div>
 <p>Ctrl + D (EOF signal) </p>
 <hr>
 
 <h3 id="define-wsh_shell_sym_sound">define WSH_SHELL_SYM_SOUND</h3>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-46-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-46-1"><a id="__codelineno-46-1" name="__codelineno-46-1"></a><span class="cp">#define WSH_SHELL_SYM_SOUND `0x07`</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-47-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-47-1"><a id="__codelineno-47-1" name="__codelineno-47-1"></a><span class="cp">#define WSH_SHELL_SYM_SOUND `0x07`</span>
 </span></code></pre></div></td></tr></table></div>
 <p>Bell character (alert) </p>
 <hr>
 
 <h3 id="define-wsh_shell_sym_tab">define WSH_SHELL_SYM_TAB</h3>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-47-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-47-1"><a id="__codelineno-47-1" name="__codelineno-47-1"></a><span class="cp">#define WSH_SHELL_SYM_TAB `&#39;\t&#39;`</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-48-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-48-1"><a id="__codelineno-48-1" name="__codelineno-48-1"></a><span class="cp">#define WSH_SHELL_SYM_TAB `&#39;\t&#39;`</span>
 </span></code></pre></div></td></tr></table></div>
 <p>Tab character </p>
 <hr>

@@ -2586,6 +2586,17 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#variable-enum" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        variable Enum
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#variable-id" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -2703,6 +2714,10 @@
 <td style="text-align: left;"><a href="#variable-descr"><strong>Descr</strong></a>  <br></td>
 </tr>
 <tr>
+<td style="text-align: right;">const <a href="../structWshShellOptionEnum__t/"><strong>WshShellOptionEnum_t</strong></a> *</td>
+<td style="text-align: left;"><a href="#variable-enum"><strong>Enum</strong></a>  <br></td>
+</tr>
+<tr>
 <td style="text-align: right;">WshShell_Size_t</td>
 <td style="text-align: left;"><a href="#variable-id"><strong>ID</strong></a>  <br></td>
 </tr>
@@ -2741,26 +2756,32 @@
 <p>Optional help description. </p>
 <hr>
 
+<h3 id="variable-enum">variable Enum</h3>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-3-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1"></a><span class="k">const</span><span class="w"> </span><span class="n">WshShellOptionEnum_t</span><span class="o">*</span><span class="w"> </span><span class="n">WshShellOption_t</span><span class="o">::</span><span class="n">Enum</span><span class="p">;</span>
+</span></code></pre></div></td></tr></table></div>
+<p>Allowed values — only set for ENUM type, NULL otherwise. </p>
+<hr>
+
 <h3 id="variable-id">variable ID</h3>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-3-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1"></a><span class="n">WshShell_Size_t</span><span class="w"> </span><span class="n">WshShellOption_t</span><span class="o">::</span><span class="n">ID</span><span class="p">;</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-4-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1"></a><span class="n">WshShell_Size_t</span><span class="w"> </span><span class="n">WshShellOption_t</span><span class="o">::</span><span class="n">ID</span><span class="p">;</span>
 </span></code></pre></div></td></tr></table></div>
 <p>Option identifier (for internal use). </p>
 <hr>
 
 <h3 id="variable-longname">variable LongName</h3>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-4-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1"></a><span class="k">const</span><span class="w"> </span><span class="n">WshShell_Char_t</span><span class="o">*</span><span class="w"> </span><span class="n">WshShellOption_t</span><span class="o">::</span><span class="n">LongName</span><span class="p">;</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-5-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1"></a><span class="k">const</span><span class="w"> </span><span class="n">WshShell_Char_t</span><span class="o">*</span><span class="w"> </span><span class="n">WshShellOption_t</span><span class="o">::</span><span class="n">LongName</span><span class="p">;</span>
 </span></code></pre></div></td></tr></table></div>
 <p>Long flag (e.g. <code>"--verbose"</code>) </p>
 <hr>
 
 <h3 id="variable-shortname">variable ShortName</h3>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-5-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1"></a><span class="k">const</span><span class="w"> </span><span class="n">WshShell_Char_t</span><span class="o">*</span><span class="w"> </span><span class="n">WshShellOption_t</span><span class="o">::</span><span class="n">ShortName</span><span class="p">;</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-6-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1"></a><span class="k">const</span><span class="w"> </span><span class="n">WshShell_Char_t</span><span class="o">*</span><span class="w"> </span><span class="n">WshShellOption_t</span><span class="o">::</span><span class="n">ShortName</span><span class="p">;</span>
 </span></code></pre></div></td></tr></table></div>
 <p>Short flag (e.g. <code>"-v"</code>) </p>
 <hr>
 
 <h3 id="variable-type">variable Type</h3>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-6-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1"></a><span class="n">WSH_SHELL_OPTION_TYPE_t</span><span class="w"> </span><span class="n">WshShellOption_t</span><span class="o">::</span><span class="n">Type</span><span class="p">;</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-7-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1"></a><span class="n">WSH_SHELL_OPTION_TYPE_t</span><span class="w"> </span><span class="n">WshShellOption_t</span><span class="o">::</span><span class="n">Type</span><span class="p">;</span>
 </span></code></pre></div></td></tr></table></div>
 <p>Option type. </p>
 <hr>

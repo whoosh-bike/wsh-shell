@@ -15,8 +15,7 @@ void WshShellIO_ClearInterBuff(WshShellIO_CommandLine_t* pCommandLine) {
     if (!pCommandLine)
         return;
 
-    WSH_SHELL_MEMSET((void*)pCommandLine->Buff, 0,
-                     sizeof(WshShell_Char_t) * WSH_SHELL_INTR_BUFF_LEN);
+    WSH_SHELL_MEMSET((void*)pCommandLine->Buff, 0, sizeof(WshShell_Char_t) * WSH_SHELL_INTR_BUFF_LEN);
     pCommandLine->Len       = 0;
     pCommandLine->CursorPos = 0;
 }
@@ -88,8 +87,7 @@ static const WshShell_Char_t* WshShellIO_InsertStringTemplate =
     WSH_SHELL_ESC_SAVE_CURSOR WSH_SHELL_ESC_CLEAR_RIGHT_FROM_CURS
     "%s" WSH_SHELL_ESC_RESTORE_CURSOR WSH_SHELL_ESC_ARROW_RIGHT;
 
-void WshShellIO_InsertSymbol(WshShellIO_CommandLine_t* pCommandLine, WshShell_Char_t ch,
-                             WshShell_Bool_t starsOrChars) {
+void WshShellIO_InsertSymbol(WshShellIO_CommandLine_t* pCommandLine, WshShell_Char_t ch, WshShell_Bool_t starsOrChars) {
     WSH_SHELL_ASSERT(pCommandLine);
     if (!pCommandLine)
         return;

@@ -21,6 +21,8 @@ extern "C" {
 
 WshShell_U32_t WshShellMisc_CalcJenkinsHash(const WshShell_U8_t* pcBuff, WshShell_Size_t len);
 
+void WshShellMisc_HexDump(const WshShell_U8_t* pBuff, WshShell_Size_t len, WshShell_Size_t offset);
+
 #ifdef __cplusplus
 }
 #endif

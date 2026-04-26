@@ -15,6 +15,7 @@ This inheritance list is sorted roughly, but not completely, alphabetically:
 * **struct** [**WshShellHistory\_t**](structWshShellHistory__t.md) _Shell history structure with integrity check._ 
 * **struct** [**WshShellIO\_CommandLine\_t**](structWshShellIO__CommandLine__t.md) _Structure representing the current user input interaction state._ 
 * **struct** [**WshShellInteract\_t**](structWshShellInteract__t.md) _Interactive command registration structure._ 
+* **struct** [**WshShellOptionEnum\_t**](structWshShellOptionEnum__t.md) _Describes the closed set of string values for an ENUM option._ 
 * **struct** [**WshShellOption\_Ctx\_t**](structWshShellOption__Ctx__t.md) _Option usage context during parsing._ 
 * **struct** [**WshShellOption\_t**](structWshShellOption__t.md) _Represents a shell command-line option._ 
 * **struct** [**WshShellPromptWait**](structWshShellPromptWait.md) _Prompt-wait control structure._ 

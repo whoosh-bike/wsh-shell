@@ -19,6 +19,7 @@
 * [**WshShellIO\_CommandLine\_t**](structWshShellIO__CommandLine__t.md)
 * [**WshShellOption\_Ctx\_t**](structWshShellOption__Ctx__t.md)
 * [**WshShellOption\_t**](structWshShellOption__t.md)
+* [**WshShellOptionEnum\_t**](structWshShellOptionEnum__t.md)
 * [**WshShellPromptWait**](structWshShellPromptWait.md)
 * [**WshShellUser\_t**](structWshShellUser__t.md)
 * [**WshShellUser\_Table\_t**](structWshShellUser__Table__t.md)

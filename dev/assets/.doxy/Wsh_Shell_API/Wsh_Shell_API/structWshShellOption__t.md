@@ -39,6 +39,7 @@ _Represents a shell command-line option._ [More...](#detailed-description)
 |  WshShell\_Size\_t | [**Access**](#variable-access)  <br> |
 |  WshShell\_Size\_t | [**ArgNum**](#variable-argnum)  <br> |
 |  const WshShell\_Char\_t \* | [**Descr**](#variable-descr)  <br> |
+|  const [**WshShellOptionEnum\_t**](structWshShellOptionEnum__t.md) \* | [**Enum**](#variable-enum)  <br> |
 |  WshShell\_Size\_t | [**ID**](#variable-id)  <br> |
 |  const WshShell\_Char\_t \* | [**LongName**](#variable-longname)  <br> |
 |  const WshShell\_Char\_t \* | [**ShortName**](#variable-shortname)  <br> |
@@ -142,6 +143,23 @@ const WshShell_Char_t* WshShellOption_t::Descr;
 
 
 Optional help description. 
+
+
+        
+
+<hr>
+
+
+
+### variable Enum 
+
+```C++
+const WshShellOptionEnum_t* WshShellOption_t::Enum;
+```
+
+
+
+Allowed values — only set for ENUM type, NULL otherwise. 
 
 
         

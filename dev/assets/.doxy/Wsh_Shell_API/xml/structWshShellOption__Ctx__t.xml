@@ -16,7 +16,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/wsh_shell_option.h" line="189" column="28" bodyfile="src/wsh_shell_option.h" bodystart="189" bodyend="-1"/>
+        <location file="src/wsh_shell_option.h" line="218" column="28" bodyfile="src/wsh_shell_option.h" bodystart="218" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structWshShellOption__Ctx__t_1a041c4f4ea7959c95f8b705964d75bd79" prot="public" static="no" mutable="no">
         <type>WshShell_Size_t</type>
@@ -30,7 +30,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/wsh_shell_option.h" line="190" column="21" bodyfile="src/wsh_shell_option.h" bodystart="190" bodyend="-1"/>
+        <location file="src/wsh_shell_option.h" line="219" column="21" bodyfile="src/wsh_shell_option.h" bodystart="219" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structWshShellOption__Ctx__t_1a0c86bdf27a1b06fa03846083398579db" prot="public" static="no" mutable="no">
         <type>WshShell_Bool_t</type>
@@ -44,7 +44,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/wsh_shell_option.h" line="191" column="21" bodyfile="src/wsh_shell_option.h" bodystart="191" bodyend="-1"/>
+        <location file="src/wsh_shell_option.h" line="220" column="21" bodyfile="src/wsh_shell_option.h" bodystart="220" bodyend="-1"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
@@ -57,6 +57,13 @@
       <node id="2">
         <label>WshShellOption_t</label>
         <link refid="structWshShellOption__t"/>
+        <childnode refid="3" relation="usage">
+          <edgelabel>Enum</edgelabel>
+        </childnode>
+      </node>
+      <node id="3">
+        <label>WshShellOptionEnum_t</label>
+        <link refid="structWshShellOptionEnum__t"/>
       </node>
       <node id="1">
         <label>WshShellOption_Ctx_t</label>
@@ -66,7 +73,7 @@
         </childnode>
       </node>
     </collaborationgraph>
-    <location file="src/wsh_shell_option.h" line="188" column="1" bodyfile="src/wsh_shell_option.h" bodystart="188" bodyend="192"/>
+    <location file="src/wsh_shell_option.h" line="217" column="1" bodyfile="src/wsh_shell_option.h" bodystart="217" bodyend="221"/>
     <listofallmembers>
       <member refid="structWshShellOption__Ctx__t_1a02b2820aaf7495f27380f557c486b27b" prot="public" virt="non-virtual"><scope>WshShellOption_Ctx_t</scope><name>Option</name></member>
       <member refid="structWshShellOption__Ctx__t_1a0c86bdf27a1b06fa03846083398579db" prot="public" virt="non-virtual"><scope>WshShellOption_Ctx_t</scope><name>ParseError</name></member>

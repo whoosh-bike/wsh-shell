@@ -25,15 +25,13 @@ extern "C" {
 // Forward declaration of command structure
 struct WshShellCmd;
 
-typedef WSH_SHELL_RET_STATE_t (*WshShellCmdHandler_t)(const struct WshShellCmd* pcCmd,
-                                                      WshShell_Size_t argc,
-                                                      const WshShell_Char_t* pArgv[],
-                                                      void* pShellCtx);
+typedef WSH_SHELL_RET_STATE_t (*WshShellCmdHandler_t)(const struct WshShellCmd* pcCmd, WshShell_Size_t argc,
+                                                      const WshShell_Char_t* pArgv[], void* pShellCtx);
 
 typedef struct WshShellCmd {
-    const WshShell_Char_t* Name;  
-    const WshShell_Char_t* Descr; 
-    WshShell_Size_t Groups; 
+    const WshShell_Char_t* Name;     
+    const WshShell_Char_t* Descr;    
+    WshShell_Size_t Groups;          
     const WshShellOption_t* Options; 
     WshShell_Size_t OptNum;          
     WshShellCmdHandler_t Handler;    
@@ -48,35 +46,33 @@ typedef struct {
     WshShell_Size_t Num;        
 } WshShellCmd_Table_t;
 
-WSH_SHELL_RET_STATE_t WshShellCmd_Attach(WshShellCmd_Table_t* pShellCommands,
-                                         const WshShellCmd_t* pcCmdTable[], WshShell_Size_t cmdNum);
+WSH_SHELL_RET_STATE_t WshShellCmd_Attach(WshShellCmd_Table_t* pShellCommands, const WshShellCmd_t* pcCmdTable[],
+                                         WshShell_Size_t cmdNum);
 
 void WshShellCmd_DeAttach(WshShellCmd_Table_t* pShellCommands);
 
 WshShell_Size_t WshShellCmd_GetCmdNum(WshShellCmd_Table_t* pShellCommands);
 
-const WshShellCmd_t* WshShellCmd_GetCmdByIndex(WshShellCmd_Table_t* pShellCommands,
-                                               WshShell_Size_t idx);
+const WshShellCmd_t* WshShellCmd_GetCmdByIndex(WshShellCmd_Table_t* pShellCommands, WshShell_Size_t idx);
 
-const WshShellCmd_t* WshShellCmd_SearchCmd(WshShellCmd_Table_t* pShellCommands,
-                                           const WshShell_Char_t* pcCmdName);
+const WshShellCmd_t* WshShellCmd_SearchCmd(WshShellCmd_Table_t* pShellCommands, const WshShell_Char_t* pcCmdName);
 
 #if WSH_SHELL_SUBCOMMANDS
 WshShell_Size_t WshShellCmd_GetSubCmdNum(const WshShellCmd_t* pcCmd);
 
 const WshShellCmd_t* WshShellCmd_GetSubCmdByIndex(const WshShellCmd_t* pcCmd, WshShell_Size_t idx);
 
-const WshShellCmd_t* WshShellCmd_SearchSubCmd(const WshShellCmd_t* pcCmd,
-                                              const WshShell_Char_t* pcSubName);
+const WshShellCmd_t* WshShellCmd_SearchSubCmd(const WshShellCmd_t* pcCmd, const WshShell_Char_t* pcSubName);
 #endif /* WSH_SHELL_SUBCOMMANDS */
+
+const WshShellOption_t* WshShellCmd_FindOptByName(const WshShellCmd_t* pcCmd, const WshShell_Char_t* pcName);
 
 WshShellOption_Ctx_t WshShellCmd_ParseOpt(const WshShellCmd_t* pcCmd, WshShell_Size_t argc,
                                           const WshShell_Char_t* pArgv[], WshShell_Size_t rights,
                                           WshShell_Size_t* pTokenPos);
 
 WSH_SHELL_RET_STATE_t WshShellCmd_GetOptValue(WshShellOption_Ctx_t* pOptCtx, WshShell_Size_t argc,
-                                              const WshShell_Char_t* pArgv[],
-                                              WshShell_Size_t valueSize, void* pValue);
+                                              const WshShell_Char_t* pArgv[], WshShell_Size_t valueSize, void* pValue);
 
 void WshShellCmd_PrintOptionsOverview(const WshShellCmd_t* pcCmd);
 

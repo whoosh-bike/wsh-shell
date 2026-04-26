@@ -28,8 +28,8 @@ typedef struct {
     WshShell_Size_t Rights;       
 } WshShellUser_t;
 
-typedef void (*WshShellUser_HashFunc_t)(const WshShell_Char_t* pcSalt,
-                                        const WshShell_Char_t* pcPass, WshShell_Char_t* pHash);
+typedef void (*WshShellUser_HashFunc_t)(const WshShell_Char_t* pcSalt, const WshShell_Char_t* pcPass,
+                                        WshShell_Char_t* pHash);
 
 typedef struct {
     const WshShellUser_t* List;   
@@ -37,25 +37,19 @@ typedef struct {
     WshShellUser_HashFunc_t Hash; 
 } WshShellUser_Table_t;
 
-WSH_SHELL_RET_STATE_t WshShellUser_Attach(WshShellUser_Table_t* pShellUsers,
-                                          const WshShellUser_t* pcUserTable,
-                                          WshShell_Size_t userNum,
-                                          WshShellUser_HashFunc_t extHashFunc);
+WSH_SHELL_RET_STATE_t WshShellUser_Attach(WshShellUser_Table_t* pShellUsers, const WshShellUser_t* pcUserTable,
+                                          WshShell_Size_t userNum, WshShellUser_HashFunc_t extHashFunc);
 
 void WshShellUser_DeAttach(WshShellUser_Table_t* pShellUsers);
 
 WshShell_Size_t WshShellUser_GetUsersNum(WshShellUser_Table_t* pShellUsers);
 
-const WshShellUser_t* WshShellUser_GetUserByIndex(WshShellUser_Table_t* pShellUsers,
-                                                  WshShell_Size_t idx);
+const WshShellUser_t* WshShellUser_GetUserByIndex(WshShellUser_Table_t* pShellUsers, WshShell_Size_t idx);
 
-WshShell_Bool_t WshShellUser_CheckCredentials(WshShellUser_Table_t* pShellUsers,
-                                              WshShell_Size_t UserID,
-                                              const WshShell_Char_t* pcLogin,
-                                              const WshShell_Char_t* pcPass);
+WshShell_Bool_t WshShellUser_CheckCredentials(WshShellUser_Table_t* pShellUsers, WshShell_Size_t UserID,
+                                              const WshShell_Char_t* pcLogin, const WshShell_Char_t* pcPass);
 
-const WshShellUser_t* WshShellUser_FindByCredentials(WshShellUser_Table_t* pShellUsers,
-                                                     const WshShell_Char_t* pcLogin,
+const WshShellUser_t* WshShellUser_FindByCredentials(WshShellUser_Table_t* pShellUsers, const WshShell_Char_t* pcLogin,
                                                      const WshShell_Char_t* pcPass);
 
 #ifdef __cplusplus

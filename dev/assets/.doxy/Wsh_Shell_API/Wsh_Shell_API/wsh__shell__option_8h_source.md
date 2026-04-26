@@ -23,8 +23,7 @@ extern "C" {
 #define WSH_SHELL_OPT_ACCESS_WRITE   0x02
 #define WSH_SHELL_OPT_ACCESS_EXECUTE 0x04
 #define WSH_SHELL_OPT_ACCESS_ADMIN   0x08
-#define WSH_SHELL_OPT_ACCESS_ANY \
-    (WSH_SHELL_OPT_ACCESS_READ | WSH_SHELL_OPT_ACCESS_WRITE | WSH_SHELL_OPT_ACCESS_EXECUTE)
+#define WSH_SHELL_OPT_ACCESS_ANY (WSH_SHELL_OPT_ACCESS_READ | WSH_SHELL_OPT_ACCESS_WRITE | WSH_SHELL_OPT_ACCESS_EXECUTE)
 
 #if WSH_SHELL_PRINT_OPT_HELP_ENABLE
 #define WSH_SHELL_OPT_DESCR(descr) descr
@@ -32,35 +31,42 @@ extern "C" {
 #define WSH_SHELL_OPT_DESCR(descr) ""
 #endif
 
-#define WSH_SHELL_OPT_NO(acc, descr) \
-    WSH_SHELL_OPTION_NO, (acc), 0, "--", "---", WSH_SHELL_OPT_DESCR(descr)
+/* Appended to every non-ENUM option to zero-initialise the Enum field,
+ * suppressing -Wmissing-field-initializers. */
+#define WSH_SHELL_OPT_ENUM_TAIL , NULL
 
-#define WSH_SHELL_OPT_WAITS_INPUT(acc) WSH_SHELL_OPTION_WAITS_INPUT, (acc), 0, NULL, NULL, NULL
+#define WSH_SHELL_OPT_NO(acc, descr) \
+    WSH_SHELL_OPTION_NO, (acc), 0, "--", "---", WSH_SHELL_OPT_DESCR(descr) WSH_SHELL_OPT_ENUM_TAIL
+
+#define WSH_SHELL_OPT_WAITS_INPUT(acc) WSH_SHELL_OPTION_WAITS_INPUT, (acc), 0, NULL, NULL, NULL WSH_SHELL_OPT_ENUM_TAIL
 
 #define WSH_SHELL_OPT_HELP()                                            \
     WSH_SHELL_OPTION_HELP, WSH_SHELL_OPT_ACCESS_ANY, 0, "-h", "--help", \
-        WSH_SHELL_OPT_DESCR("Show command help information")
+        WSH_SHELL_OPT_DESCR("Show command help information") WSH_SHELL_OPT_ENUM_TAIL
 
 #define WSH_SHELL_OPT_INTERACT(acc)                             \
     WSH_SHELL_OPTION_INTERACT, (acc), 0, "-i", "--interactive", \
-        WSH_SHELL_OPT_DESCR("Run command in interactive mode")
+        WSH_SHELL_OPT_DESCR("Run command in interactive mode") WSH_SHELL_OPT_ENUM_TAIL
 
 #define WSH_SHELL_OPT_WO_PARAM(acc, short, long, descr) \
-    WSH_SHELL_OPTION_WO_PARAM, (acc), 0, (short), (long), WSH_SHELL_OPT_DESCR(descr)
+    WSH_SHELL_OPTION_WO_PARAM, (acc), 0, (short), (long), WSH_SHELL_OPT_DESCR(descr) WSH_SHELL_OPT_ENUM_TAIL
 
 #define WSH_SHELL_OPT_MULTI_ARG(acc, argnum, short, long, descr) \
-    WSH_SHELL_OPTION_MULTI_ARG, (acc), (argnum), (short), (long), WSH_SHELL_OPT_DESCR(descr)
+    WSH_SHELL_OPTION_MULTI_ARG, (acc), (argnum), (short), (long), WSH_SHELL_OPT_DESCR(descr) WSH_SHELL_OPT_ENUM_TAIL
 
 #define WSH_SHELL_OPT_STR(acc, short, long, descr) \
-    WSH_SHELL_OPTION_STR, (acc), 1, (short), (long), WSH_SHELL_OPT_DESCR(descr)
+    WSH_SHELL_OPTION_STR, (acc), 1, (short), (long), WSH_SHELL_OPT_DESCR(descr) WSH_SHELL_OPT_ENUM_TAIL
 
 #define WSH_SHELL_OPT_INT(acc, short, long, descr) \
-    WSH_SHELL_OPTION_INT, (acc), 1, (short), (long), WSH_SHELL_OPT_DESCR(descr)
+    WSH_SHELL_OPTION_INT, (acc), 1, (short), (long), WSH_SHELL_OPT_DESCR(descr) WSH_SHELL_OPT_ENUM_TAIL
 
 #define WSH_SHELL_OPT_FLOAT(acc, short, long, descr) \
-    WSH_SHELL_OPTION_FLOAT, (acc), 1, (short), (long), WSH_SHELL_OPT_DESCR(descr)
+    WSH_SHELL_OPTION_FLOAT, (acc), 1, (short), (long), WSH_SHELL_OPT_DESCR(descr) WSH_SHELL_OPT_ENUM_TAIL
 
-#define WSH_SHELL_OPT_END() WSH_SHELL_OPTION_END, WSH_SHELL_OPT_ACCESS_ANY, 0, NULL, NULL, NULL
+#define WSH_SHELL_OPT_ENUM(acc, short, long, penum, descr) \
+    WSH_SHELL_OPTION_ENUM, (acc), 1, (short), (long), WSH_SHELL_OPT_DESCR(descr), (penum)
+
+#define WSH_SHELL_OPT_END() WSH_SHELL_OPTION_END, WSH_SHELL_OPT_ACCESS_ANY, 0, NULL, NULL, NULL WSH_SHELL_OPT_ENUM_TAIL
 
 #define WSH_SHELL_OPTION_TYPES_TABLE()                   \
     X_ENTRY(WSH_SHELL_OPTION_NO, "EMPTY")                \
@@ -72,6 +78,7 @@ extern "C" {
     X_ENTRY(WSH_SHELL_OPTION_STR, "STR")                 \
     X_ENTRY(WSH_SHELL_OPTION_INT, "INT")                 \
     X_ENTRY(WSH_SHELL_OPTION_FLOAT, "FLOAT")             \
+    X_ENTRY(WSH_SHELL_OPTION_ENUM, "ENUM")               \
     X_ENTRY(WSH_SHELL_OPTION_END, "END")
 
 typedef enum {
@@ -94,6 +101,11 @@ static inline const WshShell_Char_t* WshShell_OptTypeStr_Get(WSH_SHELL_OPTION_TY
 }
 
 typedef struct {
+    const WshShell_Char_t* const* Values; 
+    WshShell_Size_t Count;                
+} WshShellOptionEnum_t;
+
+typedef struct {
     WshShell_Size_t ID;               
     WSH_SHELL_OPTION_TYPE_t Type;     
     WshShell_Size_t Access;           
@@ -101,6 +113,7 @@ typedef struct {
     const WshShell_Char_t* ShortName; 
     const WshShell_Char_t* LongName;  
     const WshShell_Char_t* Descr;     
+    const WshShellOptionEnum_t* Enum; 
 } WshShellOption_t;
 
 typedef struct {

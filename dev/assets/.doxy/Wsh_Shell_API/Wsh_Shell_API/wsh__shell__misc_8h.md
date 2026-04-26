@@ -54,6 +54,7 @@ _Miscellaneous helper utilities for the shell._ [More...](#detailed-description)
 | Type | Name |
 | ---: | :--- |
 |  WshShell\_U32\_t | [**WshShellMisc\_CalcJenkinsHash**](#function-wshshellmisc_calcjenkinshash) (const WshShell\_U8\_t \* pcBuff, WshShell\_Size\_t len) <br>_Calculate Jenkins one-at-a-time hash._  |
+|  void | [**WshShellMisc\_HexDump**](#function-wshshellmisc_hexdump) (const WshShell\_U8\_t \* pBuff, WshShell\_Size\_t len, WshShell\_Size\_t offset) <br>_Print a hex + ASCII dump of a buffer (hexdump -C style)._  |
 
 
 
@@ -149,6 +150,47 @@ This hash is not suitable for cryptographic purposes !!! It is designed for spee
 
 
 Jenkins hash function [https://en.wikipedia.org/wiki/Jenkins\_hash\_function](https://en.wikipedia.org/wiki/Jenkins_hash_function) 
+
+
+        
+
+<hr>
+
+
+
+### function WshShellMisc\_HexDump 
+
+_Print a hex + ASCII dump of a buffer (hexdump -C style)._ 
+```C++
+void WshShellMisc_HexDump (
+    const WshShell_U8_t * pBuff,
+    WshShell_Size_t len,
+    WshShell_Size_t offset
+) 
+```
+
+
+
+Each row contains the byte offset, up to 16 bytes in hex (split into two groups of 8), and their printable ASCII representation. Non-printable bytes are shown as '.'.
+
+
+Example output: 
+```C++
+00000000  57 73 68 53 68 65 6c 6c  00 01 7e 7f 80 ff       |WshShell..~...|
+```
+
+
+
+
+
+**Parameters:**
+
+
+* `pBuff` Pointer to the data buffer. May be NULL only when len == 0. 
+* `len` Number of bytes to dump. 
+* `offset` Base value printed in the offset column (use 0 for relative offsets). 
+
+
 
 
         

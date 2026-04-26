@@ -90,6 +90,7 @@
 | Type | Name |
 | ---: | :--- |
 | define  | [**RET\_STATE\_MAP\_TABLE**](wsh__shell__cfg__def_8h.md#define-ret_state_map_table) () `/* multi line expression */`<br> |
+| define  | [**WSH\_HEXDUMP\_COLS**](wsh__shell__cfg__def_8h.md#define-wsh_hexdump_cols)  `16 /\* bytes per row \*/`<br> |
 | define  | [**WSH\_SHELL\_ASSERT**](wsh__shell__cfg__def_8h.md#define-wsh_shell_assert) (exp) <br> |
 | define  | [**WSH\_SHELL\_AUTOCOMPLETE**](wsh__shell__cfg__def_8h.md#define-wsh_shell_autocomplete)  `1`<br> |
 | define  | [**WSH\_SHELL\_AUTOCOMPLETE\_MAX\_CANDIDATES**](wsh__shell__cfg__def_8h.md#define-wsh_shell_autocomplete_max_candidates)  `32`<br> |
@@ -103,6 +104,7 @@
 | define  | [**WSH\_SHELL\_CMD\_PRINT\_OPT\_OVERVIEW**](wsh__shell__cfg__def_8h.md#define-wsh_shell_cmd_print_opt_overview)  `1`<br> |
 | define  | [**WSH\_SHELL\_DEF\_COMMAND**](wsh__shell__cfg__def_8h.md#define-wsh_shell_def_command)  `1`<br> |
 | define  | [**WSH\_SHELL\_DEV\_NAME\_LEN**](wsh__shell__cfg__def_8h.md#define-wsh_shell_dev_name_len)  `16`<br> |
+| define  | [**WSH\_SHELL\_ENUM\_VALUE\_MAX\_LEN**](wsh__shell__cfg__def_8h.md#define-wsh_shell_enum_value_max_len)  `16 /\* max length of a single enum value string \*/`<br> |
 | define  | [**WSH\_SHELL\_ESC\_BUFF\_LEN**](wsh__shell__cfg__def_8h.md#define-wsh_shell_esc_buff_len)  `8`<br> |
 | define  | [**WSH\_SHELL\_HEADER**](wsh__shell__cfg__def_8h.md#define-wsh_shell_header)  `"\                \_\_               \_\_         \_\_\_\_  \r\n\ \_      \_\_\_\_\_\_\_/ /\_        \_\_\_\_\_/ /\_  \_\_\_  / / /  \r\n\\| \| /\| / / \_\_\_/ \_\_ \\\_\_\_\_\_\_/ \_\_\_/ \_\_ \\/ \_ \\/ / /\r\n\\| \|/ \|/ (\_\_  ) / / /\_\_\_\_\_(\_\_  ) / / /  \_\_/ / /    \r\n\\|\_\_/\|\_\_/\_\_\_\_/\_/ /\_/     /\_\_\_\_/\_/ /\_/\\\_\_\_/\_/\_/    \r\n\\r\n"`<br> |
 | define  | [**WSH\_SHELL\_HISTORY**](wsh__shell__cfg__def_8h.md#define-wsh_shell_history)  `1`<br> |
@@ -189,6 +191,19 @@ static inline bool WshShellRetState_TranslateToProject (
 #define RET_STATE_MAP_TABLE (
     
 ) `/* multi line expression */`
+```
+
+
+
+
+<hr>
+
+
+
+### define WSH\_HEXDUMP\_COLS 
+
+```C++
+#define WSH_HEXDUMP_COLS `16 /* bytes per row */`
 ```
 
 
@@ -360,6 +375,19 @@ static inline bool WshShellRetState_TranslateToProject (
 
 ```C++
 #define WSH_SHELL_DEV_NAME_LEN `16`
+```
+
+
+
+
+<hr>
+
+
+
+### define WSH\_SHELL\_ENUM\_VALUE\_MAX\_LEN 
+
+```C++
+#define WSH_SHELL_ENUM_VALUE_MAX_LEN `16 /* max length of a single enum value string */`
 ```
 
 

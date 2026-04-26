@@ -30,6 +30,7 @@ _Definition of shell command-line option object and creation macros._ [More...](
 
 | Type | Name |
 | ---: | :--- |
+| struct | [**WshShellOptionEnum\_t**](structWshShellOptionEnum__t.md) <br>_Describes the closed set of string values for an ENUM option._  |
 | struct | [**WshShellOption\_Ctx\_t**](structWshShellOption__Ctx__t.md) <br>_Option usage context during parsing._  |
 | struct | [**WshShellOption\_t**](structWshShellOption__t.md) <br>_Represents a shell command-line option._  |
 
@@ -108,16 +109,18 @@ _Definition of shell command-line option object and creation macros._ [More...](
 | define  | [**WSH\_SHELL\_OPT\_ACCESS\_READ**](wsh__shell__option_8h.md#define-wsh_shell_opt_access_read)  `0x01`<br> |
 | define  | [**WSH\_SHELL\_OPT\_ACCESS\_WRITE**](wsh__shell__option_8h.md#define-wsh_shell_opt_access_write)  `0x02`<br> |
 | define  | [**WSH\_SHELL\_OPT\_DESCR**](wsh__shell__option_8h.md#define-wsh_shell_opt_descr) (descr) `""`<br> |
-| define  | [**WSH\_SHELL\_OPT\_END**](wsh__shell__option_8h.md#define-wsh_shell_opt_end) () `WSH\_SHELL\_OPTION\_END, WSH\_SHELL\_OPT\_ACCESS\_ANY, 0, NULL, NULL, NULL`<br>_Marks the end of an option array._  |
-| define  | [**WSH\_SHELL\_OPT\_FLOAT**](wsh__shell__option_8h.md#define-wsh_shell_opt_float) (acc, short, long, descr) `WSH\_SHELL\_OPTION\_FLOAT, (acc), 1, (short), (long), WSH\_SHELL\_OPT\_DESCR(descr)`<br>_Define a float argument option._  |
+| define  | [**WSH\_SHELL\_OPT\_END**](wsh__shell__option_8h.md#define-wsh_shell_opt_end) () `WSH\_SHELL\_OPTION\_END, WSH\_SHELL\_OPT\_ACCESS\_ANY, 0, NULL, NULL, NULL WSH\_SHELL\_OPT\_ENUM\_TAIL`<br>_Marks the end of an option array._  |
+| define  | [**WSH\_SHELL\_OPT\_ENUM**](wsh__shell__option_8h.md#define-wsh_shell_opt_enum) (acc, short, long, penum, descr) `WSH\_SHELL\_OPTION\_ENUM, (acc), 1, (short), (long), WSH\_SHELL\_OPT\_DESCR(descr), (penum)`<br>_Define an enum option that accepts one value from a fixed set._  |
+| define  | [**WSH\_SHELL\_OPT\_ENUM\_TAIL**](wsh__shell__option_8h.md#define-wsh_shell_opt_enum_tail)  `, NULL`<br> |
+| define  | [**WSH\_SHELL\_OPT\_FLOAT**](wsh__shell__option_8h.md#define-wsh_shell_opt_float) (acc, short, long, descr) `WSH\_SHELL\_OPTION\_FLOAT, (acc), 1, (short), (long), WSH\_SHELL\_OPT\_DESCR(descr) WSH\_SHELL\_OPT\_ENUM\_TAIL`<br>_Define a float argument option._  |
 | define  | [**WSH\_SHELL\_OPT\_HELP**](wsh__shell__option_8h.md#define-wsh_shell_opt_help) () `/* multi line expression */`<br>_Define a built-in help option (e.g._ `"--help"` _or_`"-h"` _)._ |
-| define  | [**WSH\_SHELL\_OPT\_INT**](wsh__shell__option_8h.md#define-wsh_shell_opt_int) (acc, short, long, descr) `WSH\_SHELL\_OPTION\_INT, (acc), 1, (short), (long), WSH\_SHELL\_OPT\_DESCR(descr)`<br>_Define an integer argument option._  |
+| define  | [**WSH\_SHELL\_OPT\_INT**](wsh__shell__option_8h.md#define-wsh_shell_opt_int) (acc, short, long, descr) `WSH\_SHELL\_OPTION\_INT, (acc), 1, (short), (long), WSH\_SHELL\_OPT\_DESCR(descr) WSH\_SHELL\_OPT\_ENUM\_TAIL`<br>_Define an integer argument option._  |
 | define  | [**WSH\_SHELL\_OPT\_INTERACT**](wsh__shell__option_8h.md#define-wsh_shell_opt_interact) (acc) `/* multi line expression */`<br>_Define an option for entering interactive mode._  |
-| define  | [**WSH\_SHELL\_OPT\_MULTI\_ARG**](wsh__shell__option_8h.md#define-wsh_shell_opt_multi_arg) (acc, argnum, short, long, descr) `WSH\_SHELL\_OPTION\_MULTI\_ARG, (acc), (argnum), (short), (long), WSH\_SHELL\_OPT\_DESCR(descr)`<br>_Define an option that accepts multiple arguments._  |
-| define  | [**WSH\_SHELL\_OPT\_NO**](wsh__shell__option_8h.md#define-wsh_shell_opt_no) (acc, descr) `WSH\_SHELL\_OPTION\_NO, (acc), 0, "--", "---", WSH\_SHELL\_OPT\_DESCR(descr)`<br>_Define a special option that matches the command name only (no flags)._  |
-| define  | [**WSH\_SHELL\_OPT\_STR**](wsh__shell__option_8h.md#define-wsh_shell_opt_str) (acc, short, long, descr) `WSH\_SHELL\_OPTION\_STR, (acc), 1, (short), (long), WSH\_SHELL\_OPT\_DESCR(descr)`<br>_Define a string argument option._  |
-| define  | [**WSH\_SHELL\_OPT\_WAITS\_INPUT**](wsh__shell__option_8h.md#define-wsh_shell_opt_waits_input) (acc) `WSH\_SHELL\_OPTION\_WAITS\_INPUT, (acc), 0, NULL, NULL, NULL`<br>_Define an option that triggers when input is provided with no flags._  |
-| define  | [**WSH\_SHELL\_OPT\_WO\_PARAM**](wsh__shell__option_8h.md#define-wsh_shell_opt_wo_param) (acc, short, long, descr) `WSH\_SHELL\_OPTION\_WO\_PARAM, (acc), 0, (short), (long), WSH\_SHELL\_OPT\_DESCR(descr)`<br>_Define an option that requires no arguments._  |
+| define  | [**WSH\_SHELL\_OPT\_MULTI\_ARG**](wsh__shell__option_8h.md#define-wsh_shell_opt_multi_arg) (acc, argnum, short, long, descr) `WSH\_SHELL\_OPTION\_MULTI\_ARG, (acc), (argnum), (short), (long), WSH\_SHELL\_OPT\_DESCR(descr) WSH\_SHELL\_OPT\_ENUM\_TAIL`<br>_Define an option that accepts multiple arguments._  |
+| define  | [**WSH\_SHELL\_OPT\_NO**](wsh__shell__option_8h.md#define-wsh_shell_opt_no) (acc, descr) `WSH\_SHELL\_OPTION\_NO, (acc), 0, "--", "---", WSH\_SHELL\_OPT\_DESCR(descr) WSH\_SHELL\_OPT\_ENUM\_TAIL`<br>_Define a special option that matches the command name only (no flags)._  |
+| define  | [**WSH\_SHELL\_OPT\_STR**](wsh__shell__option_8h.md#define-wsh_shell_opt_str) (acc, short, long, descr) `WSH\_SHELL\_OPTION\_STR, (acc), 1, (short), (long), WSH\_SHELL\_OPT\_DESCR(descr) WSH\_SHELL\_OPT\_ENUM\_TAIL`<br>_Define a string argument option._  |
+| define  | [**WSH\_SHELL\_OPT\_WAITS\_INPUT**](wsh__shell__option_8h.md#define-wsh_shell_opt_waits_input) (acc) `WSH\_SHELL\_OPTION\_WAITS\_INPUT, (acc), 0, NULL, NULL, NULL WSH\_SHELL\_OPT\_ENUM\_TAIL`<br>_Define an option that triggers when input is provided with no flags._  |
+| define  | [**WSH\_SHELL\_OPT\_WO\_PARAM**](wsh__shell__option_8h.md#define-wsh_shell_opt_wo_param) (acc, short, long, descr) `WSH\_SHELL\_OPTION\_WO\_PARAM, (acc), 0, (short), (long), WSH\_SHELL\_OPT\_DESCR(descr) WSH\_SHELL\_OPT\_ENUM\_TAIL`<br>_Define an option that requires no arguments._  |
 | define  | [**X\_ENTRY**](wsh__shell__option_8h.md#define-x_entry) (id, str) `id,`<br> |
 | define  | [**X\_ENTRY**](wsh__shell__option_8h.md#define-x_entry) (id, str) `id,`<br> |
 
@@ -336,7 +339,58 @@ _Marks the end of an option array._
 ```C++
 #define WSH_SHELL_OPT_END (
     
-) `WSH_SHELL_OPTION_END, WSH_SHELL_OPT_ACCESS_ANY, 0, NULL, NULL, NULL`
+) `WSH_SHELL_OPTION_END, WSH_SHELL_OPT_ACCESS_ANY, 0, NULL, NULL, NULL WSH_SHELL_OPT_ENUM_TAIL`
+```
+
+
+
+
+<hr>
+
+
+
+### define WSH\_SHELL\_OPT\_ENUM 
+
+_Define an enum option that accepts one value from a fixed set._ 
+```C++
+#define WSH_SHELL_OPT_ENUM (
+    acc,
+    short,
+    long,
+    penum,
+    descr
+) `WSH_SHELL_OPTION_ENUM, (acc), 1, (short), (long), WSH_SHELL_OPT_DESCR(descr), (penum)`
+```
+
+
+
+Accepts one string argument validated against the provided `penum` list. Tab completion lists matching values.
+
+
+
+
+**Parameters:**
+
+
+* `acc` Access rights mask. 
+* `short` Short flag (e.g. `"-f"`). 
+* `long` Long flag (e.g. `"--format"`). 
+* `penum` Pointer to a `WshShellOptionEnum_t` describing valid values. 
+* `descr` Help description. 
+
+
+
+
+        
+
+<hr>
+
+
+
+### define WSH\_SHELL\_OPT\_ENUM\_TAIL 
+
+```C++
+#define WSH_SHELL_OPT_ENUM_TAIL `, NULL`
 ```
 
 
@@ -355,7 +409,7 @@ _Define a float argument option._
     short,
     long,
     descr
-) `WSH_SHELL_OPTION_FLOAT, (acc), 1, (short), (long), WSH_SHELL_OPT_DESCR(descr)`
+) `WSH_SHELL_OPTION_FLOAT, (acc), 1, (short), (long), WSH_SHELL_OPT_DESCR(descr) WSH_SHELL_OPT_ENUM_TAIL`
 ```
 
 
@@ -404,7 +458,7 @@ _Define an integer argument option._
     short,
     long,
     descr
-) `WSH_SHELL_OPTION_INT, (acc), 1, (short), (long), WSH_SHELL_OPT_DESCR(descr)`
+) `WSH_SHELL_OPTION_INT, (acc), 1, (short), (long), WSH_SHELL_OPT_DESCR(descr) WSH_SHELL_OPT_ENUM_TAIL`
 ```
 
 
@@ -454,7 +508,7 @@ _Define an option that accepts multiple arguments._
     short,
     long,
     descr
-) `WSH_SHELL_OPTION_MULTI_ARG, (acc), (argnum), (short), (long), WSH_SHELL_OPT_DESCR(descr)`
+) `WSH_SHELL_OPTION_MULTI_ARG, (acc), (argnum), (short), (long), WSH_SHELL_OPT_DESCR(descr) WSH_SHELL_OPT_ENUM_TAIL`
 ```
 
 
@@ -486,7 +540,7 @@ _Define a special option that matches the command name only (no flags)._
 #define WSH_SHELL_OPT_NO (
     acc,
     descr
-) `WSH_SHELL_OPTION_NO, (acc), 0, "--", "---", WSH_SHELL_OPT_DESCR(descr)`
+) `WSH_SHELL_OPTION_NO, (acc), 0, "--", "---", WSH_SHELL_OPT_DESCR(descr) WSH_SHELL_OPT_ENUM_TAIL`
 ```
 
 
@@ -516,7 +570,7 @@ _Define a string argument option._
     short,
     long,
     descr
-) `WSH_SHELL_OPTION_STR, (acc), 1, (short), (long), WSH_SHELL_OPT_DESCR(descr)`
+) `WSH_SHELL_OPTION_STR, (acc), 1, (short), (long), WSH_SHELL_OPT_DESCR(descr) WSH_SHELL_OPT_ENUM_TAIL`
 ```
 
 
@@ -546,7 +600,7 @@ _Define an option that triggers when input is provided with no flags._
 ```C++
 #define WSH_SHELL_OPT_WAITS_INPUT (
     acc
-) `WSH_SHELL_OPTION_WAITS_INPUT, (acc), 0, NULL, NULL, NULL`
+) `WSH_SHELL_OPTION_WAITS_INPUT, (acc), 0, NULL, NULL, NULL WSH_SHELL_OPT_ENUM_TAIL`
 ```
 
 
@@ -576,7 +630,7 @@ _Define an option that requires no arguments._
     short,
     long,
     descr
-) `WSH_SHELL_OPTION_WO_PARAM, (acc), 0, (short), (long), WSH_SHELL_OPT_DESCR(descr)`
+) `WSH_SHELL_OPTION_WO_PARAM, (acc), 0, (short), (long), WSH_SHELL_OPT_DESCR(descr) WSH_SHELL_OPT_ENUM_TAIL`
 ```
 
 

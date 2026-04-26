@@ -754,6 +754,78 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#numeric-literal-base-auto-detect" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Numeric Literal Base Auto-Detect
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#v32" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        v3.2
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="v3.2">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#enum-option-type" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Enum Option Type
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#default-command-tree-restructure" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Default Command Tree Restructure
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ctrlc-cancel" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ctrl+C Cancel
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hex-dump-utility" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Hex Dump Utility
+      
+    </span>
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -2925,6 +2997,78 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#numeric-literal-base-auto-detect" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Numeric Literal Base Auto-Detect
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#v32" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        v3.2
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="v3.2">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#enum-option-type" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Enum Option Type
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#default-command-tree-restructure" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Default Command Tree Restructure
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ctrlc-cancel" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ctrl+C Cancel
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hex-dump-utility" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Hex Dump Utility
+      
+    </span>
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -3136,6 +3280,43 @@
 <li class="task-list-item"><input type="checkbox" disabled checked/> Update all handlers (including <code>WshShellCmdDef</code>) to check <code>ParseError</code> and return <code>ERR_PARAM</code> on unknown flags</li>
 <li class="task-list-item"><input type="checkbox" disabled checked/> Document subcommand feature (<code>usage/subcommands.md</code>, index.md feature list)</li>
 <li class="task-list-item"><input type="checkbox" disabled checked/> Add <code>usage/writing-commands.md</code> — standard handler template with X-macro tables, parse loop, and <code>ParseError</code> explanation</li>
+</ul>
+<h3 id="numeric-literal-base-auto-detect">Numeric Literal Base Auto-Detect</h3>
+<ul class="task-list">
+<li class="task-list-item"><input type="checkbox" disabled checked/> Change <code>WSH_SHELL_STRTOL</code> base from <code>10</code> to <code>0</code> in <code>WshShellCmd_GetOptValue</code> — <code>0x</code> prefix → hex, <code>0</code> prefix → octal, else decimal; no API change</li>
+<li class="task-list-item"><input type="checkbox" disabled checked/> Add missing-argument guard in <code>WshShellCmd_ParseOpt</code> — if flag requires N args but fewer tokens follow, print <code>[WARN]</code> and set <code>ParseError</code> instead of crashing in <code>GetOptValue</code></li>
+<li class="task-list-item"><input type="checkbox" disabled checked/> Replace <code>ASSERT(false)</code> in <code>WshShellCmd_GetOptValue</code> bounds check with graceful <code>ERR_EMPTY</code></li>
+</ul>
+<h2 id="v32">v3.2</h2>
+<h3 id="enum-option-type">Enum Option Type</h3>
+<ul class="task-list">
+<li class="task-list-item"><input type="checkbox" disabled checked/> Add <code>WshShellOptionEnum_t</code> struct (<code>Values</code> + <code>Count</code>) and <code>Enum</code> field to <code>WshShellOption_t</code>; always compiled in (no config gate)</li>
+<li class="task-list-item"><input type="checkbox" disabled checked/> Add <code>WSH_SHELL_OPT_ENUM</code> macro; all other option macros append <code>WSH_SHELL_OPT_ENUM_TAIL (,NULL)</code> to suppress <code>-Wmissing-field-initializers</code></li>
+<li class="task-list-item"><input type="checkbox" disabled checked/> Validate enum value in <code>WshShellCmd_GetOptValue</code> — unknown value prints <code>[WARN]</code> and returns <code>ERR_PARAM</code></li>
+<li class="task-list-item"><input type="checkbox" disabled checked/> Extend autocomplete: complete partial enum value after a known ENUM flag; list all values when flag is fully typed followed by a space</li>
+<li class="task-list-item"><input type="checkbox" disabled checked/> Add <code>WSH_SHELL_ENUM_VALUE_MAX_LEN</code> config knob (default <code>16</code>)</li>
+<li class="task-list-item"><input type="checkbox" disabled checked/> Demo: <code>wsh user list --format [table|short]</code></li>
+<li class="task-list-item"><input type="checkbox" disabled checked/> Document enum options in <code>usage/writing-commands.md</code></li>
+</ul>
+<h3 id="default-command-tree-restructure">Default Command Tree Restructure</h3>
+<ul class="task-list">
+<li class="task-list-item"><input type="checkbox" disabled checked/> Replace ad-hoc <code>wsh</code> options with a clean subcommand tree: <code>wsh user</code>, <code>wsh user list</code>, <code>wsh user whoami</code>, <code>wsh history</code>, <code>wsh history list</code>, <code>wsh history clear</code></li>
+<li class="task-list-item"><input type="checkbox" disabled checked/> Remove contrived interactive demo from <code>wsh</code> root; add <code>wsh tokenize</code> as interactive demo (gated <code>WSH_SHELL_INTERACTIVE_MODE</code>)</li>
+<li class="task-list-item"><input type="checkbox" disabled checked/> Keep flat <code>-u / --user</code>, <code>-g / --histprint</code>, <code>-r / --histrst</code> fallback flags when <code>WSH_SHELL_SUBCOMMANDS=0</code> via slot macros</li>
+</ul>
+<h3 id="ctrlc-cancel">Ctrl+C Cancel</h3>
+<ul class="task-list">
+<li class="task-list-item"><input type="checkbox" disabled checked/> Add <code>WSH_SHELL_SYM_CANCEL (0x03)</code> constant to <code>wsh_shell_io.h</code>; always active, no config gate</li>
+<li class="task-list-item"><input type="checkbox" disabled checked/> Handle in <code>WshShell_SymbolHandler</code>: print <code>^C</code>, exit interactive mode if active (via shared <code>WshShell_ExitInteractive</code> helper), clear input buffer, reprint prompt — never deauths</li>
+<li class="task-list-item"><input type="checkbox" disabled checked/> <code>WshShellPromptWait_Handle</code>: flush active wait and return <code>ERR_EMPTY</code> on Ctrl+C so the cancel handler runs normally</li>
+<li class="task-list-item"><input type="checkbox" disabled checked/> Document Ctrl+C / Ctrl+D behaviour in <code>usage/writing-commands.md</code></li>
+</ul>
+<h3 id="hex-dump-utility">Hex Dump Utility</h3>
+<ul class="task-list">
+<li class="task-list-item"><input type="checkbox" disabled checked/> Add <code>WshShellMisc_HexDump(pBuff, len, offset)</code> to <code>wsh_shell_misc</code> — <code>hexdump -C</code> style output, 16 bytes per row</li>
+<li class="task-list-item"><input type="checkbox" disabled checked/> Row width configurable via <code>WSH_HEXDUMP_COLS</code> in <code>wsh_shell_cfg_def.h</code> (default <code>16</code>)</li>
+<li class="task-list-item"><input type="checkbox" disabled checked/> Demo in <code>example/shell.c</code>: <code>dump</code> command dumps live PS1 buffer bytes</li>
+<li class="task-list-item"><input type="checkbox" disabled checked/> Document in <code>usage/writing-commands.md</code> under "Shell Utilities"</li>
 </ul>
 
 

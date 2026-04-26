@@ -30,9 +30,9 @@ typedef struct {
     WshShell_Char_t StorageBuff[WSH_SHELL_HISTORY_BUFF_SIZE]; 
     WshShell_Size_t HeadIdx;                                  
     WshShell_Size_t TailIdx;                                  
-    WshShell_Size_t LastSavedCmdIdx;  
-    WSH_SHELL_HIST_CMD_DIR_t PrevDir; 
-    WshShell_Bool_t LimitIsReached;   
+    WshShell_Size_t LastSavedCmdIdx;                          
+    WSH_SHELL_HIST_CMD_DIR_t PrevDir;                         
+    WshShell_Bool_t LimitIsReached;                           
 } WshShellHistory_Data_t;
 
 typedef struct {
@@ -52,8 +52,7 @@ typedef struct {
 void WshShellHistory_Init(WshShellHistoryIO_t* pHistIO, WshShellHistory_ReadHandler_t readFn,
                           WshShellHistory_WriteHandler_t writeFn);
 
-void WshShellHistory_SaveCmd(WshShellHistoryIO_t* pHistIO, const WshShell_Char_t* pcCmdStr,
-                             WshShell_Size_t cmdStrLen);
+void WshShellHistory_SaveCmd(WshShellHistoryIO_t* pHistIO, const WshShell_Char_t* pcCmdStr, WshShell_Size_t cmdStrLen);
 
 WshShell_Size_t WshShellHistory_GetPrevCmd(WshShellHistoryIO_t* pHistIO, WshShell_Char_t* pOutBuff,
                                            WshShell_Size_t outBuffSize);
@@ -63,8 +62,7 @@ WshShell_Size_t WshShellHistory_GetNextCmd(WshShellHistoryIO_t* pHistIO, WshShel
 
 WshShell_Size_t WshShellHistory_GetTokenNum(WshShellHistoryIO_t* pHistIO);
 
-WshShell_Size_t WshShellHistory_GetTokenByIndex(WshShellHistoryIO_t* pHistIO,
-                                                WshShell_Char_t* pOutBuff,
+WshShell_Size_t WshShellHistory_GetTokenByIndex(WshShellHistoryIO_t* pHistIO, WshShell_Char_t* pOutBuff,
                                                 WshShell_Size_t outBuffSize, WshShell_Size_t index);
 
 void WshShellHistory_Flush(WshShellHistoryIO_t* pHistIO);

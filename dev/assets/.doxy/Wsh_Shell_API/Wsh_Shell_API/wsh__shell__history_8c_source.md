@@ -12,14 +12,12 @@
 
 #if WSH_SHELL_HISTORY
 
-static void WshShellHistory_CalcHashAndWrite(WshShellHistoryIO_t* pHistIO,
-                                             WshShellHistory_t history) {
+static void WshShellHistory_CalcHashAndWrite(WshShellHistoryIO_t* pHistIO, WshShellHistory_t history) {
     WSH_SHELL_ASSERT(pHistIO->Write);
     if (!pHistIO->Write)
         return;
 
-    history.Hash =
-        WshShellMisc_CalcJenkinsHash((WshShell_U8_t*)&history.Data, sizeof(history.Data));
+    history.Hash = WshShellMisc_CalcJenkinsHash((WshShell_U8_t*)&history.Data, sizeof(history.Data));
     pHistIO->Write(history);
     // WSH_SHELL_PRINT("\r\nh %d, t %d, l %d\r\n", history.Data.HeadIdx, history.Data.TailIdx,
     //                 history.Data.LastSavedCmdIdx);
@@ -35,8 +33,7 @@ void WshShellHistory_Init(WshShellHistoryIO_t* pHistIO, WshShellHistory_ReadHand
     pHistIO->Write = writeFn;
 
     WshShellHistory_t extHistory = pHistIO->Read();
-    WshShell_U32_t extHash =
-        WshShellMisc_CalcJenkinsHash((WshShell_U8_t*)&extHistory.Data, sizeof(extHistory.Data));
+    WshShell_U32_t extHash = WshShellMisc_CalcJenkinsHash((WshShell_U8_t*)&extHistory.Data, sizeof(extHistory.Data));
 
     if (extHash != extHistory.Hash)
         WshShellHistory_CalcHashAndWrite(pHistIO, (WshShellHistory_t){0});
@@ -56,8 +53,7 @@ static void WshShellHistory_DecrIdx(WshShell_Size_t* pIdx) {
 }
 
 static void WshShellHistory_GetTokenFromBuffer(WshShell_Char_t* pDst, const WshShell_Char_t* pсSrc,
-                                               WshShell_Size_t tokStartIdx,
-                                               WshShell_Size_t tokLen) {
+                                               WshShell_Size_t tokStartIdx, WshShell_Size_t tokLen) {
     WSH_SHELL_ASSERT(pDst && pсSrc && tokLen > 0);
 
     WshShell_Size_t readIdx = tokStartIdx;
@@ -68,8 +64,7 @@ static void WshShellHistory_GetTokenFromBuffer(WshShell_Char_t* pDst, const WshS
     pDst[tokLen] = '\0';
 }
 
-void WshShellHistory_SaveCmd(WshShellHistoryIO_t* pHistIO, const WshShell_Char_t* pcCmdStr,
-                             WshShell_Size_t cmdStrLen) {
+void WshShellHistory_SaveCmd(WshShellHistoryIO_t* pHistIO, const WshShell_Char_t* pcCmdStr, WshShell_Size_t cmdStrLen) {
     WSH_SHELL_ASSERT(pHistIO && pcCmdStr && cmdStrLen < WSH_SHELL_HISTORY_BUFF_SIZE);
     if (!pHistIO || !pcCmdStr || cmdStrLen == 0 || cmdStrLen >= WSH_SHELL_HISTORY_BUFF_SIZE)
         return;
@@ -106,8 +101,7 @@ void WshShellHistory_SaveCmd(WshShellHistoryIO_t* pHistIO, const WshShell_Char_t
     WshShellHistory_CalcHashAndWrite(pHistIO, locHist);
 }
 
-static WshShell_Size_t WshShellHistory_GetPrevToken(WshShellHistory_Data_t* pHistData,
-                                                    WshShell_Size_t* pTokenIdx) {
+static WshShell_Size_t WshShellHistory_GetPrevToken(WshShellHistory_Data_t* pHistData, WshShell_Size_t* pTokenIdx) {
     WSH_SHELL_ASSERT(pHistData && pTokenIdx);
 
     const WshShell_Char_t* pBuff = pHistData->StorageBuff;
@@ -138,8 +132,7 @@ static WshShell_Size_t WshShellHistory_GetPrevToken(WshShellHistory_Data_t* pHis
     return tokLen;
 }
 
-static WshShell_Size_t WshShellHistory_GetNextToken(WshShellHistory_Data_t* pHistData,
-                                                    WshShell_Size_t* pTokenIdx) {
+static WshShell_Size_t WshShellHistory_GetNextToken(WshShellHistory_Data_t* pHistData, WshShell_Size_t* pTokenIdx) {
     WSH_SHELL_ASSERT(pHistData && pTokenIdx);
 
     WshShell_Size_t tail = pHistData->TailIdx;
@@ -163,10 +156,8 @@ static WshShell_Size_t WshShellHistory_GetNextToken(WshShellHistory_Data_t* pHis
     return tokLen;
 }
 
-static WshShell_Size_t WshShellHistory_GetCmd(WshShellHistoryIO_t* pHistIO,
-                                              WshShell_Char_t* pOutBuff,
-                                              WshShell_Size_t outBuffSize,
-                                              WSH_SHELL_HIST_CMD_DIR_t dir) {
+static WshShell_Size_t WshShellHistory_GetCmd(WshShellHistoryIO_t* pHistIO, WshShell_Char_t* pOutBuff,
+                                              WshShell_Size_t outBuffSize, WSH_SHELL_HIST_CMD_DIR_t dir) {
     WSH_SHELL_ASSERT(pHistIO && pOutBuff && outBuffSize > 0);
     if (!pHistIO || !pOutBuff || outBuffSize == 0)
         return 0;
@@ -237,10 +228,8 @@ WshShell_Size_t WshShellHistory_GetTokenNum(WshShellHistoryIO_t* pHistIO) {
     return count;
 }
 
-WshShell_Size_t WshShellHistory_GetTokenByIndex(WshShellHistoryIO_t* pHistIO,
-                                                WshShell_Char_t* pOutBuff,
-                                                WshShell_Size_t outBuffSize,
-                                                WshShell_Size_t index) {
+WshShell_Size_t WshShellHistory_GetTokenByIndex(WshShellHistoryIO_t* pHistIO, WshShell_Char_t* pOutBuff,
+                                                WshShell_Size_t outBuffSize, WshShell_Size_t index) {
     WSH_SHELL_ASSERT(pHistIO && pOutBuff && outBuffSize > 0);
     if (!pHistIO || !pOutBuff || outBuffSize == 0)
         return 0;
@@ -288,8 +277,7 @@ void WshShellHistory_Init(WshShellHistoryIO_t* pHistIO, WshShellHistory_ReadHand
     (void)(writeFn);
 }
 
-void WshShellHistory_SaveCmd(WshShellHistoryIO_t* pHistIO, const WshShell_Char_t* pcCmdStr,
-                             WshShell_Size_t cmdStrLen) {
+void WshShellHistory_SaveCmd(WshShellHistoryIO_t* pHistIO, const WshShell_Char_t* pcCmdStr, WshShell_Size_t cmdStrLen) {
     (void)(pHistIO);
     (void)(pcCmdStr);
     (void)(cmdStrLen);
@@ -319,10 +307,8 @@ WshShell_Size_t WshShellHistory_GetTokenNum(WshShellHistoryIO_t* pHistIO) {
     return 0;
 }
 
-WshShell_Size_t WshShellHistory_GetTokenByIndex(WshShellHistoryIO_t* pHistIO,
-                                                WshShell_Char_t* pOutBuff,
-                                                WshShell_Size_t outBuffSize,
-                                                WshShell_Size_t index) {
+WshShell_Size_t WshShellHistory_GetTokenByIndex(WshShellHistoryIO_t* pHistIO, WshShell_Char_t* pOutBuff,
+                                                WshShell_Size_t outBuffSize, WshShell_Size_t index) {
     (void)(pHistIO);
     (void)(pOutBuff);
     (void)(outBuffSize);
