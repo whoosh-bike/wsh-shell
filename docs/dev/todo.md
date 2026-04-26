@@ -126,3 +126,41 @@
 - [x] Update all handlers (including `WshShellCmdDef`) to check `ParseError` and return `ERR_PARAM` on unknown flags
 - [x] Document subcommand feature (`usage/subcommands.md`, index.md feature list)
 - [x] Add `usage/writing-commands.md` — standard handler template with X-macro tables, parse loop, and `ParseError` explanation
+
+### Numeric Literal Base Auto-Detect
+
+- [x] Change `WSH_SHELL_STRTOL` base from `10` to `0` in `WshShellCmd_GetOptValue` — `0x` prefix → hex, `0` prefix → octal, else decimal; no API change
+- [x] Add missing-argument guard in `WshShellCmd_ParseOpt` — if flag requires N args but fewer tokens follow, print `[WARN]` and set `ParseError` instead of crashing in `GetOptValue`
+- [x] Replace `ASSERT(false)` in `WshShellCmd_GetOptValue` bounds check with graceful `ERR_EMPTY`
+
+## v3.2
+
+### Enum Option Type
+
+- [x] Add `WshShellOptionEnum_t` struct (`Values` + `Count`) and `Enum` field to `WshShellOption_t`; always compiled in (no config gate)
+- [x] Add `WSH_SHELL_OPT_ENUM` macro; all other option macros append `WSH_SHELL_OPT_ENUM_TAIL (,NULL)` to suppress `-Wmissing-field-initializers`
+- [x] Validate enum value in `WshShellCmd_GetOptValue` — unknown value prints `[WARN]` and returns `ERR_PARAM`
+- [x] Extend autocomplete: complete partial enum value after a known ENUM flag; list all values when flag is fully typed followed by a space
+- [x] Add `WSH_SHELL_ENUM_VALUE_MAX_LEN` config knob (default `16`)
+- [x] Demo: `wsh user list --format [table|short]`
+- [x] Document enum options in `usage/writing-commands.md`
+
+### Default Command Tree Restructure
+
+- [x] Replace ad-hoc `wsh` options with a clean subcommand tree: `wsh user`, `wsh user list`, `wsh user whoami`, `wsh history`, `wsh history list`, `wsh history clear`
+- [x] Remove contrived interactive demo from `wsh` root; add `wsh tokenize` as interactive demo (gated `WSH_SHELL_INTERACTIVE_MODE`)
+- [x] Keep flat `-u / --user`, `-g / --histprint`, `-r / --histrst` fallback flags when `WSH_SHELL_SUBCOMMANDS=0` via slot macros
+
+### Ctrl+C Cancel
+
+- [x] Add `WSH_SHELL_SYM_CANCEL (0x03)` constant to `wsh_shell_io.h`; always active, no config gate
+- [x] Handle in `WshShell_SymbolHandler`: print `^C`, exit interactive mode if active (via shared `WshShell_ExitInteractive` helper), clear input buffer, reprint prompt — never deauths
+- [x] `WshShellPromptWait_Handle`: flush active wait and return `ERR_EMPTY` on Ctrl+C so the cancel handler runs normally
+- [x] Document Ctrl+C / Ctrl+D behaviour in `usage/writing-commands.md`
+
+### Hex Dump Utility
+
+- [x] Add `WshShellMisc_HexDump(pBuff, len, offset)` to `wsh_shell_misc` — `hexdump -C` style output, 16 bytes per row
+- [x] Row width configurable via `WSH_HEXDUMP_COLS` in `wsh_shell_cfg_def.h` (default `16`)
+- [x] Demo in `example/shell.c`: `dump` command dumps live PS1 buffer bytes
+- [x] Document in `usage/writing-commands.md` under "Shell Utilities"

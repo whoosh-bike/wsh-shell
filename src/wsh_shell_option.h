@@ -23,8 +23,7 @@ extern "C" {
 #define WSH_SHELL_OPT_ACCESS_WRITE   0x02
 #define WSH_SHELL_OPT_ACCESS_EXECUTE 0x04
 #define WSH_SHELL_OPT_ACCESS_ADMIN   0x08
-#define WSH_SHELL_OPT_ACCESS_ANY \
-    (WSH_SHELL_OPT_ACCESS_READ | WSH_SHELL_OPT_ACCESS_WRITE | WSH_SHELL_OPT_ACCESS_EXECUTE)
+#define WSH_SHELL_OPT_ACCESS_ANY (WSH_SHELL_OPT_ACCESS_READ | WSH_SHELL_OPT_ACCESS_WRITE | WSH_SHELL_OPT_ACCESS_EXECUTE)
 
 #if WSH_SHELL_PRINT_OPT_HELP_ENABLE
 #define WSH_SHELL_OPT_DESCR(descr) descr
@@ -32,32 +31,36 @@ extern "C" {
 #define WSH_SHELL_OPT_DESCR(descr) ""
 #endif
 
+/* Appended to every non-ENUM option to zero-initialise the Enum field,
+ * suppressing -Wmissing-field-initializers. */
+#define WSH_SHELL_OPT_ENUM_TAIL , NULL
+
 /**
  * @brief Define a special option that matches the command name only (no flags).
  * @param[in] acc Access rights mask.
  */
 #define WSH_SHELL_OPT_NO(acc, descr) \
-    WSH_SHELL_OPTION_NO, (acc), 0, "--", "---", WSH_SHELL_OPT_DESCR(descr)
+    WSH_SHELL_OPTION_NO, (acc), 0, "--", "---", WSH_SHELL_OPT_DESCR(descr) WSH_SHELL_OPT_ENUM_TAIL
 
 /**
  * @brief Define an option that triggers when input is provided with no flags.
  * @param[in] acc Access rights mask.
  */
-#define WSH_SHELL_OPT_WAITS_INPUT(acc) WSH_SHELL_OPTION_WAITS_INPUT, (acc), 0, NULL, NULL, NULL
+#define WSH_SHELL_OPT_WAITS_INPUT(acc) WSH_SHELL_OPTION_WAITS_INPUT, (acc), 0, NULL, NULL, NULL WSH_SHELL_OPT_ENUM_TAIL
 
 /**
  * @brief Define a built-in help option (e.g. `"--help"` or `"-h"`).
  */
 #define WSH_SHELL_OPT_HELP()                                            \
     WSH_SHELL_OPTION_HELP, WSH_SHELL_OPT_ACCESS_ANY, 0, "-h", "--help", \
-        WSH_SHELL_OPT_DESCR("Show command help information")
+        WSH_SHELL_OPT_DESCR("Show command help information") WSH_SHELL_OPT_ENUM_TAIL
 
 /**
  * @brief Define an option for entering interactive mode.
  */
 #define WSH_SHELL_OPT_INTERACT(acc)                             \
     WSH_SHELL_OPTION_INTERACT, (acc), 0, "-i", "--interactive", \
-        WSH_SHELL_OPT_DESCR("Run command in interactive mode")
+        WSH_SHELL_OPT_DESCR("Run command in interactive mode") WSH_SHELL_OPT_ENUM_TAIL
 
 /**
  * @brief Define an option that requires no arguments.
@@ -67,7 +70,7 @@ extern "C" {
  * @param[in] descr Help description.
  */
 #define WSH_SHELL_OPT_WO_PARAM(acc, short, long, descr) \
-    WSH_SHELL_OPTION_WO_PARAM, (acc), 0, (short), (long), WSH_SHELL_OPT_DESCR(descr)
+    WSH_SHELL_OPTION_WO_PARAM, (acc), 0, (short), (long), WSH_SHELL_OPT_DESCR(descr) WSH_SHELL_OPT_ENUM_TAIL
 
 /**
  * @brief Define an option that accepts multiple arguments.
@@ -78,7 +81,7 @@ extern "C" {
  * @param[in] descr Help description.
  */
 #define WSH_SHELL_OPT_MULTI_ARG(acc, argnum, short, long, descr) \
-    WSH_SHELL_OPTION_MULTI_ARG, (acc), (argnum), (short), (long), WSH_SHELL_OPT_DESCR(descr)
+    WSH_SHELL_OPTION_MULTI_ARG, (acc), (argnum), (short), (long), WSH_SHELL_OPT_DESCR(descr) WSH_SHELL_OPT_ENUM_TAIL
 
 /**
  * @brief Define a string argument option.
@@ -88,7 +91,7 @@ extern "C" {
  * @param[in] descr Help description.
  */
 #define WSH_SHELL_OPT_STR(acc, short, long, descr) \
-    WSH_SHELL_OPTION_STR, (acc), 1, (short), (long), WSH_SHELL_OPT_DESCR(descr)
+    WSH_SHELL_OPTION_STR, (acc), 1, (short), (long), WSH_SHELL_OPT_DESCR(descr) WSH_SHELL_OPT_ENUM_TAIL
 
 /**
  * @brief Define an integer argument option.
@@ -98,7 +101,7 @@ extern "C" {
  * @param[in] descr Help description.
  */
 #define WSH_SHELL_OPT_INT(acc, short, long, descr) \
-    WSH_SHELL_OPTION_INT, (acc), 1, (short), (long), WSH_SHELL_OPT_DESCR(descr)
+    WSH_SHELL_OPTION_INT, (acc), 1, (short), (long), WSH_SHELL_OPT_DESCR(descr) WSH_SHELL_OPT_ENUM_TAIL
 
 /**
  * @brief Define a float argument option.
@@ -108,12 +111,27 @@ extern "C" {
  * @param[in] descr Help description.
  */
 #define WSH_SHELL_OPT_FLOAT(acc, short, long, descr) \
-    WSH_SHELL_OPTION_FLOAT, (acc), 1, (short), (long), WSH_SHELL_OPT_DESCR(descr)
+    WSH_SHELL_OPTION_FLOAT, (acc), 1, (short), (long), WSH_SHELL_OPT_DESCR(descr) WSH_SHELL_OPT_ENUM_TAIL
+
+/**
+ * @brief Define an enum option that accepts one value from a fixed set.
+ *
+ * Accepts one string argument validated against the provided @p penum list.
+ * Tab completion lists matching values.
+ *
+ * @param[in] acc   Access rights mask.
+ * @param[in] short Short flag (e.g. `"-f"`).
+ * @param[in] long  Long flag (e.g. `"--format"`).
+ * @param[in] penum Pointer to a @c WshShellOptionEnum_t describing valid values.
+ * @param[in] descr Help description.
+ */
+#define WSH_SHELL_OPT_ENUM(acc, short, long, penum, descr) \
+    WSH_SHELL_OPTION_ENUM, (acc), 1, (short), (long), WSH_SHELL_OPT_DESCR(descr), (penum)
 
 /**
  * @brief Marks the end of an option array.
  */
-#define WSH_SHELL_OPT_END() WSH_SHELL_OPTION_END, WSH_SHELL_OPT_ACCESS_ANY, 0, NULL, NULL, NULL
+#define WSH_SHELL_OPT_END() WSH_SHELL_OPTION_END, WSH_SHELL_OPT_ACCESS_ANY, 0, NULL, NULL, NULL WSH_SHELL_OPT_ENUM_TAIL
 
 /**
  * @brief Internal macro: full list of option types.
@@ -128,6 +146,7 @@ extern "C" {
     X_ENTRY(WSH_SHELL_OPTION_STR, "STR")                 \
     X_ENTRY(WSH_SHELL_OPTION_INT, "INT")                 \
     X_ENTRY(WSH_SHELL_OPTION_FLOAT, "FLOAT")             \
+    X_ENTRY(WSH_SHELL_OPTION_ENUM, "ENUM")               \
     X_ENTRY(WSH_SHELL_OPTION_END, "END")
 
 /**
@@ -163,6 +182,15 @@ static inline const WshShell_Char_t* WshShell_OptTypeStr_Get(WSH_SHELL_OPTION_TY
 }
 
 /**
+ * @struct WshShellOptionEnum_t
+ * @brief Describes the closed set of string values for an ENUM option.
+ */
+typedef struct {
+    const WshShell_Char_t* const* Values; /**< NULL-free array of allowed value strings. */
+    WshShell_Size_t Count;                /**< Number of entries in Values[]. */
+} WshShellOptionEnum_t;
+
+/**
  * @struct WshShellOption_t
  * @brief Represents a shell command-line option.
  *
@@ -177,6 +205,7 @@ typedef struct {
     const WshShell_Char_t* ShortName; /**< Short flag (e.g. `"-v"`) */
     const WshShell_Char_t* LongName;  /**< Long flag (e.g. `"--verbose"`) */
     const WshShell_Char_t* Descr;     /**< Optional help description. */
+    const WshShellOptionEnum_t* Enum; /**< Allowed values — only set for ENUM type, NULL otherwise. */
 } WshShellOption_t;
 
 /**

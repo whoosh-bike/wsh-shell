@@ -35,18 +35,16 @@ struct WshShellCmd;
  *
  * @return Command execution result (success, error, etc.).
  */
-typedef WSH_SHELL_RET_STATE_t (*WshShellCmdHandler_t)(const struct WshShellCmd* pcCmd,
-                                                      WshShell_Size_t argc,
-                                                      const WshShell_Char_t* pArgv[],
-                                                      void* pShellCtx);
+typedef WSH_SHELL_RET_STATE_t (*WshShellCmdHandler_t)(const struct WshShellCmd* pcCmd, WshShell_Size_t argc,
+                                                      const WshShell_Char_t* pArgv[], void* pShellCtx);
 
 /**
  * @brief Descriptor for a shell command.
  */
 typedef struct WshShellCmd {
-    const WshShell_Char_t* Name;  /**< Command name (e.g., "set", "info"). */
-    const WshShell_Char_t* Descr; /**< Human-readable description of the command. */
-    WshShell_Size_t Groups; /**< Command group bitmask for access control or categorization. */
+    const WshShell_Char_t* Name;     /**< Command name (e.g., "set", "info"). */
+    const WshShell_Char_t* Descr;    /**< Human-readable description of the command. */
+    WshShell_Size_t Groups;          /**< Command group bitmask for access control or categorization. */
     const WshShellOption_t* Options; /**< Pointer to the command's options array. */
     WshShell_Size_t OptNum;          /**< Number of defined options. */
     WshShellCmdHandler_t Handler;    /**< Execution callback function. */
@@ -73,8 +71,8 @@ typedef struct {
  *
  * @return WSH_SHELL_RET_STATE_SUCCESS on success.
  */
-WSH_SHELL_RET_STATE_t WshShellCmd_Attach(WshShellCmd_Table_t* pShellCommands,
-                                         const WshShellCmd_t* pcCmdTable[], WshShell_Size_t cmdNum);
+WSH_SHELL_RET_STATE_t WshShellCmd_Attach(WshShellCmd_Table_t* pShellCommands, const WshShellCmd_t* pcCmdTable[],
+                                         WshShell_Size_t cmdNum);
 
 /**
  * @brief Frees or resets the command table.
@@ -100,8 +98,7 @@ WshShell_Size_t WshShellCmd_GetCmdNum(WshShellCmd_Table_t* pShellCommands);
  *
  * @return Pointer to the command descriptor or NULL if out-of-bounds.
  */
-const WshShellCmd_t* WshShellCmd_GetCmdByIndex(WshShellCmd_Table_t* pShellCommands,
-                                               WshShell_Size_t idx);
+const WshShellCmd_t* WshShellCmd_GetCmdByIndex(WshShellCmd_Table_t* pShellCommands, WshShell_Size_t idx);
 
 /**
  * @brief Finds a command by its name.
@@ -111,8 +108,7 @@ const WshShellCmd_t* WshShellCmd_GetCmdByIndex(WshShellCmd_Table_t* pShellComman
  *
  * @return Pointer to the matching command descriptor or NULL if not found.
  */
-const WshShellCmd_t* WshShellCmd_SearchCmd(WshShellCmd_Table_t* pShellCommands,
-                                           const WshShell_Char_t* pcCmdName);
+const WshShellCmd_t* WshShellCmd_SearchCmd(WshShellCmd_Table_t* pShellCommands, const WshShell_Char_t* pcCmdName);
 
 #if WSH_SHELL_SUBCOMMANDS
 /**
@@ -139,9 +135,20 @@ const WshShellCmd_t* WshShellCmd_GetSubCmdByIndex(const WshShellCmd_t* pcCmd, Ws
  * @param[in] pcSubName Subcommand name to look up.
  * @return Pointer to the matching subcommand or NULL if not found.
  */
-const WshShellCmd_t* WshShellCmd_SearchSubCmd(const WshShellCmd_t* pcCmd,
-                                              const WshShell_Char_t* pcSubName);
+const WshShellCmd_t* WshShellCmd_SearchSubCmd(const WshShellCmd_t* pcCmd, const WshShell_Char_t* pcSubName);
 #endif /* WSH_SHELL_SUBCOMMANDS */
+
+/**
+ * @brief Finds an option in a command's table by short or long name.
+ *
+ * Searches the command's option array for an entry whose ShortName or LongName
+ * matches @p pcName exactly. Used internally by autocomplete for ENUM value completion.
+ *
+ * @param[in] pcCmd  Command descriptor.
+ * @param[in] pcName Flag string to search for (e.g. `"-f"` or `"--format"`).
+ * @return Pointer to the matching option, or NULL if not found.
+ */
+const WshShellOption_t* WshShellCmd_FindOptByName(const WshShellCmd_t* pcCmd, const WshShell_Char_t* pcName);
 
 /**
  * @brief Parses a command-line option for a given shell command.
@@ -194,8 +201,7 @@ WshShellOption_Ctx_t WshShellCmd_ParseOpt(const WshShellCmd_t* pcCmd, WshShell_S
  * @return WSH_SHELL_RET_STATE_ERR_OVERFLOW if argument list is too short.
  */
 WSH_SHELL_RET_STATE_t WshShellCmd_GetOptValue(WshShellOption_Ctx_t* pOptCtx, WshShell_Size_t argc,
-                                              const WshShell_Char_t* pArgv[],
-                                              WshShell_Size_t valueSize, void* pValue);
+                                              const WshShell_Char_t* pArgv[], WshShell_Size_t valueSize, void* pValue);
 
 /**
  * @brief Prints detailed information about a shell command and its options.

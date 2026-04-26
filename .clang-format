@@ -22,5 +22,5 @@ AlignConsecutiveMacros: AcrossComments
 AlignEscapedNewlines: Left
 # IndentPPDirectives: BeforeHash
 BreakBeforeBraces: Attach
-ColumnLimit: 100
+ColumnLimit: 120
 ...

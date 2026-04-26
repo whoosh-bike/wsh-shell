@@ -1,4 +1,4 @@
-# wsh_shell_adapter
+# Python Adapter
 
 Python adapter for working with `wsh-shell` over:
 

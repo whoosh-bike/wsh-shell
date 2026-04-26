@@ -144,14 +144,75 @@ If you intentionally want lenient behavior — for example, a parent command tha
 | `WSH_SHELL_OPT_HELP` | `WSH_SHELL_OPTION_HELP` | 0 | `-h / --help` |
 | `WSH_SHELL_OPT_INTERACT` | `WSH_SHELL_OPTION_INTERACT` | 0 | `-i / --interactive` |
 | `WSH_SHELL_OPT_WO_PARAM` | `WSH_SHELL_OPTION_WO_PARAM` | 0 | flag without value (`--verbose`) |
-| `WSH_SHELL_OPT_STR` | `WSH_SHELL_OPTION_STR` | 1 | flag with string value (`--name foo`) |
-| `WSH_SHELL_OPT_INT` | `WSH_SHELL_OPTION_INT` | 1 | flag with integer value (`--count 5`) |
+| `WSH_SHELL_OPT_STR` | `WSH_SHELL_OPTION_STR` | 1 | flag with any string value (`--name foo`) |
+| `WSH_SHELL_OPT_INT` | `WSH_SHELL_OPTION_INT` | 1 | flag with integer value — decimal, `0x` hex, or `0` octal (`--count 5`, `--mask 0xFF`) |
 | `WSH_SHELL_OPT_FLOAT` | `WSH_SHELL_OPTION_FLOAT` | 1 | flag with float value (`--rate 1.5`) |
+| `WSH_SHELL_OPT_ENUM` | `WSH_SHELL_OPTION_ENUM` | 1 | flag with a closed set of string values — validated and Tab-completed (`--format table`) |
 | `WSH_SHELL_OPT_MULTI_ARG` | `WSH_SHELL_OPTION_MULTI_ARG` | N | flag consuming N tokens |
 | `WSH_SHELL_OPT_WAITS_INPUT` | `WSH_SHELL_OPTION_WAITS_INPUT` | 0 | handler waits for subsequent input |
 | `WSH_SHELL_OPT_END` | `WSH_SHELL_OPTION_END` | — | terminator (required, always last) |
 
-For single-argument options (`STR`, `INT`, `FLOAT`), the argument token is at `pArgv[optCtx.TokenPos]` after `ParseOpt` returns and has already incremented past it.
+For single-argument options (`STR`, `INT`, `FLOAT`, `ENUM`), use `WshShellCmd_GetOptValue` to extract the value — it handles bounds checking and, for `ENUM`, validates the string against the allowed set before copying.
+
+---
+
+## Enum Options
+
+`WSH_SHELL_OPT_ENUM` accepts exactly one string argument validated against a fixed list defined at compile time. If the value is not in the list, `WshShellCmd_GetOptValue` prints a `[WARN]` and returns `ERR_PARAM`. Tab completion shows matching values automatically.
+
+### Defining the allowed set
+
+```c
+static const WshShell_Char_t* const MyFmtVals[] = {"table", "short", "json"};
+static const WshShellOptionEnum_t   MyFmt        = {
+    MyFmtVals, WSH_SHELL_ARR_LEN(MyFmtVals)};
+```
+
+`WshShellOptionEnum_t` fields:
+
+| Field | Type | Description |
+|---|---|---|
+| `Values` | `const WshShell_Char_t* const*` | NULL-terminated-free array of allowed strings |
+| `Count` | `WshShell_Size_t` | Number of entries in `Values` |
+
+Each string must be shorter than `WSH_SHELL_ENUM_VALUE_MAX_LEN` (default `16`).
+
+### Declaring in the option table
+
+Pass a pointer to the enum descriptor as the fourth argument:
+
+```c
+#define MY_CMD_OPT_TABLE() \
+    /* ... */ \
+    X_CMD_ENTRY(MY_CMD_OPT_FORMAT, WSH_SHELL_OPT_ENUM(WSH_SHELL_OPT_ACCESS_READ, \
+                    "-f", "--format", &MyFmt, "Output format")) \
+    X_CMD_ENTRY(MY_CMD_OPT_END_ID, WSH_SHELL_OPT_END())
+```
+
+### Reading the value in the handler
+
+Use `WshShellCmd_GetOptValue` — it validates the value against the list before copying:
+
+```c
+case MY_CMD_OPT_FORMAT: {
+    WshShell_Char_t fmt[WSH_SHELL_ENUM_VALUE_MAX_LEN] = {0};
+    if (WshShellCmd_GetOptValue(&optCtx, argc, pArgv, sizeof(fmt), fmt) ==
+        WSH_SHELL_RET_STATE_SUCCESS) {
+        if (WSH_SHELL_STRCMP(fmt, "short") == 0)
+            shortForm = true;
+    }
+} break;
+```
+
+If the value is invalid, `GetOptValue` already printed a warning and returned `ERR_PARAM` — you can propagate it or ignore it depending on the use case.
+
+### Tab completion behaviour
+
+| What the user typed | Tab result |
+|---|---|
+| `mycmd --format <Tab>` | lists all values: `[table] [short] [json]` |
+| `mycmd --format ta<Tab>` | completes to `mycmd --format table ` |
+| `mycmd --form<Tab>` | completes the flag to `mycmd --format ` |
 
 ---
 
@@ -179,3 +240,75 @@ static const WshShellCmd_t MyCmdDef = {
 ```
 
 See [Subcommands](subcommands.md) for the full dispatch and autocomplete details.
+
+---
+
+## Interactive Mode
+
+A command can enter **interactive mode**: instead of running once and returning, the shell routes every subsequent line of input to a callback until the user exits with **Ctrl+D** or **Ctrl+C**.
+
+### Attaching a callback
+
+Call `WshShellInteract_Attach` from inside the command handler:
+
+```c
+static void MyCmd_LineCallback(WshShellIO_CommandLine_t* pLine) {
+    WshShellInteract_AppendLineBreak(pLine);   /* append \r\n so Buff is null-terminated */
+    WSH_SHELL_PRINT("got: %s", pLine->Buff);
+}
+
+static WSH_SHELL_RET_STATE_t MyCmd_Handler(const WshShellCmd_t* pcCmd,
+                                           WshShell_Size_t argc,
+                                           const WshShell_Char_t* pArgv[],
+                                           void* pShellCtx) {
+    WshShell_t* pShell = (WshShell_t*)pShellCtx;
+    WshShellInteract_Attach(&pShell->Interact, pcCmd->Name, MyCmd_LineCallback);
+    return WSH_SHELL_RET_STATE_SUCCESS;
+}
+```
+
+The PS1 prompt changes to show the interactive command name. The callback receives the raw input buffer (`pLine->Buff`) on every Enter press; `pLine->Len` holds the current character count before the line break is appended.
+
+### Exiting interactive mode
+
+| Key | Effect |
+|-----|--------|
+| **Ctrl+D** | Clean exit — interactive session ends, normal prompt returns |
+| **Ctrl+C** | Cancel — same as Ctrl+D but prints `^C`; also cancels any pending `PromptWait` |
+
+Both keys are handled by the shell core; your callback does not need to check for them.
+
+### Limitations
+
+- Only one interactive command can be active at a time.
+- Escape sequences (arrow keys, history navigation) are **not** available inside interactive mode.
+- Double-quoted strings in the interactive buffer are not re-tokenised — the raw line is delivered as-is.
+
+---
+
+## Shell Utilities
+
+### `WshShellMisc_HexDump`
+
+Prints a buffer in `hexdump -C` style — byte offset, hex bytes in two groups of 8, and printable ASCII on the right (`.` for non-printable bytes).
+
+```c
+#include "wsh_shell_misc.h"
+
+WshShellMisc_HexDump(pBuff, len, offset);
+```
+
+| Parameter | Description |
+|-----------|-------------|
+| `pBuff`   | Pointer to the data buffer |
+| `len`     | Number of bytes to dump |
+| `offset`  | Value printed in the offset column (use `0` for relative, or a real address) |
+
+Row width is controlled by `WSH_HEXDUMP_COLS` in `wsh_shell_cfg_def.h` (default `16`).
+
+Example output:
+
+```
+00000000  1b 5b 33 35 6d 72 6f 6f  74 40 4d 61 63 20 3e 20  |.[35mroot@Mac > |
+00000010  1b 5b 30 6d                                        |.[0m            |
+```

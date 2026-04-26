@@ -30,6 +30,7 @@ extern "C" {
 #define WSH_SHELL_SYM_BACKSPACE '\b' /**< Backspace character */
 #define WSH_SHELL_SYM_DELETE    0x7f /**< Delete (DEL) character */
 #define WSH_SHELL_SYM_TAB       '\t' /**< Tab character */
+#define WSH_SHELL_SYM_CANCEL    0x03 /**< Ctrl + C (cancel / interrupt) */
 #define WSH_SHELL_SYM_EXIT      0x04 /**< Ctrl + D (EOF signal) */
 #define WSH_SHELL_SYM_SOUND     0x07 /**< Bell character (alert) */
 ///@}
@@ -64,8 +65,7 @@ extern "C" {
 /** @name Style reset and screen clearing */
 ///@{
 #define WSH_SHELL_ESC_RESET_STYLE WSH_SHELL_ESC_SEQ_START_STR "[0m"
-#define WSH_SHELL_ECS_CLR_SCREEN \
-    WSH_SHELL_ESC_SEQ_START_STR "[1;1H" WSH_SHELL_ESC_SEQ_START_STR "[2J"
+#define WSH_SHELL_ECS_CLR_SCREEN  WSH_SHELL_ESC_SEQ_START_STR "[1;1H" WSH_SHELL_ESC_SEQ_START_STR "[2J"
 ///@}
 
 /** @name Font styles */
@@ -99,8 +99,7 @@ extern "C" {
 /** @name Print macros (log levels) */
 ///@{
 #if WSH_SHELL_PRINT_SYS_ENABLE
-#define WSH_SHELL_PRINT_SYS(_f_, ...) \
-    WSH_SHELL_PRINT(WSH_SHELL_COLOR_SYS _f_ WSH_SHELL_ESC_RESET_STYLE, ##__VA_ARGS__)
+#define WSH_SHELL_PRINT_SYS(_f_, ...) WSH_SHELL_PRINT(WSH_SHELL_COLOR_SYS _f_ WSH_SHELL_ESC_RESET_STYLE, ##__VA_ARGS__)
 #else
 #define WSH_SHELL_PRINT_SYS(_f_, ...)
 #endif
@@ -266,8 +265,7 @@ void WshShellIO_RemoveLeftSymbol(WshShellIO_CommandLine_t* pCommandLine);
  * @param ch        The symbol to insert.
  * @param starsOrChars If true, prints `*` instead of the actual character.
  */
-void WshShellIO_InsertSymbol(WshShellIO_CommandLine_t* pCommandLine, WshShell_Char_t ch,
-                             WshShell_Bool_t starsOrChars);
+void WshShellIO_InsertSymbol(WshShellIO_CommandLine_t* pCommandLine, WshShell_Char_t ch, WshShell_Bool_t starsOrChars);
 
 #ifdef __cplusplus
 }

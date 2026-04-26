@@ -23,8 +23,8 @@ WshShell_Char_t* WshShellStr_TrimString(WshShell_Char_t* pString, WshShell_Size_
     return pStrBegin;
 }
 
-void WshShellStr_ParseToArgcArgv(WshShell_Char_t* pStr, WshShell_Size_t* pArgNum,
-                                 const WshShell_Char_t* pArgBuff[], WshShell_Size_t maxArgNum) {
+void WshShellStr_ParseToArgcArgv(WshShell_Char_t* pStr, WshShell_Size_t* pArgNum, const WshShell_Char_t* pArgBuff[],
+                                 WshShell_Size_t maxArgNum) {
     WSH_SHELL_ASSERT(pStr && pArgNum && pArgBuff && maxArgNum > 0);
     if (!pStr || !pArgNum || !pArgBuff || maxArgNum == 0)
         return;
@@ -94,8 +94,7 @@ void WshShellStr_AccessBitsToStr(WshShell_Size_t access, WshShell_Char_t* pOutSt
     pOutStr[4] = '\0';
 }
 
-void WshShellStr_GroupBitsToStr(WshShell_Size_t group, WshShell_Size_t groupMaxNum,
-                                WshShell_Char_t* pOutStr) {
+void WshShellStr_GroupBitsToStr(WshShell_Size_t group, WshShell_Size_t groupMaxNum, WshShell_Char_t* pOutStr) {
     WSH_SHELL_ASSERT(pOutStr);
     if (!pOutStr)
         return;
