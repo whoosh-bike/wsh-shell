@@ -1,4 +1,4 @@
-# Initial requirements
+# Initial Requirements
 
 The **Wsh-Shell** module must satisfy two main categories of requirements:  
 **User Requirements** (focused on usability) and **Development Requirements** (focused on integration and maintainability).

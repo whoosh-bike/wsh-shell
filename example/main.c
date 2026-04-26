@@ -25,9 +25,8 @@ void SetRawTermios(void) {
     atexit(ResetTermios);
 
     struct termios raw = orig_termios;
-    raw.c_lflag &= ~(ICANON | ECHO);  // disable canonical mode and echo
-    raw.c_lflag |= ISIG;              // keep handling Ctrl+C
-    raw.c_iflag &= ~(IXON | ICRNL);   // disable Ctrl-S/Q and carriage return to newline
+    raw.c_lflag &= ~(ICANON | ECHO | ISIG);  // disable canonical mode, echo, and signal generation
+    raw.c_iflag &= ~(IXON | ICRNL);          // disable Ctrl-S/Q and carriage return to newline
     raw.c_cc[VMIN]  = 1;
     raw.c_cc[VTIME] = 0;
 

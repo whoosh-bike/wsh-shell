@@ -28,24 +28,24 @@
 
 ## Sources Structure & Repository Layout
 
-| Module / File                     | Purpose |
-|-----------------------------------|---------|
-| **wsh_shell_autocomplete.h / .c** | Tab-completion logic for commands and options |
-| **wsh_shell_cfg_def.h**           | Default and user-specific configuration macros |
-| **wsh_shell_cmd_def.h / .c**      | Default/internal shell commands |
-| **wsh_shell_cmd.h / .c**          | Command registration, parsing, and execution |
-| **wsh_shell_esc.h / .c**          | Terminal escape sequence handling |
-| **wsh_shell_history.h / .c**      | Circular buffer for command history, search, and recall |
-| **wsh_shell_interact.h / .c**     | Interactive command mode handling (e.g., `wireless -i`) |
-| **wsh_shell_io.h / .c**           | Input/output abstraction |
-| **wsh_shell_misc.h / .c**         | Various helper functions that do not belong to specific subsystems |
-| **wsh_shell_option.h**            | Command-line option parsing helpers and context structures |
-| **wsh_shell_promptwait.h / .c**   | Wait for specific keys (Enter, Yes/No) during command input |
-| **wsh_shell_ps1_custom.h / .c**   | Custom shell prompt (`PS1`) generation and formatting |
-| **wsh_shell_str.h / .c**          | String utilities, line editing, cursor movement, interactive editing |
-| **wsh_shell_types.h**             | Core typedefs, enums, boolean and status codes |
-| **wsh_shell_user.h / .c**         | Multi-user access control, authentication, and permissions |
-| **wsh_shell_version.h**           | Version string, build metadata, and project identification |
+| Module / File                     | Purpose                                                                           |
+| --------------------------------- | --------------------------------------------------------------------------------- |
+| **wsh_shell_autocomplete.h / .c** | Tab-completion logic for commands and options                                     |
+| **wsh_shell_cfg_def.h**           | Default and user-specific configuration macros                                    |
+| **wsh_shell_cmd_def.h / .c**      | Default/internal shell commands                                                   |
+| **wsh_shell_cmd.h / .c**          | Command registration, parsing, and execution                                      |
+| **wsh_shell_esc.h / .c**          | Terminal escape sequence handling                                                 |
+| **wsh_shell_history.h / .c**      | Circular buffer for command history, search, and recall                           |
+| **wsh_shell_interact.h / .c**     | Interactive command mode handling (e.g., `wireless -i`)                           |
+| **wsh_shell_io.h / .c**           | Input/output abstraction                                                          |
+| **wsh_shell_misc.h / .c**         | Various helper functions that do not belong to specific subsystems                |
+| **wsh_shell_option.h**            | Command-line option parsing helpers and context structures                        |
+| **wsh_shell_promptwait.h / .c**   | Wait for specific keys (Enter, Yes/No) during command input                       |
+| **wsh_shell_ps1_custom.h / .c**   | Custom shell prompt (`PS1`) generation and formatting                             |
+| **wsh_shell_str.h / .c**          | String utilities, line editing, cursor movement, interactive editing              |
+| **wsh_shell_types.h**             | Core typedefs, enums, boolean and status codes                                    |
+| **wsh_shell_user.h / .c**         | Multi-user access control, authentication, and permissions                        |
+| **wsh_shell_version.h**           | Version string, build metadata, and project identification                        |
 | **wsh_shell.h / wsh_shell.c**     | Main shell engine: state machine, event loop, command dispatching, authentication |
 
 ```shell

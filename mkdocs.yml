@@ -82,8 +82,8 @@ nav:
       - Examples Bare-Metal: usage/bare-metal.md
       - Examples RTOS: usage/rtos.md
       - Writing Commands: usage/writing-commands.md
-      - Permission Rules: usage/permission-rules.md
       - Subcommands: usage/subcommands.md
+      - Permission Rules: usage/permission-rules.md
   - API:
       - General: 
         - Wsh_Shell_API/files.md
