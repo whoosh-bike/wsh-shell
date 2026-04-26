@@ -78,7 +78,6 @@
   <compound refid="structWshShellOption__Ctx__t" kind="struct"><name>WshShellOption_Ctx_t</name>
     <member refid="structWshShellOption__Ctx__t_1a02b2820aaf7495f27380f557c486b27b" kind="variable"><name>Option</name></member>
     <member refid="structWshShellOption__Ctx__t_1a041c4f4ea7959c95f8b705964d75bd79" kind="variable"><name>TokenPos</name></member>
-    <member refid="structWshShellOption__Ctx__t_1a0c86bdf27a1b06fa03846083398579db" kind="variable"><name>ParseError</name></member>
   </compound>
   <compound refid="structWshShellOption__t" kind="struct"><name>WshShellOption_t</name>
     <member refid="structWshShellOption__t_1a939aa63e34d9783de578999887073710" kind="variable"><name>ID</name></member>
@@ -158,8 +157,6 @@
     <member refid="wsh__shell__cfg__def_8h_1a01654c8758d856de9ad5a6c90218c5e8" kind="define"><name>WSH_SHELL_PS1_MAX_LEN</name></member>
     <member refid="wsh__shell__cfg__def_8h_1a7af31e564fe835d55aa74b7bc684eae0" kind="define"><name>WSH_SHELL_PROMPT_WAIT</name></member>
     <member refid="wsh__shell__cfg__def_8h_1a195ecfaaa46050c35ea3ab9eb9628da3" kind="define"><name>WSH_SHELL_DEF_COMMAND</name></member>
-    <member refid="wsh__shell__cfg__def_8h_1a719c7faefbd3f11c647d51e649d041ed" kind="define"><name>WSH_SHELL_SUBCOMMANDS</name></member>
-    <member refid="wsh__shell__cfg__def_8h_1a291aaf8a0c5e2e16ed5294e950584c71" kind="define"><name>WSH_SHELL_SUBCOMMANDS_MAX_DEPTH</name></member>
     <member refid="wsh__shell__cfg__def_8h_1acac175a02863a35c570a3f9b3d8dbb1b" kind="define"><name>WSH_SHELL_PRINT_OPT_HELP_ENABLE</name></member>
     <member refid="wsh__shell__cfg__def_8h_1aa273f75ae3ac2350aaa0f0a89d482516" kind="define"><name>WSH_SHELL_CMD_PRINT_OPT_OVERVIEW</name></member>
     <member refid="wsh__shell__cfg__def_8h_1a48304861ef6f41365408856d8c192b7e" kind="define"><name>WSH_SHELL_CMD_GROUP_LIST</name></member>
@@ -198,8 +195,6 @@
     <member refid="wsh__shell__cfg__def_8h_1a068cf4cbf2fe62a594ea8500e974547f" kind="function"><name>WshShellRetState_TranslateToProject</name></member>
   </compound>
   <compound refid="wsh__shell__cmd_8c" kind="file"><name>wsh_shell_cmd.c</name>
-    <member refid="wsh__shell__cmd_8c_1a9d1ac10b8dc54a05d1a5cb31a1adbaf4" kind="function"><name>WshShellCmd_ValidateCmd</name></member>
-    <member refid="wsh__shell__cmd_8c_1ab005d74ccd7b2baa3c722af14b501752" kind="function"><name>WshShellCmd_ValidateOptions</name></member>
     <member refid="wsh__shell__cmd_8c_1a6f6410dfe6a397a64f3997ff37480a8a" kind="function"><name>WshShellCmd_Attach</name></member>
     <member refid="wsh__shell__cmd_8c_1ad05536acc78523bf2a7e4a5b55e54ee2" kind="function"><name>WshShellCmd_DeAttach</name></member>
     <member refid="wsh__shell__cmd_8c_1ae7f6b971812b4c5d59fda77e5db8516b" kind="function"><name>WshShellCmd_GetCmdNum</name></member>

@@ -731,34 +731,6 @@
   
 </li>
       
-        <li class="md-nav__item">
-  <a href="#v31-command-model-ux-extensions" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        v3.1 (Command Model &amp; UX Extensions)
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="v3.1 (Command Model &amp; UX Extensions)">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#subcommand-trees" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Subcommand Trees
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
     </ul>
   
 </nav>
@@ -783,10 +755,6 @@
   
     
     
-      
-        
-      
-        
       
         
       
@@ -930,34 +898,6 @@
   
   
     <li class="md-nav__item">
-      <a href="../../usage/writing-commands/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Writing Commands
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
       <a href="../../usage/permission-rules/" class="md-nav__link">
         
   
@@ -966,34 +906,6 @@
     
   
     Permission Rules
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../usage/subcommands/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Subcommands
   
 
     
@@ -2902,34 +2814,6 @@
   
 </li>
       
-        <li class="md-nav__item">
-  <a href="#v31-command-model-ux-extensions" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        v3.1 (Command Model &amp; UX Extensions)
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="v3.1 (Command Model &amp; UX Extensions)">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#subcommand-trees" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Subcommand Trees
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
     </ul>
   
 </nav>
@@ -3119,23 +3003,6 @@
 <li class="task-list-item"><input type="checkbox" disabled checked/> Add integration tests for running against <code>example/build/example</code> via PTY and for non-zero exit on failed <code>WSH_SHELL_ASSERT</code></li>
 <li class="task-list-item"><input type="checkbox" disabled checked/> Add adapter and test documentation</li>
 <li class="task-list-item"><input type="checkbox" disabled checked/> Automate adapter test runs in GitLab CI</li>
-</ul>
-<h2 id="v31-command-model-ux-extensions">v3.1 (Command Model &amp; UX Extensions)</h2>
-<h3 id="subcommand-trees">Subcommand Trees</h3>
-<ul class="task-list">
-<li class="task-list-item"><input type="checkbox" disabled checked/> Add <code>WSH_SHELL_SUBCOMMANDS</code> / <code>WSH_SHELL_SUBCOMMANDS_MAX_DEPTH</code> config flags (default-on, overridable)</li>
-<li class="task-list-item"><input type="checkbox" disabled checked/> Extend <code>WshShellCmd_t</code> with <code>SubCmds</code> / <code>SubCmdNum</code> (compiled out when feature disabled)</li>
-<li class="task-list-item"><input type="checkbox" disabled checked/> Add <code>WshShellCmd_GetSubCmdNum</code>, <code>WshShellCmd_GetSubCmdByIndex</code>, <code>WshShellCmd_SearchSubCmd</code> helpers</li>
-<li class="task-list-item"><input type="checkbox" disabled checked/> Descend subcommand tree in <code>WshShell_StringHandler</code> with argv shifting, depth guard, and per-level access check</li>
-<li class="task-list-item"><input type="checkbox" disabled checked/> Recursively validate subcommand tables on <code>WshShellCmd_Attach</code> (duplicate names, NULL entries, nested options)</li>
-<li class="task-list-item"><input type="checkbox" disabled checked/> Extend <code>WshShellCmd_PrintOptionsOverview</code> to list subcommands; suppress empty "Options overview" section</li>
-<li class="task-list-item"><input type="checkbox" disabled checked/> Extend autocomplete to walk the subcommand tree and complete partial subcommand names</li>
-<li class="task-list-item"><input type="checkbox" disabled checked/> Add meaningful demo: <code>wsh user list</code> / <code>wsh user whoami</code> driven by the existing user table, with flags at every hierarchy level</li>
-<li class="task-list-item"><input type="checkbox" disabled checked/> Keep flat <code>-u / --user</code> when <code>WSH_SHELL_SUBCOMMANDS=0</code> via slot macro; remove it when subcommands are on</li>
-<li class="task-list-item"><input type="checkbox" disabled checked/> Add <code>ParseError</code> field to <code>WshShellOption_Ctx_t</code>; set it in <code>WshShellCmd_ParseOpt</code> on unknown token so handlers can distinguish end-of-options from bad flag without restructuring the loop</li>
-<li class="task-list-item"><input type="checkbox" disabled checked/> Update all handlers (including <code>WshShellCmdDef</code>) to check <code>ParseError</code> and return <code>ERR_PARAM</code> on unknown flags</li>
-<li class="task-list-item"><input type="checkbox" disabled checked/> Document subcommand feature (<code>usage/subcommands.md</code>, index.md feature list)</li>
-<li class="task-list-item"><input type="checkbox" disabled checked/> Add <code>usage/writing-commands.md</code> — standard handler template with X-macro tables, parse loop, and <code>ParseError</code> explanation</li>
 </ul>
 
 

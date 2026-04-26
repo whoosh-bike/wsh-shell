@@ -237,7 +237,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/wsh_shell_option.h" line="32" column="10" bodyfile="src/wsh_shell_option.h" bodystart="32" bodyend="-1"/>
+        <location file="src/wsh_shell_option.h" line="32" column="14" bodyfile="src/wsh_shell_option.h" bodystart="32" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="wsh__shell__option_8h_1aa175a98ec6b5be206c57a1b43735d140" prot="public" static="no">
         <name>WSH_SHELL_OPT_NO</name>
@@ -741,9 +741,9 @@
 <codeline lineno="27"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>(WSH_SHELL_OPT_ACCESS_READ<sp/>|<sp/>WSH_SHELL_OPT_ACCESS_WRITE<sp/>|<sp/>WSH_SHELL_OPT_ACCESS_EXECUTE)</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="28"><highlight class="normal"></highlight></codeline>
 <codeline lineno="29"><highlight class="normal"></highlight><highlight class="preprocessor">#if<sp/>WSH_SHELL_PRINT_OPT_HELP_ENABLE</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="30"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>WSH_SHELL_OPT_DESCR(descr)<sp/>descr</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="30"><highlight class="normal"></highlight><highlight class="preprocessor"><sp/><sp/><sp/><sp/>#define<sp/>WSH_SHELL_OPT_DESCR(descr)<sp/>descr</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="31"><highlight class="normal"></highlight><highlight class="preprocessor">#else</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="32"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>WSH_SHELL_OPT_DESCR(descr)<sp/>&quot;&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="32"><highlight class="normal"></highlight><highlight class="preprocessor"><sp/><sp/><sp/><sp/>#define<sp/>WSH_SHELL_OPT_DESCR(descr)<sp/>&quot;&quot;</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="33"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="34"><highlight class="normal"></highlight></codeline>
 <codeline lineno="39" refid="wsh__shell__option_8h_1aa175a98ec6b5be206c57a1b43735d140" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>WSH_SHELL_OPT_NO(acc,<sp/>descr)<sp/>\</highlight></codeline>
@@ -820,14 +820,13 @@
 <codeline lineno="188" refid="structWshShellOption__Ctx__t" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal">{</highlight></codeline>
 <codeline lineno="189" refid="structWshShellOption__Ctx__t_1a02b2820aaf7495f27380f557c486b27b" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="structWshShellOption__t" kindref="compound">WshShellOption_t</ref>*<sp/><ref refid="structWshShellOption__Ctx__t_1a02b2820aaf7495f27380f557c486b27b" kindref="member">Option</ref>;<sp/></highlight></codeline>
 <codeline lineno="190" refid="structWshShellOption__Ctx__t_1a041c4f4ea7959c95f8b705964d75bd79" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>WshShell_Size_t<sp/><ref refid="structWshShellOption__Ctx__t_1a041c4f4ea7959c95f8b705964d75bd79" kindref="member">TokenPos</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
-<codeline lineno="191" refid="structWshShellOption__Ctx__t_1a0c86bdf27a1b06fa03846083398579db" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>WshShell_Bool_t<sp/><ref refid="structWshShellOption__Ctx__t_1a0c86bdf27a1b06fa03846083398579db" kindref="member">ParseError</ref>;<sp/><sp/><sp/><sp/><sp/></highlight></codeline>
-<codeline lineno="192"><highlight class="normal">}<sp/><ref refid="structWshShellOption__Ctx__t" kindref="compound">WshShellOption_Ctx_t</ref>;</highlight></codeline>
-<codeline lineno="193"><highlight class="normal"></highlight></codeline>
-<codeline lineno="194"><highlight class="normal"></highlight><highlight class="preprocessor">#ifdef<sp/>__cplusplus</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="195"><highlight class="normal">}</highlight></codeline>
-<codeline lineno="196"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="197"><highlight class="normal"></highlight></codeline>
-<codeline lineno="198"><highlight class="normal"></highlight><highlight class="preprocessor">#endif<sp/></highlight><highlight class="comment">/*<sp/>__WSH_SHELL_OPTIONS_H<sp/>*/</highlight><highlight class="preprocessor"></highlight></codeline>
+<codeline lineno="191"><highlight class="normal">}<sp/><ref refid="structWshShellOption__Ctx__t" kindref="compound">WshShellOption_Ctx_t</ref>;</highlight></codeline>
+<codeline lineno="192"><highlight class="normal"></highlight></codeline>
+<codeline lineno="193"><highlight class="normal"></highlight><highlight class="preprocessor">#ifdef<sp/>__cplusplus</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="194"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="195"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="196"><highlight class="normal"></highlight></codeline>
+<codeline lineno="197"><highlight class="normal"></highlight><highlight class="preprocessor">#endif<sp/></highlight><highlight class="comment">/*<sp/>__WSH_SHELL_OPTIONS_H<sp/>*/</highlight><highlight class="preprocessor"></highlight></codeline>
     </programlisting>
     <location file="src/wsh_shell_option.h"/>
   </compounddef>

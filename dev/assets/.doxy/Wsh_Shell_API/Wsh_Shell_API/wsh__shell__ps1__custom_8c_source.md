@@ -12,7 +12,7 @@
 
 #if WSH_SHELL_PS1_CUSTOM
 
-#define WSH_PS1_SPACE_LEFT(out, base) ((out) - (base) < (WSH_SHELL_PS1_MAX_LEN - 1))
+    #define WSH_PS1_SPACE_LEFT(out, base) ((out) - (base) < (WSH_SHELL_PS1_MAX_LEN - 1))
 
 static const WshShell_Char_t* WshShellStr_ColorMap[] = {
     WSH_SHELL_COLOR_BLACK,   // %c0

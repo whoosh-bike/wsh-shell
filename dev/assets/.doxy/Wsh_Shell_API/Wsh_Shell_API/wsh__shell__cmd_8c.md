@@ -67,8 +67,6 @@
 | Type | Name |
 | ---: | :--- |
 |  const [**WshShellOption\_t**](structWshShellOption__t.md) \* | [**WshShellCmd\_FindOpt**](#function-wshshellcmd_findopt) (const [**WshShellCmd\_t**](wsh__shell__cmd_8h.md#typedef-wshshellcmd_t) \* pcCmd, const WshShell\_Char\_t \* pcStr, WshShell\_Size\_t strLen) <br> |
-|  WSH\_SHELL\_RET\_STATE\_t | [**WshShellCmd\_ValidateCmd**](#function-wshshellcmd_validatecmd) (const [**WshShellCmd\_t**](wsh__shell__cmd_8h.md#typedef-wshshellcmd_t) \* pcCmd) <br> |
-|  WSH\_SHELL\_RET\_STATE\_t | [**WshShellCmd\_ValidateOptions**](#function-wshshellcmd_validateoptions) (const [**WshShellCmd\_t**](wsh__shell__cmd_8h.md#typedef-wshshellcmd_t) \* pcCmd) <br> |
 
 
 
@@ -445,36 +443,6 @@ static const WshShellOption_t * WshShellCmd_FindOpt (
     const WshShellCmd_t * pcCmd,
     const WshShell_Char_t * pcStr,
     WshShell_Size_t strLen
-) 
-```
-
-
-
-
-<hr>
-
-
-
-### function WshShellCmd\_ValidateCmd 
-
-```C++
-static WSH_SHELL_RET_STATE_t WshShellCmd_ValidateCmd (
-    const WshShellCmd_t * pcCmd
-) 
-```
-
-
-
-
-<hr>
-
-
-
-### function WshShellCmd\_ValidateOptions 
-
-```C++
-static WSH_SHELL_RET_STATE_t WshShellCmd_ValidateOptions (
-    const WshShellCmd_t * pcCmd
 ) 
 ```
 

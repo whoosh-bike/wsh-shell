@@ -37,7 +37,6 @@ _Option usage context during parsing._ [More...](#detailed-description)
 | Type | Name |
 | ---: | :--- |
 |  const [**WshShellOption\_t**](structWshShellOption__t.md) \* | [**Option**](#variable-option)  <br> |
-|  WshShell\_Bool\_t | [**ParseError**](#variable-parseerror)  <br> |
 |  WshShell\_Size\_t | [**TokenPos**](#variable-tokenpos)  <br> |
 
 
@@ -104,23 +103,6 @@ const WshShellOption_t* WshShellOption_Ctx_t::Option;
 
 
 Pointer to matched option. 
-
-
-        
-
-<hr>
-
-
-
-### variable ParseError 
-
-```C++
-WshShell_Bool_t WshShellOption_Ctx_t::ParseError;
-```
-
-
-
-True when an unknown option token was encountered. 
 
 
         

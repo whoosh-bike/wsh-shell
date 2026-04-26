@@ -27,8 +27,6 @@
 * **WshShellCmd\_ParseOpt** ([**wsh\_shell\_cmd.c**](wsh__shell__cmd_8c.md), [**wsh\_shell\_cmd.h**](wsh__shell__cmd_8h.md))
 * **WshShellCmd\_PrintOptionsOverview** ([**wsh\_shell\_cmd.c**](wsh__shell__cmd_8c.md), [**wsh\_shell\_cmd.h**](wsh__shell__cmd_8h.md))
 * **WshShellCmd\_SearchCmd** ([**wsh\_shell\_cmd.c**](wsh__shell__cmd_8c.md), [**wsh\_shell\_cmd.h**](wsh__shell__cmd_8h.md))
-* **WshShellCmd\_ValidateCmd** ([**wsh\_shell\_cmd.c**](wsh__shell__cmd_8c.md))
-* **WshShellCmd\_ValidateOptions** ([**wsh\_shell\_cmd.c**](wsh__shell__cmd_8c.md))
 * **WshShellCmdDef\_Dummy** ([**wsh\_shell\_cmd\_def.c**](wsh__shell__cmd__def_8c.md))
 * **WshShellDefCmd\_GetPtr** ([**wsh\_shell\_cmd\_def.c**](wsh__shell__cmd__def_8c.md), [**wsh\_shell\_cmd\_def.h**](wsh__shell__cmd__def_8h.md))
 * **WshShellEsc\_ArrowDown** ([**wsh\_shell\_esc.c**](wsh__shell__esc_8c.md))

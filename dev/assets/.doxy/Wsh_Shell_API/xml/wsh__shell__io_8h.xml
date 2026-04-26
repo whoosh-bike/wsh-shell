@@ -615,7 +615,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/wsh_shell_io.h" line="105" column="10" bodyfile="src/wsh_shell_io.h" bodystart="105" bodyend="-1"/>
+        <location file="src/wsh_shell_io.h" line="105" column="14" bodyfile="src/wsh_shell_io.h" bodystart="105" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="wsh__shell__io_8h_1a521887fb3abcf51e8749df33d663caa0" prot="public" static="no">
         <name>WSH_SHELL_PRINT_INFO</name>
@@ -627,7 +627,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/wsh_shell_io.h" line="114" column="10" bodyfile="src/wsh_shell_io.h" bodystart="114" bodyend="-1"/>
+        <location file="src/wsh_shell_io.h" line="114" column="14" bodyfile="src/wsh_shell_io.h" bodystart="114" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="wsh__shell__io_8h_1a00828fa25a32a5cdd57aee813831ba2f" prot="public" static="no">
         <name>WSH_SHELL_PRINT_WARN</name>
@@ -639,7 +639,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/wsh_shell_io.h" line="123" column="10" bodyfile="src/wsh_shell_io.h" bodystart="123" bodyend="-1"/>
+        <location file="src/wsh_shell_io.h" line="123" column="14" bodyfile="src/wsh_shell_io.h" bodystart="123" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="wsh__shell__io_8h_1ac8a3d68728e3ee4494b4c486fa9dd5ca" prot="public" static="no">
         <name>WSH_SHELL_PRINT_ERR</name>
@@ -651,7 +651,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/wsh_shell_io.h" line="132" column="10" bodyfile="src/wsh_shell_io.h" bodystart="132" bodyend="-1"/>
+        <location file="src/wsh_shell_io.h" line="132" column="14" bodyfile="src/wsh_shell_io.h" bodystart="132" bodyend="-1"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="define">
@@ -1063,37 +1063,37 @@
 <codeline lineno="96"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>WSH_SHELL_COLOR_ERROR<sp/>WSH_SHELL_COLOR_RED</highlight></codeline>
 <codeline lineno="98"></codeline>
 <codeline lineno="101"><highlight class="preprocessor">#if<sp/>WSH_SHELL_PRINT_SYS_ENABLE</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="102"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>WSH_SHELL_PRINT_SYS(_f_,<sp/>...)<sp/>\</highlight></codeline>
-<codeline lineno="103"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>WSH_SHELL_PRINT(WSH_SHELL_COLOR_SYS<sp/>_f_<sp/>WSH_SHELL_ESC_RESET_STYLE,<sp/>##__VA_ARGS__)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="102"><highlight class="normal"></highlight><highlight class="preprocessor"><sp/><sp/><sp/><sp/>#define<sp/>WSH_SHELL_PRINT_SYS(_f_,<sp/>...)<sp/>\</highlight></codeline>
+<codeline lineno="103"><highlight class="preprocessor"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>WSH_SHELL_PRINT(WSH_SHELL_COLOR_SYS<sp/>_f_<sp/>WSH_SHELL_ESC_RESET_STYLE,<sp/>##__VA_ARGS__)</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="104"><highlight class="normal"></highlight><highlight class="preprocessor">#else</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="105"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>WSH_SHELL_PRINT_SYS(_f_,<sp/>...)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="105"><highlight class="normal"></highlight><highlight class="preprocessor"><sp/><sp/><sp/><sp/>#define<sp/>WSH_SHELL_PRINT_SYS(_f_,<sp/>...)</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="106"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="107"><highlight class="normal"></highlight></codeline>
 <codeline lineno="108"><highlight class="normal"></highlight><highlight class="preprocessor">#if<sp/>WSH_SHELL_PRINT_INFO_ENABLE</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="109"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>clang-format<sp/>off<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="109"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>clang-format<sp/>off<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="110"><highlight class="normal"></highlight><highlight class="preprocessor"><sp/><sp/><sp/><sp/>#define<sp/>WSH_SHELL_PRINT_INFO(_f_,<sp/>...)<sp/>\</highlight></codeline>
 <codeline lineno="111"><highlight class="preprocessor"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>WSH_SHELL_PRINT(WSH_SHELL_ESC_RESET_STYLE<sp/>&quot;[&quot;</highlight><highlight class="normal"><sp/>WSH_SHELL_COLOR_INFO<sp/>&quot;INFO&quot;<sp/>WSH_SHELL_ESC_RESET_STYLE<sp/>&quot;]<sp/>&quot;<sp/>_f_,<sp/>##__VA_ARGS__)</highlight></codeline>
-<codeline lineno="112"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>clang-format<sp/>on<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="112"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>clang-format<sp/>on<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="113"><highlight class="normal"></highlight><highlight class="preprocessor">#else</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="114"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>WSH_SHELL_PRINT_INFO(_f_,<sp/>...)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="114"><highlight class="normal"></highlight><highlight class="preprocessor"><sp/><sp/><sp/><sp/>#define<sp/>WSH_SHELL_PRINT_INFO(_f_,<sp/>...)</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="115"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="116"><highlight class="normal"></highlight></codeline>
 <codeline lineno="117"><highlight class="normal"></highlight><highlight class="preprocessor">#if<sp/>WSH_SHELL_PRINT_WARN_ENABLE</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="118"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>clang-format<sp/>off<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="118"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>clang-format<sp/>off<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="119"><highlight class="normal"></highlight><highlight class="preprocessor"><sp/><sp/><sp/><sp/>#define<sp/>WSH_SHELL_PRINT_WARN(_f_,<sp/>...)<sp/>\</highlight></codeline>
 <codeline lineno="120"><highlight class="preprocessor"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>WSH_SHELL_PRINT(WSH_SHELL_ESC_RESET_STYLE<sp/>&quot;[&quot;</highlight><highlight class="normal"><sp/>WSH_SHELL_COLOR_WARN<sp/>&quot;WARN&quot;<sp/>WSH_SHELL_ESC_RESET_STYLE<sp/>&quot;]<sp/>&quot;<sp/>_f_,<sp/>##__VA_ARGS__)</highlight></codeline>
-<codeline lineno="121"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>clang-format<sp/>on<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="121"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>clang-format<sp/>on<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="122"><highlight class="normal"></highlight><highlight class="preprocessor">#else</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="123"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>WSH_SHELL_PRINT_WARN(_f_,<sp/>...)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="123"><highlight class="normal"></highlight><highlight class="preprocessor"><sp/><sp/><sp/><sp/>#define<sp/>WSH_SHELL_PRINT_WARN(_f_,<sp/>...)</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="124"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="125"><highlight class="normal"></highlight></codeline>
 <codeline lineno="126"><highlight class="normal"></highlight><highlight class="preprocessor">#if<sp/>WSH_SHELL_PRINT_ERR_ENABLE</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="127"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>clang-format<sp/>off<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="127"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>clang-format<sp/>off<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="128"><highlight class="normal"></highlight><highlight class="preprocessor"><sp/><sp/><sp/><sp/>#define<sp/>WSH_SHELL_PRINT_ERR(_f_,<sp/>...)<sp/>\</highlight></codeline>
 <codeline lineno="129"><highlight class="preprocessor"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>WSH_SHELL_PRINT(WSH_SHELL_ESC_RESET_STYLE<sp/>&quot;[&quot;</highlight><highlight class="normal"><sp/>WSH_SHELL_COLOR_ERROR<sp/>&quot;ERR<sp/>&quot;<sp/>WSH_SHELL_ESC_RESET_STYLE<sp/>&quot;]<sp/>&quot;<sp/>_f_,<sp/>##__VA_ARGS__)</highlight></codeline>
-<codeline lineno="130"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>clang-format<sp/>on<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="130"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>clang-format<sp/>on<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="131"><highlight class="normal"></highlight><highlight class="preprocessor">#else</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="132"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>WSH_SHELL_PRINT_ERR(_f_,<sp/>...)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="132"><highlight class="normal"></highlight><highlight class="preprocessor"><sp/><sp/><sp/><sp/>#define<sp/>WSH_SHELL_PRINT_ERR(_f_,<sp/>...)</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="133"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="134"><highlight class="normal"></highlight></codeline>
 <codeline lineno="136"><highlight class="normal"></highlight></codeline>

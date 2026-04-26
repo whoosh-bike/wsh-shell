@@ -88,7 +88,6 @@
 
 * **Pass** ([**WshShellAuthCtx\_t**](structWshShellAuthCtx__t.md))
 * **PrevDir** ([**WshShellHistory\_Data\_t**](structWshShellHistory__Data__t.md))
-* **ParseError** ([**WshShellOption\_Ctx\_t**](structWshShellOption__Ctx__t.md))
 * **PS1** ([**WshShell\_t**](structWshShell__t.md))
 * **PrevSym** ([**WshShell\_t**](structWshShell__t.md))
 * **PromptWait** ([**WshShell\_t**](structWshShell__t.md))
