@@ -685,6 +685,10 @@
       
         
       
+        
+      
+        
+      
     
     
     
@@ -819,6 +823,34 @@
   
   
     <li class="md-nav__item">
+      <a href="usage/writing-commands/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Writing Commands
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="usage/permission-rules/" class="md-nav__link">
         
   
@@ -827,6 +859,34 @@
     
   
     Permission Rules
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="usage/subcommands/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Subcommands
   
 
     
@@ -2744,6 +2804,7 @@
 <li><strong>Different New Line Support</strong> - handle different terminals setup (<code>\r</code>, <code>\n</code> or <code>\r\n</code>)</li>
 <li><strong>Passwords Stored Salted &amp; Hashed</strong> — passwords are supplied and verified through a user-provided callback and always stored in a salted, hashed form; by default the module uses a lightweight Jenkins (non-cryptographic) hash, and no plaintext passwords are written to flash unless the integrator explicitly chooses to do so</li>
 <li><strong>Command Option Validation</strong> — during command registration, the shell automatically checks for duplicate short or long option flags within the same command and triggers an ASSERT if duplicates are detected</li>
+<li><strong>Subcommand Trees</strong> — commands can nest subcommands (<code>user list</code>, <code>user whoami</code>, etc.) with per-level access control, recursive validation, autocomplete that descends the tree, and automatic help listings; gated by <code>WSH_SHELL_SUBCOMMANDS</code> so flat-command builds pay no cost</li>
 </ul>
 <h2 id="python-adapter">🐍 Python adapter</h2>
 <p>Repository also includes a Python adapter for connecting to <code>wsh-shell</code>, running commands, and parsing responses from a host machine.</p>

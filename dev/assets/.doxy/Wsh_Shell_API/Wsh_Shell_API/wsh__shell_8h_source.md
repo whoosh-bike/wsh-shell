@@ -29,32 +29,32 @@
 
 /* detect operating system name */
 #if defined(__linux)
-    #define OS_NAME "Linux"
+#define OS_NAME "Linux"
 #elif defined(__unix)
-    #define OS_NAME "Unix"
+#define OS_NAME "Unix"
 #elif defined(__APPLE__)
-    #define OS_NAME "Darwin"
+#define OS_NAME "Darwin"
 #elif defined(_WIN32)
-    #define OS_NAME "Windows"
+#define OS_NAME "Windows"
 #elif defined(tskKERNEL_VERSION_NUMBER)
-    #define OS_NAME "FreeRTOS " tskKERNEL_VERSION_NUMBER
+#define OS_NAME "FreeRTOS " tskKERNEL_VERSION_NUMBER
 #else
-    #define OS_NAME WSH_SHELL_TARGET_OS
+#define OS_NAME WSH_SHELL_TARGET_OS
 #endif
 
 /* detect compiler name and version */
 #if defined(__clang__)
-    #define COMPILER "clang " __clang_version__
+#define COMPILER "clang " __clang_version__
 #elif defined(__GNUC__)
-    #define COMPILER "GCC " __VERSION__
+#define COMPILER "GCC " __VERSION__
 #elif defined(_MSC_VER)
-    #define COMPILER "MSVC"
+#define COMPILER "MSVC"
 #elif defined(__CC_ARM)
-    #define COMPILER "ARMCC"
+#define COMPILER "ARMCC"
 #elif defined(__ICCARM__)
-    #define COMPILER "IAR"
+#define COMPILER "IAR"
 #else
-    #define COMPILER "Unknown Compiler"
+#define COMPILER "Unknown Compiler"
 #endif
 
 #ifdef __cplusplus

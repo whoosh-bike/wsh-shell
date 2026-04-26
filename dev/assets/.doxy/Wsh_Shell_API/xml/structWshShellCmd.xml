@@ -110,7 +110,7 @@
         </childnode>
       </node>
     </collaborationgraph>
-    <location file="src/wsh_shell_cmd.h" line="46" column="1" bodyfile="src/wsh_shell_cmd.h" bodystart="46" bodyend="53"/>
+    <location file="src/wsh_shell_cmd.h" line="46" column="1" bodyfile="src/wsh_shell_cmd.h" bodystart="46" bodyend="57"/>
     <listofallmembers>
       <member refid="structWshShellCmd_1a14eb6d76a57bc514d5cc7a6e931e27b0" prot="public" virt="non-virtual"><scope>WshShellCmd</scope><name>Descr</name></member>
       <member refid="structWshShellCmd_1a0545d6ea9332223f6e6a5d81a43c38c4" prot="public" virt="non-virtual"><scope>WshShellCmd</scope><name>Groups</name></member>

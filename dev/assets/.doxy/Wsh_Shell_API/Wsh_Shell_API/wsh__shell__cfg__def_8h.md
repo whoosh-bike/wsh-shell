@@ -137,6 +137,8 @@
 | define  | [**WSH\_SHELL\_STRNLEN**](wsh__shell__cfg__def_8h.md#define-wsh_shell_strnlen) (pS, len) `strnlen((pS), (len))`<br> |
 | define  | [**WSH\_SHELL\_STRTOF**](wsh__shell__cfg__def_8h.md#define-wsh_shell_strtof) (pN, pE) `strtof((pN), (pE))`<br> |
 | define  | [**WSH\_SHELL\_STRTOL**](wsh__shell__cfg__def_8h.md#define-wsh_shell_strtol) (pS, pE, radix) `strtol((pS), (pE), (radix))`<br> |
+| define  | [**WSH\_SHELL\_SUBCOMMANDS**](wsh__shell__cfg__def_8h.md#define-wsh_shell_subcommands)  `1`<br> |
+| define  | [**WSH\_SHELL\_SUBCOMMANDS\_MAX\_DEPTH**](wsh__shell__cfg__def_8h.md#define-wsh_shell_subcommands_max_depth)  `3`<br> |
 | define  | [**WSH\_SHELL\_TARGET\_OS**](wsh__shell__cfg__def_8h.md#define-wsh_shell_target_os)  `"Bare-metal"`<br> |
 | define  | [**X\_ENTRY**](wsh__shell__cfg__def_8h.md#define-x_entry) (name, value) `name = value,`<br> |
 | define  | [**X\_MAP\_ENTRY**](wsh__shell__cfg__def_8h.md#define-x_map_entry) (proj, shell) `/* multi line expression */`<br> |
@@ -845,6 +847,32 @@ static inline bool WshShellRetState_TranslateToProject (
     pE,
     radix
 ) `strtol((pS), (pE), (radix))`
+```
+
+
+
+
+<hr>
+
+
+
+### define WSH\_SHELL\_SUBCOMMANDS 
+
+```C++
+#define WSH_SHELL_SUBCOMMANDS `1`
+```
+
+
+
+
+<hr>
+
+
+
+### define WSH\_SHELL\_SUBCOMMANDS\_MAX\_DEPTH 
+
+```C++
+#define WSH_SHELL_SUBCOMMANDS_MAX_DEPTH `3`
 ```
 
 

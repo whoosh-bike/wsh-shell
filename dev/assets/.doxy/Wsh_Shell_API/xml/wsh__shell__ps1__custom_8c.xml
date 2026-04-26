@@ -151,7 +151,7 @@
 <codeline lineno="2"><highlight class="normal"></highlight></codeline>
 <codeline lineno="3"><highlight class="normal"></highlight><highlight class="preprocessor">#if<sp/>WSH_SHELL_PS1_CUSTOM</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="4"><highlight class="normal"></highlight></codeline>
-<codeline lineno="5"><highlight class="normal"></highlight><highlight class="preprocessor"><sp/><sp/><sp/><sp/>#define<sp/>WSH_PS1_SPACE_LEFT(out,<sp/>base)<sp/>((out)<sp/>-<sp/>(base)<sp/>&lt;<sp/>(WSH_SHELL_PS1_MAX_LEN<sp/>-<sp/>1))</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>WSH_PS1_SPACE_LEFT(out,<sp/>base)<sp/>((out)<sp/>-<sp/>(base)<sp/>&lt;<sp/>(WSH_SHELL_PS1_MAX_LEN<sp/>-<sp/>1))</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="6"><highlight class="normal"></highlight></codeline>
 <codeline lineno="7"><highlight class="normal"></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>WshShell_Char_t*<sp/>WshShellStr_ColorMap[]<sp/>=<sp/>{</highlight></codeline>
 <codeline lineno="8"><highlight class="normal"><sp/><sp/><sp/><sp/>WSH_SHELL_COLOR_BLACK,<sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>%c0</highlight><highlight class="normal"></highlight></codeline>
