@@ -132,8 +132,11 @@ static WSH_SHELL_RET_STATE_t WshShellCmdDef_UserList(const WshShellCmd_t* pcCmd,
     for (WshShell_Size_t tokenPos = 0; tokenPos < argc;) {
         WshShellOption_Ctx_t optCtx =
             WshShellCmd_ParseOpt(pcCmd, argc, pArgv, pParentShell->CurrUser->Rights, &tokenPos);
-        if (!optCtx.Option)
+        if (!optCtx.Option) {
+            if (optCtx.ParseError)
+                return WSH_SHELL_RET_STATE_ERR_PARAM;
             break;
+        }
 
         switch (optCtx.Option->ID) {
             case USER_LIST_OPT_HELP:
@@ -225,8 +228,11 @@ static WSH_SHELL_RET_STATE_t WshShellCmdDef_UserWhoami(const WshShellCmd_t* pcCm
     for (WshShell_Size_t tokenPos = 0; tokenPos < argc;) {
         WshShellOption_Ctx_t optCtx =
             WshShellCmd_ParseOpt(pcCmd, argc, pArgv, pParentShell->CurrUser->Rights, &tokenPos);
-        if (!optCtx.Option)
+        if (!optCtx.Option) {
+            if (optCtx.ParseError)
+                return WSH_SHELL_RET_STATE_ERR_PARAM;
             break;
+        }
 
         switch (optCtx.Option->ID) {
             case USER_WHOAMI_OPT_HELP:
@@ -317,8 +323,11 @@ static WSH_SHELL_RET_STATE_t WshShellCmdDef_User(const WshShellCmd_t* pcCmd, Wsh
     for (WshShell_Size_t tokenPos = 0; tokenPos < argc;) {
         WshShellOption_Ctx_t optCtx =
             WshShellCmd_ParseOpt(pcCmd, argc, pArgv, pParentShell->CurrUser->Rights, &tokenPos);
-        if (!optCtx.Option)
+        if (!optCtx.Option) {
+            if (optCtx.ParseError)
+                return WSH_SHELL_RET_STATE_ERR_PARAM;
             break;
+        }
 
         switch (optCtx.Option->ID) {
             case USER_OPT_COUNT:
@@ -364,8 +373,11 @@ static WSH_SHELL_RET_STATE_t WshShellCmdDef(const WshShellCmd_t* pcCmd, WshShell
     for (WshShell_Size_t tokenPos = 0; tokenPos < argc;) {
         WshShellOption_Ctx_t optCtx =
             WshShellCmd_ParseOpt(pcCmd, argc, pArgv, pParentShell->CurrUser->Rights, &tokenPos);
-        if (!optCtx.Option)
+        if (!optCtx.Option) {
+            if (optCtx.ParseError)
+                retState = WSH_SHELL_RET_STATE_ERR_PARAM;
             break;
+        }
 
         switch (optCtx.Option->ID) {
             case WSH_SHELL_DEF_OPT_DEF: {

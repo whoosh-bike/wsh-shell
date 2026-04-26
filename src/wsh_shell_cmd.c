@@ -244,8 +244,12 @@ WshShellOption_Ctx_t WshShellCmd_ParseOpt(const WshShellCmd_t* pcCmd, WshShell_S
 
         if (!pcOpt) {
             WSH_SHELL_PRINT_WARN("Unknown option: %s\r\n", pcStr);
+            /* Signal parse error to the caller via ParseError flag.
+             * Advance past the bad token so the OPTION_NO fallback
+             * (tokenPos == startTokenPos check) is not triggered. */
+            optCtx.ParseError = true;
             (*pTokenPos)++;
-            continue;
+            break;
         }
 
         optCtx.Option   = pcOpt;

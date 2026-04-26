@@ -188,6 +188,7 @@ typedef struct {
 typedef struct {
     const WshShellOption_t* Option; /**< Pointer to matched option. */
     WshShell_Size_t TokenPos;       /**< Position of the matching token in command line. */
+    WshShell_Bool_t ParseError;     /**< True when an unknown option token was encountered. */
 } WshShellOption_Ctx_t;
 
 #ifdef __cplusplus
