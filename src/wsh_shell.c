@@ -203,8 +203,51 @@ static void WshShell_StringHandler(WshShell_t* pShell) {
         }
     }
 
+    const WshShell_Char_t** pDispatchArgv = pсArgv;
+    WshShell_Size_t dispatchArgc          = argc;
+
+#if WSH_SHELL_SUBCOMMANDS
+    /*
+     * Walk the subcommand tree. Each matched level shifts argv by one so the
+     * terminal handler receives its own name at argv[0], mirroring top-level
+     * dispatch. An unknown non-flag token at a node that has subcommands is
+     * reported as an unknown subcommand so users aren't misled into thinking
+     * their typo was silently parsed as an option.
+     */
+    if (cmdHandler && pcCmd) {
+        WshShell_Size_t depth = 0;
+        while (pcCmd->SubCmdNum > 0 && pcCmd->SubCmds != NULL && dispatchArgc >= 2 &&
+               depth < WSH_SHELL_SUBCOMMANDS_MAX_DEPTH) {
+            const WshShell_Char_t* pcNext = pDispatchArgv[1];
+            if (pcNext && pcNext[0] == '-')
+                break;
+
+            const WshShellCmd_t* pcSub = WshShellCmd_SearchSubCmd(pcCmd, pcNext);
+            if (!pcSub) {
+                WSH_SHELL_PRINT_WARN("Unknown subcommand: %s %s\r\n", pcCmd->Name, pcNext);
+                WshShellIO_ClearInterBuff(&(pShell->CommandLine));
+                return;
+            }
+
+            if ((pShell->CurrUser->Groups & pcSub->Groups) == 0) {
+                WSH_SHELL_PRINT_ERR("Access denied: no group intersection for subcommand \"%s %s\" "
+                                    "and user \"%s\"!\r\n",
+                                    pcCmd->Name, pcSub->Name, pShell->CurrUser->Login);
+                WshShellIO_ClearInterBuff(&(pShell->CommandLine));
+                return;
+            }
+
+            pcCmd      = pcSub;
+            cmdHandler = pcSub->Handler;
+            pDispatchArgv++;
+            dispatchArgc--;
+            depth++;
+        }
+    }
+#endif /* WSH_SHELL_SUBCOMMANDS */
+
     if (cmdHandler) {
-        WSH_SHELL_RET_STATE_t retState = cmdHandler(pcCmd, argc, pсArgv, pShell);
+        WSH_SHELL_RET_STATE_t retState = cmdHandler(pcCmd, dispatchArgc, pDispatchArgv, pShell);
 
         if (retState != WSH_SHELL_RET_STATE_SUCCESS) {
             WSH_SHELL_PRINT_ERR("Command execution: %s\r\n", WshShell_GetRetStateStr(retState));
@@ -221,6 +264,7 @@ static void WshShell_StringHandler(WshShell_t* pShell) {
     }
 
     WshShellIO_ClearInterBuff(&(pShell->CommandLine));
+    WSH_SHELL_PRINT("\r\n");
 }
 
 static void WshShell_StringInteractHandler(WshShell_t* pShell) {

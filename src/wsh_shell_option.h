@@ -27,9 +27,9 @@ extern "C" {
     (WSH_SHELL_OPT_ACCESS_READ | WSH_SHELL_OPT_ACCESS_WRITE | WSH_SHELL_OPT_ACCESS_EXECUTE)
 
 #if WSH_SHELL_PRINT_OPT_HELP_ENABLE
-    #define WSH_SHELL_OPT_DESCR(descr) descr
+#define WSH_SHELL_OPT_DESCR(descr) descr
 #else
-    #define WSH_SHELL_OPT_DESCR(descr) ""
+#define WSH_SHELL_OPT_DESCR(descr) ""
 #endif
 
 /**
@@ -188,6 +188,7 @@ typedef struct {
 typedef struct {
     const WshShellOption_t* Option; /**< Pointer to matched option. */
     WshShell_Size_t TokenPos;       /**< Position of the matching token in command line. */
+    WshShell_Bool_t ParseError;     /**< True when an unknown option token was encountered. */
 } WshShellOption_Ctx_t;
 
 #ifdef __cplusplus

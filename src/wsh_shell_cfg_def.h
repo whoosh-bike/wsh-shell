@@ -79,12 +79,20 @@
  */
 #define WSH_SHELL_PROMPT_WAIT 1
 
-/* 
+/*
  * ─────────────────────────────────────────────
  * Default shell command (executed at startup)
- * ───────────────────────────────────────────── 
+ * ─────────────────────────────────────────────
  */
 #define WSH_SHELL_DEF_COMMAND 1
+
+/*
+ * ─────────────────────────────────────────────
+ * Subcommand tree (nested commands, e.g. `wsh user list`)
+ * ─────────────────────────────────────────────
+ */
+#define WSH_SHELL_SUBCOMMANDS           1
+#define WSH_SHELL_SUBCOMMANDS_MAX_DEPTH 3
 
 /* 
  * ─────────────────────────────────────────────
@@ -146,14 +154,14 @@ typedef enum { WSH_SHELL_CMD_GROUP_LIST } WSH_SHELL_CMD_GROUP_t;
  * ───────────────────────────────────────────── 
  */
 #ifdef WSH_SHELL_ASSERT_ENABLE
-    #include <assert.h>
-    #ifndef WSH_SHELL_ASSERT
-        #define WSH_SHELL_ASSERT(exp) assert(exp)
-    #endif
+#include <assert.h>
+#ifndef WSH_SHELL_ASSERT
+#define WSH_SHELL_ASSERT(exp) assert(exp)
+#endif
 #else
-    #ifndef WSH_SHELL_ASSERT
-        #define WSH_SHELL_ASSERT(exp)
-    #endif
+#ifndef WSH_SHELL_ASSERT
+#define WSH_SHELL_ASSERT(exp)
+#endif
 #endif
 
 /* 
@@ -162,51 +170,51 @@ typedef enum { WSH_SHELL_CMD_GROUP_LIST } WSH_SHELL_CMD_GROUP_t;
  * ───────────────────────────────────────────── 
  */
 #ifndef WSH_SHELL_MEMSET
-    #define WSH_SHELL_MEMSET(pD, c, sz) memset((pD), (c), (sz))
+#define WSH_SHELL_MEMSET(pD, c, sz) memset((pD), (c), (sz))
 #endif
 
 #ifndef WSH_SHELL_MEMCPY
-    #define WSH_SHELL_MEMCPY(pD, pS, sz) memcpy((pD), (pS), (sz))
+#define WSH_SHELL_MEMCPY(pD, pS, sz) memcpy((pD), (pS), (sz))
 #endif
 
 #ifndef WSH_SHELL_MEMCMP
-    #define WSH_SHELL_MEMCMP(pD, pS, sz) memcmp((pD), (pS), (sz))
+#define WSH_SHELL_MEMCMP(pD, pS, sz) memcmp((pD), (pS), (sz))
 #endif
 
 #ifndef WSH_SHELL_STRCPY
-    #define WSH_SHELL_STRCPY(pD, pS) strcpy((pD), (pS))
+#define WSH_SHELL_STRCPY(pD, pS) strcpy((pD), (pS))
 #endif
 
 #ifndef WSH_SHELL_STRNCPY
-    #define WSH_SHELL_STRNCPY(pD, pS, sz) strncpy((pD), (pS), (sz))
+#define WSH_SHELL_STRNCPY(pD, pS, sz) strncpy((pD), (pS), (sz))
 #endif
 
 #ifndef WSH_SHELL_STRLEN
-    #define WSH_SHELL_STRLEN(pS) strlen((pS))
+#define WSH_SHELL_STRLEN(pS) strlen((pS))
 #endif
 
 #ifndef WSH_SHELL_STRNLEN
-    #define WSH_SHELL_STRNLEN(pS, len) strnlen((pS), (len))
+#define WSH_SHELL_STRNLEN(pS, len) strnlen((pS), (len))
 #endif
 
 #ifndef WSH_SHELL_STRCMP
-    #define WSH_SHELL_STRCMP(pS1, pS2) strcmp((pS1), (pS2))
+#define WSH_SHELL_STRCMP(pS1, pS2) strcmp((pS1), (pS2))
 #endif
 
 #ifndef WSH_SHELL_STRNCMP
-    #define WSH_SHELL_STRNCMP(pS1, pS2, len) strncmp((pS1), (pS2), (len))
+#define WSH_SHELL_STRNCMP(pS1, pS2, len) strncmp((pS1), (pS2), (len))
 #endif
 
 #ifndef WSH_SHELL_STRTOL
-    #define WSH_SHELL_STRTOL(pS, pE, radix) strtol((pS), (pE), (radix))
+#define WSH_SHELL_STRTOL(pS, pE, radix) strtol((pS), (pE), (radix))
 #endif
 
 #ifndef WSH_SHELL_STRTOF
-    #define WSH_SHELL_STRTOF(pN, pE) strtof((pN), (pE))
+#define WSH_SHELL_STRTOF(pN, pE) strtof((pN), (pE))
 #endif
 
 #ifndef WSH_SHELL_SNPRINTF
-    #define WSH_SHELL_SNPRINTF(buf, size, ...) snprintf((buf), (size), __VA_ARGS__)
+#define WSH_SHELL_SNPRINTF(buf, size, ...) snprintf((buf), (size), __VA_ARGS__)
 #endif
 
 /* 

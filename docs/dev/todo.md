@@ -108,3 +108,21 @@
 - [x] Add integration tests for running against `example/build/example` via PTY and for non-zero exit on failed `WSH_SHELL_ASSERT`
 - [x] Add adapter and test documentation
 - [x] Automate adapter test runs in GitLab CI
+
+## v3.1 (Command Model & UX Extensions)
+
+### Subcommand Trees
+
+- [x] Add `WSH_SHELL_SUBCOMMANDS` / `WSH_SHELL_SUBCOMMANDS_MAX_DEPTH` config flags (default-on, overridable)
+- [x] Extend `WshShellCmd_t` with `SubCmds` / `SubCmdNum` (compiled out when feature disabled)
+- [x] Add `WshShellCmd_GetSubCmdNum`, `WshShellCmd_GetSubCmdByIndex`, `WshShellCmd_SearchSubCmd` helpers
+- [x] Descend subcommand tree in `WshShell_StringHandler` with argv shifting, depth guard, and per-level access check
+- [x] Recursively validate subcommand tables on `WshShellCmd_Attach` (duplicate names, NULL entries, nested options)
+- [x] Extend `WshShellCmd_PrintOptionsOverview` to list subcommands; suppress empty "Options overview" section
+- [x] Extend autocomplete to walk the subcommand tree and complete partial subcommand names
+- [x] Add meaningful demo: `wsh user list` / `wsh user whoami` driven by the existing user table, with flags at every hierarchy level
+- [x] Keep flat `-u / --user` when `WSH_SHELL_SUBCOMMANDS=0` via slot macro; remove it when subcommands are on
+- [x] Add `ParseError` field to `WshShellOption_Ctx_t`; set it in `WshShellCmd_ParseOpt` on unknown token so handlers can distinguish end-of-options from bad flag without restructuring the loop
+- [x] Update all handlers (including `WshShellCmdDef`) to check `ParseError` and return `ERR_PARAM` on unknown flags
+- [x] Document subcommand feature (`usage/subcommands.md`, index.md feature list)
+- [x] Add `usage/writing-commands.md` — standard handler template with X-macro tables, parse loop, and `ParseError` explanation
