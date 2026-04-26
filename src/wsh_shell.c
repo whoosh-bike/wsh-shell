@@ -122,7 +122,7 @@ void WshShell_DeAuth(WshShell_t* pShell, const WshShell_Char_t* pcReason) {
     WshShellHistory_Flush(&(pShell->HistoryIO));
 
     WSH_SHELL_PRINT("%c", WSH_SHELL_SYM_SOUND);
-    WSH_SHELL_PRINT_ERR("Shell deAuthed by `%s`!\r\n", pcReason);
+    WSH_SHELL_PRINT_SYS("Shell deAuthed by `%s`!\r\n", pcReason);
     WSH_SHELL_PRINT_SYS(WSH_SHELL_PRESS_ENTER_TO_LOG_IN_STR "\r\n");
 
     WshShellPromptWait_Attach(&(pShell->PromptWait), WshShellPromptWait_Enter, NULL);
@@ -271,22 +271,34 @@ static void WshShell_StringInteractHandler(WshShell_t* pShell) {
     WshShellIO_ClearInterBuff(&(pShell->CommandLine));
 }
 
+static void WshShell_ExitInteractive(WshShell_t* pShell) {
+    WshShellInteract_Flush(&(pShell->Interact));
+    WshShell_PS1Data_t data = {
+        .UserName     = pShell->CurrUser->Login,
+        .DevName      = pShell->DeviceName,
+        .InterCmdName = NULL,
+    };
+    WshShell_GeneratePS1(pShell->PS1, &data);
+}
+
 static void WshShell_SymbolHandler(WshShell_t* pShell, const WshShell_Char_t symbol) {
     switch (symbol) {
+        case WSH_SHELL_SYM_CANCEL:
+            WSH_SHELL_PRINT("^C");
+            if (WSH_SHELL_INTER_CMD_EXISTS())
+                WshShell_ExitInteractive(pShell);
+            WshShellIO_ClearInterBuff(&(pShell->CommandLine));
+            WSH_SHELL_PRINT(WSH_SHELL_END_LINE);
+            WshShell_InvitationPrint(pShell);
+            break;
+
         case WSH_SHELL_SYM_EXIT:
             if (WSH_SHELL_INTER_CMD_EXISTS()) {
-                WshShellInteract_Flush(&(pShell->Interact));
-
-                WshShell_PS1Data_t data = {
-                    .UserName     = pShell->CurrUser->Login,
-                    .DevName      = pShell->DeviceName,
-                    .InterCmdName = NULL,
-                };
-                WshShell_GeneratePS1(pShell->PS1, &data);
+                WshShell_ExitInteractive(pShell);
                 WSH_SHELL_PRINT(WSH_SHELL_END_LINE);
                 WshShell_InvitationPrint(pShell);
             } else
-                WshShell_DeAuth(pShell, "Ctrl+D");
+                WshShell_DeAuth(pShell, "^D");
             break;
 
         case WSH_SHELL_SYM_BACKSPACE:

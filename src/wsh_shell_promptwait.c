@@ -25,6 +25,13 @@ WSH_SHELL_RET_STATE_t WshShellPromptWait_Handle(WshShellPromptWait_t* pWait, Wsh
         return WSH_SHELL_RET_STATE_ERR_PARAM;
 
     if (pWait->Handler) {
+        /* Ctrl+C cancels any pending prompt-wait, letting the cancel
+         * handler in the main symbol dispatcher run normally. */
+        if (symbol == WSH_SHELL_SYM_CANCEL) {
+            WshShellPromptWait_Flush(pWait);
+            return WSH_SHELL_RET_STATE_ERR_EMPTY;
+        }
+
         WshShell_Bool_t res = pWait->Handler(symbol, pWait);
         if (!res)
             WSH_SHELL_PRINT("%c", WSH_SHELL_SYM_SOUND);

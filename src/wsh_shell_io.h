@@ -30,6 +30,7 @@ extern "C" {
 #define WSH_SHELL_SYM_BACKSPACE '\b' /**< Backspace character */
 #define WSH_SHELL_SYM_DELETE    0x7f /**< Delete (DEL) character */
 #define WSH_SHELL_SYM_TAB       '\t' /**< Tab character */
+#define WSH_SHELL_SYM_CANCEL    0x03 /**< Ctrl + C (cancel / interrupt) */
 #define WSH_SHELL_SYM_EXIT      0x04 /**< Ctrl + D (EOF signal) */
 #define WSH_SHELL_SYM_SOUND     0x07 /**< Bell character (alert) */
 ///@}
