@@ -101,6 +101,13 @@
  */
 #define WSH_SHELL_ENUM_VALUE_MAX_LEN 16 /* max length of a single enum value string */
 
+/*
+ * ─────────────────────────────────────────────
+ * Hex dump (WshShellMisc_HexDump)
+ * ─────────────────────────────────────────────
+ */
+#define WSH_HEXDUMP_COLS 16 /* bytes per row */
+
 /* 
  * ─────────────────────────────────────────────
  * Command descriptions(help) - store and print

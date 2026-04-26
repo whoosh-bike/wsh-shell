@@ -38,6 +38,24 @@ extern "C" {
  */
 WshShell_U32_t WshShellMisc_CalcJenkinsHash(const WshShell_U8_t* pcBuff, WshShell_Size_t len);
 
+/**
+ * @brief Print a hex + ASCII dump of a buffer (hexdump -C style).
+ *
+ * Each row contains the byte offset, up to 16 bytes in hex (split into
+ * two groups of 8), and their printable ASCII representation.
+ * Non-printable bytes are shown as '.'.
+ *
+ * Example output:
+ * @code
+ * 00000000  57 73 68 53 68 65 6c 6c  00 01 7e 7f 80 ff       |WshShell..~...|
+ * @endcode
+ *
+ * @param pBuff  Pointer to the data buffer. May be NULL only when len == 0.
+ * @param len    Number of bytes to dump.
+ * @param offset Base value printed in the offset column (use 0 for relative offsets).
+ */
+void WshShellMisc_HexDump(const WshShell_U8_t* pBuff, WshShell_Size_t len, WshShell_Size_t offset);
+
 #ifdef __cplusplus
 }
 #endif

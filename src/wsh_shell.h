@@ -20,6 +20,7 @@
 #include "wsh_shell_history.h"
 #include "wsh_shell_interact.h"
 #include "wsh_shell_io.h"
+#include "wsh_shell_misc.h"
 #include "wsh_shell_promptwait.h"
 #include "wsh_shell_ps1_custom.h"
 #include "wsh_shell_str.h"
