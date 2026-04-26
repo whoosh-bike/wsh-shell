@@ -18,16 +18,21 @@ static const WSH_SHELL_CMD_GROUP_t WshShell_CmdGroups[] = {WSH_SHELL_CMD_GROUP_L
  * structure definitions and enumeration.
  */
 /*
- * When subcommands are enabled, `wsh user list` supersedes the flat -u flag.
- * When subcommands are disabled, inject -u back so the user table is still
- * reachable. A slot macro keeps the X-macro table structure clean.
+ * Flat fallback flags injected when WSH_SHELL_SUBCOMMANDS=0.
+ * With subcommands on, these are superseded by the subcommand tree.
  */
 #if WSH_SHELL_SUBCOMMANDS
 #define WSH_SHELL_CMD_DEF_OPT_USER_SLOT()
+#define WSH_SHELL_CMD_DEF_OPT_HIST_SLOT()
 #else
 #define WSH_SHELL_CMD_DEF_OPT_USER_SLOT() \
     X_CMD_ENTRY(WSH_SHELL_DEF_OPT_USER,   \
                 WSH_SHELL_OPT_WO_PARAM(WSH_SHELL_OPT_ACCESS_READ, "-u", "--user", "Get info about users"))
+#define WSH_SHELL_CMD_DEF_OPT_HIST_SLOT()                                                                        \
+    X_CMD_ENTRY(WSH_SHELL_DEF_OPT_HISTPRINT,                                                                     \
+                WSH_SHELL_OPT_WO_PARAM(WSH_SHELL_OPT_ACCESS_READ, "-g", "--histprint", "Print command history")) \
+    X_CMD_ENTRY(WSH_SHELL_DEF_OPT_HISTRST,                                                                       \
+                WSH_SHELL_OPT_WO_PARAM(WSH_SHELL_OPT_ACCESS_WRITE, "-r", "--histrst", "Clear command history"))
 #endif
 
 /* clang-format off */
@@ -39,6 +44,7 @@ static const WSH_SHELL_CMD_GROUP_t WshShell_CmdGroups[] = {WSH_SHELL_CMD_GROUP_L
     X_CMD_ENTRY(WSH_SHELL_DEF_OPT_PING,   WSH_SHELL_OPT_WO_PARAM(WSH_SHELL_OPT_ACCESS_ANY,     "-p", "--ping",   "Ping shell")) \
     X_CMD_ENTRY(WSH_SHELL_DEF_OPT_DEAUTH, WSH_SHELL_OPT_WO_PARAM(WSH_SHELL_OPT_ACCESS_ANY,     "-d", "--deauth", "Logout and clear history")) \
     WSH_SHELL_CMD_DEF_OPT_USER_SLOT() \
+    WSH_SHELL_CMD_DEF_OPT_HIST_SLOT() \
     X_CMD_ENTRY(WSH_SHELL_DEF_OPT_END,    WSH_SHELL_OPT_END())
 /* clang-format on */
 
@@ -378,10 +384,10 @@ static WSH_SHELL_RET_STATE_t WshShellCmdDef_HistList(const WshShellCmd_t* pcCmd,
     WshShell_Char_t cmdBuff[WSH_SHELL_INTR_BUFF_LEN];
     WshShell_Size_t cmdNum = WshShellHistory_GetTokenNum(&(pParentShell->HistoryIO));
 
-    WSH_SHELL_PRINT("History (%d):\r\n", (int)cmdNum);
+    WSH_SHELL_PRINT("History (%d):\r\n", cmdNum);
     for (WshShell_Size_t i = cmdNum; i > 0; i--) {
         if (WshShellHistory_GetTokenByIndex(&(pParentShell->HistoryIO), cmdBuff, sizeof(cmdBuff), i - 1))
-            WSH_SHELL_PRINT("  [%2d] %s\r\n", (int)(cmdNum - i + 1), cmdBuff);
+            WSH_SHELL_PRINT("  [%2d] %s\r\n", cmdNum - i + 1, cmdBuff);
     }
 
     return WSH_SHELL_RET_STATE_SUCCESS;
@@ -671,6 +677,20 @@ static WSH_SHELL_RET_STATE_t WshShellCmdDef(const WshShellCmd_t* pcCmd, WshShell
                     if (pcUser)
                         WshShellDef_PrintUserRow(pcUser, rowTemplate);
                 }
+            } break;
+
+            case WSH_SHELL_DEF_OPT_HISTPRINT: {
+                WshShell_Size_t cmdNum = WshShellHistory_GetTokenNum(&(pParentShell->HistoryIO));
+                WshShell_Char_t cmdBuff[WSH_SHELL_INTR_BUFF_LEN];
+                for (WshShell_Size_t i = cmdNum; i > 0; i--) {
+                    if (WshShellHistory_GetTokenByIndex(&(pParentShell->HistoryIO), cmdBuff, sizeof(cmdBuff), i - 1))
+                        WSH_SHELL_PRINT("  [%d] %s\r\n", cmdNum - i + 1, cmdBuff);
+                }
+            } break;
+
+            case WSH_SHELL_DEF_OPT_HISTRST: {
+                WshShellHistory_Flush(&(pParentShell->HistoryIO));
+                WSH_SHELL_PRINT_SYS("History cleared\r\n");
             } break;
 #endif /* !WSH_SHELL_SUBCOMMANDS */
 

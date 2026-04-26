@@ -240,3 +240,75 @@ static const WshShellCmd_t MyCmdDef = {
 ```
 
 See [Subcommands](subcommands.md) for the full dispatch and autocomplete details.
+
+---
+
+## Interactive Mode
+
+A command can enter **interactive mode**: instead of running once and returning, the shell routes every subsequent line of input to a callback until the user exits with **Ctrl+D** or **Ctrl+C**.
+
+### Attaching a callback
+
+Call `WshShellInteract_Attach` from inside the command handler:
+
+```c
+static void MyCmd_LineCallback(WshShellIO_CommandLine_t* pLine) {
+    WshShellInteract_AppendLineBreak(pLine);   /* append \r\n so Buff is null-terminated */
+    WSH_SHELL_PRINT("got: %s", pLine->Buff);
+}
+
+static WSH_SHELL_RET_STATE_t MyCmd_Handler(const WshShellCmd_t* pcCmd,
+                                           WshShell_Size_t argc,
+                                           const WshShell_Char_t* pArgv[],
+                                           void* pShellCtx) {
+    WshShell_t* pShell = (WshShell_t*)pShellCtx;
+    WshShellInteract_Attach(&pShell->Interact, pcCmd->Name, MyCmd_LineCallback);
+    return WSH_SHELL_RET_STATE_SUCCESS;
+}
+```
+
+The PS1 prompt changes to show the interactive command name. The callback receives the raw input buffer (`pLine->Buff`) on every Enter press; `pLine->Len` holds the current character count before the line break is appended.
+
+### Exiting interactive mode
+
+| Key | Effect |
+|-----|--------|
+| **Ctrl+D** | Clean exit — interactive session ends, normal prompt returns |
+| **Ctrl+C** | Cancel — same as Ctrl+D but prints `^C`; also cancels any pending `PromptWait` |
+
+Both keys are handled by the shell core; your callback does not need to check for them.
+
+### Limitations
+
+- Only one interactive command can be active at a time.
+- Escape sequences (arrow keys, history navigation) are **not** available inside interactive mode.
+- Double-quoted strings in the interactive buffer are not re-tokenised — the raw line is delivered as-is.
+
+---
+
+## Shell Utilities
+
+### `WshShellMisc_HexDump`
+
+Prints a buffer in `hexdump -C` style — byte offset, hex bytes in two groups of 8, and printable ASCII on the right (`.` for non-printable bytes).
+
+```c
+#include "wsh_shell_misc.h"
+
+WshShellMisc_HexDump(pBuff, len, offset);
+```
+
+| Parameter | Description |
+|-----------|-------------|
+| `pBuff`   | Pointer to the data buffer |
+| `len`     | Number of bytes to dump |
+| `offset`  | Value printed in the offset column (use `0` for relative, or a real address) |
+
+Row width is controlled by `WSH_HEXDUMP_COLS` in `wsh_shell_cfg_def.h` (default `16`).
+
+Example output:
+
+```
+00000000  1b 5b 33 35 6d 72 6f 6f  74 40 4d 61 63 20 3e 20  |.[35mroot@Mac > |
+00000010  1b 5b 30 6d                                        |.[0m            |
+```

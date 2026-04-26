@@ -44,7 +44,7 @@ static WSH_SHELL_RET_STATE_t WshShellCmd_ValidateSubCmds(const WshShellCmd_t* pc
     for (WshShell_Size_t i = 0; i < pcCmd->SubCmdNum; i++) {
         const WshShellCmd_t* pcSubI = pcCmd->SubCmds[i];
         if (!pcSubI) {
-            WSH_SHELL_PRINT_ERR("Null subcommand pointer in %s [%d]\r\n", pcCmd->Name, (int)i);
+            WSH_SHELL_PRINT_ERR("Null subcommand pointer in %s [%d]\r\n", pcCmd->Name, i);
             WSH_SHELL_ASSERT(0);
             retState = WSH_SHELL_RET_STATE_ERROR;
             continue;
@@ -258,7 +258,7 @@ WshShellOption_Ctx_t WshShellCmd_ParseOpt(const WshShellCmd_t* pcCmd, WshShell_S
 
         /* Verify enough tokens follow for all required arguments */
         if (pcOpt->ArgNum > 0 && *pTokenPos + pcOpt->ArgNum >= argc) {
-            WSH_SHELL_PRINT_WARN("Option %s requires %d argument(s)\r\n", pcStr, (int)pcOpt->ArgNum);
+            WSH_SHELL_PRINT_WARN("Option %s requires %d argument(s)\r\n", pcStr, pcOpt->ArgNum);
             optCtx.ParseError = true;
             (*pTokenPos)++;
             break;
