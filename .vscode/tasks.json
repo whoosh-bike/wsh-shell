@@ -60,5 +60,14 @@
                 "isDefault": true
             }
         },
+        {
+            "label": "🧪 test: all",
+            "type": "shell",
+            "command": ".venv/bin/pytest tests -v",
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            }
+        }
     ]
 }
