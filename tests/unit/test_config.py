@@ -84,7 +84,9 @@ cwd = "/tmp"
     assert cwd == "/tmp"
 
 
-def test_load_settings_without_config_uses_defaults(monkeypatch: pytest.MonkeyPatch, tmp_path: Path) -> None:
+def test_load_settings_without_config_uses_defaults(
+    monkeypatch: pytest.MonkeyPatch, tmp_path: Path
+) -> None:
     config_path = tmp_path / "missing.toml"
     monkeypatch.setattr(local_shell, "DEFAULT_CONFIG_PATH", config_path)
 
