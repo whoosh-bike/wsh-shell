@@ -216,8 +216,36 @@ static void WshShell_StringHandler(WshShell_t* pShell) {
         while (pcCmd->SubCmdNum > 0 && pcCmd->SubCmds != NULL && dispatchArgc >= 2 &&
                depth < WSH_SHELL_SUBCOMMANDS_MAX_DEPTH) {
             const WshShell_Char_t* pcNext = pDispatchArgv[1];
-            if (pcNext && pcNext[0] == '-')
-                break;
+
+            /* If the next token is a flag, scan ahead past flags to find the
+             * subcommand name. Known flags consume their own arguments (ArgNum).
+             * If a subcommand is found beyond the flags, rotate the argv pointer
+             * array so the subcommand name lands at position 1 and the flags
+             * follow it — the subcommand handler then receives all tokens. */
+            if (pcNext && pcNext[0] == '-') {
+                WshShell_Size_t scanPos    = 1;
+                WshShell_Bool_t subcmdFound = false;
+                while (scanPos < dispatchArgc) {
+                    const WshShell_Char_t* token = pDispatchArgv[scanPos];
+                    if (!token)
+                        break;
+                    if (token[0] == '-') {
+                        const WshShellOption_t* pcOpt = WshShellCmd_FindOptByName(pcCmd, token);
+                        scanPos += 1 + (pcOpt ? pcOpt->ArgNum : 0);
+                    } else {
+                        if (WshShellCmd_SearchSubCmd(pcCmd, token)) {
+                            for (WshShell_Size_t i = scanPos; i > 1; i--)
+                                pDispatchArgv[i] = pDispatchArgv[i - 1];
+                            pDispatchArgv[1] = token;
+                            subcmdFound      = true;
+                        }
+                        break;
+                    }
+                }
+                if (!subcmdFound)
+                    break;
+                pcNext = pDispatchArgv[1];
+            }
 
             const WshShellCmd_t* pcSub = WshShellCmd_SearchSubCmd(pcCmd, pcNext);
             if (!pcSub) {
