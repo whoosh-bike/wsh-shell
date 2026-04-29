@@ -56,6 +56,14 @@ WshShell_U32_t WshShellMisc_CalcJenkinsHash(const WshShell_U8_t* pcBuff, WshShel
  */
 void WshShellMisc_HexDump(const WshShell_U8_t* pBuff, WshShell_Size_t len, WshShell_Size_t offset);
 
+/**
+ * @brief Print a ASCII dump of a buffer
+ *
+ * @param pBuff  Pointer to the data buffer.
+ * @param len    Number of bytes to dump.
+ */
+void WshShellMisc_AsciiPrint(const WshShell_U8_t* pBuff, WshShell_Size_t len);
+
 #ifdef __cplusplus
 }
 #endif
