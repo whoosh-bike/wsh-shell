@@ -1,8 +1,8 @@
 import errno
 import os
-import pty
 import select
 import subprocess
+import sys
 from dataclasses import dataclass
 from typing import Callable, Optional, Sequence
 
@@ -262,6 +262,10 @@ class PtyProcessTransport(BaseTransport):
         if self.is_open:
             return
 
+        if sys.platform == "win32":
+            raise TransportError("PtyProcessTransport is not supported on Windows.")
+
+        import pty
         master_fd, slave_fd = pty.openpty()
         try:
             self._proc = subprocess.Popen(
