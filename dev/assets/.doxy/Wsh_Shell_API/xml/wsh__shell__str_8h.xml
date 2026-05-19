@@ -11,6 +11,7 @@
     <includedby refid="wsh__shell__cmd_8h" local="yes">src/wsh_shell_cmd.h</includedby>
     <includedby refid="wsh__shell__history_8h" local="yes">src/wsh_shell_history.h</includedby>
     <includedby refid="wsh__shell__io_8h" local="yes">src/wsh_shell_io.h</includedby>
+    <includedby refid="wsh__shell__misc_8c" local="yes">src/wsh_shell_misc.c</includedby>
     <includedby refid="wsh__shell__str_8c" local="yes">src/wsh_shell_str.c</includedby>
     <incdepgraph>
       <node id="7">

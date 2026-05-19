@@ -357,10 +357,12 @@
   <compound refid="wsh__shell__misc_8c" kind="file"><name>wsh_shell_misc.c</name>
     <member refid="wsh__shell__misc_8c_1a008d9a001d61629467efaaeb27f011dd" kind="function"><name>WshShellMisc_CalcJenkinsHash</name></member>
     <member refid="wsh__shell__misc_8c_1a38145a9dd138c18bbe110953c4d4367e" kind="function"><name>WshShellMisc_HexDump</name></member>
+    <member refid="wsh__shell__misc_8c_1a1cbb22d6b66763de32c5801a0b973073" kind="function"><name>WshShellMisc_AsciiPrint</name></member>
   </compound>
   <compound refid="wsh__shell__misc_8h" kind="file"><name>wsh_shell_misc.h</name>
     <member refid="wsh__shell__misc_8h_1a008d9a001d61629467efaaeb27f011dd" kind="function"><name>WshShellMisc_CalcJenkinsHash</name></member>
     <member refid="wsh__shell__misc_8h_1a38145a9dd138c18bbe110953c4d4367e" kind="function"><name>WshShellMisc_HexDump</name></member>
+    <member refid="wsh__shell__misc_8h_1a1cbb22d6b66763de32c5801a0b973073" kind="function"><name>WshShellMisc_AsciiPrint</name></member>
   </compound>
   <compound refid="wsh__shell__option_8h" kind="file"><name>wsh_shell_option.h</name>
     <member refid="wsh__shell__option_8h_1a7f24ff47eda3e554462f041b83662513" kind="define"><name>WSH_SHELL_OPT_ACCESS_NO</name></member>

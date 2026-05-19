@@ -156,7 +156,7 @@ Jenkins hash function <ulink url="https://en.wikipedia.org/wiki/Jenkins_hash_fun
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/wsh_shell_misc.h" line="39" column="16" bodyfile="src/wsh_shell_misc.c" bodystart="7" bodyend="22" declfile="src/wsh_shell_misc.h" declline="39" declcolumn="16"/>
+        <location file="src/wsh_shell_misc.h" line="39" column="16" bodyfile="src/wsh_shell_misc.c" bodystart="8" bodyend="23" declfile="src/wsh_shell_misc.h" declline="39" declcolumn="16"/>
       </memberdef>
       <memberdef kind="function" id="wsh__shell__misc_8h_1a38145a9dd138c18bbe110953c4d4367e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -211,7 +211,47 @@ Jenkins hash function <ulink url="https://en.wikipedia.org/wiki/Jenkins_hash_fun
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/wsh_shell_misc.h" line="57" column="6" bodyfile="src/wsh_shell_misc.c" bodystart="24" bodyend="48" declfile="src/wsh_shell_misc.h" declline="57" declcolumn="6"/>
+        <location file="src/wsh_shell_misc.h" line="57" column="6" bodyfile="src/wsh_shell_misc.c" bodystart="25" bodyend="50" declfile="src/wsh_shell_misc.h" declline="57" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="wsh__shell__misc_8h_1a1cbb22d6b66763de32c5801a0b973073" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void WshShellMisc_AsciiPrint</definition>
+        <argsstring>(const WshShell_U8_t *pBuff, WshShell_Size_t len)</argsstring>
+        <name>WshShellMisc_AsciiPrint</name>
+        <param>
+          <type>const WshShell_U8_t *</type>
+          <declname>pBuff</declname>
+        </param>
+        <param>
+          <type>WshShell_Size_t</type>
+          <declname>len</declname>
+        </param>
+        <briefdescription>
+<para>Print a ASCII dump of a buffer. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>pBuff</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the data buffer. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>len</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Number of bytes to dump. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/wsh_shell_misc.h" line="65" column="6" bodyfile="src/wsh_shell_misc.c" bodystart="52" bodyend="63" declfile="src/wsh_shell_misc.h" declline="65" declcolumn="6"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
@@ -241,11 +281,13 @@ Jenkins hash function <ulink url="https://en.wikipedia.org/wiki/Jenkins_hash_fun
 <codeline lineno="40"><highlight class="normal"></highlight></codeline>
 <codeline lineno="57"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="wsh__shell__misc_8h_1a38145a9dd138c18bbe110953c4d4367e" kindref="member">WshShellMisc_HexDump</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>WshShell_U8_t*<sp/>pBuff,<sp/>WshShell_Size_t<sp/>len,<sp/>WshShell_Size_t<sp/>offset);</highlight></codeline>
 <codeline lineno="58"><highlight class="normal"></highlight></codeline>
-<codeline lineno="59"><highlight class="normal"></highlight><highlight class="preprocessor">#ifdef<sp/>__cplusplus</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="60"><highlight class="normal">}</highlight></codeline>
-<codeline lineno="61"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="62"><highlight class="normal"></highlight></codeline>
-<codeline lineno="63"><highlight class="normal"></highlight><highlight class="preprocessor">#endif<sp/></highlight><highlight class="comment">/*<sp/>__WSH_SHELL_MISC_H<sp/>*/</highlight><highlight class="preprocessor"></highlight></codeline>
+<codeline lineno="65"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="wsh__shell__misc_8h_1a1cbb22d6b66763de32c5801a0b973073" kindref="member">WshShellMisc_AsciiPrint</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>WshShell_U8_t*<sp/>pBuff,<sp/>WshShell_Size_t<sp/>len);</highlight></codeline>
+<codeline lineno="66"><highlight class="normal"></highlight></codeline>
+<codeline lineno="67"><highlight class="normal"></highlight><highlight class="preprocessor">#ifdef<sp/>__cplusplus</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="68"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="69"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="70"><highlight class="normal"></highlight></codeline>
+<codeline lineno="71"><highlight class="normal"></highlight><highlight class="preprocessor">#endif<sp/></highlight><highlight class="comment">/*<sp/>__WSH_SHELL_MISC_H<sp/>*/</highlight><highlight class="preprocessor"></highlight></codeline>
     </programlisting>
     <location file="src/wsh_shell_misc.h"/>
   </compounddef>

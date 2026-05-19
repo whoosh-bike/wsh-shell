@@ -704,10 +704,32 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#wshshelladapter" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        WshShellAdapter
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#config-file-toml" class="md-nav__link">
     <span class="md-ellipsis">
       
         Config File (TOML)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#rawserialadapter" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        RawSerialAdapter
       
     </span>
   </a>
@@ -2682,10 +2704,32 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#wshshelladapter" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        WshShellAdapter
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#config-file-toml" class="md-nav__link">
     <span class="md-ellipsis">
       
         Config File (TOML)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#rawserialadapter" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        RawSerialAdapter
       
     </span>
   </a>
@@ -2824,11 +2868,18 @@
 
 
 <h1 id="python-adapter">Python Adapter</h1>
-<p>Python adapter for working with <code>wsh-shell</code> over:</p>
+<p>Python adapter for working with serial devices over:</p>
 <ul>
 <li>serial/UART (<code>pyserial</code>)</li>
 <li>local process via PTY (<code>PtyProcessTransport</code>)</li>
 </ul>
+<p>Two adapter classes are provided depending on the device type:</p>
+<ul>
+<li><code>WshShellAdapter</code> — for devices running <code>wsh-shell</code>: text protocol with prompts, sync, command parsing</li>
+<li><code>RawSerialAdapter</code> — for devices with binary protocols: raw byte read/write, no shell logic</li>
+</ul>
+<p>Both share the same transport layer (<code>SerialTransport</code>) and port auto-discovery by VID/PID,
+so all serial access goes through a single layer without importing <code>pyserial</code> directly.</p>
 <h2 id="features">Features</h2>
 <ul>
 <li>connect by fixed <code>port</code> or auto-discover by <code>vid/pid</code></li>
@@ -2837,6 +2888,7 @@
 <li>execute commands with timeout and retry logic</li>
 <li>parse command output into structured <code>dict</code> (<code>json</code> or <code>key: value</code>)</li>
 <li>recover on failures with optional fallback ping</li>
+<li>raw binary read/write for non-shell devices (<code>RawSerialAdapter</code>)</li>
 </ul>
 <h2 id="quick-start">Quick Start</h2>
 <p>From repository root:</p>
@@ -2846,6 +2898,8 @@
 </span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2"></a>.<span class="w"> </span>.venv/bin/activate
 </span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3"></a>pip<span class="w"> </span>install<span class="w"> </span>-r<span class="w"> </span>wsh_shell_adapter/requirements.txt
 </span></code></pre></div></td></tr></table></div>
+<h2 id="wshshelladapter">WshShellAdapter</h2>
+<p>For devices running <code>wsh-shell</code> — text protocol with prompt sync, command execution, and output parsing.</p>
 <p>Minimal usage:</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-1-1"> 1</a></span>
 <span class="normal"><a href="#__codelineno-1-2"> 2</a></span>
@@ -2956,25 +3010,75 @@ any non-empty command output as proof that the shell is alive.
 </span><span id="__span-4-11"><a id="__codelineno-4-11" name="__codelineno-4-11"></a>
 </span><span id="__span-4-12"><a id="__codelineno-4-12" name="__codelineno-4-12"></a><span class="n">selected_port</span> <span class="o">=</span> <span class="n">resolve_serial_port</span><span class="p">(</span><span class="n">ports</span><span class="o">=</span><span class="n">ports</span><span class="p">,</span> <span class="n">chooser</span><span class="o">=</span><span class="n">prompt_for_serial_port</span><span class="p">)</span>
 </span></code></pre></div></td></tr></table></div>
+<h2 id="rawserialadapter">RawSerialAdapter</h2>
+<p>For devices that speak a binary protocol (no shell, no prompts), use <code>RawSerialAdapter</code>
+instead of importing <code>pyserial</code> directly. Does not use a TOML config file — configuration
+is passed directly as <code>AdapterConfig</code>.</p>
+<p>Minimal usage:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-5-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-5-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-5-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-5-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-5-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-5-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-5-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-5-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-5-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-5-10">10</a></span>
+<span class="normal"><a href="#__codelineno-5-11">11</a></span>
+<span class="normal"><a href="#__codelineno-5-12">12</a></span>
+<span class="normal"><a href="#__codelineno-5-13">13</a></span>
+<span class="normal"><a href="#__codelineno-5-14">14</a></span>
+<span class="normal"><a href="#__codelineno-5-15">15</a></span>
+<span class="normal"><a href="#__codelineno-5-16">16</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">wsh_shell_adapter</span><span class="w"> </span><span class="kn">import</span> <span class="n">AdapterConfig</span><span class="p">,</span> <span class="n">RawSerialAdapter</span>
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2"></a>
+</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3"></a><span class="n">adapter</span> <span class="o">=</span> <span class="n">RawSerialAdapter</span><span class="p">(</span><span class="n">AdapterConfig</span><span class="p">(</span>
+</span><span id="__span-5-4"><a id="__codelineno-5-4" name="__codelineno-5-4"></a>    <span class="n">vid</span><span class="o">=</span><span class="mh">0x0483</span><span class="p">,</span>
+</span><span id="__span-5-5"><a id="__codelineno-5-5" name="__codelineno-5-5"></a>    <span class="n">pid</span><span class="o">=</span><span class="mh">0x5740</span><span class="p">,</span>
+</span><span id="__span-5-6"><a id="__codelineno-5-6" name="__codelineno-5-6"></a>    <span class="n">baudrate</span><span class="o">=</span><span class="mi">115200</span><span class="p">,</span>
+</span><span id="__span-5-7"><a id="__codelineno-5-7" name="__codelineno-5-7"></a><span class="p">))</span>
+</span><span id="__span-5-8"><a id="__codelineno-5-8" name="__codelineno-5-8"></a><span class="n">adapter</span><span class="o">.</span><span class="n">connect</span><span class="p">()</span>
+</span><span id="__span-5-9"><a id="__codelineno-5-9" name="__codelineno-5-9"></a>
+</span><span id="__span-5-10"><a id="__codelineno-5-10" name="__codelineno-5-10"></a><span class="n">adapter</span><span class="o">.</span><span class="n">reset_input_buffer</span><span class="p">()</span>
+</span><span id="__span-5-11"><a id="__codelineno-5-11" name="__codelineno-5-11"></a><span class="n">adapter</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="nb">bytes</span><span class="p">([</span><span class="mh">0x5A</span><span class="p">,</span> <span class="mh">0xA5</span><span class="p">,</span> <span class="mh">0x00</span><span class="p">,</span> <span class="mh">0x20</span><span class="p">,</span> <span class="mh">0x22</span><span class="p">,</span> <span class="mh">0xA0</span><span class="p">,</span> <span class="mh">0x00</span><span class="p">]))</span>
+</span><span id="__span-5-12"><a id="__codelineno-5-12" name="__codelineno-5-12"></a>
+</span><span id="__span-5-13"><a id="__codelineno-5-13" name="__codelineno-5-13"></a><span class="k">while</span> <span class="n">adapter</span><span class="o">.</span><span class="n">in_waiting</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+</span><span id="__span-5-14"><a id="__codelineno-5-14" name="__codelineno-5-14"></a>    <span class="n">byte</span> <span class="o">=</span> <span class="n">adapter</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+</span><span id="__span-5-15"><a id="__codelineno-5-15" name="__codelineno-5-15"></a>
+</span><span id="__span-5-16"><a id="__codelineno-5-16" name="__codelineno-5-16"></a><span class="n">adapter</span><span class="o">.</span><span class="n">disconnect</span><span class="p">()</span>
+</span></code></pre></div></td></tr></table></div>
+<p><code>AdapterConfig</code> fields used by <code>RawSerialAdapter</code>: <code>port</code>, <code>baudrate</code>, <code>vid</code>, <code>pid</code>.</p>
+<p>Available methods and properties:</p>
+<ul>
+<li><code>connect()</code> — open the serial port; auto-discovers by VID/PID if <code>port</code> is not set</li>
+<li><code>disconnect()</code> — close the serial port</li>
+<li><code>write(data: bytes) -&gt; int</code> — write raw bytes; returns bytes written</li>
+<li><code>read(size: int) -&gt; bytes</code> — read up to <code>size</code> bytes</li>
+<li><code>reset_input_buffer()</code> — discard bytes waiting in the receive buffer</li>
+<li><code>in_waiting: int</code> — number of bytes available to read</li>
+<li><code>is_open: bool</code> — whether the port is currently open</li>
+<li><code>port: str | None</code> — active port name, or <code>None</code> if not connected</li>
+<li><code>status() -&gt; dict</code> — <code>{"connected": bool, "port": str | None}</code></li>
+</ul>
 <h2 id="helper-scripts">Helper Scripts</h2>
 <h3 id="local-pty-helper">Local PTY helper</h3>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-5-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1"></a>python<span class="w"> </span>-m<span class="w"> </span>wsh_shell_adapter.run_local_shell
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-6-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1"></a>python<span class="w"> </span>-m<span class="w"> </span>wsh_shell_adapter.run_local_shell
 </span></code></pre></div></td></tr></table></div>
 <p>Before first run in a clean checkout, build example binary:</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-6-1">1</a></span>
-<span class="normal"><a href="#__codelineno-6-2">2</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1"></a>make<span class="w"> </span>src/wsh_shell_cfg.h
-</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2"></a>make<span class="w"> </span>example
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-7-1">1</a></span>
+<span class="normal"><a href="#__codelineno-7-2">2</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1"></a>make<span class="w"> </span>src/wsh_shell_cfg.h
+</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2"></a>make<span class="w"> </span>example
 </span></code></pre></div></td></tr></table></div>
 <h3 id="usb-helper">USB helper</h3>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-7-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1"></a>python<span class="w"> </span>-m<span class="w"> </span>wsh_shell_adapter.run_usb_shell
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-8-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1"></a>python<span class="w"> </span>-m<span class="w"> </span>wsh_shell_adapter.run_usb_shell
 </span></code></pre></div></td></tr></table></div>
 <p>It loads <code>[adapter]</code> settings from <code>wsh_shell_adapter/config.toml</code> and starts interactive REPL.</p>
 <h2 id="tests">Tests</h2>
 <p>Install test dependencies:</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-8-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1"></a>pip<span class="w"> </span>install<span class="w"> </span>-r<span class="w"> </span>tests/requirements.txt
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-9-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1"></a>pip<span class="w"> </span>install<span class="w"> </span>-r<span class="w"> </span>tests/requirements.txt
 </span></code></pre></div></td></tr></table></div>
 <p>Run all adapter tests:</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-9-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1"></a>pytest<span class="w"> </span>-q<span class="w"> </span>tests<span class="w"> </span>-vv
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-10-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1"></a>pytest<span class="w"> </span>-q<span class="w"> </span>tests<span class="w"> </span>-vv
 </span></code></pre></div></td></tr></table></div>
 
 

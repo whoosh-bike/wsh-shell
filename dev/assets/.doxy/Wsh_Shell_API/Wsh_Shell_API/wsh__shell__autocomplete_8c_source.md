@@ -276,7 +276,9 @@ WshShell_Bool_t WshShellAutocomplete_Try(WshShell_Char_t* pInBuff, WshShell_Size
 #endif /* WSH_SHELL_SUBCOMMANDS */
 
         const WshShell_Bool_t isFlagPartial = (flagPartLen == 0) || (pcFlagPart[0] == '-');
+#if WSH_SHELL_SUBCOMMANDS
         WshShell_Size_t effFlagPartLen      = flagPartLen;
+#endif
 
         if (!isFlagPartial) {
             /*
@@ -336,7 +338,9 @@ WshShell_Bool_t WshShellAutocomplete_Try(WshShell_Char_t* pInBuff, WshShell_Size
                             if (hadTrailingSpace && valLen == flagPartLen &&
                                 WSH_SHELL_STRNCMP(valCandidates[0], pcFlagPart, flagPartLen) == 0) {
                                 prefixEnd      = inputCopyTrimmedLen;
+#if WSH_SHELL_SUBCOMMANDS
                                 effFlagPartLen = 0;
+#endif
                             } else {
                                 return WshShellAutocomplete_WriteCompletion(pInBuff, pcInputCopyTrimmed, lastSpaceIdx,
                                                                             valCandidates[0], valLen, true,

@@ -9,6 +9,7 @@
 
 ```C++
 #include "wsh_shell_misc.h"
+#include "wsh_shell_str.h"
 
 WshShell_U32_t WshShellMisc_CalcJenkinsHash(const WshShell_U8_t* pcBuff, WshShell_Size_t len) {
     WSH_SHELL_ASSERT(pcBuff);
@@ -47,10 +48,24 @@ void WshShellMisc_HexDump(const WshShell_U8_t* pBuff, WshShell_Size_t len, WshSh
         WSH_SHELL_PRINT(" |");
         for (WshShell_Size_t j = 0; j < WSH_HEXDUMP_COLS && i + j < len; j++) {
             WshShell_U8_t c = pBuff[i + j];
-            WSH_SHELL_PRINT("%c", (c >= 0x20 && c <= 0x7e) ? (char)c : '.');
+            WSH_SHELL_PRINT("%c", WshShellStr_IsPrintableAscii(c) ? (char)c : '.');
         }
+
         WSH_SHELL_PRINT("|\r\n");
     }
+}
+
+void WshShellMisc_AsciiPrint(const WshShell_U8_t* pBuff, WshShell_Size_t len) {
+    WSH_SHELL_ASSERT(pBuff || len == 0);
+    if (!pBuff && len > 0)
+        return;
+
+    for (WshShell_Size_t i = 0; i < len; i++) {
+        char c = (char)pBuff[i];
+        WSH_SHELL_PRINT("%c", WshShellStr_IsPrintableAscii(c) || c == '\r' || c == '\n' ? c : '.');
+    }
+
+    WSH_SHELL_PRINT("\r\n");
 }
 ```
 

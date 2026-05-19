@@ -11,6 +11,7 @@
 
 
 * `#include "wsh_shell_misc.h"`
+* `#include "wsh_shell_str.h"`
 
 
 
@@ -52,6 +53,7 @@
 
 | Type | Name |
 | ---: | :--- |
+|  void | [**WshShellMisc\_AsciiPrint**](#function-wshshellmisc_asciiprint) (const WshShell\_U8\_t \* pBuff, WshShell\_Size\_t len) <br>_Print a ASCII dump of a buffer._  |
 |  WshShell\_U32\_t | [**WshShellMisc\_CalcJenkinsHash**](#function-wshshellmisc_calcjenkinshash) (const WshShell\_U8\_t \* pcBuff, WshShell\_Size\_t len) <br>_Calculate Jenkins one-at-a-time hash._  |
 |  void | [**WshShellMisc\_HexDump**](#function-wshshellmisc_hexdump) (const WshShell\_U8\_t \* pBuff, WshShell\_Size\_t len, WshShell\_Size\_t offset) <br>_Print a hex + ASCII dump of a buffer (hexdump -C style)._  |
 
@@ -84,6 +86,35 @@
 
 ## Public Functions Documentation
 
+
+
+
+### function WshShellMisc\_AsciiPrint 
+
+_Print a ASCII dump of a buffer._ 
+```C++
+void WshShellMisc_AsciiPrint (
+    const WshShell_U8_t * pBuff,
+    WshShell_Size_t len
+) 
+```
+
+
+
+
+
+**Parameters:**
+
+
+* `pBuff` Pointer to the data buffer. 
+* `len` Number of bytes to dump. 
+
+
+
+
+        
+
+<hr>
 
 
 
