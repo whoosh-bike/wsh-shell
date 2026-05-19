@@ -9,6 +9,7 @@ from .adapter import (
     load_adapter_config_from_toml,
 )
 from .exceptions import CommandError, SyncError, TransportError, WshShellAdapterError
+from .raw_adapter import RawSerialAdapter
 from .serial_cli import (
     describe_serial_target,
     prompt_for_serial_port,
@@ -31,6 +32,7 @@ __all__ = [
     "CommandError",
     "CommandRequest",
     "CommandResult",
+    "RawSerialAdapter",
     "adapter_config_from_mapping",
     "describe_serial_target",
     "format_serial_port",
