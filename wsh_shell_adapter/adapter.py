@@ -25,6 +25,10 @@ STATE_EXECUTING = "executing"
 ADAPTER_TOML_KEYS = (
     "port",
     "baudrate",
+    "bytesize",
+    "parity",
+    "stopbits",
+    "read_timeout_s",
     "vid",
     "pid",
     "login",
@@ -53,6 +57,10 @@ ADAPTER_TOML_KEYS = (
 class AdapterConfig:
     port: Optional[str] = None
     baudrate: int = 115200
+    bytesize: int = 8
+    parity: str = "N"
+    stopbits: int = 1
+    read_timeout_s: float = 0.05
     vid: Optional[int] = None
     pid: Optional[int] = None
     login: Optional[str] = None
@@ -176,6 +184,10 @@ class WshShellAdapter:
         self.transport = transport or SerialTransport(
             port=self.config.port,
             baudrate=self.config.baudrate,
+            bytesize=self.config.bytesize,
+            parity=self.config.parity,
+            stopbits=self.config.stopbits,
+            read_timeout_s=self.config.read_timeout_s,
             discovery=SerialDiscoveryConfig(vid=self.config.vid, pid=self.config.pid),
         )
         self._state_callback = state_callback
@@ -193,8 +205,24 @@ class WshShellAdapter:
         self.transport.close()
         self._set_state(STATE_DISCONNECTED, "transport closed")
 
+    @property
+    def tx_bytes(self) -> int:
+        return self.transport.tx_bytes
+
+    @property
+    def rx_bytes(self) -> int:
+        return self.transport.rx_bytes
+
+    def reset_io_counters(self) -> None:
+        self.transport.reset_counters()
+
     def status(self) -> Dict[str, str]:
-        return {"state": self.state, "port": self.port_name or self.transport.name}
+        return {
+            "state": self.state,
+            "port": self.port_name or self.transport.name,
+            "tx_bytes": self.transport.tx_bytes,
+            "rx_bytes": self.transport.rx_bytes,
+        }
 
     def _ensure_ready(self, force_sync: bool = False) -> None:
         if not self.transport.is_open:

@@ -54,7 +54,7 @@ void WshShellMisc_AsciiPrint(const WshShell_U8_t* pBuff, WshShell_Size_t len) {
     if (!pBuff && len > 0)
         return;
 
-    for (u32 i = 0; i < len; i++) {
+    for (WshShell_Size_t i = 0; i < len; i++) {
         char c = (char)pBuff[i];
         WSH_SHELL_PRINT("%c", WshShellStr_IsPrintableAscii(c) || c == '\r' || c == '\n' ? c : '.');
     }
