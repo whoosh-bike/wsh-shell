@@ -42,13 +42,13 @@ static void WshShellHistory_DecrIdx(WshShell_Size_t* pIdx) {
     *pIdx = *pIdx == 0 ? WSH_SHELL_HISTORY_BUFF_SIZE - 1 : *pIdx - 1;
 }
 
-static void WshShellHistory_GetTokenFromBuffer(WshShell_Char_t* pDst, const WshShell_Char_t* pсSrc,
+static void WshShellHistory_GetTokenFromBuffer(WshShell_Char_t* pDst, const WshShell_Char_t* pcSrc,
                                                WshShell_Size_t tokStartIdx, WshShell_Size_t tokLen) {
-    WSH_SHELL_ASSERT(pDst && pсSrc && tokLen > 0);
+    WSH_SHELL_ASSERT(pDst && pcSrc && tokLen > 0);
 
     WshShell_Size_t readIdx = tokStartIdx;
     for (WshShell_Size_t tokIdx = 0; tokIdx < tokLen; tokIdx++) {
-        pDst[tokIdx] = pсSrc[readIdx];
+        pDst[tokIdx] = pcSrc[readIdx];
         WshShellHistory_IncrIdx(&readIdx);
     }
     pDst[tokLen] = '\0';

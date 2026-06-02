@@ -49,7 +49,7 @@ WshShell_Char_t* WshShellStr_TrimString(WshShell_Char_t* pString, WshShell_Size_
  * Tokens are written as pointers to the beginning of each token into the `pArgBuff` array.
  * Quoted substrings (enclosed in double quotes `"`), if any, are treated as a single token.
  * Quotes themselves are removed during parsing.
- *ч
+ *
  * @note This function modifies the input string in-place. Spaces and quotes are replaced with `\0`.
  * Escaped or nested quotes are not supported.
  *
