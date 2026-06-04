@@ -831,6 +831,78 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#v33-fixes-adapter-extensions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        v3.3 (Fixes &amp; Adapter Extensions)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="v3.3 (Fixes &amp; Adapter Extensions)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#python-adapter-iot-raw-backend" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Python Adapter — IoT Raw Backend
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#integration-test-infrastructure" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Integration Test Infrastructure
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#short-option-length-fix" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Short Option Length Fix
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#iar-build-compatibility" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        IAR Build Compatibility
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#misc" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Misc
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -3074,6 +3146,78 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#v33-fixes-adapter-extensions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        v3.3 (Fixes &amp; Adapter Extensions)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="v3.3 (Fixes &amp; Adapter Extensions)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#python-adapter-iot-raw-backend" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Python Adapter — IoT Raw Backend
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#integration-test-infrastructure" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Integration Test Infrastructure
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#short-option-length-fix" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Short Option Length Fix
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#iar-build-compatibility" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        IAR Build Compatibility
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#misc" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Misc
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -3317,6 +3461,36 @@
 <li class="task-list-item"><input type="checkbox" disabled checked/> Row width configurable via <code>WSH_HEXDUMP_COLS</code> in <code>wsh_shell_cfg_def.h</code> (default <code>16</code>)</li>
 <li class="task-list-item"><input type="checkbox" disabled checked/> Demo in <code>example/shell.c</code>: <code>dump</code> command dumps live PS1 buffer bytes</li>
 <li class="task-list-item"><input type="checkbox" disabled checked/> Document in <code>usage/writing-commands.md</code> under "Shell Utilities"</li>
+</ul>
+<h2 id="v33-fixes-adapter-extensions">v3.3 (Fixes &amp; Adapter Extensions)</h2>
+<h3 id="python-adapter-iot-raw-backend">Python Adapter — IoT Raw Backend</h3>
+<ul class="task-list">
+<li class="task-list-item"><input type="checkbox" disabled checked/> Add <code>RawAdapter</code> for non-shell binary protocols alongside the existing shell adapter (<code>wsh_shell_adapter/raw_adapter.py</code>)</li>
+<li class="task-list-item"><input type="checkbox" disabled checked/> Extend <code>transport.py</code> to support raw byte streams in addition to line-based shell I/O</li>
+<li class="task-list-item"><input type="checkbox" disabled checked/> Document raw-adapter usage in <code>wsh_shell_adapter/README.md</code> and <code>docs/usage/python-adapter.md</code></li>
+</ul>
+<h3 id="integration-test-infrastructure">Integration Test Infrastructure</h3>
+<ul class="task-list">
+<li class="task-list-item"><input type="checkbox" disabled checked/> Add pytest-based integration test suite under <code>tests/integration/</code> (smoke, history, features) driving <code>example/build/example</code> via PTY</li>
+<li class="task-list-item"><input type="checkbox" disabled checked/> Split existing adapter tests into <code>tests/unit/</code> with shared <code>conftest.py</code> fixtures</li>
+<li class="task-list-item"><input type="checkbox" disabled checked/> Add VS Code task entry for running the suite locally</li>
+</ul>
+<h3 id="short-option-length-fix">Short Option Length Fix</h3>
+<ul class="task-list">
+<li class="task-list-item"><input type="checkbox" disabled checked/> <code>WshShellCmd_FindOpt</code>: match short flags by <code>strLen &lt;= WSH_SHELL_OPTION_SHORT_NAME_LEN</code> instead of strict equality, so short flags shorter than the configured maximum are recognised when <code>WSH_SHELL_OPTION_SHORT_NAME_LEN &gt; 2</code></li>
+<li class="task-list-item"><input type="checkbox" disabled checked/> Add NULL guard for options without <code>ShortName</code> on the short-flag path</li>
+</ul>
+<h3 id="iar-build-compatibility">IAR Build Compatibility</h3>
+<ul class="task-list">
+<li class="task-list-item"><input type="checkbox" disabled checked/> Replace Cyrillic <code>с</code> (U+0441) with Latin <code>c</code> in identifiers (Pe159)</li>
+<li class="task-list-item"><input type="checkbox" disabled checked/> Remove VLA in <code>wsh_shell_autocomplete.c</code> — switch <code>candidates[cmdNum + 1][...]</code> to the existing <code>WSH_SHELL_AUTOCOMPLETE_MAX_CANDIDATES</code> cap (Pe028)</li>
+</ul>
+<h3 id="misc">Misc</h3>
+<ul class="task-list">
+<li class="task-list-item"><input type="checkbox" disabled checked/> Add <code>WshShellMisc_AsciiPrint</code> helper for printable-only output</li>
+<li class="task-list-item"><input type="checkbox" disabled checked/> Autocomplete cleanup and subcommand-related corner-case fixes</li>
+<li class="task-list-item"><input type="checkbox" disabled checked/> Fix <code>PtyProcessTransport</code> error path on Windows in the Python adapter</li>
+<li class="task-list-item"><input type="checkbox" disabled checked/> Trim flash-footprint tables in <code>README.md</code> / <code>docs/index.md</code> to only feature-toggle macros (drop numeric-size knobs that don't fit the on/off cost model)</li>
 </ul>
 
 

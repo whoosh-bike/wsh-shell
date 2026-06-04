@@ -223,7 +223,7 @@ static void WshShell_StringHandler(WshShell_t* pShell) {
              * array so the subcommand name lands at position 1 and the flags
              * follow it — the subcommand handler then receives all tokens. */
             if (pcNext && pcNext[0] == '-') {
-                WshShell_Size_t scanPos    = 1;
+                WshShell_Size_t scanPos     = 1;
                 WshShell_Bool_t subcmdFound = false;
                 while (scanPos < dispatchArgc) {
                     const WshShell_Char_t* token = pDispatchArgv[scanPos];
