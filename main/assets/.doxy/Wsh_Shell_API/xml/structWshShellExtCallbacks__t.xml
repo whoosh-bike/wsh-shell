@@ -16,7 +16,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/wsh_shell.h" line="73" column="24" bodyfile="src/wsh_shell.h" bodystart="73" bodyend="-1"/>
+        <location file="src/wsh_shell.h" line="74" column="24" bodyfile="src/wsh_shell.h" bodystart="74" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structWshShellExtCallbacks__t_1ac73c17731bcc32026ce0d3a647887d96" prot="public" static="no" mutable="no">
         <type><ref refid="wsh__shell_8h_1a31ac89f2d478911c46e3e6c2142c1ac1" kindref="member">WshShell_ExtClbk_t</ref></type>
@@ -30,7 +30,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/wsh_shell.h" line="74" column="24" bodyfile="src/wsh_shell.h" bodystart="74" bodyend="-1"/>
+        <location file="src/wsh_shell.h" line="75" column="24" bodyfile="src/wsh_shell.h" bodystart="75" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structWshShellExtCallbacks__t_1a73dbdf5ca3361a36147dc391a251be18" prot="public" static="no" mutable="no">
         <type><ref refid="wsh__shell_8h_1a31ac89f2d478911c46e3e6c2142c1ac1" kindref="member">WshShell_ExtClbk_t</ref></type>
@@ -44,7 +44,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/wsh_shell.h" line="75" column="24" bodyfile="src/wsh_shell.h" bodystart="75" bodyend="-1"/>
+        <location file="src/wsh_shell.h" line="76" column="24" bodyfile="src/wsh_shell.h" bodystart="76" bodyend="-1"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
@@ -52,7 +52,7 @@
     </briefdescription>
     <detaileddescription>
     </detaileddescription>
-    <location file="src/wsh_shell.h" line="72" column="1" bodyfile="src/wsh_shell.h" bodystart="72" bodyend="76"/>
+    <location file="src/wsh_shell.h" line="73" column="1" bodyfile="src/wsh_shell.h" bodystart="73" bodyend="77"/>
     <listofallmembers>
       <member refid="structWshShellExtCallbacks__t_1a03fb0506610537a45ac0a6206b1b8489" prot="public" virt="non-virtual"><scope>WshShellExtCallbacks_t</scope><name>Auth</name></member>
       <member refid="structWshShellExtCallbacks__t_1ac73c17731bcc32026ce0d3a647887d96" prot="public" virt="non-virtual"><scope>WshShellExtCallbacks_t</scope><name>DeAuth</name></member>

@@ -136,6 +136,7 @@ _Terminal input/output definitions and interaction buffer API for WshShell._ [Mo
 | define  | [**WSH\_SHELL\_PRINT\_SYS**](wsh__shell__io_8h.md#define-wsh_shell_print_sys) (\_f\_, ...) <br> |
 | define  | [**WSH\_SHELL\_PRINT\_WARN**](wsh__shell__io_8h.md#define-wsh_shell_print_warn) (\_f\_, ...) <br> |
 | define  | [**WSH\_SHELL\_SYM\_BACKSPACE**](wsh__shell__io_8h.md#define-wsh_shell_sym_backspace)  `'\b'`<br> |
+| define  | [**WSH\_SHELL\_SYM\_CANCEL**](wsh__shell__io_8h.md#define-wsh_shell_sym_cancel)  `0x03`<br> |
 | define  | [**WSH\_SHELL\_SYM\_DELETE**](wsh__shell__io_8h.md#define-wsh_shell_sym_delete)  `0x7f`<br> |
 | define  | [**WSH\_SHELL\_SYM\_EXIT**](wsh__shell__io_8h.md#define-wsh_shell_sym_exit)  `0x04`<br> |
 | define  | [**WSH\_SHELL\_SYM\_SOUND**](wsh__shell__io_8h.md#define-wsh_shell_sym_sound)  `0x07`<br> |
@@ -929,6 +930,23 @@ WSH_SHELL_PRINT_LEVEL(WSH_SHELL_PRINT_ERR, "Failed to open file: %s\n", filename
 
 
 Backspace character 
+
+
+        
+
+<hr>
+
+
+
+### define WSH\_SHELL\_SYM\_CANCEL 
+
+```C++
+#define WSH_SHELL_SYM_CANCEL `0x03`
+```
+
+
+
+Ctrl + C (cancel / interrupt) 
 
 
         

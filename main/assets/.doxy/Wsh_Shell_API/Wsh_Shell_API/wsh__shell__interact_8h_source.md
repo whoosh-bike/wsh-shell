@@ -22,7 +22,7 @@ extern "C" {
 typedef void (*WshShellInteractive_CmdHandler_t)(WshShellIO_CommandLine_t* pCommandLine);
 
 typedef struct {
-    WshShellInteractive_CmdHandler_t Handler; 
+    WshShellInteractive_CmdHandler_t Handler;        
     WshShell_Char_t CmdName[WSH_SHELL_CMD_NAME_LEN]; 
 } WshShellInteract_t;
 

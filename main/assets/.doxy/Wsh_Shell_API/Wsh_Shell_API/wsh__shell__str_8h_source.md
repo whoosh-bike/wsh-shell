@@ -27,8 +27,8 @@ WshShell_Bool_t WshShellStr_IsPrintableAscii(WshShell_Char_t ch);
 
 WshShell_Char_t* WshShellStr_TrimString(WshShell_Char_t* pString, WshShell_Size_t len);
 
-void WshShellStr_ParseToArgcArgv(WshShell_Char_t* pStr, WshShell_Size_t* pArgNum,
-                                 const WshShell_Char_t* pArgBuff[], WshShell_Size_t maxArgNum);
+void WshShellStr_ParseToArgcArgv(WshShell_Char_t* pStr, WshShell_Size_t* pArgNum, const WshShell_Char_t* pArgBuff[],
+                                 WshShell_Size_t maxArgNum);
 
 void WshShellStr_IncrInterCnt(WshShell_Size_t* pInterCnt, WshShell_Size_t buffSize);
 
@@ -36,8 +36,7 @@ void WshShellStr_DecrInterCnt(WshShell_Size_t* pInterCnt);
 
 void WshShellStr_AccessBitsToStr(WshShell_Size_t access, WshShell_Char_t* pOutStr);
 
-void WshShellStr_GroupBitsToStr(WshShell_Size_t group, WshShell_Size_t groupMaxNum,
-                                WshShell_Char_t* pOutStr);
+void WshShellStr_GroupBitsToStr(WshShell_Size_t group, WshShell_Size_t groupMaxNum, WshShell_Char_t* pOutStr);
 
 #ifdef __cplusplus
 }

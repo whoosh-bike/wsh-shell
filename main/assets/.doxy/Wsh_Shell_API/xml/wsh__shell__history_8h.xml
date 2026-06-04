@@ -252,7 +252,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/wsh_shell_history.h" line="88" column="6" bodyfile="src/wsh_shell_history.c" bodystart="274" bodyend="279" declfile="src/wsh_shell_history.h" declline="88" declcolumn="6"/>
+        <location file="src/wsh_shell_history.h" line="88" column="6" bodyfile="src/wsh_shell_history.c" bodystart="263" bodyend="268" declfile="src/wsh_shell_history.h" declline="88" declcolumn="6"/>
       </memberdef>
       <memberdef kind="function" id="wsh__shell__history_8h_1a39c9d7a6e368d601a2071733721de8bb" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -304,7 +304,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/wsh_shell_history.h" line="98" column="6" bodyfile="src/wsh_shell_history.c" bodystart="281" bodyend="286" declfile="src/wsh_shell_history.h" declline="98" declcolumn="6"/>
+        <location file="src/wsh_shell_history.h" line="98" column="6" bodyfile="src/wsh_shell_history.c" bodystart="270" bodyend="274" declfile="src/wsh_shell_history.h" declline="98" declcolumn="6"/>
       </memberdef>
       <memberdef kind="function" id="wsh__shell__history_8h_1a7d023247022276a694826e3797eadb8f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>WshShell_Size_t</type>
@@ -358,7 +358,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/wsh_shell_history.h" line="110" column="17" bodyfile="src/wsh_shell_history.c" bodystart="288" bodyend="295" declfile="src/wsh_shell_history.h" declline="110" declcolumn="17"/>
+        <location file="src/wsh_shell_history.h" line="109" column="17" bodyfile="src/wsh_shell_history.c" bodystart="276" bodyend="283" declfile="src/wsh_shell_history.h" declline="109" declcolumn="17"/>
       </memberdef>
       <memberdef kind="function" id="wsh__shell__history_8h_1a40632cd1c16806aa226b21efa9636bb1" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>WshShell_Size_t</type>
@@ -412,7 +412,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/wsh_shell_history.h" line="122" column="17" bodyfile="src/wsh_shell_history.c" bodystart="297" bodyend="304" declfile="src/wsh_shell_history.h" declline="122" declcolumn="17"/>
+        <location file="src/wsh_shell_history.h" line="121" column="17" bodyfile="src/wsh_shell_history.c" bodystart="285" bodyend="292" declfile="src/wsh_shell_history.h" declline="121" declcolumn="17"/>
       </memberdef>
       <memberdef kind="function" id="wsh__shell__history_8h_1a14a9bb940533ed3fe236ca54e248faf4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>WshShell_Size_t</type>
@@ -443,7 +443,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/wsh_shell_history.h" line="135" column="17" bodyfile="src/wsh_shell_history.c" bodystart="306" bodyend="310" declfile="src/wsh_shell_history.h" declline="135" declcolumn="17"/>
+        <location file="src/wsh_shell_history.h" line="134" column="17" bodyfile="src/wsh_shell_history.c" bodystart="294" bodyend="298" declfile="src/wsh_shell_history.h" declline="134" declcolumn="17"/>
       </memberdef>
       <memberdef kind="function" id="wsh__shell__history_8h_1a70f1c52c232d74554197e87db727090e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>WshShell_Size_t</type>
@@ -510,7 +510,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/wsh_shell_history.h" line="150" column="17" bodyfile="src/wsh_shell_history.c" bodystart="312" bodyend="322" declfile="src/wsh_shell_history.h" declline="150" declcolumn="17"/>
+        <location file="src/wsh_shell_history.h" line="149" column="17" bodyfile="src/wsh_shell_history.c" bodystart="300" bodyend="308" declfile="src/wsh_shell_history.h" declline="149" declcolumn="17"/>
       </memberdef>
       <memberdef kind="function" id="wsh__shell__history_8h_1a355889fab9547a5dc045776d56793f44" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -538,7 +538,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/wsh_shell_history.h" line="159" column="6" bodyfile="src/wsh_shell_history.c" bodystart="324" bodyend="326" declfile="src/wsh_shell_history.h" declline="159" declcolumn="6"/>
+        <location file="src/wsh_shell_history.h" line="157" column="6" bodyfile="src/wsh_shell_history.c" bodystart="310" bodyend="312" declfile="src/wsh_shell_history.h" declline="157" declcolumn="6"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
@@ -575,9 +575,9 @@
 <codeline lineno="39" refid="structWshShellHistory__Data__t_1a7129dd84fb22ab789be8f41c63356896" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>WshShell_Char_t<sp/>StorageBuff[WSH_SHELL_HISTORY_BUFF_SIZE];<sp/></highlight></codeline>
 <codeline lineno="40" refid="structWshShellHistory__Data__t_1a851b9a6e347f02cc621e6d3f04948b0b" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>WshShell_Size_t<sp/><ref refid="structWshShellHistory__Data__t_1a851b9a6e347f02cc621e6d3f04948b0b" kindref="member">HeadIdx</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
 <codeline lineno="41" refid="structWshShellHistory__Data__t_1aab55966490d20d635e3c8a305cb4055f" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>WshShell_Size_t<sp/><ref refid="structWshShellHistory__Data__t_1aab55966490d20d635e3c8a305cb4055f" kindref="member">TailIdx</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
-<codeline lineno="42" refid="structWshShellHistory__Data__t_1a6c24a791a4709beffc2719ad30b0e028" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>WshShell_Size_t<sp/><ref refid="structWshShellHistory__Data__t_1a6c24a791a4709beffc2719ad30b0e028" kindref="member">LastSavedCmdIdx</ref>;<sp/><sp/></highlight></codeline>
-<codeline lineno="43" refid="structWshShellHistory__Data__t_1a03c83742c1d136dc5f2fc8c61bc8636a" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="wsh__shell__history_8h_1a036107f17cb0ba9105b8832cd7a91e25" kindref="member">WSH_SHELL_HIST_CMD_DIR_t</ref><sp/><ref refid="structWshShellHistory__Data__t_1a03c83742c1d136dc5f2fc8c61bc8636a" kindref="member">PrevDir</ref>;<sp/></highlight></codeline>
-<codeline lineno="44" refid="structWshShellHistory__Data__t_1ae0e19b90028ead2731d3d9c1636b7a39" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>WshShell_Bool_t<sp/><ref refid="structWshShellHistory__Data__t_1ae0e19b90028ead2731d3d9c1636b7a39" kindref="member">LimitIsReached</ref>;<sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="42" refid="structWshShellHistory__Data__t_1a6c24a791a4709beffc2719ad30b0e028" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>WshShell_Size_t<sp/><ref refid="structWshShellHistory__Data__t_1a6c24a791a4709beffc2719ad30b0e028" kindref="member">LastSavedCmdIdx</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="43" refid="structWshShellHistory__Data__t_1a03c83742c1d136dc5f2fc8c61bc8636a" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="wsh__shell__history_8h_1a036107f17cb0ba9105b8832cd7a91e25" kindref="member">WSH_SHELL_HIST_CMD_DIR_t</ref><sp/><ref refid="structWshShellHistory__Data__t_1a03c83742c1d136dc5f2fc8c61bc8636a" kindref="member">PrevDir</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="44" refid="structWshShellHistory__Data__t_1ae0e19b90028ead2731d3d9c1636b7a39" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>WshShell_Bool_t<sp/><ref refid="structWshShellHistory__Data__t_1ae0e19b90028ead2731d3d9c1636b7a39" kindref="member">LimitIsReached</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
 <codeline lineno="45"><highlight class="normal">}<sp/><ref refid="structWshShellHistory__Data__t" kindref="compound">WshShellHistory_Data_t</ref>;</highlight></codeline>
 <codeline lineno="46"><highlight class="normal"></highlight></codeline>
 <codeline lineno="52" refid="structWshShellHistory__t" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal">{</highlight></codeline>
@@ -597,28 +597,26 @@
 <codeline lineno="88"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="wsh__shell__history_8h_1aed2006e067226b0f762f2e6b322874df" kindref="member">WshShellHistory_Init</ref>(<ref refid="structWshShellHistoryIO__t" kindref="compound">WshShellHistoryIO_t</ref>*<sp/>pHistIO,<sp/><ref refid="wsh__shell__history_8h_1a6deaaf9be341ddc04ffb1cf8e78d3e11" kindref="member">WshShellHistory_ReadHandler_t</ref><sp/>readFn,</highlight></codeline>
 <codeline lineno="89"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="wsh__shell__history_8h_1a6c3f231f284abd001c0c405bde299bde" kindref="member">WshShellHistory_WriteHandler_t</ref><sp/>writeFn);</highlight></codeline>
 <codeline lineno="90"><highlight class="normal"></highlight></codeline>
-<codeline lineno="98"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="wsh__shell__history_8h_1a39c9d7a6e368d601a2071733721de8bb" kindref="member">WshShellHistory_SaveCmd</ref>(<ref refid="structWshShellHistoryIO__t" kindref="compound">WshShellHistoryIO_t</ref>*<sp/>pHistIO,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>WshShell_Char_t*<sp/>pcCmdStr,</highlight></codeline>
-<codeline lineno="99"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>WshShell_Size_t<sp/>cmdStrLen);</highlight></codeline>
-<codeline lineno="100"><highlight class="normal"></highlight></codeline>
-<codeline lineno="110"><highlight class="normal">WshShell_Size_t<sp/><ref refid="wsh__shell__history_8h_1a7d023247022276a694826e3797eadb8f" kindref="member">WshShellHistory_GetPrevCmd</ref>(<ref refid="structWshShellHistoryIO__t" kindref="compound">WshShellHistoryIO_t</ref>*<sp/>pHistIO,<sp/>WshShell_Char_t*<sp/>pOutBuff,</highlight></codeline>
-<codeline lineno="111"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>WshShell_Size_t<sp/>outBuffSize);</highlight></codeline>
-<codeline lineno="112"><highlight class="normal"></highlight></codeline>
-<codeline lineno="122"><highlight class="normal">WshShell_Size_t<sp/><ref refid="wsh__shell__history_8h_1a40632cd1c16806aa226b21efa9636bb1" kindref="member">WshShellHistory_GetNextCmd</ref>(<ref refid="structWshShellHistoryIO__t" kindref="compound">WshShellHistoryIO_t</ref>*<sp/>pHistIO,<sp/>WshShell_Char_t*<sp/>pOutBuff,</highlight></codeline>
-<codeline lineno="123"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>WshShell_Size_t<sp/>outBuffSize);</highlight></codeline>
-<codeline lineno="124"><highlight class="normal"></highlight></codeline>
-<codeline lineno="135"><highlight class="normal">WshShell_Size_t<sp/><ref refid="wsh__shell__history_8h_1a14a9bb940533ed3fe236ca54e248faf4" kindref="member">WshShellHistory_GetTokenNum</ref>(<ref refid="structWshShellHistoryIO__t" kindref="compound">WshShellHistoryIO_t</ref>*<sp/>pHistIO);</highlight></codeline>
-<codeline lineno="136"><highlight class="normal"></highlight></codeline>
-<codeline lineno="150"><highlight class="normal">WshShell_Size_t<sp/><ref refid="wsh__shell__history_8h_1a70f1c52c232d74554197e87db727090e" kindref="member">WshShellHistory_GetTokenByIndex</ref>(<ref refid="structWshShellHistoryIO__t" kindref="compound">WshShellHistoryIO_t</ref>*<sp/>pHistIO,</highlight></codeline>
-<codeline lineno="151"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>WshShell_Char_t*<sp/>pOutBuff,</highlight></codeline>
-<codeline lineno="152"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>WshShell_Size_t<sp/>outBuffSize,<sp/>WshShell_Size_t<sp/>index);</highlight></codeline>
-<codeline lineno="153"><highlight class="normal"></highlight></codeline>
-<codeline lineno="159"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="wsh__shell__history_8h_1a355889fab9547a5dc045776d56793f44" kindref="member">WshShellHistory_Flush</ref>(<ref refid="structWshShellHistoryIO__t" kindref="compound">WshShellHistoryIO_t</ref>*<sp/>pHistIO);</highlight></codeline>
-<codeline lineno="160"><highlight class="normal"></highlight></codeline>
-<codeline lineno="161"><highlight class="normal"></highlight><highlight class="preprocessor">#ifdef<sp/>__cplusplus</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="162"><highlight class="normal">}</highlight></codeline>
-<codeline lineno="163"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="164"><highlight class="normal"></highlight></codeline>
-<codeline lineno="165"><highlight class="normal"></highlight><highlight class="preprocessor">#endif<sp/></highlight><highlight class="comment">/*<sp/>__WSH_SHELL_HISTORY_H<sp/>*/</highlight><highlight class="preprocessor"></highlight></codeline>
+<codeline lineno="98"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="wsh__shell__history_8h_1a39c9d7a6e368d601a2071733721de8bb" kindref="member">WshShellHistory_SaveCmd</ref>(<ref refid="structWshShellHistoryIO__t" kindref="compound">WshShellHistoryIO_t</ref>*<sp/>pHistIO,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>WshShell_Char_t*<sp/>pcCmdStr,<sp/>WshShell_Size_t<sp/>cmdStrLen);</highlight></codeline>
+<codeline lineno="99"><highlight class="normal"></highlight></codeline>
+<codeline lineno="109"><highlight class="normal">WshShell_Size_t<sp/><ref refid="wsh__shell__history_8h_1a7d023247022276a694826e3797eadb8f" kindref="member">WshShellHistory_GetPrevCmd</ref>(<ref refid="structWshShellHistoryIO__t" kindref="compound">WshShellHistoryIO_t</ref>*<sp/>pHistIO,<sp/>WshShell_Char_t*<sp/>pOutBuff,</highlight></codeline>
+<codeline lineno="110"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>WshShell_Size_t<sp/>outBuffSize);</highlight></codeline>
+<codeline lineno="111"><highlight class="normal"></highlight></codeline>
+<codeline lineno="121"><highlight class="normal">WshShell_Size_t<sp/><ref refid="wsh__shell__history_8h_1a40632cd1c16806aa226b21efa9636bb1" kindref="member">WshShellHistory_GetNextCmd</ref>(<ref refid="structWshShellHistoryIO__t" kindref="compound">WshShellHistoryIO_t</ref>*<sp/>pHistIO,<sp/>WshShell_Char_t*<sp/>pOutBuff,</highlight></codeline>
+<codeline lineno="122"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>WshShell_Size_t<sp/>outBuffSize);</highlight></codeline>
+<codeline lineno="123"><highlight class="normal"></highlight></codeline>
+<codeline lineno="134"><highlight class="normal">WshShell_Size_t<sp/><ref refid="wsh__shell__history_8h_1a14a9bb940533ed3fe236ca54e248faf4" kindref="member">WshShellHistory_GetTokenNum</ref>(<ref refid="structWshShellHistoryIO__t" kindref="compound">WshShellHistoryIO_t</ref>*<sp/>pHistIO);</highlight></codeline>
+<codeline lineno="135"><highlight class="normal"></highlight></codeline>
+<codeline lineno="149"><highlight class="normal">WshShell_Size_t<sp/><ref refid="wsh__shell__history_8h_1a70f1c52c232d74554197e87db727090e" kindref="member">WshShellHistory_GetTokenByIndex</ref>(<ref refid="structWshShellHistoryIO__t" kindref="compound">WshShellHistoryIO_t</ref>*<sp/>pHistIO,<sp/>WshShell_Char_t*<sp/>pOutBuff,</highlight></codeline>
+<codeline lineno="150"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>WshShell_Size_t<sp/>outBuffSize,<sp/>WshShell_Size_t<sp/>index);</highlight></codeline>
+<codeline lineno="151"><highlight class="normal"></highlight></codeline>
+<codeline lineno="157"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="wsh__shell__history_8h_1a355889fab9547a5dc045776d56793f44" kindref="member">WshShellHistory_Flush</ref>(<ref refid="structWshShellHistoryIO__t" kindref="compound">WshShellHistoryIO_t</ref>*<sp/>pHistIO);</highlight></codeline>
+<codeline lineno="158"><highlight class="normal"></highlight></codeline>
+<codeline lineno="159"><highlight class="normal"></highlight><highlight class="preprocessor">#ifdef<sp/>__cplusplus</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="160"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="161"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="162"><highlight class="normal"></highlight></codeline>
+<codeline lineno="163"><highlight class="normal"></highlight><highlight class="preprocessor">#endif<sp/></highlight><highlight class="comment">/*<sp/>__WSH_SHELL_HISTORY_H<sp/>*/</highlight><highlight class="preprocessor"></highlight></codeline>
     </programlisting>
     <location file="src/wsh_shell_history.h"/>
   </compounddef>

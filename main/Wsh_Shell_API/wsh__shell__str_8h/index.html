@@ -565,6 +565,10 @@
       
         
       
+        
+      
+        
+      
     
     
     
@@ -679,6 +683,62 @@
     
   
     Examples RTOS
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../usage/writing-commands/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Writing Commands
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../usage/subcommands/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Subcommands
   
 
     
@@ -3118,11 +3178,11 @@
 </span><span id="__span-5-5"><a id="__codelineno-5-5" name="__codelineno-5-5"></a><span class="w">    </span><span class="n">WshShell_Size_t</span><span class="w"> </span><span class="n">maxArgNum</span>
 </span><span id="__span-5-6"><a id="__codelineno-5-6" name="__codelineno-5-6"></a><span class="p">)</span><span class="w"> </span>
 </span></code></pre></div></td></tr></table></div></p>
-<p>This function splits the input string <code>pStr</code> into tokens by replacing spaces with null terminators (<code>\0</code>). Tokens are written as pointers to the beginning of each token into the <code>pArgBuff</code> array. Quoted substrings (enclosed in double quotes <code>"</code>), if any, are treated as a single token. Quotes themselves are removed during parsing. ч </p>
+<p>This function splits the input string <code>pStr</code> into tokens by replacing spaces with null terminators (<code>\0</code>). Tokens are written as pointers to the beginning of each token into the <code>pArgBuff</code> array. Quoted substrings (enclosed in double quotes <code>"</code>), if any, are treated as a single token. Quotes themselves are removed during parsing.</p>
 <p><strong>Note:</strong></p>
 <p>This function modifies the input string in-place. Spaces and quotes are replaced with <code>\0</code>. Escaped or nested quotes are not supported.</p>
 <p>Example: Input: <code>"arg1 arg2 \"quoted string" arg3"&lt;/tt&gt;
- Output: &lt;tt&gt;pArgBuff = { "arg1", "arg2", "quoted string", "arg3" }</code>, <code>*pArgNum = 4</code></p>
+Output: &lt;tt&gt;pArgBuff = { "arg1", "arg2", "quoted string", "arg3" }</code>, <code>*pArgNum = 4</code></p>
 <p><strong>Parameters:</strong></p>
 <ul>
 <li><code>pStr</code> Pointer to the null-terminated string to be parsed. Will be modified in-place. </li>

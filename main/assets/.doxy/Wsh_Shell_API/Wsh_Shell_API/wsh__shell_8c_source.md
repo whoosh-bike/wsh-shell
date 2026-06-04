@@ -34,8 +34,7 @@ static void WshShell_InvitationPrint(WshShell_t* pShell) {
 }
 
 WSH_SHELL_RET_STATE_t WshShell_Init(WshShell_t* pShell, const WshShell_Char_t* pcDevName,
-                                    const WshShell_Char_t* pcCustomHeader,
-                                    WshShellExtCallbacks_t* pExtClbks) {
+                                    const WshShell_Char_t* pcCustomHeader, WshShellExtCallbacks_t* pExtClbks) {
     WSH_SHELL_ASSERT(pShell && pcDevName);
     if (!pShell || !pcDevName)
         return WSH_SHELL_RET_STATE_ERR_PARAM;
@@ -77,8 +76,8 @@ WSH_SHELL_RET_STATE_t WshShell_Init(WshShell_t* pShell, const WshShell_Char_t* p
     WSH_SHELL_PRINT(WSH_SHELL_COLOR_PURPLE);
     WSH_SHELL_PRINT(pcCustomHeader ? pcCustomHeader : WSH_SHELL_HEADER);
     WSH_SHELL_PRINT_SYS("Serial shell service started on %s device\r\n", pShell->DeviceName);
-    WSH_SHELL_PRINT_SYS("wsh-shell-v%s (%s), built in %s, at %s, with [%s], on [%s]\r\n",
-                        pShell->Version, pBuildType, __DATE__, __TIME__, COMPILER, OS_NAME);
+    WSH_SHELL_PRINT_SYS("wsh-shell-v%s (%s), built in %s, at %s, with [%s], on [%s]\r\n", pShell->Version, pBuildType,
+                        __DATE__, __TIME__, COMPILER, OS_NAME);
     (void)pBuildType;
     WSH_SHELL_PRINT_SYS(WSH_SHELL_PRESS_ENTER_TO_LOG_IN_STR "\r\n");
 
@@ -87,8 +86,7 @@ WSH_SHELL_RET_STATE_t WshShell_Init(WshShell_t* pShell, const WshShell_Char_t* p
     return WSH_SHELL_RET_STATE_SUCCESS;
 }
 
-WshShell_Bool_t WshShell_Auth(WshShell_t* pShell, const WshShell_Char_t* pcLogin,
-                              const WshShell_Char_t* pcPass) {
+WshShell_Bool_t WshShell_Auth(WshShell_t* pShell, const WshShell_Char_t* pcLogin, const WshShell_Char_t* pcPass) {
     WSH_SHELL_ASSERT(pShell && pcLogin && pcPass);
     if (!pShell || !pcLogin || !pcPass)
         return false;
@@ -126,7 +124,7 @@ void WshShell_DeAuth(WshShell_t* pShell, const WshShell_Char_t* pcReason) {
     WshShellHistory_Flush(&(pShell->HistoryIO));
 
     WSH_SHELL_PRINT("%c", WSH_SHELL_SYM_SOUND);
-    WSH_SHELL_PRINT_ERR("Shell deAuthed by `%s`!\r\n", pcReason);
+    WSH_SHELL_PRINT_SYS("Shell deAuthed by `%s`!\r\n", pcReason);
     WSH_SHELL_PRINT_SYS(WSH_SHELL_PRESS_ENTER_TO_LOG_IN_STR "\r\n");
 
     WshShellPromptWait_Attach(&(pShell->PromptWait), WshShellPromptWait_Enter, NULL);
@@ -150,8 +148,7 @@ static void WshShell_AuthHandler(WshShell_t* pShell) {
     }
 
     if (!WSH_SHELL_TMP_LOGIN_IS_EMPTY() && !WSH_SHELL_TMP_PASS_IS_EMPTY()) {
-        WshShell_Bool_t isAuthOk =
-            WshShell_Auth(pShell, pShell->TmpAuth.Login, pShell->TmpAuth.Pass);
+        WshShell_Bool_t isAuthOk = WshShell_Auth(pShell, pShell->TmpAuth.Login, pShell->TmpAuth.Pass);
 
         WSH_SHELL_MEMSET((void*)pShell->TmpAuth.Login, 0, WSH_SHELL_LOGIN_LEN);
         WSH_SHELL_MEMSET((void*)pShell->TmpAuth.Pass, 0, WSH_SHELL_PASS_LEN);
@@ -166,15 +163,14 @@ static void WshShell_AuthHandler(WshShell_t* pShell) {
 static void WshShell_StringHandler(WshShell_t* pShell) {
     pShell->CommandLine.Buff[pShell->CommandLine.Len] = 0;
 
-    const WshShell_Char_t* pcCmdStr =
-        WshShellStr_TrimString(pShell->CommandLine.Buff, pShell->CommandLine.Len);
+    const WshShell_Char_t* pcCmdStr = WshShellStr_TrimString(pShell->CommandLine.Buff, pShell->CommandLine.Len);
     WshShell_Char_t cmdStr[WSH_SHELL_INTR_BUFF_LEN] = {0};
     WSH_SHELL_STRNCPY(cmdStr, pcCmdStr, WSH_SHELL_INTR_BUFF_LEN - 1);
 
     WshShell_Size_t argc                                      = 0;
-    const WshShell_Char_t* pсArgv[WSH_SHELL_CMD_ARGS_MAX_NUM] = {0};
+    const WshShell_Char_t* pcArgv[WSH_SHELL_CMD_ARGS_MAX_NUM] = {0};
 
-    WshShellStr_ParseToArgcArgv(cmdStr, &argc, pсArgv, WSH_SHELL_CMD_ARGS_MAX_NUM);
+    WshShellStr_ParseToArgcArgv(cmdStr, &argc, pcArgv, WSH_SHELL_CMD_ARGS_MAX_NUM);
     if (argc == 0) {
         if (pShell->CommandLine.Len != 0)
             WshShellIO_ClearInterBuff(&(pShell->CommandLine));
@@ -187,26 +183,96 @@ static void WshShell_StringHandler(WshShell_t* pShell) {
     const WshShellCmd_t* pcCmd      = WshShellDefCmd_GetPtr();
     WshShellCmdHandler_t cmdHandler = NULL;
 
-    if (WSH_SHELL_STRNCMP(pcCmd->Name, pсArgv[0], WSH_SHELL_CMD_NAME_LEN) == 0) {
+    if (WSH_SHELL_STRNCMP(pcCmd->Name, pcArgv[0], WSH_SHELL_CMD_NAME_LEN) == 0) {
         cmdHandler = pcCmd->Handler;
     } else {
-        pcCmd = WshShellCmd_SearchCmd(&(pShell->Commands), pсArgv[0]);
+        pcCmd = WshShellCmd_SearchCmd(&(pShell->Commands), pcArgv[0]);
         if (pcCmd == NULL) {
             WSH_SHELL_PRINT_WARN("Command \"%s\" not found!\r\n", pcCmdStr);
         } else if ((pShell->CurrUser->Groups & pcCmd->Groups) != 0) {
             cmdHandler = pcCmd->Handler;
         } else {
-            WSH_SHELL_PRINT_ERR(
-                "Access denied: no group intersection for command \"%s\" and user \"%s\"!\r\n",
-                pсArgv[0], pShell->CurrUser->Login);
+            WSH_SHELL_PRINT_ERR("Access denied: no group intersection for command \"%s\" and user \"%s\"!\r\n",
+                                pcArgv[0], pShell->CurrUser->Login);
 
             WshShellIO_ClearInterBuff(&(pShell->CommandLine));
             return;
         }
     }
 
+    const WshShell_Char_t** pDispatchArgv = pcArgv;
+    WshShell_Size_t dispatchArgc          = argc;
+
+#if WSH_SHELL_SUBCOMMANDS
+    /*
+     * Walk the subcommand tree. Each matched level shifts argv by one so the
+     * terminal handler receives its own name at argv[0], mirroring top-level
+     * dispatch. An unknown non-flag token at a node that has subcommands is
+     * reported as an unknown subcommand so users aren't misled into thinking
+     * their typo was silently parsed as an option.
+     */
+    if (cmdHandler && pcCmd) {
+        WshShell_Size_t depth = 0;
+        while (pcCmd->SubCmdNum > 0 && pcCmd->SubCmds != NULL && dispatchArgc >= 2 &&
+               depth < WSH_SHELL_SUBCOMMANDS_MAX_DEPTH) {
+            const WshShell_Char_t* pcNext = pDispatchArgv[1];
+
+            /* If the next token is a flag, scan ahead past flags to find the
+             * subcommand name. Known flags consume their own arguments (ArgNum).
+             * If a subcommand is found beyond the flags, rotate the argv pointer
+             * array so the subcommand name lands at position 1 and the flags
+             * follow it — the subcommand handler then receives all tokens. */
+            if (pcNext && pcNext[0] == '-') {
+                WshShell_Size_t scanPos    = 1;
+                WshShell_Bool_t subcmdFound = false;
+                while (scanPos < dispatchArgc) {
+                    const WshShell_Char_t* token = pDispatchArgv[scanPos];
+                    if (!token)
+                        break;
+                    if (token[0] == '-') {
+                        const WshShellOption_t* pcOpt = WshShellCmd_FindOptByName(pcCmd, token);
+                        scanPos += 1 + (pcOpt ? pcOpt->ArgNum : 0);
+                    } else {
+                        if (WshShellCmd_SearchSubCmd(pcCmd, token)) {
+                            for (WshShell_Size_t i = scanPos; i > 1; i--)
+                                pDispatchArgv[i] = pDispatchArgv[i - 1];
+                            pDispatchArgv[1] = token;
+                            subcmdFound      = true;
+                        }
+                        break;
+                    }
+                }
+                if (!subcmdFound)
+                    break;
+                pcNext = pDispatchArgv[1];
+            }
+
+            const WshShellCmd_t* pcSub = WshShellCmd_SearchSubCmd(pcCmd, pcNext);
+            if (!pcSub) {
+                WSH_SHELL_PRINT_WARN("Unknown subcommand: %s %s\r\n", pcCmd->Name, pcNext);
+                WshShellIO_ClearInterBuff(&(pShell->CommandLine));
+                return;
+            }
+
+            if ((pShell->CurrUser->Groups & pcSub->Groups) == 0) {
+                WSH_SHELL_PRINT_ERR(
+                    "Access denied: no group intersection for subcommand \"%s %s\" and user \"%s\"!\r\n", pcCmd->Name,
+                    pcSub->Name, pShell->CurrUser->Login);
+                WshShellIO_ClearInterBuff(&(pShell->CommandLine));
+                return;
+            }
+
+            pcCmd      = pcSub;
+            cmdHandler = pcSub->Handler;
+            pDispatchArgv++;
+            dispatchArgc--;
+            depth++;
+        }
+    }
+#endif /* WSH_SHELL_SUBCOMMANDS */
+
     if (cmdHandler) {
-        WSH_SHELL_RET_STATE_t retState = cmdHandler(pcCmd, argc, pсArgv, pShell);
+        WSH_SHELL_RET_STATE_t retState = cmdHandler(pcCmd, dispatchArgc, pDispatchArgv, pShell);
 
         if (retState != WSH_SHELL_RET_STATE_SUCCESS) {
             WSH_SHELL_PRINT_ERR("Command execution: %s\r\n", WshShell_GetRetStateStr(retState));
@@ -223,6 +289,7 @@ static void WshShell_StringHandler(WshShell_t* pShell) {
     }
 
     WshShellIO_ClearInterBuff(&(pShell->CommandLine));
+    WSH_SHELL_PRINT("\r\n");
 }
 
 static void WshShell_StringInteractHandler(WshShell_t* pShell) {
@@ -234,22 +301,34 @@ static void WshShell_StringInteractHandler(WshShell_t* pShell) {
     WshShellIO_ClearInterBuff(&(pShell->CommandLine));
 }
 
+static void WshShell_ExitInteractive(WshShell_t* pShell) {
+    WshShellInteract_Flush(&(pShell->Interact));
+    WshShell_PS1Data_t data = {
+        .UserName     = pShell->CurrUser->Login,
+        .DevName      = pShell->DeviceName,
+        .InterCmdName = NULL,
+    };
+    WshShell_GeneratePS1(pShell->PS1, &data);
+}
+
 static void WshShell_SymbolHandler(WshShell_t* pShell, const WshShell_Char_t symbol) {
     switch (symbol) {
+        case WSH_SHELL_SYM_CANCEL:
+            WSH_SHELL_PRINT("^C");
+            if (WSH_SHELL_INTER_CMD_EXISTS())
+                WshShell_ExitInteractive(pShell);
+            WshShellIO_ClearInterBuff(&(pShell->CommandLine));
+            WSH_SHELL_PRINT(WSH_SHELL_END_LINE);
+            WshShell_InvitationPrint(pShell);
+            break;
+
         case WSH_SHELL_SYM_EXIT:
             if (WSH_SHELL_INTER_CMD_EXISTS()) {
-                WshShellInteract_Flush(&(pShell->Interact));
-
-                WshShell_PS1Data_t data = {
-                    .UserName     = pShell->CurrUser->Login,
-                    .DevName      = pShell->DeviceName,
-                    .InterCmdName = NULL,
-                };
-                WshShell_GeneratePS1(pShell->PS1, &data);
+                WshShell_ExitInteractive(pShell);
                 WSH_SHELL_PRINT(WSH_SHELL_END_LINE);
                 WshShell_InvitationPrint(pShell);
             } else
-                WshShell_DeAuth(pShell, "Ctrl+D");
+                WshShell_DeAuth(pShell, "^D");
             break;
 
         case WSH_SHELL_SYM_BACKSPACE:
@@ -261,8 +340,7 @@ static void WshShell_SymbolHandler(WshShell_t* pShell, const WshShell_Char_t sym
             if (!WSH_SHELL_USER_IS_AUTH())
                 break;
 
-            if (WshShellAutocomplete_Try(pShell->CommandLine.Buff, pShell->CommandLine.Len,
-                                         &(pShell->Commands))) {
+            if (WshShellAutocomplete_Try(pShell->CommandLine.Buff, pShell->CommandLine.Len, &(pShell->Commands))) {
                 WshShellIO_RefreshConsoleFromInterBuff(&(pShell->CommandLine));
             } else {
                 WshShell_InvitationPrint(pShell);
@@ -280,8 +358,7 @@ static void WshShell_SymbolHandler(WshShell_t* pShell, const WshShell_Char_t sym
                 return;
             }
 
-            WshShell_Bool_t starsOrChars =
-                (bool)(!WSH_SHELL_USER_IS_AUTH() && !WSH_SHELL_TMP_LOGIN_IS_EMPTY());
+            WshShell_Bool_t starsOrChars = (bool)(!WSH_SHELL_USER_IS_AUTH() && !WSH_SHELL_TMP_LOGIN_IS_EMPTY());
             WshShellIO_InsertSymbol(&(pShell->CommandLine), symbol, starsOrChars);
             break;
     }
@@ -335,8 +412,7 @@ void WshShell_InsertChar(WshShell_t* pShell, const WshShell_Char_t symbol) {
     }
 
     if (WshShellEsc_IsSeqStarted(&(pShell->EscStorage))) {
-        WshShellEsc_Handler(&(pShell->HistoryIO), &(pShell->CommandLine), &(pShell->EscStorage),
-                            symbol);
+        WshShellEsc_Handler(&(pShell->HistoryIO), &(pShell->CommandLine), &(pShell->EscStorage), symbol);
         SHELL_SAVE_PREV_AND_RETURN(pShell, symbol);
     }
 

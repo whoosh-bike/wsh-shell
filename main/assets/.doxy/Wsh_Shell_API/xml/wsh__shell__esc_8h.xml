@@ -201,7 +201,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/wsh_shell_esc.h" line="55" column="6" bodyfile="src/wsh_shell_esc.c" bodystart="87" bodyend="116" declfile="src/wsh_shell_esc.h" declline="55" declcolumn="6"/>
+        <location file="src/wsh_shell_esc.h" line="54" column="6" bodyfile="src/wsh_shell_esc.c" bodystart="81" bodyend="110" declfile="src/wsh_shell_esc.h" declline="54" declcolumn="6"/>
       </memberdef>
       <memberdef kind="function" id="wsh__shell__esc_8h_1a31c8a37296536f7e7a16070945416b35" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -230,7 +230,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/wsh_shell_esc.h" line="65" column="6" bodyfile="src/wsh_shell_esc.c" bodystart="118" bodyend="125" declfile="src/wsh_shell_esc.h" declline="65" declcolumn="6"/>
+        <location file="src/wsh_shell_esc.h" line="64" column="6" bodyfile="src/wsh_shell_esc.c" bodystart="112" bodyend="119" declfile="src/wsh_shell_esc.h" declline="64" declcolumn="6"/>
       </memberdef>
       <memberdef kind="function" id="wsh__shell__esc_8h_1a07c38fd3528e0db9ad60440514f8c22a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>WshShell_Bool_t</type>
@@ -260,7 +260,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/wsh_shell_esc.h" line="73" column="17" bodyfile="src/wsh_shell_esc.c" bodystart="127" bodyend="134" declfile="src/wsh_shell_esc.h" declline="73" declcolumn="17"/>
+        <location file="src/wsh_shell_esc.h" line="72" column="17" bodyfile="src/wsh_shell_esc.c" bodystart="121" bodyend="127" declfile="src/wsh_shell_esc.h" declline="72" declcolumn="17"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
@@ -287,31 +287,30 @@
 <codeline lineno="20"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/></highlight><highlight class="stringliteral">&quot;C&quot;</highlight><highlight class="normal"><sp/>{</highlight></codeline>
 <codeline lineno="21"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="22"><highlight class="normal"></highlight></codeline>
-<codeline lineno="26" refid="wsh__shell__esc_8h_1a3bb94fa99f8ce55cc10ab698b5883452" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/>void<sp/>(*<ref refid="wsh__shell__esc_8h_1a3bb94fa99f8ce55cc10ab698b5883452" kindref="member">WshShellEsc_Hadler_t</ref>)(<ref refid="structWshShellHistoryIO__t" kindref="compound">WshShellHistoryIO_t</ref>*<sp/>pHistIO,</highlight></codeline>
-<codeline lineno="27"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="structWshShellIO__CommandLine__t" kindref="compound">WshShellIO_CommandLine_t</ref>*<sp/>pCommandLine);</highlight></codeline>
-<codeline lineno="28"><highlight class="normal"></highlight></codeline>
-<codeline lineno="32" refid="structWshShellEsc__Action__t" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal">{</highlight></codeline>
-<codeline lineno="33" refid="structWshShellEsc__Action__t_1a4f900d47cb45759e7eba78ddf83742f2" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>WshShell_Char_t*<sp/><ref refid="structWshShellEsc__Action__t_1a4f900d47cb45759e7eba78ddf83742f2" kindref="member">Sequence</ref>;<sp/></highlight></codeline>
-<codeline lineno="34" refid="structWshShellEsc__Action__t_1afa794b7216c5acd42bcb94fa0297e177" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="wsh__shell__esc_8h_1a3bb94fa99f8ce55cc10ab698b5883452" kindref="member">WshShellEsc_Hadler_t</ref><sp/><ref refid="structWshShellEsc__Action__t_1afa794b7216c5acd42bcb94fa0297e177" kindref="member">Handler</ref>;<sp/><sp/><sp/><sp/></highlight></codeline>
-<codeline lineno="35"><highlight class="normal">}<sp/><ref refid="structWshShellEsc__Action__t" kindref="compound">WshShellEsc_Action_t</ref>;</highlight></codeline>
-<codeline lineno="36"><highlight class="normal"></highlight></codeline>
-<codeline lineno="40" refid="structWshShellEsc__Storage__t" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal">{</highlight></codeline>
-<codeline lineno="41" refid="structWshShellEsc__Storage__t_1a007836f5e3b971e2fc17e26e8f4b9dbb" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>WshShell_Size_t<sp/><ref refid="structWshShellEsc__Storage__t_1a007836f5e3b971e2fc17e26e8f4b9dbb" kindref="member">Cnt</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
-<codeline lineno="42" refid="structWshShellEsc__Storage__t_1a23429db3def2a064b45e6f7d05084f1e" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>WshShell_Char_t<sp/>Buff[WSH_SHELL_ESC_BUFF_LEN];<sp/></highlight></codeline>
-<codeline lineno="43"><highlight class="normal">}<sp/><ref refid="structWshShellEsc__Storage__t" kindref="compound">WshShellEsc_Storage_t</ref>;</highlight></codeline>
-<codeline lineno="44"><highlight class="normal"></highlight></codeline>
-<codeline lineno="55"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="wsh__shell__esc_8h_1af344e2f5aa3e5729be440074772722e9" kindref="member">WshShellEsc_Handler</ref>(<ref refid="structWshShellHistoryIO__t" kindref="compound">WshShellHistoryIO_t</ref>*<sp/>pHistIO,<sp/><ref refid="structWshShellIO__CommandLine__t" kindref="compound">WshShellIO_CommandLine_t</ref>*<sp/>pCommandLine,</highlight></codeline>
-<codeline lineno="56"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="structWshShellEsc__Storage__t" kindref="compound">WshShellEsc_Storage_t</ref>*<sp/>pEscStorage,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>WshShell_Char_t<sp/>symbol);</highlight></codeline>
-<codeline lineno="57"><highlight class="normal"></highlight></codeline>
-<codeline lineno="65"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="wsh__shell__esc_8h_1a31c8a37296536f7e7a16070945416b35" kindref="member">WshShellEsc_StartSeq</ref>(<ref refid="structWshShellEsc__Storage__t" kindref="compound">WshShellEsc_Storage_t</ref>*<sp/>pEscStorage);</highlight></codeline>
-<codeline lineno="66"><highlight class="normal"></highlight></codeline>
-<codeline lineno="73"><highlight class="normal">WshShell_Bool_t<sp/><ref refid="wsh__shell__esc_8h_1a07c38fd3528e0db9ad60440514f8c22a" kindref="member">WshShellEsc_IsSeqStarted</ref>(<ref refid="structWshShellEsc__Storage__t" kindref="compound">WshShellEsc_Storage_t</ref>*<sp/>pEscStorage);</highlight></codeline>
-<codeline lineno="74"><highlight class="normal"></highlight></codeline>
-<codeline lineno="75"><highlight class="normal"></highlight><highlight class="preprocessor">#ifdef<sp/>__cplusplus</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="76"><highlight class="normal">}</highlight></codeline>
-<codeline lineno="77"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="78"><highlight class="normal"></highlight></codeline>
-<codeline lineno="79"><highlight class="normal"></highlight><highlight class="preprocessor">#endif<sp/></highlight><highlight class="comment">/*<sp/>__WSH_SHELL_ESC_H<sp/>*/</highlight><highlight class="preprocessor"></highlight></codeline>
+<codeline lineno="26" refid="wsh__shell__esc_8h_1a3bb94fa99f8ce55cc10ab698b5883452" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/>void<sp/>(*<ref refid="wsh__shell__esc_8h_1a3bb94fa99f8ce55cc10ab698b5883452" kindref="member">WshShellEsc_Hadler_t</ref>)(<ref refid="structWshShellHistoryIO__t" kindref="compound">WshShellHistoryIO_t</ref>*<sp/>pHistIO,<sp/><ref refid="structWshShellIO__CommandLine__t" kindref="compound">WshShellIO_CommandLine_t</ref>*<sp/>pCommandLine);</highlight></codeline>
+<codeline lineno="27"><highlight class="normal"></highlight></codeline>
+<codeline lineno="31" refid="structWshShellEsc__Action__t" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="32" refid="structWshShellEsc__Action__t_1a4f900d47cb45759e7eba78ddf83742f2" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>WshShell_Char_t*<sp/><ref refid="structWshShellEsc__Action__t_1a4f900d47cb45759e7eba78ddf83742f2" kindref="member">Sequence</ref>;<sp/></highlight></codeline>
+<codeline lineno="33" refid="structWshShellEsc__Action__t_1afa794b7216c5acd42bcb94fa0297e177" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="wsh__shell__esc_8h_1a3bb94fa99f8ce55cc10ab698b5883452" kindref="member">WshShellEsc_Hadler_t</ref><sp/><ref refid="structWshShellEsc__Action__t_1afa794b7216c5acd42bcb94fa0297e177" kindref="member">Handler</ref>;<sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="34"><highlight class="normal">}<sp/><ref refid="structWshShellEsc__Action__t" kindref="compound">WshShellEsc_Action_t</ref>;</highlight></codeline>
+<codeline lineno="35"><highlight class="normal"></highlight></codeline>
+<codeline lineno="39" refid="structWshShellEsc__Storage__t" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="40" refid="structWshShellEsc__Storage__t_1a007836f5e3b971e2fc17e26e8f4b9dbb" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>WshShell_Size_t<sp/><ref refid="structWshShellEsc__Storage__t_1a007836f5e3b971e2fc17e26e8f4b9dbb" kindref="member">Cnt</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="41" refid="structWshShellEsc__Storage__t_1a23429db3def2a064b45e6f7d05084f1e" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>WshShell_Char_t<sp/>Buff[WSH_SHELL_ESC_BUFF_LEN];<sp/></highlight></codeline>
+<codeline lineno="42"><highlight class="normal">}<sp/><ref refid="structWshShellEsc__Storage__t" kindref="compound">WshShellEsc_Storage_t</ref>;</highlight></codeline>
+<codeline lineno="43"><highlight class="normal"></highlight></codeline>
+<codeline lineno="54"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="wsh__shell__esc_8h_1af344e2f5aa3e5729be440074772722e9" kindref="member">WshShellEsc_Handler</ref>(<ref refid="structWshShellHistoryIO__t" kindref="compound">WshShellHistoryIO_t</ref>*<sp/>pHistIO,<sp/><ref refid="structWshShellIO__CommandLine__t" kindref="compound">WshShellIO_CommandLine_t</ref>*<sp/>pCommandLine,</highlight></codeline>
+<codeline lineno="55"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="structWshShellEsc__Storage__t" kindref="compound">WshShellEsc_Storage_t</ref>*<sp/>pEscStorage,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>WshShell_Char_t<sp/>symbol);</highlight></codeline>
+<codeline lineno="56"><highlight class="normal"></highlight></codeline>
+<codeline lineno="64"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="wsh__shell__esc_8h_1a31c8a37296536f7e7a16070945416b35" kindref="member">WshShellEsc_StartSeq</ref>(<ref refid="structWshShellEsc__Storage__t" kindref="compound">WshShellEsc_Storage_t</ref>*<sp/>pEscStorage);</highlight></codeline>
+<codeline lineno="65"><highlight class="normal"></highlight></codeline>
+<codeline lineno="72"><highlight class="normal">WshShell_Bool_t<sp/><ref refid="wsh__shell__esc_8h_1a07c38fd3528e0db9ad60440514f8c22a" kindref="member">WshShellEsc_IsSeqStarted</ref>(<ref refid="structWshShellEsc__Storage__t" kindref="compound">WshShellEsc_Storage_t</ref>*<sp/>pEscStorage);</highlight></codeline>
+<codeline lineno="73"><highlight class="normal"></highlight></codeline>
+<codeline lineno="74"><highlight class="normal"></highlight><highlight class="preprocessor">#ifdef<sp/>__cplusplus</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="75"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="76"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="77"><highlight class="normal"></highlight></codeline>
+<codeline lineno="78"><highlight class="normal"></highlight><highlight class="preprocessor">#endif<sp/></highlight><highlight class="comment">/*<sp/>__WSH_SHELL_ESC_H<sp/>*/</highlight><highlight class="preprocessor"></highlight></codeline>
     </programlisting>
     <location file="src/wsh_shell_esc.h"/>
   </compounddef>

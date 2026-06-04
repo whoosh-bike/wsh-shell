@@ -22,6 +22,7 @@ extern "C" {
 #define WSH_SHELL_SYM_BACKSPACE '\b' 
 #define WSH_SHELL_SYM_DELETE    0x7f 
 #define WSH_SHELL_SYM_TAB       '\t' 
+#define WSH_SHELL_SYM_CANCEL    0x03 
 #define WSH_SHELL_SYM_EXIT      0x04 
 #define WSH_SHELL_SYM_SOUND     0x07 
 
@@ -41,8 +42,7 @@ extern "C" {
 #define WSH_SHELL_ESC_ARROW_DOWN            WSH_SHELL_ESC_SEQ_START_STR "[B"
 
 #define WSH_SHELL_ESC_RESET_STYLE WSH_SHELL_ESC_SEQ_START_STR "[0m"
-#define WSH_SHELL_ECS_CLR_SCREEN \
-    WSH_SHELL_ESC_SEQ_START_STR "[1;1H" WSH_SHELL_ESC_SEQ_START_STR "[2J"
+#define WSH_SHELL_ECS_CLR_SCREEN  WSH_SHELL_ESC_SEQ_START_STR "[1;1H" WSH_SHELL_ESC_SEQ_START_STR "[2J"
 
 #define WSH_SHELL_ECS_SET_MODE_BOLD     WSH_SHELL_ESC_SEQ_START_STR "[1m"
 #define WSH_SHELL_ECS_RESET_MODE_BOLD   WSH_SHELL_ESC_SEQ_START_STR "[22m"
@@ -64,34 +64,36 @@ extern "C" {
 #define WSH_SHELL_COLOR_ERROR WSH_SHELL_COLOR_RED
 
 #if WSH_SHELL_PRINT_SYS_ENABLE
-    #define WSH_SHELL_PRINT_SYS(_f_, ...) \
-        WSH_SHELL_PRINT(WSH_SHELL_COLOR_SYS _f_ WSH_SHELL_ESC_RESET_STYLE, ##__VA_ARGS__)
+#define WSH_SHELL_PRINT_SYS(_f_, ...) WSH_SHELL_PRINT(WSH_SHELL_COLOR_SYS _f_ WSH_SHELL_ESC_RESET_STYLE, ##__VA_ARGS__)
 #else
-    #define WSH_SHELL_PRINT_SYS(_f_, ...)
+#define WSH_SHELL_PRINT_SYS(_f_, ...)
 #endif
 
 #if WSH_SHELL_PRINT_INFO_ENABLE
-    #define WSH_SHELL_PRINT_INFO(_f_, ...)                                                                        \
-        WSH_SHELL_PRINT(WSH_SHELL_ESC_RESET_STYLE "[" WSH_SHELL_COLOR_INFO "INFO" WSH_SHELL_ESC_RESET_STYLE "] " _f_, \
-                        ##__VA_ARGS__)
+/* clang-format off */
+    #define WSH_SHELL_PRINT_INFO(_f_, ...) \
+        WSH_SHELL_PRINT(WSH_SHELL_ESC_RESET_STYLE "[" WSH_SHELL_COLOR_INFO "INFO" WSH_SHELL_ESC_RESET_STYLE "] " _f_, ##__VA_ARGS__)
+/* clang-format on */
 #else
-    #define WSH_SHELL_PRINT_INFO(_f_, ...)
+#define WSH_SHELL_PRINT_INFO(_f_, ...)
 #endif
 
 #if WSH_SHELL_PRINT_WARN_ENABLE
-    #define WSH_SHELL_PRINT_WARN(_f_, ...)                                                                        \
-        WSH_SHELL_PRINT(WSH_SHELL_ESC_RESET_STYLE "[" WSH_SHELL_COLOR_WARN "WARN" WSH_SHELL_ESC_RESET_STYLE "] " _f_, \
-                        ##__VA_ARGS__)
+/* clang-format off */
+    #define WSH_SHELL_PRINT_WARN(_f_, ...) \
+        WSH_SHELL_PRINT(WSH_SHELL_ESC_RESET_STYLE "[" WSH_SHELL_COLOR_WARN "WARN" WSH_SHELL_ESC_RESET_STYLE "] " _f_, ##__VA_ARGS__)
+/* clang-format on */
 #else
-    #define WSH_SHELL_PRINT_WARN(_f_, ...)
+#define WSH_SHELL_PRINT_WARN(_f_, ...)
 #endif
 
 #if WSH_SHELL_PRINT_ERR_ENABLE
-    #define WSH_SHELL_PRINT_ERR(_f_, ...)                                                                         \
-        WSH_SHELL_PRINT(WSH_SHELL_ESC_RESET_STYLE "[" WSH_SHELL_COLOR_ERROR "ERR " WSH_SHELL_ESC_RESET_STYLE "] " _f_, \
-                        ##__VA_ARGS__)
+/* clang-format off */
+    #define WSH_SHELL_PRINT_ERR(_f_, ...) \
+        WSH_SHELL_PRINT(WSH_SHELL_ESC_RESET_STYLE "[" WSH_SHELL_COLOR_ERROR "ERR " WSH_SHELL_ESC_RESET_STYLE "] " _f_, ##__VA_ARGS__)
+/* clang-format on */
 #else
-    #define WSH_SHELL_PRINT_ERR(_f_, ...)
+#define WSH_SHELL_PRINT_ERR(_f_, ...)
 #endif
 
 
@@ -138,8 +140,7 @@ void WshShellIO_RefreshConsoleFromInterBuff(WshShellIO_CommandLine_t* pCommandLi
 
 void WshShellIO_RemoveLeftSymbol(WshShellIO_CommandLine_t* pCommandLine);
 
-void WshShellIO_InsertSymbol(WshShellIO_CommandLine_t* pCommandLine, WshShell_Char_t ch,
-                             WshShell_Bool_t starsOrChars);
+void WshShellIO_InsertSymbol(WshShellIO_CommandLine_t* pCommandLine, WshShell_Char_t ch, WshShell_Bool_t starsOrChars);
 
 #ifdef __cplusplus
 }

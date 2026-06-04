@@ -64,6 +64,7 @@
 | Type | Name |
 | ---: | :--- |
 |  void | [**WshShell\_AuthHandler**](#function-wshshell_authhandler) ([**WshShell\_t**](structWshShell__t.md) \* pShell) <br> |
+|  void | [**WshShell\_ExitInteractive**](#function-wshshell_exitinteractive) ([**WshShell\_t**](structWshShell__t.md) \* pShell) <br> |
 |  void | [**WshShell\_InvitationPrint**](#function-wshshell_invitationprint) ([**WshShell\_t**](structWshShell__t.md) \* pShell) <br> |
 |  void | [**WshShell\_StringHandler**](#function-wshshell_stringhandler) ([**WshShell\_t**](structWshShell__t.md) \* pShell) <br> |
 |  void | [**WshShell\_StringInteractHandler**](#function-wshshell_stringinteracthandler) ([**WshShell\_t**](structWshShell__t.md) \* pShell) <br> |
@@ -297,6 +298,21 @@ WshShell_Bool_t WshShell_IsAuth (
 
 ```C++
 static void WshShell_AuthHandler (
+    WshShell_t * pShell
+) 
+```
+
+
+
+
+<hr>
+
+
+
+### function WshShell\_ExitInteractive 
+
+```C++
+static void WshShell_ExitInteractive (
     WshShell_t * pShell
 ) 
 ```

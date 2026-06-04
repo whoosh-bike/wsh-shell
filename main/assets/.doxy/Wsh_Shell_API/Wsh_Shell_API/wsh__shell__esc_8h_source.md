@@ -20,8 +20,7 @@
 extern "C" {
 #endif
 
-typedef void (*WshShellEsc_Hadler_t)(WshShellHistoryIO_t* pHistIO,
-                                     WshShellIO_CommandLine_t* pCommandLine);
+typedef void (*WshShellEsc_Hadler_t)(WshShellHistoryIO_t* pHistIO, WshShellIO_CommandLine_t* pCommandLine);
 
 typedef struct {
     const WshShell_Char_t* Sequence; 

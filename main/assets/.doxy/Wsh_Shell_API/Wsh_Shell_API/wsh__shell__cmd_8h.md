@@ -70,6 +70,7 @@ _Shell command object definition and public API._ [More...](#detailed-descriptio
 | ---: | :--- |
 |  WSH\_SHELL\_RET\_STATE\_t | [**WshShellCmd\_Attach**](#function-wshshellcmd_attach) ([**WshShellCmd\_Table\_t**](structWshShellCmd__Table__t.md) \* pShellCommands, const [**WshShellCmd\_t**](wsh__shell__cmd_8h.md#typedef-wshshellcmd_t) \* pcCmdTable, WshShell\_Size\_t cmdNum) <br>_Initializes the command table._  |
 |  void | [**WshShellCmd\_DeAttach**](#function-wshshellcmd_deattach) ([**WshShellCmd\_Table\_t**](structWshShellCmd__Table__t.md) \* pShellCommands) <br>_Frees or resets the command table._  |
+|  const [**WshShellOption\_t**](structWshShellOption__t.md) \* | [**WshShellCmd\_FindOptByName**](#function-wshshellcmd_findoptbyname) (const [**WshShellCmd\_t**](wsh__shell__cmd_8h.md#typedef-wshshellcmd_t) \* pcCmd, const WshShell\_Char\_t \* pcName) <br>_Finds an option in a command's table by short or long name._  |
 |  const [**WshShellCmd\_t**](wsh__shell__cmd_8h.md#typedef-wshshellcmd_t) \* | [**WshShellCmd\_GetCmdByIndex**](#function-wshshellcmd_getcmdbyindex) ([**WshShellCmd\_Table\_t**](structWshShellCmd__Table__t.md) \* pShellCommands, WshShell\_Size\_t idx) <br>_Retrieves a command by index._  |
 |  WshShell\_Size\_t | [**WshShellCmd\_GetCmdNum**](#function-wshshellcmd_getcmdnum) ([**WshShellCmd\_Table\_t**](structWshShellCmd__Table__t.md) \* pShellCommands) <br>_Returns the number of registered commands._  |
 |  WSH\_SHELL\_RET\_STATE\_t | [**WshShellCmd\_GetOptValue**](#function-wshshellcmd_getoptvalue) ([**WshShellOption\_Ctx\_t**](structWshShellOption__Ctx__t.md) \* pOptCtx, WshShell\_Size\_t argc, const WshShell\_Char\_t \* pArgv, WshShell\_Size\_t valueSize, void \* pValue) <br>_Retrieves the value associated with a parsed command option._  |
@@ -239,6 +240,45 @@ void WshShellCmd_DeAttach (
 
 
 * `pShellCommands` Pointer to the command table. 
+
+
+
+
+        
+
+<hr>
+
+
+
+### function WshShellCmd\_FindOptByName 
+
+_Finds an option in a command's table by short or long name._ 
+```C++
+const WshShellOption_t * WshShellCmd_FindOptByName (
+    const WshShellCmd_t * pcCmd,
+    const WshShell_Char_t * pcName
+) 
+```
+
+
+
+Searches the command's option array for an entry whose ShortName or LongName matches `pcName` exactly. Used internally by autocomplete for ENUM value completion.
+
+
+
+
+**Parameters:**
+
+
+* `pcCmd` Command descriptor. 
+* `pcName` Flag string to search for (e.g. `"-f"` or `"--format"`). 
+
+
+
+**Returns:**
+
+Pointer to the matching option, or NULL if not found. 
+
 
 
 
