@@ -1,4 +1,5 @@
 #include "wsh_shell_misc.h"
+#include "wsh_shell_str.h"
 
 /**
  * Jenkins hash function
@@ -19,4 +20,44 @@ WshShell_U32_t WshShellMisc_CalcJenkinsHash(const WshShell_U8_t* pcBuff, WshShel
     hash += hash << 15;
 
     return hash;
+}
+
+void WshShellMisc_HexDump(const WshShell_U8_t* pBuff, WshShell_Size_t len, WshShell_Size_t offset) {
+    WSH_SHELL_ASSERT(pBuff || len == 0);
+    if (!pBuff && len > 0)
+        return;
+
+    for (WshShell_Size_t i = 0; i < len; i += WSH_HEXDUMP_COLS) {
+        WSH_SHELL_PRINT("%08x  ", (unsigned)(offset + i));
+
+        for (WshShell_Size_t j = 0; j < WSH_HEXDUMP_COLS; j++) {
+            if (i + j < len)
+                WSH_SHELL_PRINT("%02x ", (unsigned)pBuff[i + j]);
+            else
+                WSH_SHELL_PRINT("   ");
+            if (j == 7)
+                WSH_SHELL_PRINT(" ");
+        }
+
+        WSH_SHELL_PRINT(" |");
+        for (WshShell_Size_t j = 0; j < WSH_HEXDUMP_COLS && i + j < len; j++) {
+            WshShell_U8_t c = pBuff[i + j];
+            WSH_SHELL_PRINT("%c", WshShellStr_IsPrintableAscii(c) ? (char)c : '.');
+        }
+
+        WSH_SHELL_PRINT("|\r\n");
+    }
+}
+
+void WshShellMisc_AsciiPrint(const WshShell_U8_t* pBuff, WshShell_Size_t len) {
+    WSH_SHELL_ASSERT(pBuff || len == 0);
+    if (!pBuff && len > 0)
+        return;
+
+    for (WshShell_Size_t i = 0; i < len; i++) {
+        char c = (char)pBuff[i];
+        WSH_SHELL_PRINT("%c", WshShellStr_IsPrintableAscii(c) || c == '\r' || c == '\n' ? c : '.');
+    }
+
+    WSH_SHELL_PRINT("\r\n");
 }

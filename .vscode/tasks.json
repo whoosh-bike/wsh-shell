@@ -12,15 +12,6 @@
             }
         },
         {
-            "label": "⚒️ build all",
-            "type": "shell",
-            "command": "make all",
-            "group": {
-                "kind": "build",
-                "isDefault": true
-            }
-        },
-        {
             "label": "⚒️ build example (debug)",
             "type": "shell",
             "command": "make example",
@@ -39,6 +30,15 @@
             }
         },
         {
+            "label": "▶️ run example (auto-login)",
+            "type": "shell",
+            "command": "./example/build/example -l root -p 1234",
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            }
+        },
+        {
             "label": "⌨️ create python env",
             "type": "shell",
             "command": "bash",
@@ -51,5 +51,23 @@
                 "isDefault": true
             }
         },
+        {
+            "label": "📝 format project",
+            "type": "shell",
+            "command": "./utils/code-format.sh",
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            }
+        },
+        {
+            "label": "🧪 test: all",
+            "type": "shell",
+            "command": ".venv/bin/pytest tests -v",
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            }
+        }
     ]
 }

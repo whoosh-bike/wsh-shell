@@ -2,7 +2,7 @@
 
 #if WSH_SHELL_PS1_CUSTOM
 
-    #define WSH_PS1_SPACE_LEFT(out, base) ((out) - (base) < (WSH_SHELL_PS1_MAX_LEN - 1))
+#define WSH_PS1_SPACE_LEFT(out, base) ((out) - (base) < (WSH_SHELL_PS1_MAX_LEN - 1))
 
 static const WshShell_Char_t* WshShellStr_ColorMap[] = {
     WSH_SHELL_COLOR_BLACK,   // %c0
@@ -42,9 +42,8 @@ void WshShell_GeneratePS1(WshShell_Char_t* pPS1, WshShell_PS1Data_t* pPS1Data) {
             } else if (*pcIn == 'c') {  // Color choice
                 ++pcIn;
                 if (*pcIn >= '0' && *pcIn <= '9') {  // Valid colors range
-                    WshShell_Size_t idx = *pcIn - '0';
-                    const WshShell_Char_t* pcColor =
-                        (idx < colorMapSize) ? WshShellStr_ColorMap[idx] : "";
+                    WshShell_Size_t idx            = *pcIn - '0';
+                    const WshShell_Char_t* pcColor = (idx < colorMapSize) ? WshShellStr_ColorMap[idx] : "";
 
                     pcCurrColor = pcColor;
 
@@ -113,8 +112,7 @@ void WshShell_GeneratePS1(WshShell_Char_t* pPS1, WshShell_PS1Data_t* pPS1Data) {
     if (pPS1Data->InterCmdName && *pPS1Data->InterCmdName) {
         static WshShell_Char_t interCmdBuff[2 * WSH_SHELL_CMD_NAME_LEN];
         WSH_SHELL_SNPRINTF(interCmdBuff, sizeof(interCmdBuff),
-                           WSH_SHELL_COLOR_WHITE " (" WSH_SHELL_COLOR_GREEN
-                                                 "%s" WSH_SHELL_COLOR_WHITE ")",
+                           WSH_SHELL_COLOR_WHITE " (" WSH_SHELL_COLOR_GREEN "%s" WSH_SHELL_COLOR_WHITE ")",
                            pPS1Data->InterCmdName);
         pcInterCmd = interCmdBuff;
     }

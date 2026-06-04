@@ -25,16 +25,35 @@ void SetRawTermios(void) {
     atexit(ResetTermios);
 
     struct termios raw = orig_termios;
-    raw.c_lflag &= ~(ICANON | ECHO);  // disable canonical mode and echo
-    raw.c_lflag |= ISIG;              // keep handling Ctrl+C
-    raw.c_iflag &= ~(IXON | ICRNL);   // disable Ctrl-S/Q and carriage return to newline
+    raw.c_lflag &= ~(ICANON | ECHO | ISIG);  // disable canonical mode, echo, and signal generation
+    raw.c_iflag &= ~(IXON | ICRNL);          // disable Ctrl-S/Q and carriage return to newline
     raw.c_cc[VMIN]  = 1;
     raw.c_cc[VTIME] = 0;
 
     tcsetattr(STDIN_FILENO, TCSAFLUSH, &raw);
 }
 
-int main(void) {
+static void PrintUsage(const char* prog) {
+    fprintf(stderr, "Usage: %s [-l <login>] [-p <password>]\n", prog);
+    fprintf(stderr, "  -l, --login     Auto-login username\n");
+    fprintf(stderr, "  -p, --password  Auto-login password\n");
+}
+
+int main(int argc, char* argv[]) {
+    const char* login = NULL;
+    const char* pass  = NULL;
+
+    for (int i = 1; i < argc; i++) {
+        if ((strcmp(argv[i], "-l") == 0 || strcmp(argv[i], "--login") == 0) && i + 1 < argc) {
+            login = argv[++i];
+        } else if ((strcmp(argv[i], "-p") == 0 || strcmp(argv[i], "--password") == 0) && i + 1 < argc) {
+            pass = argv[++i];
+        } else {
+            PrintUsage(argv[0]);
+            return 1;
+        }
+    }
+
     SetRawTermios();
 
     char hostname[HOST_NAME_MAX + 1];
@@ -45,7 +64,7 @@ int main(void) {
         return 1;
     }
 
-    Shell_Init(hostname);
+    Shell_Init(hostname, login, pass);
 
     for (;;) {
         int symbol = getchar();

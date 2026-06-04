@@ -49,22 +49,20 @@ X_CMD_ENTRY(CMD_FS_OPT_END, WSH_SHELL_OPT_END())
 Users can list all available options and their assigned access flags:
 
 ```shell
-blue-pill@admin > def -h
+blue-pill@admin > wsh -h
 Default command for configuring and querying the shell interface
+
 Options overview:
-  Short   Long             Type       Access Descr
-  --      ---              EMPTY      rwx-   Print basic info about shell instance
-  -h      --help           HELP       rwx-   Show command help information
-  -i      --interactive    INTERACT   rwx-   Run command in interactive mode
-  -x      --exec           WO_PARAM   r---   Get info about accessible commands
-  -u      --user           WO_PARAM   r---   Get info about users
-  -c      --cls            WO_PARAM   --x-   Clear screen
-  -r      --histrst        WO_PARAM   -w--   Reset history storage
-  -p      --histprint      WO_PARAM   r---   Print history storage
-  -d      --deauth         WO_PARAM   rwx-   DeAuth and destroy history
-  -s      --str            STR        --x-   Set string
-  -n      --int            INT        --x-   Set int
-  -f      --flt            FLOAT      ---A   Set float
+  Short        Long             Type       Access Descr
+  --           ---              EMPTY      rwx-   Print basic info about shell instance
+  -h           --help           HELP       rwx-   Show command help information
+  -i           --interactive    INTERACT   rwx-   Run command in interactive mode
+  -x           --exec           WO_PARAM   r---   Get info about accessible commands
+  -c           --cls            WO_PARAM   --x-   Clear screen
+  -r           --histrst        WO_PARAM   -w--   Reset history storage
+  -g           --histprint      WO_PARAM   r---   Print history storage
+  -d           --deauth         WO_PARAM   rwx-   DeAuth and destroy history
+  -p           --ping           WO_PARAM   rwx-   Ping shell
 ```
 
 > ⚠️ WSH_SHELL_OPT_HELP flag always has WSH_SHELL_OPT_ACCESS_ANY flag and accessible for each user

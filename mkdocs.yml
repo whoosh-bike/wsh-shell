@@ -81,6 +81,8 @@ nav:
       - Python Adapter: usage/python-adapter.md
       - Examples Bare-Metal: usage/bare-metal.md
       - Examples RTOS: usage/rtos.md
+      - Writing Commands: usage/writing-commands.md
+      - Subcommands: usage/subcommands.md
       - Permission Rules: usage/permission-rules.md
   - API:
       - General: 

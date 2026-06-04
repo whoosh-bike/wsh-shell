@@ -1,8 +1,9 @@
 import errno
 import os
-import pty
 import select
 import subprocess
+import sys
+import threading
 from dataclasses import dataclass
 from typing import Callable, Optional, Sequence
 
@@ -10,6 +11,22 @@ from .exceptions import TransportError
 
 
 class BaseTransport:
+    def __init__(self) -> None:
+        self._tx_bytes: int = 0
+        self._rx_bytes: int = 0
+
+    @property
+    def tx_bytes(self) -> int:
+        return self._tx_bytes
+
+    @property
+    def rx_bytes(self) -> int:
+        return self._rx_bytes
+
+    def reset_counters(self) -> None:
+        self._tx_bytes = 0
+        self._rx_bytes = 0
+
     def open(self) -> None:
         raise NotImplementedError
 
@@ -166,14 +183,22 @@ class SerialTransport(BaseTransport):
         self,
         port: Optional[str] = None,
         baudrate: int = 115200,
+        bytesize: int = 8,
+        parity: str = "N",
+        stopbits: int = 1,
         read_timeout_s: float = 0.05,
         discovery: Optional[SerialDiscoveryConfig] = None,
     ) -> None:
+        super().__init__()
         self._port = port
         self._baudrate = baudrate
+        self._bytesize = bytesize
+        self._parity = parity
+        self._stopbits = stopbits
         self._read_timeout_s = read_timeout_s
         self._discovery = discovery or SerialDiscoveryConfig()
         self._ser = None
+        self._io_lock = threading.Lock()
 
     @property
     def is_open(self) -> bool:
@@ -200,6 +225,9 @@ class SerialTransport(BaseTransport):
             self._ser = serial.Serial(
                 port=port,
                 baudrate=self._baudrate,
+                bytesize=self._bytesize,
+                parity=self._parity,
+                stopbits=self._stopbits,
                 timeout=self._read_timeout_s,
                 write_timeout=self._read_timeout_s,
             )
@@ -222,26 +250,45 @@ class SerialTransport(BaseTransport):
     def write(self, data: bytes) -> int:
         if not self.is_open:
             raise TransportError("Serial port is not open.")
-        try:
-            written = self._ser.write(data)
-            self._ser.flush()
-            return int(written)
-        except Exception as exc:
-            raise TransportError(f"Serial write failed: {exc}") from exc
+        with self._io_lock:
+            try:
+                written = self._ser.write(data)
+                self._ser.flush()
+                self._tx_bytes += int(written)
+                return int(written)
+            except Exception as exc:
+                raise TransportError(f"Serial write failed: {exc}") from exc
 
     def read(self, size: int = 4096) -> bytes:
         if not self.is_open:
             raise TransportError("Serial port is not open.")
-        try:
-            return bytes(self._ser.read(size))
-        except Exception as exc:
-            raise TransportError(f"Serial read failed: {exc}") from exc
+        with self._io_lock:
+            try:
+                result = bytes(self._ser.read(size))
+                self._rx_bytes += len(result)
+                return result
+            except Exception as exc:
+                raise TransportError(f"Serial read failed: {exc}") from exc
+
+    @property
+    def in_waiting(self) -> int:
+        if self._ser is None or not self._ser.is_open:
+            return 0
+        return int(self._ser.in_waiting)
+
+    def reset_input_buffer(self) -> None:
+        if self._ser is not None and self._ser.is_open:
+            try:
+                self._ser.reset_input_buffer()
+            except Exception as exc:
+                raise TransportError(f"Failed to reset input buffer: {exc}") from exc
 
 
 class PtyProcessTransport(BaseTransport):
     def __init__(
         self, cmd: list[str], cwd: Optional[str] = None, read_timeout_s: float = 0.05
     ) -> None:
+        super().__init__()
         self._cmd = cmd
         self._cwd = cwd
         self._read_timeout_s = read_timeout_s
@@ -262,6 +309,10 @@ class PtyProcessTransport(BaseTransport):
         if self.is_open:
             return
 
+        if sys.platform == "win32":
+            raise TransportError("PtyProcessTransport is not supported on Windows.")
+
+        import pty
         master_fd, slave_fd = pty.openpty()
         try:
             self._proc = subprocess.Popen(
@@ -303,7 +354,9 @@ class PtyProcessTransport(BaseTransport):
         if not self.is_open or self._master_fd is None:
             raise TransportError("PTY transport is not open.")
         try:
-            return int(os.write(self._master_fd, data))
+            written = int(os.write(self._master_fd, data))
+            self._tx_bytes += written
+            return written
         except OSError as exc:
             raise TransportError(f"PTY write failed: {exc}") from exc
 
@@ -316,7 +369,9 @@ class PtyProcessTransport(BaseTransport):
             return b""
 
         try:
-            return os.read(self._master_fd, size)
+            result = os.read(self._master_fd, size)
+            self._rx_bytes += len(result)
+            return result
         except OSError as exc:
             if exc.errno in (errno.EIO, errno.EBADF):
                 return b""

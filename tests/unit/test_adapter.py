@@ -1,3 +1,8 @@
+"""Unit tests for the wsh_shell_adapter Python package.
+
+No pre-built binary required. FakeShellTransport simulates the device in memory.
+"""
+
 import os
 import shlex
 import subprocess
@@ -9,12 +14,15 @@ from wsh_shell_adapter import (
     AdapterConfig,
     BaseTransport,
     CommandError,
-    PtyProcessTransport,
     WshShellAdapter,
 )
 
+# ── Fake transports ───────────────────────────────────────────────────────────
+
 
 class FakeShellTransport(BaseTransport):
+    """In-memory shell simulator: handles auth flow and a handful of commands."""
+
     def __init__(self, fail_first_command: bool = False) -> None:
         self._is_open = False
         self._out = bytearray()
@@ -104,6 +112,8 @@ class FakeShellTransport(BaseTransport):
 
 
 class FragmentedWriteTransport(BaseTransport):
+    """Wraps another transport and splits the first write into two chunks."""
+
     def __init__(self, inner: BaseTransport, first_chunk_size: int = 3) -> None:
         self._inner = inner
         self._first_chunk_size = first_chunk_size
@@ -125,14 +135,24 @@ class FragmentedWriteTransport(BaseTransport):
     def write(self, data: bytes) -> int:
         if len(data) <= self._first_chunk_size:
             return self._inner.write(data)
-        left = data[: self._first_chunk_size]
-        right = data[self._first_chunk_size :]
-        written = self._inner.write(left)
-        written += self._inner.write(right)
+        written = self._inner.write(data[: self._first_chunk_size])
+        written += self._inner.write(data[self._first_chunk_size :])
         return written
 
     def read(self, size: int = 4096) -> bytes:
         return self._inner.read(size)
+
+
+# ── Helpers ───────────────────────────────────────────────────────────────────
+
+
+def _synced_adapter(**kwargs) -> WshShellAdapter:
+    adp = WshShellAdapter(
+        config=AdapterConfig(login="root", password="1234", retries=0, **kwargs),
+        transport=FakeShellTransport(),
+    )
+    adp.sync()
+    return adp
 
 
 def _build_assert_probe(repo_root: Path, tmp_path: Path) -> Path:
@@ -170,47 +190,38 @@ def _build_assert_probe(repo_root: Path, tmp_path: Path) -> Path:
     return binary
 
 
+# ── Tests: adapter logic (no binary) ─────────────────────────────────────────
+
+
 def test_sync_and_execute_wsh() -> None:
-    adapter = WshShellAdapter(
-        config=AdapterConfig(login="root", password="1234", retries=0),
-        transport=FakeShellTransport(),
-    )
-
-    adapter.sync()
-    result = adapter.execute("wsh")
-
+    adp = _synced_adapter()
+    result = adp.execute("wsh")
     assert result.ok
-    assert result.text
     assert result.data is not None
     assert result.data["Ver"] == "2.5"
     assert result.data["User"] == "root"
 
 
-def test_execute_json_output_to_dict() -> None:
-    adapter = WshShellAdapter(
-        config=AdapterConfig(login="root", password="1234", retries=0),
-        transport=FakeShellTransport(),
-    )
-    adapter.sync()
-    result = adapter.execute("json")
-
+def test_execute_json_output_parsed_to_dict() -> None:
+    adp = _synced_adapter()
+    result = adp.execute("json")
     assert result.data == {"a": 1, "b": "x", "c": True, "d": {"e": 2}}
 
 
-def test_fragmented_write_command() -> None:
-    adapter = WshShellAdapter(
+def test_fragmented_write_is_reassembled() -> None:
+    adp = WshShellAdapter(
         config=AdapterConfig(login="root", password="1234", retries=0),
         transport=FragmentedWriteTransport(FakeShellTransport(), first_chunk_size=2),
     )
-    adapter.sync()
-    result = adapter.execute("wsh")
+    adp.sync()
+    result = adp.execute("wsh")
     assert result.ok
     assert result.data is not None
     assert result.data["Ver"] == "2.5"
 
 
 def test_retry_after_timeout() -> None:
-    adapter = WshShellAdapter(
+    adp = WshShellAdapter(
         config=AdapterConfig(
             login="root",
             password="1234",
@@ -221,59 +232,26 @@ def test_retry_after_timeout() -> None:
         ),
         transport=FakeShellTransport(fail_first_command=True),
     )
-    adapter.sync()
-    result = adapter.execute("wsh")
-
+    adp.sync()
+    result = adp.execute("wsh")
     assert result.ok
     assert result.attempts == 2
 
 
-def test_raises_on_empty_command() -> None:
-    adapter = WshShellAdapter(
-        config=AdapterConfig(login="root", password="1234"),
-        transport=FakeShellTransport(),
-    )
-    adapter.sync()
+def test_empty_command_raises() -> None:
+    adp = _synced_adapter()
     with pytest.raises(CommandError):
-        adapter.execute("   ")
+        adp.execute("   ")
 
 
-def test_integration_with_example_binary_pty() -> None:
-    repo_root = Path(__file__).resolve().parents[1]
-    binary = repo_root / "example" / "build" / "example"
-    if not binary.exists():
-        pytest.skip("example binary not found; run `make example` first")
-
-    transport = PtyProcessTransport([str(binary)], cwd=str(repo_root))
-    adapter = WshShellAdapter(
-        config=AdapterConfig(
-            login="root",
-            password="1234",
-            retries=0,
-            sync_timeout_s=8.0,
-            command_timeout_s=3.0,
-            auto_recover=False,
-        ),
-        transport=transport,
-    )
-
-    try:
-        adapter.sync()
-        result = adapter.execute("wsh")
-        assert "Ver:" in result.text
-        assert result.data is not None
-        assert result.data.get("User") == "root"
-    finally:
-        adapter.close()
+# ── Tests: WSH_SHELL_ASSERT causes non-zero exit ──────────────────────────────
 
 
-def test_wsh_shell_assert_exits_non_zero(tmp_path: Path) -> None:
-    repo_root = Path(__file__).resolve().parents[1]
+def test_assert_macro_exits_nonzero(tmp_path: Path) -> None:
+    repo_root = Path(__file__).resolve().parents[2]
     binary = _build_assert_probe(repo_root, tmp_path)
-
     result = subprocess.run([str(binary)], cwd=repo_root, capture_output=True, text=True)
-
-    output = "\n".join(part for part in (result.stdout, result.stderr) if part)
+    output = "\n".join(p for p in (result.stdout, result.stderr) if p)
     assert result.returncode != 0, output or "assert probe exited successfully"
     assert "assert" in output.lower()
     assert "fail" in output.lower()

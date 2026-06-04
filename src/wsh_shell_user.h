@@ -34,8 +34,8 @@ typedef struct {
 /**
  * @brief Hash function for salt + pass encryption.
  */
-typedef void (*WshShellUser_HashFunc_t)(const WshShell_Char_t* pcSalt,
-                                        const WshShell_Char_t* pcPass, WshShell_Char_t* pHash);
+typedef void (*WshShellUser_HashFunc_t)(const WshShell_Char_t* pcSalt, const WshShell_Char_t* pcPass,
+                                        WshShell_Char_t* pHash);
 
 /**
  * @brief Table of registered shell users.
@@ -61,10 +61,8 @@ typedef struct {
  * @retval WSH_SHELL_RET_STATE_ERR_PARAM Invalid input arguments.
  * @retval WSH_SHELL_RET_STATE_ERR_BUSY  Table was already initialized.
  */
-WSH_SHELL_RET_STATE_t WshShellUser_Attach(WshShellUser_Table_t* pShellUsers,
-                                          const WshShellUser_t* pcUserTable,
-                                          WshShell_Size_t userNum,
-                                          WshShellUser_HashFunc_t extHashFunc);
+WSH_SHELL_RET_STATE_t WshShellUser_Attach(WshShellUser_Table_t* pShellUsers, const WshShellUser_t* pcUserTable,
+                                          WshShell_Size_t userNum, WshShellUser_HashFunc_t extHashFunc);
 
 /**
  * @brief Destroy the user table.
@@ -92,8 +90,7 @@ WshShell_Size_t WshShellUser_GetUsersNum(WshShellUser_Table_t* pShellUsers);
  * 
  * @return Pointer to the user object, or NULL if invalid.
  */
-const WshShellUser_t* WshShellUser_GetUserByIndex(WshShellUser_Table_t* pShellUsers,
-                                                  WshShell_Size_t idx);
+const WshShellUser_t* WshShellUser_GetUserByIndex(WshShellUser_Table_t* pShellUsers, WshShell_Size_t idx);
 
 /**
  * @brief Verify login credentials of a user.
@@ -108,10 +105,8 @@ const WshShellUser_t* WshShellUser_GetUserByIndex(WshShellUser_Table_t* pShellUs
  * @retval true  If credentials match.
  * @retval false If mismatch or error.
  */
-WshShell_Bool_t WshShellUser_CheckCredentials(WshShellUser_Table_t* pShellUsers,
-                                              WshShell_Size_t UserID,
-                                              const WshShell_Char_t* pcLogin,
-                                              const WshShell_Char_t* pcPass);
+WshShell_Bool_t WshShellUser_CheckCredentials(WshShellUser_Table_t* pShellUsers, WshShell_Size_t UserID,
+                                              const WshShell_Char_t* pcLogin, const WshShell_Char_t* pcPass);
 
 /**
  * @brief Finds a user by login and password credentials.
@@ -127,8 +122,7 @@ WshShell_Bool_t WshShellUser_CheckCredentials(WshShellUser_Table_t* pShellUsers,
  *
  * @note Returns NULL if any input pointer is NULL or if the user table is empty.
  */
-const WshShellUser_t* WshShellUser_FindByCredentials(WshShellUser_Table_t* pShellUsers,
-                                                     const WshShell_Char_t* pcLogin,
+const WshShellUser_t* WshShellUser_FindByCredentials(WshShellUser_Table_t* pShellUsers, const WshShell_Char_t* pcLogin,
                                                      const WshShell_Char_t* pcPass);
 
 #ifdef __cplusplus

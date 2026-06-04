@@ -37,7 +37,7 @@ typedef void (*WshShellInteractive_CmdHandler_t)(WshShellIO_CommandLine_t* pComm
  * Stores the name of the interactive command and the corresponding execution function.
  */
 typedef struct {
-    WshShellInteractive_CmdHandler_t Handler; /**< Function to be executed in interactive mode. */
+    WshShellInteractive_CmdHandler_t Handler;        /**< Function to be executed in interactive mode. */
     WshShell_Char_t CmdName[WSH_SHELL_CMD_NAME_LEN]; /**< Name of the interactive command. */
 } WshShellInteract_t;
 

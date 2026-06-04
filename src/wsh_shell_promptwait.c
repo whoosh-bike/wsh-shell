@@ -10,8 +10,7 @@ void WshShellPromptWait_Flush(WshShellPromptWait_t* pWait) {
 }
 
 #if WSH_SHELL_PROMPT_WAIT
-void WshShellPromptWait_Attach(WshShellPromptWait_t* pWait, WshShellPromptWait_Handler_t handler,
-                               void* pCtx) {
+void WshShellPromptWait_Attach(WshShellPromptWait_t* pWait, WshShellPromptWait_Handler_t handler, void* pCtx) {
     WSH_SHELL_ASSERT(pWait && handler);
     if (!pWait || !handler)
         return;
@@ -20,13 +19,19 @@ void WshShellPromptWait_Attach(WshShellPromptWait_t* pWait, WshShellPromptWait_H
     pWait->Ctx     = pCtx;
 }
 
-WSH_SHELL_RET_STATE_t WshShellPromptWait_Handle(WshShellPromptWait_t* pWait,
-                                                WshShell_Char_t symbol) {
+WSH_SHELL_RET_STATE_t WshShellPromptWait_Handle(WshShellPromptWait_t* pWait, WshShell_Char_t symbol) {
     WSH_SHELL_ASSERT(pWait);
     if (!pWait)
         return WSH_SHELL_RET_STATE_ERR_PARAM;
 
     if (pWait->Handler) {
+        /* Ctrl+C cancels any pending prompt-wait, letting the cancel
+         * handler in the main symbol dispatcher run normally. */
+        if (symbol == WSH_SHELL_SYM_CANCEL) {
+            WshShellPromptWait_Flush(pWait);
+            return WSH_SHELL_RET_STATE_ERR_EMPTY;
+        }
+
         WshShell_Bool_t res = pWait->Handler(symbol, pWait);
         if (!res)
             WSH_SHELL_PRINT("%c", WSH_SHELL_SYM_SOUND);
@@ -66,13 +71,11 @@ WshShell_Bool_t WshShellPromptWait_YesNo(WshShell_Char_t symbol, WshShellPromptW
 
 #else /* WSH_SHELL_PROMPT_WAIT */
 
-void WshShellPromptWait_Attach(WshShellPromptWait_t* pWait, WshShellPromptWait_Handler_t handler,
-                               void* pCtx) {
+void WshShellPromptWait_Attach(WshShellPromptWait_t* pWait, WshShellPromptWait_Handler_t handler, void* pCtx) {
     return;
 }
 
-WSH_SHELL_RET_STATE_t WshShellPromptWait_Handle(WshShellPromptWait_t* pWait,
-                                                WshShell_Char_t symbol) {
+WSH_SHELL_RET_STATE_t WshShellPromptWait_Handle(WshShellPromptWait_t* pWait, WshShell_Char_t symbol) {
     return WSH_SHELL_RET_STATE_SUCCESS;
 }
 

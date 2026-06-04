@@ -5,17 +5,17 @@ This directory contains automated tests for the Python adapter (`wsh_shell_adapt
 ## Test files
 
 - `test_wsh_shell_adapter.py`:
-  - `test_sync_and_execute_wsh` checks sync/login flow and basic command execution (`wsh`)
-  - `test_execute_json_output_to_dict` checks JSON output parsing into `CommandResult.data`
-  - `test_fragmented_write_command` checks command handling when transport splits outgoing writes
-  - `test_retry_after_timeout` checks retry behavior after first command timeout
-  - `test_raises_on_empty_command` checks validation error for empty command
-  - `test_integration_with_example_binary_pty` runs integration against `./example/build/example` via PTY
+    - `test_sync_and_execute_wsh` checks sync/login flow and basic command execution (`wsh`)
+    - `test_execute_json_output_to_dict` checks JSON output parsing into `CommandResult.data`
+    - `test_fragmented_write_command` checks command handling when transport splits outgoing writes
+    - `test_retry_after_timeout` checks retry behavior after first command timeout
+    - `test_raises_on_empty_command` checks validation error for empty command
+    - `test_integration_with_example_binary_pty` runs integration against `./example/build/example` via PTY
 - `test_wsh_shell_config.py`:
-  - checks TOML config parsing (`adapter` and `local_shell` sections)
-  - checks that local helper uses loaded config values
+    - checks TOML config parsing (`adapter` and `local_shell` sections)
+    - checks that local helper uses loaded config values
 - `conftest.py`:
-  - adds repository root to `sys.path` for local imports during test runs
+    - adds repository root to `sys.path` for local imports during test runs
 
 ## Prerequisites
 
