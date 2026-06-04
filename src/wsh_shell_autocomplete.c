@@ -267,7 +267,7 @@ WshShell_Bool_t WshShellAutocomplete_Try(WshShell_Char_t* pInBuff, WshShell_Size
 
         const WshShell_Bool_t isFlagPartial = (flagPartLen == 0) || (pcFlagPart[0] == '-');
 #if WSH_SHELL_SUBCOMMANDS
-        WshShell_Size_t effFlagPartLen      = flagPartLen;
+        WshShell_Size_t effFlagPartLen = flagPartLen;
 #endif
 
         if (!isFlagPartial) {
@@ -327,7 +327,7 @@ WshShell_Bool_t WshShellAutocomplete_Try(WshShell_Char_t* pInBuff, WshShell_Size
                             /* exact match + trailing space: user already finished this value, complete next */
                             if (hadTrailingSpace && valLen == flagPartLen &&
                                 WSH_SHELL_STRNCMP(valCandidates[0], pcFlagPart, flagPartLen) == 0) {
-                                prefixEnd      = inputCopyTrimmedLen;
+                                prefixEnd = inputCopyTrimmedLen;
 #if WSH_SHELL_SUBCOMMANDS
                                 effFlagPartLen = 0;
 #endif

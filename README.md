@@ -67,10 +67,6 @@ Repository also includes Python adapter utilities in [`wsh_shell_adapter/`](wsh_
 | `+WSH_SHELL_PRINT_OPT_HELP`          | 8.44922   | Could be useful on huge amount of external commands |
 | `+WSH_SHELL_CMD_PRINT_OPT_OVERVIEW`  | 8.69922   | Could be useful on huge amount of external commands |
 | `+WSH_SHELL_SUBCOMMANDS`             |           |                                                     |
-| `+WSH_SHELL_HISTORY_BUFF_SIZE`       |           |                                                     |
-| `+WSH_SHELL_SUBCOMMANDS_MAX_DEPTH`   |           |                                                     |
-| `+WSH_SHELL_ENUM_VALUE_MAX_LEN`      |           |                                                     |
-| `+WSH_HEXDUMP_COLS`                  |           |                                                     |
 
 ## ⌨️ Code counting
 

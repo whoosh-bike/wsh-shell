@@ -164,3 +164,34 @@
 - [x] Row width configurable via `WSH_HEXDUMP_COLS` in `wsh_shell_cfg_def.h` (default `16`)
 - [x] Demo in `example/shell.c`: `dump` command dumps live PS1 buffer bytes
 - [x] Document in `usage/writing-commands.md` under "Shell Utilities"
+
+## v3.3 (Fixes & Adapter Extensions)
+
+### Python Adapter — IoT Raw Backend
+
+- [x] Add `RawAdapter` for non-shell binary protocols alongside the existing shell adapter (`wsh_shell_adapter/raw_adapter.py`)
+- [x] Extend `transport.py` to support raw byte streams in addition to line-based shell I/O
+- [x] Document raw-adapter usage in `wsh_shell_adapter/README.md` and `docs/usage/python-adapter.md`
+
+### Integration Test Infrastructure
+
+- [x] Add pytest-based integration test suite under `tests/integration/` (smoke, history, features) driving `example/build/example` via PTY
+- [x] Split existing adapter tests into `tests/unit/` with shared `conftest.py` fixtures
+- [x] Add VS Code task entry for running the suite locally
+
+### Short Option Length Fix
+
+- [x] `WshShellCmd_FindOpt`: match short flags by `strLen <= WSH_SHELL_OPTION_SHORT_NAME_LEN` instead of strict equality, so short flags shorter than the configured maximum are recognised when `WSH_SHELL_OPTION_SHORT_NAME_LEN > 2`
+- [x] Add NULL guard for options without `ShortName` on the short-flag path
+
+### IAR Build Compatibility
+
+- [x] Replace Cyrillic `с` (U+0441) with Latin `c` in identifiers (Pe159)
+- [x] Remove VLA in `wsh_shell_autocomplete.c` — switch `candidates[cmdNum + 1][...]` to the existing `WSH_SHELL_AUTOCOMPLETE_MAX_CANDIDATES` cap (Pe028)
+
+### Misc
+
+- [x] Add `WshShellMisc_AsciiPrint` helper for printable-only output
+- [x] Autocomplete cleanup and subcommand-related corner-case fixes
+- [x] Fix `PtyProcessTransport` error path on Windows in the Python adapter
+- [x] Trim flash-footprint tables in `README.md` / `docs/index.md` to only feature-toggle macros (drop numeric-size knobs that don't fit the on/off cost model)
