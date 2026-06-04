@@ -489,13 +489,13 @@
 <codeline lineno="42"><highlight class="normal"><sp/><sp/><sp/><sp/>*pIdx<sp/>=<sp/>*pIdx<sp/>==<sp/>0<sp/>?<sp/>WSH_SHELL_HISTORY_BUFF_SIZE<sp/>-<sp/>1<sp/>:<sp/>*pIdx<sp/>-<sp/>1;</highlight></codeline>
 <codeline lineno="43"><highlight class="normal">}</highlight></codeline>
 <codeline lineno="44"><highlight class="normal"></highlight></codeline>
-<codeline lineno="45"><highlight class="normal"></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>WshShellHistory_GetTokenFromBuffer(WshShell_Char_t*<sp/>pDst,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>WshShell_Char_t*<sp/>pсSrc,</highlight></codeline>
+<codeline lineno="45"><highlight class="normal"></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>WshShellHistory_GetTokenFromBuffer(WshShell_Char_t*<sp/>pDst,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>WshShell_Char_t*<sp/>pcSrc,</highlight></codeline>
 <codeline lineno="46"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>WshShell_Size_t<sp/>tokStartIdx,<sp/>WshShell_Size_t<sp/>tokLen)<sp/>{</highlight></codeline>
-<codeline lineno="47"><highlight class="normal"><sp/><sp/><sp/><sp/>WSH_SHELL_ASSERT(pDst<sp/>&amp;&amp;<sp/>pсSrc<sp/>&amp;&amp;<sp/>tokLen<sp/>&gt;<sp/>0);</highlight></codeline>
+<codeline lineno="47"><highlight class="normal"><sp/><sp/><sp/><sp/>WSH_SHELL_ASSERT(pDst<sp/>&amp;&amp;<sp/>pcSrc<sp/>&amp;&amp;<sp/>tokLen<sp/>&gt;<sp/>0);</highlight></codeline>
 <codeline lineno="48"><highlight class="normal"></highlight></codeline>
 <codeline lineno="49"><highlight class="normal"><sp/><sp/><sp/><sp/>WshShell_Size_t<sp/>readIdx<sp/>=<sp/>tokStartIdx;</highlight></codeline>
 <codeline lineno="50"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(WshShell_Size_t<sp/>tokIdx<sp/>=<sp/>0;<sp/>tokIdx<sp/>&lt;<sp/>tokLen;<sp/>tokIdx++)<sp/>{</highlight></codeline>
-<codeline lineno="51"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>pDst[tokIdx]<sp/>=<sp/>pсSrc[readIdx];</highlight></codeline>
+<codeline lineno="51"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>pDst[tokIdx]<sp/>=<sp/>pcSrc[readIdx];</highlight></codeline>
 <codeline lineno="52"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>WshShellHistory_IncrIdx(&amp;readIdx);</highlight></codeline>
 <codeline lineno="53"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
 <codeline lineno="54"><highlight class="normal"><sp/><sp/><sp/><sp/>pDst[tokLen]<sp/>=<sp/></highlight><highlight class="charliteral">&apos;\0&apos;</highlight><highlight class="normal">;</highlight></codeline>

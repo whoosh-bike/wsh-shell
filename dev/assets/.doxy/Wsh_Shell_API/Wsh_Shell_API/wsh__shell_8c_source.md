@@ -168,9 +168,9 @@ static void WshShell_StringHandler(WshShell_t* pShell) {
     WSH_SHELL_STRNCPY(cmdStr, pcCmdStr, WSH_SHELL_INTR_BUFF_LEN - 1);
 
     WshShell_Size_t argc                                      = 0;
-    const WshShell_Char_t* pсArgv[WSH_SHELL_CMD_ARGS_MAX_NUM] = {0};
+    const WshShell_Char_t* pcArgv[WSH_SHELL_CMD_ARGS_MAX_NUM] = {0};
 
-    WshShellStr_ParseToArgcArgv(cmdStr, &argc, pсArgv, WSH_SHELL_CMD_ARGS_MAX_NUM);
+    WshShellStr_ParseToArgcArgv(cmdStr, &argc, pcArgv, WSH_SHELL_CMD_ARGS_MAX_NUM);
     if (argc == 0) {
         if (pShell->CommandLine.Len != 0)
             WshShellIO_ClearInterBuff(&(pShell->CommandLine));
@@ -183,24 +183,24 @@ static void WshShell_StringHandler(WshShell_t* pShell) {
     const WshShellCmd_t* pcCmd      = WshShellDefCmd_GetPtr();
     WshShellCmdHandler_t cmdHandler = NULL;
 
-    if (WSH_SHELL_STRNCMP(pcCmd->Name, pсArgv[0], WSH_SHELL_CMD_NAME_LEN) == 0) {
+    if (WSH_SHELL_STRNCMP(pcCmd->Name, pcArgv[0], WSH_SHELL_CMD_NAME_LEN) == 0) {
         cmdHandler = pcCmd->Handler;
     } else {
-        pcCmd = WshShellCmd_SearchCmd(&(pShell->Commands), pсArgv[0]);
+        pcCmd = WshShellCmd_SearchCmd(&(pShell->Commands), pcArgv[0]);
         if (pcCmd == NULL) {
             WSH_SHELL_PRINT_WARN("Command \"%s\" not found!\r\n", pcCmdStr);
         } else if ((pShell->CurrUser->Groups & pcCmd->Groups) != 0) {
             cmdHandler = pcCmd->Handler;
         } else {
             WSH_SHELL_PRINT_ERR("Access denied: no group intersection for command \"%s\" and user \"%s\"!\r\n",
-                                pсArgv[0], pShell->CurrUser->Login);
+                                pcArgv[0], pShell->CurrUser->Login);
 
             WshShellIO_ClearInterBuff(&(pShell->CommandLine));
             return;
         }
     }
 
-    const WshShell_Char_t** pDispatchArgv = pсArgv;
+    const WshShell_Char_t** pDispatchArgv = pcArgv;
     WshShell_Size_t dispatchArgc          = argc;
 
 #if WSH_SHELL_SUBCOMMANDS

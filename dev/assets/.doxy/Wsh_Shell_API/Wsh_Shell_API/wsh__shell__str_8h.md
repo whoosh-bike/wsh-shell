@@ -316,7 +316,10 @@ void WshShellStr_ParseToArgcArgv (
 
 
 
-This function splits the input string `pStr` into tokens by replacing spaces with null terminators (`\0`). Tokens are written as pointers to the beginning of each token into the `pArgBuff` array. Quoted substrings (enclosed in double quotes `"`), if any, are treated as a single token. Quotes themselves are removed during parsing. ч 
+This function splits the input string `pStr` into tokens by replacing spaces with null terminators (`\0`). Tokens are written as pointers to the beginning of each token into the `pArgBuff` array. Quoted substrings (enclosed in double quotes `"`), if any, are treated as a single token. Quotes themselves are removed during parsing.
+
+
+
 
 **Note:**
 
@@ -324,7 +327,7 @@ This function modifies the input string in-place. Spaces and quotes are replaced
 
 
 Example: Input: `"arg1 arg2 \"quoted string" arg3"</tt>
- Output: <tt>pArgBuff = { "arg1", "arg2", "quoted string", "arg3" }`, `*pArgNum = 4`
+Output: <tt>pArgBuff = { "arg1", "arg2", "quoted string", "arg3" }`, `*pArgNum = 4`
 
 
 

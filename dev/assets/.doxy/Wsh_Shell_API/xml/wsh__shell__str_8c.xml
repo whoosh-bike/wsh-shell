@@ -179,10 +179,11 @@
 <para>Parse a string into space-separated tokens, handling quoted substrings as single tokens. </para>
         </briefdescription>
         <detaileddescription>
-<para>This function splits the input string <computeroutput>pStr</computeroutput> into tokens by replacing spaces with null terminators (<computeroutput>\0</computeroutput>). Tokens are written as pointers to the beginning of each token into the <computeroutput>pArgBuff</computeroutput> array. Quoted substrings (enclosed in double quotes <computeroutput>"</computeroutput>), if any, are treated as a single token. Quotes themselves are removed during parsing. ч <simplesect kind="note"><para>This function modifies the input string in-place. Spaces and quotes are replaced with <computeroutput>\0</computeroutput>. Escaped or nested quotes are not supported.</para>
+<para>This function splits the input string <computeroutput>pStr</computeroutput> into tokens by replacing spaces with null terminators (<computeroutput>\0</computeroutput>). Tokens are written as pointers to the beginning of each token into the <computeroutput>pArgBuff</computeroutput> array. Quoted substrings (enclosed in double quotes <computeroutput>"</computeroutput>), if any, are treated as a single token. Quotes themselves are removed during parsing.</para>
+<para><simplesect kind="note"><para>This function modifies the input string in-place. Spaces and quotes are replaced with <computeroutput>\0</computeroutput>. Escaped or nested quotes are not supported.</para>
 </simplesect>
 Example: Input: <computeroutput>&quot;arg1 arg2 \&quot;quoted string" arg3&quot;&lt;/tt&gt;
- Output: &lt;tt&gt;pArgBuff = { &quot;arg1&quot;, &quot;arg2&quot;, &quot;quoted string&quot;, &quot;arg3" }</computeroutput>, <computeroutput>*pArgNum = 4</computeroutput></para>
+Output: &lt;tt&gt;pArgBuff = { &quot;arg1&quot;, &quot;arg2&quot;, &quot;quoted string&quot;, &quot;arg3" }</computeroutput>, <computeroutput>*pArgNum = 4</computeroutput></para>
 <para><parameterlist kind="param"><parameteritem>
 <parameternamelist>
 <parametername direction="inout">pStr</parametername>
