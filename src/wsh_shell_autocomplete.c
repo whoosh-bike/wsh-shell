@@ -121,7 +121,7 @@ WshShell_Bool_t WshShellAutocomplete_Try(WshShell_Char_t* pInBuff, WshShell_Size
         return false;
     }
 
-    WshShell_Char_t candidates[cmdNum + 1][WSH_SHELL_CMD_NAME_LEN];  // + one more for default cmd
+    WshShell_Char_t candidates[WSH_SHELL_AUTOCOMPLETE_MAX_CANDIDATES][WSH_SHELL_CMD_NAME_LEN];
     WshShell_Size_t matchCount      = 0;
     const WshShellCmd_t* pcCmdMatch = NULL;
 
