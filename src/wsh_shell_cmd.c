@@ -215,9 +215,9 @@ static const WshShellOption_t* WshShellCmd_FindOpt(const WshShellCmd_t* pcCmd, c
                 continue;
 
             default: {
-                WshShell_Bool_t isShort         = (strLen <= WSH_SHELL_OPTION_SHORT_NAME_LEN);
-                const WshShell_Char_t* pRefStr  = isShort ? pcOpt->ShortName : pcOpt->LongName;
-                WshShell_Size_t cmpLen          = isShort ? strLen + 1 : WSH_SHELL_OPTION_LONG_NAME_LEN;
+                WshShell_Bool_t isShort        = (strLen <= WSH_SHELL_OPTION_SHORT_NAME_LEN);
+                const WshShell_Char_t* pRefStr = isShort ? pcOpt->ShortName : pcOpt->LongName;
+                WshShell_Size_t cmpLen         = isShort ? strLen + 1 : WSH_SHELL_OPTION_LONG_NAME_LEN;
 
                 if (pRefStr && WSH_SHELL_STRNCMP(pRefStr, pcStr, cmpLen) == 0)
                     return pcOpt;
