@@ -193,9 +193,12 @@ const WshShellOption_t* WshShellCmd_FindOptByName(const WshShellCmd_t* pcCmd, co
     if (!pcCmd || !pcName || !pcCmd->Options)
         return NULL;
 
+    const WshShell_Size_t strLen = WSH_SHELL_STRLEN(pcName);
+
     const WshShellOption_t* pcOpt = pcCmd->Options;
     for (; pcOpt->Type != WSH_SHELL_OPTION_END; pcOpt++) {
-        if (pcOpt->ShortName && WSH_SHELL_STRNCMP(pcOpt->ShortName, pcName, WSH_SHELL_OPTION_SHORT_NAME_LEN + 1) == 0)
+        if (pcOpt->ShortName && strLen <= WSH_SHELL_OPTION_SHORT_NAME_LEN &&
+            WSH_SHELL_STRNCMP(pcOpt->ShortName, pcName, strLen + 1) == 0)
             return pcOpt;
         if (pcOpt->LongName && WSH_SHELL_STRNCMP(pcOpt->LongName, pcName, WSH_SHELL_OPTION_LONG_NAME_LEN) == 0)
             return pcOpt;
@@ -222,12 +225,11 @@ static const WshShellOption_t* WshShellCmd_FindOpt(const WshShellCmd_t* pcCmd, c
                 continue;
 
             default: {
-                const WshShell_Char_t* pRefStr =
-                    (strLen == WSH_SHELL_OPTION_SHORT_NAME_LEN) ? pcOpt->ShortName : pcOpt->LongName;
-                WshShell_Size_t cmpLen = (strLen == WSH_SHELL_OPTION_SHORT_NAME_LEN) ? WSH_SHELL_OPTION_SHORT_NAME_LEN
-                                                                                     : WSH_SHELL_OPTION_LONG_NAME_LEN;
+                WshShell_Bool_t isShort         = (strLen <= WSH_SHELL_OPTION_SHORT_NAME_LEN);
+                const WshShell_Char_t* pRefStr  = isShort ? pcOpt->ShortName : pcOpt->LongName;
+                WshShell_Size_t cmpLen          = isShort ? strLen + 1 : WSH_SHELL_OPTION_LONG_NAME_LEN;
 
-                if (WSH_SHELL_STRNCMP(pRefStr, pcStr, cmpLen) == 0)
+                if (pRefStr && WSH_SHELL_STRNCMP(pRefStr, pcStr, cmpLen) == 0)
                     return pcOpt;
             }
         }

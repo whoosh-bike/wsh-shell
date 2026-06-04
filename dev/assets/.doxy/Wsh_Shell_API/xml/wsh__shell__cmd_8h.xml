@@ -432,7 +432,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/wsh_shell_cmd.h" line="151" column="24" bodyfile="src/wsh_shell_cmd.c" bodystart="182" bodyend="194" declfile="src/wsh_shell_cmd.h" declline="151" declcolumn="24"/>
+        <location file="src/wsh_shell_cmd.h" line="151" column="24" bodyfile="src/wsh_shell_cmd.c" bodystart="182" bodyend="197" declfile="src/wsh_shell_cmd.h" declline="151" declcolumn="24"/>
       </memberdef>
       <memberdef kind="function" id="wsh__shell__cmd_8h_1ab3e29d9ea337a63595c4bbf0a089260a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structWshShellOption__Ctx__t" kindref="compound">WshShellOption_Ctx_t</ref></type>
@@ -513,7 +513,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/wsh_shell_cmd.h" line="176" column="22" bodyfile="src/wsh_shell_cmd.c" bodystart="228" bodyend="307" declfile="src/wsh_shell_cmd.h" declline="176" declcolumn="22"/>
+        <location file="src/wsh_shell_cmd.h" line="176" column="22" bodyfile="src/wsh_shell_cmd.c" bodystart="230" bodyend="309" declfile="src/wsh_shell_cmd.h" declline="176" declcolumn="22"/>
       </memberdef>
       <memberdef kind="function" id="wsh__shell__cmd_8h_1aa4a2287e381f3c76562ffda7d2639071" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>WSH_SHELL_RET_STATE_t</type>
@@ -605,7 +605,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/wsh_shell_cmd.h" line="203" column="23" bodyfile="src/wsh_shell_cmd.c" bodystart="309" bodyend="366" declfile="src/wsh_shell_cmd.h" declline="203" declcolumn="23"/>
+        <location file="src/wsh_shell_cmd.h" line="203" column="23" bodyfile="src/wsh_shell_cmd.c" bodystart="311" bodyend="368" declfile="src/wsh_shell_cmd.h" declline="203" declcolumn="23"/>
       </memberdef>
       <memberdef kind="function" id="wsh__shell__cmd_8h_1a5db3a973370bfb723d3aa43f206623c3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -643,7 +643,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/wsh_shell_cmd.h" line="225" column="6" bodyfile="src/wsh_shell_cmd.c" bodystart="368" bodyend="435" declfile="src/wsh_shell_cmd.h" declline="225" declcolumn="6"/>
+        <location file="src/wsh_shell_cmd.h" line="225" column="6" bodyfile="src/wsh_shell_cmd.c" bodystart="370" bodyend="437" declfile="src/wsh_shell_cmd.h" declline="225" declcolumn="6"/>
       </memberdef>
       </sectiondef>
     <briefdescription>

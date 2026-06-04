@@ -348,7 +348,7 @@
 <codeline lineno="121"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;</highlight></codeline>
 <codeline lineno="122"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
 <codeline lineno="123"><highlight class="normal"></highlight></codeline>
-<codeline lineno="124"><highlight class="normal"><sp/><sp/><sp/><sp/>WshShell_Char_t<sp/>candidates[cmdNum<sp/>+<sp/>1][WSH_SHELL_CMD_NAME_LEN];<sp/><sp/></highlight><highlight class="comment">//<sp/>+<sp/>one<sp/>more<sp/>for<sp/>default<sp/>cmd</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="124"><highlight class="normal"><sp/><sp/><sp/><sp/>WshShell_Char_t<sp/>candidates[WSH_SHELL_AUTOCOMPLETE_MAX_CANDIDATES][WSH_SHELL_CMD_NAME_LEN];</highlight></codeline>
 <codeline lineno="125"><highlight class="normal"><sp/><sp/><sp/><sp/>WshShell_Size_t<sp/>matchCount<sp/><sp/><sp/><sp/><sp/><sp/>=<sp/>0;</highlight></codeline>
 <codeline lineno="126"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="structWshShellCmd" kindref="compound">WshShellCmd_t</ref>*<sp/>pcCmdMatch<sp/>=<sp/>NULL;</highlight></codeline>
 <codeline lineno="127"><highlight class="normal"></highlight></codeline>
