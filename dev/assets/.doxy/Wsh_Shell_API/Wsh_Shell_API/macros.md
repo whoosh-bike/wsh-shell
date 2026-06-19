@@ -116,6 +116,7 @@
 * **WSH\_SHELL\_PRINT\_LEVEL** ([**wsh\_shell\_io.h**](wsh__shell__io_8h.md))
 * **WSH\_SHELL\_PRINT\_SYS** ([**wsh\_shell\_io.h**](wsh__shell__io_8h.md))
 * **WSH\_SHELL\_PRINT\_WARN** ([**wsh\_shell\_io.h**](wsh__shell__io_8h.md))
+* **WSH\_SHELL\_PUTS** ([**wsh\_shell\_io.h**](wsh__shell__io_8h.md))
 * **WSH\_SHELL\_SYM\_BACKSPACE** ([**wsh\_shell\_io.h**](wsh__shell__io_8h.md))
 * **WSH\_SHELL\_SYM\_CANCEL** ([**wsh\_shell\_io.h**](wsh__shell__io_8h.md))
 * **WSH\_SHELL\_SYM\_DELETE** ([**wsh\_shell\_io.h**](wsh__shell__io_8h.md))

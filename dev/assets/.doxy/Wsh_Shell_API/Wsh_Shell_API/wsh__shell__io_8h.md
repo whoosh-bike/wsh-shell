@@ -135,6 +135,7 @@ _Terminal input/output definitions and interaction buffer API for WshShell._ [Mo
 | define  | [**WSH\_SHELL\_PRINT\_LEVEL**](wsh__shell__io_8h.md#define-wsh_shell_print_level) (\_level\_, \_f\_, ...) `/* multi line expression */`<br>_Generic macro for printing messages with a specific level._  |
 | define  | [**WSH\_SHELL\_PRINT\_SYS**](wsh__shell__io_8h.md#define-wsh_shell_print_sys) (\_f\_, ...) <br> |
 | define  | [**WSH\_SHELL\_PRINT\_WARN**](wsh__shell__io_8h.md#define-wsh_shell_print_warn) (\_f\_, ...) <br> |
+| define  | [**WSH\_SHELL\_PUTS**](wsh__shell__io_8h.md#define-wsh_shell_puts) (\_s\_) `WSH\_SHELL\_PRINT("%s", (\_s\_))`<br>_Print a runtime string as data, not as a printf format (safe for buffers containing '')._  |
 | define  | [**WSH\_SHELL\_SYM\_BACKSPACE**](wsh__shell__io_8h.md#define-wsh_shell_sym_backspace)  `'\b'`<br> |
 | define  | [**WSH\_SHELL\_SYM\_CANCEL**](wsh__shell__io_8h.md#define-wsh_shell_sym_cancel)  `0x03`<br> |
 | define  | [**WSH\_SHELL\_SYM\_DELETE**](wsh__shell__io_8h.md#define-wsh_shell_sym_delete)  `0x7f`<br> |
@@ -912,6 +913,22 @@ WSH_SHELL_PRINT_LEVEL(WSH_SHELL_PRINT_ERR, "Failed to open file: %s\n", filename
     _f_,
     ...
 ) 
+```
+
+
+
+
+<hr>
+
+
+
+### define WSH\_SHELL\_PUTS 
+
+_Print a runtime string as data, not as a printf format (safe for buffers containing '')._ 
+```C++
+#define WSH_SHELL_PUTS (
+    _s_
+) `WSH_SHELL_PRINT("%s", (_s_))`
 ```
 
 

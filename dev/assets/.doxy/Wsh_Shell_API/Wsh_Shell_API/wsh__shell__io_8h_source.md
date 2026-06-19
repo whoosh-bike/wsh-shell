@@ -96,6 +96,8 @@ extern "C" {
 #define WSH_SHELL_PRINT_ERR(_f_, ...)
 #endif
 
+#define WSH_SHELL_PUTS(_s_) WSH_SHELL_PRINT("%s", (_s_))
+
 
 typedef enum {
     WSH_SHELL_PRINT_SYS,  

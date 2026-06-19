@@ -341,6 +341,7 @@
     <member refid="wsh__shell__io_8h_1a521887fb3abcf51e8749df33d663caa0" kind="define"><name>WSH_SHELL_PRINT_INFO</name></member>
     <member refid="wsh__shell__io_8h_1a00828fa25a32a5cdd57aee813831ba2f" kind="define"><name>WSH_SHELL_PRINT_WARN</name></member>
     <member refid="wsh__shell__io_8h_1ac8a3d68728e3ee4494b4c486fa9dd5ca" kind="define"><name>WSH_SHELL_PRINT_ERR</name></member>
+    <member refid="wsh__shell__io_8h_1a6dcf10c22654b089ae6b47f886534f14" kind="define"><name>WSH_SHELL_PUTS</name></member>
     <member refid="wsh__shell__io_8h_1a2daaef3d083678fcc639e383f55910e7" kind="define"><name>WSH_SHELL_PRINT_LEVEL</name></member>
     <member refid="wsh__shell__io_8h_1aaa716dd3abd8eea0d420a40cb6b1f06f" kind="enum"><name>WSH_SHELL_PRINT_t</name></member>
     <member refid="wsh__shell__io_8h_1aaa716dd3abd8eea0d420a40cb6b1f06fa8033fcf487eecf6b7e6f24b6c6604d9b" kind="enumvalue"><name>WSH_SHELL_PRINT_SYS</name></member>
