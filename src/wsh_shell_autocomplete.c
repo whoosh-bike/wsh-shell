@@ -403,6 +403,7 @@ WshShell_Bool_t WshShellAutocomplete_Try(WshShell_Char_t* pInBuff, WshShell_Size
                 subCandidates[0], WSH_SHELL_CMD_NAME_LEN, subMatchCount, effFlagPartLen, WSH_SHELL_CMD_NAME_LEN);
 
             if (subPrefixLen > flagPartLen) {
+                // NOLINTNEXTLINE(readability-suspicious-call-argument)
                 return WshShellAutocomplete_WriteCompletion(pInBuff, pcInputCopyTrimmed, prefixEnd, subCandidates[0],
                                                             subPrefixLen, false, "Subcommand prefix");
             }
@@ -477,6 +478,7 @@ WshShell_Bool_t WshShellAutocomplete_Try(WshShell_Char_t* pInBuff, WshShell_Size
                                                  flagPartLen, WSH_SHELL_OPTION_LONG_NAME_LEN);
 
         if (flagPrefixLen > flagPartLen) {
+            // NOLINTNEXTLINE(readability-suspicious-call-argument)
             return WshShellAutocomplete_WriteCompletion(pInBuff, pcInputCopyTrimmed, prefixEnd, flagCandidates[0],
                                                         flagPrefixLen, false, "Flag prefix");
         }
