@@ -3,7 +3,7 @@
   <compounddef id="wsh__shell__io_8h" kind="file" language="C++">
     <compoundname>wsh_shell_io.h</compoundname>
     <includes local="yes">wsh_shell_cfg.h</includes>
-    <includes refid="wsh__shell__str_8h" local="yes">wsh_shell_str.h</includes>
+    <includes refid="wsh__shell__types_8h" local="yes">wsh_shell_types.h</includes>
     <includedby refid="wsh__shell_8h" local="yes">src/wsh_shell.h</includedby>
     <includedby refid="wsh__shell__autocomplete_8h" local="yes">src/wsh_shell_autocomplete.h</includedby>
     <includedby refid="wsh__shell__cmd_8h" local="yes">src/wsh_shell_cmd.h</includedby>
@@ -12,43 +12,25 @@
     <includedby refid="wsh__shell__io_8c" local="yes">src/wsh_shell_io.c</includedby>
     <includedby refid="wsh__shell__promptwait_8h" local="yes">src/wsh_shell_promptwait.h</includedby>
     <includedby refid="wsh__shell__ps1__custom_8h" local="yes">src/wsh_shell_ps1_custom.h</includedby>
-    <includedby refid="wsh__shell__str_8h" local="yes">src/wsh_shell_str.h</includedby>
+    <includedby refid="wsh__shell__str_8c" local="yes">src/wsh_shell_str.c</includedby>
     <incdepgraph>
-      <node id="7">
+      <node id="5">
         <label>stdbool.h</label>
       </node>
-      <node id="6">
+      <node id="4">
         <label>stdarg.h</label>
       </node>
-      <node id="3">
-        <label>wsh_shell_str.h</label>
-        <link refid="wsh__shell__str_8h"/>
-        <childnode refid="2" relation="include">
-        </childnode>
-        <childnode refid="1" relation="include">
-        </childnode>
-        <childnode refid="4" relation="include">
-        </childnode>
-        <childnode refid="5" relation="include">
-        </childnode>
-      </node>
-      <node id="9">
+      <node id="7">
         <label>stdint.h</label>
       </node>
-      <node id="11">
+      <node id="9">
         <label>stdlib.h</label>
       </node>
       <node id="2">
         <label>wsh_shell_cfg.h</label>
       </node>
-      <node id="8">
+      <node id="6">
         <label>stddef.h</label>
-      </node>
-      <node id="4">
-        <label>wsh_shell_option.h</label>
-        <link refid="wsh__shell__option_8h"/>
-        <childnode refid="5" relation="include">
-        </childnode>
       </node>
       <node id="1">
         <label>src/wsh_shell_io.h</label>
@@ -58,12 +40,16 @@
         <childnode refid="3" relation="include">
         </childnode>
       </node>
-      <node id="12">
+      <node id="10">
         <label>string.h</label>
       </node>
-      <node id="5">
+      <node id="3">
         <label>wsh_shell_types.h</label>
         <link refid="wsh__shell__types_8h"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
         <childnode refid="6" relation="include">
         </childnode>
         <childnode refid="7" relation="include">
@@ -74,30 +60,12 @@
         </childnode>
         <childnode refid="10" relation="include">
         </childnode>
-        <childnode refid="11" relation="include">
-        </childnode>
-        <childnode refid="12" relation="include">
-        </childnode>
       </node>
-      <node id="10">
+      <node id="8">
         <label>stdio.h</label>
       </node>
     </incdepgraph>
     <invincdepgraph>
-      <node id="10">
-        <label>src/wsh_shell_str.h</label>
-        <link refid="wsh__shell__str_8h"/>
-        <childnode refid="2" relation="include">
-        </childnode>
-        <childnode refid="3" relation="include">
-        </childnode>
-        <childnode refid="4" relation="include">
-        </childnode>
-        <childnode refid="11" relation="include">
-        </childnode>
-        <childnode refid="1" relation="include">
-        </childnode>
-      </node>
       <node id="8">
         <label>src/wsh_shell_promptwait.h</label>
         <link refid="wsh__shell__promptwait_8h"/>
@@ -120,18 +88,6 @@
         <childnode refid="8" relation="include">
         </childnode>
         <childnode refid="9" relation="include">
-        </childnode>
-        <childnode refid="10" relation="include">
-        </childnode>
-      </node>
-      <node id="11">
-        <label>src/wsh_shell_history.h</label>
-        <link refid="wsh__shell__history_8h"/>
-        <childnode refid="2" relation="include">
-        </childnode>
-        <childnode refid="5" relation="include">
-        </childnode>
-        <childnode refid="6" relation="include">
         </childnode>
       </node>
       <node id="5">
@@ -805,7 +761,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/wsh_shell_io.h" line="204" column="6" bodyfile="src/wsh_shell_io.c" bodystart="3" bodyend="11" declfile="src/wsh_shell_io.h" declline="204" declcolumn="6"/>
+        <location file="src/wsh_shell_io.h" line="204" column="6" bodyfile="src/wsh_shell_io.c" bodystart="4" bodyend="12" declfile="src/wsh_shell_io.h" declline="204" declcolumn="6"/>
       </memberdef>
       <memberdef kind="function" id="wsh__shell__io_8h_1a8941741c3a17fb54102de3772d6e9384" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -846,7 +802,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/wsh_shell_io.h" line="214" column="6" bodyfile="src/wsh_shell_io.c" bodystart="13" bodyend="21" declfile="src/wsh_shell_io.h" declline="214" declcolumn="6"/>
+        <location file="src/wsh_shell_io.h" line="214" column="6" bodyfile="src/wsh_shell_io.c" bodystart="14" bodyend="22" declfile="src/wsh_shell_io.h" declline="214" declcolumn="6"/>
       </memberdef>
       <memberdef kind="function" id="wsh__shell__io_8h_1a8d4e26bec84a173c570dcff0e646894c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -874,7 +830,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/wsh_shell_io.h" line="221" column="6" bodyfile="src/wsh_shell_io.c" bodystart="23" bodyend="29" declfile="src/wsh_shell_io.h" declline="221" declcolumn="6"/>
+        <location file="src/wsh_shell_io.h" line="221" column="6" bodyfile="src/wsh_shell_io.c" bodystart="24" bodyend="30" declfile="src/wsh_shell_io.h" declline="221" declcolumn="6"/>
       </memberdef>
       <memberdef kind="function" id="wsh__shell__io_8h_1a504d8205168991de62227d30a6b360f9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -903,7 +859,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/wsh_shell_io.h" line="230" column="6" bodyfile="src/wsh_shell_io.c" bodystart="31" bodyend="48" declfile="src/wsh_shell_io.h" declline="230" declcolumn="6"/>
+        <location file="src/wsh_shell_io.h" line="230" column="6" bodyfile="src/wsh_shell_io.c" bodystart="32" bodyend="49" declfile="src/wsh_shell_io.h" declline="230" declcolumn="6"/>
       </memberdef>
       <memberdef kind="function" id="wsh__shell__io_8h_1afd0ae76eae883ef80c73fc8e1c25197d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -937,7 +893,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/wsh_shell_io.h" line="248" column="6" bodyfile="src/wsh_shell_io.c" bodystart="50" bodyend="74" declfile="src/wsh_shell_io.h" declline="248" declcolumn="6"/>
+        <location file="src/wsh_shell_io.h" line="248" column="6" bodyfile="src/wsh_shell_io.c" bodystart="51" bodyend="75" declfile="src/wsh_shell_io.h" declline="248" declcolumn="6"/>
       </memberdef>
       <memberdef kind="function" id="wsh__shell__io_8h_1aff3bd3d1200458c97969a00125051ca4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -996,7 +952,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/wsh_shell_io.h" line="268" column="6" bodyfile="src/wsh_shell_io.c" bodystart="80" bodyend="98" declfile="src/wsh_shell_io.h" declline="268" declcolumn="6"/>
+        <location file="src/wsh_shell_io.h" line="268" column="6" bodyfile="src/wsh_shell_io.c" bodystart="81" bodyend="99" declfile="src/wsh_shell_io.h" declline="268" declcolumn="6"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
@@ -1024,7 +980,7 @@
 <codeline lineno="19"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>__WSH_SHELL_IO_H</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="20"><highlight class="normal"></highlight></codeline>
 <codeline lineno="21"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;wsh_shell_cfg.h&quot;</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="22"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="wsh__shell__str_8h" kindref="compound">wsh_shell_str.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="22"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="wsh__shell__types_8h" kindref="compound">wsh_shell_types.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="23"><highlight class="normal"></highlight></codeline>
 <codeline lineno="24"><highlight class="normal"></highlight><highlight class="preprocessor">#ifdef<sp/>__cplusplus</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="25"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/></highlight><highlight class="stringliteral">&quot;C&quot;</highlight><highlight class="normal"><sp/>{</highlight></codeline>

@@ -4,10 +4,10 @@
     <compoundname>wsh_shell_autocomplete.c</compoundname>
     <includes refid="wsh__shell__autocomplete_8h" local="yes">wsh_shell_autocomplete.h</includes>
     <incdepgraph>
-      <node id="10">
+      <node id="8">
         <label>stdbool.h</label>
       </node>
-      <node id="9">
+      <node id="7">
         <label>stdarg.h</label>
       </node>
       <node id="18">
@@ -15,37 +15,35 @@
         <link refid="wsh__shell__misc_8h"/>
         <childnode refid="3" relation="include">
         </childnode>
-        <childnode refid="8" relation="include">
+        <childnode refid="6" relation="include">
         </childnode>
       </node>
-      <node id="6">
+      <node id="15">
         <label>wsh_shell_str.h</label>
         <link refid="wsh__shell__str_8h"/>
         <childnode refid="3" relation="include">
         </childnode>
-        <childnode refid="5" relation="include">
+        <childnode refid="14" relation="include">
         </childnode>
-        <childnode refid="7" relation="include">
-        </childnode>
-        <childnode refid="8" relation="include">
+        <childnode refid="6" relation="include">
         </childnode>
       </node>
-      <node id="12">
+      <node id="10">
         <label>stdint.h</label>
       </node>
-      <node id="14">
+      <node id="12">
         <label>stdlib.h</label>
       </node>
       <node id="3">
         <label>wsh_shell_cfg.h</label>
       </node>
-      <node id="11">
+      <node id="9">
         <label>stddef.h</label>
       </node>
-      <node id="7">
+      <node id="14">
         <label>wsh_shell_option.h</label>
         <link refid="wsh__shell__option_8h"/>
-        <childnode refid="8" relation="include">
+        <childnode refid="6" relation="include">
         </childnode>
       </node>
       <node id="5">
@@ -56,12 +54,16 @@
         <childnode refid="6" relation="include">
         </childnode>
       </node>
-      <node id="15">
+      <node id="13">
         <label>string.h</label>
       </node>
-      <node id="8">
+      <node id="6">
         <label>wsh_shell_types.h</label>
         <link refid="wsh__shell__types_8h"/>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
         <childnode refid="9" relation="include">
         </childnode>
         <childnode refid="10" relation="include">
@@ -72,10 +74,6 @@
         </childnode>
         <childnode refid="13" relation="include">
         </childnode>
-        <childnode refid="14" relation="include">
-        </childnode>
-        <childnode refid="15" relation="include">
-        </childnode>
       </node>
       <node id="17">
         <label>wsh_shell_history.h</label>
@@ -84,9 +82,9 @@
         </childnode>
         <childnode refid="18" relation="include">
         </childnode>
-        <childnode refid="6" relation="include">
+        <childnode refid="15" relation="include">
         </childnode>
-        <childnode refid="8" relation="include">
+        <childnode refid="6" relation="include">
         </childnode>
       </node>
       <node id="16">
@@ -98,7 +96,7 @@
         </childnode>
         <childnode refid="17" relation="include">
         </childnode>
-        <childnode refid="8" relation="include">
+        <childnode refid="6" relation="include">
         </childnode>
       </node>
       <node id="4">
@@ -108,11 +106,11 @@
         </childnode>
         <childnode refid="5" relation="include">
         </childnode>
-        <childnode refid="7" relation="include">
+        <childnode refid="14" relation="include">
+        </childnode>
+        <childnode refid="15" relation="include">
         </childnode>
         <childnode refid="6" relation="include">
-        </childnode>
-        <childnode refid="8" relation="include">
         </childnode>
       </node>
       <node id="1">
@@ -132,12 +130,12 @@
         </childnode>
         <childnode refid="5" relation="include">
         </childnode>
+        <childnode refid="15" relation="include">
+        </childnode>
         <childnode refid="6" relation="include">
         </childnode>
-        <childnode refid="8" relation="include">
-        </childnode>
       </node>
-      <node id="13">
+      <node id="11">
         <label>stdio.h</label>
       </node>
     </incdepgraph>

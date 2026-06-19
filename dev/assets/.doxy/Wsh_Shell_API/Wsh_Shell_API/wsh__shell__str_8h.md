@@ -11,7 +11,6 @@
 _Common string operations for user input processing._ [More...](#detailed-description)
 
 * `#include "wsh_shell_cfg.h"`
-* `#include "wsh_shell_io.h"`
 * `#include "wsh_shell_option.h"`
 * `#include "wsh_shell_types.h"`
 

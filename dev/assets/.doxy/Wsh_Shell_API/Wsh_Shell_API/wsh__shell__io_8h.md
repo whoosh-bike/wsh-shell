@@ -11,7 +11,7 @@
 _Terminal input/output definitions and interaction buffer API for WshShell._ [More...](#detailed-description)
 
 * `#include "wsh_shell_cfg.h"`
-* `#include "wsh_shell_str.h"`
+* `#include "wsh_shell_types.h"`
 
 
 
