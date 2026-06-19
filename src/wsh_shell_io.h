@@ -19,7 +19,7 @@
 #define __WSH_SHELL_IO_H
 
 #include "wsh_shell_cfg.h"
-#include "wsh_shell_str.h"
+#include "wsh_shell_types.h"
 
 #ifdef __cplusplus
 extern "C" {
