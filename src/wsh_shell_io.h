@@ -131,6 +131,9 @@ extern "C" {
 #define WSH_SHELL_PRINT_ERR(_f_, ...)
 #endif
 
+/** @brief Print a runtime string as data, not as a printf format (safe for buffers containing '%'). */
+#define WSH_SHELL_PUTS(_s_) WSH_SHELL_PRINT("%s", (_s_))
+
 ///@}
 
 /**
