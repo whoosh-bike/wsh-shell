@@ -26,7 +26,7 @@ void WshShellIO_PrintInterBuff(WshShellIO_CommandLine_t* pCommandLine) {
     if (!pCommandLine)
         return;
 
-    WSH_SHELL_PRINT(pCommandLine->Buff);
+    WSH_SHELL_PRINT("%s", pCommandLine->Buff);
 }
 
 void WshShellIO_RefreshConsoleFromInterBuff(WshShellIO_CommandLine_t* pCommandLine) {
