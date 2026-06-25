@@ -11,6 +11,7 @@
 
 
 * `#include "wsh_shell_str.h"`
+* `#include "wsh_shell_io.h"`
 
 
 

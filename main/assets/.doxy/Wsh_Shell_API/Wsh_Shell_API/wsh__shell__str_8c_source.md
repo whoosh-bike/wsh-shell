@@ -9,6 +9,7 @@
 
 ```C++
 #include "wsh_shell_str.h"
+#include "wsh_shell_io.h"
 
 WshShell_Bool_t WshShellStr_IsPrintableAscii(WshShell_Char_t ch) {
     return (bool)(ch >= ' ' && ch <= '~');  // ASCII printable range

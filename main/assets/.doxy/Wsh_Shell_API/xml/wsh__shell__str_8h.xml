@@ -3,21 +3,20 @@
   <compounddef id="wsh__shell__str_8h" kind="file" language="C++">
     <compoundname>wsh_shell_str.h</compoundname>
     <includes local="yes">wsh_shell_cfg.h</includes>
-    <includes refid="wsh__shell__io_8h" local="yes">wsh_shell_io.h</includes>
     <includes refid="wsh__shell__option_8h" local="yes">wsh_shell_option.h</includes>
     <includes refid="wsh__shell__types_8h" local="yes">wsh_shell_types.h</includes>
     <includedby refid="wsh__shell_8h" local="yes">src/wsh_shell.h</includedby>
     <includedby refid="wsh__shell__autocomplete_8h" local="yes">src/wsh_shell_autocomplete.h</includedby>
     <includedby refid="wsh__shell__cmd_8h" local="yes">src/wsh_shell_cmd.h</includedby>
     <includedby refid="wsh__shell__history_8h" local="yes">src/wsh_shell_history.h</includedby>
-    <includedby refid="wsh__shell__io_8h" local="yes">src/wsh_shell_io.h</includedby>
+    <includedby refid="wsh__shell__io_8c" local="yes">src/wsh_shell_io.c</includedby>
     <includedby refid="wsh__shell__misc_8c" local="yes">src/wsh_shell_misc.c</includedby>
     <includedby refid="wsh__shell__str_8c" local="yes">src/wsh_shell_str.c</includedby>
     <incdepgraph>
-      <node id="7">
+      <node id="6">
         <label>stdbool.h</label>
       </node>
-      <node id="6">
+      <node id="5">
         <label>stdarg.h</label>
       </node>
       <node id="1">
@@ -29,41 +28,33 @@
         </childnode>
         <childnode refid="4" relation="include">
         </childnode>
-        <childnode refid="5" relation="include">
-        </childnode>
       </node>
-      <node id="9">
+      <node id="8">
         <label>stdint.h</label>
       </node>
-      <node id="11">
+      <node id="10">
         <label>stdlib.h</label>
       </node>
       <node id="2">
         <label>wsh_shell_cfg.h</label>
       </node>
-      <node id="8">
+      <node id="7">
         <label>stddef.h</label>
       </node>
-      <node id="4">
+      <node id="3">
         <label>wsh_shell_option.h</label>
         <link refid="wsh__shell__option_8h"/>
-        <childnode refid="5" relation="include">
+        <childnode refid="4" relation="include">
         </childnode>
       </node>
-      <node id="3">
-        <label>wsh_shell_io.h</label>
-        <link refid="wsh__shell__io_8h"/>
-        <childnode refid="2" relation="include">
-        </childnode>
-        <childnode refid="1" relation="include">
-        </childnode>
-      </node>
-      <node id="12">
+      <node id="11">
         <label>string.h</label>
       </node>
-      <node id="5">
+      <node id="4">
         <label>wsh_shell_types.h</label>
         <link refid="wsh__shell__types_8h"/>
+        <childnode refid="5" relation="include">
+        </childnode>
         <childnode refid="6" relation="include">
         </childnode>
         <childnode refid="7" relation="include">
@@ -76,10 +67,8 @@
         </childnode>
         <childnode refid="11" relation="include">
         </childnode>
-        <childnode refid="12" relation="include">
-        </childnode>
       </node>
-      <node id="10">
+      <node id="9">
         <label>stdio.h</label>
       </node>
     </incdepgraph>
@@ -94,34 +83,6 @@
         <childnode refid="4" relation="include">
         </childnode>
         <childnode refid="6" relation="include">
-        </childnode>
-        <childnode refid="8" relation="include">
-        </childnode>
-      </node>
-      <node id="10">
-        <label>src/wsh_shell_promptwait.h</label>
-        <link refid="wsh__shell__promptwait_8h"/>
-        <childnode refid="2" relation="include">
-        </childnode>
-      </node>
-      <node id="8">
-        <label>src/wsh_shell_io.h</label>
-        <link refid="wsh__shell__io_8h"/>
-        <childnode refid="2" relation="include">
-        </childnode>
-        <childnode refid="3" relation="include">
-        </childnode>
-        <childnode refid="4" relation="include">
-        </childnode>
-        <childnode refid="7" relation="include">
-        </childnode>
-        <childnode refid="9" relation="include">
-        </childnode>
-        <childnode refid="10" relation="include">
-        </childnode>
-        <childnode refid="11" relation="include">
-        </childnode>
-        <childnode refid="1" relation="include">
         </childnode>
       </node>
       <node id="6">
@@ -146,12 +107,6 @@
         <label>src/wsh_shell.h</label>
         <link refid="wsh__shell_8h"/>
       </node>
-      <node id="9">
-        <label>src/wsh_shell_interact.h</label>
-        <link refid="wsh__shell__interact_8h"/>
-        <childnode refid="2" relation="include">
-        </childnode>
-      </node>
       <node id="4">
         <label>src/wsh_shell_cmd.h</label>
         <link refid="wsh__shell__cmd_8h"/>
@@ -165,12 +120,6 @@
       <node id="7">
         <label>src/wsh_shell_esc.h</label>
         <link refid="wsh__shell__esc_8h"/>
-        <childnode refid="2" relation="include">
-        </childnode>
-      </node>
-      <node id="11">
-        <label>src/wsh_shell_ps1_custom.h</label>
-        <link refid="wsh__shell__ps1__custom_8h"/>
         <childnode refid="2" relation="include">
         </childnode>
       </node>
@@ -191,7 +140,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/wsh_shell_str.h" line="21" column="9" bodyfile="src/wsh_shell_str.h" bodystart="21" bodyend="-1"/>
+        <location file="src/wsh_shell_str.h" line="20" column="9" bodyfile="src/wsh_shell_str.h" bodystart="20" bodyend="-1"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="func">
@@ -224,7 +173,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/wsh_shell_str.h" line="33" column="17" bodyfile="src/wsh_shell_str.c" bodystart="3" bodyend="5" declfile="src/wsh_shell_str.h" declline="33" declcolumn="17"/>
+        <location file="src/wsh_shell_str.h" line="32" column="17" bodyfile="src/wsh_shell_str.c" bodystart="4" bodyend="6" declfile="src/wsh_shell_str.h" declline="32" declcolumn="17"/>
       </memberdef>
       <memberdef kind="function" id="wsh__shell__str_8h_1a75fcab509bbc6e57796fb144edfadcaa" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>WshShell_Char_t *</type>
@@ -266,7 +215,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/wsh_shell_str.h" line="43" column="17" bodyfile="src/wsh_shell_str.c" bodystart="7" bodyend="24" declfile="src/wsh_shell_str.h" declline="43" declcolumn="17"/>
+        <location file="src/wsh_shell_str.h" line="42" column="17" bodyfile="src/wsh_shell_str.c" bodystart="8" bodyend="25" declfile="src/wsh_shell_str.h" declline="42" declcolumn="17"/>
       </memberdef>
       <memberdef kind="function" id="wsh__shell__str_8h_1afa52b0f22a788ba56269460dfe7f09b3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -336,7 +285,7 @@ Output: &lt;tt&gt;pArgBuff = { &quot;arg1&quot;, &quot;arg2&quot;, &quot;quoted 
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/wsh_shell_str.h" line="65" column="6" bodyfile="src/wsh_shell_str.c" bodystart="26" bodyend="65" declfile="src/wsh_shell_str.h" declline="65" declcolumn="6"/>
+        <location file="src/wsh_shell_str.h" line="64" column="6" bodyfile="src/wsh_shell_str.c" bodystart="27" bodyend="66" declfile="src/wsh_shell_str.h" declline="64" declcolumn="6"/>
       </memberdef>
       <memberdef kind="function" id="wsh__shell__str_8h_1a717aa2a87c1d1b039e986781479199ba" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -376,7 +325,7 @@ Output: &lt;tt&gt;pArgBuff = { &quot;arg1&quot;, &quot;arg2&quot;, &quot;quoted 
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/wsh_shell_str.h" line="74" column="6" bodyfile="src/wsh_shell_str.c" bodystart="67" bodyend="74" declfile="src/wsh_shell_str.h" declline="74" declcolumn="6"/>
+        <location file="src/wsh_shell_str.h" line="73" column="6" bodyfile="src/wsh_shell_str.c" bodystart="68" bodyend="75" declfile="src/wsh_shell_str.h" declline="73" declcolumn="6"/>
       </memberdef>
       <memberdef kind="function" id="wsh__shell__str_8h_1ab4b7be929d544496dbab7a625bc70204" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -404,7 +353,7 @@ Output: &lt;tt&gt;pArgBuff = { &quot;arg1&quot;, &quot;arg2&quot;, &quot;quoted 
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/wsh_shell_str.h" line="81" column="6" bodyfile="src/wsh_shell_str.c" bodystart="76" bodyend="83" declfile="src/wsh_shell_str.h" declline="81" declcolumn="6"/>
+        <location file="src/wsh_shell_str.h" line="80" column="6" bodyfile="src/wsh_shell_str.c" bodystart="77" bodyend="84" declfile="src/wsh_shell_str.h" declline="80" declcolumn="6"/>
       </memberdef>
       <memberdef kind="function" id="wsh__shell__str_8h_1a10832dc9d2d88b0577df9bac3e6e533e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -456,7 +405,7 @@ Output: &lt;tt&gt;pArgBuff = { &quot;arg1&quot;, &quot;arg2&quot;, &quot;quoted 
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/wsh_shell_str.h" line="104" column="6" bodyfile="src/wsh_shell_str.c" bodystart="85" bodyend="95" declfile="src/wsh_shell_str.h" declline="104" declcolumn="6"/>
+        <location file="src/wsh_shell_str.h" line="103" column="6" bodyfile="src/wsh_shell_str.c" bodystart="86" bodyend="96" declfile="src/wsh_shell_str.h" declline="103" declcolumn="6"/>
       </memberdef>
       <memberdef kind="function" id="wsh__shell__str_8h_1a3807da453046b6283184e6021dd83c10" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -514,7 +463,7 @@ Output: &lt;tt&gt;pArgBuff = { &quot;arg1&quot;, &quot;arg2&quot;, &quot;quoted 
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/wsh_shell_str.h" line="119" column="6" bodyfile="src/wsh_shell_str.c" bodystart="97" bodyend="106" declfile="src/wsh_shell_str.h" declline="119" declcolumn="6"/>
+        <location file="src/wsh_shell_str.h" line="118" column="6" bodyfile="src/wsh_shell_str.c" bodystart="98" bodyend="107" declfile="src/wsh_shell_str.h" declline="118" declcolumn="6"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
@@ -533,36 +482,35 @@ Output: &lt;tt&gt;pArgBuff = { &quot;arg1&quot;, &quot;arg2&quot;, &quot;quoted 
 <codeline lineno="10"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>__WSH_SHELL_STR_H</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="11"><highlight class="normal"></highlight></codeline>
 <codeline lineno="12"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;wsh_shell_cfg.h&quot;</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="13"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="wsh__shell__io_8h" kindref="compound">wsh_shell_io.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="14"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="wsh__shell__option_8h" kindref="compound">wsh_shell_option.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="15"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="wsh__shell__types_8h" kindref="compound">wsh_shell_types.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="16"><highlight class="normal"></highlight></codeline>
-<codeline lineno="17"><highlight class="normal"></highlight><highlight class="preprocessor">#ifdef<sp/>__cplusplus</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="18"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/></highlight><highlight class="stringliteral">&quot;C&quot;</highlight><highlight class="normal"><sp/>{</highlight></codeline>
-<codeline lineno="19"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="20"><highlight class="normal"></highlight></codeline>
-<codeline lineno="21"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>WSH_SHELL_PRESS_ENTER_TO_LOG_IN_STR<sp/>&quot;Press<sp/>&lt;Enter&gt;<sp/>to<sp/>log<sp/>in...&quot;</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="22"><highlight class="normal"></highlight></codeline>
-<codeline lineno="33"><highlight class="normal">WshShell_Bool_t<sp/><ref refid="wsh__shell__str_8h_1a9d35c0fc6d620aab2c92d6c9bf6ba804" kindref="member">WshShellStr_IsPrintableAscii</ref>(WshShell_Char_t<sp/>ch);</highlight></codeline>
-<codeline lineno="34"><highlight class="normal"></highlight></codeline>
-<codeline lineno="43"><highlight class="normal">WshShell_Char_t*<sp/><ref refid="wsh__shell__str_8h_1a75fcab509bbc6e57796fb144edfadcaa" kindref="member">WshShellStr_TrimString</ref>(WshShell_Char_t*<sp/>pString,<sp/>WshShell_Size_t<sp/>len);</highlight></codeline>
-<codeline lineno="44"><highlight class="normal"></highlight></codeline>
-<codeline lineno="65"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="wsh__shell__str_8h_1afa52b0f22a788ba56269460dfe7f09b3" kindref="member">WshShellStr_ParseToArgcArgv</ref>(WshShell_Char_t*<sp/>pStr,<sp/>WshShell_Size_t*<sp/>pArgNum,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>WshShell_Char_t*<sp/>pArgBuff[],</highlight></codeline>
-<codeline lineno="66"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>WshShell_Size_t<sp/>maxArgNum);</highlight></codeline>
-<codeline lineno="67"><highlight class="normal"></highlight></codeline>
-<codeline lineno="74"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="wsh__shell__str_8h_1a717aa2a87c1d1b039e986781479199ba" kindref="member">WshShellStr_IncrInterCnt</ref>(WshShell_Size_t*<sp/>pInterCnt,<sp/>WshShell_Size_t<sp/>buffSize);</highlight></codeline>
-<codeline lineno="75"><highlight class="normal"></highlight></codeline>
-<codeline lineno="81"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="wsh__shell__str_8h_1ab4b7be929d544496dbab7a625bc70204" kindref="member">WshShellStr_DecrInterCnt</ref>(WshShell_Size_t*<sp/>pInterCnt);</highlight></codeline>
-<codeline lineno="82"><highlight class="normal"></highlight></codeline>
-<codeline lineno="104"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="wsh__shell__str_8h_1a10832dc9d2d88b0577df9bac3e6e533e" kindref="member">WshShellStr_AccessBitsToStr</ref>(WshShell_Size_t<sp/>access,<sp/>WshShell_Char_t*<sp/>pOutStr);</highlight></codeline>
-<codeline lineno="105"><highlight class="normal"></highlight></codeline>
-<codeline lineno="119"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="wsh__shell__str_8h_1a3807da453046b6283184e6021dd83c10" kindref="member">WshShellStr_GroupBitsToStr</ref>(WshShell_Size_t<sp/>group,<sp/>WshShell_Size_t<sp/>groupMaxNum,<sp/>WshShell_Char_t*<sp/>pOutStr);</highlight></codeline>
-<codeline lineno="120"><highlight class="normal"></highlight></codeline>
-<codeline lineno="121"><highlight class="normal"></highlight><highlight class="preprocessor">#ifdef<sp/>__cplusplus</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="122"><highlight class="normal">}</highlight></codeline>
-<codeline lineno="123"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="124"><highlight class="normal"></highlight></codeline>
-<codeline lineno="125"><highlight class="normal"></highlight><highlight class="preprocessor">#endif<sp/></highlight><highlight class="comment">/*<sp/>__WSH_SHELL_STR_H<sp/>*/</highlight><highlight class="preprocessor"></highlight></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="wsh__shell__option_8h" kindref="compound">wsh_shell_option.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="14"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="wsh__shell__types_8h" kindref="compound">wsh_shell_types.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="15"><highlight class="normal"></highlight></codeline>
+<codeline lineno="16"><highlight class="normal"></highlight><highlight class="preprocessor">#ifdef<sp/>__cplusplus</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="17"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/></highlight><highlight class="stringliteral">&quot;C&quot;</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline lineno="18"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="19"><highlight class="normal"></highlight></codeline>
+<codeline lineno="20"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>WSH_SHELL_PRESS_ENTER_TO_LOG_IN_STR<sp/>&quot;Press<sp/>&lt;Enter&gt;<sp/>to<sp/>log<sp/>in...&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="21"><highlight class="normal"></highlight></codeline>
+<codeline lineno="32"><highlight class="normal">WshShell_Bool_t<sp/><ref refid="wsh__shell__str_8h_1a9d35c0fc6d620aab2c92d6c9bf6ba804" kindref="member">WshShellStr_IsPrintableAscii</ref>(WshShell_Char_t<sp/>ch);</highlight></codeline>
+<codeline lineno="33"><highlight class="normal"></highlight></codeline>
+<codeline lineno="42"><highlight class="normal">WshShell_Char_t*<sp/><ref refid="wsh__shell__str_8h_1a75fcab509bbc6e57796fb144edfadcaa" kindref="member">WshShellStr_TrimString</ref>(WshShell_Char_t*<sp/>pString,<sp/>WshShell_Size_t<sp/>len);</highlight></codeline>
+<codeline lineno="43"><highlight class="normal"></highlight></codeline>
+<codeline lineno="64"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="wsh__shell__str_8h_1afa52b0f22a788ba56269460dfe7f09b3" kindref="member">WshShellStr_ParseToArgcArgv</ref>(WshShell_Char_t*<sp/>pStr,<sp/>WshShell_Size_t*<sp/>pArgNum,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>WshShell_Char_t*<sp/>pArgBuff[],</highlight></codeline>
+<codeline lineno="65"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>WshShell_Size_t<sp/>maxArgNum);</highlight></codeline>
+<codeline lineno="66"><highlight class="normal"></highlight></codeline>
+<codeline lineno="73"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="wsh__shell__str_8h_1a717aa2a87c1d1b039e986781479199ba" kindref="member">WshShellStr_IncrInterCnt</ref>(WshShell_Size_t*<sp/>pInterCnt,<sp/>WshShell_Size_t<sp/>buffSize);</highlight></codeline>
+<codeline lineno="74"><highlight class="normal"></highlight></codeline>
+<codeline lineno="80"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="wsh__shell__str_8h_1ab4b7be929d544496dbab7a625bc70204" kindref="member">WshShellStr_DecrInterCnt</ref>(WshShell_Size_t*<sp/>pInterCnt);</highlight></codeline>
+<codeline lineno="81"><highlight class="normal"></highlight></codeline>
+<codeline lineno="103"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="wsh__shell__str_8h_1a10832dc9d2d88b0577df9bac3e6e533e" kindref="member">WshShellStr_AccessBitsToStr</ref>(WshShell_Size_t<sp/>access,<sp/>WshShell_Char_t*<sp/>pOutStr);</highlight></codeline>
+<codeline lineno="104"><highlight class="normal"></highlight></codeline>
+<codeline lineno="118"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="wsh__shell__str_8h_1a3807da453046b6283184e6021dd83c10" kindref="member">WshShellStr_GroupBitsToStr</ref>(WshShell_Size_t<sp/>group,<sp/>WshShell_Size_t<sp/>groupMaxNum,<sp/>WshShell_Char_t*<sp/>pOutStr);</highlight></codeline>
+<codeline lineno="119"><highlight class="normal"></highlight></codeline>
+<codeline lineno="120"><highlight class="normal"></highlight><highlight class="preprocessor">#ifdef<sp/>__cplusplus</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="121"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="122"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="123"><highlight class="normal"></highlight></codeline>
+<codeline lineno="124"><highlight class="normal"></highlight><highlight class="preprocessor">#endif<sp/></highlight><highlight class="comment">/*<sp/>__WSH_SHELL_STR_H<sp/>*/</highlight><highlight class="preprocessor"></highlight></codeline>
     </programlisting>
     <location file="src/wsh_shell_str.h"/>
   </compounddef>

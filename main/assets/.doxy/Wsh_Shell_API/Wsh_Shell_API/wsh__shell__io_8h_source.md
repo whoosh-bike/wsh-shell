@@ -13,7 +13,7 @@
 #define __WSH_SHELL_IO_H
 
 #include "wsh_shell_cfg.h"
-#include "wsh_shell_str.h"
+#include "wsh_shell_types.h"
 
 #ifdef __cplusplus
 extern "C" {
@@ -95,6 +95,8 @@ extern "C" {
 #else
 #define WSH_SHELL_PRINT_ERR(_f_, ...)
 #endif
+
+#define WSH_SHELL_PUTS(_s_) WSH_SHELL_PRINT("%s", (_s_))
 
 
 typedef enum {
