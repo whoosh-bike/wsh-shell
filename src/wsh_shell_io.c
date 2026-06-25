@@ -1,4 +1,5 @@
 #include "wsh_shell_io.h"
+#include "wsh_shell_str.h"
 
 void WshShellIO_ClearInterBuff(WshShellIO_CommandLine_t* pCommandLine) {
     WSH_SHELL_ASSERT(pCommandLine);
@@ -25,7 +26,7 @@ void WshShellIO_PrintInterBuff(WshShellIO_CommandLine_t* pCommandLine) {
     if (!pCommandLine)
         return;
 
-    WSH_SHELL_PRINT(pCommandLine->Buff);
+    WSH_SHELL_PRINT("%s", pCommandLine->Buff);
 }
 
 void WshShellIO_RefreshConsoleFromInterBuff(WshShellIO_CommandLine_t* pCommandLine) {

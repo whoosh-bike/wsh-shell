@@ -19,7 +19,7 @@
 #define __WSH_SHELL_IO_H
 
 #include "wsh_shell_cfg.h"
-#include "wsh_shell_str.h"
+#include "wsh_shell_types.h"
 
 #ifdef __cplusplus
 extern "C" {
@@ -130,6 +130,9 @@ extern "C" {
 #else
 #define WSH_SHELL_PRINT_ERR(_f_, ...)
 #endif
+
+/** @brief Print a runtime string as data, not as a printf format (safe for buffers containing '%'). */
+#define WSH_SHELL_PUTS(_s_) WSH_SHELL_PRINT("%s", (_s_))
 
 ///@}
 

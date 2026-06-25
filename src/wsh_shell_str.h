@@ -10,7 +10,6 @@
 #define __WSH_SHELL_STR_H
 
 #include "wsh_shell_cfg.h"
-#include "wsh_shell_io.h"
 #include "wsh_shell_option.h"
 #include "wsh_shell_types.h"
 
