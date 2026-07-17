@@ -120,6 +120,8 @@ void WshShell_DeAuth(WshShell_t* pShell, const WshShell_Char_t* pcReason) {
     pShell->CurrUser = NULL;
     pShell->ExtCallbacks.DeAuth(NULL);
     WshShellHistory_Flush(&(pShell->HistoryIO));
+    /* A logout ends the session: don't silently restore this login after a reboot. */
+    WshShellSession_Clear(&(pShell->SessionIO));
 
     WSH_SHELL_PRINT("%c", WSH_SHELL_SYM_SOUND);
     WSH_SHELL_PRINT_SYS("Shell deAuthed by `%s`!\r\n", pcReason);
@@ -127,6 +129,116 @@ void WshShell_DeAuth(WshShell_t* pShell, const WshShell_Char_t* pcReason) {
 
     WshShellPromptWait_Attach(&(pShell->PromptWait), WshShellPromptWait_Enter, NULL);
 }
+
+#if WSH_SHELL_SESSION
+
+static WshShell_Bool_t WshShell_SessionFindUserIdx(WshShell_t* pShell, WshShell_U32_t* pIdx) {
+    WshShell_Size_t num = WshShellUser_GetUsersNum(&(pShell->Users));
+    for (WshShell_Size_t i = 0; i < num; i++) {
+        if (WshShellUser_GetUserByIndex(&(pShell->Users), i) == pShell->CurrUser) {
+            *pIdx = (WshShell_U32_t)i;
+            return true;
+        }
+    }
+    return false;
+}
+
+WshShell_Bool_t WshShell_SessionArm(WshShell_t* pShell, WshShell_U32_t reboots) {
+    if (!pShell || !pShell->SessionIO.Write)
+        return false;
+
+    if (reboots == 0) {
+        WshShellSession_Clear(&(pShell->SessionIO));
+        return true;
+    }
+
+    if (!WSH_SHELL_USER_IS_AUTH())
+        return false;
+
+    WshShell_U32_t userIdx = 0;
+    if (!WshShell_SessionFindUserIdx(pShell, &userIdx))
+        return false;
+
+    WshShellSession_t session = {
+        .RebootsLeft = reboots,
+        .UserIdx     = userIdx,
+    };
+    WshShellSession_Store(&(pShell->SessionIO), session);
+    return true;
+}
+
+WshShell_Bool_t WshShell_SessionRestore(WshShell_t* pShell) {
+    if (!pShell || !pShell->SessionIO.Read || !pShell->SessionIO.Write)
+        return false;
+
+    WshShellSession_t session = WshShellSession_Read(&(pShell->SessionIO));
+    if (!WshShellSession_IsValid(&session))
+        return false;
+
+    const WshShellUser_t* pcUser = WshShellUser_GetUserByIndex(&(pShell->Users), session.UserIdx);
+    if (pcUser == NULL) {
+        WshShellSession_Clear(&(pShell->SessionIO));
+        return false;
+    }
+
+    /* Spend one reboot from the budget so the window can't outlive its count. */
+    session.RebootsLeft--;
+    WshShellSession_Store(&(pShell->SessionIO), session);
+
+    pShell->CurrUser = pcUser;
+
+    WshShell_PS1Data_t ps1Data = {
+        .UserName     = pcUser->Login,
+        .DevName      = pShell->DeviceName,
+        .InterCmdName = NULL,
+    };
+    WshShell_GeneratePS1(pShell->PS1, &ps1Data);
+
+    pShell->ExtCallbacks.Auth(NULL);
+
+    return true;
+}
+
+WshShell_Bool_t WshShell_SessionIsKeepActive(WshShell_t* pShell) {
+    if (!pShell || !pShell->SessionIO.Read)
+        return false;
+
+    WshShellSession_t session = WshShellSession_Read(&(pShell->SessionIO));
+    return WshShellSession_IsValid(&session);
+}
+
+WshShell_U32_t WshShell_SessionRebootsLeft(WshShell_t* pShell) {
+    if (!pShell || !pShell->SessionIO.Read)
+        return 0;
+
+    WshShellSession_t session = WshShellSession_Read(&(pShell->SessionIO));
+    return WshShellSession_IsValid(&session) ? session.RebootsLeft : 0;
+}
+
+#else /* WSH_SHELL_SESSION */
+
+WshShell_Bool_t WshShell_SessionArm(WshShell_t* pShell, WshShell_U32_t reboots) {
+    (void)(pShell);
+    (void)(reboots);
+    return false;
+}
+
+WshShell_Bool_t WshShell_SessionRestore(WshShell_t* pShell) {
+    (void)(pShell);
+    return false;
+}
+
+WshShell_Bool_t WshShell_SessionIsKeepActive(WshShell_t* pShell) {
+    (void)(pShell);
+    return false;
+}
+
+WshShell_U32_t WshShell_SessionRebootsLeft(WshShell_t* pShell) {
+    (void)(pShell);
+    return 0;
+}
+
+#endif /* WSH_SHELL_SESSION */
 
 static void WshShell_AuthHandler(WshShell_t* pShell) {
     WshShell_Size_t len = pShell->CommandLine.Len;

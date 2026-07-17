@@ -23,6 +23,7 @@
 #include "wsh_shell_misc.h"
 #include "wsh_shell_promptwait.h"
 #include "wsh_shell_ps1_custom.h"
+#include "wsh_shell_session.h"
 #include "wsh_shell_str.h"
 #include "wsh_shell_types.h"
 #include "wsh_shell_user.h"
@@ -102,6 +103,7 @@ typedef struct {
     WshShellCmd_Table_t Commands; /**< Registered command table. */
 
     WshShellHistoryIO_t HistoryIO; /**< Command history buffer and ops. */
+    WshShellSessionIO_t SessionIO; /**< Persistent login session storage ops. */
     WshShellInteract_t Interact;   /**< Interactive command interface. */
     WshShellPromptWait_t PromptWait;
 
@@ -152,6 +154,52 @@ WshShell_Bool_t WshShell_IsAuth(WshShell_t* pShell);
  * @param pcReason Reason or source of deauth.
  */
 void WshShell_DeAuth(WshShell_t* pShell, const WshShell_Char_t* pcReason);
+
+/**
+ * @brief Arm cross-reboot login persistence for the current user.
+ *
+ * Records the current login so it can be restored without a password after up to
+ * @p reboots reboots. While a session is armed the integrator can also suppress
+ * the inactivity auto-logout (see WshShell_SessionIsKeepActive()). Passing 0
+ * clears any armed session. Requires the shell to have session I/O installed
+ * (WshShellSession_Init()) and a user currently logged in.
+ *
+ * @param pShell   Shell instance.
+ * @param reboots  Number of reboots the login may survive (0 clears).
+ * @return `true` if the request was applied.
+ */
+WshShell_Bool_t WshShell_SessionArm(WshShell_t* pShell, WshShell_U32_t reboots);
+
+/**
+ * @brief Restore a previously armed login without a password prompt.
+ *
+ * Intended to be called once at start-up, after the user table is attached.
+ * On success the current user and PS1 are set and the Auth callback is invoked,
+ * exactly as a normal login would. Consumes one reboot from the budget.
+ *
+ * @param pShell Shell instance.
+ * @return `true` if a valid session was restored.
+ */
+WshShell_Bool_t WshShell_SessionRestore(WshShell_t* pShell);
+
+/**
+ * @brief Whether an armed keep-session is currently active (budget remaining).
+ *
+ * The integrator can use this to block the inactivity auto-logout while the host
+ * asked to stay logged in.
+ *
+ * @param pShell Shell instance.
+ * @return `true` if a valid session with remaining reboot budget is stored.
+ */
+WshShell_Bool_t WshShell_SessionIsKeepActive(WshShell_t* pShell);
+
+/**
+ * @brief Remaining reboot budget of the armed session, or 0 if none.
+ *
+ * @param pShell Shell instance.
+ * @return Reboots left, or 0 when no valid session is armed.
+ */
+WshShell_U32_t WshShell_SessionRebootsLeft(WshShell_t* pShell);
 
 /**
  * @brief Process a new character entered by the user.

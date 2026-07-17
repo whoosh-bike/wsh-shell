@@ -88,6 +88,13 @@
 
 /*
  * ─────────────────────────────────────────────
+ * Persistent login session (`wsh --keep`, survives reboots)
+ * ─────────────────────────────────────────────
+ */
+#define WSH_SHELL_SESSION 1
+
+/*
+ * ─────────────────────────────────────────────
  * Subcommand tree (nested commands, e.g. `wsh user list`)
  * ─────────────────────────────────────────────
  */
