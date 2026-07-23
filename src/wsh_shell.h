@@ -59,6 +59,20 @@
 #define COMPILER "Unknown Compiler"
 #endif
 
+/* default welcome banner, printed by WshShell_Init() when no custom one is given;
+ * define WSH_SHELL_HEADER in wsh_shell_cfg.h to replace it (or to "" to drop it) */
+#ifndef WSH_SHELL_HEADER
+/* clang-format off */
+#define WSH_SHELL_HEADER "\
+                __               __         ____  \r\n\
+ _      _______/ /_        _____/ /_  ___  / / /  \r\n\
+| | /| / / ___/ __ \\______/ ___/ __ \\/ _ \\/ / /\r\n\
+| |/ |/ (__  ) / / /_____(__  ) / / /  __/ / /    \r\n\
+|__/|__/____/_/ /_/     /____/_/ /_/\\___/_/_/    \r\n\
+\r\n"
+/* clang-format on */
+#endif
+
 #ifdef __cplusplus
 extern "C" {
 #endif
@@ -118,7 +132,9 @@ typedef struct {
  *
  * @param pShell Pointer to the shell instance.
  * @param pcDevName Device name (e.g., "ttyS0" or "shell0").
- * @param pcCustomHeader Optional header string (can be NULL).
+ * @param pcCustomHeader Optional welcome banner for this instance. When NULL,
+ *                       WSH_SHELL_HEADER is used: either the one defined in
+ *                       wsh_shell_cfg.h or the built-in wsh-shell logo.
  * @param pExtClbks Pointer to external callback structure (can be NULL).
  * @return Initialization status code.
  */
