@@ -13,21 +13,16 @@
 
 #include "wsh_shell_types.h"
 
-/* 
+/*
  * ─────────────────────────────────────────────
  * Shell welcome banner (ASCII logo)
- * ───────────────────────────────────────────── 
+ * ─────────────────────────────────────────────
+ * Optional. The wsh-shell logo is built into the library (wsh_shell.h).
+ * Define WSH_SHELL_HEADER here to replace it with a project-specific one,
+ * or with "" to print no banner at all. A per-instance banner can also be
+ * passed at runtime as the pcCustomHeader argument of WshShell_Init().
+ * Use utils/gen-shell-banner.py to render an ASCII logo from plain text.
  */
-
-/* clang-format off */
-#define WSH_SHELL_HEADER "\
-                __               __         ____  \r\n\
- _      _______/ /_        _____/ /_  ___  / / /  \r\n\
-| | /| / / ___/ __ \\______/ ___/ __ \\/ _ \\/ / /\r\n\
-| |/ |/ (__  ) / / /_____(__  ) / / /  __/ / /    \r\n\
-|__/|__/____/_/ /_/     /____/_/ /_/\\___/_/_/    \r\n\
-\r\n"
-/* clang-format on */
 
 /* 
  * ─────────────────────────────────────────────

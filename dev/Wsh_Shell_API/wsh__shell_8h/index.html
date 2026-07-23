@@ -21,7 +21,7 @@
       
       
       <link rel="icon" href="../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
     
     
       
@@ -29,7 +29,7 @@
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.ec1eaa64.min.css">
       
         
         <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
@@ -2717,6 +2717,17 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#define-wsh_shell_header" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        define WSH_SHELL_HEADER
+      
+    </span>
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -2961,6 +2972,17 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#define-wsh_shell_header" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        define WSH_SHELL_HEADER
+      
+    </span>
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -3180,6 +3202,10 @@
 <td style="text-align: right;">define</td>
 <td style="text-align: left;"><a href="./#define-os_name"><strong>OS_NAME</strong></a>  <code>WSH\_SHELL\_TARGET\_OS</code><br></td>
 </tr>
+<tr>
+<td style="text-align: right;">define</td>
+<td style="text-align: left;"><a href="./#define-wsh_shell_header"><strong>WSH_SHELL_HEADER</strong></a>  <code>"\                \_\_               \_\_         \_\_\_\_  \r\n\ \_      \_\_\_\_\_\_\_/ /\_        \_\_\_\_\_/ /\_  \_\_\_  / / /  \r\n\\| \| /\| / / \_\_\_/ \_\_ \\\_\_\_\_\_\_/ \_\_\_/ \_\_ \\/ \_ \\/ / /\r\n\\| \|/ \|/ (\_\_  ) / / /\_\_\_\_\_(\_\_  ) / / /  \_\_/ / /    \r\n\\|\_\_/\|\_\_/\_\_\_\_/\_/ /\_/     /\_\_\_\_/\_/ /\_/\\\_\_\_/\_/\_/    \r\n\\r\n"</code><br></td>
+</tr>
 </tbody>
 </table>
 <h2 id="detailed-description">Detailed Description</h2>
@@ -3255,7 +3281,7 @@
 <ul>
 <li><code>pShell</code> Pointer to the shell instance. </li>
 <li><code>pcDevName</code> Device name (e.g., "ttyS0" or "shell0"). </li>
-<li><code>pcCustomHeader</code> Optional header string (can be NULL). </li>
+<li><code>pcCustomHeader</code> Optional welcome banner for this instance. When NULL, WSH_SHELL_HEADER is used: either the one defined in wsh_shell_cfg.h or the built-in wsh-shell logo. </li>
 <li><code>pExtClbks</code> Pointer to external callback structure (can be NULL). </li>
 </ul>
 <p><strong>Returns:</strong></p>
@@ -3303,6 +3329,11 @@
 
 <h3 id="define-os_name">define OS_NAME</h3>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-7-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1"></a><span class="cp">#define OS_NAME `WSH_SHELL_TARGET_OS`</span>
+</span></code></pre></div></td></tr></table></div>
+<hr>
+
+<h3 id="define-wsh_shell_header">define WSH_SHELL_HEADER</h3>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-8-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1"></a><span class="cp">#define WSH_SHELL_HEADER `&quot;\                __               __         ____  \r\n\ _      _______/ /_        _____/ /_  ___  / / /  \r\n\| | /| / / ___/ __ \\______/ ___/ __ \\/ _ \\/ / /\r\n\| |/ |/ (__  ) / / /_____(__  ) / / /  __/ / /    \r\n\|__/|__/____/_/ /_/     /____/_/ /_/\\___/_/_/    \r\n\\r\n&quot;`</span>
 </span></code></pre></div></td></tr></table></div>
 <hr>
 
@@ -3390,7 +3421,7 @@
       <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["announce.dismiss", "content.action.edit", "content.action.view", "content.code.annotate", "content.code.copy", "content.tooltips", "navigation.footer", "navigation.indexes", "navigation.path", "navigation.tabs", "navigation.top", "navigation.tracking", "search.highlight", "search.share", "search.suggest", "toc.follow"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"provider": "mike"}}</script>
     
     
-      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      <script src="../../assets/javascripts/bundle.d7400e89.min.js"></script>
       
     
   </body>

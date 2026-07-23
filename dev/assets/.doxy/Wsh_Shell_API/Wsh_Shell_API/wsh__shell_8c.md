@@ -207,7 +207,7 @@ Initializes internal subsystems, assigns device name and optional header, and in
 
 * `pShell` Pointer to the shell instance. 
 * `pcDevName` Device name (e.g., "ttyS0" or "shell0"). 
-* `pcCustomHeader` Optional header string (can be NULL). 
+* `pcCustomHeader` Optional welcome banner for this instance. When NULL, WSH\_SHELL\_HEADER is used: either the one defined in wsh\_shell\_cfg.h or the built-in wsh-shell logo. 
 * `pExtClbks` Pointer to external callback structure (can be NULL). 
 
 

@@ -106,7 +106,6 @@
 | define  | [**WSH\_SHELL\_DEV\_NAME\_LEN**](wsh__shell__cfg__def_8h.md#define-wsh_shell_dev_name_len)  `16`<br> |
 | define  | [**WSH\_SHELL\_ENUM\_VALUE\_MAX\_LEN**](wsh__shell__cfg__def_8h.md#define-wsh_shell_enum_value_max_len)  `16 /\* max length of a single enum value string \*/`<br> |
 | define  | [**WSH\_SHELL\_ESC\_BUFF\_LEN**](wsh__shell__cfg__def_8h.md#define-wsh_shell_esc_buff_len)  `8`<br> |
-| define  | [**WSH\_SHELL\_HEADER**](wsh__shell__cfg__def_8h.md#define-wsh_shell_header)  `"\                \_\_               \_\_         \_\_\_\_  \r\n\ \_      \_\_\_\_\_\_\_/ /\_        \_\_\_\_\_/ /\_  \_\_\_  / / /  \r\n\\| \| /\| / / \_\_\_/ \_\_ \\\_\_\_\_\_\_/ \_\_\_/ \_\_ \\/ \_ \\/ / /\r\n\\| \|/ \|/ (\_\_  ) / / /\_\_\_\_\_(\_\_  ) / / /  \_\_/ / /    \r\n\\|\_\_/\|\_\_/\_\_\_\_/\_/ /\_/     /\_\_\_\_/\_/ /\_/\\\_\_\_/\_/\_/    \r\n\\r\n"`<br> |
 | define  | [**WSH\_SHELL\_HISTORY**](wsh__shell__cfg__def_8h.md#define-wsh_shell_history)  `1`<br> |
 | define  | [**WSH\_SHELL\_HISTORY\_BUFF\_SIZE**](wsh__shell__cfg__def_8h.md#define-wsh_shell_history_buff_size)  `256`<br> |
 | define  | [**WSH\_SHELL\_INTERACTIVE\_MODE**](wsh__shell__cfg__def_8h.md#define-wsh_shell_interactive_mode)  `1`<br> |
@@ -401,19 +400,6 @@ static inline bool WshShellRetState_TranslateToProject (
 
 ```C++
 #define WSH_SHELL_ESC_BUFF_LEN `8`
-```
-
-
-
-
-<hr>
-
-
-
-### define WSH\_SHELL\_HEADER 
-
-```C++
-#define WSH_SHELL_HEADER `"\                __               __         ____  \r\n\ _      _______/ /_        _____/ /_  ___  / / /  \r\n\| | /| / / ___/ __ \\______/ ___/ __ \\/ _ \\/ / /\r\n\| |/ |/ (__  ) / / /_____(__  ) / / /  __/ / /    \r\n\|__/|__/____/_/ /_/     /____/_/ /_/\\___/_/_/    \r\n\\r\n"`
 ```
 
 

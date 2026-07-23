@@ -371,7 +371,7 @@
 <parametername>pcCustomHeader</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>Optional header string (can be NULL). </para>
+<para>Optional welcome banner for this instance. When NULL, WSH_SHELL_HEADER is used: either the one defined in wsh_shell_cfg.h or the built-in wsh-shell logo. </para>
 </parameterdescription>
 </parameteritem>
 <parameteritem>

@@ -116,6 +116,7 @@ _Core shell interface for command parsing, user authentication, and terminal int
 | ---: | :--- |
 | define  | [**COMPILER**](wsh__shell_8h.md#define-compiler)  `"Unknown Compiler"`<br> |
 | define  | [**OS\_NAME**](wsh__shell_8h.md#define-os_name)  `WSH\_SHELL\_TARGET\_OS`<br> |
+| define  | [**WSH\_SHELL\_HEADER**](wsh__shell_8h.md#define-wsh_shell_header)  `"\                \_\_               \_\_         \_\_\_\_  \r\n\ \_      \_\_\_\_\_\_\_/ /\_        \_\_\_\_\_/ /\_  \_\_\_  / / /  \r\n\\| \| /\| / / \_\_\_/ \_\_ \\\_\_\_\_\_\_/ \_\_\_/ \_\_ \\/ \_ \\/ / /\r\n\\| \|/ \|/ (\_\_  ) / / /\_\_\_\_\_(\_\_  ) / / /  \_\_/ / /    \r\n\\|\_\_/\|\_\_/\_\_\_\_/\_/ /\_/     /\_\_\_\_/\_/ /\_/\\\_\_\_/\_/\_/    \r\n\\r\n"`<br> |
 
 ## Detailed Description
 
@@ -259,7 +260,7 @@ Initializes internal subsystems, assigns device name and optional header, and in
 
 * `pShell` Pointer to the shell instance. 
 * `pcDevName` Device name (e.g., "ttyS0" or "shell0"). 
-* `pcCustomHeader` Optional header string (can be NULL). 
+* `pcCustomHeader` Optional welcome banner for this instance. When NULL, WSH\_SHELL\_HEADER is used: either the one defined in wsh\_shell\_cfg.h or the built-in wsh-shell logo. 
 * `pExtClbks` Pointer to external callback structure (can be NULL). 
 
 
@@ -364,6 +365,19 @@ WshShell_Bool_t WshShell_IsAuth (
 
 ```C++
 #define OS_NAME `WSH_SHELL_TARGET_OS`
+```
+
+
+
+
+<hr>
+
+
+
+### define WSH\_SHELL\_HEADER 
+
+```C++
+#define WSH_SHELL_HEADER `"\                __               __         ____  \r\n\ _      _______/ /_        _____/ /_  ___  / / /  \r\n\| | /| / / ___/ __ \\______/ ___/ __ \\/ _ \\/ / /\r\n\| |/ |/ (__  ) / / /_____(__  ) / / /  __/ / /    \r\n\|__/|__/____/_/ /_/     /____/_/ /_/\\___/_/_/    \r\n\\r\n"`
 ```
 
 
