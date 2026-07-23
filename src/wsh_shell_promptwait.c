@@ -25,14 +25,18 @@ WSH_SHELL_RET_STATE_t WshShellPromptWait_Handle(WshShellPromptWait_t* pWait, Wsh
         return WSH_SHELL_RET_STATE_ERR_PARAM;
 
     if (pWait->Handler) {
-        /* Ctrl+C cancels any pending prompt-wait, letting the cancel
-         * handler in the main symbol dispatcher run normally. */
+        /* The handler sees every symbol, Ctrl+C included, so it can undo
+         * whatever the wait was guarding. */
+        WshShell_Bool_t res = pWait->Handler(symbol, pWait);
+
+        /* Ctrl+C then always escapes the wait, whatever the handler returned:
+         * a handler can never trap the shell. The cancel handler in the main
+         * symbol dispatcher runs afterwards as usual. */
         if (symbol == WSH_SHELL_SYM_CANCEL) {
             WshShellPromptWait_Flush(pWait);
             return WSH_SHELL_RET_STATE_ERR_EMPTY;
         }
 
-        WshShell_Bool_t res = pWait->Handler(symbol, pWait);
         if (!res)
             WSH_SHELL_PRINT("%c", WSH_SHELL_SYM_SOUND);
 
@@ -45,6 +49,10 @@ WSH_SHELL_RET_STATE_t WshShellPromptWait_Handle(WshShellPromptWait_t* pWait, Wsh
 WshShell_Bool_t WshShellPromptWait_Enter(WshShell_Char_t symbol, WshShellPromptWait_t* pWait) {
     WSH_SHELL_ASSERT(pWait);
 
+    /* Ctrl+C is force-flushed by the caller; nothing to undo, stay quiet. */
+    if (symbol == WSH_SHELL_SYM_CANCEL)
+        return true;
+
     if (symbol == '\r' || symbol == '\n') {
         WshShellPromptWait_Flush(pWait);
         return true;
@@ -56,6 +64,10 @@ WshShell_Bool_t WshShellPromptWait_Enter(WshShell_Char_t symbol, WshShellPromptW
 
 WshShell_Bool_t WshShellPromptWait_YesNo(WshShell_Char_t symbol, WshShellPromptWait_t* pWait) {
     WSH_SHELL_ASSERT(pWait);
+
+    /* Ctrl+C is force-flushed by the caller; nothing to undo, stay quiet. */
+    if (symbol == WSH_SHELL_SYM_CANCEL)
+        return true;
 
     if (symbol == 'Y' || symbol == 'y') {
         WSH_SHELL_PRINT_SYS("Yes selected\r\n");
