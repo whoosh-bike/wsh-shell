@@ -385,7 +385,11 @@ static void WshShell_StringHandler(WshShell_t* pShell) {
         WSH_SHELL_RET_STATE_t retState = cmdHandler(pcCmd, dispatchArgc, pDispatchArgv, pShell);
 
         if (retState != WSH_SHELL_RET_STATE_SUCCESS) {
-            WSH_SHELL_PRINT_ERR("Command execution: %s\r\n", WshShell_GetRetStateStr(retState));
+            /* A warning is not an error: keep the tag consistent with the state
+             * it reports, otherwise "[ERR ] Command execution: WARNING". */
+            WSH_SHELL_PRINT_LEVEL(
+                (retState == WSH_SHELL_RET_STATE_WARNING) ? WSH_SHELL_PRINT_WARN : WSH_SHELL_PRINT_ERR,
+                "Command execution: %s\r\n", WshShell_GetRetStateStr(retState));
         } else {
             if (WSH_SHELL_INTER_CMD_EXISTS()) {
                 WshShell_PS1Data_t data = {
