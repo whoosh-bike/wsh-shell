@@ -74,6 +74,10 @@
  */
 #define WSH_SHELL_PROMPT_WAIT 1
 
+/* How many refused keystrokes still reprint the "press ..." hint before the
+ * wait goes quiet. The bell keeps sounding on every one of them. */
+#define WSH_SHELL_PROMPT_WAIT_HINT_RETRIES 3
+
 /*
  * ─────────────────────────────────────────────
  * Default shell command (executed at startup)
