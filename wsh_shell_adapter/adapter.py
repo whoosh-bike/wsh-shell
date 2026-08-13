@@ -13,7 +13,15 @@ from .transport import BaseTransport, SerialDiscoveryConfig, SerialTransport
 
 ANSI_RE = re.compile(r"\x1B(?:[@-Z\\-_]|\[[0-?]*[ -/]*[@-~])")
 ANSI_LEGACY_RE = re.compile(r"\x1B[0-9]")
-DEFAULT_PROMPT_REGEX = r"^(?:[^\r\n]+@[^\r\n]+\s*>|wsh-shell>)\s*$"
+# No trailing `\s*$`: on a device that also streams async log lines over the
+# same UART (e.g. `log -l trace`), those lines can land on the same physical
+# line as the prompt — the device writes "user@host > " with no newline
+# after it while it waits for input, and whatever prints next (a trace line)
+# gets appended right there. A `$`-anchored pattern then never matches again
+# once anything trails the prompt. `>` is excluded from the user/host
+# character classes so a stray `>` inside trailing noise can't pull the match
+# past the prompt's own `>`.
+DEFAULT_PROMPT_REGEX = r"^(?:[^\r\n>]+@[^\r\n>]+\s*>|wsh-shell>)"
 DEFAULT_CONFIG_PATH = Path(__file__).resolve().with_name("config.toml")
 DEFAULT_SYNC_PROBE_COMMAND = "ping_command_and_response"
 
@@ -191,7 +199,11 @@ class WshShellAdapter:
             discovery=SerialDiscoveryConfig(vid=self.config.vid, pid=self.config.pid),
         )
         self._state_callback = state_callback
-        self._prompt_re = re.compile(self.config.prompt_regex)
+        # MULTILINE so `^` matches after every "\n" in the accumulated buffer,
+        # not just at the very start — needed now that prompt detection scans
+        # the whole buffer instead of only its last line (see
+        # _is_prompt_visible).
+        self._prompt_re = re.compile(self.config.prompt_regex, re.MULTILINE)
         self.state = STATE_DISCONNECTED
         self.port_name = ""
         self.last_raw_response = b""
@@ -431,21 +443,28 @@ class WshShellAdapter:
             self._state_callback(state, reason)
         self._log("state", f"{state}: {reason}")
 
+    def _last_prompt_match(self, clean_text: str) -> Optional[re.Match]:
+        # Search the WHOLE buffer, not just its last line: once other async
+        # output (e.g. trace logs sharing the UART) keeps arriving after the
+        # real prompt, that prompt stops being "the last line" long before we
+        # get a chance to notice it. Take the last match — if the prompt
+        # printed more than once (e.g. after a `-h` help dump), that's the
+        # one that actually terminates this read.
+        matches = list(self._prompt_re.finditer(clean_text))
+        return matches[-1] if matches else None
+
     def _is_prompt_visible(self, clean_text: str) -> bool:
-        line = self._last_non_empty_line(clean_text)
-        if not line:
-            return False
-        return bool(self._prompt_re.search(line))
+        return self._last_prompt_match(clean_text) is not None
 
     def _extract_command_output(self, clean_text: str, command: str) -> str:
         text = clean_text.replace("\r", "")
-        lines = [line for line in text.split("\n") if line.strip()]
-        if not lines:
-            return ""
+        match = self._last_prompt_match(text)
+        # Anything at/after the prompt is the prompt itself plus whatever
+        # unrelated async output arrived after it — not part of this
+        # command's response.
+        body = text[: match.start()] if match else text
 
-        if self._is_prompt_visible(lines[-1]):
-            lines.pop()
-
+        lines = [line for line in body.split("\n") if line.strip()]
         if lines and lines[0].strip() == command.strip():
             lines.pop(0)
 
@@ -479,10 +498,6 @@ class WshShellAdapter:
         text = ANSI_LEGACY_RE.sub("", text)
         text = text.replace("\x07", "")  # BEL
         return text
-
-    def _last_non_empty_line(self, text: str) -> str:
-        lines = [line for line in text.replace("\r", "").split("\n") if line.strip()]
-        return lines[-1] if lines else ""
 
     def _tail(self, text: str, size: int) -> str:
         return text[-size:] if len(text) > size else text
