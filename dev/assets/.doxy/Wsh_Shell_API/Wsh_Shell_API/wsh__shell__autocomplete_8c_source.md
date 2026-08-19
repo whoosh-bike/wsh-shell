@@ -105,9 +105,9 @@ static WshShell_Size_t WshShellAutocomplete_CommonPrefixLen(const WshShell_Char_
 }
 
 WshShell_Bool_t WshShellAutocomplete_Try(WshShell_Char_t* pInBuff, WshShell_Size_t inBuffLen,
-                                         WshShellCmd_Table_t* pShellCommands) {
-    WSH_SHELL_ASSERT(pInBuff && pShellCommands);
-    if (!pInBuff || !pShellCommands)
+                                         const WshShellCmd_Table_t* pcShellCommands) {
+    WSH_SHELL_ASSERT(pInBuff && pcShellCommands);
+    if (!pInBuff || !pcShellCommands)
         return false;
 
     WshShell_Char_t inputCopy[WSH_SHELL_INTR_BUFF_LEN] = {0};
@@ -122,12 +122,12 @@ WshShell_Bool_t WshShellAutocomplete_Try(WshShell_Char_t* pInBuff, WshShell_Size
 
     const WshShellCmd_t* pcDefCmd = WshShellDefCmd_GetPtr();
 
-    WshShell_Size_t cmdNum = WshShellCmd_GetCmdNum(pShellCommands);
+    WshShell_Size_t cmdNum = WshShellCmd_GetCmdNum(pcShellCommands);
 
     // Check if number of commands exceeds safe stack allocation limit
     if (cmdNum + 1 > WSH_SHELL_AUTOCOMPLETE_MAX_CANDIDATES) {
-        WSH_SHELL_PRINT_WARN("Too many commands for autocomplete (%d > %d)\r\n", cmdNum + 1,
-                             WSH_SHELL_AUTOCOMPLETE_MAX_CANDIDATES);
+        WSH_SHELL_PRINT_WARN("Too many commands for autocomplete (%d > %d)\r\n", (int)(cmdNum + 1),
+                             (int)WSH_SHELL_AUTOCOMPLETE_MAX_CANDIDATES);
         return false;
     }
 
@@ -145,10 +145,11 @@ WshShell_Bool_t WshShellAutocomplete_Try(WshShell_Char_t* pInBuff, WshShell_Size
 
     // Collect other matching commands
     for (WshShell_Size_t cmdIdx = 0; cmdIdx < cmdNum; cmdIdx++) {
-        const WshShellCmd_t* pcCmd = WshShellCmd_GetCmdByIndex(pShellCommands, cmdIdx);
+        const WshShellCmd_t* pcCmd = WshShellCmd_GetCmdByIndex(pcShellCommands, cmdIdx);
         if (WSH_SHELL_STRNCMP(pcInputCopyTrimmed, pcCmd->Name, inputCopyTrimmedLen) == 0) {
-            WSH_SHELL_STRNCPY(candidates[matchCount], pcCmd->Name, WSH_SHELL_CMD_NAME_LEN);
-            pcCmdMatch = pcCmd;
+            WSH_SHELL_STRNCPY(candidates[matchCount], pcCmd->Name, WSH_SHELL_CMD_NAME_LEN - 1);
+            candidates[matchCount][WSH_SHELL_CMD_NAME_LEN - 1] = '\0';  // safety null-term
+            pcCmdMatch                                         = pcCmd;
             matchCount++;
         }
     }
@@ -184,7 +185,7 @@ WshShell_Bool_t WshShellAutocomplete_Try(WshShell_Char_t* pInBuff, WshShell_Size
             pcTargetCmd = pcDefCmd;
         }
         for (WshShell_Size_t i = 0; !pcTargetCmd && i < cmdNum; i++) {
-            const WshShellCmd_t* pcCmd = WshShellCmd_GetCmdByIndex(pShellCommands, i);
+            const WshShellCmd_t* pcCmd = WshShellCmd_GetCmdByIndex(pcShellCommands, i);
             if (WSH_SHELL_STRLEN(pcCmd->Name) == cmdPartLen &&
                 WSH_SHELL_STRNCMP(pcInputCopyTrimmed, pcCmd->Name, cmdPartLen) == 0) {
                 pcTargetCmd = pcCmd;
@@ -524,9 +525,12 @@ WshShell_Bool_t WshShellAutocomplete_Try(WshShell_Char_t* pInBuff, WshShell_Size
             return false;
         }
 
-        candidates[0][candLen++] = ' ';  //add extra space if command found
+        /* Append into pInBuff, not into candidates[0]: the candidate row is only
+         * WSH_SHELL_CMD_NAME_LEN long, so writing the space there overruns it for
+         * a name that fills the row, while the guard above bounds pInBuff. */
         WSH_SHELL_STRNCPY(pInBuff, candidates[0], candLen);
-        pInBuff[candLen] = '\0';
+        pInBuff[candLen]     = ' ';  //add extra space if command found
+        pInBuff[candLen + 1] = '\0';
         return true;
     }
 
@@ -565,10 +569,10 @@ WshShell_Bool_t WshShellAutocomplete_Try(WshShell_Char_t* pInBuff, WshShell_Size
  * triggers that redraw.
  */
 WshShell_Bool_t WshShellAutocomplete_Try(WshShell_Char_t* pInBuff, WshShell_Size_t inBuffLen,
-                                         WshShellCmd_Table_t* pShellCommands) {
+                                         const WshShellCmd_Table_t* pcShellCommands) {
     (void)inBuffLen;
-    WSH_SHELL_ASSERT(pInBuff && pShellCommands);
-    if (!pInBuff || !pShellCommands)
+    WSH_SHELL_ASSERT(pInBuff && pcShellCommands);
+    if (!pInBuff || !pcShellCommands)
         return false;
 
     WSH_SHELL_PRINT("\r\n");

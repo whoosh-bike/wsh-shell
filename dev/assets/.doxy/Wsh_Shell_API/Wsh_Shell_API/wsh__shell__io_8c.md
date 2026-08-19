@@ -60,7 +60,7 @@
 | ---: | :--- |
 |  void | [**WshShellIO\_ClearInterBuff**](#function-wshshellio_clearinterbuff) ([**WshShellIO\_CommandLine\_t**](structWshShellIO__CommandLine__t.md) \* pCommandLine) <br>_Clears the interaction buffer._  |
 |  void | [**WshShellIO\_InsertSymbol**](#function-wshshellio_insertsymbol) ([**WshShellIO\_CommandLine\_t**](structWshShellIO__CommandLine__t.md) \* pCommandLine, WshShell\_Char\_t ch, WshShell\_Bool\_t starsOrChars) <br>_Inserts a symbol at the current cursor position in the input buffer._  |
-|  void | [**WshShellIO\_PrintInterBuff**](#function-wshshellio_printinterbuff) ([**WshShellIO\_CommandLine\_t**](structWshShellIO__CommandLine__t.md) \* pCommandLine) <br>_Prints the current interaction buffer to the terminal._  |
+|  void | [**WshShellIO\_PrintInterBuff**](#function-wshshellio_printinterbuff) (const [**WshShellIO\_CommandLine\_t**](structWshShellIO__CommandLine__t.md) \* pcCommandLine) <br>_Prints the current interaction buffer to the terminal._  |
 |  void | [**WshShellIO\_RefreshConsoleFromInterBuff**](#function-wshshellio_refreshconsolefrominterbuff) ([**WshShellIO\_CommandLine\_t**](structWshShellIO__CommandLine__t.md) \* pCommandLine) <br>_Refreshes the terminal display using the interaction buffer._  |
 |  void | [**WshShellIO\_RemoveLeftSymbol**](#function-wshshellio_removeleftsymbol) ([**WshShellIO\_CommandLine\_t**](structWshShellIO__CommandLine__t.md) \* pCommandLine) <br>_Removes the symbol to the left of the cursor in the input buffer._  |
 |  void | [**WshShellIO\_WriteToInterBuff**](#function-wshshellio_writetointerbuff) ([**WshShellIO\_CommandLine\_t**](structWshShellIO__CommandLine__t.md) \* pCommandLine, WshShell\_Char\_t symbol) <br>_Writes a character into the interaction buffer at the cursor position._  |
@@ -189,7 +189,7 @@ Cursor position and buffer length are updated internally. Asserts that `pCommand
 _Prints the current interaction buffer to the terminal._ 
 ```C++
 void WshShellIO_PrintInterBuff (
-    WshShellIO_CommandLine_t * pCommandLine
+    const WshShellIO_CommandLine_t * pcCommandLine
 ) 
 ```
 
@@ -200,7 +200,7 @@ void WshShellIO_PrintInterBuff (
 **Parameters:**
 
 
-* `pCommandLine` Pointer to the interaction buffer. 
+* `pcCommandLine` Pointer to the interaction buffer. 
 
 
 

@@ -128,12 +128,12 @@ void WshShellEsc_StartSeq(WshShellEsc_Storage_t* pEscStorage) {
     pEscStorage->Buff[0] = WSH_SHELL_ESC_SEQ_START_CHAR;
 }
 
-WshShell_Bool_t WshShellEsc_IsSeqStarted(WshShellEsc_Storage_t* pEscStorage) {
-    WSH_SHELL_ASSERT(pEscStorage);
-    if (!pEscStorage)
+WshShell_Bool_t WshShellEsc_IsSeqStarted(const WshShellEsc_Storage_t* pcEscStorage) {
+    WSH_SHELL_ASSERT(pcEscStorage);
+    if (!pcEscStorage)
         return false;
 
-    return (WshShell_Bool_t)(pEscStorage->Cnt > 0 && pEscStorage->Buff[0] == WSH_SHELL_ESC_SEQ_START_CHAR);
+    return (WshShell_Bool_t)(pcEscStorage->Cnt > 0 && pcEscStorage->Buff[0] == WSH_SHELL_ESC_SEQ_START_CHAR);
 }
 ```
 

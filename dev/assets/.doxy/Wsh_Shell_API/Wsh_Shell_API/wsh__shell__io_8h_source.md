@@ -136,7 +136,7 @@ void WshShellIO_ClearInterBuff(WshShellIO_CommandLine_t* pCommandLine);
 
 void WshShellIO_WriteToInterBuff(WshShellIO_CommandLine_t* pCommandLine, WshShell_Char_t symbol);
 
-void WshShellIO_PrintInterBuff(WshShellIO_CommandLine_t* pCommandLine);
+void WshShellIO_PrintInterBuff(const WshShellIO_CommandLine_t* pcCommandLine);
 
 void WshShellIO_RefreshConsoleFromInterBuff(WshShellIO_CommandLine_t* pCommandLine);
 

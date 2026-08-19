@@ -368,7 +368,7 @@
 <para>Init</para>
 <para>First out</para>
         </inbodydescription>
-        <location file="src/wsh_shell.h" line="141" column="23" bodyfile="src/wsh_shell.c" bodystart="26" bodyend="85" declfile="src/wsh_shell.h" declline="141" declcolumn="23"/>
+        <location file="src/wsh_shell.h" line="141" column="23" bodyfile="src/wsh_shell.c" bodystart="28" bodyend="88" declfile="src/wsh_shell.h" declline="141" declcolumn="23"/>
       </memberdef>
       <memberdef kind="function" id="wsh__shell_8h_1ab27020809267df0016455a90c03d6f63" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>WshShell_Bool_t</type>
@@ -423,16 +423,16 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/wsh_shell.h" line="154" column="17" bodyfile="src/wsh_shell.c" bodystart="87" bodyend="105" declfile="src/wsh_shell.h" declline="154" declcolumn="17"/>
+        <location file="src/wsh_shell.h" line="154" column="17" bodyfile="src/wsh_shell.c" bodystart="90" bodyend="108" declfile="src/wsh_shell.h" declline="154" declcolumn="17"/>
       </memberdef>
-      <memberdef kind="function" id="wsh__shell_8h_1a68eefe18055efabdbcd86c9081ef456e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="wsh__shell_8h_1af3f0ff8310f1a3755dae333b690a271d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>WshShell_Bool_t</type>
         <definition>WshShell_Bool_t WshShell_IsAuth</definition>
-        <argsstring>(WshShell_t *pShell)</argsstring>
+        <argsstring>(const WshShell_t *pcShell)</argsstring>
         <name>WshShell_IsAuth</name>
         <param>
-          <type><ref refid="structWshShell__t" kindref="compound">WshShell_t</ref> *</type>
-          <declname>pShell</declname>
+          <type>const <ref refid="structWshShell__t" kindref="compound">WshShell_t</ref> *</type>
+          <declname>pcShell</declname>
         </param>
         <briefdescription>
 <para>Check if a user is currently authenticated. </para>
@@ -453,7 +453,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/wsh_shell.h" line="162" column="17" bodyfile="src/wsh_shell.c" bodystart="107" bodyend="113" declfile="src/wsh_shell.h" declline="162" declcolumn="17"/>
+        <location file="src/wsh_shell.h" line="162" column="17" bodyfile="src/wsh_shell.c" bodystart="110" bodyend="116" declfile="src/wsh_shell.h" declline="162" declcolumn="17"/>
       </memberdef>
       <memberdef kind="function" id="wsh__shell_8h_1a0273d5c96a995ee6439c2a7d650aef52" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -494,7 +494,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/wsh_shell.h" line="172" column="6" bodyfile="src/wsh_shell.c" bodystart="115" bodyend="131" declfile="src/wsh_shell.h" declline="172" declcolumn="6"/>
+        <location file="src/wsh_shell.h" line="172" column="6" bodyfile="src/wsh_shell.c" bodystart="118" bodyend="134" declfile="src/wsh_shell.h" declline="172" declcolumn="6"/>
       </memberdef>
       <memberdef kind="function" id="wsh__shell_8h_1a30b9213874ce702fee39f708f81499d0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>WshShell_Bool_t</type>
@@ -537,7 +537,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/wsh_shell.h" line="187" column="17" bodyfile="src/wsh_shell.c" bodystart="220" bodyend="224" declfile="src/wsh_shell.h" declline="187" declcolumn="17"/>
+        <location file="src/wsh_shell.h" line="187" column="17" bodyfile="src/wsh_shell.c" bodystart="223" bodyend="227" declfile="src/wsh_shell.h" declline="187" declcolumn="17"/>
       </memberdef>
       <memberdef kind="function" id="wsh__shell_8h_1ae7f1300abccdba9b0255223a5f03e5b7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>WshShell_Bool_t</type>
@@ -568,7 +568,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/wsh_shell.h" line="199" column="17" bodyfile="src/wsh_shell.c" bodystart="226" bodyend="229" declfile="src/wsh_shell.h" declline="199" declcolumn="17"/>
+        <location file="src/wsh_shell.h" line="199" column="17" bodyfile="src/wsh_shell.c" bodystart="229" bodyend="232" declfile="src/wsh_shell.h" declline="199" declcolumn="17"/>
       </memberdef>
       <memberdef kind="function" id="wsh__shell_8h_1a7bc19555e3e08a01a962f020a8b18fbc" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>WshShell_Bool_t</type>
@@ -599,7 +599,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/wsh_shell.h" line="210" column="17" bodyfile="src/wsh_shell.c" bodystart="231" bodyend="234" declfile="src/wsh_shell.h" declline="210" declcolumn="17"/>
+        <location file="src/wsh_shell.h" line="210" column="17" bodyfile="src/wsh_shell.c" bodystart="234" bodyend="237" declfile="src/wsh_shell.h" declline="210" declcolumn="17"/>
       </memberdef>
       <memberdef kind="function" id="wsh__shell_8h_1a293e3b2aa56322915a194ea305e7d243" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>WshShell_U32_t</type>
@@ -629,7 +629,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/wsh_shell.h" line="218" column="16" bodyfile="src/wsh_shell.c" bodystart="236" bodyend="239" declfile="src/wsh_shell.h" declline="218" declcolumn="16"/>
+        <location file="src/wsh_shell.h" line="218" column="16" bodyfile="src/wsh_shell.c" bodystart="239" bodyend="242" declfile="src/wsh_shell.h" declline="218" declcolumn="16"/>
       </memberdef>
       <memberdef kind="function" id="wsh__shell_8h_1a3e1b413a08637a56173ae77a25899226" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -670,7 +670,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/wsh_shell.h" line="228" column="6" bodyfile="src/wsh_shell.c" bodystart="487" bodyend="535" declfile="src/wsh_shell.h" declline="228" declcolumn="6"/>
+        <location file="src/wsh_shell.h" line="228" column="6" bodyfile="src/wsh_shell.c" bodystart="491" bodyend="539" declfile="src/wsh_shell.h" declline="228" declcolumn="6"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
@@ -791,7 +791,7 @@
 <codeline lineno="143"><highlight class="normal"></highlight></codeline>
 <codeline lineno="154"><highlight class="normal">WshShell_Bool_t<sp/><ref refid="wsh__shell_8h_1ab27020809267df0016455a90c03d6f63" kindref="member">WshShell_Auth</ref>(<ref refid="structWshShell__t" kindref="compound">WshShell_t</ref>*<sp/>pShell,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>WshShell_Char_t*<sp/>pcLogin,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>WshShell_Char_t*<sp/>pcPass);</highlight></codeline>
 <codeline lineno="155"><highlight class="normal"></highlight></codeline>
-<codeline lineno="162"><highlight class="normal">WshShell_Bool_t<sp/><ref refid="wsh__shell_8h_1a68eefe18055efabdbcd86c9081ef456e" kindref="member">WshShell_IsAuth</ref>(<ref refid="structWshShell__t" kindref="compound">WshShell_t</ref>*<sp/>pShell);</highlight></codeline>
+<codeline lineno="162"><highlight class="normal">WshShell_Bool_t<sp/><ref refid="wsh__shell_8h_1af3f0ff8310f1a3755dae333b690a271d" kindref="member">WshShell_IsAuth</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="structWshShell__t" kindref="compound">WshShell_t</ref>*<sp/>pcShell);</highlight></codeline>
 <codeline lineno="163"><highlight class="normal"></highlight></codeline>
 <codeline lineno="172"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="wsh__shell_8h_1a0273d5c96a995ee6439c2a7d650aef52" kindref="member">WshShell_DeAuth</ref>(<ref refid="structWshShell__t" kindref="compound">WshShell_t</ref>*<sp/>pShell,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>WshShell_Char_t*<sp/>pcReason);</highlight></codeline>
 <codeline lineno="173"><highlight class="normal"></highlight></codeline>

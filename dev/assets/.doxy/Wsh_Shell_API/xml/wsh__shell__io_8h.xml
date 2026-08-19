@@ -817,14 +817,14 @@
         </inbodydescription>
         <location file="src/wsh_shell_io.h" line="217" column="6" bodyfile="src/wsh_shell_io.c" bodystart="14" bodyend="22" declfile="src/wsh_shell_io.h" declline="217" declcolumn="6"/>
       </memberdef>
-      <memberdef kind="function" id="wsh__shell__io_8h_1a8d4e26bec84a173c570dcff0e646894c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="wsh__shell__io_8h_1a953d4510c63422d80bbf5b889aabdfd9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
         <definition>void WshShellIO_PrintInterBuff</definition>
-        <argsstring>(WshShellIO_CommandLine_t *pCommandLine)</argsstring>
+        <argsstring>(const WshShellIO_CommandLine_t *pcCommandLine)</argsstring>
         <name>WshShellIO_PrintInterBuff</name>
         <param>
-          <type><ref refid="structWshShellIO__CommandLine__t" kindref="compound">WshShellIO_CommandLine_t</ref> *</type>
-          <declname>pCommandLine</declname>
+          <type>const <ref refid="structWshShellIO__CommandLine__t" kindref="compound">WshShellIO_CommandLine_t</ref> *</type>
+          <declname>pcCommandLine</declname>
         </param>
         <briefdescription>
 <para>Prints the current interaction buffer to the terminal. </para>
@@ -832,7 +832,7 @@
         <detaileddescription>
 <para><parameterlist kind="param"><parameteritem>
 <parameternamelist>
-<parametername>pCommandLine</parametername>
+<parametername>pcCommandLine</parametername>
 </parameternamelist>
 <parameterdescription>
 <para>Pointer to the interaction buffer. </para>
@@ -1116,7 +1116,7 @@
 <codeline lineno="208"><highlight class="normal"></highlight></codeline>
 <codeline lineno="217"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="wsh__shell__io_8h_1a8941741c3a17fb54102de3772d6e9384" kindref="member">WshShellIO_WriteToInterBuff</ref>(<ref refid="structWshShellIO__CommandLine__t" kindref="compound">WshShellIO_CommandLine_t</ref>*<sp/>pCommandLine,<sp/>WshShell_Char_t<sp/>symbol);</highlight></codeline>
 <codeline lineno="218"><highlight class="normal"></highlight></codeline>
-<codeline lineno="224"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="wsh__shell__io_8h_1a8d4e26bec84a173c570dcff0e646894c" kindref="member">WshShellIO_PrintInterBuff</ref>(<ref refid="structWshShellIO__CommandLine__t" kindref="compound">WshShellIO_CommandLine_t</ref>*<sp/>pCommandLine);</highlight></codeline>
+<codeline lineno="224"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="wsh__shell__io_8h_1a953d4510c63422d80bbf5b889aabdfd9" kindref="member">WshShellIO_PrintInterBuff</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="structWshShellIO__CommandLine__t" kindref="compound">WshShellIO_CommandLine_t</ref>*<sp/>pcCommandLine);</highlight></codeline>
 <codeline lineno="225"><highlight class="normal"></highlight></codeline>
 <codeline lineno="233"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="wsh__shell__io_8h_1a504d8205168991de62227d30a6b360f9" kindref="member">WshShellIO_RefreshConsoleFromInterBuff</ref>(<ref refid="structWshShellIO__CommandLine__t" kindref="compound">WshShellIO_CommandLine_t</ref>*<sp/>pCommandLine);</highlight></codeline>
 <codeline lineno="234"><highlight class="normal"></highlight></codeline>

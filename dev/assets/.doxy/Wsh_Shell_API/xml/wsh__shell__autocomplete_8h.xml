@@ -153,10 +153,10 @@
       </node>
     </invincdepgraph>
       <sectiondef kind="func">
-      <memberdef kind="function" id="wsh__shell__autocomplete_8h_1a975094abed880791f1202ca19c01684d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="wsh__shell__autocomplete_8h_1a2b567af19b443dce83e7f15406b4459d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>WshShell_Bool_t</type>
         <definition>WshShell_Bool_t WshShellAutocomplete_Try</definition>
-        <argsstring>(WshShell_Char_t *pInBuff, WshShell_Size_t inBuffLen, WshShellCmd_Table_t *pShellCommands)</argsstring>
+        <argsstring>(WshShell_Char_t *pInBuff, WshShell_Size_t inBuffLen, const WshShellCmd_Table_t *pcShellCommands)</argsstring>
         <name>WshShellAutocomplete_Try</name>
         <param>
           <type>WshShell_Char_t *</type>
@@ -167,8 +167,8 @@
           <declname>inBuffLen</declname>
         </param>
         <param>
-          <type><ref refid="structWshShellCmd__Table__t" kindref="compound">WshShellCmd_Table_t</ref> *</type>
-          <declname>pShellCommands</declname>
+          <type>const <ref refid="structWshShellCmd__Table__t" kindref="compound">WshShellCmd_Table_t</ref> *</type>
+          <declname>pcShellCommands</declname>
         </param>
         <briefdescription>
 <para>Attempts to autocomplete the command in the input buffer. </para>
@@ -200,7 +200,7 @@
 </parameteritem>
 <parameteritem>
 <parameternamelist>
-<parametername direction="in">pShellCommands</parametername>
+<parametername direction="in">pcShellCommands</parametername>
 </parameternamelist>
 <parameterdescription>
 <para>Pointer to the command table to search.</para>
@@ -228,7 +228,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/wsh_shell_autocomplete.h" line="54" column="17" bodyfile="src/wsh_shell_autocomplete.c" bodystart="557" bodyend="568" declfile="src/wsh_shell_autocomplete.h" declline="54" declcolumn="17"/>
+        <location file="src/wsh_shell_autocomplete.h" line="54" column="17" bodyfile="src/wsh_shell_autocomplete.c" bodystart="561" bodyend="572" declfile="src/wsh_shell_autocomplete.h" declline="54" declcolumn="17"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
@@ -265,8 +265,8 @@
 <codeline lineno="32"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/></highlight><highlight class="stringliteral">&quot;C&quot;</highlight><highlight class="normal"><sp/>{</highlight></codeline>
 <codeline lineno="33"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="34"><highlight class="normal"></highlight></codeline>
-<codeline lineno="54"><highlight class="normal">WshShell_Bool_t<sp/><ref refid="wsh__shell__autocomplete_8h_1a975094abed880791f1202ca19c01684d" kindref="member">WshShellAutocomplete_Try</ref>(WshShell_Char_t*<sp/>pInBuff,<sp/>WshShell_Size_t<sp/>inBuffLen,</highlight></codeline>
-<codeline lineno="55"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="structWshShellCmd__Table__t" kindref="compound">WshShellCmd_Table_t</ref>*<sp/>pShellCommands);</highlight></codeline>
+<codeline lineno="54"><highlight class="normal">WshShell_Bool_t<sp/><ref refid="wsh__shell__autocomplete_8h_1a2b567af19b443dce83e7f15406b4459d" kindref="member">WshShellAutocomplete_Try</ref>(WshShell_Char_t*<sp/>pInBuff,<sp/>WshShell_Size_t<sp/>inBuffLen,</highlight></codeline>
+<codeline lineno="55"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="structWshShellCmd__Table__t" kindref="compound">WshShellCmd_Table_t</ref>*<sp/>pcShellCommands);</highlight></codeline>
 <codeline lineno="56"><highlight class="normal"></highlight></codeline>
 <codeline lineno="57"><highlight class="normal"></highlight><highlight class="preprocessor">#ifdef<sp/>__cplusplus</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="58"><highlight class="normal">}</highlight></codeline>

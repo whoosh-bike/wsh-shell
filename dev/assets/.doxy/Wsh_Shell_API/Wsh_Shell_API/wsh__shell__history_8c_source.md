@@ -76,8 +76,8 @@ void WshShellHistory_SaveCmd(WshShellHistoryIO_t* pHistIO, const WshShell_Char_t
     WshShellHistory_t locHist = pHistIO->Read();
 
     /* Skip duplicate command */
-    WshShell_Char_t* pHistCmd = &locHist.Data.StorageBuff[locHist.Data.LastSavedCmdIdx];
-    if (WSH_SHELL_STRNCMP(pcCmdStr, pHistCmd, cmdStrLen) == 0) {
+    const WshShell_Char_t* pcHistCmd = &locHist.Data.StorageBuff[locHist.Data.LastSavedCmdIdx];
+    if (WSH_SHELL_STRNCMP(pcCmdStr, pcHistCmd, cmdStrLen) == 0) {
         /* Reset history rollback on cmd execution */
         locHist.Data.TailIdx = locHist.Data.HeadIdx;
         WshShellHistory_CalcHashAndWrite(pHistIO, locHist);

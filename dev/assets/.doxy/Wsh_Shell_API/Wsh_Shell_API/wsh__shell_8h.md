@@ -83,7 +83,7 @@ _Core shell interface for command parsing, user authentication, and terminal int
 |  void | [**WshShell\_DeAuth**](#function-wshshell_deauth) ([**WshShell\_t**](structWshShell__t.md) \* pShell, const WshShell\_Char\_t \* pcReason) <br>_De-authenticate the currently logged-in user._  |
 |  WSH\_SHELL\_RET\_STATE\_t | [**WshShell\_Init**](#function-wshshell_init) ([**WshShell\_t**](structWshShell__t.md) \* pShell, const WshShell\_Char\_t \* pcDevName, const WshShell\_Char\_t \* pcCustomHeader, [**WshShellExtCallbacks\_t**](structWshShellExtCallbacks__t.md) \* pExtClbks) <br>_Initialize a shell instance._  |
 |  void | [**WshShell\_InsertChar**](#function-wshshell_insertchar) ([**WshShell\_t**](structWshShell__t.md) \* pShell, const WshShell\_Char\_t symbol) <br>_Process a new character entered by the user._  |
-|  WshShell\_Bool\_t | [**WshShell\_IsAuth**](#function-wshshell_isauth) ([**WshShell\_t**](structWshShell__t.md) \* pShell) <br>_Check if a user is currently authenticated._  |
+|  WshShell\_Bool\_t | [**WshShell\_IsAuth**](#function-wshshell_isauth) (const [**WshShell\_t**](structWshShell__t.md) \* pcShell) <br>_Check if a user is currently authenticated._  |
 |  WshShell\_Bool\_t | [**WshShell\_SessionArm**](#function-wshshell_sessionarm) ([**WshShell\_t**](structWshShell__t.md) \* pShell, WshShell\_U32\_t reboots) <br>_Arm cross-reboot login persistence for the current user._  |
 |  WshShell\_Bool\_t | [**WshShell\_SessionIsKeepActive**](#function-wshshell_sessioniskeepactive) ([**WshShell\_t**](structWshShell__t.md) \* pShell) <br>_Whether an armed keep-session is currently active (budget remaining)._  |
 |  WshShell\_U32\_t | [**WshShell\_SessionRebootsLeft**](#function-wshshell_sessionrebootsleft) ([**WshShell\_t**](structWshShell__t.md) \* pShell) <br>_Remaining reboot budget of the armed session, or 0 if none._  |
@@ -321,7 +321,7 @@ Handles interactive editing, history navigation, or command execution if input i
 _Check if a user is currently authenticated._ 
 ```C++
 WshShell_Bool_t WshShell_IsAuth (
-    WshShell_t * pShell
+    const WshShell_t * pcShell
 ) 
 ```
 

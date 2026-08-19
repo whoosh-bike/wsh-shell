@@ -2900,7 +2900,7 @@
 </tr>
 <tr>
 <td style="text-align: right;">WshShell_Bool_t</td>
-<td style="text-align: left;"><a href="#function-wshshellesc_isseqstarted"><strong>WshShellEsc_IsSeqStarted</strong></a> (<a href="../structWshShellEsc__Storage__t/"><strong>WshShellEsc_Storage_t</strong></a> * pEscStorage) <br><em>Checks if escape sequence is in progress.</em></td>
+<td style="text-align: left;"><a href="#function-wshshellesc_isseqstarted"><strong>WshShellEsc_IsSeqStarted</strong></a> (const <a href="../structWshShellEsc__Storage__t/"><strong>WshShellEsc_Storage_t</strong></a> * pcEscStorage) <br><em>Checks if escape sequence is in progress.</em></td>
 </tr>
 <tr>
 <td style="text-align: right;">void</td>
@@ -2974,12 +2974,12 @@
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-2-1">1</a></span>
 <span class="normal"><a href="#__codelineno-2-2">2</a></span>
 <span class="normal"><a href="#__codelineno-2-3">3</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1"></a><span class="n">WshShell_Bool_t</span><span class="w"> </span><span class="n">WshShellEsc_IsSeqStarted</span><span class="w"> </span><span class="p">(</span>
-</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2"></a><span class="w">    </span><span class="n">WshShellEsc_Storage_t</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">pEscStorage</span>
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2"></a><span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="n">WshShellEsc_Storage_t</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">pcEscStorage</span>
 </span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3"></a><span class="p">)</span><span class="w"> </span>
 </span></code></pre></div></td></tr></table></div></p>
 <p><strong>Parameters:</strong></p>
 <ul>
-<li><code>pEscStorage</code> Pointer to escape sequence buffer </li>
+<li><code>pcEscStorage</code> Pointer to escape sequence buffer </li>
 </ul>
 <p><strong>Returns:</strong></p>
 <p>WshShell_Bool_t <code>true</code> if sequence has started </p>

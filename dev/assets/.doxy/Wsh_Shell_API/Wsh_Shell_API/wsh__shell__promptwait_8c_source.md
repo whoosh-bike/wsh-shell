@@ -91,6 +91,9 @@ WshShell_Bool_t WshShellPromptWait_Enter(WshShell_Char_t symbol, WshShellPromptW
     }
 }
 
+/* The signature is pinned by WshShellPromptWait_Handler_t: handlers are stored in
+ * that type, and a const parameter would no longer match it. */
+// cppcheck-suppress constParameterPointer
 WshShell_Bool_t WshShellPromptWait_YesNo(WshShell_Char_t symbol, WshShellPromptWait_t* pWait) {
     WSH_SHELL_ASSERT(pWait);
 

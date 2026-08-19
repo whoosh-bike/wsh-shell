@@ -56,7 +56,7 @@
 |  void | [**WshShell\_DeAuth**](#function-wshshell_deauth) ([**WshShell\_t**](structWshShell__t.md) \* pShell, const WshShell\_Char\_t \* pcReason) <br>_De-authenticate the currently logged-in user._  |
 |  WSH\_SHELL\_RET\_STATE\_t | [**WshShell\_Init**](#function-wshshell_init) ([**WshShell\_t**](structWshShell__t.md) \* pShell, const WshShell\_Char\_t \* pcDevName, const WshShell\_Char\_t \* pcCustomHeader, [**WshShellExtCallbacks\_t**](structWshShellExtCallbacks__t.md) \* pExtClbks) <br>_Initialize a shell instance._  |
 |  void | [**WshShell\_InsertChar**](#function-wshshell_insertchar) ([**WshShell\_t**](structWshShell__t.md) \* pShell, const WshShell\_Char\_t symbol) <br>_Process a new character entered by the user._  |
-|  WshShell\_Bool\_t | [**WshShell\_IsAuth**](#function-wshshell_isauth) ([**WshShell\_t**](structWshShell__t.md) \* pShell) <br>_Check if a user is currently authenticated._  |
+|  WshShell\_Bool\_t | [**WshShell\_IsAuth**](#function-wshshell_isauth) (const [**WshShell\_t**](structWshShell__t.md) \* pcShell) <br>_Check if a user is currently authenticated._  |
 |  WshShell\_Bool\_t | [**WshShell\_SessionArm**](#function-wshshell_sessionarm) ([**WshShell\_t**](structWshShell__t.md) \* pShell, WshShell\_U32\_t reboots) <br>_Arm cross-reboot login persistence for the current user._  |
 |  WshShell\_Bool\_t | [**WshShell\_SessionIsKeepActive**](#function-wshshell_sessioniskeepactive) ([**WshShell\_t**](structWshShell__t.md) \* pShell) <br>_Whether an armed keep-session is currently active (budget remaining)._  |
 |  WshShell\_U32\_t | [**WshShell\_SessionRebootsLeft**](#function-wshshell_sessionrebootsleft) ([**WshShell\_t**](structWshShell__t.md) \* pShell) <br>_Remaining reboot budget of the armed session, or 0 if none._  |
@@ -69,7 +69,7 @@
 | ---: | :--- |
 |  void | [**WshShell\_AuthHandler**](#function-wshshell_authhandler) ([**WshShell\_t**](structWshShell__t.md) \* pShell) <br> |
 |  void | [**WshShell\_ExitInteractive**](#function-wshshell_exitinteractive) ([**WshShell\_t**](structWshShell__t.md) \* pShell) <br> |
-|  void | [**WshShell\_InvitationPrint**](#function-wshshell_invitationprint) ([**WshShell\_t**](structWshShell__t.md) \* pShell) <br> |
+|  void | [**WshShell\_InvitationPrint**](#function-wshshell_invitationprint) (const [**WshShell\_t**](structWshShell__t.md) \* pcShell) <br> |
 |  void | [**WshShell\_StringHandler**](#function-wshshell_stringhandler) ([**WshShell\_t**](structWshShell__t.md) \* pShell) <br> |
 |  void | [**WshShell\_StringInteractHandler**](#function-wshshell_stringinteracthandler) ([**WshShell\_t**](structWshShell__t.md) \* pShell) <br> |
 |  void | [**WshShell\_Stub\_ExtClbk**](#function-wshshell_stub_extclbk) (void \* pCtx) <br> |
@@ -104,10 +104,10 @@
 | Type | Name |
 | ---: | :--- |
 | define  | [**SHELL\_SAVE\_PREV\_AND\_RETURN**](wsh__shell_8c.md#define-shell_save_prev_and_return) (pShell, sym) `/* multi line expression */`<br> |
-| define  | [**WSH\_SHELL\_INTER\_CMD\_EXISTS**](wsh__shell_8c.md#define-wsh_shell_inter_cmd_exists) () `(pShell-&gt;Interact.Handler != NULL)`<br> |
-| define  | [**WSH\_SHELL\_TMP\_LOGIN\_IS\_EMPTY**](wsh__shell_8c.md#define-wsh_shell_tmp_login_is_empty) () `(pShell-&gt;TmpAuth.Login[0] == 0)`<br> |
-| define  | [**WSH\_SHELL\_TMP\_PASS\_IS\_EMPTY**](wsh__shell_8c.md#define-wsh_shell_tmp_pass_is_empty) () `(pShell-&gt;TmpAuth.Pass[0] == 0)`<br> |
-| define  | [**WSH\_SHELL\_USER\_IS\_AUTH**](wsh__shell_8c.md#define-wsh_shell_user_is_auth) () `(pShell-&gt;CurrUser != NULL)`<br> |
+| define  | [**WSH\_SHELL\_INTER\_CMD\_EXISTS**](wsh__shell_8c.md#define-wsh_shell_inter_cmd_exists) (\_sh\_) `((\_sh\_)-&gt;Interact.Handler != NULL)`<br> |
+| define  | [**WSH\_SHELL\_TMP\_LOGIN\_IS\_EMPTY**](wsh__shell_8c.md#define-wsh_shell_tmp_login_is_empty) (\_sh\_) `((\_sh\_)-&gt;TmpAuth.Login[0] == 0)`<br> |
+| define  | [**WSH\_SHELL\_TMP\_PASS\_IS\_EMPTY**](wsh__shell_8c.md#define-wsh_shell_tmp_pass_is_empty) (\_sh\_) `((\_sh\_)-&gt;TmpAuth.Pass[0] == 0)`<br> |
+| define  | [**WSH\_SHELL\_USER\_IS\_AUTH**](wsh__shell_8c.md#define-wsh_shell_user_is_auth) (\_sh\_) `((\_sh\_)-&gt;CurrUser != NULL)`<br> |
 
 ## Public Functions Documentation
 
@@ -267,7 +267,7 @@ Handles interactive editing, history navigation, or command execution if input i
 _Check if a user is currently authenticated._ 
 ```C++
 WshShell_Bool_t WshShell_IsAuth (
-    WshShell_t * pShell
+    const WshShell_t * pcShell
 ) 
 ```
 
@@ -479,7 +479,7 @@ static void WshShell_ExitInteractive (
 
 ```C++
 static void WshShell_InvitationPrint (
-    WshShell_t * pShell
+    const WshShell_t * pcShell
 ) 
 ```
 
@@ -574,8 +574,8 @@ static void WshShell_SymbolHandler (
 
 ```C++
 #define WSH_SHELL_INTER_CMD_EXISTS (
-    
-) `(pShell->Interact.Handler != NULL)`
+    _sh_
+) `((_sh_)->Interact.Handler != NULL)`
 ```
 
 
@@ -589,8 +589,8 @@ static void WshShell_SymbolHandler (
 
 ```C++
 #define WSH_SHELL_TMP_LOGIN_IS_EMPTY (
-    
-) `(pShell->TmpAuth.Login[0] == 0)`
+    _sh_
+) `((_sh_)->TmpAuth.Login[0] == 0)`
 ```
 
 
@@ -604,8 +604,8 @@ static void WshShell_SymbolHandler (
 
 ```C++
 #define WSH_SHELL_TMP_PASS_IS_EMPTY (
-    
-) `(pShell->TmpAuth.Pass[0] == 0)`
+    _sh_
+) `((_sh_)->TmpAuth.Pass[0] == 0)`
 ```
 
 
@@ -619,8 +619,8 @@ static void WshShell_SymbolHandler (
 
 ```C++
 #define WSH_SHELL_USER_IS_AUTH (
-    
-) `(pShell->CurrUser != NULL)`
+    _sh_
+) `((_sh_)->CurrUser != NULL)`
 ```
 
 

@@ -150,7 +150,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/wsh_shell_promptwait.c" line="107" column="6" bodyfile="src/wsh_shell_promptwait.c" bodystart="107" bodyend="109"/>
+        <location file="src/wsh_shell_promptwait.c" line="110" column="6" bodyfile="src/wsh_shell_promptwait.c" bodystart="110" bodyend="112"/>
       </memberdef>
       <memberdef kind="function" id="wsh__shell__promptwait_8c_1a77a4f37e3ae313fe5291c5e28addd451" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>WSH_SHELL_RET_STATE_t</type>
@@ -193,7 +193,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/wsh_shell_promptwait.c" line="111" column="23" bodyfile="src/wsh_shell_promptwait.c" bodystart="111" bodyend="113"/>
+        <location file="src/wsh_shell_promptwait.c" line="114" column="23" bodyfile="src/wsh_shell_promptwait.c" bodystart="114" bodyend="116"/>
       </memberdef>
       <memberdef kind="function" id="wsh__shell__promptwait_8c_1a99b79f24add7ec6e2f404a6888373b6f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>WshShell_Bool_t</type>
@@ -240,7 +240,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/wsh_shell_promptwait.c" line="115" column="17" bodyfile="src/wsh_shell_promptwait.c" bodystart="115" bodyend="117"/>
+        <location file="src/wsh_shell_promptwait.c" line="118" column="17" bodyfile="src/wsh_shell_promptwait.c" bodystart="118" bodyend="120"/>
       </memberdef>
       <memberdef kind="function" id="wsh__shell__promptwait_8c_1a2550871112305c516bab1d2de9f5de05" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>WshShell_Bool_t</type>
@@ -261,7 +261,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/wsh_shell_promptwait.c" line="119" column="17" bodyfile="src/wsh_shell_promptwait.c" bodystart="119" bodyend="121"/>
+        <location file="src/wsh_shell_promptwait.c" line="122" column="17" bodyfile="src/wsh_shell_promptwait.c" bodystart="122" bodyend="124"/>
       </memberdef>
       <memberdef kind="function" id="wsh__shell__promptwait_8c_1a8d0e1c8b0eaa0343350d481000e49ca3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>WshShell_Bool_t</type>
@@ -292,7 +292,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/wsh_shell_promptwait.c" line="123" column="17" bodyfile="src/wsh_shell_promptwait.c" bodystart="123" bodyend="125"/>
+        <location file="src/wsh_shell_promptwait.c" line="126" column="17" bodyfile="src/wsh_shell_promptwait.c" bodystart="126" bodyend="128"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
@@ -383,50 +383,53 @@
 <codeline lineno="81"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
 <codeline lineno="82"><highlight class="normal">}</highlight></codeline>
 <codeline lineno="83"><highlight class="normal"></highlight></codeline>
-<codeline lineno="84"><highlight class="normal">WshShell_Bool_t<sp/>WshShellPromptWait_YesNo(WshShell_Char_t<sp/>symbol,<sp/><ref refid="structWshShellPromptWait" kindref="compound">WshShellPromptWait_t</ref>*<sp/>pWait)<sp/>{</highlight></codeline>
-<codeline lineno="85"><highlight class="normal"><sp/><sp/><sp/><sp/>WSH_SHELL_ASSERT(pWait);</highlight></codeline>
-<codeline lineno="86"><highlight class="normal"></highlight></codeline>
-<codeline lineno="87"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>Ctrl+C<sp/>is<sp/>force-flushed<sp/>by<sp/>the<sp/>caller;<sp/>nothing<sp/>to<sp/>undo,<sp/>stay<sp/>quiet.<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="88"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(symbol<sp/>==<sp/><ref refid="wsh__shell__io_8h_1a76a41f5653fdf6d83a38b99677cb4747" kindref="member">WSH_SHELL_SYM_CANCEL</ref>)</highlight></codeline>
-<codeline lineno="89"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">;</highlight></codeline>
-<codeline lineno="90"><highlight class="normal"></highlight></codeline>
-<codeline lineno="91"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(symbol<sp/>==<sp/></highlight><highlight class="charliteral">&apos;Y&apos;</highlight><highlight class="normal"><sp/>||<sp/>symbol<sp/>==<sp/></highlight><highlight class="charliteral">&apos;y&apos;</highlight><highlight class="normal">)<sp/>{</highlight></codeline>
-<codeline lineno="92"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="wsh__shell__io_8h_1aaa716dd3abd8eea0d420a40cb6b1f06fa8033fcf487eecf6b7e6f24b6c6604d9b" kindref="member">WSH_SHELL_PRINT_SYS</ref>(</highlight><highlight class="stringliteral">&quot;Yes<sp/>selected\r\n&quot;</highlight><highlight class="normal">);</highlight></codeline>
-<codeline lineno="93"><highlight class="normal"><sp/><sp/><sp/><sp/>}<sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(symbol<sp/>==<sp/></highlight><highlight class="charliteral">&apos;N&apos;</highlight><highlight class="normal"><sp/>||<sp/>symbol<sp/>==<sp/></highlight><highlight class="charliteral">&apos;n&apos;</highlight><highlight class="normal">)<sp/>{</highlight></codeline>
-<codeline lineno="94"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="wsh__shell__io_8h_1aaa716dd3abd8eea0d420a40cb6b1f06fa8033fcf487eecf6b7e6f24b6c6604d9b" kindref="member">WSH_SHELL_PRINT_SYS</ref>(</highlight><highlight class="stringliteral">&quot;No<sp/>selected\r\n&quot;</highlight><highlight class="normal">);</highlight></codeline>
-<codeline lineno="95"><highlight class="normal"><sp/><sp/><sp/><sp/>}<sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/>{</highlight></codeline>
-<codeline lineno="96"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<ref refid="wsh__shell__promptwait_8h_1a8d0e1c8b0eaa0343350d481000e49ca3" kindref="member">WshShellPromptWait_HintIsNeeded</ref>(pWait))</highlight></codeline>
-<codeline lineno="97"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="wsh__shell__io_8h_1aaa716dd3abd8eea0d420a40cb6b1f06fa8033fcf487eecf6b7e6f24b6c6604d9b" kindref="member">WSH_SHELL_PRINT_SYS</ref>(</highlight><highlight class="stringliteral">&quot;Invalid<sp/>input,<sp/>press<sp/>Y<sp/>or<sp/>N\r\n&quot;</highlight><highlight class="normal">);</highlight></codeline>
-<codeline lineno="98"><highlight class="normal"></highlight></codeline>
-<codeline lineno="99"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;</highlight></codeline>
-<codeline lineno="100"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="84"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>The<sp/>signature<sp/>is<sp/>pinned<sp/>by<sp/>WshShellPromptWait_Handler_t:<sp/>handlers<sp/>are<sp/>stored<sp/>in</highlight></codeline>
+<codeline lineno="85"><highlight class="comment"><sp/>*<sp/>that<sp/>type,<sp/>and<sp/>a<sp/>const<sp/>parameter<sp/>would<sp/>no<sp/>longer<sp/>match<sp/>it.<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="86"><highlight class="normal"></highlight><highlight class="comment">//<sp/>cppcheck-suppress<sp/>constParameterPointer</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="87"><highlight class="normal">WshShell_Bool_t<sp/>WshShellPromptWait_YesNo(WshShell_Char_t<sp/>symbol,<sp/><ref refid="structWshShellPromptWait" kindref="compound">WshShellPromptWait_t</ref>*<sp/>pWait)<sp/>{</highlight></codeline>
+<codeline lineno="88"><highlight class="normal"><sp/><sp/><sp/><sp/>WSH_SHELL_ASSERT(pWait);</highlight></codeline>
+<codeline lineno="89"><highlight class="normal"></highlight></codeline>
+<codeline lineno="90"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>Ctrl+C<sp/>is<sp/>force-flushed<sp/>by<sp/>the<sp/>caller;<sp/>nothing<sp/>to<sp/>undo,<sp/>stay<sp/>quiet.<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="91"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(symbol<sp/>==<sp/><ref refid="wsh__shell__io_8h_1a76a41f5653fdf6d83a38b99677cb4747" kindref="member">WSH_SHELL_SYM_CANCEL</ref>)</highlight></codeline>
+<codeline lineno="92"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="93"><highlight class="normal"></highlight></codeline>
+<codeline lineno="94"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(symbol<sp/>==<sp/></highlight><highlight class="charliteral">&apos;Y&apos;</highlight><highlight class="normal"><sp/>||<sp/>symbol<sp/>==<sp/></highlight><highlight class="charliteral">&apos;y&apos;</highlight><highlight class="normal">)<sp/>{</highlight></codeline>
+<codeline lineno="95"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="wsh__shell__io_8h_1aaa716dd3abd8eea0d420a40cb6b1f06fa8033fcf487eecf6b7e6f24b6c6604d9b" kindref="member">WSH_SHELL_PRINT_SYS</ref>(</highlight><highlight class="stringliteral">&quot;Yes<sp/>selected\r\n&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="96"><highlight class="normal"><sp/><sp/><sp/><sp/>}<sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(symbol<sp/>==<sp/></highlight><highlight class="charliteral">&apos;N&apos;</highlight><highlight class="normal"><sp/>||<sp/>symbol<sp/>==<sp/></highlight><highlight class="charliteral">&apos;n&apos;</highlight><highlight class="normal">)<sp/>{</highlight></codeline>
+<codeline lineno="97"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="wsh__shell__io_8h_1aaa716dd3abd8eea0d420a40cb6b1f06fa8033fcf487eecf6b7e6f24b6c6604d9b" kindref="member">WSH_SHELL_PRINT_SYS</ref>(</highlight><highlight class="stringliteral">&quot;No<sp/>selected\r\n&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="98"><highlight class="normal"><sp/><sp/><sp/><sp/>}<sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline lineno="99"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<ref refid="wsh__shell__promptwait_8h_1a8d0e1c8b0eaa0343350d481000e49ca3" kindref="member">WshShellPromptWait_HintIsNeeded</ref>(pWait))</highlight></codeline>
+<codeline lineno="100"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="wsh__shell__io_8h_1aaa716dd3abd8eea0d420a40cb6b1f06fa8033fcf487eecf6b7e6f24b6c6604d9b" kindref="member">WSH_SHELL_PRINT_SYS</ref>(</highlight><highlight class="stringliteral">&quot;Invalid<sp/>input,<sp/>press<sp/>Y<sp/>or<sp/>N\r\n&quot;</highlight><highlight class="normal">);</highlight></codeline>
 <codeline lineno="101"><highlight class="normal"></highlight></codeline>
-<codeline lineno="102"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">;</highlight></codeline>
-<codeline lineno="103"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="102"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="103"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
 <codeline lineno="104"><highlight class="normal"></highlight></codeline>
-<codeline lineno="105"><highlight class="normal"></highlight><highlight class="preprocessor">#else<sp/></highlight><highlight class="comment">/*<sp/>WSH_SHELL_PROMPT_WAIT<sp/>*/</highlight><highlight class="preprocessor"></highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="106"><highlight class="normal"></highlight></codeline>
-<codeline lineno="107"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="wsh__shell__promptwait_8h_1a43d800c65924a700804695ce86f08fb0" kindref="member">WshShellPromptWait_Attach</ref>(<ref refid="structWshShellPromptWait" kindref="compound">WshShellPromptWait_t</ref>*<sp/>pWait,<sp/><ref refid="wsh__shell__promptwait_8h_1a8b7d52c5773fc4c4bf95494df837cac0" kindref="member">WshShellPromptWait_Handler_t</ref><sp/>handler,<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal">*<sp/>pCtx)<sp/>{</highlight></codeline>
-<codeline lineno="108"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal">;</highlight></codeline>
-<codeline lineno="109"><highlight class="normal">}</highlight></codeline>
-<codeline lineno="110"><highlight class="normal"></highlight></codeline>
-<codeline lineno="111"><highlight class="normal">WSH_SHELL_RET_STATE_t<sp/><ref refid="wsh__shell__promptwait_8h_1a77a4f37e3ae313fe5291c5e28addd451" kindref="member">WshShellPromptWait_Handle</ref>(<ref refid="structWshShellPromptWait" kindref="compound">WshShellPromptWait_t</ref>*<sp/>pWait,<sp/>WshShell_Char_t<sp/>symbol)<sp/>{</highlight></codeline>
-<codeline lineno="112"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>WSH_SHELL_RET_STATE_SUCCESS;</highlight></codeline>
-<codeline lineno="113"><highlight class="normal">}</highlight></codeline>
-<codeline lineno="114"><highlight class="normal"></highlight></codeline>
-<codeline lineno="115"><highlight class="normal">WshShell_Bool_t<sp/><ref refid="wsh__shell__promptwait_8h_1a99b79f24add7ec6e2f404a6888373b6f" kindref="member">WshShellPromptWait_Enter</ref>(WshShell_Char_t<sp/>symbol,<sp/><ref refid="structWshShellPromptWait" kindref="compound">WshShellPromptWait_t</ref>*<sp/>pWait)<sp/>{</highlight></codeline>
-<codeline lineno="116"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">;</highlight></codeline>
-<codeline lineno="117"><highlight class="normal">}</highlight></codeline>
-<codeline lineno="118"><highlight class="normal"></highlight></codeline>
-<codeline lineno="119"><highlight class="normal">WshShell_Bool_t<sp/>WshShellPromptWait_YesNo(WshShell_Char_t<sp/>symbol,<sp/><ref refid="structWshShellPromptWait" kindref="compound">WshShellPromptWait_t</ref>*<sp/>pWait)<sp/>{</highlight></codeline>
-<codeline lineno="120"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">;</highlight></codeline>
-<codeline lineno="121"><highlight class="normal">}</highlight></codeline>
-<codeline lineno="122"><highlight class="normal"></highlight></codeline>
-<codeline lineno="123"><highlight class="normal">WshShell_Bool_t<sp/><ref refid="wsh__shell__promptwait_8h_1a8d0e1c8b0eaa0343350d481000e49ca3" kindref="member">WshShellPromptWait_HintIsNeeded</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="structWshShellPromptWait" kindref="compound">WshShellPromptWait_t</ref>*<sp/>pcWait)<sp/>{</highlight></codeline>
-<codeline lineno="124"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;</highlight></codeline>
-<codeline lineno="125"><highlight class="normal">}</highlight></codeline>
-<codeline lineno="126"><highlight class="normal"></highlight></codeline>
-<codeline lineno="127"><highlight class="normal"></highlight><highlight class="preprocessor">#endif<sp/></highlight><highlight class="comment">/*<sp/>WSH_SHELL_PROMPT_WAIT<sp/>*/</highlight><highlight class="preprocessor"></highlight></codeline>
+<codeline lineno="105"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="106"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="107"><highlight class="normal"></highlight></codeline>
+<codeline lineno="108"><highlight class="normal"></highlight><highlight class="preprocessor">#else<sp/></highlight><highlight class="comment">/*<sp/>WSH_SHELL_PROMPT_WAIT<sp/>*/</highlight><highlight class="preprocessor"></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="109"><highlight class="normal"></highlight></codeline>
+<codeline lineno="110"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="wsh__shell__promptwait_8h_1a43d800c65924a700804695ce86f08fb0" kindref="member">WshShellPromptWait_Attach</ref>(<ref refid="structWshShellPromptWait" kindref="compound">WshShellPromptWait_t</ref>*<sp/>pWait,<sp/><ref refid="wsh__shell__promptwait_8h_1a8b7d52c5773fc4c4bf95494df837cac0" kindref="member">WshShellPromptWait_Handler_t</ref><sp/>handler,<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal">*<sp/>pCtx)<sp/>{</highlight></codeline>
+<codeline lineno="111"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="112"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="113"><highlight class="normal"></highlight></codeline>
+<codeline lineno="114"><highlight class="normal">WSH_SHELL_RET_STATE_t<sp/><ref refid="wsh__shell__promptwait_8h_1a77a4f37e3ae313fe5291c5e28addd451" kindref="member">WshShellPromptWait_Handle</ref>(<ref refid="structWshShellPromptWait" kindref="compound">WshShellPromptWait_t</ref>*<sp/>pWait,<sp/>WshShell_Char_t<sp/>symbol)<sp/>{</highlight></codeline>
+<codeline lineno="115"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>WSH_SHELL_RET_STATE_SUCCESS;</highlight></codeline>
+<codeline lineno="116"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="117"><highlight class="normal"></highlight></codeline>
+<codeline lineno="118"><highlight class="normal">WshShell_Bool_t<sp/><ref refid="wsh__shell__promptwait_8h_1a99b79f24add7ec6e2f404a6888373b6f" kindref="member">WshShellPromptWait_Enter</ref>(WshShell_Char_t<sp/>symbol,<sp/><ref refid="structWshShellPromptWait" kindref="compound">WshShellPromptWait_t</ref>*<sp/>pWait)<sp/>{</highlight></codeline>
+<codeline lineno="119"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="120"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="121"><highlight class="normal"></highlight></codeline>
+<codeline lineno="122"><highlight class="normal">WshShell_Bool_t<sp/>WshShellPromptWait_YesNo(WshShell_Char_t<sp/>symbol,<sp/><ref refid="structWshShellPromptWait" kindref="compound">WshShellPromptWait_t</ref>*<sp/>pWait)<sp/>{</highlight></codeline>
+<codeline lineno="123"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="124"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="125"><highlight class="normal"></highlight></codeline>
+<codeline lineno="126"><highlight class="normal">WshShell_Bool_t<sp/><ref refid="wsh__shell__promptwait_8h_1a8d0e1c8b0eaa0343350d481000e49ca3" kindref="member">WshShellPromptWait_HintIsNeeded</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="structWshShellPromptWait" kindref="compound">WshShellPromptWait_t</ref>*<sp/>pcWait)<sp/>{</highlight></codeline>
+<codeline lineno="127"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="128"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="129"><highlight class="normal"></highlight></codeline>
+<codeline lineno="130"><highlight class="normal"></highlight><highlight class="preprocessor">#endif<sp/></highlight><highlight class="comment">/*<sp/>WSH_SHELL_PROMPT_WAIT<sp/>*/</highlight><highlight class="preprocessor"></highlight></codeline>
     </programlisting>
     <location file="src/wsh_shell_promptwait.c"/>
   </compounddef>

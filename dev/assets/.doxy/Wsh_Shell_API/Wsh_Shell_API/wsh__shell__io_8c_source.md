@@ -31,12 +31,12 @@ void WshShellIO_WriteToInterBuff(WshShellIO_CommandLine_t* pCommandLine, WshShel
     WshShellStr_IncrInterCnt(&(pCommandLine->Len), WSH_SHELL_INTR_BUFF_LEN);
 }
 
-void WshShellIO_PrintInterBuff(WshShellIO_CommandLine_t* pCommandLine) {
-    WSH_SHELL_ASSERT(pCommandLine);
-    if (!pCommandLine)
+void WshShellIO_PrintInterBuff(const WshShellIO_CommandLine_t* pcCommandLine) {
+    WSH_SHELL_ASSERT(pcCommandLine);
+    if (!pcCommandLine)
         return;
 
-    WSH_SHELL_PRINT("%s", pCommandLine->Buff);
+    WSH_SHELL_PRINT("%s", pcCommandLine->Buff);
 }
 
 void WshShellIO_RefreshConsoleFromInterBuff(WshShellIO_CommandLine_t* pCommandLine) {

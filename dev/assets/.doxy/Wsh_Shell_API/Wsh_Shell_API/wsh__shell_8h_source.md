@@ -114,7 +114,7 @@ WSH_SHELL_RET_STATE_t WshShell_Init(WshShell_t* pShell, const WshShell_Char_t* p
 
 WshShell_Bool_t WshShell_Auth(WshShell_t* pShell, const WshShell_Char_t* pcLogin, const WshShell_Char_t* pcPass);
 
-WshShell_Bool_t WshShell_IsAuth(WshShell_t* pShell);
+WshShell_Bool_t WshShell_IsAuth(const WshShell_t* pcShell);
 
 void WshShell_DeAuth(WshShell_t* pShell, const WshShell_Char_t* pcReason);
 

@@ -275,14 +275,14 @@
         </inbodydescription>
         <location file="src/wsh_shell_cmd.h" line="82" column="6" bodyfile="src/wsh_shell_cmd.c" bodystart="110" bodyend="115" declfile="src/wsh_shell_cmd.h" declline="82" declcolumn="6"/>
       </memberdef>
-      <memberdef kind="function" id="wsh__shell__cmd_8h_1ae7f6b971812b4c5d59fda77e5db8516b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="wsh__shell__cmd_8h_1a2acd90fa2242413865cc858a004258b5" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>WshShell_Size_t</type>
         <definition>WshShell_Size_t WshShellCmd_GetCmdNum</definition>
-        <argsstring>(WshShellCmd_Table_t *pShellCommands)</argsstring>
+        <argsstring>(const WshShellCmd_Table_t *pcShellCommands)</argsstring>
         <name>WshShellCmd_GetCmdNum</name>
         <param>
-          <type><ref refid="structWshShellCmd__Table__t" kindref="compound">WshShellCmd_Table_t</ref> *</type>
-          <declname>pShellCommands</declname>
+          <type>const <ref refid="structWshShellCmd__Table__t" kindref="compound">WshShellCmd_Table_t</ref> *</type>
+          <declname>pcShellCommands</declname>
         </param>
         <briefdescription>
 <para>Returns the number of registered commands. </para>
@@ -305,14 +305,14 @@
         </inbodydescription>
         <location file="src/wsh_shell_cmd.h" line="91" column="17" bodyfile="src/wsh_shell_cmd.c" bodystart="117" bodyend="124" declfile="src/wsh_shell_cmd.h" declline="91" declcolumn="17"/>
       </memberdef>
-      <memberdef kind="function" id="wsh__shell__cmd_8h_1a8a286fe8aab443066f1ad800933f1c1b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="wsh__shell__cmd_8h_1a19015b27aadda56423b45295eb7ab007" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>const <ref refid="wsh__shell__cmd_8h_1aa3eea9fbfe1d3d8b71415bc7667c65a3" kindref="member">WshShellCmd_t</ref> *</type>
         <definition>const WshShellCmd_t* WshShellCmd_GetCmdByIndex</definition>
-        <argsstring>(WshShellCmd_Table_t *pShellCommands, WshShell_Size_t idx)</argsstring>
+        <argsstring>(const WshShellCmd_Table_t *pcShellCommands, WshShell_Size_t idx)</argsstring>
         <name>WshShellCmd_GetCmdByIndex</name>
         <param>
-          <type><ref refid="structWshShellCmd__Table__t" kindref="compound">WshShellCmd_Table_t</ref> *</type>
-          <declname>pShellCommands</declname>
+          <type>const <ref refid="structWshShellCmd__Table__t" kindref="compound">WshShellCmd_Table_t</ref> *</type>
+          <declname>pcShellCommands</declname>
         </param>
         <param>
           <type>WshShell_Size_t</type>
@@ -347,14 +347,14 @@
         </inbodydescription>
         <location file="src/wsh_shell_cmd.h" line="101" column="21" bodyfile="src/wsh_shell_cmd.c" bodystart="126" bodyend="134" declfile="src/wsh_shell_cmd.h" declline="101" declcolumn="21"/>
       </memberdef>
-      <memberdef kind="function" id="wsh__shell__cmd_8h_1ae1d7f86e741ddb91641fbfcaef422a57" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="wsh__shell__cmd_8h_1a38be183f27b4921c68f9210c2b328243" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>const <ref refid="wsh__shell__cmd_8h_1aa3eea9fbfe1d3d8b71415bc7667c65a3" kindref="member">WshShellCmd_t</ref> *</type>
         <definition>const WshShellCmd_t* WshShellCmd_SearchCmd</definition>
-        <argsstring>(WshShellCmd_Table_t *pShellCommands, const WshShell_Char_t *pcCmdName)</argsstring>
+        <argsstring>(const WshShellCmd_Table_t *pcShellCommands, const WshShell_Char_t *pcCmdName)</argsstring>
         <name>WshShellCmd_SearchCmd</name>
         <param>
-          <type><ref refid="structWshShellCmd__Table__t" kindref="compound">WshShellCmd_Table_t</ref> *</type>
-          <declname>pShellCommands</declname>
+          <type>const <ref refid="structWshShellCmd__Table__t" kindref="compound">WshShellCmd_Table_t</ref> *</type>
+          <declname>pcShellCommands</declname>
         </param>
         <param>
           <type>const WshShell_Char_t *</type>
@@ -387,7 +387,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/wsh_shell_cmd.h" line="111" column="21" bodyfile="src/wsh_shell_cmd.c" bodystart="136" bodyend="148" declfile="src/wsh_shell_cmd.h" declline="111" declcolumn="21"/>
+        <location file="src/wsh_shell_cmd.h" line="111" column="21" bodyfile="src/wsh_shell_cmd.c" bodystart="136" bodyend="149" declfile="src/wsh_shell_cmd.h" declline="111" declcolumn="21"/>
       </memberdef>
       <memberdef kind="function" id="wsh__shell__cmd_8h_1a39f0ede50a3882a9e5ddaf0c49a987f8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>const <ref refid="structWshShellOption__t" kindref="compound">WshShellOption_t</ref> *</type>
@@ -430,7 +430,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/wsh_shell_cmd.h" line="151" column="24" bodyfile="src/wsh_shell_cmd.c" bodystart="182" bodyend="197" declfile="src/wsh_shell_cmd.h" declline="151" declcolumn="24"/>
+        <location file="src/wsh_shell_cmd.h" line="152" column="24" bodyfile="src/wsh_shell_cmd.c" bodystart="183" bodyend="198" declfile="src/wsh_shell_cmd.h" declline="152" declcolumn="24"/>
       </memberdef>
       <memberdef kind="function" id="wsh__shell__cmd_8h_1ab3e29d9ea337a63595c4bbf0a089260a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structWshShellOption__Ctx__t" kindref="compound">WshShellOption_Ctx_t</ref></type>
@@ -511,7 +511,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/wsh_shell_cmd.h" line="176" column="22" bodyfile="src/wsh_shell_cmd.c" bodystart="230" bodyend="309" declfile="src/wsh_shell_cmd.h" declline="176" declcolumn="22"/>
+        <location file="src/wsh_shell_cmd.h" line="177" column="22" bodyfile="src/wsh_shell_cmd.c" bodystart="231" bodyend="310" declfile="src/wsh_shell_cmd.h" declline="177" declcolumn="22"/>
       </memberdef>
       <memberdef kind="function" id="wsh__shell__cmd_8h_1aa4a2287e381f3c76562ffda7d2639071" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>WSH_SHELL_RET_STATE_t</type>
@@ -603,7 +603,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/wsh_shell_cmd.h" line="203" column="23" bodyfile="src/wsh_shell_cmd.c" bodystart="311" bodyend="368" declfile="src/wsh_shell_cmd.h" declline="203" declcolumn="23"/>
+        <location file="src/wsh_shell_cmd.h" line="204" column="23" bodyfile="src/wsh_shell_cmd.c" bodystart="312" bodyend="369" declfile="src/wsh_shell_cmd.h" declline="204" declcolumn="23"/>
       </memberdef>
       <memberdef kind="function" id="wsh__shell__cmd_8h_1a5db3a973370bfb723d3aa43f206623c3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -641,7 +641,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/wsh_shell_cmd.h" line="225" column="6" bodyfile="src/wsh_shell_cmd.c" bodystart="370" bodyend="437" declfile="src/wsh_shell_cmd.h" declline="225" declcolumn="6"/>
+        <location file="src/wsh_shell_cmd.h" line="226" column="6" bodyfile="src/wsh_shell_cmd.c" bodystart="371" bodyend="438" declfile="src/wsh_shell_cmd.h" declline="226" declcolumn="6"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
@@ -699,36 +699,37 @@
 <codeline lineno="76"><highlight class="normal"></highlight></codeline>
 <codeline lineno="82"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="wsh__shell__cmd_8h_1ad05536acc78523bf2a7e4a5b55e54ee2" kindref="member">WshShellCmd_DeAttach</ref>(<ref refid="structWshShellCmd__Table__t" kindref="compound">WshShellCmd_Table_t</ref>*<sp/>pShellCommands);</highlight></codeline>
 <codeline lineno="83"><highlight class="normal"></highlight></codeline>
-<codeline lineno="91"><highlight class="normal">WshShell_Size_t<sp/><ref refid="wsh__shell__cmd_8h_1ae7f6b971812b4c5d59fda77e5db8516b" kindref="member">WshShellCmd_GetCmdNum</ref>(<ref refid="structWshShellCmd__Table__t" kindref="compound">WshShellCmd_Table_t</ref>*<sp/>pShellCommands);</highlight></codeline>
+<codeline lineno="91"><highlight class="normal">WshShell_Size_t<sp/><ref refid="wsh__shell__cmd_8h_1a2acd90fa2242413865cc858a004258b5" kindref="member">WshShellCmd_GetCmdNum</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="structWshShellCmd__Table__t" kindref="compound">WshShellCmd_Table_t</ref>*<sp/>pcShellCommands);</highlight></codeline>
 <codeline lineno="92"><highlight class="normal"></highlight></codeline>
-<codeline lineno="101"><highlight class="normal"></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="structWshShellCmd" kindref="compound">WshShellCmd_t</ref>*<sp/><ref refid="wsh__shell__cmd_8h_1a8a286fe8aab443066f1ad800933f1c1b" kindref="member">WshShellCmd_GetCmdByIndex</ref>(<ref refid="structWshShellCmd__Table__t" kindref="compound">WshShellCmd_Table_t</ref>*<sp/>pShellCommands,<sp/>WshShell_Size_t<sp/>idx);</highlight></codeline>
+<codeline lineno="101"><highlight class="normal"></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="structWshShellCmd" kindref="compound">WshShellCmd_t</ref>*<sp/><ref refid="wsh__shell__cmd_8h_1a19015b27aadda56423b45295eb7ab007" kindref="member">WshShellCmd_GetCmdByIndex</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="structWshShellCmd__Table__t" kindref="compound">WshShellCmd_Table_t</ref>*<sp/>pcShellCommands,<sp/>WshShell_Size_t<sp/>idx);</highlight></codeline>
 <codeline lineno="102"><highlight class="normal"></highlight></codeline>
-<codeline lineno="111"><highlight class="normal"></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="structWshShellCmd" kindref="compound">WshShellCmd_t</ref>*<sp/><ref refid="wsh__shell__cmd_8h_1ae1d7f86e741ddb91641fbfcaef422a57" kindref="member">WshShellCmd_SearchCmd</ref>(<ref refid="structWshShellCmd__Table__t" kindref="compound">WshShellCmd_Table_t</ref>*<sp/>pShellCommands,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>WshShell_Char_t*<sp/>pcCmdName);</highlight></codeline>
-<codeline lineno="112"><highlight class="normal"></highlight></codeline>
-<codeline lineno="113"><highlight class="normal"></highlight><highlight class="preprocessor">#if<sp/>WSH_SHELL_SUBCOMMANDS</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="120"><highlight class="normal">WshShell_Size_t<sp/>WshShellCmd_GetSubCmdNum(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="structWshShellCmd" kindref="compound">WshShellCmd_t</ref>*<sp/>pcCmd);</highlight></codeline>
-<codeline lineno="121"><highlight class="normal"></highlight></codeline>
-<codeline lineno="129"><highlight class="normal"></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="structWshShellCmd" kindref="compound">WshShellCmd_t</ref>*<sp/>WshShellCmd_GetSubCmdByIndex(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="structWshShellCmd" kindref="compound">WshShellCmd_t</ref>*<sp/>pcCmd,<sp/>WshShell_Size_t<sp/>idx);</highlight></codeline>
-<codeline lineno="130"><highlight class="normal"></highlight></codeline>
-<codeline lineno="138"><highlight class="normal"></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="structWshShellCmd" kindref="compound">WshShellCmd_t</ref>*<sp/>WshShellCmd_SearchSubCmd(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="structWshShellCmd" kindref="compound">WshShellCmd_t</ref>*<sp/>pcCmd,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>WshShell_Char_t*<sp/>pcSubName);</highlight></codeline>
-<codeline lineno="139"><highlight class="normal"></highlight><highlight class="preprocessor">#endif<sp/></highlight><highlight class="comment">/*<sp/>WSH_SHELL_SUBCOMMANDS<sp/>*/</highlight><highlight class="preprocessor"></highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="140"><highlight class="normal"></highlight></codeline>
-<codeline lineno="151"><highlight class="normal"></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="structWshShellOption__t" kindref="compound">WshShellOption_t</ref>*<sp/><ref refid="wsh__shell__cmd_8h_1a39f0ede50a3882a9e5ddaf0c49a987f8" kindref="member">WshShellCmd_FindOptByName</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="structWshShellCmd" kindref="compound">WshShellCmd_t</ref>*<sp/>pcCmd,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>WshShell_Char_t*<sp/>pcName);</highlight></codeline>
-<codeline lineno="152"><highlight class="normal"></highlight></codeline>
-<codeline lineno="176"><highlight class="normal"><ref refid="structWshShellOption__Ctx__t" kindref="compound">WshShellOption_Ctx_t</ref><sp/><ref refid="wsh__shell__cmd_8h_1ab3e29d9ea337a63595c4bbf0a089260a" kindref="member">WshShellCmd_ParseOpt</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="structWshShellCmd" kindref="compound">WshShellCmd_t</ref>*<sp/>pcCmd,<sp/>WshShell_Size_t<sp/>argc,</highlight></codeline>
-<codeline lineno="177"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>WshShell_Char_t*<sp/>pArgv[],<sp/>WshShell_Size_t<sp/>rights,</highlight></codeline>
-<codeline lineno="178"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>WshShell_Size_t*<sp/>pTokenPos);</highlight></codeline>
-<codeline lineno="179"><highlight class="normal"></highlight></codeline>
-<codeline lineno="203"><highlight class="normal">WSH_SHELL_RET_STATE_t<sp/><ref refid="wsh__shell__cmd_8h_1aa4a2287e381f3c76562ffda7d2639071" kindref="member">WshShellCmd_GetOptValue</ref>(<ref refid="structWshShellOption__Ctx__t" kindref="compound">WshShellOption_Ctx_t</ref>*<sp/>pOptCtx,<sp/>WshShell_Size_t<sp/>argc,</highlight></codeline>
-<codeline lineno="204"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>WshShell_Char_t*<sp/>pArgv[],<sp/>WshShell_Size_t<sp/>valueSize,<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal">*<sp/>pValue);</highlight></codeline>
-<codeline lineno="205"><highlight class="normal"></highlight></codeline>
-<codeline lineno="225"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="wsh__shell__cmd_8h_1a5db3a973370bfb723d3aa43f206623c3" kindref="member">WshShellCmd_PrintOptionsOverview</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="structWshShellCmd" kindref="compound">WshShellCmd_t</ref>*<sp/>pcCmd);</highlight></codeline>
-<codeline lineno="226"><highlight class="normal"></highlight></codeline>
-<codeline lineno="227"><highlight class="normal"></highlight><highlight class="preprocessor">#ifdef<sp/>__cplusplus</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="228"><highlight class="normal">}</highlight></codeline>
-<codeline lineno="229"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="230"><highlight class="normal"></highlight></codeline>
-<codeline lineno="231"><highlight class="normal"></highlight><highlight class="preprocessor">#endif<sp/></highlight><highlight class="comment">/*<sp/>__WSH_SHELL_CMD_H<sp/>*/</highlight><highlight class="preprocessor"></highlight></codeline>
+<codeline lineno="111"><highlight class="normal"></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="structWshShellCmd" kindref="compound">WshShellCmd_t</ref>*<sp/><ref refid="wsh__shell__cmd_8h_1a38be183f27b4921c68f9210c2b328243" kindref="member">WshShellCmd_SearchCmd</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="structWshShellCmd__Table__t" kindref="compound">WshShellCmd_Table_t</ref>*<sp/>pcShellCommands,</highlight></codeline>
+<codeline lineno="112"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>WshShell_Char_t*<sp/>pcCmdName);</highlight></codeline>
+<codeline lineno="113"><highlight class="normal"></highlight></codeline>
+<codeline lineno="114"><highlight class="normal"></highlight><highlight class="preprocessor">#if<sp/>WSH_SHELL_SUBCOMMANDS</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="121"><highlight class="normal">WshShell_Size_t<sp/>WshShellCmd_GetSubCmdNum(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="structWshShellCmd" kindref="compound">WshShellCmd_t</ref>*<sp/>pcCmd);</highlight></codeline>
+<codeline lineno="122"><highlight class="normal"></highlight></codeline>
+<codeline lineno="130"><highlight class="normal"></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="structWshShellCmd" kindref="compound">WshShellCmd_t</ref>*<sp/>WshShellCmd_GetSubCmdByIndex(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="structWshShellCmd" kindref="compound">WshShellCmd_t</ref>*<sp/>pcCmd,<sp/>WshShell_Size_t<sp/>idx);</highlight></codeline>
+<codeline lineno="131"><highlight class="normal"></highlight></codeline>
+<codeline lineno="139"><highlight class="normal"></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="structWshShellCmd" kindref="compound">WshShellCmd_t</ref>*<sp/>WshShellCmd_SearchSubCmd(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="structWshShellCmd" kindref="compound">WshShellCmd_t</ref>*<sp/>pcCmd,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>WshShell_Char_t*<sp/>pcSubName);</highlight></codeline>
+<codeline lineno="140"><highlight class="normal"></highlight><highlight class="preprocessor">#endif<sp/></highlight><highlight class="comment">/*<sp/>WSH_SHELL_SUBCOMMANDS<sp/>*/</highlight><highlight class="preprocessor"></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="141"><highlight class="normal"></highlight></codeline>
+<codeline lineno="152"><highlight class="normal"></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="structWshShellOption__t" kindref="compound">WshShellOption_t</ref>*<sp/><ref refid="wsh__shell__cmd_8h_1a39f0ede50a3882a9e5ddaf0c49a987f8" kindref="member">WshShellCmd_FindOptByName</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="structWshShellCmd" kindref="compound">WshShellCmd_t</ref>*<sp/>pcCmd,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>WshShell_Char_t*<sp/>pcName);</highlight></codeline>
+<codeline lineno="153"><highlight class="normal"></highlight></codeline>
+<codeline lineno="177"><highlight class="normal"><ref refid="structWshShellOption__Ctx__t" kindref="compound">WshShellOption_Ctx_t</ref><sp/><ref refid="wsh__shell__cmd_8h_1ab3e29d9ea337a63595c4bbf0a089260a" kindref="member">WshShellCmd_ParseOpt</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="structWshShellCmd" kindref="compound">WshShellCmd_t</ref>*<sp/>pcCmd,<sp/>WshShell_Size_t<sp/>argc,</highlight></codeline>
+<codeline lineno="178"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>WshShell_Char_t*<sp/>pArgv[],<sp/>WshShell_Size_t<sp/>rights,</highlight></codeline>
+<codeline lineno="179"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>WshShell_Size_t*<sp/>pTokenPos);</highlight></codeline>
+<codeline lineno="180"><highlight class="normal"></highlight></codeline>
+<codeline lineno="204"><highlight class="normal">WSH_SHELL_RET_STATE_t<sp/><ref refid="wsh__shell__cmd_8h_1aa4a2287e381f3c76562ffda7d2639071" kindref="member">WshShellCmd_GetOptValue</ref>(<ref refid="structWshShellOption__Ctx__t" kindref="compound">WshShellOption_Ctx_t</ref>*<sp/>pOptCtx,<sp/>WshShell_Size_t<sp/>argc,</highlight></codeline>
+<codeline lineno="205"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>WshShell_Char_t*<sp/>pArgv[],<sp/>WshShell_Size_t<sp/>valueSize,<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal">*<sp/>pValue);</highlight></codeline>
+<codeline lineno="206"><highlight class="normal"></highlight></codeline>
+<codeline lineno="226"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="wsh__shell__cmd_8h_1a5db3a973370bfb723d3aa43f206623c3" kindref="member">WshShellCmd_PrintOptionsOverview</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="structWshShellCmd" kindref="compound">WshShellCmd_t</ref>*<sp/>pcCmd);</highlight></codeline>
+<codeline lineno="227"><highlight class="normal"></highlight></codeline>
+<codeline lineno="228"><highlight class="normal"></highlight><highlight class="preprocessor">#ifdef<sp/>__cplusplus</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="229"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="230"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="231"><highlight class="normal"></highlight></codeline>
+<codeline lineno="232"><highlight class="normal"></highlight><highlight class="preprocessor">#endif<sp/></highlight><highlight class="comment">/*<sp/>__WSH_SHELL_CMD_H<sp/>*/</highlight><highlight class="preprocessor"></highlight></codeline>
     </programlisting>
     <location file="src/wsh_shell_cmd.h"/>
   </compounddef>

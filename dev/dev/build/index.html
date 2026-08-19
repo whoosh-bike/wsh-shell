@@ -3155,6 +3155,12 @@ the most expensive one in a full build (<code>WSH_SHELL_SUBCOMMANDS</code>: ~0.6
 <p>The script also reports <code>sizeof(WshShell_t)</code> for each configuration, read back
 from a probe symbol in the linked ELF, so RAM cost is measured on the target's
 word size rather than the host's.</p>
+<p>Because every mode rebuilds the library from scratch for each configuration, the
+script doubles as a <strong>feature-flag build matrix</strong>: it is the only thing here that
+compiles the disabled-feature branches. A <code>#else</code> stub whose signature drifted from
+its header breaks nobody's build until an integrator turns that feature off, so CI
+runs all three modes (<code>config_matrix</code> job in <code>.gitlab-ci.yml</code>) and fails on the first
+configuration that does not compile. The generated tables are kept as job artifacts.</p>
 <hr />
 <h2 id="example-on-hardware">Example on Hardware</h2>
 <p>It has been moved to separate repos:</p>
@@ -3185,6 +3191,15 @@ stay a byte-identical copy of <code>src/wsh_shell_cfg_def.h</code>.</p>
 <p>Findings are printed and saved to the log file; the exit code is cppcheck's own, so
 the target still fails the build on findings (<code>--error-exitcode=1</code>). The log path is
 covered by <code>.gitignore</code>.</p>
+<p>The target depends on <code>gen-config</code> and analyses <code>src/</code> with <code>example/wsh_shell_cfg.h</code>
+on the include path. Without a resolvable config cppcheck cannot evaluate the feature
+macros: it drowns the report in <code>missingInclude</code> noise, checks far more <code>#ifdef</code>
+combinations (slow), and still misses real findings that only appear once the buffer
+sizes are known.</p>
+<p>Class-wide suppressions live in <code>.cppcheck-suppressions</code>, each with the reason it is
+there — mostly artefacts of analysing a library without its callers (<code>unusedFunction</code>,
+<code>staticFunction</code>). One-off exceptions are inline <code>// cppcheck-suppress &lt;id&gt;</code> comments
+next to the code they excuse (<code>--inline-suppr</code>).</p>
 <hr />
 <h2 id="additional-notes">Additional Notes</h2>
 <ul>

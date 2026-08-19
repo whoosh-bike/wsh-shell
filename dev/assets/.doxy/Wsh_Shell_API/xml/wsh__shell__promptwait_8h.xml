@@ -224,7 +224,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/wsh_shell_promptwait.h" line="81" column="6" bodyfile="src/wsh_shell_promptwait.c" bodystart="107" bodyend="109" declfile="src/wsh_shell_promptwait.h" declline="81" declcolumn="6"/>
+        <location file="src/wsh_shell_promptwait.h" line="81" column="6" bodyfile="src/wsh_shell_promptwait.c" bodystart="110" bodyend="112" declfile="src/wsh_shell_promptwait.h" declline="81" declcolumn="6"/>
       </memberdef>
       <memberdef kind="function" id="wsh__shell__promptwait_8h_1a77a4f37e3ae313fe5291c5e28addd451" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>WSH_SHELL_RET_STATE_t</type>
@@ -267,7 +267,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/wsh_shell_promptwait.h" line="95" column="23" bodyfile="src/wsh_shell_promptwait.c" bodystart="111" bodyend="113" declfile="src/wsh_shell_promptwait.h" declline="95" declcolumn="23"/>
+        <location file="src/wsh_shell_promptwait.h" line="95" column="23" bodyfile="src/wsh_shell_promptwait.c" bodystart="114" bodyend="116" declfile="src/wsh_shell_promptwait.h" declline="95" declcolumn="23"/>
       </memberdef>
       <memberdef kind="function" id="wsh__shell__promptwait_8h_1a99b79f24add7ec6e2f404a6888373b6f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>WshShell_Bool_t</type>
@@ -314,7 +314,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/wsh_shell_promptwait.h" line="109" column="17" bodyfile="src/wsh_shell_promptwait.c" bodystart="115" bodyend="117" declfile="src/wsh_shell_promptwait.h" declline="109" declcolumn="17"/>
+        <location file="src/wsh_shell_promptwait.h" line="109" column="17" bodyfile="src/wsh_shell_promptwait.c" bodystart="118" bodyend="120" declfile="src/wsh_shell_promptwait.h" declline="109" declcolumn="17"/>
       </memberdef>
       <memberdef kind="function" id="wsh__shell__promptwait_8h_1a2550871112305c516bab1d2de9f5de05" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>WshShell_Bool_t</type>
@@ -335,7 +335,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/wsh_shell_promptwait.h" line="110" column="17" bodyfile="src/wsh_shell_promptwait.c" bodystart="119" bodyend="121" declfile="src/wsh_shell_promptwait.h" declline="110" declcolumn="17"/>
+        <location file="src/wsh_shell_promptwait.h" line="110" column="17" bodyfile="src/wsh_shell_promptwait.c" bodystart="122" bodyend="124" declfile="src/wsh_shell_promptwait.h" declline="110" declcolumn="17"/>
       </memberdef>
       <memberdef kind="function" id="wsh__shell__promptwait_8h_1a8d0e1c8b0eaa0343350d481000e49ca3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>WshShell_Bool_t</type>
@@ -366,7 +366,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/wsh_shell_promptwait.h" line="122" column="17" bodyfile="src/wsh_shell_promptwait.c" bodystart="123" bodyend="125" declfile="src/wsh_shell_promptwait.h" declline="122" declcolumn="17"/>
+        <location file="src/wsh_shell_promptwait.h" line="122" column="17" bodyfile="src/wsh_shell_promptwait.c" bodystart="126" bodyend="128" declfile="src/wsh_shell_promptwait.h" declline="122" declcolumn="17"/>
       </memberdef>
       </sectiondef>
     <briefdescription>

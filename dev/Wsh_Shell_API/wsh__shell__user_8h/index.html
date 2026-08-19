@@ -3193,7 +3193,7 @@
 </tr>
 <tr>
 <td style="text-align: right;">WshShell_Size_t</td>
-<td style="text-align: left;"><a href="#function-wshshelluser_getusersnum"><strong>WshShellUser_GetUsersNum</strong></a> (<a href="../structWshShellUser__Table__t/"><strong>WshShellUser_Table_t</strong></a> * pShellUsers) <br><em>Get the number of users registered in the shell.</em></td>
+<td style="text-align: left;"><a href="#function-wshshelluser_getusersnum"><strong>WshShellUser_GetUsersNum</strong></a> (const <a href="../structWshShellUser__Table__t/"><strong>WshShellUser_Table_t</strong></a> * pcShellUsers) <br><em>Get the number of users registered in the shell.</em></td>
 </tr>
 </tbody>
 </table>
@@ -3331,12 +3331,12 @@
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-6-1">1</a></span>
 <span class="normal"><a href="#__codelineno-6-2">2</a></span>
 <span class="normal"><a href="#__codelineno-6-3">3</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1"></a><span class="n">WshShell_Size_t</span><span class="w"> </span><span class="n">WshShellUser_GetUsersNum</span><span class="w"> </span><span class="p">(</span>
-</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2"></a><span class="w">    </span><span class="n">WshShellUser_Table_t</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">pShellUsers</span>
+</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2"></a><span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="n">WshShellUser_Table_t</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">pcShellUsers</span>
 </span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3"></a><span class="p">)</span><span class="w"> </span>
 </span></code></pre></div></td></tr></table></div></p>
 <p><strong>Parameters:</strong></p>
 <ul>
-<li><code>pShellUsers</code> Pointer to the user table.</li>
+<li><code>pcShellUsers</code> Pointer to the user table.</li>
 </ul>
 <p><strong>Returns:</strong></p>
 <p>Number of users, or 0 if uninitialized or NULL. </p>

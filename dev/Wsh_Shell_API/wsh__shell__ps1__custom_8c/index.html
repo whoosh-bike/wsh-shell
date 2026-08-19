@@ -2737,7 +2737,7 @@
 <tbody>
 <tr>
 <td style="text-align: right;">void</td>
-<td style="text-align: left;"><a href="#function-wshshell_generateps1"><strong>WshShell_GeneratePS1</strong></a> (WshShell_Char_t * pPS1, <a href="../structWshShell__PS1Data__t/"><strong>WshShell_PS1Data_t</strong></a> * pPS1Data) <br><em>Applies the PS1 template and generates the final PS1 string.</em></td>
+<td style="text-align: left;"><a href="#function-wshshell_generateps1"><strong>WshShell_GeneratePS1</strong></a> (WshShell_Char_t * pPS1, const <a href="../structWshShell__PS1Data__t/"><strong>WshShell_PS1Data_t</strong></a> * pcPS1Data) <br><em>Applies the PS1 template and generates the final PS1 string.</em></td>
 </tr>
 </tbody>
 </table>
@@ -2749,7 +2749,7 @@
 <span class="normal"><a href="#__codelineno-0-3">3</a></span>
 <span class="normal"><a href="#__codelineno-0-4">4</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="kt">void</span><span class="w"> </span><span class="n">WshShell_GeneratePS1</span><span class="w"> </span><span class="p">(</span>
 </span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2"></a><span class="w">    </span><span class="n">WshShell_Char_t</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">pPS1</span><span class="p">,</span>
-</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3"></a><span class="w">    </span><span class="n">WshShell_PS1Data_t</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">pPS1Data</span>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3"></a><span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="n">WshShell_PS1Data_t</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">pcPS1Data</span>
 </span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4"></a><span class="p">)</span><span class="w"> </span>
 </span></code></pre></div></td></tr></table></div></p>
 <p>Expands a predefined PS1 template (<code>WSH_SHELL_PS1_TEMPLATE</code>) into a complete PS1 string, substituting special format specifiers with runtime values like username, device name, and ANSI escape sequences for styling (colors, bold, reset).</p>
@@ -2764,7 +2764,7 @@
 <p><strong>Parameters:</strong></p>
 <ul>
 <li><code>pPS1</code> Output buffer for the final PS1 string. Must be at least <code>WSH_SHELL_PS1_MAX_LEN</code> in size. </li>
-<li><code>pPS1Data</code> Pointer to the user name, divice name or other strings. </li>
+<li><code>pcPS1Data</code> Pointer to the user name, divice name or other strings. </li>
 </ul>
 <hr>
 
