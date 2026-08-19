@@ -15,7 +15,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/wsh_shell_promptwait.h" line="43" column="34" bodyfile="src/wsh_shell_promptwait.h" bodystart="43" bodyend="-1"/>
+        <location file="src/wsh_shell_promptwait.h" line="55" column="34" bodyfile="src/wsh_shell_promptwait.h" bodystart="55" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structWshShellPromptWait_1ae5f7d28b53ad5e104c9e5902b0c117b0" prot="public" static="no" mutable="no">
         <type>void *</type>
@@ -28,7 +28,21 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/wsh_shell_promptwait.h" line="44" column="10" bodyfile="src/wsh_shell_promptwait.h" bodystart="44" bodyend="-1"/>
+        <location file="src/wsh_shell_promptwait.h" line="56" column="10" bodyfile="src/wsh_shell_promptwait.h" bodystart="56" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structWshShellPromptWait_1a732bd191a1a12968b49f65e68aebbd61" prot="public" static="no" mutable="no">
+        <type>WshShell_Size_t</type>
+        <definition>WshShell_Size_t WshShellPromptWait::RejectedNum</definition>
+        <argsstring></argsstring>
+        <name>RejectedNum</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Keystrokes refused by the handler since attach. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/wsh_shell_promptwait.h" line="57" column="21" bodyfile="src/wsh_shell_promptwait.h" bodystart="57" bodyend="-1"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
@@ -46,10 +60,11 @@
         </childnode>
       </node>
     </collaborationgraph>
-    <location file="src/wsh_shell_promptwait.h" line="42" column="1" bodyfile="src/wsh_shell_promptwait.h" bodystart="42" bodyend="45"/>
+    <location file="src/wsh_shell_promptwait.h" line="54" column="1" bodyfile="src/wsh_shell_promptwait.h" bodystart="54" bodyend="58"/>
     <listofallmembers>
       <member refid="structWshShellPromptWait_1ae5f7d28b53ad5e104c9e5902b0c117b0" prot="public" virt="non-virtual"><scope>WshShellPromptWait</scope><name>Ctx</name></member>
       <member refid="structWshShellPromptWait_1ae4e0cb05436cf97715fec8238a910e38" prot="public" virt="non-virtual"><scope>WshShellPromptWait</scope><name>Handler</name></member>
+      <member refid="structWshShellPromptWait_1a732bd191a1a12968b49f65e68aebbd61" prot="public" virt="non-virtual"><scope>WshShellPromptWait</scope><name>RejectedNum</name></member>
     </listofallmembers>
   </compounddef>
 </doxygen>

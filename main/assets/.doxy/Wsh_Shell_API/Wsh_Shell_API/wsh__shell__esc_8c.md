@@ -58,7 +58,7 @@
 | Type | Name |
 | ---: | :--- |
 |  void | [**WshShellEsc\_Handler**](#function-wshshellesc_handler) ([**WshShellHistoryIO\_t**](structWshShellHistoryIO__t.md) \* pHistIO, [**WshShellIO\_CommandLine\_t**](structWshShellIO__CommandLine__t.md) \* pCommandLine, [**WshShellEsc\_Storage\_t**](structWshShellEsc__Storage__t.md) \* pEscStorage, const WshShell\_Char\_t symbol) <br>_Handles incoming escape sequence character._  |
-|  WshShell\_Bool\_t | [**WshShellEsc\_IsSeqStarted**](#function-wshshellesc_isseqstarted) ([**WshShellEsc\_Storage\_t**](structWshShellEsc__Storage__t.md) \* pEscStorage) <br>_Checks if escape sequence is in progress._  |
+|  WshShell\_Bool\_t | [**WshShellEsc\_IsSeqStarted**](#function-wshshellesc_isseqstarted) (const [**WshShellEsc\_Storage\_t**](structWshShellEsc__Storage__t.md) \* pcEscStorage) <br>_Checks if escape sequence is in progress._  |
 |  void | [**WshShellEsc\_StartSeq**](#function-wshshellesc_startseq) ([**WshShellEsc\_Storage\_t**](structWshShellEsc__Storage__t.md) \* pEscStorage) <br>_Starts a new escape sequence._  |
 
 
@@ -158,7 +158,7 @@ Matches current buffer against known ANSI sequences and triggers appropriate han
 _Checks if escape sequence is in progress._ 
 ```C++
 WshShell_Bool_t WshShellEsc_IsSeqStarted (
-    WshShellEsc_Storage_t * pEscStorage
+    const WshShellEsc_Storage_t * pcEscStorage
 ) 
 ```
 
@@ -169,7 +169,7 @@ WshShell_Bool_t WshShellEsc_IsSeqStarted (
 **Parameters:**
 
 
-* `pEscStorage` Pointer to escape sequence buffer 
+* `pcEscStorage` Pointer to escape sequence buffer 
 
 
 

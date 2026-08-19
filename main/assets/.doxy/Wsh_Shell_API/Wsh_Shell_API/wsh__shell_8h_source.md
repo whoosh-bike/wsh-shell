@@ -23,6 +23,7 @@
 #include "wsh_shell_misc.h"
 #include "wsh_shell_promptwait.h"
 #include "wsh_shell_ps1_custom.h"
+#include "wsh_shell_session.h"
 #include "wsh_shell_str.h"
 #include "wsh_shell_types.h"
 #include "wsh_shell_user.h"
@@ -58,6 +59,20 @@
 #define COMPILER "Unknown Compiler"
 #endif
 
+/* default welcome banner, printed by WshShell_Init() when no custom one is given;
+ * define WSH_SHELL_HEADER in wsh_shell_cfg.h to replace it (or to "" to drop it) */
+#ifndef WSH_SHELL_HEADER
+/* clang-format off */
+#define WSH_SHELL_HEADER "\
+                __               __         ____  \r\n\
+ _      _______/ /_        _____/ /_  ___  / / /  \r\n\
+| | /| / / ___/ __ \\______/ ___/ __ \\/ _ \\/ / /\r\n\
+| |/ |/ (__  ) / / /_____(__  ) / / /  __/ / /    \r\n\
+|__/|__/____/_/ /_/     /____/_/ /_/\\___/_/_/    \r\n\
+\r\n"
+/* clang-format on */
+#endif
+
 #ifdef __cplusplus
 extern "C" {
 #endif
@@ -87,6 +102,7 @@ typedef struct {
     WshShellUser_Table_t Users;   
     WshShellCmd_Table_t Commands; 
     WshShellHistoryIO_t HistoryIO; 
+    WshShellSessionIO_t SessionIO; 
     WshShellInteract_t Interact;   
     WshShellPromptWait_t PromptWait;
 
@@ -98,9 +114,17 @@ WSH_SHELL_RET_STATE_t WshShell_Init(WshShell_t* pShell, const WshShell_Char_t* p
 
 WshShell_Bool_t WshShell_Auth(WshShell_t* pShell, const WshShell_Char_t* pcLogin, const WshShell_Char_t* pcPass);
 
-WshShell_Bool_t WshShell_IsAuth(WshShell_t* pShell);
+WshShell_Bool_t WshShell_IsAuth(const WshShell_t* pcShell);
 
 void WshShell_DeAuth(WshShell_t* pShell, const WshShell_Char_t* pcReason);
+
+WshShell_Bool_t WshShell_SessionArm(WshShell_t* pShell, WshShell_U32_t reboots);
+
+WshShell_Bool_t WshShell_SessionRestore(WshShell_t* pShell);
+
+WshShell_Bool_t WshShell_SessionIsKeepActive(WshShell_t* pShell);
+
+WshShell_U32_t WshShell_SessionRebootsLeft(WshShell_t* pShell);
 
 void WshShell_InsertChar(WshShell_t* pShell, const WshShell_Char_t symbol);
 

@@ -26,7 +26,7 @@ typedef struct {
     WshShell_Char_t* InterCmdName;   
 } WshShell_PS1Data_t;
 
-void WshShell_GeneratePS1(WshShell_Char_t* pPS1, WshShell_PS1Data_t* pPS1Data);
+void WshShell_GeneratePS1(WshShell_Char_t* pPS1, const WshShell_PS1Data_t* pcPS1Data);
 
 #ifdef __cplusplus
 }

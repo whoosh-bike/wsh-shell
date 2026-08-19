@@ -13,21 +13,16 @@
 
 #include "wsh_shell_types.h"
 
-/* 
+/*
  * ─────────────────────────────────────────────
  * Shell welcome banner (ASCII logo)
- * ───────────────────────────────────────────── 
+ * ─────────────────────────────────────────────
+ * Optional. The wsh-shell logo is built into the library (wsh_shell.h).
+ * Define WSH_SHELL_HEADER here to replace it with a project-specific one,
+ * or with "" to print no banner at all. A per-instance banner can also be
+ * passed at runtime as the pcCustomHeader argument of WshShell_Init().
+ * Use utils/gen-shell-banner.py to render an ASCII logo from plain text.
  */
-
-/* clang-format off */
-#define WSH_SHELL_HEADER "\
-                __               __         ____  \r\n\
- _      _______/ /_        _____/ /_  ___  / / /  \r\n\
-| | /| / / ___/ __ \\______/ ___/ __ \\/ _ \\/ / /\r\n\
-| |/ |/ (__  ) / / /_____(__  ) / / /  __/ / /    \r\n\
-|__/|__/____/_/ /_/     /____/_/ /_/\\___/_/_/    \r\n\
-\r\n"
-/* clang-format on */
 
 /* 
  * ─────────────────────────────────────────────
@@ -89,12 +84,23 @@
  */
 #define WSH_SHELL_PROMPT_WAIT 1
 
+/* How many refused keystrokes still reprint the "press ..." hint before the
+ * wait goes quiet. The bell keeps sounding on every one of them. */
+#define WSH_SHELL_PROMPT_WAIT_HINT_RETRIES 3
+
 /*
  * ─────────────────────────────────────────────
  * Default shell command (executed at startup)
  * ─────────────────────────────────────────────
  */
 #define WSH_SHELL_DEF_COMMAND 1
+
+/*
+ * ─────────────────────────────────────────────
+ * Persistent login session (`wsh --keep`, survives reboots)
+ * ─────────────────────────────────────────────
+ */
+#define WSH_SHELL_SESSION 1
 
 /*
  * ─────────────────────────────────────────────

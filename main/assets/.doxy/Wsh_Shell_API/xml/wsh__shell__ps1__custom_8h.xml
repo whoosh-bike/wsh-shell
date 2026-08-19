@@ -83,18 +83,18 @@
     </invincdepgraph>
     <innerclass refid="structWshShell__PS1Data__t" prot="public">WshShell_PS1Data_t</innerclass>
       <sectiondef kind="func">
-      <memberdef kind="function" id="wsh__shell__ps1__custom_8h_1ac7193e56063a572ed2866c38b1528799" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="wsh__shell__ps1__custom_8h_1a0629c1a24c9312b21f900f038a4ba0a1" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
         <definition>void WshShell_GeneratePS1</definition>
-        <argsstring>(WshShell_Char_t *pPS1, WshShell_PS1Data_t *pPS1Data)</argsstring>
+        <argsstring>(WshShell_Char_t *pPS1, const WshShell_PS1Data_t *pcPS1Data)</argsstring>
         <name>WshShell_GeneratePS1</name>
         <param>
           <type>WshShell_Char_t *</type>
           <declname>pPS1</declname>
         </param>
         <param>
-          <type><ref refid="structWshShell__PS1Data__t" kindref="compound">WshShell_PS1Data_t</ref> *</type>
-          <declname>pPS1Data</declname>
+          <type>const <ref refid="structWshShell__PS1Data__t" kindref="compound">WshShell_PS1Data_t</ref> *</type>
+          <declname>pcPS1Data</declname>
         </param>
         <briefdescription>
 <para>Applies the PS1 template and generates the final PS1 string. </para>
@@ -121,7 +121,7 @@
 </parameteritem>
 <parameteritem>
 <parameternamelist>
-<parametername direction="in">pPS1Data</parametername>
+<parametername direction="in">pcPS1Data</parametername>
 </parameternamelist>
 <parameterdescription>
 <para>Pointer to the user name, divice name or other strings. </para>
@@ -165,7 +165,7 @@
 <codeline lineno="39" refid="structWshShell__PS1Data__t_1a36273048220391ef8e7ae60b92a601ee" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>WshShell_Char_t*<sp/><ref refid="structWshShell__PS1Data__t_1a36273048220391ef8e7ae60b92a601ee" kindref="member">InterCmdName</ref>;<sp/><sp/><sp/></highlight></codeline>
 <codeline lineno="40"><highlight class="normal">}<sp/><ref refid="structWshShell__PS1Data__t" kindref="compound">WshShell_PS1Data_t</ref>;</highlight></codeline>
 <codeline lineno="41"><highlight class="normal"></highlight></codeline>
-<codeline lineno="64"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="wsh__shell__ps1__custom_8h_1ac7193e56063a572ed2866c38b1528799" kindref="member">WshShell_GeneratePS1</ref>(WshShell_Char_t*<sp/>pPS1,<sp/><ref refid="structWshShell__PS1Data__t" kindref="compound">WshShell_PS1Data_t</ref>*<sp/>pPS1Data);</highlight></codeline>
+<codeline lineno="64"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="wsh__shell__ps1__custom_8h_1a0629c1a24c9312b21f900f038a4ba0a1" kindref="member">WshShell_GeneratePS1</ref>(WshShell_Char_t*<sp/>pPS1,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="structWshShell__PS1Data__t" kindref="compound">WshShell_PS1Data_t</ref>*<sp/>pcPS1Data);</highlight></codeline>
 <codeline lineno="65"><highlight class="normal"></highlight></codeline>
 <codeline lineno="66"><highlight class="normal"></highlight><highlight class="preprocessor">#ifdef<sp/>__cplusplus</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="67"><highlight class="normal">}</highlight></codeline>

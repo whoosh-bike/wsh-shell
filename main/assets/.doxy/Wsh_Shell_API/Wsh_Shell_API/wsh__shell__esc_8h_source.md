@@ -37,7 +37,7 @@ void WshShellEsc_Handler(WshShellHistoryIO_t* pHistIO, WshShellIO_CommandLine_t*
 
 void WshShellEsc_StartSeq(WshShellEsc_Storage_t* pEscStorage);
 
-WshShell_Bool_t WshShellEsc_IsSeqStarted(WshShellEsc_Storage_t* pEscStorage);
+WshShell_Bool_t WshShellEsc_IsSeqStarted(const WshShellEsc_Storage_t* pcEscStorage);
 
 #ifdef __cplusplus
 }

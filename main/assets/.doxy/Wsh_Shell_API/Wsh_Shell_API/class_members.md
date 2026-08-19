@@ -52,7 +52,7 @@
 
 * **Handler** ([**WshShellCmd**](structWshShellCmd.md), [**WshShellEsc\_Action\_t**](structWshShellEsc__Action__t.md), [**WshShellInteract\_t**](structWshShellInteract__t.md), [**WshShellPromptWait**](structWshShellPromptWait.md))
 * **HeadIdx** ([**WshShellHistory\_Data\_t**](structWshShellHistory__Data__t.md))
-* **Hash** ([**WshShellHistory\_t**](structWshShellHistory__t.md), [**WshShellUser\_Table\_t**](structWshShellUser__Table__t.md), [**WshShellUser\_t**](structWshShellUser__t.md))
+* **Hash** ([**WshShellHistory\_t**](structWshShellHistory__t.md), [**WshShellSession\_t**](structWshShellSession__t.md), [**WshShellUser\_Table\_t**](structWshShellUser__Table__t.md), [**WshShellUser\_t**](structWshShellUser__t.md))
 * **HistoryIO** ([**WshShell\_t**](structWshShell__t.md))
 
 
@@ -98,7 +98,9 @@
 
 ## r
 
-* **Read** ([**WshShellHistoryIO\_t**](structWshShellHistoryIO__t.md))
+* **Read** ([**WshShellHistoryIO\_t**](structWshShellHistoryIO__t.md), [**WshShellSessionIO\_t**](structWshShellSessionIO__t.md))
+* **RejectedNum** ([**WshShellPromptWait**](structWshShellPromptWait.md))
+* **RebootsLeft** ([**WshShellSession\_t**](structWshShellSession__t.md))
 * **Rights** ([**WshShellUser\_t**](structWshShellUser__t.md))
 
 
@@ -109,6 +111,7 @@
 * **StorageBuff** ([**WshShellHistory\_Data\_t**](structWshShellHistory__Data__t.md))
 * **ShortName** ([**WshShellOption\_t**](structWshShellOption__t.md))
 * **Salt** ([**WshShellUser\_t**](structWshShellUser__t.md))
+* **SessionIO** ([**WshShell\_t**](structWshShell__t.md))
 
 
 ## t
@@ -121,6 +124,7 @@
 
 ## u
 
+* **UserIdx** ([**WshShellSession\_t**](structWshShellSession__t.md))
 * **UserName** ([**WshShell\_PS1Data\_t**](structWshShell__PS1Data__t.md))
 * **Users** ([**WshShell\_t**](structWshShell__t.md))
 
@@ -133,7 +137,7 @@
 
 ## w
 
-* **Write** ([**WshShellHistoryIO\_t**](structWshShellHistoryIO__t.md))
+* **Write** ([**WshShellHistoryIO\_t**](structWshShellHistoryIO__t.md), [**WshShellSessionIO\_t**](structWshShellSessionIO__t.md))
 
 
 

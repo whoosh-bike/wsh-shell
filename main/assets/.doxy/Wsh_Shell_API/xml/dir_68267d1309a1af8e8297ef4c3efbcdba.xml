@@ -26,6 +26,8 @@
     <innerfile refid="wsh__shell__promptwait_8h">wsh_shell_promptwait.h</innerfile>
     <innerfile refid="wsh__shell__ps1__custom_8c">wsh_shell_ps1_custom.c</innerfile>
     <innerfile refid="wsh__shell__ps1__custom_8h">wsh_shell_ps1_custom.h</innerfile>
+    <innerfile refid="wsh__shell__session_8c">wsh_shell_session.c</innerfile>
+    <innerfile refid="wsh__shell__session_8h">wsh_shell_session.h</innerfile>
     <innerfile refid="wsh__shell__str_8c">wsh_shell_str.c</innerfile>
     <innerfile refid="wsh__shell__str_8h">wsh_shell_str.h</innerfile>
     <innerfile refid="wsh__shell__types_8h">wsh_shell_types.h</innerfile>

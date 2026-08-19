@@ -42,7 +42,7 @@ WSH_SHELL_RET_STATE_t WshShellUser_Attach(WshShellUser_Table_t* pShellUsers, con
 
 void WshShellUser_DeAttach(WshShellUser_Table_t* pShellUsers);
 
-WshShell_Size_t WshShellUser_GetUsersNum(WshShellUser_Table_t* pShellUsers);
+WshShell_Size_t WshShellUser_GetUsersNum(const WshShellUser_Table_t* pcShellUsers);
 
 const WshShellUser_t* WshShellUser_GetUserByIndex(WshShellUser_Table_t* pShellUsers, WshShell_Size_t idx);
 

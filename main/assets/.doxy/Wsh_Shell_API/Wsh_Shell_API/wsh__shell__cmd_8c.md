@@ -55,12 +55,12 @@
 |  WSH\_SHELL\_RET\_STATE\_t | [**WshShellCmd\_Attach**](#function-wshshellcmd_attach) ([**WshShellCmd\_Table\_t**](structWshShellCmd__Table__t.md) \* pShellCommands, const [**WshShellCmd\_t**](wsh__shell__cmd_8h.md#typedef-wshshellcmd_t) \* pcCmdTable, WshShell\_Size\_t cmdNum) <br>_Initializes the command table._  |
 |  void | [**WshShellCmd\_DeAttach**](#function-wshshellcmd_deattach) ([**WshShellCmd\_Table\_t**](structWshShellCmd__Table__t.md) \* pShellCommands) <br>_Frees or resets the command table._  |
 |  const [**WshShellOption\_t**](structWshShellOption__t.md) \* | [**WshShellCmd\_FindOptByName**](#function-wshshellcmd_findoptbyname) (const [**WshShellCmd\_t**](wsh__shell__cmd_8h.md#typedef-wshshellcmd_t) \* pcCmd, const WshShell\_Char\_t \* pcName) <br>_Finds an option in a command's table by short or long name._  |
-|  const [**WshShellCmd\_t**](wsh__shell__cmd_8h.md#typedef-wshshellcmd_t) \* | [**WshShellCmd\_GetCmdByIndex**](#function-wshshellcmd_getcmdbyindex) ([**WshShellCmd\_Table\_t**](structWshShellCmd__Table__t.md) \* pShellCommands, WshShell\_Size\_t idx) <br>_Retrieves a command by index._  |
-|  WshShell\_Size\_t | [**WshShellCmd\_GetCmdNum**](#function-wshshellcmd_getcmdnum) ([**WshShellCmd\_Table\_t**](structWshShellCmd__Table__t.md) \* pShellCommands) <br>_Returns the number of registered commands._  |
+|  const [**WshShellCmd\_t**](wsh__shell__cmd_8h.md#typedef-wshshellcmd_t) \* | [**WshShellCmd\_GetCmdByIndex**](#function-wshshellcmd_getcmdbyindex) (const [**WshShellCmd\_Table\_t**](structWshShellCmd__Table__t.md) \* pcShellCommands, WshShell\_Size\_t idx) <br>_Retrieves a command by index._  |
+|  WshShell\_Size\_t | [**WshShellCmd\_GetCmdNum**](#function-wshshellcmd_getcmdnum) (const [**WshShellCmd\_Table\_t**](structWshShellCmd__Table__t.md) \* pcShellCommands) <br>_Returns the number of registered commands._  |
 |  WSH\_SHELL\_RET\_STATE\_t | [**WshShellCmd\_GetOptValue**](#function-wshshellcmd_getoptvalue) ([**WshShellOption\_Ctx\_t**](structWshShellOption__Ctx__t.md) \* pOptCtx, WshShell\_Size\_t argc, const WshShell\_Char\_t \* pArgv, WshShell\_Size\_t valueSize, void \* pValue) <br>_Retrieves the value associated with a parsed command option._  |
 |  [**WshShellOption\_Ctx\_t**](structWshShellOption__Ctx__t.md) | [**WshShellCmd\_ParseOpt**](#function-wshshellcmd_parseopt) (const [**WshShellCmd\_t**](wsh__shell__cmd_8h.md#typedef-wshshellcmd_t) \* pcCmd, WshShell\_Size\_t argc, const WshShell\_Char\_t \* pArgv, WshShell\_Size\_t rights, WshShell\_Size\_t \* pTokenPos) <br>_Parses a command-line option for a given shell command._  |
 |  void | [**WshShellCmd\_PrintOptionsOverview**](#function-wshshellcmd_printoptionsoverview) (const [**WshShellCmd\_t**](wsh__shell__cmd_8h.md#typedef-wshshellcmd_t) \* pcCmd) <br>_Prints detailed information about a shell command and its options._  |
-|  const [**WshShellCmd\_t**](wsh__shell__cmd_8h.md#typedef-wshshellcmd_t) \* | [**WshShellCmd\_SearchCmd**](#function-wshshellcmd_searchcmd) ([**WshShellCmd\_Table\_t**](structWshShellCmd__Table__t.md) \* pShellCommands, const WshShell\_Char\_t \* pcCmdName) <br>_Finds a command by its name._  |
+|  const [**WshShellCmd\_t**](wsh__shell__cmd_8h.md#typedef-wshshellcmd_t) \* | [**WshShellCmd\_SearchCmd**](#function-wshshellcmd_searchcmd) (const [**WshShellCmd\_Table\_t**](structWshShellCmd__Table__t.md) \* pcShellCommands, const WshShell\_Char\_t \* pcCmdName) <br>_Finds a command by its name._  |
 
 
 ## Public Static Functions
@@ -210,7 +210,7 @@ Pointer to the matching option, or NULL if not found.
 _Retrieves a command by index._ 
 ```C++
 const WshShellCmd_t * WshShellCmd_GetCmdByIndex (
-    WshShellCmd_Table_t * pShellCommands,
+    const WshShellCmd_Table_t * pcShellCommands,
     WshShell_Size_t idx
 ) 
 ```
@@ -246,7 +246,7 @@ Pointer to the command descriptor or NULL if out-of-bounds.
 _Returns the number of registered commands._ 
 ```C++
 WshShell_Size_t WshShellCmd_GetCmdNum (
-    WshShellCmd_Table_t * pShellCommands
+    const WshShellCmd_Table_t * pcShellCommands
 ) 
 ```
 
@@ -445,7 +445,7 @@ This is typically used for displaying help information when a user requests `--h
 _Finds a command by its name._ 
 ```C++
 const WshShellCmd_t * WshShellCmd_SearchCmd (
-    WshShellCmd_Table_t * pShellCommands,
+    const WshShellCmd_Table_t * pcShellCommands,
     const WshShell_Char_t * pcCmdName
 ) 
 ```

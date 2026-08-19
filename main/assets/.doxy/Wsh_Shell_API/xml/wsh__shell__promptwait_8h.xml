@@ -79,6 +79,21 @@
       </node>
     </invincdepgraph>
     <innerclass refid="structWshShellPromptWait" prot="public">WshShellPromptWait</innerclass>
+      <sectiondef kind="define">
+      <memberdef kind="define" id="wsh__shell__promptwait_8h_1acdd6e940885e4e5d9a59450574806c59" prot="public" static="no">
+        <name>WSH_SHELL_PROMPT_WAIT_HINT_RETRIES</name>
+        <initializer>3</initializer>
+        <briefdescription>
+<para>How many rejected keystrokes still reprint the prompt hint. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>A prompt-wait is modal: nothing the user types reaches the command line, so the hint is the only explanation. Repeating it on every keystroke floods whatever else is streaming, so it is repeated a few times and then the wait goes quiet. The bell keeps sounding on every rejection regardless. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/wsh_shell_promptwait.h" line="34" column="9" bodyfile="src/wsh_shell_promptwait.h" bodystart="34" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
       <sectiondef kind="typedef">
       <memberdef kind="typedef" id="wsh__shell__promptwait_8h_1a8b7d52c5773fc4c4bf95494df837cac0" prot="public" static="no">
         <type>WshShell_Bool_t(*</type>
@@ -110,7 +125,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/wsh_shell_promptwait.h" line="34" column="9" bodyfile="src/wsh_shell_promptwait.h" bodystart="34" bodyend="-1"/>
+        <location file="src/wsh_shell_promptwait.h" line="46" column="9" bodyfile="src/wsh_shell_promptwait.h" bodystart="46" bodyend="-1"/>
       </memberdef>
       <memberdef kind="typedef" id="wsh__shell__promptwait_8h_1ae016420bafdc2a872eff41aa9a95d110" prot="public" static="no">
         <type>struct <ref refid="structWshShellPromptWait" kindref="compound">WshShellPromptWait</ref></type>
@@ -125,7 +140,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/wsh_shell_promptwait.h" line="45" column="22"/>
+        <location file="src/wsh_shell_promptwait.h" line="58" column="22"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="func">
@@ -156,7 +171,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/wsh_shell_promptwait.h" line="54" column="6" bodyfile="src/wsh_shell_promptwait.c" bodystart="3" bodyend="10" declfile="src/wsh_shell_promptwait.h" declline="54" declcolumn="6"/>
+        <location file="src/wsh_shell_promptwait.h" line="67" column="6" bodyfile="src/wsh_shell_promptwait.c" bodystart="3" bodyend="11" declfile="src/wsh_shell_promptwait.h" declline="67" declcolumn="6"/>
       </memberdef>
       <memberdef kind="function" id="wsh__shell__promptwait_8h_1a43d800c65924a700804695ce86f08fb0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -209,7 +224,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/wsh_shell_promptwait.h" line="68" column="6" bodyfile="src/wsh_shell_promptwait.c" bodystart="74" bodyend="76" declfile="src/wsh_shell_promptwait.h" declline="68" declcolumn="6"/>
+        <location file="src/wsh_shell_promptwait.h" line="81" column="6" bodyfile="src/wsh_shell_promptwait.c" bodystart="110" bodyend="112" declfile="src/wsh_shell_promptwait.h" declline="81" declcolumn="6"/>
       </memberdef>
       <memberdef kind="function" id="wsh__shell__promptwait_8h_1a77a4f37e3ae313fe5291c5e28addd451" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>WSH_SHELL_RET_STATE_t</type>
@@ -252,7 +267,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/wsh_shell_promptwait.h" line="82" column="23" bodyfile="src/wsh_shell_promptwait.c" bodystart="78" bodyend="80" declfile="src/wsh_shell_promptwait.h" declline="82" declcolumn="23"/>
+        <location file="src/wsh_shell_promptwait.h" line="95" column="23" bodyfile="src/wsh_shell_promptwait.c" bodystart="114" bodyend="116" declfile="src/wsh_shell_promptwait.h" declline="95" declcolumn="23"/>
       </memberdef>
       <memberdef kind="function" id="wsh__shell__promptwait_8h_1a99b79f24add7ec6e2f404a6888373b6f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>WshShell_Bool_t</type>
@@ -299,7 +314,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/wsh_shell_promptwait.h" line="96" column="17" bodyfile="src/wsh_shell_promptwait.c" bodystart="82" bodyend="84" declfile="src/wsh_shell_promptwait.h" declline="96" declcolumn="17"/>
+        <location file="src/wsh_shell_promptwait.h" line="109" column="17" bodyfile="src/wsh_shell_promptwait.c" bodystart="118" bodyend="120" declfile="src/wsh_shell_promptwait.h" declline="109" declcolumn="17"/>
       </memberdef>
       <memberdef kind="function" id="wsh__shell__promptwait_8h_1a2550871112305c516bab1d2de9f5de05" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>WshShell_Bool_t</type>
@@ -320,7 +335,38 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/wsh_shell_promptwait.h" line="97" column="17" bodyfile="src/wsh_shell_promptwait.c" bodystart="86" bodyend="88" declfile="src/wsh_shell_promptwait.h" declline="97" declcolumn="17"/>
+        <location file="src/wsh_shell_promptwait.h" line="110" column="17" bodyfile="src/wsh_shell_promptwait.c" bodystart="122" bodyend="124" declfile="src/wsh_shell_promptwait.h" declline="110" declcolumn="17"/>
+      </memberdef>
+      <memberdef kind="function" id="wsh__shell__promptwait_8h_1a8d0e1c8b0eaa0343350d481000e49ca3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>WshShell_Bool_t</type>
+        <definition>WshShell_Bool_t WshShellPromptWait_HintIsNeeded</definition>
+        <argsstring>(const WshShellPromptWait_t *pcWait)</argsstring>
+        <name>WshShellPromptWait_HintIsNeeded</name>
+        <param>
+          <type>const <ref refid="wsh__shell__promptwait_8h_1ae016420bafdc2a872eff41aa9a95d110" kindref="member">WshShellPromptWait_t</ref> *</type>
+          <declname>pcWait</declname>
+        </param>
+        <briefdescription>
+<para>Whether a handler should still print its hint on a rejected keystroke. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Call it from a prompt-wait handler before printing &quot;press ...&quot; so the hint stops after <ref refid="wsh__shell__promptwait_8h_1acdd6e940885e4e5d9a59450574806c59" kindref="member">WSH_SHELL_PROMPT_WAIT_HINT_RETRIES</ref> rejections instead of repeating for every key.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">pcWait</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to prompt-wait control object. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>true while the hint is still worth printing. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/wsh_shell_promptwait.h" line="122" column="17" bodyfile="src/wsh_shell_promptwait.c" bodystart="126" bodyend="128" declfile="src/wsh_shell_promptwait.h" declline="122" declcolumn="17"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
@@ -347,30 +393,37 @@
 <codeline lineno="22"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/></highlight><highlight class="stringliteral">&quot;C&quot;</highlight><highlight class="normal"><sp/>{</highlight></codeline>
 <codeline lineno="23"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="24"><highlight class="normal"></highlight></codeline>
-<codeline lineno="25"><highlight class="normal"></highlight><highlight class="comment">//<sp/>Forward<sp/>declaration<sp/>of<sp/>command<sp/>structure</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="26"><highlight class="normal"></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="structWshShellPromptWait" kindref="compound">WshShellPromptWait</ref>;</highlight></codeline>
-<codeline lineno="27"><highlight class="normal"></highlight></codeline>
-<codeline lineno="34" refid="wsh__shell__promptwait_8h_1a8b7d52c5773fc4c4bf95494df837cac0" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/>WshShell_Bool_t<sp/>(*<ref refid="wsh__shell__promptwait_8h_1a8b7d52c5773fc4c4bf95494df837cac0" kindref="member">WshShellPromptWait_Handler_t</ref>)(WshShell_Char_t<sp/>symbol,<sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="structWshShellPromptWait" kindref="compound">WshShellPromptWait</ref>*<sp/>pWait);</highlight></codeline>
-<codeline lineno="35"><highlight class="normal"></highlight></codeline>
-<codeline lineno="42" refid="structWshShellPromptWait" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="structWshShellPromptWait" kindref="compound">WshShellPromptWait</ref><sp/>{</highlight></codeline>
-<codeline lineno="43"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="wsh__shell__promptwait_8h_1a8b7d52c5773fc4c4bf95494df837cac0" kindref="member">WshShellPromptWait_Handler_t</ref><sp/>Handler;</highlight></codeline>
-<codeline lineno="44"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal">*<sp/>Ctx;</highlight></codeline>
-<codeline lineno="45" refid="wsh__shell__promptwait_8h_1ae016420bafdc2a872eff41aa9a95d110" refkind="member"><highlight class="normal">}<sp/><ref refid="wsh__shell__promptwait_8h_1ae016420bafdc2a872eff41aa9a95d110" kindref="member">WshShellPromptWait_t</ref>;</highlight></codeline>
-<codeline lineno="46"><highlight class="normal"></highlight></codeline>
-<codeline lineno="54"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="wsh__shell__promptwait_8h_1a8a617ef8d2ec336720ab8efe34c2a279" kindref="member">WshShellPromptWait_Flush</ref>(<ref refid="structWshShellPromptWait" kindref="compound">WshShellPromptWait_t</ref>*<sp/>pWait);</highlight></codeline>
-<codeline lineno="55"><highlight class="normal"></highlight></codeline>
-<codeline lineno="68"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="wsh__shell__promptwait_8h_1a43d800c65924a700804695ce86f08fb0" kindref="member">WshShellPromptWait_Attach</ref>(<ref refid="structWshShellPromptWait" kindref="compound">WshShellPromptWait_t</ref>*<sp/>pWait,<sp/><ref refid="wsh__shell__promptwait_8h_1a8b7d52c5773fc4c4bf95494df837cac0" kindref="member">WshShellPromptWait_Handler_t</ref><sp/>handler,<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal">*<sp/>pCtx);</highlight></codeline>
-<codeline lineno="69"><highlight class="normal"></highlight></codeline>
-<codeline lineno="82"><highlight class="normal">WSH_SHELL_RET_STATE_t<sp/><ref refid="wsh__shell__promptwait_8h_1a77a4f37e3ae313fe5291c5e28addd451" kindref="member">WshShellPromptWait_Handle</ref>(<ref refid="structWshShellPromptWait" kindref="compound">WshShellPromptWait_t</ref>*<sp/>pWait,<sp/>WshShell_Char_t<sp/>symbol);</highlight></codeline>
-<codeline lineno="83"><highlight class="normal"></highlight></codeline>
-<codeline lineno="96"><highlight class="normal">WshShell_Bool_t<sp/><ref refid="wsh__shell__promptwait_8h_1a99b79f24add7ec6e2f404a6888373b6f" kindref="member">WshShellPromptWait_Enter</ref>(WshShell_Char_t<sp/>symbol,<sp/><ref refid="structWshShellPromptWait" kindref="compound">WshShellPromptWait_t</ref>*<sp/>pWait);</highlight></codeline>
-<codeline lineno="97"><highlight class="normal">WshShell_Bool_t<sp/>WshShellPromptWait_YesNo(WshShell_Char_t<sp/>symbol,<sp/><ref refid="structWshShellPromptWait" kindref="compound">WshShellPromptWait_t</ref>*<sp/>pWait);</highlight></codeline>
-<codeline lineno="98"><highlight class="normal"></highlight></codeline>
-<codeline lineno="99"><highlight class="normal"></highlight><highlight class="preprocessor">#ifdef<sp/>__cplusplus</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="100"><highlight class="normal">}</highlight></codeline>
-<codeline lineno="101"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="102"><highlight class="normal"></highlight></codeline>
-<codeline lineno="103"><highlight class="normal"></highlight><highlight class="preprocessor">#endif<sp/></highlight><highlight class="comment">/*<sp/>__WSH_SHELL_PROMPTWAIT_H<sp/>*/</highlight><highlight class="preprocessor"></highlight></codeline>
+<codeline lineno="33"><highlight class="normal"></highlight><highlight class="preprocessor">#ifndef<sp/>WSH_SHELL_PROMPT_WAIT_HINT_RETRIES</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="34" refid="wsh__shell__promptwait_8h_1acdd6e940885e4e5d9a59450574806c59" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>WSH_SHELL_PROMPT_WAIT_HINT_RETRIES<sp/>3</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="35"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="36"><highlight class="normal"></highlight></codeline>
+<codeline lineno="37"><highlight class="normal"></highlight><highlight class="comment">//<sp/>Forward<sp/>declaration<sp/>of<sp/>command<sp/>structure</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="38"><highlight class="normal"></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="structWshShellPromptWait" kindref="compound">WshShellPromptWait</ref>;</highlight></codeline>
+<codeline lineno="39"><highlight class="normal"></highlight></codeline>
+<codeline lineno="46" refid="wsh__shell__promptwait_8h_1a8b7d52c5773fc4c4bf95494df837cac0" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/>WshShell_Bool_t<sp/>(*<ref refid="wsh__shell__promptwait_8h_1a8b7d52c5773fc4c4bf95494df837cac0" kindref="member">WshShellPromptWait_Handler_t</ref>)(WshShell_Char_t<sp/>symbol,<sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="structWshShellPromptWait" kindref="compound">WshShellPromptWait</ref>*<sp/>pWait);</highlight></codeline>
+<codeline lineno="47"><highlight class="normal"></highlight></codeline>
+<codeline lineno="54" refid="structWshShellPromptWait" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="structWshShellPromptWait" kindref="compound">WshShellPromptWait</ref><sp/>{</highlight></codeline>
+<codeline lineno="55"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="wsh__shell__promptwait_8h_1a8b7d52c5773fc4c4bf95494df837cac0" kindref="member">WshShellPromptWait_Handler_t</ref><sp/>Handler;</highlight></codeline>
+<codeline lineno="56"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal">*<sp/>Ctx;</highlight></codeline>
+<codeline lineno="57" refid="structWshShellPromptWait_1a732bd191a1a12968b49f65e68aebbd61" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>WshShell_Size_t<sp/><ref refid="structWshShellPromptWait_1a732bd191a1a12968b49f65e68aebbd61" kindref="member">RejectedNum</ref>;<sp/></highlight></codeline>
+<codeline lineno="58" refid="wsh__shell__promptwait_8h_1ae016420bafdc2a872eff41aa9a95d110" refkind="member"><highlight class="normal">}<sp/><ref refid="wsh__shell__promptwait_8h_1ae016420bafdc2a872eff41aa9a95d110" kindref="member">WshShellPromptWait_t</ref>;</highlight></codeline>
+<codeline lineno="59"><highlight class="normal"></highlight></codeline>
+<codeline lineno="67"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="wsh__shell__promptwait_8h_1a8a617ef8d2ec336720ab8efe34c2a279" kindref="member">WshShellPromptWait_Flush</ref>(<ref refid="structWshShellPromptWait" kindref="compound">WshShellPromptWait_t</ref>*<sp/>pWait);</highlight></codeline>
+<codeline lineno="68"><highlight class="normal"></highlight></codeline>
+<codeline lineno="81"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="wsh__shell__promptwait_8h_1a43d800c65924a700804695ce86f08fb0" kindref="member">WshShellPromptWait_Attach</ref>(<ref refid="structWshShellPromptWait" kindref="compound">WshShellPromptWait_t</ref>*<sp/>pWait,<sp/><ref refid="wsh__shell__promptwait_8h_1a8b7d52c5773fc4c4bf95494df837cac0" kindref="member">WshShellPromptWait_Handler_t</ref><sp/>handler,<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal">*<sp/>pCtx);</highlight></codeline>
+<codeline lineno="82"><highlight class="normal"></highlight></codeline>
+<codeline lineno="95"><highlight class="normal">WSH_SHELL_RET_STATE_t<sp/><ref refid="wsh__shell__promptwait_8h_1a77a4f37e3ae313fe5291c5e28addd451" kindref="member">WshShellPromptWait_Handle</ref>(<ref refid="structWshShellPromptWait" kindref="compound">WshShellPromptWait_t</ref>*<sp/>pWait,<sp/>WshShell_Char_t<sp/>symbol);</highlight></codeline>
+<codeline lineno="96"><highlight class="normal"></highlight></codeline>
+<codeline lineno="109"><highlight class="normal">WshShell_Bool_t<sp/><ref refid="wsh__shell__promptwait_8h_1a99b79f24add7ec6e2f404a6888373b6f" kindref="member">WshShellPromptWait_Enter</ref>(WshShell_Char_t<sp/>symbol,<sp/><ref refid="structWshShellPromptWait" kindref="compound">WshShellPromptWait_t</ref>*<sp/>pWait);</highlight></codeline>
+<codeline lineno="110"><highlight class="normal">WshShell_Bool_t<sp/>WshShellPromptWait_YesNo(WshShell_Char_t<sp/>symbol,<sp/><ref refid="structWshShellPromptWait" kindref="compound">WshShellPromptWait_t</ref>*<sp/>pWait);</highlight></codeline>
+<codeline lineno="111"><highlight class="normal"></highlight></codeline>
+<codeline lineno="122"><highlight class="normal">WshShell_Bool_t<sp/><ref refid="wsh__shell__promptwait_8h_1a8d0e1c8b0eaa0343350d481000e49ca3" kindref="member">WshShellPromptWait_HintIsNeeded</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="structWshShellPromptWait" kindref="compound">WshShellPromptWait_t</ref>*<sp/>pcWait);</highlight></codeline>
+<codeline lineno="123"><highlight class="normal"></highlight></codeline>
+<codeline lineno="124"><highlight class="normal"></highlight><highlight class="preprocessor">#ifdef<sp/>__cplusplus</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="125"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="126"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="127"><highlight class="normal"></highlight></codeline>
+<codeline lineno="128"><highlight class="normal"></highlight><highlight class="preprocessor">#endif<sp/></highlight><highlight class="comment">/*<sp/>__WSH_SHELL_PROMPTWAIT_H<sp/>*/</highlight><highlight class="preprocessor"></highlight></codeline>
     </programlisting>
     <location file="src/wsh_shell_promptwait.h"/>
   </compounddef>

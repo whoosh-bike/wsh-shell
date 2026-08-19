@@ -19,6 +19,7 @@
     <includedby refid="wsh__shell__misc_8h" local="yes">src/wsh_shell_misc.h</includedby>
     <includedby refid="wsh__shell__option_8h" local="yes">src/wsh_shell_option.h</includedby>
     <includedby refid="wsh__shell__ps1__custom_8h" local="yes">src/wsh_shell_ps1_custom.h</includedby>
+    <includedby refid="wsh__shell__session_8h" local="yes">src/wsh_shell_session.h</includedby>
     <includedby refid="wsh__shell__str_8h" local="yes">src/wsh_shell_str.h</includedby>
     <includedby refid="wsh__shell__user_8h" local="yes">src/wsh_shell_user.h</includedby>
     <incdepgraph>
@@ -63,7 +64,7 @@
       </node>
     </incdepgraph>
     <invincdepgraph>
-      <node id="14">
+      <node id="15">
         <label>src/wsh_shell_user.h</label>
         <link refid="wsh__shell__user_8h"/>
         <childnode refid="2" relation="include">
@@ -78,8 +79,10 @@
         </childnode>
         <childnode refid="14" relation="include">
         </childnode>
+        <childnode refid="15" relation="include">
+        </childnode>
       </node>
-      <node id="16">
+      <node id="17">
         <label>src/wsh_shell_str.h</label>
         <link refid="wsh__shell__str_8h"/>
         <childnode refid="2" relation="include">
@@ -97,12 +100,18 @@
         <childnode refid="2" relation="include">
         </childnode>
       </node>
-      <node id="15">
+      <node id="14">
+        <label>src/wsh_shell_session.h</label>
+        <link refid="wsh__shell__session_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="16">
         <label>src/wsh_shell_option.h</label>
         <link refid="wsh__shell__option_8h"/>
         <childnode refid="5" relation="include">
         </childnode>
-        <childnode refid="16" relation="include">
+        <childnode refid="17" relation="include">
         </childnode>
       </node>
       <node id="9">
@@ -142,13 +151,15 @@
         </childnode>
         <childnode refid="13" relation="include">
         </childnode>
-        <childnode refid="15" relation="include">
+        <childnode refid="16" relation="include">
         </childnode>
         <childnode refid="12" relation="include">
         </childnode>
-        <childnode refid="16" relation="include">
-        </childnode>
         <childnode refid="14" relation="include">
+        </childnode>
+        <childnode refid="17" relation="include">
+        </childnode>
+        <childnode refid="15" relation="include">
         </childnode>
       </node>
       <node id="7">

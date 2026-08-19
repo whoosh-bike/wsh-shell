@@ -38,6 +38,7 @@ _Prompt-wait control structure._ [More...](#detailed-description)
 | ---: | :--- |
 |  void \* | [**Ctx**](#variable-ctx)  <br> |
 |  [**WshShellPromptWait\_Handler\_t**](wsh__shell__promptwait_8h.md#typedef-wshshellpromptwait_handler_t) | [**Handler**](#variable-handler)  <br> |
+|  WshShell\_Size\_t | [**RejectedNum**](#variable-rejectednum)  <br> |
 
 
 
@@ -115,6 +116,23 @@ WshShellPromptWait_Handler_t WshShellPromptWait::Handler;
 
 
 
+
+<hr>
+
+
+
+### variable RejectedNum 
+
+```C++
+WshShell_Size_t WshShellPromptWait::RejectedNum;
+```
+
+
+
+Keystrokes refused by the handler since attach. 
+
+
+        
 
 <hr>
 

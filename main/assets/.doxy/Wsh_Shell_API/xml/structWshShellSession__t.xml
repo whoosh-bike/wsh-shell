@@ -1,0 +1,63 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="structWshShellSession__t" kind="struct" language="C++" prot="public">
+    <compoundname>WshShellSession_t</compoundname>
+    <includes refid="wsh__shell__session_8h" local="no">wsh_shell_session.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structWshShellSession__t_1a9040d2cd714d8d298cfef6090701e2b4" prot="public" static="no" mutable="no">
+        <type>WshShell_U32_t</type>
+        <definition>WshShell_U32_t WshShellSession_t::Hash</definition>
+        <argsstring></argsstring>
+        <name>Hash</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Hash over the fields below. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/wsh_shell_session.h" line="38" column="20" bodyfile="src/wsh_shell_session.h" bodystart="38" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structWshShellSession__t_1ae743780ade4848e86593d7d6caf5ca5a" prot="public" static="no" mutable="no">
+        <type>WshShell_U32_t</type>
+        <definition>WshShell_U32_t WshShellSession_t::RebootsLeft</definition>
+        <argsstring></argsstring>
+        <name>RebootsLeft</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Reboots the login may still survive. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/wsh_shell_session.h" line="39" column="20" bodyfile="src/wsh_shell_session.h" bodystart="39" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structWshShellSession__t_1a369f52f501cf04e7b869b5ae09749e06" prot="public" static="no" mutable="no">
+        <type>WshShell_U32_t</type>
+        <definition>WshShell_U32_t WshShellSession_t::UserIdx</definition>
+        <argsstring></argsstring>
+        <name>UserIdx</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Index into the shell user table. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/wsh_shell_session.h" line="40" column="20" bodyfile="src/wsh_shell_session.h" bodystart="40" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Persisted session descriptor with an integrity hash. </para>
+    </briefdescription>
+    <detaileddescription>
+<para>Hash covers every field after itself, so uninitialised RAM (or a torn write) reads back as invalid. A valid descriptor with RebootsLeft &gt; 0 means an active &quot;keep me logged in&quot; request. </para>
+    </detaileddescription>
+    <location file="src/wsh_shell_session.h" line="37" column="1" bodyfile="src/wsh_shell_session.h" bodystart="37" bodyend="41"/>
+    <listofallmembers>
+      <member refid="structWshShellSession__t_1a9040d2cd714d8d298cfef6090701e2b4" prot="public" virt="non-virtual"><scope>WshShellSession_t</scope><name>Hash</name></member>
+      <member refid="structWshShellSession__t_1ae743780ade4848e86593d7d6caf5ca5a" prot="public" virt="non-virtual"><scope>WshShellSession_t</scope><name>RebootsLeft</name></member>
+      <member refid="structWshShellSession__t_1a369f52f501cf04e7b869b5ae09749e06" prot="public" virt="non-virtual"><scope>WshShellSession_t</scope><name>UserIdx</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

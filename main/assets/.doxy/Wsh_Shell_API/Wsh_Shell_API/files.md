@@ -29,6 +29,8 @@ Here is a list of all files with brief descriptions:
     * **file** [**wsh\_shell\_promptwait.h**](wsh__shell__promptwait_8h.md) _One-time user input waiting mechanism for WshShell._     
     * **file** [**wsh\_shell\_ps1\_custom.c**](wsh__shell__ps1__custom_8c.md)     
     * **file** [**wsh\_shell\_ps1\_custom.h**](wsh__shell__ps1__custom_8h.md) _Shell prompt (PS1) customization and formatting._     
+    * **file** [**wsh\_shell\_session.c**](wsh__shell__session_8c.md)     
+    * **file** [**wsh\_shell\_session.h**](wsh__shell__session_8h.md) _Persistent login session across reboots._     
     * **file** [**wsh\_shell\_str.c**](wsh__shell__str_8c.md)     
     * **file** [**wsh\_shell\_str.h**](wsh__shell__str_8h.md) _Common string operations for user input processing._     
     * **file** [**wsh\_shell\_types.h**](wsh__shell__types_8h.md) _Basic type definitions and return state enumeration for WshShell._     

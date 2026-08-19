@@ -24,7 +24,7 @@ extern "C" {
 #endif
 
 WshShell_Bool_t WshShellAutocomplete_Try(WshShell_Char_t* pInBuff, WshShell_Size_t inBuffLen,
-                                         WshShellCmd_Table_t* pShellCommands);
+                                         const WshShellCmd_Table_t* pcShellCommands);
 
 #ifdef __cplusplus
 }

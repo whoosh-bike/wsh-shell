@@ -51,11 +51,12 @@ WSH_SHELL_RET_STATE_t WshShellCmd_Attach(WshShellCmd_Table_t* pShellCommands, co
 
 void WshShellCmd_DeAttach(WshShellCmd_Table_t* pShellCommands);
 
-WshShell_Size_t WshShellCmd_GetCmdNum(WshShellCmd_Table_t* pShellCommands);
+WshShell_Size_t WshShellCmd_GetCmdNum(const WshShellCmd_Table_t* pcShellCommands);
 
-const WshShellCmd_t* WshShellCmd_GetCmdByIndex(WshShellCmd_Table_t* pShellCommands, WshShell_Size_t idx);
+const WshShellCmd_t* WshShellCmd_GetCmdByIndex(const WshShellCmd_Table_t* pcShellCommands, WshShell_Size_t idx);
 
-const WshShellCmd_t* WshShellCmd_SearchCmd(WshShellCmd_Table_t* pShellCommands, const WshShell_Char_t* pcCmdName);
+const WshShellCmd_t* WshShellCmd_SearchCmd(const WshShellCmd_Table_t* pcShellCommands,
+                                           const WshShell_Char_t* pcCmdName);
 
 #if WSH_SHELL_SUBCOMMANDS
 WshShell_Size_t WshShellCmd_GetSubCmdNum(const WshShellCmd_t* pcCmd);

@@ -52,7 +52,7 @@
 
 | Type | Name |
 | ---: | :--- |
-|  WshShell\_Bool\_t | [**WshShellAutocomplete\_Try**](#function-wshshellautocomplete_try) (WshShell\_Char\_t \* pInBuff, WshShell\_Size\_t inBuffLen, [**WshShellCmd\_Table\_t**](structWshShellCmd__Table__t.md) \* pShellCommands) <br>_Attempts to autocomplete the command in the input buffer._  |
+|  WshShell\_Bool\_t | [**WshShellAutocomplete\_Try**](#function-wshshellautocomplete_try) (WshShell\_Char\_t \* pInBuff, WshShell\_Size\_t inBuffLen, const [**WshShellCmd\_Table\_t**](structWshShellCmd__Table__t.md) \* pcShellCommands) <br>_Attempts to autocomplete the command in the input buffer._  |
 
 
 
@@ -93,7 +93,7 @@ _Attempts to autocomplete the command in the input buffer._
 WshShell_Bool_t WshShellAutocomplete_Try (
     WshShell_Char_t * pInBuff,
     WshShell_Size_t inBuffLen,
-    WshShellCmd_Table_t * pShellCommands
+    const WshShellCmd_Table_t * pcShellCommands
 ) 
 ```
 
@@ -120,7 +120,7 @@ This function is typically triggered by the user pressing the Tab key.
 
 * `pInBuff` Pointer to the input buffer to modify. 
 * `inBuffLen` Total size of the input buffer. 
-* `pShellCommands` Pointer to the command table to search.
+* `pcShellCommands` Pointer to the command table to search.
 
 
 

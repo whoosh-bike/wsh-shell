@@ -324,14 +324,14 @@
         </inbodydescription>
         <location file="src/wsh_shell_esc.c" line="112" column="6" bodyfile="src/wsh_shell_esc.c" bodystart="112" bodyend="119"/>
       </memberdef>
-      <memberdef kind="function" id="wsh__shell__esc_8c_1a07c38fd3528e0db9ad60440514f8c22a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="wsh__shell__esc_8c_1a2e1db0a03bd8fc76a890f9880327ef66" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>WshShell_Bool_t</type>
         <definition>WshShell_Bool_t WshShellEsc_IsSeqStarted</definition>
-        <argsstring>(WshShellEsc_Storage_t *pEscStorage)</argsstring>
+        <argsstring>(const WshShellEsc_Storage_t *pcEscStorage)</argsstring>
         <name>WshShellEsc_IsSeqStarted</name>
         <param>
-          <type><ref refid="structWshShellEsc__Storage__t" kindref="compound">WshShellEsc_Storage_t</ref> *</type>
-          <declname>pEscStorage</declname>
+          <type>const <ref refid="structWshShellEsc__Storage__t" kindref="compound">WshShellEsc_Storage_t</ref> *</type>
+          <declname>pcEscStorage</declname>
         </param>
         <briefdescription>
 <para>Checks if escape sequence is in progress. </para>
@@ -339,7 +339,7 @@
         <detaileddescription>
 <para><parameterlist kind="param"><parameteritem>
 <parameternamelist>
-<parametername>pEscStorage</parametername>
+<parametername>pcEscStorage</parametername>
 </parameternamelist>
 <parameterdescription>
 <para>Pointer to escape sequence buffer </para>
@@ -480,12 +480,12 @@
 <codeline lineno="118"><highlight class="normal"><sp/><sp/><sp/><sp/>pEscStorage-&gt;<ref refid="structWshShellEsc__Storage__t_1a23429db3def2a064b45e6f7d05084f1e" kindref="member">Buff</ref>[0]<sp/>=<sp/><ref refid="wsh__shell__io_8h_1a3f1525da63d1f221ef0ca4dfaf1e5ead" kindref="member">WSH_SHELL_ESC_SEQ_START_CHAR</ref>;</highlight></codeline>
 <codeline lineno="119"><highlight class="normal">}</highlight></codeline>
 <codeline lineno="120"><highlight class="normal"></highlight></codeline>
-<codeline lineno="121"><highlight class="normal">WshShell_Bool_t<sp/><ref refid="wsh__shell__esc_8h_1a07c38fd3528e0db9ad60440514f8c22a" kindref="member">WshShellEsc_IsSeqStarted</ref>(<ref refid="structWshShellEsc__Storage__t" kindref="compound">WshShellEsc_Storage_t</ref>*<sp/>pEscStorage)<sp/>{</highlight></codeline>
-<codeline lineno="122"><highlight class="normal"><sp/><sp/><sp/><sp/>WSH_SHELL_ASSERT(pEscStorage);</highlight></codeline>
-<codeline lineno="123"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(!pEscStorage)</highlight></codeline>
+<codeline lineno="121"><highlight class="normal">WshShell_Bool_t<sp/><ref refid="wsh__shell__esc_8h_1a2e1db0a03bd8fc76a890f9880327ef66" kindref="member">WshShellEsc_IsSeqStarted</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="structWshShellEsc__Storage__t" kindref="compound">WshShellEsc_Storage_t</ref>*<sp/>pcEscStorage)<sp/>{</highlight></codeline>
+<codeline lineno="122"><highlight class="normal"><sp/><sp/><sp/><sp/>WSH_SHELL_ASSERT(pcEscStorage);</highlight></codeline>
+<codeline lineno="123"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(!pcEscStorage)</highlight></codeline>
 <codeline lineno="124"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;</highlight></codeline>
 <codeline lineno="125"><highlight class="normal"></highlight></codeline>
-<codeline lineno="126"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>(WshShell_Bool_t)(pEscStorage-&gt;<ref refid="structWshShellEsc__Storage__t_1a007836f5e3b971e2fc17e26e8f4b9dbb" kindref="member">Cnt</ref><sp/>&gt;<sp/>0<sp/>&amp;&amp;<sp/>pEscStorage-&gt;<ref refid="structWshShellEsc__Storage__t_1a23429db3def2a064b45e6f7d05084f1e" kindref="member">Buff</ref>[0]<sp/>==<sp/><ref refid="wsh__shell__io_8h_1a3f1525da63d1f221ef0ca4dfaf1e5ead" kindref="member">WSH_SHELL_ESC_SEQ_START_CHAR</ref>);</highlight></codeline>
+<codeline lineno="126"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>(WshShell_Bool_t)(pcEscStorage-&gt;<ref refid="structWshShellEsc__Storage__t_1a007836f5e3b971e2fc17e26e8f4b9dbb" kindref="member">Cnt</ref><sp/>&gt;<sp/>0<sp/>&amp;&amp;<sp/>pcEscStorage-&gt;<ref refid="structWshShellEsc__Storage__t_1a23429db3def2a064b45e6f7d05084f1e" kindref="member">Buff</ref>[0]<sp/>==<sp/><ref refid="wsh__shell__io_8h_1a3f1525da63d1f221ef0ca4dfaf1e5ead" kindref="member">WSH_SHELL_ESC_SEQ_START_CHAR</ref>);</highlight></codeline>
 <codeline lineno="127"><highlight class="normal">}</highlight></codeline>
     </programlisting>
     <location file="src/wsh_shell_esc.c"/>

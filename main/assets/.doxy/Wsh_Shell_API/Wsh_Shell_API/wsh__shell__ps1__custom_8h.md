@@ -59,7 +59,7 @@ _Shell prompt (PS1) customization and formatting._ [More...](#detailed-descripti
 
 | Type | Name |
 | ---: | :--- |
-|  void | [**WshShell\_GeneratePS1**](#function-wshshell_generateps1) (WshShell\_Char\_t \* pPS1, [**WshShell\_PS1Data\_t**](structWshShell__PS1Data__t.md) \* pPS1Data) <br>_Applies the PS1 template and generates the final PS1 string._  |
+|  void | [**WshShell\_GeneratePS1**](#function-wshshell_generateps1) (WshShell\_Char\_t \* pPS1, const [**WshShell\_PS1Data\_t**](structWshShell__PS1Data__t.md) \* pcPS1Data) <br>_Applies the PS1 template and generates the final PS1 string._  |
 
 
 
@@ -123,7 +123,7 @@ _Applies the PS1 template and generates the final PS1 string._
 ```C++
 void WshShell_GeneratePS1 (
     WshShell_Char_t * pPS1,
-    WshShell_PS1Data_t * pPS1Data
+    const WshShell_PS1Data_t * pcPS1Data
 ) 
 ```
 
@@ -152,7 +152,7 @@ The output is truncated if it would exceed `WSH_SHELL_PS1_MAX_LEN - 1`. The resu
 
 
 * `pPS1` Output buffer for the final PS1 string. Must be at least `WSH_SHELL_PS1_MAX_LEN` in size. 
-* `pPS1Data` Pointer to the user name, divice name or other strings. 
+* `pcPS1Data` Pointer to the user name, divice name or other strings. 
 
 
 

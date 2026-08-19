@@ -27,6 +27,8 @@
 * **WshShell\_OptionTypeNames** ([**wsh\_shell\_option.h**](wsh__shell__option_8h.md))
 * **WshShellPromptWait\_Handler\_t** ([**wsh\_shell\_promptwait.h**](wsh__shell__promptwait_8h.md))
 * **WshShellPromptWait\_t** ([**wsh\_shell\_promptwait.h**](wsh__shell__promptwait_8h.md))
+* **WshShellSession\_ReadHandler\_t** ([**wsh\_shell\_session.h**](wsh__shell__session_8h.md))
+* **WshShellSession\_WriteHandler\_t** ([**wsh\_shell\_session.h**](wsh__shell__session_8h.md))
 * **WSH\_SHELL\_RET\_STATE\_t** ([**wsh\_shell\_types.h**](wsh__shell__types_8h.md))
 * **WshShell\_Bool\_t** ([**wsh\_shell\_types.h**](wsh__shell__types_8h.md))
 * **WshShell\_Char\_t** ([**wsh\_shell\_types.h**](wsh__shell__types_8h.md))

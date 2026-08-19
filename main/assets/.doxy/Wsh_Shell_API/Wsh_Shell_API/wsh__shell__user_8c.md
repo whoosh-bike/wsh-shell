@@ -57,7 +57,7 @@
 |  void | [**WshShellUser\_DeAttach**](#function-wshshelluser_deattach) ([**WshShellUser\_Table\_t**](structWshShellUser__Table__t.md) \* pShellUsers) <br>_Destroy the user table._  |
 |  const [**WshShellUser\_t**](structWshShellUser__t.md) \* | [**WshShellUser\_FindByCredentials**](#function-wshshelluser_findbycredentials) ([**WshShellUser\_Table\_t**](structWshShellUser__Table__t.md) \* pShellUsers, const WshShell\_Char\_t \* pcLogin, const WshShell\_Char\_t \* pcPass) <br>_Finds a user by login and password credentials._  |
 |  const [**WshShellUser\_t**](structWshShellUser__t.md) \* | [**WshShellUser\_GetUserByIndex**](#function-wshshelluser_getuserbyindex) ([**WshShellUser\_Table\_t**](structWshShellUser__Table__t.md) \* pShellUsers, WshShell\_Size\_t idx) <br>_Retrieve a user by index._  |
-|  WshShell\_Size\_t | [**WshShellUser\_GetUsersNum**](#function-wshshelluser_getusersnum) ([**WshShellUser\_Table\_t**](structWshShellUser__Table__t.md) \* pShellUsers) <br>_Get the number of users registered in the shell._  |
+|  WshShell\_Size\_t | [**WshShellUser\_GetUsersNum**](#function-wshshelluser_getusersnum) (const [**WshShellUser\_Table\_t**](structWshShellUser__Table__t.md) \* pcShellUsers) <br>_Get the number of users registered in the shell._  |
 
 
 ## Public Static Functions
@@ -303,7 +303,7 @@ Pointer to the user object, or NULL if invalid.
 _Get the number of users registered in the shell._ 
 ```C++
 WshShell_Size_t WshShellUser_GetUsersNum (
-    WshShellUser_Table_t * pShellUsers
+    const WshShellUser_Table_t * pcShellUsers
 ) 
 ```
 
@@ -314,7 +314,7 @@ WshShell_Size_t WshShellUser_GetUsersNum (
 **Parameters:**
 
 
-* `pShellUsers` Pointer to the user table.
+* `pcShellUsers` Pointer to the user table.
 
 
 
