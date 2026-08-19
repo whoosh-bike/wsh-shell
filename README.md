@@ -66,20 +66,20 @@ make footprint                                         # same as the first form
 - Build options: cortex-m7, `-O1` optimization, arm-none-eabi-gcc 14.2
 - sizeof(WshShell_t) = 352 bytes (full config, 32-bit target)
 
-| Config                               | FLASH, KB | ΔFLASH, KB | Comment                                              |
-| ------------------------------------ | --------- | ---------- | ---------------------------------------------------- |
-| All features disabled                | 5.87      | —          |                                                      |
-| `+WSH_SHELL_PRINT_SYS/INFO/WARN/ERR` | 8.45      | +2.57      | Not recommended to disable shell messages            |
-| `+WSH_SHELL_INTERACTIVE_MODE`        | 8.78      | +0.33      |                                                      |
-| `+WSH_SHELL_HISTORY`                 | 9.88      | +1.11      |                                                      |
-| `+WSH_SHELL_AUTOCOMPLETE`            | 12.56     | +2.67      |                                                      |
-| `+WSH_SHELL_PS1_CUSTOM`              | 13.11     | +0.55      |                                                      |
-| `+WSH_SHELL_PROMPT_WAIT`             | 13.54     | +0.43      |                                                      |
-| `+WSH_SHELL_DEF_COMMAND`             | 15.91     | +2.37      |                                                      |
-| `+WSH_SHELL_SESSION`                 | 16.91     | +1.00      |                                                      |
-| `+WSH_SHELL_PRINT_OPT_HELP`          | 17.48     | +0.57      | Could be useful on huge amount of external commands  |
-| `+WSH_SHELL_CMD_PRINT_OPT_OVERVIEW`  | 18.21     | +0.73      | Could be useful on huge amount of external commands  |
-| `+WSH_SHELL_SUBCOMMANDS`             | 24.61     | +6.40      | Cost is dominated by the built-in `wsh` command tree |
+| Config | FLASH, KB | ΔFLASH, KB | RAM, KB | sizeof(WshShell_t), B |
+| ------ | --------- | ---------- | ------- | --------------------- |
+| All features disabled | 5.87402 | — | 1.61621 | 352 |
+| +WSH_SHELL_PRINT_SYS/INFO/WARN/ERR | 8.44531 | +2.57129 | 1.61621 | 352 |
+| +WSH_SHELL_INTERACTIVE_MODE | 8.77539 | +0.33008 | 1.61621 | 352 |
+| +WSH_SHELL_HISTORY | 9.88281 | +1.10742 | 1.61621 | 352 |
+| +WSH_SHELL_AUTOCOMPLETE | 12.55762 | +2.67480 | 1.61621 | 352 |
+| +WSH_SHELL_PS1_CUSTOM | 13.10547 | +0.54785 | 1.58496 | 352 |
+| +WSH_SHELL_PROMPT_WAIT | 13.54004 | +0.43457 | 1.58496 | 352 |
+| +WSH_SHELL_DEF_COMMAND | 15.91211 | +2.37207 | 1.58496 | 352 |
+| +WSH_SHELL_SESSION | 16.90918 | +0.99707 | 1.58496 | 352 |
+| +WSH_SHELL_PRINT_OPT_HELP | 17.47559 | +0.56641 | 1.58496 | 352 |
+| +WSH_SHELL_CMD_PRINT_OPT_OVERVIEW | 18.20801 | +0.73242 | 1.58496 | 352 |
+| +WSH_SHELL_SUBCOMMANDS | 24.60840 | +6.40039 | 1.58496 | 352 |
 
 The Δ column is what the row's flags add on top of every row above it, so a number is only meaningful together with its predecessors.
 
