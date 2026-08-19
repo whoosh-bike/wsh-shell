@@ -87,6 +87,47 @@ make clean
 
 ---
 
+## Measuring the Memory Footprint
+
+Feature flags are only interesting if their cost is known, and toggling them by
+hand in a real firmware project is slow and hard to compare. `utils/measure-footprint.py`
+does it mechanically: for every configuration it renders a temporary
+`wsh_shell_cfg.h` from the default template, rebuilds the library for the target
+CPU, links it against a synthetic stub that touches every public entry point, and
+sums the linker-map sections that came from the shell's own object files. libc,
+startup code and the stub are never counted, so the numbers are comparable across
+configurations and machines.
+
+```bash
+make footprint                                  # cumulative table (README-style)
+python3 utils/measure-footprint.py --mode drop  # what disabling one feature saves
+python3 utils/measure-footprint.py --mode each  # what one feature costs on its own
+python3 utils/measure-footprint.py --mode single --enable WSH_SHELL_HISTORY --json
+```
+
+Useful options:
+
+| Option           | Meaning                                                    |
+| ---------------- | ---------------------------------------------------------- |
+| `--cpu`, `--opt` | Target and optimization level (default `cortex-m7`, `-O1`) |
+| `--cc`, `--nm`   | Toolchain binaries (default `arm-none-eabi-gcc`/`-nm`)     |
+| `--markdown`     | Markdown table, ready to paste into the README             |
+| `--json`         | Raw numbers for CI or plotting                             |
+
+> [!IMPORTANT]
+> `--mode drop` is the number to trim flash by. It rebuilds the **full** configuration
+> with one feature removed, so it answers the only question that matters in practice —
+> "what do I actually save by switching this off?" Feature costs are not additive:
+> code is shared between features, and a flag that looks cheap on a bare build can be
+> the most expensive one in a full build (`WSH_SHELL_SUBCOMMANDS`: ~0.6 KB alone,
+> ~6.4 KB once the default `wsh` command tree exists).
+
+The script also reports `sizeof(WshShell_t)` for each configuration, read back
+from a probe symbol in the linked ELF, so RAM cost is measured on the target's
+word size rather than the host's.
+
+---
+
 ## Example on Hardware
 
 It has been moved to separate repos:

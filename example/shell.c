@@ -133,8 +133,7 @@ static WSH_SHELL_RET_STATE_t Shell_DumpHandler(const WshShellCmd_t* pcCmd, WshSh
     }
 
     /* Dump the live PS1 buffer — shows ANSI escape codes alongside text */
-    WshShellMisc_HexDump((const WshShell_U8_t*)pShell->PS1,
-                         WSH_SHELL_STRNLEN(pShell->PS1, WSH_SHELL_PS1_MAX_LEN), 0);
+    WshShellMisc_HexDump((const WshShell_U8_t*)pShell->PS1, WSH_SHELL_STRNLEN(pShell->PS1, WSH_SHELL_PS1_MAX_LEN), 0);
     return WSH_SHELL_RET_STATE_SUCCESS;
 }
 

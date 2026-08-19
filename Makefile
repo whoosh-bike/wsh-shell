@@ -17,7 +17,7 @@ SRCS      := $(wildcard $(SRC_DIR)/*.c)
 INC_FLAGS := $(addprefix -I, $(shell find $(SRC_DIR) -type d))
 
 # ===== Targets =====
-.PHONY: all clean example gen-config format cppcheck
+.PHONY: all clean example gen-config format cppcheck footprint
 
 all: example
 
@@ -36,6 +36,10 @@ clean:
 format:
 	@echo "[FORMAT] Running clang-format"
 	@clang-format --style=file -i $(SRC_DIR)/*.[ch] $(EXAMPLE_DIR)/main.c
+
+footprint:
+	@echo "[SIZE] Measuring flash footprint per feature set"
+	@python3 utils/measure-footprint.py --markdown
 
 cppcheck:
 	@echo "[CHECK] Running cppcheck"

@@ -94,4 +94,5 @@
     ├── elf-size-analyse.py
     ├── gen-pass.py
     ├── gen-shell-banner.py
+    └── measure-footprint.py
 ```

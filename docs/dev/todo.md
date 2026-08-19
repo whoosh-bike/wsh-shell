@@ -217,3 +217,9 @@
 - [x] Run the handler before the Ctrl+C escape in `WshShellPromptWait_Handle` so a wait can undo what it guarded; Ctrl+C still always escapes, whatever the handler returns
 - [x] Add integration tests for the hint budget, the per-wait reset, and the silent Ctrl+C escape
 
+### Fixes
+
+- [x] Print `[WARN]` instead of `[ERR ]` when a command handler returns `WSH_SHELL_RET_STATE_WARNING`
+- [x] Fix autocomplete-disabled notice: emit it on its own line instead of padding it onto the current input
+- [x] Python adapter: stop anchoring prompt detection to the end of the buffer and scan for the last prompt match, so async log lines sharing the UART no longer break sync and never leak into command output
+- [x] Add `utils/measure-footprint.py` + `make footprint`; refresh the footprint tables in `README.md` / `docs/index.md` with reproducible numbers
