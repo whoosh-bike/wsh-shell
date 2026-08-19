@@ -102,7 +102,7 @@ void WshShell_GeneratePS1(WshShell_Char_t* pPS1, const WshShell_PS1Data_t* pcPS1
 
 #else /* WSH_SHELL_PS1_CUSTOM */
 
-void WshShell_GeneratePS1(WshShell_Char_t* pPS1, WshShell_PS1Data_t* pcPS1Data) {
+void WshShell_GeneratePS1(WshShell_Char_t* pPS1, const WshShell_PS1Data_t* pcPS1Data) {
     WSH_SHELL_ASSERT(pPS1 && pcPS1Data->UserName && pcPS1Data->DevName);
     if (!pPS1 || !pcPS1Data->UserName || !pcPS1Data->DevName)
         return;
