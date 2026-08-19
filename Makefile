@@ -12,12 +12,16 @@ RM := rm -rf
 SRC_DIR     := src
 EXAMPLE_DIR := example
 
+# Static analysis: report file (gitignored via build/ and *.log) and suppressions
+CPPCHECK_LOG ?= build/cppcheck.log
+CPPCHECK_SUPPRESS := --suppressions-list=.cppcheck-suppressions
+
 # ===== Source Files =====
 SRCS      := $(wildcard $(SRC_DIR)/*.c)
 INC_FLAGS := $(addprefix -I, $(shell find $(SRC_DIR) -type d))
 
 # ===== Targets =====
-.PHONY: all clean example gen-config format cppcheck
+.PHONY: all clean example gen-config format cppcheck footprint
 
 all: example
 
@@ -35,8 +39,18 @@ clean:
 
 format:
 	@echo "[FORMAT] Running clang-format"
-	@clang-format --style=file -i $(SRC_DIR)/*.[ch] $(EXAMPLE_DIR)/main.c
+	@./utils/code-format.sh
 
-cppcheck:
-	@echo "[CHECK] Running cppcheck"
-	@cppcheck --quiet --enable=all --error-exitcode=1 --check-level=exhaustive $(INC_FLAGS) $(SRCS)
+footprint:
+	@echo "[SIZE] Measuring flash footprint per feature set"
+	@python3 utils/measure-footprint.py --markdown
+
+# gen-config first: without example/wsh_shell_cfg.h cppcheck cannot resolve the
+# feature macros, drowns in missingInclude noise and misses real findings.
+cppcheck: gen-config
+	@echo "[CHECK] Running cppcheck -> $(CPPCHECK_LOG)"
+	@mkdir -p $(dir $(CPPCHECK_LOG))
+	@cppcheck --quiet --enable=all --error-exitcode=1 --check-level=exhaustive --inline-suppr \
+		$(CPPCHECK_SUPPRESS) --output-file=$(CPPCHECK_LOG) \
+		$(INC_FLAGS) -I$(EXAMPLE_DIR) $(SRCS); status=$$?; \
+		cat $(CPPCHECK_LOG); exit $$status

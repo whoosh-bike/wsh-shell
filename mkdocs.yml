@@ -83,6 +83,7 @@ nav:
       - Examples RTOS: usage/rtos.md
       - Writing Commands: usage/writing-commands.md
       - Subcommands: usage/subcommands.md
+      - Persistent Session: usage/session.md
       - Permission Rules: usage/permission-rules.md
   - API:
       - General: 
@@ -112,6 +113,8 @@ nav:
         - Wsh_Shell_API/wsh__shell__option_8h.md
       - Prompts Input Await:
         - Wsh_Shell_API/wsh__shell__promptwait_8h.md
+      - Persistent Session:
+        - Wsh_Shell_API/wsh__shell__session_8h.md
       - Strings Handlers:
         - Wsh_Shell_API/wsh__shell__str_8h.md
       - Global Types:

@@ -4,7 +4,7 @@ import select
 import subprocess
 import sys
 import threading
-from dataclasses import dataclass
+from dataclasses import dataclass, replace
 from typing import Callable, Optional, Sequence
 
 from .exceptions import TransportError
@@ -60,6 +60,9 @@ class SerialPortInfo:
     description: str = "unknown"
     vid: Optional[int] = None
     pid: Optional[int] = None
+    # True when the port is already open/locked by another process. Populated
+    # only when list_serial_ports(probe_busy=True) is requested; otherwise False.
+    busy: bool = False
 
     @classmethod
     def from_pyserial(cls, item) -> "SerialPortInfo":
@@ -97,8 +100,72 @@ def _list_pyserial_ports():
     return list(list_ports.comports())
 
 
-def list_serial_ports() -> list[SerialPortInfo]:
-    return [SerialPortInfo.from_pyserial(item) for item in _list_pyserial_ports()]
+def _probe_port_busy_posix(device: str) -> bool:
+    try:
+        fd = os.open(device, os.O_RDWR | os.O_NONBLOCK | os.O_NOCTTY)
+    except OSError as exc:
+        # A port held by another process fails to open with EBUSY (macOS/BSD
+        # IOSerialBSDClient) or EACCES. We never open it, so no line toggle /
+        # board reset happens for busy ports.
+        return exc.errno in (errno.EBUSY, errno.EACCES)
+    else:
+        os.close(fd)
+        return False
+
+
+def _probe_port_busy_windows(device: str) -> bool:
+    import ctypes
+    from ctypes import wintypes
+
+    GENERIC_READ = 0x80000000
+    GENERIC_WRITE = 0x40000000
+    OPEN_EXISTING = 3
+    INVALID_HANDLE_VALUE = ctypes.c_void_p(-1).value
+    ERROR_ACCESS_DENIED = 5
+    ERROR_SHARING_VIOLATION = 32
+
+    # COM10 and above require the \\.\ prefix to open via CreateFile.
+    path = device
+    if path.upper().startswith("COM") and path[3:].isdigit():
+        path = "\\\\.\\" + path
+
+    kernel32 = ctypes.windll.kernel32
+    create_file = kernel32.CreateFileW
+    create_file.restype = wintypes.HANDLE
+    create_file.argtypes = [
+        wintypes.LPCWSTR, wintypes.DWORD, wintypes.DWORD, wintypes.LPVOID,
+        wintypes.DWORD, wintypes.DWORD, wintypes.HANDLE,
+    ]
+    # Share mode 0 requests exclusive access: fails if another app holds the port.
+    handle = create_file(path, GENERIC_READ | GENERIC_WRITE, 0, None, OPEN_EXISTING, 0, None)
+    if not handle or handle == INVALID_HANDLE_VALUE:
+        return kernel32.GetLastError() in (ERROR_ACCESS_DENIED, ERROR_SHARING_VIOLATION)
+    kernel32.CloseHandle(handle)
+    return False
+
+
+def probe_port_busy(device: str) -> bool:
+    """Return True if ``device`` appears open/locked by another process.
+
+    Non-destructive for busy ports (they fail to open, so we never touch them).
+    Free ports are opened briefly and closed. Intended for on-demand port-list
+    refresh only — never call this from the connection watchdog loop.
+    """
+    try:
+        if sys.platform.startswith("win"):
+            return _probe_port_busy_windows(device)
+        return _probe_port_busy_posix(device)
+    except Exception:
+        # Probing must never break port discovery: on any unexpected error we
+        # simply report the port as not-busy rather than hiding it.
+        return False
+
+
+def list_serial_ports(probe_busy: bool = False) -> list[SerialPortInfo]:
+    infos = [SerialPortInfo.from_pyserial(item) for item in _list_pyserial_ports()]
+    if not probe_busy:
+        return infos
+    return [replace(info, busy=probe_port_busy(info.device)) for info in infos]
 
 
 def match_serial_ports(

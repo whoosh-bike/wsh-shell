@@ -22,6 +22,18 @@
 extern "C" {
 #endif
 
+/**
+ * @brief How many rejected keystrokes still reprint the prompt hint.
+ *
+ * A prompt-wait is modal: nothing the user types reaches the command line, so
+ * the hint is the only explanation. Repeating it on every keystroke floods
+ * whatever else is streaming, so it is repeated a few times and then the wait
+ * goes quiet. The bell keeps sounding on every rejection regardless.
+ */
+#ifndef WSH_SHELL_PROMPT_WAIT_HINT_RETRIES
+#define WSH_SHELL_PROMPT_WAIT_HINT_RETRIES 3
+#endif
+
 // Forward declaration of command structure
 struct WshShellPromptWait;
 
@@ -42,6 +54,7 @@ typedef WshShell_Bool_t (*WshShellPromptWait_Handler_t)(WshShell_Char_t symbol, 
 typedef struct WshShellPromptWait {
     WshShellPromptWait_Handler_t Handler;
     void* Ctx;
+    WshShell_Size_t RejectedNum; /**< Keystrokes refused by the handler since attach. */
 } WshShellPromptWait_t;
 
 /**
@@ -95,6 +108,18 @@ WSH_SHELL_RET_STATE_t WshShellPromptWait_Handle(WshShellPromptWait_t* pWait, Wsh
  */
 WshShell_Bool_t WshShellPromptWait_Enter(WshShell_Char_t symbol, WshShellPromptWait_t* pWait);
 WshShell_Bool_t WshShellPromptWait_YesNo(WshShell_Char_t symbol, WshShellPromptWait_t* pWait);
+
+/**
+ * @brief Whether a handler should still print its hint on a rejected keystroke.
+ *
+ * Call it from a prompt-wait handler before printing "press ..." so the hint
+ * stops after ::WSH_SHELL_PROMPT_WAIT_HINT_RETRIES rejections instead of
+ * repeating for every key.
+ *
+ * @param[in] pcWait Pointer to prompt-wait control object.
+ * @return true while the hint is still worth printing.
+ */
+WshShell_Bool_t WshShellPromptWait_HintIsNeeded(const WshShellPromptWait_t* pcWait);
 
 #ifdef __cplusplus
 }

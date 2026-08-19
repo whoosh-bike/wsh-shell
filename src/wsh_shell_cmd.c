@@ -44,7 +44,7 @@ static WSH_SHELL_RET_STATE_t WshShellCmd_ValidateSubCmds(const WshShellCmd_t* pc
     for (WshShell_Size_t i = 0; i < pcCmd->SubCmdNum; i++) {
         const WshShellCmd_t* pcSubI = pcCmd->SubCmds[i];
         if (!pcSubI) {
-            WSH_SHELL_PRINT_ERR("Null subcommand pointer in %s [%d]\r\n", pcCmd->Name, i);
+            WSH_SHELL_PRINT_ERR("Null subcommand pointer in %s [%d]\r\n", pcCmd->Name, (int)i);
             WSH_SHELL_ASSERT(0);
             retState = WSH_SHELL_RET_STATE_ERROR;
             continue;
@@ -114,32 +114,33 @@ void WshShellCmd_DeAttach(WshShellCmd_Table_t* pShellCommands) {
         *pShellCommands = (WshShellCmd_Table_t){0};
 }
 
-WshShell_Size_t WshShellCmd_GetCmdNum(WshShellCmd_Table_t* pShellCommands) {
-    WSH_SHELL_ASSERT(pShellCommands);
+WshShell_Size_t WshShellCmd_GetCmdNum(const WshShellCmd_Table_t* pcShellCommands) {
+    WSH_SHELL_ASSERT(pcShellCommands);
 
-    if (!pShellCommands || !pShellCommands->List)
+    if (!pcShellCommands || !pcShellCommands->List)
         return 0;
 
-    return pShellCommands->Num;
+    return pcShellCommands->Num;
 }
 
-const WshShellCmd_t* WshShellCmd_GetCmdByIndex(WshShellCmd_Table_t* pShellCommands, WshShell_Size_t idx) {
-    WSH_SHELL_ASSERT(pShellCommands);
-    if (!pShellCommands || !pShellCommands->List)
+const WshShellCmd_t* WshShellCmd_GetCmdByIndex(const WshShellCmd_Table_t* pcShellCommands, WshShell_Size_t idx) {
+    WSH_SHELL_ASSERT(pcShellCommands);
+    if (!pcShellCommands || !pcShellCommands->List)
         return NULL;
 
-    WSH_SHELL_ASSERT(idx < pShellCommands->Num);
+    WSH_SHELL_ASSERT(idx < pcShellCommands->Num);
 
-    return idx < pShellCommands->Num ? pShellCommands->List[idx] : NULL;
+    return idx < pcShellCommands->Num ? pcShellCommands->List[idx] : NULL;
 }
 
-const WshShellCmd_t* WshShellCmd_SearchCmd(WshShellCmd_Table_t* pShellCommands, const WshShell_Char_t* pcCmdName) {
+const WshShellCmd_t* WshShellCmd_SearchCmd(const WshShellCmd_Table_t* pcShellCommands,
+                                           const WshShell_Char_t* pcCmdName) {
     WSH_SHELL_ASSERT(pcCmdName);
     if (!pcCmdName)
         return NULL;
 
-    for (WshShell_Size_t cmd = 0; cmd < WshShellCmd_GetCmdNum(pShellCommands); cmd++) {
-        const WshShellCmd_t* pcCmd = WshShellCmd_GetCmdByIndex(pShellCommands, cmd);
+    for (WshShell_Size_t cmd = 0; cmd < WshShellCmd_GetCmdNum(pcShellCommands); cmd++) {
+        const WshShellCmd_t* pcCmd = WshShellCmd_GetCmdByIndex(pcShellCommands, cmd);
         if (WSH_SHELL_STRNCMP(pcCmd->Name, pcCmdName, WSH_SHELL_CMD_NAME_LEN) == 0)
             return pcCmd;
     }
@@ -260,7 +261,7 @@ WshShellOption_Ctx_t WshShellCmd_ParseOpt(const WshShellCmd_t* pcCmd, WshShell_S
 
         /* Verify enough tokens follow for all required arguments */
         if (pcOpt->ArgNum > 0 && *pTokenPos + pcOpt->ArgNum >= argc) {
-            WSH_SHELL_PRINT_WARN("Option %s requires %d argument(s)\r\n", pcStr, pcOpt->ArgNum);
+            WSH_SHELL_PRINT_WARN("Option %s requires %d argument(s)\r\n", pcStr, (int)pcOpt->ArgNum);
             optCtx.ParseError = true;
             (*pTokenPos)++;
             break;
@@ -387,13 +388,13 @@ void WshShellCmd_PrintOptionsOverview(const WshShellCmd_t* pcCmd) {
         WshShell_Char_t headTemplate[64];
         WSH_SHELL_SNPRINTF(headTemplate, sizeof(headTemplate),
                            WSH_SHELL_COLOR_SYS "  %%-%ds %%-%ds %%-%ds %%-%ds %%s\r\n" WSH_SHELL_ESC_RESET_STYLE,
-                           shortNameMaxLen, longNameMaxLen, typeMaxLen, accessMaxLen);
+                           (int)shortNameMaxLen, (int)longNameMaxLen, (int)typeMaxLen, (int)accessMaxLen);
 
         WSH_SHELL_PRINT(headTemplate, "Short", "Long", "Type", "Access", "Descr");
 
         WshShell_Char_t rowTemplate[64];
-        WSH_SHELL_SNPRINTF(rowTemplate, sizeof(rowTemplate), "  %%-%ds %%-%ds %%-%ds %%-%ds %%s\r\n", shortNameMaxLen,
-                           longNameMaxLen, typeMaxLen, accessMaxLen);
+        WSH_SHELL_SNPRINTF(rowTemplate, sizeof(rowTemplate), "  %%-%ds %%-%ds %%-%ds %%-%ds %%s\r\n",
+                           (int)shortNameMaxLen, (int)longNameMaxLen, (int)typeMaxLen, (int)accessMaxLen);
 
         const WshShellOption_t* pcOpt = pcCmd->Options;
         for (; pcOpt->Type != WSH_SHELL_OPTION_END; pcOpt++) {
@@ -414,11 +415,11 @@ void WshShellCmd_PrintOptionsOverview(const WshShellCmd_t* pcCmd) {
         WshShell_Char_t subHeadTemplate[64];
         WSH_SHELL_SNPRINTF(subHeadTemplate, sizeof(subHeadTemplate),
                            WSH_SHELL_COLOR_SYS "\r\nSubcommands:\r\n  %%-%ds %%s\r\n" WSH_SHELL_ESC_RESET_STYLE,
-                           subNameMaxLen);
+                           (int)subNameMaxLen);
         WSH_SHELL_PRINT(subHeadTemplate, "Name", "Descr");
 
         WshShell_Char_t subRowTemplate[32];
-        WSH_SHELL_SNPRINTF(subRowTemplate, sizeof(subRowTemplate), "  %%-%ds %%s\r\n", subNameMaxLen);
+        WSH_SHELL_SNPRINTF(subRowTemplate, sizeof(subRowTemplate), "  %%-%ds %%s\r\n", (int)subNameMaxLen);
 
         for (WshShell_Size_t i = 0; i < pcCmd->SubCmdNum; i++) {
             const WshShellCmd_t* pcSub = pcCmd->SubCmds[i];

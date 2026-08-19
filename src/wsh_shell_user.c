@@ -17,7 +17,7 @@ static void WshShellUser_DefHashFunc(const WshShell_Char_t* pcSalt, const WshShe
 
     WshShell_Size_t hash = WshShellMisc_CalcJenkinsHash((const WshShell_U8_t*)saltPass, saltLen + passLen);
 
-    WSH_SHELL_SNPRINTF(pHash, WSH_SHELL_SALT_PASS_HASH_LEN + 1, "%08x", hash);
+    WSH_SHELL_SNPRINTF(pHash, WSH_SHELL_SALT_PASS_HASH_LEN + 1, "%08x", (unsigned int)hash);
 
     // Secure erase sensitive data from stack (prevent compiler optimization)
     for (volatile WshShell_Size_t i = 0; i < sizeof(saltPass); i++) {
@@ -48,12 +48,12 @@ void WshShellUser_DeAttach(WshShellUser_Table_t* pShellUsers) {
         *pShellUsers = (WshShellUser_Table_t){0};
 }
 
-WshShell_Size_t WshShellUser_GetUsersNum(WshShellUser_Table_t* pShellUsers) {
-    WSH_SHELL_ASSERT(pShellUsers);
-    if (!pShellUsers || !pShellUsers->List)
+WshShell_Size_t WshShellUser_GetUsersNum(const WshShellUser_Table_t* pcShellUsers) {
+    WSH_SHELL_ASSERT(pcShellUsers);
+    if (!pcShellUsers || !pcShellUsers->List)
         return 0;
 
-    return pShellUsers->Num;
+    return pcShellUsers->Num;
 }
 
 const WshShellUser_t* WshShellUser_GetUserByIndex(WshShellUser_Table_t* pShellUsers, WshShell_Size_t idx) {

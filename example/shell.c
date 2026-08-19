@@ -38,6 +38,43 @@ static void WshShellHistory_Write(WshShellHistory_t history) {
     memcpy((void*)&Shell_HistoryStorage, (void*)&history, sizeof(WshShellHistory_t));
 }
 
+/*
+ * On a microcontroller the session descriptor lives in a no-init RAM region that
+ * survives a warm reboot. The PC example has no such memory, so an optional file
+ * plays that role: restarting the process with the same --session path models a
+ * reboot. Without the option the store is plain RAM and dies with the process.
+ */
+static WshShellSession_t Shell_SessionStorage;
+static const char* Shell_SessionPath = NULL;
+
+static WshShellSession_t Shell_SessionRead(void) {
+    if (Shell_SessionPath == NULL)
+        return Shell_SessionStorage;
+
+    WshShellSession_t session = {0};
+    FILE* pFile               = fopen(Shell_SessionPath, "rb");
+    if (pFile != NULL) {
+        if (fread((void*)&session, sizeof(session), 1, pFile) != 1)
+            memset((void*)&session, 0, sizeof(session));
+        fclose(pFile);
+    }
+
+    return session;
+}
+
+static void Shell_SessionWrite(WshShellSession_t session) {
+    memcpy((void*)&Shell_SessionStorage, (void*)&session, sizeof(WshShellSession_t));
+
+    if (Shell_SessionPath == NULL)
+        return;
+
+    FILE* pFile = fopen(Shell_SessionPath, "wb");
+    if (pFile != NULL) {
+        fwrite((const void*)&session, sizeof(session), 1, pFile);
+        fclose(pFile);
+    }
+}
+
 static void Shell_AuthClbk(void* pCtx) {
     (void)(pCtx);
 }
@@ -96,8 +133,7 @@ static WSH_SHELL_RET_STATE_t Shell_DumpHandler(const WshShellCmd_t* pcCmd, WshSh
     }
 
     /* Dump the live PS1 buffer — shows ANSI escape codes alongside text */
-    WshShellMisc_HexDump((const WshShell_U8_t*)pShell->PS1,
-                         WSH_SHELL_STRNLEN(pShell->PS1, WSH_SHELL_PS1_MAX_LEN), 0);
+    WshShellMisc_HexDump((const WshShell_U8_t*)pShell->PS1, WSH_SHELL_STRNLEN(pShell->PS1, WSH_SHELL_PS1_MAX_LEN), 0);
     return WSH_SHELL_RET_STATE_SUCCESS;
 }
 
@@ -110,9 +146,65 @@ static const WshShellCmd_t Shell_DumpCmd = {
     .Handler = Shell_DumpHandler,
 };
 
-static const WshShellCmd_t* Shell_CmdTable[] = {&Shell_DumpCmd};
+/* ── exit command ──────────────────────────────────────────────────────── */
 
-bool Shell_Init(const char* pcHostName, const char* pcLogin, const char* pcPass) {
+/* clang-format off */
+#define EXIT_OPT_TABLE() \
+    X_CMD_ENTRY(EXIT_OPT_DEF,    WSH_SHELL_OPT_NO(WSH_SHELL_OPT_ACCESS_ANY, "Quit the example process")) \
+    X_CMD_ENTRY(EXIT_OPT_HELP,   WSH_SHELL_OPT_HELP()) \
+    X_CMD_ENTRY(EXIT_OPT_END_ID, WSH_SHELL_OPT_END())
+/* clang-format on */
+
+typedef enum {
+#define X_CMD_ENTRY(en, m) en,
+    EXIT_OPT_TABLE() EXIT_OPT_ENUM_SIZE
+#undef X_CMD_ENTRY
+} EXIT_OPT_t;
+
+#define X_CMD_ENTRY(en, m) {en, m},
+static const WshShellOption_t Exit_OptArr[] = {EXIT_OPT_TABLE()};
+#undef X_CMD_ENTRY
+
+static WSH_SHELL_RET_STATE_t Shell_ExitHandler(const WshShellCmd_t* pcCmd, WshShell_Size_t argc,
+                                               const WshShell_Char_t* pArgv[], void* pShellCtx) {
+    if (!pcCmd || !pShellCtx || (argc > 0 && !pArgv))
+        return WSH_SHELL_RET_STATE_ERR_PARAM;
+
+    WshShell_t* pShell = (WshShell_t*)pShellCtx;
+
+    for (WshShell_Size_t tokenPos = 0; tokenPos < argc;) {
+        WshShellOption_Ctx_t optCtx = WshShellCmd_ParseOpt(pcCmd, argc, pArgv, pShell->CurrUser->Rights, &tokenPos);
+        if (!optCtx.Option) {
+            if (optCtx.ParseError)
+                return WSH_SHELL_RET_STATE_ERR_PARAM;
+            break;
+        }
+        if (optCtx.Option->ID == EXIT_OPT_HELP) {
+            WshShellCmd_PrintOptionsOverview(pcCmd);
+            return WSH_SHELL_RET_STATE_SUCCESS;
+        }
+    }
+
+    /* The terminal is in raw mode; exit() runs the atexit hook that restores it,
+     * which killing the process from another terminal would skip. */
+    WSH_SHELL_PRINT_SYS("Bye!\r\n");
+    exit(EXIT_SUCCESS);
+}
+
+static const WshShellCmd_t Shell_ExitCmd = {
+    .Groups  = WSH_SHELL_CMD_GROUP_ALL,
+    .Name    = "exit",
+    .Descr   = "Quit the example process and restore terminal modes",
+    .Options = Exit_OptArr,
+    .OptNum  = WSH_SHELL_ARR_LEN(Exit_OptArr),
+    .Handler = Shell_ExitHandler,
+};
+
+static const WshShellCmd_t* Shell_CmdTable[] = {&Shell_DumpCmd, &Shell_ExitCmd};
+
+bool Shell_Init(const char* pcHostName, const char* pcLogin, const char* pcPass, const char* pcSessionFile) {
+    Shell_SessionPath = pcSessionFile;
+
     if (WshShell_Init(&Shell, pcHostName, NULL, &Shell_Callbacks) != WSH_SHELL_RET_STATE_SUCCESS) {
         return false;
     }
@@ -123,10 +215,13 @@ bool Shell_Init(const char* pcHostName, const char* pcLogin, const char* pcPass)
     }
 
     WshShellHistory_Init(&Shell.HistoryIO, WshShellHistory_Read, WshShellHistory_Write);
+    WshShellSession_Init(&Shell.SessionIO, Shell_SessionRead, Shell_SessionWrite);
 
     WshShellCmd_Attach(&Shell.Commands, Shell_CmdTable, WSH_SHELL_ARR_LEN(Shell_CmdTable));
 
-    if (pcLogin != NULL && pcPass != NULL) {
+    /* An armed session outranks the auto-login credentials: it is what the user
+     * asked for on the previous boot. */
+    if (!WshShell_SessionRestore(&Shell) && pcLogin != NULL && pcPass != NULL) {
         WshShell_Auth(&Shell, pcLogin, pcPass);
     }
 

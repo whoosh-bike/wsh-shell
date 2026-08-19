@@ -4,23 +4,25 @@ static void WshShell_Stub_ExtClbk(void* pCtx) {
     (void)pCtx;
 }
 
-#define WSH_SHELL_USER_IS_AUTH()       (pShell->CurrUser != NULL)
-#define WSH_SHELL_TMP_LOGIN_IS_EMPTY() (pShell->TmpAuth.Login[0] == 0)
-#define WSH_SHELL_TMP_PASS_IS_EMPTY()  (pShell->TmpAuth.Pass[0] == 0)
-#define WSH_SHELL_INTER_CMD_EXISTS()   (pShell->Interact.Handler != NULL)
+/* Take the shell explicitly: capturing a caller-side name called `pShell` would
+ * force every function using these to name its parameter that way. */
+#define WSH_SHELL_USER_IS_AUTH(_sh_)       ((_sh_)->CurrUser != NULL)
+#define WSH_SHELL_TMP_LOGIN_IS_EMPTY(_sh_) ((_sh_)->TmpAuth.Login[0] == 0)
+#define WSH_SHELL_TMP_PASS_IS_EMPTY(_sh_)  ((_sh_)->TmpAuth.Pass[0] == 0)
+#define WSH_SHELL_INTER_CMD_EXISTS(_sh_)   ((_sh_)->Interact.Handler != NULL)
 
-static void WshShell_InvitationPrint(WshShell_t* pShell) {
-    if (!WSH_SHELL_USER_IS_AUTH()) {
-        if (WSH_SHELL_TMP_LOGIN_IS_EMPTY()) {
+static void WshShell_InvitationPrint(const WshShell_t* pcShell) {
+    if (!WSH_SHELL_USER_IS_AUTH(pcShell)) {
+        if (WSH_SHELL_TMP_LOGIN_IS_EMPTY(pcShell)) {
             WSH_SHELL_PRINT_SYS("Login: ");
-        } else if (WSH_SHELL_TMP_PASS_IS_EMPTY()) {
+        } else if (WSH_SHELL_TMP_PASS_IS_EMPTY(pcShell)) {
             WSH_SHELL_PRINT_SYS("Password: ");
         }
 
         return;
     }
 
-    WSH_SHELL_PRINT("%s", pShell->PS1);
+    WSH_SHELL_PRINT("%s", pcShell->PS1);
 }
 
 WSH_SHELL_RET_STATE_t WshShell_Init(WshShell_t* pShell, const WshShell_Char_t* pcDevName,
@@ -65,18 +67,19 @@ WSH_SHELL_RET_STATE_t WshShell_Init(WshShell_t* pShell, const WshShell_Char_t* p
      * First out
      */
 
-    const WshShell_Char_t* pBuildType = "release";
 #if defined(WSH_SHELL_DEBUG_ENABLE)
-    pBuildType = "debug";
+    const WshShell_Char_t* pcBuildType = "debug";
+#else
+    const WshShell_Char_t* pcBuildType = "release";
 #endif
 
     WSH_SHELL_PRINT("%c", WSH_SHELL_SYM_SOUND);
     WSH_SHELL_PRINT(WSH_SHELL_COLOR_PURPLE);
     WSH_SHELL_PRINT("%s", pcCustomHeader ? pcCustomHeader : WSH_SHELL_HEADER);
-    WSH_SHELL_PRINT_SYS("Serial shell service started on %s device\r\n", pShell->DeviceName);
-    WSH_SHELL_PRINT_SYS("wsh-shell-v%s (%s), built in %s, at %s, with [%s], on [%s]\r\n", pShell->Version, pBuildType,
+    WSH_SHELL_PRINT_SYS("Serial shell service started on [%s] device\r\n", pShell->DeviceName);
+    WSH_SHELL_PRINT_SYS("wsh-shell-v%s (%s), built in %s, at %s, with [%s], on [%s]\r\n", pShell->Version, pcBuildType,
                         __DATE__, __TIME__, COMPILER, OS_NAME);
-    (void)pBuildType;
+    (void)pcBuildType;
     WSH_SHELL_PRINT_SYS(WSH_SHELL_PRESS_ENTER_TO_LOG_IN_STR "\r\n");
 
     WshShellPromptWait_Attach(&(pShell->PromptWait), WshShellPromptWait_Enter, NULL);
@@ -90,26 +93,26 @@ WshShell_Bool_t WshShell_Auth(WshShell_t* pShell, const WshShell_Char_t* pcLogin
         return false;
 
     pShell->CurrUser = WshShellUser_FindByCredentials(&(pShell->Users), pcLogin, pcPass);
-    if (WSH_SHELL_USER_IS_AUTH()) {
+    if (WSH_SHELL_USER_IS_AUTH(pShell)) {
         WshShell_PS1Data_t data = {
             .UserName     = pShell->CurrUser->Login,
             .DevName      = pShell->DeviceName,
-            .InterCmdName = WSH_SHELL_INTER_CMD_EXISTS() ? pShell->Interact.CmdName : NULL,
+            .InterCmdName = WSH_SHELL_INTER_CMD_EXISTS(pShell) ? pShell->Interact.CmdName : NULL,
         };
         WshShell_GeneratePS1(pShell->PS1, &data);
         pShell->ExtCallbacks.Auth(NULL);
         WSH_SHELL_PRINT("%c", WSH_SHELL_SYM_SOUND);
     }
 
-    return WSH_SHELL_USER_IS_AUTH();
+    return WSH_SHELL_USER_IS_AUTH(pShell);
 }
 
-WshShell_Bool_t WshShell_IsAuth(WshShell_t* pShell) {
-    WSH_SHELL_ASSERT(pShell);
-    if (!pShell)
+WshShell_Bool_t WshShell_IsAuth(const WshShell_t* pcShell) {
+    WSH_SHELL_ASSERT(pcShell);
+    if (!pcShell)
         return false;
 
-    return (bool)WSH_SHELL_USER_IS_AUTH();
+    return (bool)WSH_SHELL_USER_IS_AUTH(pcShell);
 }
 
 void WshShell_DeAuth(WshShell_t* pShell, const WshShell_Char_t* pcReason) {
@@ -120,6 +123,8 @@ void WshShell_DeAuth(WshShell_t* pShell, const WshShell_Char_t* pcReason) {
     pShell->CurrUser = NULL;
     pShell->ExtCallbacks.DeAuth(NULL);
     WshShellHistory_Flush(&(pShell->HistoryIO));
+    /* A logout ends the session: don't silently restore this login after a reboot. */
+    WshShellSession_Clear(&(pShell->SessionIO));
 
     WSH_SHELL_PRINT("%c", WSH_SHELL_SYM_SOUND);
     WSH_SHELL_PRINT_SYS("Shell deAuthed by `%s`!\r\n", pcReason);
@@ -128,16 +133,126 @@ void WshShell_DeAuth(WshShell_t* pShell, const WshShell_Char_t* pcReason) {
     WshShellPromptWait_Attach(&(pShell->PromptWait), WshShellPromptWait_Enter, NULL);
 }
 
+#if WSH_SHELL_SESSION
+
+static WshShell_Bool_t WshShell_SessionFindUserIdx(WshShell_t* pShell, WshShell_U32_t* pIdx) {
+    WshShell_Size_t num = WshShellUser_GetUsersNum(&(pShell->Users));
+    for (WshShell_Size_t i = 0; i < num; i++) {
+        if (WshShellUser_GetUserByIndex(&(pShell->Users), i) == pShell->CurrUser) {
+            *pIdx = (WshShell_U32_t)i;
+            return true;
+        }
+    }
+    return false;
+}
+
+WshShell_Bool_t WshShell_SessionArm(WshShell_t* pShell, WshShell_U32_t reboots) {
+    if (!pShell || !pShell->SessionIO.Write)
+        return false;
+
+    if (reboots == 0) {
+        WshShellSession_Clear(&(pShell->SessionIO));
+        return true;
+    }
+
+    if (!WSH_SHELL_USER_IS_AUTH(pShell))
+        return false;
+
+    WshShell_U32_t userIdx = 0;
+    if (!WshShell_SessionFindUserIdx(pShell, &userIdx))
+        return false;
+
+    WshShellSession_t session = {
+        .RebootsLeft = reboots,
+        .UserIdx     = userIdx,
+    };
+    WshShellSession_Store(&(pShell->SessionIO), session);
+    return true;
+}
+
+WshShell_Bool_t WshShell_SessionRestore(WshShell_t* pShell) {
+    if (!pShell || !pShell->SessionIO.Read || !pShell->SessionIO.Write)
+        return false;
+
+    WshShellSession_t session = WshShellSession_Read(&(pShell->SessionIO));
+    if (!WshShellSession_IsValid(&session))
+        return false;
+
+    const WshShellUser_t* pcUser = WshShellUser_GetUserByIndex(&(pShell->Users), session.UserIdx);
+    if (pcUser == NULL) {
+        WshShellSession_Clear(&(pShell->SessionIO));
+        return false;
+    }
+
+    /* Spend one reboot from the budget so the window can't outlive its count. */
+    session.RebootsLeft--;
+    WshShellSession_Store(&(pShell->SessionIO), session);
+
+    pShell->CurrUser = pcUser;
+
+    WshShell_PS1Data_t ps1Data = {
+        .UserName     = pcUser->Login,
+        .DevName      = pShell->DeviceName,
+        .InterCmdName = NULL,
+    };
+    WshShell_GeneratePS1(pShell->PS1, &ps1Data);
+
+    pShell->ExtCallbacks.Auth(NULL);
+
+    return true;
+}
+
+WshShell_Bool_t WshShell_SessionIsKeepActive(WshShell_t* pShell) {
+    if (!pShell || !pShell->SessionIO.Read)
+        return false;
+
+    WshShellSession_t session = WshShellSession_Read(&(pShell->SessionIO));
+    return WshShellSession_IsValid(&session);
+}
+
+WshShell_U32_t WshShell_SessionRebootsLeft(WshShell_t* pShell) {
+    if (!pShell || !pShell->SessionIO.Read)
+        return 0;
+
+    WshShellSession_t session = WshShellSession_Read(&(pShell->SessionIO));
+    return WshShellSession_IsValid(&session) ? session.RebootsLeft : 0;
+}
+
+#else /* WSH_SHELL_SESSION */
+
+WshShell_Bool_t WshShell_SessionArm(WshShell_t* pShell, WshShell_U32_t reboots) {
+    (void)(pShell);
+    (void)(reboots);
+    return false;
+}
+
+WshShell_Bool_t WshShell_SessionRestore(WshShell_t* pShell) {
+    (void)(pShell);
+    return false;
+}
+
+WshShell_Bool_t WshShell_SessionIsKeepActive(WshShell_t* pShell) {
+    (void)(pShell);
+    return false;
+}
+
+WshShell_U32_t WshShell_SessionRebootsLeft(WshShell_t* pShell) {
+    (void)(pShell);
+    return 0;
+}
+
+#endif /* WSH_SHELL_SESSION */
+
 static void WshShell_AuthHandler(WshShell_t* pShell) {
     WshShell_Size_t len = pShell->CommandLine.Len;
 
-    if (WSH_SHELL_TMP_LOGIN_IS_EMPTY()) {
+    if (WSH_SHELL_TMP_LOGIN_IS_EMPTY(pShell)) {
         if (len >= WSH_SHELL_LOGIN_LEN)
             len = WSH_SHELL_LOGIN_LEN - 1;
 
         WSH_SHELL_MEMCPY(pShell->TmpAuth.Login, pShell->CommandLine.Buff, len);
         pShell->TmpAuth.Login[len] = '\0';
-    } else if (WSH_SHELL_TMP_PASS_IS_EMPTY()) {
+    } else if (WSH_SHELL_TMP_PASS_IS_EMPTY(pShell)) {
         if (len >= WSH_SHELL_PASS_LEN)
             len = WSH_SHELL_PASS_LEN - 1;
 
@@ -145,7 +260,7 @@ static void WshShell_AuthHandler(WshShell_t* pShell) {
         pShell->TmpAuth.Pass[len] = '\0';
     }
 
-    if (!WSH_SHELL_TMP_LOGIN_IS_EMPTY() && !WSH_SHELL_TMP_PASS_IS_EMPTY()) {
+    if (!WSH_SHELL_TMP_LOGIN_IS_EMPTY(pShell) && !WSH_SHELL_TMP_PASS_IS_EMPTY(pShell)) {
         WshShell_Bool_t isAuthOk = WshShell_Auth(pShell, pShell->TmpAuth.Login, pShell->TmpAuth.Pass);
 
         WSH_SHELL_MEMSET((void*)pShell->TmpAuth.Login, 0, WSH_SHELL_LOGIN_LEN);
@@ -273,9 +388,13 @@ static void WshShell_StringHandler(WshShell_t* pShell) {
         WSH_SHELL_RET_STATE_t retState = cmdHandler(pcCmd, dispatchArgc, pDispatchArgv, pShell);
 
         if (retState != WSH_SHELL_RET_STATE_SUCCESS) {
-            WSH_SHELL_PRINT_ERR("Command execution: %s\r\n", WshShell_GetRetStateStr(retState));
+            /* A warning is not an error: keep the tag consistent with the state
+             * it reports, otherwise "[ERR ] Command execution: WARNING". */
+            WSH_SHELL_PRINT_LEVEL((retState == WSH_SHELL_RET_STATE_WARNING) ? WSH_SHELL_PRINT_WARN
+                                                                            : WSH_SHELL_PRINT_ERR,
+                                  "Command execution: %s\r\n", WshShell_GetRetStateStr(retState));
         } else {
-            if (WSH_SHELL_INTER_CMD_EXISTS()) {
+            if (WSH_SHELL_INTER_CMD_EXISTS(pShell)) {
                 WshShell_PS1Data_t data = {
                     .UserName     = pShell->CurrUser->Login,
                     .DevName      = pShell->DeviceName,
@@ -313,7 +432,7 @@ static void WshShell_SymbolHandler(WshShell_t* pShell, const WshShell_Char_t sym
     switch (symbol) {
         case WSH_SHELL_SYM_CANCEL:
             WSH_SHELL_PRINT("^C");
-            if (WSH_SHELL_INTER_CMD_EXISTS())
+            if (WSH_SHELL_INTER_CMD_EXISTS(pShell))
                 WshShell_ExitInteractive(pShell);
             WshShellIO_ClearInterBuff(&(pShell->CommandLine));
             WSH_SHELL_PRINT(WSH_SHELL_END_LINE);
@@ -321,7 +440,7 @@ static void WshShell_SymbolHandler(WshShell_t* pShell, const WshShell_Char_t sym
             break;
 
         case WSH_SHELL_SYM_EXIT:
-            if (WSH_SHELL_INTER_CMD_EXISTS()) {
+            if (WSH_SHELL_INTER_CMD_EXISTS(pShell)) {
                 WshShell_ExitInteractive(pShell);
                 WSH_SHELL_PRINT(WSH_SHELL_END_LINE);
                 WshShell_InvitationPrint(pShell);
@@ -335,7 +454,7 @@ static void WshShell_SymbolHandler(WshShell_t* pShell, const WshShell_Char_t sym
             break;
 
         case WSH_SHELL_SYM_TAB:
-            if (!WSH_SHELL_USER_IS_AUTH())
+            if (!WSH_SHELL_USER_IS_AUTH(pShell))
                 break;
 
             if (WshShellAutocomplete_Try(pShell->CommandLine.Buff, pShell->CommandLine.Len, &(pShell->Commands))) {
@@ -356,7 +475,8 @@ static void WshShell_SymbolHandler(WshShell_t* pShell, const WshShell_Char_t sym
                 return;
             }
 
-            WshShell_Bool_t starsOrChars = (bool)(!WSH_SHELL_USER_IS_AUTH() && !WSH_SHELL_TMP_LOGIN_IS_EMPTY());
+            WshShell_Bool_t starsOrChars =
+                (bool)(!WSH_SHELL_USER_IS_AUTH(pShell) && !WSH_SHELL_TMP_LOGIN_IS_EMPTY(pShell));
             WshShellIO_InsertSymbol(&(pShell->CommandLine), symbol, starsOrChars);
             break;
     }
@@ -392,13 +512,13 @@ void WshShell_InsertChar(WshShell_t* pShell, const WshShell_Char_t symbol) {
     if (isEnterPressed) {
         WSH_SHELL_PRINT(WSH_SHELL_END_LINE);
 
-        if (!WSH_SHELL_USER_IS_AUTH()) {
+        if (!WSH_SHELL_USER_IS_AUTH(pShell)) {
             WshShell_AuthHandler(pShell);
             WshShell_InvitationPrint(pShell);
             SHELL_SAVE_PREV_AND_RETURN(pShell, symbol);
         }
 
-        if (WSH_SHELL_INTER_CMD_EXISTS()) {
+        if (WSH_SHELL_INTER_CMD_EXISTS(pShell)) {
             WshShell_StringInteractHandler(pShell);
         } else
             WshShell_StringHandler(pShell);

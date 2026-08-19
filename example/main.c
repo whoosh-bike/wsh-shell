@@ -7,11 +7,11 @@
 #include "shell.h"
 
 #ifndef HOST_NAME_MAX
-    #ifdef _POSIX_HOST_NAME_MAX
-        #define HOST_NAME_MAX _POSIX_HOST_NAME_MAX
-    #else
-        #define HOST_NAME_MAX 255
-    #endif
+#ifdef _POSIX_HOST_NAME_MAX
+#define HOST_NAME_MAX _POSIX_HOST_NAME_MAX
+#else
+#define HOST_NAME_MAX 255
+#endif
 #endif
 
 static struct termios orig_termios;
@@ -34,20 +34,24 @@ void SetRawTermios(void) {
 }
 
 static void PrintUsage(const char* prog) {
-    fprintf(stderr, "Usage: %s [-l <login>] [-p <password>]\n", prog);
+    fprintf(stderr, "Usage: %s [-l <login>] [-p <password>] [-s <file>]\n", prog);
     fprintf(stderr, "  -l, --login     Auto-login username\n");
     fprintf(stderr, "  -p, --password  Auto-login password\n");
+    fprintf(stderr, "  -s, --session   File backing `wsh --keep` (stands in for no-init RAM)\n");
 }
 
 int main(int argc, char* argv[]) {
-    const char* login = NULL;
-    const char* pass  = NULL;
+    const char* login   = NULL;
+    const char* pass    = NULL;
+    const char* session = NULL;
 
     for (int i = 1; i < argc; i++) {
         if ((strcmp(argv[i], "-l") == 0 || strcmp(argv[i], "--login") == 0) && i + 1 < argc) {
             login = argv[++i];
         } else if ((strcmp(argv[i], "-p") == 0 || strcmp(argv[i], "--password") == 0) && i + 1 < argc) {
             pass = argv[++i];
+        } else if ((strcmp(argv[i], "-s") == 0 || strcmp(argv[i], "--session") == 0) && i + 1 < argc) {
+            session = argv[++i];
         } else {
             PrintUsage(argv[0]);
             return 1;
@@ -64,14 +68,22 @@ int main(int argc, char* argv[]) {
         return 1;
     }
 
-    Shell_Init(hostname, login, pass);
+    Shell_Init(hostname, login, pass, session);
 
     for (;;) {
         int symbol = getchar();
         // printf("key: %d (0x%02X)\n", symbol, (unsigned char)symbol);
 
-        if (symbol == EOF)
+        if (symbol == EOF) {
+            /* Real end of input (terminal/PTY closed): leave, or the loop spins
+             * on EOF at 100% CPU and the process outlives its terminal. */
+            if (feof(stdin))
+                break;
+
+            /* Interrupted read: drop the error flag and keep listening. */
+            clearerr(stdin);
             continue;
+        }
 
         Shell_SendChar((char)symbol);
     }

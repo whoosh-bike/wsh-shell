@@ -24,6 +24,31 @@ test_wsh_shell_adapter:
     - if: '$CI_PIPELINE_SOURCE == "merge_request_event"'
     - if: '$CI_PIPELINE_SOURCE == "push" && ($CI_COMMIT_BRANCH == "dev" || $CI_COMMIT_BRANCH == "main")'
 
+# Job for the feature-flag build matrix
+# Every configuration must compile, not just the one example/wsh_shell_cfg.h happens
+# to use: a `#else` stub whose signature drifted from its header only breaks in the
+# build that disables the feature, which is the integrator's build, not ours.
+# The footprint numbers come out of the same run and are kept as artifacts.
+config_matrix:
+  stage: test
+  before_script:
+    - apt-get update && apt-get install -y --no-install-recommends gcc-arm-none-eabi
+  script:
+    - mkdir -p build
+    # No pipes here: `| tee` would swallow the script's non-zero exit status.
+    - python3 utils/measure-footprint.py --markdown > build/footprint-ladder.md
+    - python3 utils/measure-footprint.py --mode drop --markdown > build/footprint-drop.md
+    - python3 utils/measure-footprint.py --mode each --markdown > build/footprint-each.md
+    - cat build/footprint-ladder.md build/footprint-drop.md
+  artifacts:
+    paths:
+      - build/footprint-*.md
+    expire_in: 1 week
+    when: always
+  rules:
+    - if: '$CI_PIPELINE_SOURCE == "merge_request_event"'
+    - if: '$CI_PIPELINE_SOURCE == "push" && ($CI_COMMIT_BRANCH == "dev" || $CI_COMMIT_BRANCH == "main")'
+
 # Template for deploy jobs
 .deploy_github_pages_template:
   stage: deploy

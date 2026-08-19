@@ -111,6 +111,31 @@ class FakeShellTransport(BaseTransport):
         self._out.extend(text.encode("utf-8"))
 
 
+class NoisyShellTransport(FakeShellTransport):
+    """Shell that also streams async log lines over the same UART.
+
+    The device leaves the cursor on the prompt line while it waits for input, so
+    a trace line printed meanwhile is appended right after the prompt — the case
+    that defeats prompt detection anchored to the end of the buffer.
+    """
+
+    _NOISE = "[INFO] trace: tick 42\r\n"
+
+    def _enqueue(self, text: str) -> None:
+        super()._enqueue(text)
+        if text.endswith("> "):
+            super()._enqueue(self._NOISE)
+
+
+class TrailingPromptEchoTransport(FakeShellTransport):
+    """Shell that redraws its prompt once more after answering."""
+
+    def _enqueue(self, text: str) -> None:
+        super()._enqueue(text)
+        if text.endswith("> "):
+            super()._enqueue("test-device@root > ")
+
+
 class FragmentedWriteTransport(BaseTransport):
     """Wraps another transport and splits the first write into two chunks."""
 
@@ -242,6 +267,39 @@ def test_empty_command_raises() -> None:
     adp = _synced_adapter()
     with pytest.raises(CommandError):
         adp.execute("   ")
+
+
+# ── Tests: prompt detection with async output on the same link ───────────────
+
+
+def _synced_with(transport: BaseTransport) -> WshShellAdapter:
+    adp = WshShellAdapter(
+        config=AdapterConfig(login="root", password="1234", retries=0, command_timeout_s=1.0),
+        transport=transport,
+    )
+    adp.sync()
+    return adp
+
+
+def test_sync_survives_log_line_after_prompt() -> None:
+    adp = _synced_with(NoisyShellTransport())
+    assert adp.state == "synced"
+
+
+def test_command_output_excludes_async_log_line() -> None:
+    adp = _synced_with(NoisyShellTransport())
+    result = adp.execute("wsh")
+    assert result.ok
+    assert result.data is not None
+    assert result.data["Ver"] == "2.5"
+    assert "trace" not in result.text
+
+
+def test_last_prompt_terminates_the_response() -> None:
+    adp = _synced_with(TrailingPromptEchoTransport())
+    result = adp.execute("wsh")
+    assert result.ok
+    assert result.data == {"Ver": "2.5", "Device name": "test-device", "User": "root"}
 
 
 # ── Tests: WSH_SHELL_ASSERT causes non-zero exit ──────────────────────────────

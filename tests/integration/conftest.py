@@ -140,23 +140,49 @@ def _skip_if_no_binary() -> None:
         pytest.skip("example binary not found — run `make example` first")
 
 
-@pytest.fixture(scope="module")
-def adapter() -> Iterator[WshShellAdapter]:
-    """Module-scoped PTY adapter: starts once, syncs once, tears down after all tests."""
+def spawn_adapter(
+    extra_args: list[str] | None = None,
+    *,
+    login: str | None = "root",
+    password: str | None = "1234",
+    sync_timeout_s: float = 10.0,
+) -> WshShellAdapter:
+    """Start a fresh example process on a PTY and sync an adapter to it.
+
+    Passing login=None models a host that has no credentials to offer: sync then
+    fails with SyncError as soon as the shell asks for a login, which is exactly
+    the assertion the session tests need.
+    """
     _skip_if_no_binary()
-    transport = PtyProcessTransport([str(_EXAMPLE_BINARY)], cwd=str(_REPO_ROOT))
+    transport = PtyProcessTransport(
+        [str(_EXAMPLE_BINARY), *(extra_args or [])], cwd=str(_REPO_ROOT)
+    )
     adp = WshShellAdapter(
         config=AdapterConfig(
-            login="root",
-            password="1234",
+            login=login,
+            password=password,
             retries=0,
-            sync_timeout_s=10.0,
+            sync_timeout_s=sync_timeout_s,
             command_timeout_s=3.0,
             auto_recover=False,
         ),
         transport=transport,
     )
-    adp.sync()
+    try:
+        adp.sync()
+    except Exception:
+        # Sync can fail by design (a test asserting the shell demands a login).
+        # Without this the process behind the PTY is never reaped and piles up.
+        adp.close()
+        raise
+
+    return adp
+
+
+@pytest.fixture(scope="module")
+def adapter() -> Iterator[WshShellAdapter]:
+    """Module-scoped PTY adapter: starts once, syncs once, tears down after all tests."""
+    adp = spawn_adapter()
     yield adp
     adp.close()
 

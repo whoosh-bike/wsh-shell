@@ -15,9 +15,9 @@ static const WshShell_Char_t* WshShellStr_ColorMap[] = {
     WSH_SHELL_COLOR_WHITE    // %c7
 };
 
-void WshShell_GeneratePS1(WshShell_Char_t* pPS1, WshShell_PS1Data_t* pPS1Data) {
-    WSH_SHELL_ASSERT(pPS1 && pPS1Data->UserName && pPS1Data->DevName);
-    if (!pPS1 || !pPS1Data->UserName || !pPS1Data->DevName)
+void WshShell_GeneratePS1(WshShell_Char_t* pPS1, const WshShell_PS1Data_t* pcPS1Data) {
+    WSH_SHELL_ASSERT(pPS1 && pcPS1Data->UserName && pcPS1Data->DevName);
+    if (!pPS1 || !pcPS1Data->UserName || !pcPS1Data->DevName)
         return;
 
     const WshShell_Size_t colorMapSize = WSH_SHELL_ARR_LEN(WshShellStr_ColorMap);
@@ -32,11 +32,11 @@ void WshShell_GeneratePS1(WshShell_Char_t* pPS1, WshShell_PS1Data_t* pPS1Data) {
                 break;
 
             if (*pcIn == 'u') {  // User name
-                const WshShell_Char_t* pcUser = pPS1Data->UserName;
+                const WshShell_Char_t* pcUser = pcPS1Data->UserName;
                 while (*pcUser && WSH_PS1_SPACE_LEFT(pOut, pPS1))
                     *pOut++ = *pcUser++;
             } else if (*pcIn == 'd') {  // Device name
-                const WshShell_Char_t* pcDev = pPS1Data->DevName;
+                const WshShell_Char_t* pcDev = pcPS1Data->DevName;
                 while (*pcDev && WSH_PS1_SPACE_LEFT(pOut, pPS1))
                     *pOut++ = *pcDev++;
             } else if (*pcIn == 'c') {  // Color choice
@@ -59,7 +59,7 @@ void WshShell_GeneratePS1(WshShell_Char_t* pPS1, WshShell_PS1Data_t* pPS1Data) {
                 while (*pcBold && WSH_PS1_SPACE_LEFT(pOut, pPS1))
                     *pOut++ = *pcBold++;
             } else if (*pcIn == 'i') {  // Interactive command name
-                if (pPS1Data->InterCmdName && *pPS1Data->InterCmdName) {
+                if (pcPS1Data->InterCmdName && *pcPS1Data->InterCmdName) {
                     if (WSH_PS1_SPACE_LEFT(pOut, pPS1))
                         *pOut++ = ' ';
 
@@ -74,7 +74,7 @@ void WshShell_GeneratePS1(WshShell_Char_t* pPS1, WshShell_PS1Data_t* pPS1Data) {
                     while (*pcColor && WSH_PS1_SPACE_LEFT(pOut, pPS1))
                         *pOut++ = *pcColor++;
 
-                    const WshShell_Char_t* pcInter = pPS1Data->InterCmdName;
+                    const WshShell_Char_t* pcInter = pcPS1Data->InterCmdName;
                     while (*pcInter && WSH_PS1_SPACE_LEFT(pOut, pPS1))
                         *pOut++ = *pcInter++;
 
@@ -102,18 +102,18 @@ void WshShell_GeneratePS1(WshShell_Char_t* pPS1, WshShell_PS1Data_t* pPS1Data) {
 
 #else /* WSH_SHELL_PS1_CUSTOM */
 
-void WshShell_GeneratePS1(WshShell_Char_t* pPS1, WshShell_PS1Data_t* pPS1Data) {
-    WSH_SHELL_ASSERT(pPS1 && pPS1Data->UserName && pPS1Data->DevName);
-    if (!pPS1 || !pPS1Data->UserName || !pPS1Data->DevName)
+void WshShell_GeneratePS1(WshShell_Char_t* pPS1, const WshShell_PS1Data_t* pcPS1Data) {
+    WSH_SHELL_ASSERT(pPS1 && pcPS1Data->UserName && pcPS1Data->DevName);
+    if (!pPS1 || !pcPS1Data->UserName || !pcPS1Data->DevName)
         return;
 
     const WshShell_Char_t* pcInterCmd = "";
 
-    if (pPS1Data->InterCmdName && *pPS1Data->InterCmdName) {
+    if (pcPS1Data->InterCmdName && *pcPS1Data->InterCmdName) {
         static WshShell_Char_t interCmdBuff[2 * WSH_SHELL_CMD_NAME_LEN];
         WSH_SHELL_SNPRINTF(interCmdBuff, sizeof(interCmdBuff),
                            WSH_SHELL_COLOR_WHITE " (" WSH_SHELL_COLOR_GREEN "%s" WSH_SHELL_COLOR_WHITE ")",
-                           pPS1Data->InterCmdName);
+                           pcPS1Data->InterCmdName);
         pcInterCmd = interCmdBuff;
     }
 
@@ -122,7 +122,7 @@ void WshShell_GeneratePS1(WshShell_Char_t* pPS1, WshShell_PS1Data_t* pPS1Data) {
                        "%s" WSH_SHELL_COLOR_WHITE "@" WSH_SHELL_COLOR_PURPLE "%s"
                        "%s"  // pcInterCmd
                        WSH_SHELL_COLOR_WHITE " > " WSH_SHELL_ESC_RESET_STYLE,
-                       pPS1Data->UserName, pPS1Data->DevName, pcInterCmd);
+                       pcPS1Data->UserName, pcPS1Data->DevName, pcInterCmd);
 }
 
 #endif /* WSH_SHELL_PS1_CUSTOM */
