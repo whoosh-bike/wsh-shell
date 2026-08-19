@@ -137,8 +137,9 @@ WshShell_Bool_t WshShellAutocomplete_Try(WshShell_Char_t* pInBuff, WshShell_Size
     for (WshShell_Size_t cmdIdx = 0; cmdIdx < cmdNum; cmdIdx++) {
         const WshShellCmd_t* pcCmd = WshShellCmd_GetCmdByIndex(pShellCommands, cmdIdx);
         if (WSH_SHELL_STRNCMP(pcInputCopyTrimmed, pcCmd->Name, inputCopyTrimmedLen) == 0) {
-            WSH_SHELL_STRNCPY(candidates[matchCount], pcCmd->Name, WSH_SHELL_CMD_NAME_LEN);
-            pcCmdMatch = pcCmd;
+            WSH_SHELL_STRNCPY(candidates[matchCount], pcCmd->Name, WSH_SHELL_CMD_NAME_LEN - 1);
+            candidates[matchCount][WSH_SHELL_CMD_NAME_LEN - 1] = '\0';  // safety null-term
+            pcCmdMatch                                         = pcCmd;
             matchCount++;
         }
     }
@@ -514,9 +515,12 @@ WshShell_Bool_t WshShellAutocomplete_Try(WshShell_Char_t* pInBuff, WshShell_Size
             return false;
         }
 
-        candidates[0][candLen++] = ' ';  //add extra space if command found
+        /* Append into pInBuff, not into candidates[0]: the candidate row is only
+         * WSH_SHELL_CMD_NAME_LEN long, so writing the space there overruns it for
+         * a name that fills the row, while the guard above bounds pInBuff. */
         WSH_SHELL_STRNCPY(pInBuff, candidates[0], candLen);
-        pInBuff[candLen] = '\0';
+        pInBuff[candLen]     = ' ';  //add extra space if command found
+        pInBuff[candLen + 1] = '\0';
         return true;
     }
 
