@@ -32,6 +32,7 @@ Wsh-Shell is a lightweight, portable, and fully static shell interpreter written
 - **Different New Line Support** - handle different terminals setup (`\r`, `\n` or `\r\n`)
 - **Passwords Stored Salted & Hashed** — passwords are supplied and verified through a user-provided callback and always stored in a salted, hashed form; by default the module uses a lightweight Jenkins (non-cryptographic) hash, and no plaintext passwords are written to flash unless the integrator explicitly chooses to do so
 - **Command Option Validation** — during command registration, the shell automatically checks for duplicate short or long option flags within the same command and triggers an ASSERT if duplicates are detected
+- **Persistent Login Session** — `wsh --keep N` keeps the current login valid across up to `N` reboots, so a watchdog reset or a firmware crash does not force a re-login; the descriptor is integrity-hashed and lives in integrator-supplied storage (typically no-init RAM), the budget is a plain reboot counter so no RTC is needed, and while a session is armed the integrator can block the inactivity auto-logout; gated by `WSH_SHELL_SESSION`
 - **Subcommand Trees** — commands can nest subcommands (`user list`, `user whoami`, etc.) with per-level access control, recursive validation, autocomplete that descends the tree, and automatic help listings; gated by `WSH_SHELL_SUBCOMMANDS` so flat-command builds pay no cost
 
 ## 📑 Docs

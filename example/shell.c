@@ -149,8 +149,7 @@ static const WshShellCmd_t Shell_DumpCmd = {
 
 static const WshShellCmd_t* Shell_CmdTable[] = {&Shell_DumpCmd};
 
-bool Shell_Init(const char* pcHostName, const char* pcLogin, const char* pcPass,
-                const char* pcSessionFile) {
+bool Shell_Init(const char* pcHostName, const char* pcLogin, const char* pcPass, const char* pcSessionFile) {
     Shell_SessionPath = pcSessionFile;
 
     if (WshShell_Init(&Shell, pcHostName, NULL, &Shell_Callbacks) != WSH_SHELL_RET_STATE_SUCCESS) {

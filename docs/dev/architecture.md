@@ -42,6 +42,7 @@
 | **wsh_shell_option.h**            | Command-line option parsing helpers and context structures                        |
 | **wsh_shell_promptwait.h / .c**   | Wait for specific keys (Enter, Yes/No) during command input                       |
 | **wsh_shell_ps1_custom.h / .c**   | Custom shell prompt (`PS1`) generation and formatting                             |
+| **wsh_shell_session.h / .c**      | Login session persisted across reboots (`wsh --keep`), integrator-supplied storage |
 | **wsh_shell_str.h / .c**          | String utilities, line editing, cursor movement, interactive editing              |
 | **wsh_shell_types.h**             | Core typedefs, enums, boolean and status codes                                    |
 | **wsh_shell_user.h / .c**         | Multi-user access control, authentication, and permissions                        |
@@ -80,6 +81,8 @@
 │   ├── wsh_shell_promptwait.h
 │   ├── wsh_shell_ps1_custom.c
 │   ├── wsh_shell_ps1_custom.h
+│   ├── wsh_shell_session.c
+│   ├── wsh_shell_session.h
 │   ├── wsh_shell_str.c
 │   ├── wsh_shell_str.h
 │   ├── wsh_shell_types.h
