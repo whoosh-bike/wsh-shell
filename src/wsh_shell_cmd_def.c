@@ -40,9 +40,10 @@ static const WSH_SHELL_CMD_GROUP_t WshShell_CmdGroups[] = {WSH_SHELL_CMD_GROUP_L
  * it is provided as a flat option whenever the feature is enabled.
  */
 #if WSH_SHELL_SESSION
-#define WSH_SHELL_CMD_DEF_OPT_SESSION_SLOT() \
-    X_CMD_ENTRY(WSH_SHELL_DEF_OPT_KEEP,      \
-                WSH_SHELL_OPT_INT(WSH_SHELL_OPT_ACCESS_WRITE, "-k", "--keep", "Keep login across N reboots & block auto-logout (0 clears)"))
+#define WSH_SHELL_CMD_DEF_OPT_SESSION_SLOT()                                  \
+    X_CMD_ENTRY(WSH_SHELL_DEF_OPT_KEEP,                                       \
+                WSH_SHELL_OPT_INT(WSH_SHELL_OPT_ACCESS_WRITE, "-k", "--keep", \
+                                  "Keep login across N reboots & block auto-logout (0 clears)"))
 #else
 #define WSH_SHELL_CMD_DEF_OPT_SESSION_SLOT()
 #endif
@@ -737,8 +738,7 @@ static WSH_SHELL_RET_STATE_t WshShellCmdDef(const WshShellCmd_t* pcCmd, WshShell
                     WSH_SHELL_PRINT("Session keep failed\r\n");
                     retState = WSH_SHELL_RET_STATE_ERROR;
                 } else if (reboots > 0) {
-                    WSH_SHELL_PRINT("Login kept across %lu reboot(s); auto-logout blocked\r\n",
-                                    (unsigned long)reboots);
+                    WSH_SHELL_PRINT("Login kept across %lu reboot(s); auto-logout blocked\r\n", (unsigned long)reboots);
                 } else {
                     WSH_SHELL_PRINT("Session keep cleared\r\n");
                 }

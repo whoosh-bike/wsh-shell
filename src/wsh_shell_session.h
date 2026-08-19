@@ -35,9 +35,9 @@ extern "C" {
  * "keep me logged in" request.
  */
 typedef struct {
-    WshShell_U32_t Hash;		/**< Hash over the fields below. */
+    WshShell_U32_t Hash;        /**< Hash over the fields below. */
     WshShell_U32_t RebootsLeft; /**< Reboots the login may still survive. */
-    WshShell_U32_t UserIdx;		/**< Index into the shell user table. */
+    WshShell_U32_t UserIdx;     /**< Index into the shell user table. */
 } WshShellSession_t;
 
 /** @brief Read the persisted session descriptor. */
@@ -53,7 +53,7 @@ typedef void (*WshShellSession_WriteHandler_t)(WshShellSession_t);
  * integrator (typically no-init RAM).
  */
 typedef struct {
-    WshShellSession_ReadHandler_t Read;	  /**< Callback for loading the saved session. */
+    WshShellSession_ReadHandler_t Read;   /**< Callback for loading the saved session. */
     WshShellSession_WriteHandler_t Write; /**< Callback for saving the session. */
 } WshShellSessionIO_t;
 
@@ -68,7 +68,7 @@ typedef struct {
  * @param[in]     writeFn Callback to persist the descriptor.
  */
 void WshShellSession_Init(WshShellSessionIO_t* pSessIO, WshShellSession_ReadHandler_t readFn,
-						  WshShellSession_WriteHandler_t writeFn);
+                          WshShellSession_WriteHandler_t writeFn);
 
 /**
  * @brief Read the persisted descriptor.

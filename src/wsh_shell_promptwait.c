@@ -16,8 +16,8 @@ void WshShellPromptWait_Attach(WshShellPromptWait_t* pWait, WshShellPromptWait_H
     if (!pWait || !handler)
         return;
 
-    pWait->Handler = handler;
-    pWait->Ctx     = pCtx;
+    pWait->Handler     = handler;
+    pWait->Ctx         = pCtx;
     /* Every wait starts with a fresh hint budget. */
     pWait->RejectedNum = 0;
 }
