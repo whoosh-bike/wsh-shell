@@ -38,6 +38,43 @@ static void WshShellHistory_Write(WshShellHistory_t history) {
     memcpy((void*)&Shell_HistoryStorage, (void*)&history, sizeof(WshShellHistory_t));
 }
 
+/*
+ * On a microcontroller the session descriptor lives in a no-init RAM region that
+ * survives a warm reboot. The PC example has no such memory, so an optional file
+ * plays that role: restarting the process with the same --session path models a
+ * reboot. Without the option the store is plain RAM and dies with the process.
+ */
+static WshShellSession_t Shell_SessionStorage;
+static const char* Shell_SessionPath = NULL;
+
+static WshShellSession_t Shell_SessionRead(void) {
+    if (Shell_SessionPath == NULL)
+        return Shell_SessionStorage;
+
+    WshShellSession_t session = {0};
+    FILE* pFile               = fopen(Shell_SessionPath, "rb");
+    if (pFile != NULL) {
+        if (fread((void*)&session, sizeof(session), 1, pFile) != 1)
+            memset((void*)&session, 0, sizeof(session));
+        fclose(pFile);
+    }
+
+    return session;
+}
+
+static void Shell_SessionWrite(WshShellSession_t session) {
+    memcpy((void*)&Shell_SessionStorage, (void*)&session, sizeof(WshShellSession_t));
+
+    if (Shell_SessionPath == NULL)
+        return;
+
+    FILE* pFile = fopen(Shell_SessionPath, "wb");
+    if (pFile != NULL) {
+        fwrite((const void*)&session, sizeof(session), 1, pFile);
+        fclose(pFile);
+    }
+}
+
 static void Shell_AuthClbk(void* pCtx) {
     (void)(pCtx);
 }
@@ -112,7 +149,10 @@ static const WshShellCmd_t Shell_DumpCmd = {
 
 static const WshShellCmd_t* Shell_CmdTable[] = {&Shell_DumpCmd};
 
-bool Shell_Init(const char* pcHostName, const char* pcLogin, const char* pcPass) {
+bool Shell_Init(const char* pcHostName, const char* pcLogin, const char* pcPass,
+                const char* pcSessionFile) {
+    Shell_SessionPath = pcSessionFile;
+
     if (WshShell_Init(&Shell, pcHostName, NULL, &Shell_Callbacks) != WSH_SHELL_RET_STATE_SUCCESS) {
         return false;
     }
@@ -123,10 +163,13 @@ bool Shell_Init(const char* pcHostName, const char* pcLogin, const char* pcPass)
     }
 
     WshShellHistory_Init(&Shell.HistoryIO, WshShellHistory_Read, WshShellHistory_Write);
+    WshShellSession_Init(&Shell.SessionIO, Shell_SessionRead, Shell_SessionWrite);
 
     WshShellCmd_Attach(&Shell.Commands, Shell_CmdTable, WSH_SHELL_ARR_LEN(Shell_CmdTable));
 
-    if (pcLogin != NULL && pcPass != NULL) {
+    /* An armed session outranks the auto-login credentials: it is what the user
+     * asked for on the previous boot. */
+    if (!WshShell_SessionRestore(&Shell) && pcLogin != NULL && pcPass != NULL) {
         WshShell_Auth(&Shell, pcLogin, pcPass);
     }
 
