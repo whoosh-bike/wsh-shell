@@ -52,6 +52,9 @@ make example
 ./example/build/example
 
 # Default example username `root` and password `1234`
+# Type `exit` in the shell to quit — the example runs the terminal in raw mode
+# with signals disabled, so Ctrl+C is delivered to the shell as a cancel key
+# rather than killing the process.
 ```
 
 By default, the project is built in **Debug** mode.

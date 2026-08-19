@@ -153,7 +153,7 @@ role — restarting the process with the same path models a reboot:
 ```bash
 ./example/build/example --session /tmp/wsh-session.bin -l root -p 1234
 # wsh --keep 2
-# ^C, then restart without credentials:
+# exit          (quits the process and restores the terminal)
 ./example/build/example --session /tmp/wsh-session.bin
 ```
 

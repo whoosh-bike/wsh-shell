@@ -146,7 +146,61 @@ static const WshShellCmd_t Shell_DumpCmd = {
     .Handler = Shell_DumpHandler,
 };
 
-static const WshShellCmd_t* Shell_CmdTable[] = {&Shell_DumpCmd};
+/* ── exit command ──────────────────────────────────────────────────────── */
+
+/* clang-format off */
+#define EXIT_OPT_TABLE() \
+    X_CMD_ENTRY(EXIT_OPT_DEF,    WSH_SHELL_OPT_NO(WSH_SHELL_OPT_ACCESS_ANY, "Quit the example process")) \
+    X_CMD_ENTRY(EXIT_OPT_HELP,   WSH_SHELL_OPT_HELP()) \
+    X_CMD_ENTRY(EXIT_OPT_END_ID, WSH_SHELL_OPT_END())
+/* clang-format on */
+
+typedef enum {
+#define X_CMD_ENTRY(en, m) en,
+    EXIT_OPT_TABLE() EXIT_OPT_ENUM_SIZE
+#undef X_CMD_ENTRY
+} EXIT_OPT_t;
+
+#define X_CMD_ENTRY(en, m) {en, m},
+static const WshShellOption_t Exit_OptArr[] = {EXIT_OPT_TABLE()};
+#undef X_CMD_ENTRY
+
+static WSH_SHELL_RET_STATE_t Shell_ExitHandler(const WshShellCmd_t* pcCmd, WshShell_Size_t argc,
+                                               const WshShell_Char_t* pArgv[], void* pShellCtx) {
+    if (!pcCmd || !pShellCtx || (argc > 0 && !pArgv))
+        return WSH_SHELL_RET_STATE_ERR_PARAM;
+
+    WshShell_t* pShell = (WshShell_t*)pShellCtx;
+
+    for (WshShell_Size_t tokenPos = 0; tokenPos < argc;) {
+        WshShellOption_Ctx_t optCtx = WshShellCmd_ParseOpt(pcCmd, argc, pArgv, pShell->CurrUser->Rights, &tokenPos);
+        if (!optCtx.Option) {
+            if (optCtx.ParseError)
+                return WSH_SHELL_RET_STATE_ERR_PARAM;
+            break;
+        }
+        if (optCtx.Option->ID == EXIT_OPT_HELP) {
+            WshShellCmd_PrintOptionsOverview(pcCmd);
+            return WSH_SHELL_RET_STATE_SUCCESS;
+        }
+    }
+
+    /* The terminal is in raw mode; exit() runs the atexit hook that restores it,
+     * which killing the process from another terminal would skip. */
+    WSH_SHELL_PRINT_SYS("Bye!\r\n");
+    exit(EXIT_SUCCESS);
+}
+
+static const WshShellCmd_t Shell_ExitCmd = {
+    .Groups  = WSH_SHELL_CMD_GROUP_ALL,
+    .Name    = "exit",
+    .Descr   = "Quit the example process and restore terminal modes",
+    .Options = Exit_OptArr,
+    .OptNum  = WSH_SHELL_ARR_LEN(Exit_OptArr),
+    .Handler = Shell_ExitHandler,
+};
+
+static const WshShellCmd_t* Shell_CmdTable[] = {&Shell_DumpCmd, &Shell_ExitCmd};
 
 bool Shell_Init(const char* pcHostName, const char* pcLogin, const char* pcPass, const char* pcSessionFile) {
     Shell_SessionPath = pcSessionFile;
