@@ -50,7 +50,7 @@ footprint:
 cppcheck: gen-config
 	@echo "[CHECK] Running cppcheck -> $(CPPCHECK_LOG)"
 	@mkdir -p $(dir $(CPPCHECK_LOG))
-	@cppcheck --quiet --enable=all --error-exitcode=1 --check-level=exhaustive \
+	@cppcheck --quiet --enable=all --error-exitcode=1 --check-level=exhaustive --inline-suppr \
 		$(CPPCHECK_SUPPRESS) --output-file=$(CPPCHECK_LOG) \
 		$(INC_FLAGS) -I$(EXAMPLE_DIR) $(SRCS); status=$$?; \
 		cat $(CPPCHECK_LOG); exit $$status

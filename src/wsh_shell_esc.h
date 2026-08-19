@@ -66,10 +66,10 @@ void WshShellEsc_StartSeq(WshShellEsc_Storage_t* pEscStorage);
 /**
  * @brief Checks if escape sequence is in progress
  *
- * @param pEscStorage Pointer to escape sequence buffer
+ * @param pcEscStorage Pointer to escape sequence buffer
  * @return WshShell_Bool_t `true` if sequence has started
  */
-WshShell_Bool_t WshShellEsc_IsSeqStarted(WshShellEsc_Storage_t* pEscStorage);
+WshShell_Bool_t WshShellEsc_IsSeqStarted(const WshShellEsc_Storage_t* pcEscStorage);
 
 #ifdef __cplusplus
 }

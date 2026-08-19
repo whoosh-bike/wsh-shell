@@ -159,7 +159,7 @@ WshShell_Bool_t WshShell_Auth(WshShell_t* pShell, const WshShell_Char_t* pcLogin
  * @param pShell Shell instance.
  * @return `WSH_SHELL_TRUE` if a user is authenticated, `WSH_SHELL_FALSE` otherwise.
  */
-WshShell_Bool_t WshShell_IsAuth(WshShell_t* pShell);
+WshShell_Bool_t WshShell_IsAuth(const WshShell_t* pcShell);
 
 /**
  * @brief De-authenticate the currently logged-in user.

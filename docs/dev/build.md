@@ -174,6 +174,17 @@ Findings are printed and saved to the log file; the exit code is cppcheck's own,
 the target still fails the build on findings (`--error-exitcode=1`). The log path is
 covered by `.gitignore`.
 
+The target depends on `gen-config` and analyses `src/` with `example/wsh_shell_cfg.h`
+on the include path. Without a resolvable config cppcheck cannot evaluate the feature
+macros: it drowns the report in `missingInclude` noise, checks far more `#ifdef`
+combinations (slow), and still misses real findings that only appear once the buffer
+sizes are known.
+
+Class-wide suppressions live in `.cppcheck-suppressions`, each with the reason it is
+there — mostly artefacts of analysing a library without its callers (`unusedFunction`,
+`staticFunction`). One-off exceptions are inline `// cppcheck-suppress <id>` comments
+next to the code they excuse (`--inline-suppr`).
+
 ---
 
 ## Additional Notes
