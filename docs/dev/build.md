@@ -163,6 +163,19 @@ stay a byte-identical copy of `src/wsh_shell_cfg_def.h`.
 
 ---
 
+## Static Analysis
+
+```bash
+make cppcheck                             # report also written to build/cppcheck.log
+make cppcheck CPPCHECK_LOG=/tmp/cc.log    # elsewhere
+```
+
+Findings are printed and saved to the log file; the exit code is cppcheck's own, so
+the target still fails the build on findings (`--error-exitcode=1`). The log path is
+covered by `.gitignore`.
+
+---
+
 ## Additional Notes
 
 - You can adjust build flags in `example/Makefile` (optimization level, debug symbols, etc.)
