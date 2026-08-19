@@ -148,6 +148,18 @@ make CC=clang BUILD=release
 
 ---
 
+## Formatting
+
+```bash
+make format            # or: ./utils/code-format.sh
+```
+
+Both routes run the same script, so `src/` and `example/` are always formatted
+identically. The generated `example/wsh_shell_cfg.h` is skipped on purpose — it must
+stay a byte-identical copy of `src/wsh_shell_cfg_def.h`.
+
+---
+
 ## Additional Notes
 
 - You can adjust build flags in `example/Makefile` (optimization level, debug symbols, etc.)

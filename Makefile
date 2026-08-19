@@ -35,7 +35,7 @@ clean:
 
 format:
 	@echo "[FORMAT] Running clang-format"
-	@clang-format --style=file -i $(SRC_DIR)/*.[ch] $(EXAMPLE_DIR)/main.c
+	@./utils/code-format.sh
 
 footprint:
 	@echo "[SIZE] Measuring flash footprint per feature set"
