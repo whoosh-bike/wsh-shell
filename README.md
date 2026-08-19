@@ -28,7 +28,9 @@ Wsh-Shell is a lightweight, portable, and fully static shell interpreter written
     - Tab / double-Tab completion for commands and flags  
 - **Interactive Command Mode** — commands can take exclusive control over user input, temporarily suspending the shell and routing all data to a single handler
 - **Customizable PS1 Prompt** — user-defined templates for prompt appearance
-- **Await Prompt** — await for a specific key press
+- **Await Prompt** — await for a specific key press; the "press ..." hint repeats only
+  `WSH_SHELL_PROMPT_WAIT_HINT_RETRIES` times before the wait goes quiet (the bell still answers every
+  refused key), and Ctrl+C always escapes the wait
 - **Different New Line Support** - handle different terminals setup (`\r`, `\n` or `\r\n`)
 - **Passwords Stored Salted & Hashed** — passwords are supplied and verified through a user-provided callback and always stored in a salted, hashed form; by default the module uses a lightweight Jenkins (non-cryptographic) hash, and no plaintext passwords are written to flash unless the integrator explicitly chooses to do so
 - **Command Option Validation** — during command registration, the shell automatically checks for duplicate short or long option flags within the same command and triggers an ASSERT if duplicates are detected
@@ -52,22 +54,42 @@ Repository also includes Python adapter utilities in [`wsh_shell_adapter/`](wsh_
 
 ## 💾 Memory footprint
 
-- Build options: cortex-m7, `-O1` optimization
-- sizeof(WshShell_t) = 404 bytes
+Measured with `utils/measure-footprint.py`: the library is built for cortex-m7 with `-O1`, linked with `--gc-sections`, and only the bytes belonging to the shell's own object files are counted (libc, startup code and the integrator stub are excluded).
 
-| Config                               | FLASH, KB | Comment                                             |
-| ------------------------------------ | --------- | --------------------------------------------------- |
-| All features disabled                | 4.06836   |                                                     |
-| `+WSH_SHELL_PRINT_SYS/INFO/WARN/ERR` | 4.58008   | Not recommended to disable shell messages           |
-| `+WSH_SHELL_INTERACTIVE_MODE`        | 4.68164   |                                                     |
-| `+WSH_SHELL_HISTORY`                 | 5.63867   |                                                     |
-| `+WSH_SHELL_AUTOCOMPLETE`            | 6.19727   |                                                     |
-| `+WSH_SHELL_PS1_CUSTOM`              | 6.66992   |                                                     |
-| `+WSH_SHELL_PROMPT_WAIT`             | 6.78516   |                                                     |
-| `+WSH_SHELL_DEF_COMMAND`             | 8.44922   |                                                     |
-| `+WSH_SHELL_PRINT_OPT_HELP`          | 8.44922   | Could be useful on huge amount of external commands |
-| `+WSH_SHELL_CMD_PRINT_OPT_OVERVIEW`  | 8.69922   | Could be useful on huge amount of external commands |
-| `+WSH_SHELL_SUBCOMMANDS`             |           |                                                     |
+```bash
+python3 utils/measure-footprint.py --markdown          # cumulative table below
+python3 utils/measure-footprint.py --mode drop         # what turning a feature OFF saves
+python3 utils/measure-footprint.py --mode each         # what a feature costs on its own
+make footprint                                         # same as the first form
+```
+
+- Build options: cortex-m7, `-O1` optimization, arm-none-eabi-gcc 14.2
+- sizeof(WshShell_t) = 352 bytes (full config, 32-bit target)
+
+| Config | FLASH, KB | ΔFLASH, KB | RAM, KB | sizeof(WshShell_t), B |
+| ------ | --------- | ---------- | ------- | --------------------- |
+| All features disabled | 5.87402 | — | 1.61621 | 352 |
+| +WSH_SHELL_PRINT_SYS/INFO/WARN/ERR | 8.44531 | +2.57129 | 1.61621 | 352 |
+| +WSH_SHELL_INTERACTIVE_MODE | 8.77539 | +0.33008 | 1.61621 | 352 |
+| +WSH_SHELL_HISTORY | 9.88281 | +1.10742 | 1.61621 | 352 |
+| +WSH_SHELL_AUTOCOMPLETE | 12.55762 | +2.67480 | 1.61621 | 352 |
+| +WSH_SHELL_PS1_CUSTOM | 13.10547 | +0.54785 | 1.58496 | 352 |
+| +WSH_SHELL_PROMPT_WAIT | 13.54004 | +0.43457 | 1.58496 | 352 |
+| +WSH_SHELL_DEF_COMMAND | 15.91211 | +2.37207 | 1.58496 | 352 |
+| +WSH_SHELL_SESSION | 16.90918 | +0.99707 | 1.58496 | 352 |
+| +WSH_SHELL_PRINT_OPT_HELP | 17.47559 | +0.56641 | 1.58496 | 352 |
+| +WSH_SHELL_CMD_PRINT_OPT_OVERVIEW | 18.20801 | +0.73242 | 1.58496 | 352 |
+| +WSH_SHELL_SUBCOMMANDS | 24.60840 | +6.40039 | 1.58496 | 352 |
+
+The Δ column is what the row's flags add on top of every row above it, so a number is only meaningful together with its predecessors.
+
+> [!IMPORTANT]
+> `--mode drop` is the number to trim flash by. It rebuilds the **full** configuration
+> with one feature removed, so it answers the only question that matters in practice —
+> "what do I actually save by switching this off?" Feature costs are not additive:
+> code is shared between features, and a flag that looks cheap on a bare build can be
+> the most expensive one in a full build (`WSH_SHELL_SUBCOMMANDS`: ~0.6 KB alone,
+> ~6.4 KB once the default `wsh` command tree exists).
 
 ## ⌨️ Code counting
 
@@ -75,10 +97,10 @@ Repository also includes Python adapter utilities in [`wsh_shell_adapter/`](wsh_
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
  Language              Files        Lines         Code     Comments       Blanks
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
- C                        13         3231         2468          148          615
- C Header                 17         2183          752         1180          251
+ C                        14         3594         2699          199          696
+ C Header                 18         2393          797         1321          275
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
- Total                    30         5414         3220         1328          866
+ Total                    32         5987         3496         1520          971
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 ```
 

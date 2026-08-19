@@ -80,7 +80,7 @@ command_timeout_s = 3.0
 retries = 1
 auto_recover = true
 ping_command_and_response = ["wsh --ping", "pong"]
-prompt_regex = "^(?:[^\\r\\n]+@[^\\r\\n]+\\s*>|wsh-shell>)\\s*$"
+prompt_regex = "^(?:[^\\r\\n>]+@[^\\r\\n>]+\\s*>|wsh-shell>)"
 
 [local_shell]
 binary = "example/build/example"
@@ -93,6 +93,14 @@ the adapter as synced.
 If `ping_command_and_response` is missing or `[]`, `sync()` sends a fixed probe command and treats
 any non-empty command output as proof that the shell is alive.
 `auto_recover` controls whether the adapter tries soft/hard recovery after command failures.
+
+`prompt_regex` is deliberately **not** anchored to the end of the buffer. A device that streams
+async log lines over the same UART (e.g. `log -l trace`) appends them right after the prompt, since
+the shell leaves the cursor on the prompt line while it waits for input. The adapter therefore scans
+the whole buffer with `re.MULTILINE` and takes the **last** match as the end of the response;
+anything after it is unrelated output and is stripped from `CommandResult.text`. Keep `>` excluded
+from the user/host character classes in a custom pattern, otherwise a stray `>` in the trailing noise
+pulls the match past the prompt.
 
 Load config directly:
 

@@ -61,6 +61,42 @@
             }
         },
         {
+            "label": "🧬 gen config header",
+            "type": "shell",
+            "command": "make gen-config",
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            }
+        },
+        {
+            "label": "🔍 cppcheck (report → build/cppcheck.log)",
+            "type": "shell",
+            "command": "make cppcheck",
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            }
+        },
+        {
+            "label": "💾 footprint: cumulative table",
+            "type": "shell",
+            "command": "make footprint",
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            }
+        },
+        {
+            "label": "💾 footprint: saving per disabled feature",
+            "type": "shell",
+            "command": "python3 utils/measure-footprint.py --mode drop --markdown",
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            }
+        },
+        {
             "label": "🧪 test: all",
             "type": "shell",
             "command": ".venv/bin/pytest tests -v",

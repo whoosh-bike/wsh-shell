@@ -13,10 +13,10 @@ Login kept across 3 reboot(s); auto-logout blocked
 After the next reboot the shell comes up already logged in as `root`, with two
 reboots left in the budget.
 
-!!! warning
-    A kept session is a password-free login. It is a convenience for manufacturing
-    and field service, not a security feature: anyone with access to the port
-    inherits the session until its budget runs out or someone logs out.
+> [!WARNING]
+> A kept session is a password-free login. It is a convenience for manufacturing
+> and field service, not a security feature: anyone with access to the port
+> inherits the session until its budget runs out or someone logs out.
 
 ---
 
@@ -153,7 +153,7 @@ role — restarting the process with the same path models a reboot:
 ```bash
 ./example/build/example --session /tmp/wsh-session.bin -l root -p 1234
 # wsh --keep 2
-# ^C, then restart without credentials:
+# exit          (quits the process and restores the terminal)
 ./example/build/example --session /tmp/wsh-session.bin
 ```
 
