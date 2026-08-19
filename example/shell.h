@@ -9,7 +9,7 @@
 #include <stdlib.h>
 #include <string.h>
 
-bool Shell_Init(const char* pcHostName, const char* pcLogin, const char* pcPass);
+bool Shell_Init(const char* pcHostName, const char* pcLogin, const char* pcPass, const char* pcSessionFile);
 void Shell_SendChar(char ch);
 
 #endif /* __SHELL_H */

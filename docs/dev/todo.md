@@ -195,3 +195,18 @@
 - [x] Autocomplete cleanup and subcommand-related corner-case fixes
 - [x] Fix `PtyProcessTransport` error path on Windows in the Python adapter
 - [x] Trim flash-footprint tables in `README.md` / `docs/index.md` to only feature-toggle macros (drop numeric-size knobs that don't fit the on/off cost model)
+
+## v3.4 (Persistent Session & Prompt-Wait Polish)
+
+### Persistent Login Session
+
+- [x] Add `wsh_shell_session.{c,h}` — hashed `WshShellSession_t` descriptor (reboot budget + user index) with integrator-supplied read/write handlers, mirroring the history I/O pattern
+- [x] Add `WSH_SHELL_SESSION` config flag (default-on); every public function keeps its signature as a stub when disabled
+- [x] `WshShellSession_Init` discards an invalid store so uninitialised no-init RAM can never be restored
+- [x] Add `WshShell_SessionArm` / `WshShell_SessionRestore` / `WshShell_SessionIsKeepActive` / `WshShell_SessionRebootsLeft` to the shell API; restore spends one reboot from the budget
+- [x] Clear the session in `WshShell_DeAuth` — a logout must not be silently undone by the next reboot
+- [x] Add flat `-k / --keep N` option to the default command via slot macro; `wsh` status prints the remaining budget
+- [x] Wire the feature into the PC example: `--session <file>` stands in for no-init RAM, so restarting the process models a reboot
+- [x] Add integration tests covering arming, restore across reboots, budget exhaustion, `--keep 0`, logout, and a corrupted store
+- [x] Document in `usage/session.md`, `usage/bare-metal.md`, index/README feature lists
+

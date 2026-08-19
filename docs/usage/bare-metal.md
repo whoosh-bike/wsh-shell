@@ -115,7 +115,27 @@ static void Shell_HistoryWrite(WshShellHistory_t history) {
 }
 ```
 
-## 6. Define callbacks
+## 6. Setup persistent login session
+
+Optional (`WSH_SHELL_SESSION`). Lets `wsh --keep N` hold the login across `N`
+reboots. A no-init RAM region is the natural backing store — it survives a warm
+reboot and dies with the power:
+
+```c
+static WshShellSession_t Shell_SessionStorage __attribute__((section(".noinit")));
+
+static WshShellSession_t Shell_SessionRead(void) {
+    return Shell_SessionStorage;
+}
+
+static void Shell_SessionWrite(WshShellSession_t session) {
+    memcpy((void*)&Shell_SessionStorage, (void*)&session, sizeof(WshShellSession_t));
+}
+```
+
+See [Persistent Login Session](session.md) for the full picture.
+
+## 7. Define callbacks
 
 You can implement hooks for authentication, de-authentication, input and other events:
 
@@ -131,7 +151,7 @@ static WshShellExtCallbacks_t Shell_Callbacks = {
 };
 ```
 
-## 7. Initialize the shell
+## 8. Initialize the shell
 
 Perform initialization at system startup:
 
@@ -147,11 +167,15 @@ bool Shell_Init(const char* pcHostName) {
     }
 
     WshShellHistory_Init(&Shell.HistoryIO, Shell_HistoryRead, Shell_HistoryWrite);
+    WshShellSession_Init(&Shell.SessionIO, Shell_SessionRead, Shell_SessionWrite);
 
     if (WshShellCmd_Attach(&(Shell.Commands), Shell_CmdTable, WSH_SHELL_ARR_LEN(Shell_CmdTable)) !=
         WSH_SHELL_RET_STATE_SUCCESS) {
         return false;
     }
+
+    // Restore a login the operator asked to keep across reboots (no-op without one)
+    WshShell_SessionRestore(&Shell);
 
     // Optional: auto-login for development/testing
     // WshShell_Auth(&Shell, "admin", "1234");
@@ -160,7 +184,7 @@ bool Shell_Init(const char* pcHostName) {
 }
 ```
 
-## 8. Feeding input into the shell
+## 9. Feeding input into the shell
 
 Each received character (e.g., from UART, USB CDC, ...) should be passed to the shell:
 
