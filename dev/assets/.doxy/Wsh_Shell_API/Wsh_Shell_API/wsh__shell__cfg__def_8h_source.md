@@ -84,12 +84,23 @@
  */
 #define WSH_SHELL_PROMPT_WAIT 1
 
+/* How many refused keystrokes still reprint the "press ..." hint before the
+ * wait goes quiet. The bell keeps sounding on every one of them. */
+#define WSH_SHELL_PROMPT_WAIT_HINT_RETRIES 3
+
 /*
  * ─────────────────────────────────────────────
  * Default shell command (executed at startup)
  * ─────────────────────────────────────────────
  */
 #define WSH_SHELL_DEF_COMMAND 1
+
+/*
+ * ─────────────────────────────────────────────
+ * Persistent login session (`wsh --keep`, survives reboots)
+ * ─────────────────────────────────────────────
+ */
+#define WSH_SHELL_SESSION 1
 
 /*
  * ─────────────────────────────────────────────

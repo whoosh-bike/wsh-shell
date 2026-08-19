@@ -19,6 +19,10 @@
 extern "C" {
 #endif
 
+#ifndef WSH_SHELL_PROMPT_WAIT_HINT_RETRIES
+#define WSH_SHELL_PROMPT_WAIT_HINT_RETRIES 3
+#endif
+
 // Forward declaration of command structure
 struct WshShellPromptWait;
 
@@ -27,6 +31,7 @@ typedef WshShell_Bool_t (*WshShellPromptWait_Handler_t)(WshShell_Char_t symbol, 
 typedef struct WshShellPromptWait {
     WshShellPromptWait_Handler_t Handler;
     void* Ctx;
+    WshShell_Size_t RejectedNum; 
 } WshShellPromptWait_t;
 
 void WshShellPromptWait_Flush(WshShellPromptWait_t* pWait);
@@ -37,6 +42,8 @@ WSH_SHELL_RET_STATE_t WshShellPromptWait_Handle(WshShellPromptWait_t* pWait, Wsh
 
 WshShell_Bool_t WshShellPromptWait_Enter(WshShell_Char_t symbol, WshShellPromptWait_t* pWait);
 WshShell_Bool_t WshShellPromptWait_YesNo(WshShell_Char_t symbol, WshShellPromptWait_t* pWait);
+
+WshShell_Bool_t WshShellPromptWait_HintIsNeeded(const WshShellPromptWait_t* pcWait);
 
 #ifdef __cplusplus
 }

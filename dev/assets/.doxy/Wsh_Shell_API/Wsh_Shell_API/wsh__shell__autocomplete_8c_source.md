@@ -558,21 +558,21 @@ WshShell_Bool_t WshShellAutocomplete_Try(WshShell_Char_t* pInBuff, WshShell_Size
 
 #else /* WSH_SHELL_AUTOCOMPLETE */
 
+/*
+ * Autocomplete compiled out. Returning false makes the Tab handler redraw the
+ * prompt + input, so emit the notice on its own line first (leading newline)
+ * to avoid gluing it onto the current input. Returning false (not true) is what
+ * triggers that redraw.
+ */
 WshShell_Bool_t WshShellAutocomplete_Try(WshShell_Char_t* pInBuff, WshShell_Size_t inBuffLen,
                                          WshShellCmd_Table_t* pShellCommands) {
+    (void)inBuffLen;
     WSH_SHELL_ASSERT(pInBuff && pShellCommands);
     if (!pInBuff || !pShellCommands)
         return false;
 
-    WshShell_Char_t sysMsgShift[WSH_SHELL_AUTOCOMPLETE_PAD_LEN + 1];
-    WshShell_Size_t padLen =
-        (inBuffLen < WSH_SHELL_AUTOCOMPLETE_PAD_LEN) ? (WSH_SHELL_AUTOCOMPLETE_PAD_LEN - inBuffLen) : 0;
-    WSH_SHELL_MEMSET((void*)sysMsgShift, WSH_SHELL_AUTOCOMPLETE_PAD_SYM, padLen);
-    sysMsgShift[0]      = ' ';
-    sysMsgShift[padLen] = '\0';
-
-    WSH_SHELL_PRINT_WARN("%s /autocomplete disabled", sysMsgShift);
     WSH_SHELL_PRINT("\r\n");
+    WSH_SHELL_PRINT_WARN("autocomplete disabled\r\n");
 
     return false;
 }

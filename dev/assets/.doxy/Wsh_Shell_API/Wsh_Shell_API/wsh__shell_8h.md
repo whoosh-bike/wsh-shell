@@ -21,6 +21,7 @@ _Core shell interface for command parsing, user authentication, and terminal int
 * `#include "wsh_shell_misc.h"`
 * `#include "wsh_shell_promptwait.h"`
 * `#include "wsh_shell_ps1_custom.h"`
+* `#include "wsh_shell_session.h"`
 * `#include "wsh_shell_str.h"`
 * `#include "wsh_shell_types.h"`
 * `#include "wsh_shell_user.h"`
@@ -83,6 +84,10 @@ _Core shell interface for command parsing, user authentication, and terminal int
 |  WSH\_SHELL\_RET\_STATE\_t | [**WshShell\_Init**](#function-wshshell_init) ([**WshShell\_t**](structWshShell__t.md) \* pShell, const WshShell\_Char\_t \* pcDevName, const WshShell\_Char\_t \* pcCustomHeader, [**WshShellExtCallbacks\_t**](structWshShellExtCallbacks__t.md) \* pExtClbks) <br>_Initialize a shell instance._  |
 |  void | [**WshShell\_InsertChar**](#function-wshshell_insertchar) ([**WshShell\_t**](structWshShell__t.md) \* pShell, const WshShell\_Char\_t symbol) <br>_Process a new character entered by the user._  |
 |  WshShell\_Bool\_t | [**WshShell\_IsAuth**](#function-wshshell_isauth) ([**WshShell\_t**](structWshShell__t.md) \* pShell) <br>_Check if a user is currently authenticated._  |
+|  WshShell\_Bool\_t | [**WshShell\_SessionArm**](#function-wshshell_sessionarm) ([**WshShell\_t**](structWshShell__t.md) \* pShell, WshShell\_U32\_t reboots) <br>_Arm cross-reboot login persistence for the current user._  |
+|  WshShell\_Bool\_t | [**WshShell\_SessionIsKeepActive**](#function-wshshell_sessioniskeepactive) ([**WshShell\_t**](structWshShell__t.md) \* pShell) <br>_Whether an armed keep-session is currently active (budget remaining)._  |
+|  WshShell\_U32\_t | [**WshShell\_SessionRebootsLeft**](#function-wshshell_sessionrebootsleft) ([**WshShell\_t**](structWshShell__t.md) \* pShell) <br>_Remaining reboot budget of the armed session, or 0 if none._  |
+|  WshShell\_Bool\_t | [**WshShell\_SessionRestore**](#function-wshshell_sessionrestore) ([**WshShell\_t**](structWshShell__t.md) \* pShell) <br>_Restore a previously armed login without a password prompt._  |
 
 
 
@@ -334,6 +339,153 @@ WshShell_Bool_t WshShell_IsAuth (
 **Returns:**
 
 `WSH_SHELL_TRUE` if a user is authenticated, `WSH_SHELL_FALSE` otherwise. 
+
+
+
+
+
+        
+
+<hr>
+
+
+
+### function WshShell\_SessionArm 
+
+_Arm cross-reboot login persistence for the current user._ 
+```C++
+WshShell_Bool_t WshShell_SessionArm (
+    WshShell_t * pShell,
+    WshShell_U32_t reboots
+) 
+```
+
+
+
+Records the current login so it can be restored without a password after up to `reboots` reboots. While a session is armed the integrator can also suppress the inactivity auto-logout (see [**WshShell\_SessionIsKeepActive()**](wsh__shell_8h.md#function-wshshell_sessioniskeepactive)). Passing 0 clears any armed session. Requires the shell to have session I/O installed ([**WshShellSession\_Init()**](wsh__shell__session_8h.md#function-wshshellsession_init)) and a user currently logged in.
+
+
+
+
+**Parameters:**
+
+
+* `pShell` Shell instance. 
+* `reboots` Number of reboots the login may survive (0 clears). 
+
+
+
+**Returns:**
+
+`true` if the request was applied. 
+
+
+
+
+
+        
+
+<hr>
+
+
+
+### function WshShell\_SessionIsKeepActive 
+
+_Whether an armed keep-session is currently active (budget remaining)._ 
+```C++
+WshShell_Bool_t WshShell_SessionIsKeepActive (
+    WshShell_t * pShell
+) 
+```
+
+
+
+The integrator can use this to block the inactivity auto-logout while the host asked to stay logged in.
+
+
+
+
+**Parameters:**
+
+
+* `pShell` Shell instance. 
+
+
+
+**Returns:**
+
+`true` if a valid session with remaining reboot budget is stored. 
+
+
+
+
+
+        
+
+<hr>
+
+
+
+### function WshShell\_SessionRebootsLeft 
+
+_Remaining reboot budget of the armed session, or 0 if none._ 
+```C++
+WshShell_U32_t WshShell_SessionRebootsLeft (
+    WshShell_t * pShell
+) 
+```
+
+
+
+
+
+**Parameters:**
+
+
+* `pShell` Shell instance. 
+
+
+
+**Returns:**
+
+Reboots left, or 0 when no valid session is armed. 
+
+
+
+
+
+        
+
+<hr>
+
+
+
+### function WshShell\_SessionRestore 
+
+_Restore a previously armed login without a password prompt._ 
+```C++
+WshShell_Bool_t WshShell_SessionRestore (
+    WshShell_t * pShell
+) 
+```
+
+
+
+Intended to be called once at start-up, after the user table is attached. On success the current user and PS1 are set and the Auth callback is invoked, exactly as a normal login would. Consumes one reboot from the budget.
+
+
+
+
+**Parameters:**
+
+
+* `pShell` Shell instance. 
+
+
+
+**Returns:**
+
+`true` if a valid session was restored. 
 
 
 

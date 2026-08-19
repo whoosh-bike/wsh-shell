@@ -37,6 +37,19 @@ static const WSH_SHELL_CMD_GROUP_t WshShell_CmdGroups[] = {WSH_SHELL_CMD_GROUP_L
                 WSH_SHELL_OPT_WO_PARAM(WSH_SHELL_OPT_ACCESS_WRITE, "-r", "--histrst", "Clear command history"))
 #endif
 
+/*
+ * Cross-reboot login persistence flag. Independent of the subcommand tree, so
+ * it is provided as a flat option whenever the feature is enabled.
+ */
+#if WSH_SHELL_SESSION
+#define WSH_SHELL_CMD_DEF_OPT_SESSION_SLOT()                                  \
+    X_CMD_ENTRY(WSH_SHELL_DEF_OPT_KEEP,                                       \
+                WSH_SHELL_OPT_INT(WSH_SHELL_OPT_ACCESS_WRITE, "-k", "--keep", \
+                                  "Keep login across N reboots & block auto-logout (0 clears)"))
+#else
+#define WSH_SHELL_CMD_DEF_OPT_SESSION_SLOT()
+#endif
+
 /* clang-format off */
 #define WSH_SHELL_CMD_DEF_OPT_TABLE() \
     X_CMD_ENTRY(WSH_SHELL_DEF_OPT_DEF,    WSH_SHELL_OPT_NO(WSH_SHELL_OPT_ACCESS_ANY, "Print shell status (version, device, user)")) \
@@ -47,6 +60,7 @@ static const WSH_SHELL_CMD_GROUP_t WshShell_CmdGroups[] = {WSH_SHELL_CMD_GROUP_L
     X_CMD_ENTRY(WSH_SHELL_DEF_OPT_DEAUTH, WSH_SHELL_OPT_WO_PARAM(WSH_SHELL_OPT_ACCESS_ANY,     "-d", "--deauth", "Logout and clear history")) \
     WSH_SHELL_CMD_DEF_OPT_USER_SLOT() \
     WSH_SHELL_CMD_DEF_OPT_HIST_SLOT() \
+    WSH_SHELL_CMD_DEF_OPT_SESSION_SLOT() \
     X_CMD_ENTRY(WSH_SHELL_DEF_OPT_END,    WSH_SHELL_OPT_END())
 /* clang-format on */
 
@@ -616,6 +630,11 @@ static WSH_SHELL_RET_STATE_t WshShellCmdDef(const WshShellCmd_t* pcCmd, WshShell
                 WSH_SHELL_PRINT("Ver: %s\r\n", pParentShell->Version);
                 WSH_SHELL_PRINT("Device name: %s\r\n", pParentShell->DeviceName);
                 WSH_SHELL_PRINT("User: %s\r\n", pParentShell->CurrUser->Login);
+#if WSH_SHELL_SESSION
+                WshShell_U32_t rebootsLeft = WshShell_SessionRebootsLeft(pParentShell);
+                if (rebootsLeft > 0)
+                    WSH_SHELL_PRINT("Session keep: %lu reboot(s) left\r\n", (unsigned long)rebootsLeft);
+#endif
             } break;
 
             case WSH_SHELL_DEF_OPT_HELP: {
@@ -701,6 +720,26 @@ static WSH_SHELL_RET_STATE_t WshShellCmdDef(const WshShellCmd_t* pcCmd, WshShell
             case WSH_SHELL_DEF_OPT_DEAUTH: {
                 WshShell_DeAuth(pParentShell, "command");
             } break;
+
+#if WSH_SHELL_SESSION
+            case WSH_SHELL_DEF_OPT_KEEP: {
+                WshShell_U32_t reboots = 0;
+                if (WshShellCmd_GetOptValue(&optCtx, argc, pArgv, sizeof(reboots), (void*)&reboots) !=
+                    WSH_SHELL_RET_STATE_SUCCESS) {
+                    retState = WSH_SHELL_RET_STATE_ERR_PARAM;
+                    break;
+                }
+
+                if (!WshShell_SessionArm(pParentShell, reboots)) {
+                    WSH_SHELL_PRINT("Session keep failed\r\n");
+                    retState = WSH_SHELL_RET_STATE_ERROR;
+                } else if (reboots > 0) {
+                    WSH_SHELL_PRINT("Login kept across %lu reboot(s); auto-logout blocked\r\n", (unsigned long)reboots);
+                } else {
+                    WSH_SHELL_PRINT("Session keep cleared\r\n");
+                }
+            } break;
+#endif /* WSH_SHELL_SESSION */
 
             default: {
                 retState = WSH_SHELL_RET_STATE_ERROR;

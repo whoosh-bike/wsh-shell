@@ -124,11 +124,13 @@
 | define  | [**WSH\_SHELL\_PRINT\_SYS\_ENABLE**](wsh__shell__cfg__def_8h.md#define-wsh_shell_print_sys_enable)  `1`<br> |
 | define  | [**WSH\_SHELL\_PRINT\_WARN\_ENABLE**](wsh__shell__cfg__def_8h.md#define-wsh_shell_print_warn_enable)  `1`<br> |
 | define  | [**WSH\_SHELL\_PROMPT\_WAIT**](wsh__shell__cfg__def_8h.md#define-wsh_shell_prompt_wait)  `1`<br> |
+| define  | [**WSH\_SHELL\_PROMPT\_WAIT\_HINT\_RETRIES**](wsh__shell__cfg__def_8h.md#define-wsh_shell_prompt_wait_hint_retries)  `3`<br> |
 | define  | [**WSH\_SHELL\_PS1\_CUSTOM**](wsh__shell__cfg__def_8h.md#define-wsh_shell_ps1_custom)  `1`<br> |
 | define  | [**WSH\_SHELL\_PS1\_MAX\_LEN**](wsh__shell__cfg__def_8h.md#define-wsh_shell_ps1_max_len)  `128`<br> |
 | define  | [**WSH\_SHELL\_PS1\_TEMPLATE**](wsh__shell__cfg__def_8h.md#define-wsh_shell_ps1_template)  `"%r%b%c6%d%c7@%c5%u%c2%i %c7&gt; %r%c7"`<br> |
 | define  | [**WSH\_SHELL\_SALT\_LEN**](wsh__shell__cfg__def_8h.md#define-wsh_shell_salt_len)  `16`<br> |
 | define  | [**WSH\_SHELL\_SALT\_PASS\_HASH\_LEN**](wsh__shell__cfg__def_8h.md#define-wsh_shell_salt_pass_hash_len)  `64`<br> |
+| define  | [**WSH\_SHELL\_SESSION**](wsh__shell__cfg__def_8h.md#define-wsh_shell_session)  `1`<br> |
 | define  | [**WSH\_SHELL\_SNPRINTF**](wsh__shell__cfg__def_8h.md#define-wsh_shell_snprintf) (buf, size, ...) `snprintf((buf), (size), \_\_VA\_ARGS\_\_)`<br> |
 | define  | [**WSH\_SHELL\_STRCMP**](wsh__shell__cfg__def_8h.md#define-wsh_shell_strcmp) (pS1, pS2) `strcmp((pS1), (pS2))`<br> |
 | define  | [**WSH\_SHELL\_STRCPY**](wsh__shell__cfg__def_8h.md#define-wsh_shell_strcpy) (pD, pS) `strcpy((pD), (pS))`<br> |
@@ -658,6 +660,19 @@ static inline bool WshShellRetState_TranslateToProject (
 
 
 
+### define WSH\_SHELL\_PROMPT\_WAIT\_HINT\_RETRIES 
+
+```C++
+#define WSH_SHELL_PROMPT_WAIT_HINT_RETRIES `3`
+```
+
+
+
+
+<hr>
+
+
+
 ### define WSH\_SHELL\_PS1\_CUSTOM 
 
 ```C++
@@ -714,6 +729,19 @@ static inline bool WshShellRetState_TranslateToProject (
 
 ```C++
 #define WSH_SHELL_SALT_PASS_HASH_LEN `64`
+```
+
+
+
+
+<hr>
+
+
+
+### define WSH\_SHELL\_SESSION 
+
+```C++
+#define WSH_SHELL_SESSION `1`
 ```
 
 

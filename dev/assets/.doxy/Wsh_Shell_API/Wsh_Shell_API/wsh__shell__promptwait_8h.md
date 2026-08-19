@@ -68,6 +68,7 @@ _One-time user input waiting mechanism for WshShell._ [More...](#detailed-descri
 |  WshShell\_Bool\_t | [**WshShellPromptWait\_Enter**](#function-wshshellpromptwait_enter) (WshShell\_Char\_t symbol, [**WshShellPromptWait\_t**](wsh__shell__promptwait_8h.md#typedef-wshshellpromptwait_t) \* pWait) <br>_User input handler for prompt-wait mode._  |
 |  void | [**WshShellPromptWait\_Flush**](#function-wshshellpromptwait_flush) ([**WshShellPromptWait\_t**](wsh__shell__promptwait_8h.md#typedef-wshshellpromptwait_t) \* pWait) <br>_Flush the current prompt-wait mode._  |
 |  WSH\_SHELL\_RET\_STATE\_t | [**WshShellPromptWait\_Handle**](#function-wshshellpromptwait_handle) ([**WshShellPromptWait\_t**](wsh__shell__promptwait_8h.md#typedef-wshshellpromptwait_t) \* pWait, WshShell\_Char\_t symbol) <br>_Handle a symbol when in prompt-wait mode._  |
+|  WshShell\_Bool\_t | [**WshShellPromptWait\_HintIsNeeded**](#function-wshshellpromptwait_hintisneeded) (const [**WshShellPromptWait\_t**](wsh__shell__promptwait_8h.md#typedef-wshshellpromptwait_t) \* pcWait) <br>_Whether a handler should still print its hint on a rejected keystroke._  |
 |  WshShell\_Bool\_t | [**WshShellPromptWait\_YesNo**](#function-wshshellpromptwait_yesno) (WshShell\_Char\_t symbol, [**WshShellPromptWait\_t**](wsh__shell__promptwait_8h.md#typedef-wshshellpromptwait_t) \* pWait) <br> |
 
 
@@ -96,6 +97,11 @@ _One-time user input waiting mechanism for WshShell._ [More...](#detailed-descri
 
 
 
+## Macros
+
+| Type | Name |
+| ---: | :--- |
+| define  | [**WSH\_SHELL\_PROMPT\_WAIT\_HINT\_RETRIES**](wsh__shell__promptwait_8h.md#define-wsh_shell_prompt_wait_hint_retries)  `3`<br>_How many rejected keystrokes still reprint the prompt hint._  |
 
 ## Detailed Description
 
@@ -321,6 +327,43 @@ WSH\_SHELL\_RET\_STATE\_ERR\_PARAM if some problems with input params WSH\_SHELL
 
 
 
+### function WshShellPromptWait\_HintIsNeeded 
+
+_Whether a handler should still print its hint on a rejected keystroke._ 
+```C++
+WshShell_Bool_t WshShellPromptWait_HintIsNeeded (
+    const WshShellPromptWait_t * pcWait
+) 
+```
+
+
+
+Call it from a prompt-wait handler before printing "press ..." so the hint stops after [**WSH\_SHELL\_PROMPT\_WAIT\_HINT\_RETRIES**](wsh__shell__promptwait_8h.md#define-wsh_shell_prompt_wait_hint_retries) rejections instead of repeating for every key.
+
+
+
+
+**Parameters:**
+
+
+* `pcWait` Pointer to prompt-wait control object. 
+
+
+
+**Returns:**
+
+true while the hint is still worth printing. 
+
+
+
+
+
+        
+
+<hr>
+
+
+
 ### function WshShellPromptWait\_YesNo 
 
 ```C++
@@ -332,6 +375,27 @@ WshShell_Bool_t WshShellPromptWait_YesNo (
 
 
 
+
+<hr>
+## Macro Definition Documentation
+
+
+
+
+
+### define WSH\_SHELL\_PROMPT\_WAIT\_HINT\_RETRIES 
+
+_How many rejected keystrokes still reprint the prompt hint._ 
+```C++
+#define WSH_SHELL_PROMPT_WAIT_HINT_RETRIES `3`
+```
+
+
+
+A prompt-wait is modal: nothing the user types reaches the command line, so the hint is the only explanation. Repeating it on every keystroke floods whatever else is streaming, so it is repeated a few times and then the wait goes quiet. The bell keeps sounding on every rejection regardless. 
+
+
+        
 
 <hr>
 

@@ -1,0 +1,62 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="structWshShellSessionIO__t" kind="struct" language="C++" prot="public">
+    <compoundname>WshShellSessionIO_t</compoundname>
+    <includes refid="wsh__shell__session_8h" local="no">wsh_shell_session.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structWshShellSessionIO__t_1a13849cc2ddd80bbd1179f8f9ba9e7006" prot="public" static="no" mutable="no">
+        <type><ref refid="wsh__shell__session_8h_1af66c4a7bd301e110882a97c1a1cddc9f" kindref="member">WshShellSession_ReadHandler_t</ref></type>
+        <definition>WshShellSession_ReadHandler_t WshShellSessionIO_t::Read</definition>
+        <argsstring></argsstring>
+        <name>Read</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Callback for loading the saved session. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/wsh_shell_session.h" line="56" column="35" bodyfile="src/wsh_shell_session.h" bodystart="56" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structWshShellSessionIO__t_1ac1edc21ca40781664b660c960a4e3c76" prot="public" static="no" mutable="no">
+        <type><ref refid="wsh__shell__session_8h_1a07bb7aac2b3c2f08f6e0301663e2edf5" kindref="member">WshShellSession_WriteHandler_t</ref></type>
+        <definition>WshShellSession_WriteHandler_t WshShellSessionIO_t::Write</definition>
+        <argsstring></argsstring>
+        <name>Write</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Callback for saving the session. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/wsh_shell_session.h" line="57" column="36" bodyfile="src/wsh_shell_session.h" bodystart="57" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Function pointers for session persistence I/O. </para>
+    </briefdescription>
+    <detaileddescription>
+<para>Keeps the session system storage-agnostic by delegating read/write to the integrator (typically no-init RAM). </para>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="1">
+        <label>WshShellSessionIO_t</label>
+        <link refid="structWshShellSessionIO__t"/>
+        <childnode refid="2" relation="usage">
+          <edgelabel>Read</edgelabel>
+          <edgelabel>Write</edgelabel>
+        </childnode>
+      </node>
+      <node id="2">
+        <label>WshShellSession_t</label>
+        <link refid="structWshShellSession__t"/>
+      </node>
+    </collaborationgraph>
+    <location file="src/wsh_shell_session.h" line="55" column="1" bodyfile="src/wsh_shell_session.h" bodystart="55" bodyend="58"/>
+    <listofallmembers>
+      <member refid="structWshShellSessionIO__t_1a13849cc2ddd80bbd1179f8f9ba9e7006" prot="public" virt="non-virtual"><scope>WshShellSessionIO_t</scope><name>Read</name></member>
+      <member refid="structWshShellSessionIO__t_1ac1edc21ca40781664b660c960a4e3c76" prot="public" virt="non-virtual"><scope>WshShellSessionIO_t</scope><name>Write</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

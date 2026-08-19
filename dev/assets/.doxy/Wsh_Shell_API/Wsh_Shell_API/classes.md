@@ -21,6 +21,8 @@
 * [**WshShellOption\_t**](structWshShellOption__t.md)
 * [**WshShellOptionEnum\_t**](structWshShellOptionEnum__t.md)
 * [**WshShellPromptWait**](structWshShellPromptWait.md)
+* [**WshShellSession\_t**](structWshShellSession__t.md)
+* [**WshShellSessionIO\_t**](structWshShellSessionIO__t.md)
 * [**WshShellUser\_t**](structWshShellUser__t.md)
 * [**WshShellUser\_Table\_t**](structWshShellUser__Table__t.md)
 

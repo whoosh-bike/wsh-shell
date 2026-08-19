@@ -23,6 +23,7 @@
 #include "wsh_shell_misc.h"
 #include "wsh_shell_promptwait.h"
 #include "wsh_shell_ps1_custom.h"
+#include "wsh_shell_session.h"
 #include "wsh_shell_str.h"
 #include "wsh_shell_types.h"
 #include "wsh_shell_user.h"
@@ -101,6 +102,7 @@ typedef struct {
     WshShellUser_Table_t Users;   
     WshShellCmd_Table_t Commands; 
     WshShellHistoryIO_t HistoryIO; 
+    WshShellSessionIO_t SessionIO; 
     WshShellInteract_t Interact;   
     WshShellPromptWait_t PromptWait;
 
@@ -115,6 +117,14 @@ WshShell_Bool_t WshShell_Auth(WshShell_t* pShell, const WshShell_Char_t* pcLogin
 WshShell_Bool_t WshShell_IsAuth(WshShell_t* pShell);
 
 void WshShell_DeAuth(WshShell_t* pShell, const WshShell_Char_t* pcReason);
+
+WshShell_Bool_t WshShell_SessionArm(WshShell_t* pShell, WshShell_U32_t reboots);
+
+WshShell_Bool_t WshShell_SessionRestore(WshShell_t* pShell);
+
+WshShell_Bool_t WshShell_SessionIsKeepActive(WshShell_t* pShell);
+
+WshShell_U32_t WshShell_SessionRebootsLeft(WshShell_t* pShell);
 
 void WshShell_InsertChar(WshShell_t* pShell, const WshShell_Char_t symbol);
 

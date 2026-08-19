@@ -19,6 +19,8 @@ This inheritance list is sorted roughly, but not completely, alphabetically:
 * **struct** [**WshShellOption\_Ctx\_t**](structWshShellOption__Ctx__t.md) _Option usage context during parsing._ 
 * **struct** [**WshShellOption\_t**](structWshShellOption__t.md) _Represents a shell command-line option._ 
 * **struct** [**WshShellPromptWait**](structWshShellPromptWait.md) _Prompt-wait control structure._ 
+* **struct** [**WshShellSessionIO\_t**](structWshShellSessionIO__t.md) _Function pointers for session persistence I/O._ 
+* **struct** [**WshShellSession\_t**](structWshShellSession__t.md) _Persisted session descriptor with an integrity hash._ 
 * **struct** [**WshShellUser\_Table\_t**](structWshShellUser__Table__t.md) _Table of registered shell users._ 
 * **struct** [**WshShellUser\_t**](structWshShellUser__t.md) _User object definition._ 
 * **struct** [**WshShell\_PS1Data\_t**](structWshShell__PS1Data__t.md) _Runtime data used for PS1 (prompt string) expansion._ 

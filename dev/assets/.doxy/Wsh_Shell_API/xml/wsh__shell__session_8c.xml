@@ -1,0 +1,361 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="wsh__shell__session_8c" kind="file" language="C++">
+    <compoundname>wsh_shell_session.c</compoundname>
+    <includes refid="wsh__shell__session_8h" local="yes">wsh_shell_session.h</includes>
+    <incdepgraph>
+      <node id="7">
+        <label>stdbool.h</label>
+      </node>
+      <node id="6">
+        <label>stdarg.h</label>
+      </node>
+      <node id="4">
+        <label>wsh_shell_misc.h</label>
+        <link refid="wsh__shell__misc_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+      </node>
+      <node id="9">
+        <label>stdint.h</label>
+      </node>
+      <node id="11">
+        <label>stdlib.h</label>
+      </node>
+      <node id="3">
+        <label>wsh_shell_cfg.h</label>
+      </node>
+      <node id="1">
+        <label>src/wsh_shell_session.c</label>
+        <link refid="wsh__shell__session_8c"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>wsh_shell_session.h</label>
+        <link refid="wsh__shell__session_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+      </node>
+      <node id="8">
+        <label>stddef.h</label>
+      </node>
+      <node id="12">
+        <label>string.h</label>
+      </node>
+      <node id="5">
+        <label>wsh_shell_types.h</label>
+        <link refid="wsh__shell__types_8h"/>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+      </node>
+      <node id="10">
+        <label>stdio.h</label>
+      </node>
+    </incdepgraph>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="wsh__shell__session_8c_1a866f2aa5ada38b1a8279e967073b4226" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void WshShellSession_Init</definition>
+        <argsstring>(WshShellSessionIO_t *pSessIO, WshShellSession_ReadHandler_t readFn, WshShellSession_WriteHandler_t writeFn)</argsstring>
+        <name>WshShellSession_Init</name>
+        <param>
+          <type><ref refid="structWshShellSessionIO__t" kindref="compound">WshShellSessionIO_t</ref> *</type>
+          <declname>pSessIO</declname>
+        </param>
+        <param>
+          <type><ref refid="wsh__shell__session_8h_1af66c4a7bd301e110882a97c1a1cddc9f" kindref="member">WshShellSession_ReadHandler_t</ref></type>
+          <declname>readFn</declname>
+        </param>
+        <param>
+          <type><ref refid="wsh__shell__session_8h_1a07bb7aac2b3c2f08f6e0301663e2edf5" kindref="member">WshShellSession_WriteHandler_t</ref></type>
+          <declname>writeFn</declname>
+        </param>
+        <briefdescription>
+<para>Initialise the session system with custom I/O handlers. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Installs the handlers and normalises the backing store: any invalid descriptor (e.g. random RAM after a cold boot) is cleared so it will not be restored.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="inout">pSessIO</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the I/O structure. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">readFn</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Callback to read the saved descriptor. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">writeFn</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Callback to persist the descriptor. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/wsh_shell_session.c" line="55" column="6" bodyfile="src/wsh_shell_session.c" bodystart="55" bodyend="60"/>
+      </memberdef>
+      <memberdef kind="function" id="wsh__shell__session_8c_1af21baaaced71ef419726649a3b5f0ce3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structWshShellSession__t" kindref="compound">WshShellSession_t</ref></type>
+        <definition>WshShellSession_t WshShellSession_Read</definition>
+        <argsstring>(WshShellSessionIO_t *pSessIO)</argsstring>
+        <name>WshShellSession_Read</name>
+        <param>
+          <type><ref refid="structWshShellSessionIO__t" kindref="compound">WshShellSessionIO_t</ref> *</type>
+          <declname>pSessIO</declname>
+        </param>
+        <briefdescription>
+<para>Read the persisted descriptor. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">pSessIO</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the I/O structure. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>The stored descriptor (may be invalid — check with <ref refid="wsh__shell__session_8h_1a747c48714158e9c2f6fab7dc23225ee6" kindref="member">WshShellSession_IsValid()</ref>). </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/wsh_shell_session.c" line="62" column="19" bodyfile="src/wsh_shell_session.c" bodystart="62" bodyend="65"/>
+      </memberdef>
+      <memberdef kind="function" id="wsh__shell__session_8c_1a6fbd16a539c4d0ef1aa08a4fa3d69baf" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void WshShellSession_Store</definition>
+        <argsstring>(WshShellSessionIO_t *pSessIO, WshShellSession_t session)</argsstring>
+        <name>WshShellSession_Store</name>
+        <param>
+          <type><ref refid="structWshShellSessionIO__t" kindref="compound">WshShellSessionIO_t</ref> *</type>
+          <declname>pSessIO</declname>
+        </param>
+        <param>
+          <type><ref refid="structWshShellSession__t" kindref="compound">WshShellSession_t</ref></type>
+          <declname>session</declname>
+        </param>
+        <briefdescription>
+<para>Persist a descriptor, computing its integrity hash first. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">pSessIO</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the I/O structure. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">session</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Descriptor to store (its Hash field is filled in). </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/wsh_shell_session.c" line="67" column="6" bodyfile="src/wsh_shell_session.c" bodystart="67" bodyend="70"/>
+      </memberdef>
+      <memberdef kind="function" id="wsh__shell__session_8c_1a747c48714158e9c2f6fab7dc23225ee6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>WshShell_Bool_t</type>
+        <definition>WshShell_Bool_t WshShellSession_IsValid</definition>
+        <argsstring>(const WshShellSession_t *pcSession)</argsstring>
+        <name>WshShellSession_IsValid</name>
+        <param>
+          <type>const <ref refid="structWshShellSession__t" kindref="compound">WshShellSession_t</ref> *</type>
+          <declname>pcSession</declname>
+        </param>
+        <briefdescription>
+<para>Check whether a descriptor is a valid, active keep request. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">pcSession</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Descriptor to validate. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>true</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Hash matches and RebootsLeft &gt; 0. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>false</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Corrupt/uninitialised, or budget exhausted. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/wsh_shell_session.c" line="72" column="17" bodyfile="src/wsh_shell_session.c" bodystart="72" bodyend="75"/>
+      </memberdef>
+      <memberdef kind="function" id="wsh__shell__session_8c_1a0dbef62c14bb44d647e8f6f719ec4a1f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void WshShellSession_Clear</definition>
+        <argsstring>(WshShellSessionIO_t *pSessIO)</argsstring>
+        <name>WshShellSession_Clear</name>
+        <param>
+          <type><ref refid="structWshShellSessionIO__t" kindref="compound">WshShellSessionIO_t</ref> *</type>
+          <declname>pSessIO</declname>
+        </param>
+        <briefdescription>
+<para>Drop any persisted session. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">pSessIO</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the I/O structure. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/wsh_shell_session.c" line="77" column="6" bodyfile="src/wsh_shell_session.c" bodystart="77" bodyend="79"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="preprocessor">#include<sp/>&quot;<ref refid="wsh__shell__session_8h" kindref="compound">wsh_shell_session.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="preprocessor">#if<sp/>WSH_SHELL_SESSION</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/>WshShell_U32_t<sp/>WshShellSession_CalcHash(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="structWshShellSession__t" kindref="compound">WshShellSession_t</ref>*<sp/>pcSession)<sp/>{</highlight></codeline>
+<codeline lineno="6"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="wsh__shell__misc_8h_1a008d9a001d61629467efaaeb27f011dd" kindref="member">WshShellMisc_CalcJenkinsHash</ref>((</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>WshShell_U8_t*)&amp;pcSession-&gt;<ref refid="structWshShellSession__t_1ae743780ade4848e86593d7d6caf5ca5a" kindref="member">RebootsLeft</ref>,</highlight></codeline>
+<codeline lineno="7"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">sizeof</highlight><highlight class="normal">(*pcSession)<sp/>-<sp/></highlight><highlight class="keyword">sizeof</highlight><highlight class="normal">(pcSession-&gt;<ref refid="structWshShellSession__t_1a9040d2cd714d8d298cfef6090701e2b4" kindref="member">Hash</ref>));</highlight></codeline>
+<codeline lineno="8"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight></codeline>
+<codeline lineno="10"><highlight class="normal">WshShell_Bool_t<sp/><ref refid="wsh__shell__session_8h_1a747c48714158e9c2f6fab7dc23225ee6" kindref="member">WshShellSession_IsValid</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="structWshShellSession__t" kindref="compound">WshShellSession_t</ref>*<sp/>pcSession)<sp/>{</highlight></codeline>
+<codeline lineno="11"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(!pcSession)</highlight></codeline>
+<codeline lineno="12"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight></codeline>
+<codeline lineno="14"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>(pcSession-&gt;<ref refid="structWshShellSession__t_1a9040d2cd714d8d298cfef6090701e2b4" kindref="member">Hash</ref><sp/>==<sp/>WshShellSession_CalcHash(pcSession))<sp/>&amp;&amp;<sp/>(pcSession-&gt;<ref refid="structWshShellSession__t_1ae743780ade4848e86593d7d6caf5ca5a" kindref="member">RebootsLeft</ref><sp/>&gt;<sp/>0);</highlight></codeline>
+<codeline lineno="15"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="16"><highlight class="normal"></highlight></codeline>
+<codeline lineno="17"><highlight class="normal"><ref refid="structWshShellSession__t" kindref="compound">WshShellSession_t</ref><sp/><ref refid="wsh__shell__session_8h_1af21baaaced71ef419726649a3b5f0ce3" kindref="member">WshShellSession_Read</ref>(<ref refid="structWshShellSessionIO__t" kindref="compound">WshShellSessionIO_t</ref>*<sp/>pSessIO)<sp/>{</highlight></codeline>
+<codeline lineno="18"><highlight class="normal"><sp/><sp/><sp/><sp/>WSH_SHELL_ASSERT(pSessIO<sp/>&amp;&amp;<sp/>pSessIO-&gt;<ref refid="structWshShellSessionIO__t_1a13849cc2ddd80bbd1179f8f9ba9e7006" kindref="member">Read</ref>);</highlight></codeline>
+<codeline lineno="19"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(!pSessIO<sp/>||<sp/>!pSessIO-&gt;<ref refid="structWshShellSessionIO__t_1a13849cc2ddd80bbd1179f8f9ba9e7006" kindref="member">Read</ref>)</highlight></codeline>
+<codeline lineno="20"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>(<ref refid="structWshShellSession__t" kindref="compound">WshShellSession_t</ref>){0};</highlight></codeline>
+<codeline lineno="21"><highlight class="normal"></highlight></codeline>
+<codeline lineno="22"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>pSessIO-&gt;<ref refid="structWshShellSessionIO__t_1a13849cc2ddd80bbd1179f8f9ba9e7006" kindref="member">Read</ref>();</highlight></codeline>
+<codeline lineno="23"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="24"><highlight class="normal"></highlight></codeline>
+<codeline lineno="25"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="wsh__shell__session_8h_1a6fbd16a539c4d0ef1aa08a4fa3d69baf" kindref="member">WshShellSession_Store</ref>(<ref refid="structWshShellSessionIO__t" kindref="compound">WshShellSessionIO_t</ref>*<sp/>pSessIO,<sp/><ref refid="structWshShellSession__t" kindref="compound">WshShellSession_t</ref><sp/>session)<sp/>{</highlight></codeline>
+<codeline lineno="26"><highlight class="normal"><sp/><sp/><sp/><sp/>WSH_SHELL_ASSERT(pSessIO<sp/>&amp;&amp;<sp/>pSessIO-&gt;<ref refid="structWshShellSessionIO__t_1ac1edc21ca40781664b660c960a4e3c76" kindref="member">Write</ref>);</highlight></codeline>
+<codeline lineno="27"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(!pSessIO<sp/>||<sp/>!pSessIO-&gt;<ref refid="structWshShellSessionIO__t_1ac1edc21ca40781664b660c960a4e3c76" kindref="member">Write</ref>)</highlight></codeline>
+<codeline lineno="28"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="29"><highlight class="normal"></highlight></codeline>
+<codeline lineno="30"><highlight class="normal"><sp/><sp/><sp/><sp/>session.<ref refid="structWshShellSession__t_1a9040d2cd714d8d298cfef6090701e2b4" kindref="member">Hash</ref><sp/>=<sp/>WshShellSession_CalcHash(&amp;session);</highlight></codeline>
+<codeline lineno="31"><highlight class="normal"><sp/><sp/><sp/><sp/>pSessIO-&gt;<ref refid="structWshShellSessionIO__t_1ac1edc21ca40781664b660c960a4e3c76" kindref="member">Write</ref>(session);</highlight></codeline>
+<codeline lineno="32"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="33"><highlight class="normal"></highlight></codeline>
+<codeline lineno="34"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="wsh__shell__session_8h_1a0dbef62c14bb44d647e8f6f719ec4a1f" kindref="member">WshShellSession_Clear</ref>(<ref refid="structWshShellSessionIO__t" kindref="compound">WshShellSessionIO_t</ref>*<sp/>pSessIO)<sp/>{</highlight></codeline>
+<codeline lineno="35"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="wsh__shell__session_8h_1a6fbd16a539c4d0ef1aa08a4fa3d69baf" kindref="member">WshShellSession_Store</ref>(pSessIO,<sp/>(<ref refid="structWshShellSession__t" kindref="compound">WshShellSession_t</ref>){0});</highlight></codeline>
+<codeline lineno="36"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="37"><highlight class="normal"></highlight></codeline>
+<codeline lineno="38"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="wsh__shell__session_8h_1a866f2aa5ada38b1a8279e967073b4226" kindref="member">WshShellSession_Init</ref>(<ref refid="structWshShellSessionIO__t" kindref="compound">WshShellSessionIO_t</ref>*<sp/>pSessIO,<sp/><ref refid="wsh__shell__session_8h_1af66c4a7bd301e110882a97c1a1cddc9f" kindref="member">WshShellSession_ReadHandler_t</ref><sp/>readFn,</highlight></codeline>
+<codeline lineno="39"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="wsh__shell__session_8h_1a07bb7aac2b3c2f08f6e0301663e2edf5" kindref="member">WshShellSession_WriteHandler_t</ref><sp/>writeFn)<sp/>{</highlight></codeline>
+<codeline lineno="40"><highlight class="normal"><sp/><sp/><sp/><sp/>WSH_SHELL_ASSERT(pSessIO<sp/>&amp;&amp;<sp/>readFn<sp/>&amp;&amp;<sp/>writeFn);</highlight></codeline>
+<codeline lineno="41"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(!pSessIO<sp/>||<sp/>!readFn<sp/>||<sp/>!writeFn)</highlight></codeline>
+<codeline lineno="42"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="43"><highlight class="normal"></highlight></codeline>
+<codeline lineno="44"><highlight class="normal"><sp/><sp/><sp/><sp/>pSessIO-&gt;<ref refid="structWshShellSessionIO__t_1a13849cc2ddd80bbd1179f8f9ba9e7006" kindref="member">Read</ref><sp/><sp/>=<sp/>readFn;</highlight></codeline>
+<codeline lineno="45"><highlight class="normal"><sp/><sp/><sp/><sp/>pSessIO-&gt;<ref refid="structWshShellSessionIO__t_1ac1edc21ca40781664b660c960a4e3c76" kindref="member">Write</ref><sp/>=<sp/>writeFn;</highlight></codeline>
+<codeline lineno="46"><highlight class="normal"></highlight></codeline>
+<codeline lineno="47"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>Discard<sp/>uninitialised/corrupt<sp/>backing<sp/>store<sp/>so<sp/>it<sp/>is<sp/>never<sp/>restored.<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="48"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="structWshShellSession__t" kindref="compound">WshShellSession_t</ref><sp/>stored<sp/>=<sp/>pSessIO-&gt;<ref refid="structWshShellSessionIO__t_1a13849cc2ddd80bbd1179f8f9ba9e7006" kindref="member">Read</ref>();</highlight></codeline>
+<codeline lineno="49"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(!<ref refid="wsh__shell__session_8h_1a747c48714158e9c2f6fab7dc23225ee6" kindref="member">WshShellSession_IsValid</ref>(&amp;stored))</highlight></codeline>
+<codeline lineno="50"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="wsh__shell__session_8h_1a0dbef62c14bb44d647e8f6f719ec4a1f" kindref="member">WshShellSession_Clear</ref>(pSessIO);</highlight></codeline>
+<codeline lineno="51"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="52"><highlight class="normal"></highlight></codeline>
+<codeline lineno="53"><highlight class="normal"></highlight><highlight class="preprocessor">#else<sp/></highlight><highlight class="comment">/*<sp/>WSH_SHELL_SESSION<sp/>*/</highlight><highlight class="preprocessor"></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="54"><highlight class="normal"></highlight></codeline>
+<codeline lineno="55"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="wsh__shell__session_8h_1a866f2aa5ada38b1a8279e967073b4226" kindref="member">WshShellSession_Init</ref>(<ref refid="structWshShellSessionIO__t" kindref="compound">WshShellSessionIO_t</ref>*<sp/>pSessIO,<sp/><ref refid="wsh__shell__session_8h_1af66c4a7bd301e110882a97c1a1cddc9f" kindref="member">WshShellSession_ReadHandler_t</ref><sp/>readFn,</highlight></codeline>
+<codeline lineno="56"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="wsh__shell__session_8h_1a07bb7aac2b3c2f08f6e0301663e2edf5" kindref="member">WshShellSession_WriteHandler_t</ref><sp/>writeFn)<sp/>{</highlight></codeline>
+<codeline lineno="57"><highlight class="normal"><sp/><sp/><sp/><sp/>(void)(pSessIO);</highlight></codeline>
+<codeline lineno="58"><highlight class="normal"><sp/><sp/><sp/><sp/>(void)(readFn);</highlight></codeline>
+<codeline lineno="59"><highlight class="normal"><sp/><sp/><sp/><sp/>(void)(writeFn);</highlight></codeline>
+<codeline lineno="60"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="61"><highlight class="normal"></highlight></codeline>
+<codeline lineno="62"><highlight class="normal"><ref refid="structWshShellSession__t" kindref="compound">WshShellSession_t</ref><sp/><ref refid="wsh__shell__session_8h_1af21baaaced71ef419726649a3b5f0ce3" kindref="member">WshShellSession_Read</ref>(<ref refid="structWshShellSessionIO__t" kindref="compound">WshShellSessionIO_t</ref>*<sp/>pSessIO)<sp/>{</highlight></codeline>
+<codeline lineno="63"><highlight class="normal"><sp/><sp/><sp/><sp/>(void)(pSessIO);</highlight></codeline>
+<codeline lineno="64"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>(<ref refid="structWshShellSession__t" kindref="compound">WshShellSession_t</ref>){0};</highlight></codeline>
+<codeline lineno="65"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="66"><highlight class="normal"></highlight></codeline>
+<codeline lineno="67"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="wsh__shell__session_8h_1a6fbd16a539c4d0ef1aa08a4fa3d69baf" kindref="member">WshShellSession_Store</ref>(<ref refid="structWshShellSessionIO__t" kindref="compound">WshShellSessionIO_t</ref>*<sp/>pSessIO,<sp/><ref refid="structWshShellSession__t" kindref="compound">WshShellSession_t</ref><sp/>session)<sp/>{</highlight></codeline>
+<codeline lineno="68"><highlight class="normal"><sp/><sp/><sp/><sp/>(void)(pSessIO);</highlight></codeline>
+<codeline lineno="69"><highlight class="normal"><sp/><sp/><sp/><sp/>(void)(session);</highlight></codeline>
+<codeline lineno="70"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="71"><highlight class="normal"></highlight></codeline>
+<codeline lineno="72"><highlight class="normal">WshShell_Bool_t<sp/><ref refid="wsh__shell__session_8h_1a747c48714158e9c2f6fab7dc23225ee6" kindref="member">WshShellSession_IsValid</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="structWshShellSession__t" kindref="compound">WshShellSession_t</ref>*<sp/>pcSession)<sp/>{</highlight></codeline>
+<codeline lineno="73"><highlight class="normal"><sp/><sp/><sp/><sp/>(void)(pcSession);</highlight></codeline>
+<codeline lineno="74"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="75"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="76"><highlight class="normal"></highlight></codeline>
+<codeline lineno="77"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="wsh__shell__session_8h_1a0dbef62c14bb44d647e8f6f719ec4a1f" kindref="member">WshShellSession_Clear</ref>(<ref refid="structWshShellSessionIO__t" kindref="compound">WshShellSessionIO_t</ref>*<sp/>pSessIO)<sp/>{</highlight></codeline>
+<codeline lineno="78"><highlight class="normal"><sp/><sp/><sp/><sp/>(void)(pSessIO);</highlight></codeline>
+<codeline lineno="79"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="80"><highlight class="normal"></highlight></codeline>
+<codeline lineno="81"><highlight class="normal"></highlight><highlight class="preprocessor">#endif<sp/></highlight><highlight class="comment">/*<sp/>WSH_SHELL_SESSION<sp/>*/</highlight><highlight class="preprocessor"></highlight></codeline>
+    </programlisting>
+    <location file="src/wsh_shell_session.c"/>
+  </compounddef>
+</doxygen>

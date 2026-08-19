@@ -47,6 +47,7 @@ _Main shell structure containing state, configuration, user context, and subsyst
 |  WshShell\_Char\_t | [**PS1**](#variable-ps1)  <br> |
 |  WshShell\_Char\_t | [**PrevSym**](#variable-prevsym)  <br> |
 |  [**WshShellPromptWait\_t**](wsh__shell__promptwait_8h.md#typedef-wshshellpromptwait_t) | [**PromptWait**](#variable-promptwait)  <br> |
+|  [**WshShellSessionIO\_t**](structWshShellSessionIO__t.md) | [**SessionIO**](#variable-sessionio)  <br> |
 |  [**WshShellAuthCtx\_t**](structWshShellAuthCtx__t.md) | [**TmpAuth**](#variable-tmpauth)  <br> |
 |  [**WshShellUser\_Table\_t**](structWshShellUser__Table__t.md) | [**Users**](#variable-users)  <br> |
 |  WshShell\_Char\_t \* | [**Version**](#variable-version)  <br> |
@@ -277,6 +278,23 @@ WshShellPromptWait_t WshShell_t::PromptWait;
 
 
 
+
+<hr>
+
+
+
+### variable SessionIO 
+
+```C++
+WshShellSessionIO_t WshShell_t::SessionIO;
+```
+
+
+
+Persistent login session storage ops. 
+
+
+        
 
 <hr>
 
