@@ -28,7 +28,9 @@ Wsh-Shell is a lightweight, portable, and fully static shell interpreter written
     - Tab / double-Tab completion for commands and flags  
 - **Interactive Command Mode** — commands can take exclusive control over user input, temporarily suspending the shell and routing all data to a single handler
 - **Customizable PS1 Prompt** — user-defined templates for prompt appearance
-- **Await Prompt** — await for a specific key press
+- **Await Prompt** — await for a specific key press; the "press ..." hint repeats only
+  `WSH_SHELL_PROMPT_WAIT_HINT_RETRIES` times before the wait goes quiet (the bell still answers every
+  refused key), and Ctrl+C always escapes the wait
 - **Different New Line Support** - handle different terminals setup (`\r`, `\n` or `\r\n`)
 - **Passwords Stored Salted & Hashed** — passwords are supplied and verified through a user-provided callback and always stored in a salted, hashed form; by default the module uses a lightweight Jenkins (non-cryptographic) hash, and no plaintext passwords are written to flash unless the integrator explicitly chooses to do so
 - **Command Option Validation** — during command registration, the shell automatically checks for duplicate short or long option flags within the same command and triggers an ASSERT if duplicates are detected
