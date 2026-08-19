@@ -46,13 +46,13 @@ extern "C" {
  *
  * @param[in,out] pInBuff        Pointer to the input buffer to modify.
  * @param[in]     inBuffLen      Total size of the input buffer.
- * @param[in]     pShellCommands Pointer to the command table to search.
+ * @param[in]     pcShellCommands Pointer to the command table to search.
  * 
  * @retval true   The buffer was modified (i.e., autocomplete was applied).
  * @retval false  No autocomplete was possible (zero matches or ambiguous match).
  */
 WshShell_Bool_t WshShellAutocomplete_Try(WshShell_Char_t* pInBuff, WshShell_Size_t inBuffLen,
-                                         WshShellCmd_Table_t* pShellCommands);
+                                         const WshShellCmd_Table_t* pcShellCommands);
 
 #ifdef __cplusplus
 }

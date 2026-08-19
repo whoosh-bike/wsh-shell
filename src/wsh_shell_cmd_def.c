@@ -98,13 +98,13 @@ static void WshShellDef_PrintUserHead(WshShell_Char_t* pRowTemplate, WshShell_Si
 
     WshShell_Char_t headTemplate[64];
     WSH_SHELL_SNPRINTF(headTemplate, sizeof(headTemplate),
-                       WSH_SHELL_COLOR_SYS "  %%-%ds %%-%ds %%-%ds\r\n" WSH_SHELL_ESC_RESET_STYLE, loginMaxLen,
-                       groupMaxLen, rightsMaxLen);
+                       WSH_SHELL_COLOR_SYS "  %%-%ds %%-%ds %%-%ds\r\n" WSH_SHELL_ESC_RESET_STYLE, (int)loginMaxLen,
+                       (int)groupMaxLen, (int)rightsMaxLen);
 
     WSH_SHELL_PRINT(headTemplate, "Login", "Groups", "Rights");
 
-    WSH_SHELL_SNPRINTF(pRowTemplate, rowTemplateLen, "  %%-%ds %%-%ds %%-%ds\r\n", loginMaxLen, groupMaxLen,
-                       rightsMaxLen);
+    WSH_SHELL_SNPRINTF(pRowTemplate, rowTemplateLen, "  %%-%ds %%-%ds %%-%ds\r\n", (int)loginMaxLen, (int)groupMaxLen,
+                       (int)rightsMaxLen);
 }
 
 #if WSH_SHELL_SUBCOMMANDS
@@ -235,13 +235,13 @@ static WSH_SHELL_RET_STATE_t WshShellCmdDef_UserWhoami(const WshShellCmd_t* pcCm
     if (!pcCmd || !pShellCtx || (argc > 0 && !pArgv))
         return WSH_SHELL_RET_STATE_ERR_PARAM;
 
-    WshShell_t* pParentShell  = (WshShell_t*)pShellCtx;
-    WshShell_Size_t fieldMask = 0;
-    WshShell_Bool_t helpOnly  = false;
+    const WshShell_t* pcParentShell = (const WshShell_t*)pShellCtx;
+    WshShell_Size_t fieldMask       = 0;
+    WshShell_Bool_t helpOnly        = false;
 
     for (WshShell_Size_t tokenPos = 0; tokenPos < argc;) {
         WshShellOption_Ctx_t optCtx =
-            WshShellCmd_ParseOpt(pcCmd, argc, pArgv, pParentShell->CurrUser->Rights, &tokenPos);
+            WshShellCmd_ParseOpt(pcCmd, argc, pArgv, pcParentShell->CurrUser->Rights, &tokenPos);
         if (!optCtx.Option) {
             if (optCtx.ParseError)
                 return WSH_SHELL_RET_STATE_ERR_PARAM;
@@ -269,7 +269,7 @@ static WSH_SHELL_RET_STATE_t WshShellCmdDef_UserWhoami(const WshShellCmd_t* pcCm
         return WSH_SHELL_RET_STATE_SUCCESS;
     }
 
-    if (pParentShell->CurrUser == NULL) {
+    if (pcParentShell->CurrUser == NULL) {
         WSH_SHELL_PRINT_ERR("Not authenticated\r\n");
         return WSH_SHELL_RET_STATE_ERROR;
     }
@@ -278,16 +278,16 @@ static WSH_SHELL_RET_STATE_t WshShellCmdDef_UserWhoami(const WshShellCmd_t* pcCm
         WSH_SHELL_PRINT("Current session:\r\n");
         WshShell_Char_t rowTemplate[64];
         WshShellDef_PrintUserHead(rowTemplate, sizeof(rowTemplate));
-        WshShellDef_PrintUserRow(pParentShell->CurrUser, rowTemplate);
+        WshShellDef_PrintUserRow(pcParentShell->CurrUser, rowTemplate);
         return WSH_SHELL_RET_STATE_SUCCESS;
     }
 
     if (fieldMask & USER_WHOAMI_FIELD_NAME)
-        WSH_SHELL_PRINT("login: %s\r\n", pParentShell->CurrUser->Login);
+        WSH_SHELL_PRINT("login: %s\r\n", pcParentShell->CurrUser->Login);
 
     if (fieldMask & USER_WHOAMI_FIELD_GROUPS) {
         WshShell_Char_t groupRow[WSH_SHELL_CMD_GROUP_COUNT + 1];
-        WshShellStr_GroupBitsToStr(pParentShell->CurrUser->Groups, WSH_SHELL_CMD_GROUP_COUNT, groupRow);
+        WshShellStr_GroupBitsToStr(pcParentShell->CurrUser->Groups, WSH_SHELL_CMD_GROUP_COUNT, groupRow);
         WSH_SHELL_PRINT("groups: %s\r\n", groupRow);
     }
 
@@ -330,11 +330,11 @@ static WSH_SHELL_RET_STATE_t WshShellCmdDef_User(const WshShellCmd_t* pcCmd, Wsh
     if (!pcCmd || !pShellCtx || (argc > 0 && !pArgv))
         return WSH_SHELL_RET_STATE_ERR_PARAM;
 
-    WshShell_t* pParentShell = (WshShell_t*)pShellCtx;
+    const WshShell_t* pcParentShell = (const WshShell_t*)pShellCtx;
 
     for (WshShell_Size_t tokenPos = 0; tokenPos < argc;) {
         WshShellOption_Ctx_t optCtx =
-            WshShellCmd_ParseOpt(pcCmd, argc, pArgv, pParentShell->CurrUser->Rights, &tokenPos);
+            WshShellCmd_ParseOpt(pcCmd, argc, pArgv, pcParentShell->CurrUser->Rights, &tokenPos);
         if (!optCtx.Option) {
             if (optCtx.ParseError)
                 return WSH_SHELL_RET_STATE_ERR_PARAM;
@@ -398,10 +398,10 @@ static WSH_SHELL_RET_STATE_t WshShellCmdDef_HistList(const WshShellCmd_t* pcCmd,
     WshShell_Char_t cmdBuff[WSH_SHELL_INTR_BUFF_LEN];
     WshShell_Size_t cmdNum = WshShellHistory_GetTokenNum(&(pParentShell->HistoryIO));
 
-    WSH_SHELL_PRINT("History (%d):\r\n", cmdNum);
+    WSH_SHELL_PRINT("History (%d):\r\n", (int)cmdNum);
     for (WshShell_Size_t i = cmdNum; i > 0; i--) {
         if (WshShellHistory_GetTokenByIndex(&(pParentShell->HistoryIO), cmdBuff, sizeof(cmdBuff), i - 1))
-            WSH_SHELL_PRINT("  [%2d] %s\r\n", cmdNum - i + 1, cmdBuff);
+            WSH_SHELL_PRINT("  [%2d] %s\r\n", (int)(cmdNum - i + 1), cmdBuff);
     }
 
     return WSH_SHELL_RET_STATE_SUCCESS;
@@ -495,11 +495,11 @@ static WSH_SHELL_RET_STATE_t WshShellCmdDef_History(const WshShellCmd_t* pcCmd, 
     if (!pcCmd || !pShellCtx || (argc > 0 && !pArgv))
         return WSH_SHELL_RET_STATE_ERR_PARAM;
 
-    WshShell_t* pParentShell = (WshShell_t*)pShellCtx;
+    const WshShell_t* pcParentShell = (const WshShell_t*)pShellCtx;
 
     for (WshShell_Size_t tokenPos = 0; tokenPos < argc;) {
         WshShellOption_Ctx_t optCtx =
-            WshShellCmd_ParseOpt(pcCmd, argc, pArgv, pParentShell->CurrUser->Rights, &tokenPos);
+            WshShellCmd_ParseOpt(pcCmd, argc, pArgv, pcParentShell->CurrUser->Rights, &tokenPos);
         if (!optCtx.Option) {
             if (optCtx.ParseError)
                 return WSH_SHELL_RET_STATE_ERR_PARAM;
@@ -546,7 +546,7 @@ static void WshShellCmdDef_TokenizeCallback(WshShellIO_CommandLine_t* pInter) {
     }
 
     for (WshShell_Size_t i = 0; i < argc; i++)
-        WSH_SHELL_PRINT("  [%d] \"%s\"\r\n", i, argv[i]);
+        WSH_SHELL_PRINT("  [%d] \"%s\"\r\n", (int)i, argv[i]);
 }
 
 /* clang-format off */
@@ -655,19 +655,20 @@ static WSH_SHELL_RET_STATE_t WshShellCmdDef(const WshShellCmd_t* pcCmd, WshShell
                 WshShell_Char_t headTemplate[64];
                 WSH_SHELL_SNPRINTF(headTemplate, sizeof(headTemplate),
                                    WSH_SHELL_COLOR_SYS "  %%-%ds %%-%ds %%-%ds %%s\r\n" WSH_SHELL_ESC_RESET_STYLE,
-                                   cmdMaxLen, optMaxLen, groupMaxLen);
+                                   (int)cmdMaxLen, (int)optMaxLen, (int)groupMaxLen);
 
                 WSH_SHELL_PRINT(headTemplate, "Command", "Opts", "Groups", "Descr");
 
                 WshShell_Char_t rowTemplate[64];
-                WSH_SHELL_SNPRINTF(rowTemplate, sizeof(rowTemplate), "  %%-%ds %%-%dd %%-%ds %%s\r\n", cmdMaxLen,
-                                   optMaxLen, groupMaxLen);
+                WSH_SHELL_SNPRINTF(rowTemplate, sizeof(rowTemplate), "  %%-%ds %%-%dd %%-%ds %%s\r\n", (int)cmdMaxLen,
+                                   (int)optMaxLen, (int)groupMaxLen);
 
-                const WshShellCmd_t* pcDefCmd = WshShellDefCmd_GetPtr();
-                if (pcDefCmd != NULL) {
+                {
+                    const WshShellCmd_t* pcDefCmd = WshShellDefCmd_GetPtr();
                     WshShell_Char_t groupRow[WSH_SHELL_CMD_GROUP_COUNT + 1];
                     WshShellStr_GroupBitsToStr(pcDefCmd->Groups, WSH_SHELL_CMD_GROUP_COUNT, groupRow);
-                    WSH_SHELL_PRINT(rowTemplate, pcDefCmd->Name, pcDefCmd->OptNum - 1, groupRow, pcDefCmd->Descr);
+                    WSH_SHELL_PRINT(rowTemplate, pcDefCmd->Name, (int)(pcDefCmd->OptNum - 1), groupRow,
+                                    pcDefCmd->Descr);
                 }
 
                 WshShell_Size_t commandsNum = WshShellCmd_GetCmdNum(&(pParentShell->Commands));
@@ -680,7 +681,7 @@ static WSH_SHELL_RET_STATE_t WshShellCmdDef(const WshShellCmd_t* pcCmd, WshShell
                     WshShell_Char_t groupRow[WSH_SHELL_CMD_GROUP_COUNT + 1];
                     WshShellStr_GroupBitsToStr(pcTargetCmd->Groups, WSH_SHELL_CMD_GROUP_COUNT, groupRow);
 
-                    WSH_SHELL_PRINT(rowTemplate, pcTargetCmd->Name, pcTargetCmd->OptNum - 1, groupRow,
+                    WSH_SHELL_PRINT(rowTemplate, pcTargetCmd->Name, (int)(pcTargetCmd->OptNum - 1), groupRow,
                                     pcTargetCmd->Descr);
                 }
             } break;

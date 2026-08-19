@@ -76,11 +76,11 @@ void WshShellUser_DeAttach(WshShellUser_Table_t* pShellUsers);
 /**
  * @brief Get the number of users registered in the shell.
  * 
- * @param[in] pShellUsers Pointer to the user table.
+ * @param[in] pcShellUsers Pointer to the user table.
  * 
  * @return Number of users, or 0 if uninitialized or NULL.
  */
-WshShell_Size_t WshShellUser_GetUsersNum(WshShellUser_Table_t* pShellUsers);
+WshShell_Size_t WshShellUser_GetUsersNum(const WshShellUser_Table_t* pcShellUsers);
 
 /**
  * @brief Retrieve a user by index.

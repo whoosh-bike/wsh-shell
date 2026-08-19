@@ -59,9 +59,9 @@ typedef struct {
  *
  * @param[out] pPS1 Output buffer for the final PS1 string.
  *                  Must be at least `WSH_SHELL_PS1_MAX_LEN` in size.
- * @param[in]  pPS1Data   Pointer to the user name, divice name or other strings.
+ * @param[in]  pcPS1Data   Pointer to the user name, divice name or other strings.
  */
-void WshShell_GeneratePS1(WshShell_Char_t* pPS1, WshShell_PS1Data_t* pPS1Data);
+void WshShell_GeneratePS1(WshShell_Char_t* pPS1, const WshShell_PS1Data_t* pcPS1Data);
 
 #ifdef __cplusplus
 }

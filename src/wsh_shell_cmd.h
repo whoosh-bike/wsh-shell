@@ -88,7 +88,7 @@ void WshShellCmd_DeAttach(WshShellCmd_Table_t* pShellCommands);
  *
  * @return Number of commands.
  */
-WshShell_Size_t WshShellCmd_GetCmdNum(WshShellCmd_Table_t* pShellCommands);
+WshShell_Size_t WshShellCmd_GetCmdNum(const WshShellCmd_Table_t* pcShellCommands);
 
 /**
  * @brief Retrieves a command by index.
@@ -98,7 +98,7 @@ WshShell_Size_t WshShellCmd_GetCmdNum(WshShellCmd_Table_t* pShellCommands);
  *
  * @return Pointer to the command descriptor or NULL if out-of-bounds.
  */
-const WshShellCmd_t* WshShellCmd_GetCmdByIndex(WshShellCmd_Table_t* pShellCommands, WshShell_Size_t idx);
+const WshShellCmd_t* WshShellCmd_GetCmdByIndex(const WshShellCmd_Table_t* pcShellCommands, WshShell_Size_t idx);
 
 /**
  * @brief Finds a command by its name.
@@ -108,7 +108,8 @@ const WshShellCmd_t* WshShellCmd_GetCmdByIndex(WshShellCmd_Table_t* pShellComman
  *
  * @return Pointer to the matching command descriptor or NULL if not found.
  */
-const WshShellCmd_t* WshShellCmd_SearchCmd(WshShellCmd_Table_t* pShellCommands, const WshShell_Char_t* pcCmdName);
+const WshShellCmd_t* WshShellCmd_SearchCmd(const WshShellCmd_Table_t* pcShellCommands,
+                                           const WshShell_Char_t* pcCmdName);
 
 #if WSH_SHELL_SUBCOMMANDS
 /**

@@ -219,9 +219,9 @@ void WshShellIO_WriteToInterBuff(WshShellIO_CommandLine_t* pCommandLine, WshShel
 /**
  * @brief Prints the current interaction buffer to the terminal.
  *
- * @param pCommandLine Pointer to the interaction buffer.
+ * @param pcCommandLine Pointer to the interaction buffer.
  */
-void WshShellIO_PrintInterBuff(WshShellIO_CommandLine_t* pCommandLine);
+void WshShellIO_PrintInterBuff(const WshShellIO_CommandLine_t* pcCommandLine);
 
 /**
  * @brief Refreshes the terminal display using the interaction buffer.
