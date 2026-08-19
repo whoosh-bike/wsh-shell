@@ -1,0 +1,16 @@
+# Suppressions for `make cppcheck`. See docs/dev/build.md.
+#
+# The library is analysed on its own, without the integrator code that calls it,
+# so every public API function looks both unused and internally linkable.
+unusedFunction
+staticFunction
+
+# Signatures are pinned by the function-pointer tables the handlers are stored in;
+# cppcheck flags that risk in the message itself.
+constParameterCallback
+
+# Informational, not defects: standard headers are not provided on purpose, and
+# the remaining #ifdef combinations are config knobs, not code paths to audit.
+missingIncludeSystem
+toomanyconfigs
+checkersReport
