@@ -129,6 +129,13 @@ The script also reports `sizeof(WshShell_t)` for each configuration, read back
 from a probe symbol in the linked ELF, so RAM cost is measured on the target's
 word size rather than the host's.
 
+Because every mode rebuilds the library from scratch for each configuration, the
+script doubles as a **feature-flag build matrix**: it is the only thing here that
+compiles the disabled-feature branches. A `#else` stub whose signature drifted from
+its header breaks nobody's build until an integrator turns that feature off, so CI
+runs all three modes (`config_matrix` job in `.gitlab-ci.yml`) and fails on the first
+configuration that does not compile. The generated tables are kept as job artifacts.
+
 ---
 
 ## Example on Hardware
