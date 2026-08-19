@@ -168,7 +168,14 @@ def spawn_adapter(
         ),
         transport=transport,
     )
-    adp.sync()
+    try:
+        adp.sync()
+    except Exception:
+        # Sync can fail by design (a test asserting the shell demands a login).
+        # Without this the process behind the PTY is never reaped and piles up.
+        adp.close()
+        raise
+
     return adp
 
 

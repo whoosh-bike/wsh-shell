@@ -74,8 +74,16 @@ int main(int argc, char* argv[]) {
         int symbol = getchar();
         // printf("key: %d (0x%02X)\n", symbol, (unsigned char)symbol);
 
-        if (symbol == EOF)
+        if (symbol == EOF) {
+            /* Real end of input (terminal/PTY closed): leave, or the loop spins
+             * on EOF at 100% CPU and the process outlives its terminal. */
+            if (feof(stdin))
+                break;
+
+            /* Interrupted read: drop the error flag and keep listening. */
+            clearerr(stdin);
             continue;
+        }
 
         Shell_SendChar((char)symbol);
     }
