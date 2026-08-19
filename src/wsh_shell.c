@@ -65,9 +65,10 @@ WSH_SHELL_RET_STATE_t WshShell_Init(WshShell_t* pShell, const WshShell_Char_t* p
      * First out
      */
 
-    const WshShell_Char_t* pBuildType = "release";
 #if defined(WSH_SHELL_DEBUG_ENABLE)
-    pBuildType = "debug";
+    const WshShell_Char_t* pBuildType = "debug";
+#else
+    const WshShell_Char_t* pBuildType = "release";
 #endif
 
     WSH_SHELL_PRINT("%c", WSH_SHELL_SYM_SOUND);

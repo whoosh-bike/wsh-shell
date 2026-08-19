@@ -235,9 +235,9 @@ static WSH_SHELL_RET_STATE_t WshShellCmdDef_UserWhoami(const WshShellCmd_t* pcCm
     if (!pcCmd || !pShellCtx || (argc > 0 && !pArgv))
         return WSH_SHELL_RET_STATE_ERR_PARAM;
 
-    WshShell_t* pParentShell  = (WshShell_t*)pShellCtx;
-    WshShell_Size_t fieldMask = 0;
-    WshShell_Bool_t helpOnly  = false;
+    const WshShell_t* pParentShell = (const WshShell_t*)pShellCtx;
+    WshShell_Size_t fieldMask      = 0;
+    WshShell_Bool_t helpOnly       = false;
 
     for (WshShell_Size_t tokenPos = 0; tokenPos < argc;) {
         WshShellOption_Ctx_t optCtx =
@@ -330,7 +330,7 @@ static WSH_SHELL_RET_STATE_t WshShellCmdDef_User(const WshShellCmd_t* pcCmd, Wsh
     if (!pcCmd || !pShellCtx || (argc > 0 && !pArgv))
         return WSH_SHELL_RET_STATE_ERR_PARAM;
 
-    WshShell_t* pParentShell = (WshShell_t*)pShellCtx;
+    const WshShell_t* pParentShell = (const WshShell_t*)pShellCtx;
 
     for (WshShell_Size_t tokenPos = 0; tokenPos < argc;) {
         WshShellOption_Ctx_t optCtx =
@@ -495,7 +495,7 @@ static WSH_SHELL_RET_STATE_t WshShellCmdDef_History(const WshShellCmd_t* pcCmd, 
     if (!pcCmd || !pShellCtx || (argc > 0 && !pArgv))
         return WSH_SHELL_RET_STATE_ERR_PARAM;
 
-    WshShell_t* pParentShell = (WshShell_t*)pShellCtx;
+    const WshShell_t* pParentShell = (const WshShell_t*)pShellCtx;
 
     for (WshShell_Size_t tokenPos = 0; tokenPos < argc;) {
         WshShellOption_Ctx_t optCtx =
