@@ -80,7 +80,7 @@ void WshShellStr_IncrInterCnt(WshShell_Size_t* pInterCnt, WshShell_Size_t buffSi
 void WshShellStr_DecrInterCnt(WshShell_Size_t* pInterCnt);
 
 /**
- * @brief Converts access permission bits to a human-readable string like "rwx".
+ * @brief Converts access permission bits to a human-readable string like "rwxA".
  *
  * This function translates access bit flags into a POSIX-style permission string.
  * The result is written into the provided buffer.
@@ -89,12 +89,13 @@ void WshShellStr_DecrInterCnt(WshShell_Size_t* pInterCnt);
  * - `'r'` if `WSH_SHELL_OPT_ACCESS_READ` is set, otherwise `'-'`
  * - `'w'` if `WSH_SHELL_OPT_ACCESS_WRITE` is set, otherwise `'-'`
  * - `'x'` if `WSH_SHELL_OPT_ACCESS_EXECUTE` is set, otherwise `'-'`
- * - `'A'` if `access == WSH_SHELL_OPT_ACCESS_ANY` (optional fourth character)
+ * - `'A'` if `WSH_SHELL_OPT_ACCESS_ADMIN` is set, otherwise `'-'`
  * 
  * Examples:
- * - `0x00`      → `"---"`
- * - `0x03`      → `"rw-"`
- * - `0x07`      → `"rwx"`
+ * - `0x00`      → `"----"`
+ * - `0x03`      → `"rw--"`
+ * - `0x07`      → `"rwx-"`
+ * - `0x08`      → `"---A"`
  * - `0xFFFFFFFF`→ `"rwxA"`
  *
  * @param[in]  access  Bitmask of access flags (e.g. WSH_SHELL_OPT_ACCESS_READ).
