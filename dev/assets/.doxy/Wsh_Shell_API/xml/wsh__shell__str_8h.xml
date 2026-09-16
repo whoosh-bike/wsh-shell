@@ -369,18 +369,19 @@ Output: &lt;tt&gt;pArgBuff = { &quot;arg1&quot;, &quot;arg2&quot;, &quot;quoted 
           <declname>pOutStr</declname>
         </param>
         <briefdescription>
-<para>Converts access permission bits to a human-readable string like &quot;rwx&quot;. </para>
+<para>Converts access permission bits to a human-readable string like &quot;rwxA&quot;. </para>
         </briefdescription>
         <detaileddescription>
 <para>This function translates access bit flags into a POSIX-style permission string. The result is written into the provided buffer.</para>
 <para>The output format is:<itemizedlist>
-<listitem><para><lsquo/>&apos;r<rsquo/><computeroutput>if</computeroutput>WSH_SHELL_OPT_ACCESS_READ<computeroutput>is set, otherwise</computeroutput>&apos;-&apos;<computeroutput> -</computeroutput>&apos;w&apos;<computeroutput>if</computeroutput>WSH_SHELL_OPT_ACCESS_WRITE<computeroutput>is set, otherwise</computeroutput>&apos;-&apos;<computeroutput> -</computeroutput>&apos;x&apos;<computeroutput>if</computeroutput>WSH_SHELL_OPT_ACCESS_EXECUTE<computeroutput>is set, otherwise</computeroutput>&apos;-&apos;<computeroutput> -</computeroutput>&apos;A&apos;<computeroutput>if</computeroutput>access == WSH_SHELL_OPT_ACCESS_ANY` (optional fourth character)</para>
+<listitem><para><lsquo/>&apos;r<rsquo/><computeroutput>if</computeroutput>WSH_SHELL_OPT_ACCESS_READ<computeroutput>is set, otherwise</computeroutput>&apos;-&apos;<computeroutput> -</computeroutput>&apos;w&apos;<computeroutput>if</computeroutput>WSH_SHELL_OPT_ACCESS_WRITE<computeroutput>is set, otherwise</computeroutput>&apos;-&apos;<computeroutput> -</computeroutput>&apos;x&apos;<computeroutput>if</computeroutput>WSH_SHELL_OPT_ACCESS_EXECUTE<computeroutput>is set, otherwise</computeroutput>&apos;-&apos;<computeroutput> -</computeroutput>&apos;A&apos;<computeroutput>if</computeroutput>WSH_SHELL_OPT_ACCESS_ADMIN<computeroutput>is set, otherwise</computeroutput>&apos;-&apos;`</para>
 </listitem></itemizedlist>
 </para>
 <para>Examples:<itemizedlist>
-<listitem><para><computeroutput>0x00</computeroutput> → <computeroutput>&quot;---&quot;</computeroutput></para>
-</listitem><listitem><para><computeroutput>0x03</computeroutput> → <computeroutput>&quot;rw-&quot;</computeroutput></para>
-</listitem><listitem><para><computeroutput>0x07</computeroutput> → <computeroutput>&quot;rwx&quot;</computeroutput></para>
+<listitem><para><computeroutput>0x00</computeroutput> → <computeroutput>&quot;----&quot;</computeroutput></para>
+</listitem><listitem><para><computeroutput>0x03</computeroutput> → <computeroutput>&quot;rw--&quot;</computeroutput></para>
+</listitem><listitem><para><computeroutput>0x07</computeroutput> → <computeroutput>&quot;rwx-&quot;</computeroutput></para>
+</listitem><listitem><para><computeroutput>0x08</computeroutput> → <computeroutput>&quot;---A&quot;</computeroutput></para>
 </listitem><listitem><para><computeroutput>0xFFFFFFFF</computeroutput>→ <computeroutput>&quot;rwxA&quot;</computeroutput></para>
 </listitem></itemizedlist>
 </para>
@@ -405,7 +406,7 @@ Output: &lt;tt&gt;pArgBuff = { &quot;arg1&quot;, &quot;arg2&quot;, &quot;quoted 
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/wsh_shell_str.h" line="103" column="6" bodyfile="src/wsh_shell_str.c" bodystart="86" bodyend="96" declfile="src/wsh_shell_str.h" declline="103" declcolumn="6"/>
+        <location file="src/wsh_shell_str.h" line="104" column="6" bodyfile="src/wsh_shell_str.c" bodystart="86" bodyend="96" declfile="src/wsh_shell_str.h" declline="104" declcolumn="6"/>
       </memberdef>
       <memberdef kind="function" id="wsh__shell__str_8h_1a3807da453046b6283184e6021dd83c10" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -463,7 +464,7 @@ Output: &lt;tt&gt;pArgBuff = { &quot;arg1&quot;, &quot;arg2&quot;, &quot;quoted 
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/wsh_shell_str.h" line="118" column="6" bodyfile="src/wsh_shell_str.c" bodystart="98" bodyend="107" declfile="src/wsh_shell_str.h" declline="118" declcolumn="6"/>
+        <location file="src/wsh_shell_str.h" line="119" column="6" bodyfile="src/wsh_shell_str.c" bodystart="98" bodyend="107" declfile="src/wsh_shell_str.h" declline="119" declcolumn="6"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
@@ -502,15 +503,15 @@ Output: &lt;tt&gt;pArgBuff = { &quot;arg1&quot;, &quot;arg2&quot;, &quot;quoted 
 <codeline lineno="74"><highlight class="normal"></highlight></codeline>
 <codeline lineno="80"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="wsh__shell__str_8h_1ab4b7be929d544496dbab7a625bc70204" kindref="member">WshShellStr_DecrInterCnt</ref>(WshShell_Size_t*<sp/>pInterCnt);</highlight></codeline>
 <codeline lineno="81"><highlight class="normal"></highlight></codeline>
-<codeline lineno="103"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="wsh__shell__str_8h_1a10832dc9d2d88b0577df9bac3e6e533e" kindref="member">WshShellStr_AccessBitsToStr</ref>(WshShell_Size_t<sp/>access,<sp/>WshShell_Char_t*<sp/>pOutStr);</highlight></codeline>
-<codeline lineno="104"><highlight class="normal"></highlight></codeline>
-<codeline lineno="118"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="wsh__shell__str_8h_1a3807da453046b6283184e6021dd83c10" kindref="member">WshShellStr_GroupBitsToStr</ref>(WshShell_Size_t<sp/>group,<sp/>WshShell_Size_t<sp/>groupMaxNum,<sp/>WshShell_Char_t*<sp/>pOutStr);</highlight></codeline>
-<codeline lineno="119"><highlight class="normal"></highlight></codeline>
-<codeline lineno="120"><highlight class="normal"></highlight><highlight class="preprocessor">#ifdef<sp/>__cplusplus</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="121"><highlight class="normal">}</highlight></codeline>
-<codeline lineno="122"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="123"><highlight class="normal"></highlight></codeline>
-<codeline lineno="124"><highlight class="normal"></highlight><highlight class="preprocessor">#endif<sp/></highlight><highlight class="comment">/*<sp/>__WSH_SHELL_STR_H<sp/>*/</highlight><highlight class="preprocessor"></highlight></codeline>
+<codeline lineno="104"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="wsh__shell__str_8h_1a10832dc9d2d88b0577df9bac3e6e533e" kindref="member">WshShellStr_AccessBitsToStr</ref>(WshShell_Size_t<sp/>access,<sp/>WshShell_Char_t*<sp/>pOutStr);</highlight></codeline>
+<codeline lineno="105"><highlight class="normal"></highlight></codeline>
+<codeline lineno="119"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="wsh__shell__str_8h_1a3807da453046b6283184e6021dd83c10" kindref="member">WshShellStr_GroupBitsToStr</ref>(WshShell_Size_t<sp/>group,<sp/>WshShell_Size_t<sp/>groupMaxNum,<sp/>WshShell_Char_t*<sp/>pOutStr);</highlight></codeline>
+<codeline lineno="120"><highlight class="normal"></highlight></codeline>
+<codeline lineno="121"><highlight class="normal"></highlight><highlight class="preprocessor">#ifdef<sp/>__cplusplus</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="122"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="123"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="124"><highlight class="normal"></highlight></codeline>
+<codeline lineno="125"><highlight class="normal"></highlight><highlight class="preprocessor">#endif<sp/></highlight><highlight class="comment">/*<sp/>__WSH_SHELL_STR_H<sp/>*/</highlight><highlight class="preprocessor"></highlight></codeline>
     </programlisting>
     <location file="src/wsh_shell_str.h"/>
   </compounddef>

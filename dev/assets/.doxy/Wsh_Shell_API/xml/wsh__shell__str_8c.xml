@@ -306,18 +306,19 @@ Output: &lt;tt&gt;pArgBuff = { &quot;arg1&quot;, &quot;arg2&quot;, &quot;quoted 
           <declname>pOutStr</declname>
         </param>
         <briefdescription>
-<para>Converts access permission bits to a human-readable string like &quot;rwx&quot;. </para>
+<para>Converts access permission bits to a human-readable string like &quot;rwxA&quot;. </para>
         </briefdescription>
         <detaileddescription>
 <para>This function translates access bit flags into a POSIX-style permission string. The result is written into the provided buffer.</para>
 <para>The output format is:<itemizedlist>
-<listitem><para><lsquo/>&apos;r<rsquo/><computeroutput>if</computeroutput>WSH_SHELL_OPT_ACCESS_READ<computeroutput>is set, otherwise</computeroutput>&apos;-&apos;<computeroutput> -</computeroutput>&apos;w&apos;<computeroutput>if</computeroutput>WSH_SHELL_OPT_ACCESS_WRITE<computeroutput>is set, otherwise</computeroutput>&apos;-&apos;<computeroutput> -</computeroutput>&apos;x&apos;<computeroutput>if</computeroutput>WSH_SHELL_OPT_ACCESS_EXECUTE<computeroutput>is set, otherwise</computeroutput>&apos;-&apos;<computeroutput> -</computeroutput>&apos;A&apos;<computeroutput>if</computeroutput>access == WSH_SHELL_OPT_ACCESS_ANY` (optional fourth character)</para>
+<listitem><para><lsquo/>&apos;r<rsquo/><computeroutput>if</computeroutput>WSH_SHELL_OPT_ACCESS_READ<computeroutput>is set, otherwise</computeroutput>&apos;-&apos;<computeroutput> -</computeroutput>&apos;w&apos;<computeroutput>if</computeroutput>WSH_SHELL_OPT_ACCESS_WRITE<computeroutput>is set, otherwise</computeroutput>&apos;-&apos;<computeroutput> -</computeroutput>&apos;x&apos;<computeroutput>if</computeroutput>WSH_SHELL_OPT_ACCESS_EXECUTE<computeroutput>is set, otherwise</computeroutput>&apos;-&apos;<computeroutput> -</computeroutput>&apos;A&apos;<computeroutput>if</computeroutput>WSH_SHELL_OPT_ACCESS_ADMIN<computeroutput>is set, otherwise</computeroutput>&apos;-&apos;`</para>
 </listitem></itemizedlist>
 </para>
 <para>Examples:<itemizedlist>
-<listitem><para><computeroutput>0x00</computeroutput> → <computeroutput>&quot;---&quot;</computeroutput></para>
-</listitem><listitem><para><computeroutput>0x03</computeroutput> → <computeroutput>&quot;rw-&quot;</computeroutput></para>
-</listitem><listitem><para><computeroutput>0x07</computeroutput> → <computeroutput>&quot;rwx&quot;</computeroutput></para>
+<listitem><para><computeroutput>0x00</computeroutput> → <computeroutput>&quot;----&quot;</computeroutput></para>
+</listitem><listitem><para><computeroutput>0x03</computeroutput> → <computeroutput>&quot;rw--&quot;</computeroutput></para>
+</listitem><listitem><para><computeroutput>0x07</computeroutput> → <computeroutput>&quot;rwx-&quot;</computeroutput></para>
+</listitem><listitem><para><computeroutput>0x08</computeroutput> → <computeroutput>&quot;---A&quot;</computeroutput></para>
 </listitem><listitem><para><computeroutput>0xFFFFFFFF</computeroutput>→ <computeroutput>&quot;rwxA&quot;</computeroutput></para>
 </listitem></itemizedlist>
 </para>
@@ -501,7 +502,7 @@ Output: &lt;tt&gt;pArgBuff = { &quot;arg1&quot;, &quot;arg2&quot;, &quot;quoted 
 <codeline lineno="91"><highlight class="normal"><sp/><sp/><sp/><sp/>pOutStr[0]<sp/>=<sp/>(access<sp/>&amp;<sp/>WSH_SHELL_OPT_ACCESS_READ)<sp/>?<sp/></highlight><highlight class="charliteral">&apos;r&apos;</highlight><highlight class="normal"><sp/>:<sp/></highlight><highlight class="charliteral">&apos;-&apos;</highlight><highlight class="normal">;</highlight></codeline>
 <codeline lineno="92"><highlight class="normal"><sp/><sp/><sp/><sp/>pOutStr[1]<sp/>=<sp/>(access<sp/>&amp;<sp/>WSH_SHELL_OPT_ACCESS_WRITE)<sp/>?<sp/></highlight><highlight class="charliteral">&apos;w&apos;</highlight><highlight class="normal"><sp/>:<sp/></highlight><highlight class="charliteral">&apos;-&apos;</highlight><highlight class="normal">;</highlight></codeline>
 <codeline lineno="93"><highlight class="normal"><sp/><sp/><sp/><sp/>pOutStr[2]<sp/>=<sp/>(access<sp/>&amp;<sp/>WSH_SHELL_OPT_ACCESS_EXECUTE)<sp/>?<sp/></highlight><highlight class="charliteral">&apos;x&apos;</highlight><highlight class="normal"><sp/>:<sp/></highlight><highlight class="charliteral">&apos;-&apos;</highlight><highlight class="normal">;</highlight></codeline>
-<codeline lineno="94"><highlight class="normal"><sp/><sp/><sp/><sp/>pOutStr[3]<sp/>=<sp/>(access<sp/>==<sp/>WSH_SHELL_OPT_ACCESS_ADMIN)<sp/>?<sp/></highlight><highlight class="charliteral">&apos;A&apos;</highlight><highlight class="normal"><sp/>:<sp/></highlight><highlight class="charliteral">&apos;-&apos;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="94"><highlight class="normal"><sp/><sp/><sp/><sp/>pOutStr[3]<sp/>=<sp/>(access<sp/>&amp;<sp/>WSH_SHELL_OPT_ACCESS_ADMIN)<sp/>?<sp/></highlight><highlight class="charliteral">&apos;A&apos;</highlight><highlight class="normal"><sp/>:<sp/></highlight><highlight class="charliteral">&apos;-&apos;</highlight><highlight class="normal">;</highlight></codeline>
 <codeline lineno="95"><highlight class="normal"><sp/><sp/><sp/><sp/>pOutStr[4]<sp/>=<sp/></highlight><highlight class="charliteral">&apos;\0&apos;</highlight><highlight class="normal">;</highlight></codeline>
 <codeline lineno="96"><highlight class="normal">}</highlight></codeline>
 <codeline lineno="97"><highlight class="normal"></highlight></codeline>

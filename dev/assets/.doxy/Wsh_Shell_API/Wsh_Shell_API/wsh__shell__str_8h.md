@@ -54,7 +54,7 @@ _Common string operations for user input processing._ [More...](#detailed-descri
 
 | Type | Name |
 | ---: | :--- |
-|  void | [**WshShellStr\_AccessBitsToStr**](#function-wshshellstr_accessbitstostr) (WshShell\_Size\_t access, WshShell\_Char\_t \* pOutStr) <br>_Converts access permission bits to a human-readable string like "rwx"._  |
+|  void | [**WshShellStr\_AccessBitsToStr**](#function-wshshellstr_accessbitstostr) (WshShell\_Size\_t access, WshShell\_Char\_t \* pOutStr) <br>_Converts access permission bits to a human-readable string like "rwxA"._  |
 |  void | [**WshShellStr\_DecrInterCnt**](#function-wshshellstr_decrintercnt) (WshShell\_Size\_t \* pInterCnt) <br>_Decrease buffer counter._  |
 |  void | [**WshShellStr\_GroupBitsToStr**](#function-wshshellstr_groupbitstostr) (WshShell\_Size\_t group, WshShell\_Size\_t groupMaxNum, WshShell\_Char\_t \* pOutStr) <br>_Converts group bitmask into symbolic group string (e.g. "\*--\*", "---\*", etc)._  |
 |  void | [**WshShellStr\_IncrInterCnt**](#function-wshshellstr_incrintercnt) (WshShell\_Size\_t \* pInterCnt, WshShell\_Size\_t buffSize) <br>_Increase buffer counter._  |
@@ -122,7 +122,7 @@ Copyright (c) 2024
 
 ### function WshShellStr\_AccessBitsToStr 
 
-_Converts access permission bits to a human-readable string like "rwx"._ 
+_Converts access permission bits to a human-readable string like "rwxA"._ 
 ```C++
 void WshShellStr_AccessBitsToStr (
     WshShell_Size_t access,
@@ -136,15 +136,16 @@ This function translates access bit flags into a POSIX-style permission string. 
 
 
 The output format is:
-* 'r`if`WSH\_SHELL\_OPT\_ACCESS\_READ`is set, otherwise`'-'` -`'w'`if`WSH\_SHELL\_OPT\_ACCESS\_WRITE`is set, otherwise`'-'` -`'x'`if`WSH\_SHELL\_OPT\_ACCESS\_EXECUTE`is set, otherwise`'-'` -`'A'`if`access == WSH\_SHELL\_OPT\_ACCESS\_ANY` (optional fourth character)
+* 'r`if`WSH\_SHELL\_OPT\_ACCESS\_READ`is set, otherwise`'-'` -`'w'`if`WSH\_SHELL\_OPT\_ACCESS\_WRITE`is set, otherwise`'-'` -`'x'`if`WSH\_SHELL\_OPT\_ACCESS\_EXECUTE`is set, otherwise`'-'` -`'A'`if`WSH\_SHELL\_OPT\_ACCESS\_ADMIN`is set, otherwise`'-'`
 
 
 
 
 Examples:
-* `0x00` → `"---"`
-* `0x03` → `"rw-"`
-* `0x07` → `"rwx"`
+* `0x00` → `"----"`
+* `0x03` → `"rw--"`
+* `0x07` → `"rwx-"`
+* `0x08` → `"---A"`
 * `0xFFFFFFFF`→ `"rwxA"`
 
 

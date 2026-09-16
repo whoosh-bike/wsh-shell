@@ -101,7 +101,7 @@ void WshShellStr_AccessBitsToStr(WshShell_Size_t access, WshShell_Char_t* pOutSt
     pOutStr[0] = (access & WSH_SHELL_OPT_ACCESS_READ) ? 'r' : '-';
     pOutStr[1] = (access & WSH_SHELL_OPT_ACCESS_WRITE) ? 'w' : '-';
     pOutStr[2] = (access & WSH_SHELL_OPT_ACCESS_EXECUTE) ? 'x' : '-';
-    pOutStr[3] = (access == WSH_SHELL_OPT_ACCESS_ADMIN) ? 'A' : '-';
+    pOutStr[3] = (access & WSH_SHELL_OPT_ACCESS_ADMIN) ? 'A' : '-';
     pOutStr[4] = '\0';
 }
 

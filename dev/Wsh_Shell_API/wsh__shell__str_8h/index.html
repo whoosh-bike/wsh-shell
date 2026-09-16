@@ -3139,7 +3139,7 @@
 <tbody>
 <tr>
 <td style="text-align: right;">void</td>
-<td style="text-align: left;"><a href="#function-wshshellstr_accessbitstostr"><strong>WshShellStr_AccessBitsToStr</strong></a> (WshShell_Size_t access, WshShell_Char_t * pOutStr) <br><em>Converts access permission bits to a human-readable string like "rwx".</em></td>
+<td style="text-align: left;"><a href="#function-wshshellstr_accessbitstostr"><strong>WshShellStr_AccessBitsToStr</strong></a> (WshShell_Size_t access, WshShell_Char_t * pOutStr) <br><em>Converts access permission bits to a human-readable string like "rwxA".</em></td>
 </tr>
 <tr>
 <td style="text-align: right;">void</td>
@@ -3189,7 +3189,7 @@
 <p>Copyright (c) 2024 </p>
 <h2 id="public-functions-documentation">Public Functions Documentation</h2>
 <h3 id="function-wshshellstr_accessbitstostr">function WshShellStr_AccessBitsToStr</h3>
-<p><em>Converts access permission bits to a human-readable string like "rwx".</em> 
+<p><em>Converts access permission bits to a human-readable string like "rwxA".</em> 
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-1">1</a></span>
 <span class="normal"><a href="#__codelineno-0-2">2</a></span>
 <span class="normal"><a href="#__codelineno-0-3">3</a></span>
@@ -3200,11 +3200,12 @@
 </span></code></pre></div></td></tr></table></div></p>
 <p>This function translates access bit flags into a POSIX-style permission string. The result is written into the provided buffer.</p>
 <p>The output format is:
-* 'r<code>if</code>WSH_SHELL_OPT_ACCESS_READ<code>is set, otherwise</code>'-'<code>-</code>'w'<code>if</code>WSH_SHELL_OPT_ACCESS_WRITE<code>is set, otherwise</code>'-'<code>-</code>'x'<code>if</code>WSH_SHELL_OPT_ACCESS_EXECUTE<code>is set, otherwise</code>'-'<code>-</code>'A'<code>if</code>access == WSH_SHELL_OPT_ACCESS_ANY` (optional fourth character)</p>
+* 'r<code>if</code>WSH_SHELL_OPT_ACCESS_READ<code>is set, otherwise</code>'-'<code>-</code>'w'<code>if</code>WSH_SHELL_OPT_ACCESS_WRITE<code>is set, otherwise</code>'-'<code>-</code>'x'<code>if</code>WSH_SHELL_OPT_ACCESS_EXECUTE<code>is set, otherwise</code>'-'<code>-</code>'A'<code>if</code>WSH_SHELL_OPT_ACCESS_ADMIN<code>is set, otherwise</code>'-'`</p>
 <p>Examples:
-* <code>0x00</code> → <code>"---"</code>
-* <code>0x03</code> → <code>"rw-"</code>
-* <code>0x07</code> → <code>"rwx"</code>
+* <code>0x00</code> → <code>"----"</code>
+* <code>0x03</code> → <code>"rw--"</code>
+* <code>0x07</code> → <code>"rwx-"</code>
+* <code>0x08</code> → <code>"---A"</code>
 * <code>0xFFFFFFFF</code>→ <code>"rwxA"</code></p>
 <p><strong>Parameters:</strong></p>
 <ul>
