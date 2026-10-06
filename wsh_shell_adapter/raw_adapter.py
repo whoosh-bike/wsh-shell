@@ -19,6 +19,11 @@ class RawSerialAdapter:
         return self._transport is not None and self._transport.is_open
 
     @property
+    def transport(self) -> Optional[SerialTransport]:
+        """The open serial transport, or None — for a host sharing the port."""
+        return self._transport
+
+    @property
     def port(self) -> Optional[str]:
         return self._port
 

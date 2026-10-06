@@ -187,6 +187,7 @@ class WshShellAdapter:
         config: Optional[AdapterConfig] = None,
         transport: Optional[BaseTransport] = None,
         state_callback: Optional[Callable[[str, str], None]] = None,
+        io_callback: Optional[Callable[[str, Union[bytes, str]], None]] = None,
     ) -> None:
         self.config = config or AdapterConfig()
         self.transport = transport or SerialTransport(
@@ -199,6 +200,10 @@ class WshShellAdapter:
             discovery=SerialDiscoveryConfig(vid=self.config.vid, pid=self.config.pid),
         )
         self._state_callback = state_callback
+        # Sees every byte the adapter itself sends or reads ("tx", "rx",
+        # "drain") and its state notes ("state", "recover"), for a host that
+        # keeps a transcript. Settable after construction.
+        self.io_callback = io_callback
         # MULTILINE so `^` matches after every "\n" in the accumulated buffer,
         # not just at the very start — needed now that prompt detection scans
         # the whole buffer instead of only its last line (see
@@ -400,6 +405,11 @@ class WshShellAdapter:
                 return
             self._log("drain", chunk)
 
+    def write_line(self, text: str) -> None:
+        """Send one line without waiting for a reply — for a host that reads
+        the port itself (a live terminal) rather than through `execute`."""
+        self._write_line(text)
+
     def _write_line(self, text: str) -> None:
         payload = (text + self.config.newline).encode("utf-8")
         self._write_raw(payload)
@@ -492,6 +502,10 @@ class WshShellAdapter:
 
         return parsed or None
 
+    def clean_text(self, data: Union[bytes, bytearray]) -> str:
+        """Shell output as plain text: decoded, ANSI escapes and BEL removed."""
+        return self._clean_bytes(data)
+
     def _clean_bytes(self, data: Union[bytes, bytearray]) -> str:
         text = bytes(data).decode("utf-8", errors="ignore")
         text = ANSI_RE.sub("", text)
@@ -503,6 +517,8 @@ class WshShellAdapter:
         return text[-size:] if len(text) > size else text
 
     def _log(self, topic: str, payload: Union[bytes, str]) -> None:
+        if self.io_callback is not None:
+            self.io_callback(topic, payload)
         if not self.config.debug:
             return
         if isinstance(payload, bytes):

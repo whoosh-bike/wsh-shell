@@ -14,6 +14,7 @@ from wsh_shell_adapter import (
     AdapterConfig,
     BaseTransport,
     CommandError,
+    RawSerialAdapter,
     WshShellAdapter,
 )
 
@@ -303,6 +304,39 @@ def test_last_prompt_terminates_the_response() -> None:
 
 
 # ── Tests: WSH_SHELL_ASSERT causes non-zero exit ──────────────────────────────
+
+
+def test_io_callback_sees_the_whole_exchange() -> None:
+    seen: list[tuple[str, bytes | str]] = []
+    adp = WshShellAdapter(
+        config=AdapterConfig(login="root", password="1234", retries=0),
+        transport=FakeShellTransport(),
+        io_callback=lambda topic, payload: seen.append((topic, payload)),
+    )
+    adp.sync()
+    adp.execute("wsh")
+    topics = {topic for topic, _ in seen}
+    assert {"tx", "rx", "state"} <= topics
+    assert ("tx", b"1234\r") in seen
+    assert ("tx", b"wsh\r") in seen
+
+
+def test_write_line_sends_without_waiting() -> None:
+    adp = _synced_adapter()
+    sent: list[bytes | str] = []
+    adp.io_callback = lambda topic, payload: sent.append(payload) if topic == "tx" else None
+    adp.write_line("wsh")
+    assert sent == [b"wsh\r"]
+
+
+def test_clean_text_strips_escapes_and_bell() -> None:
+    adp = _synced_adapter()
+    assert adp.clean_text(b"\x07\x1b[36mLogin: \x1b[0m") == "Login: "
+
+
+def test_raw_adapter_exposes_its_transport() -> None:
+    raw = RawSerialAdapter(AdapterConfig(port="/dev/null-port"))
+    assert raw.transport is None
 
 
 def test_assert_macro_exits_nonzero(tmp_path: Path) -> None:
