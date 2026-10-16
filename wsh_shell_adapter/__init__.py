@@ -10,6 +10,7 @@ from .adapter import (
 )
 from .exceptions import CommandError, SyncError, TransportError, WshShellAdapterError
 from .raw_adapter import RawSerialAdapter
+from .shell_state import ShellStateWatch, find_shell_states, parse_shell_state
 from .serial_cli import (
     describe_serial_target,
     prompt_for_serial_port,
@@ -42,6 +43,9 @@ __all__ = [
     "SerialDiscoveryConfig",
     "SerialPortInfo",
     "SerialTransport",
+    "ShellStateWatch",
+    "find_shell_states",
+    "parse_shell_state",
     "list_serial_ports",
     "match_serial_ports",
     "resolve_serial_port",

@@ -16,8 +16,10 @@ so all serial access goes through a single layer without importing `pyserial` di
 ## Features
 
 - connect by fixed `port` or auto-discover by `vid/pid`
+- read the [shell state line](../docs/usage/shell-state.md) first (ENQ): a `ready` shell gets no Enter and no ping,
+  a `busy` one (a stream holding the input) gets nothing written at all
 - synchronize/authenticate with shell (`Press <Enter>` -> `Login` -> `Password` -> prompt)
-- optionally verify sync by `ping_command_and_response`
+- on firmware without the state line, verify sync by `ping_command_and_response`
 - execute commands with timeout and retry logic
 - parse command output into structured `dict` (`json` or `key: value`)
 - recover on failures with optional fallback ping
@@ -80,6 +82,8 @@ command_timeout_s = 3.0
 retries = 1
 auto_recover = true
 ping_command_and_response = ["wsh --ping", "pong"]
+state_query = true
+state_query_timeout_s = 1.0
 prompt_regex = "^(?:[^\\r\\n>]+@[^\\r\\n>]+\\s*>|wsh-shell>)"
 
 [local_shell]
@@ -87,7 +91,14 @@ binary = "example/build/example"
 cwd = "."
 ```
 
-If `ping_command_and_response` is set, `sync()` sends the command after prompt detection and
+`sync()` starts by sending ENQ (`0x05`) and reading the [shell state line](../docs/usage/shell-state.md): `ready`
+completes sync with nothing else written, `busy` sets the adapter state to `busy` and writes nothing
+(`execute()` ends the wait with Enter before a command), `login` logs in and is completed by the
+`ready` line the shell prints on login. `adapter.shell_state` keeps the last line seen;
+`adapter.query_state()` asks on demand. `state_query = false` skips all of it.
+
+The probe below is for firmware **without** the state line (no answer to ENQ):
+if `ping_command_and_response` is set, `sync()` sends the command after prompt detection and
 expects the configured response as the full cleaned output or as one full output line before marking
 the adapter as synced.
 If `ping_command_and_response` is missing or `[]`, `sync()` sends a fixed probe command and treats

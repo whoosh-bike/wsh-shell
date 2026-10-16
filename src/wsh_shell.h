@@ -122,6 +122,11 @@ typedef struct {
     WshShellPromptWait_t PromptWait;
 
     WshShellExtCallbacks_t ExtCallbacks; /**< Optional external auth callbacks. */
+
+    /* Last state line printed, so only changes are announced. */
+    WshShell_U32_t LastState;          /**< 0 — none yet, then WSH_SHELL_STATE_* + 1. */
+    const WshShell_Char_t* LastTag;    /**< PromptWait.Tag at that time. */
+    const WshShellUser_t* LastUser;    /**< CurrUser at that time. */
 } WshShell_t;
 
 /**
@@ -226,6 +231,20 @@ WshShell_U32_t WshShell_SessionRebootsLeft(WshShell_t* pShell);
  * @param symbol Character to insert.
  */
 void WshShell_InsertChar(WshShell_t* pShell, const WshShell_Char_t symbol);
+
+#ifndef WSH_SHELL_STATE_LINE
+#define WSH_SHELL_STATE_LINE 1
+#endif
+
+/**
+ * @brief Print the shell state line now, changed or not:
+ *   {"evt":"shell","state":"login|ready|busy","user":"<login>"|null,"busy":"<tag>"|null,"keepLeft":N}
+ *
+ * The shell prints it by itself on every change (login, logout, session
+ * restore, a prompt-wait starting or ending) and in answer to ENQ (0x05);
+ * an application rarely needs this. See docs/usage/shell-state.md.
+ */
+void WshShell_StatePrint(WshShell_t* pShell);
 
 #ifdef __cplusplus
 }

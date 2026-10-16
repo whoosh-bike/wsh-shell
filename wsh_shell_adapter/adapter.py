@@ -9,6 +9,7 @@ from typing import Any, Callable, Dict, Mapping, Optional, Union
 import toml
 
 from .exceptions import CommandError, SyncError, WshShellAdapterError
+from .shell_state import ENQ, STATE_BUSY as SHELL_BUSY, STATE_READY as SHELL_READY, ShellStateWatch, find_shell_states
 from .transport import BaseTransport, SerialDiscoveryConfig, SerialTransport
 
 ANSI_RE = re.compile(r"\x1B(?:[@-Z\\-_]|\[[0-?]*[ -/]*[@-~])")
@@ -29,6 +30,9 @@ STATE_DISCONNECTED = "disconnected"
 STATE_CONNECTED = "connected"
 STATE_SYNCED = "synced"
 STATE_EXECUTING = "executing"
+# The shell said it is busy (a prompt-wait holds its input, e.g. a sniffer):
+# the link is fine, but anything written would end that wait.
+STATE_BUSY = "busy"
 
 ADAPTER_TOML_KEYS = (
     "port",
@@ -48,6 +52,8 @@ ADAPTER_TOML_KEYS = (
     "read_chunk_size",
     "auto_recover",
     "ping_command_and_response",
+    "state_query",
+    "state_query_timeout_s",
     "prompt_regex",
     "sync_enter_interval_s",
     "sync_idle_enter_interval_s",
@@ -79,7 +85,11 @@ class AdapterConfig:
     retries: int = 1
     read_chunk_size: int = 4096
     auto_recover: bool = True
+    # Fallback probe for a shell without the state line (older firmware).
     ping_command_and_response: Optional[tuple[str, str]] = None
+    # Ask the shell for its state line (ENQ) before anything else in sync().
+    state_query: bool = True
+    state_query_timeout_s: float = 1.0
     prompt_regex: str = DEFAULT_PROMPT_REGEX
     sync_enter_interval_s: float = 0.2
     sync_idle_enter_interval_s: float = 0.6
@@ -212,6 +222,12 @@ class WshShellAdapter:
         self.state = STATE_DISCONNECTED
         self.port_name = ""
         self.last_raw_response = b""
+        # The last state line the shell printed (shell_state.py), None until it
+        # has printed one. Older firmware never does.
+        self.shell_state: Optional[Dict[str, Any]] = None
+        # Whether this shell answers ENQ: None until known. Once True, sync()
+        # trusts state lines and never falls back to the ping probe.
+        self.state_line_supported: Optional[bool] = None
 
     def connect(self) -> None:
         self.transport.open()
@@ -248,21 +264,88 @@ class WshShellAdapter:
         if force_sync or self.state != STATE_SYNCED:
             self.sync()
 
+        if self.state == STATE_BUSY:
+            # An explicit command outranks whatever holds the input: end the
+            # wait (Enter does, for every prompt-wait) and sync again.
+            self._log("state", "shell busy — ending its wait for an explicit command")
+            self._write_raw(self.config.newline.encode("utf-8"))
+            self.sync()
+
+    def query_state(self, timeout_s: Optional[float] = None) -> Optional[Dict[str, Any]]:
+        """Ask the shell for its state line (ENQ) without disturbing it.
+
+        Safe in every mode: ENQ never reaches the command line, a login prompt
+        or a prompt-wait. Returns the line, or None from a shell that doesn't
+        answer (older firmware), leaving `state_line_supported` False.
+        """
+        if not self.transport.is_open:
+            self.connect()
+        timeout = timeout_s if timeout_s is not None else self.config.state_query_timeout_s
+        self._write_raw(ENQ)
+        watch = ShellStateWatch()
+        deadline = time.monotonic() + timeout
+        while time.monotonic() < deadline:
+            chunk = self.transport.read(self.config.read_chunk_size)
+            if not chunk:
+                time.sleep(self.config.read_poll_sleep_s)
+                continue
+            self._log("rx", chunk)
+            state = watch.feed(self._clean_bytes(chunk))
+            if state is not None:
+                self._note_shell_state(state)
+                self.state_line_supported = True
+                return state
+        if self.state_line_supported is None:
+            self.state_line_supported = False
+        return None
+
+    def _note_shell_state(self, state: Dict[str, Any]) -> None:
+        self.shell_state = state
+        self._log("shell_state", json.dumps(state))
+
+    def _settle_from_shell_state(self, state: Dict[str, Any]) -> bool:
+        """Act on a state line during sync; True when sync is done."""
+        kind = state.get("state")
+        if kind == SHELL_READY:
+            self._set_state(STATE_SYNCED, f"shell reports ready ({state.get('user')})")
+            return True
+        if kind == SHELL_BUSY:
+            self._set_state(STATE_BUSY, f"shell busy ({state.get('busy')}) — left alone")
+            return True
+        return False
+
     def sync(self, timeout_s: Optional[float] = None) -> str:
         if not self.transport.is_open:
             self.connect()
 
         timeout = timeout_s if timeout_s is not None else self.config.sync_timeout_s
         deadline = time.monotonic() + timeout
+
+        # Ask first, touch nothing: a shell that answers says whether it is
+        # ready (done — no Enter, no ping), busy (done — nothing may be
+        # written) or waiting for a login (handled below).
+        if self.config.state_query and self.state_line_supported is not False:
+            state = self.query_state(min(self.config.state_query_timeout_s, max(deadline - time.monotonic(), 0.0)))
+            if state is not None and self._settle_from_shell_state(state):
+                return ""
+
         buffer = bytearray()
         last_clean_text = ""
         last_enter_ts = 0.0
+        watch = ShellStateWatch()
 
         while time.monotonic() < deadline:
             chunk = self.transport.read(self.config.read_chunk_size)
             if chunk:
                 buffer.extend(chunk)
                 self._log("rx", chunk)
+                # A login prints "ready" by itself — that ends sync, no probe.
+                state = watch.feed(self._clean_bytes(chunk))
+                if state is not None:
+                    self._note_shell_state(state)
+                    self.state_line_supported = True
+                    if self._settle_from_shell_state(state):
+                        return self._clean_bytes(buffer)
 
             clean_text = self._clean_bytes(buffer)
             if clean_text:
@@ -335,8 +418,17 @@ class WshShellAdapter:
                 output_text = self._extract_command_output(clean_text, req.body)
                 parsed = self._parse_to_dict(output_text) if req.parse_to_dict else None
 
+                states = find_shell_states(clean_text)
+                if states:
+                    self._note_shell_state(states[-1])
+                    self.state_line_supported = True
+
                 if req.force_post_sync:
                     self.sync()
+                elif states and states[-1].get("state") == SHELL_BUSY:
+                    # The command started something that holds the input (a
+                    # sniffer): the next command has to end it first.
+                    self._set_state(STATE_BUSY, f"command left the shell busy ({states[-1].get('busy')})")
                 else:
                     self._set_state(STATE_SYNCED, "command completed")
 
@@ -426,6 +518,14 @@ class WshShellAdapter:
         return self._extract_command_output(clean_text, command)
 
     def _verify_sync_probe(self, timeout_s: float) -> None:
+        # A shell with the state line confirms itself with it; the command
+        # probe is only for one without (older firmware).
+        if self.config.state_query and self.state_line_supported:
+            state = self.query_state(timeout_s)
+            if state is None or state.get("state") != SHELL_READY:
+                raise SyncError(f"Shell state after sync is not ready: {state}")
+            return
+
         ping_probe = self.config.ping_command_and_response
         if ping_probe is None:
             output_text = self._run_probe_command(DEFAULT_SYNC_PROBE_COMMAND, timeout_s=timeout_s)

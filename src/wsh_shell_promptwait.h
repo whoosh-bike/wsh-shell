@@ -51,10 +51,16 @@ typedef WshShell_Bool_t (*WshShellPromptWait_Handler_t)(WshShell_Char_t symbol, 
  * Holds the active handler and optional context pointer.
  * If Handler is NULL, no prompt-wait is active.
  */
+/** Called whenever a wait starts or ends; the shell reports its state from it. */
+typedef void (*WshShellPromptWait_Notify_t)(void* pOwner);
+
 typedef struct WshShellPromptWait {
     WshShellPromptWait_Handler_t Handler;
     void* Ctx;
     WshShell_Size_t RejectedNum; /**< Keystrokes refused by the handler since attach. */
+    const WshShell_Char_t* Tag;  /**< What the shell is busy with, e.g. "sniff:cell"; NULL if not said. */
+    WshShellPromptWait_Notify_t Notify; /**< Set by the shell, survives Flush/Attach. */
+    void* NotifyOwner;
 } WshShellPromptWait_t;
 
 /**
@@ -79,6 +85,17 @@ void WshShellPromptWait_Flush(WshShellPromptWait_t* pWait);
  * @param[in]     pCtx    Optional pointer to user context.
  */
 void WshShellPromptWait_Attach(WshShellPromptWait_t* pWait, WshShellPromptWait_Handler_t handler, void* pCtx);
+
+/**
+ * @brief Attach a wait and say what it is for. A host reads @p pcTag from the
+ * shell state line ("busy":"<tag>") to tell e.g. a running sniffer from a
+ * yes/no question. The string must outlive the wait.
+ */
+void WshShellPromptWait_AttachTagged(WshShellPromptWait_t* pWait, WshShellPromptWait_Handler_t handler, void* pCtx,
+                                     const WshShell_Char_t* pcTag);
+
+/** @brief Set by the shell itself; applications don't call it. */
+void WshShellPromptWait_SetNotify(WshShellPromptWait_t* pWait, WshShellPromptWait_Notify_t notify, void* pOwner);
 
 /**
  * @brief Handle a symbol when in prompt-wait mode.

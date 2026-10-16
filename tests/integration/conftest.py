@@ -48,7 +48,6 @@ class ShellSession:
         "right":     b"\x1b[C",
         "left":      b"\x1b[D",
         "home":      b"\x01",      # Ctrl+A  (moves to line start)
-        "end":       b"\x05",      # Ctrl+E  (moves to line end)
         "delete":    b"\x1b[3~",   # forward-delete
         "backspace": b"\x7f",
         "tab":       b"\x09",

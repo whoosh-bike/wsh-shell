@@ -200,7 +200,78 @@ static const WshShellCmd_t Shell_ExitCmd = {
     .Handler = Shell_ExitHandler,
 };
 
-static const WshShellCmd_t* Shell_CmdTable[] = {&Shell_DumpCmd, &Shell_ExitCmd};
+/* ── stream command ────────────────────────────────────────────────────── */
+
+/*
+ * Holds the input the way a device-side data stream would (a module sniffer,
+ * a live log): a tagged prompt-wait that only <Enter> or Ctrl+C ends. While it
+ * runs, the shell state line reads "busy":"stream" — what a host checks before
+ * it writes anything. See docs/usage/shell-state.md.
+ */
+static WshShell_Bool_t Shell_StreamWaitHandler(WshShell_Char_t symbol, WshShellPromptWait_t* pWait) {
+    if (symbol != '\r' && symbol != '\n' && symbol != WSH_SHELL_SYM_CANCEL) {
+        if (WshShellPromptWait_HintIsNeeded(pWait))
+            WSH_SHELL_PRINT_SYS("Press <Enter> or Ctrl+C to stop the stream...\r\n");
+        return false;
+    }
+
+    WshShellPromptWait_Flush(pWait);
+    WSH_SHELL_PRINT_SYS("Stream stopped\r\n");
+    return true;
+}
+
+/* clang-format off */
+#define STREAM_OPT_TABLE() \
+    X_CMD_ENTRY(STREAM_OPT_DEF,    WSH_SHELL_OPT_NO(WSH_SHELL_OPT_ACCESS_ANY, "Hold the input until <Enter>")) \
+    X_CMD_ENTRY(STREAM_OPT_HELP,   WSH_SHELL_OPT_HELP()) \
+    X_CMD_ENTRY(STREAM_OPT_END_ID, WSH_SHELL_OPT_END())
+/* clang-format on */
+
+typedef enum {
+#define X_CMD_ENTRY(en, m) en,
+    STREAM_OPT_TABLE() STREAM_OPT_ENUM_SIZE
+#undef X_CMD_ENTRY
+} STREAM_OPT_t;
+
+#define X_CMD_ENTRY(en, m) {en, m},
+static const WshShellOption_t Stream_OptArr[] = {STREAM_OPT_TABLE()};
+#undef X_CMD_ENTRY
+
+static WSH_SHELL_RET_STATE_t Shell_StreamHandler(const WshShellCmd_t* pcCmd, WshShell_Size_t argc,
+                                                 const WshShell_Char_t* pArgv[], void* pShellCtx) {
+    if (!pcCmd || !pShellCtx || (argc > 0 && !pArgv))
+        return WSH_SHELL_RET_STATE_ERR_PARAM;
+
+    WshShell_t* pShell = (WshShell_t*)pShellCtx;
+
+    for (WshShell_Size_t tokenPos = 0; tokenPos < argc;) {
+        WshShellOption_Ctx_t optCtx = WshShellCmd_ParseOpt(pcCmd, argc, pArgv, pShell->CurrUser->Rights, &tokenPos);
+        if (!optCtx.Option) {
+            if (optCtx.ParseError)
+                return WSH_SHELL_RET_STATE_ERR_PARAM;
+            break;
+        }
+        if (optCtx.Option->ID == STREAM_OPT_HELP) {
+            WshShellCmd_PrintOptionsOverview(pcCmd);
+            return WSH_SHELL_RET_STATE_SUCCESS;
+        }
+    }
+
+    WshShellPromptWait_AttachTagged(&(pShell->PromptWait), Shell_StreamWaitHandler, NULL, "stream");
+    WSH_SHELL_PRINT_SYS("Press <Enter> or Ctrl+C to stop\r\n");
+    return WSH_SHELL_RET_STATE_SUCCESS;
+}
+
+static const WshShellCmd_t Shell_StreamCmd = {
+    .Groups  = WSH_SHELL_CMD_GROUP_ALL,
+    .Name    = "stream",
+    .Descr   = "Hold the input like a data stream would (tagged prompt-wait example)",
+    .Options = Stream_OptArr,
+    .OptNum  = WSH_SHELL_ARR_LEN(Stream_OptArr),
+    .Handler = Shell_StreamHandler,
+};
+
+static const WshShellCmd_t* Shell_CmdTable[] = {&Shell_DumpCmd, &Shell_ExitCmd, &Shell_StreamCmd};
 
 bool Shell_Init(const char* pcHostName, const char* pcLogin, const char* pcPass, const char* pcSessionFile) {
     Shell_SessionPath = pcSessionFile;

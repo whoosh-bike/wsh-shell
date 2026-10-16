@@ -13,6 +13,9 @@ itself, driven through the example binary over a PTY.
           prompt redrawn twice — the response must end at the *last* prompt
         - non-zero exit when `WSH_SHELL_ASSERT` fires
     - `test_config.py` — TOML config parsing (`adapter` and `local_shell` sections)
+    - `test_shell_state.py` — shell state line in the adapter: `sync()` sends only ENQ to a
+      `ready` or `busy` shell, logs in without `wsh --ping`, falls back to ping on old firmware,
+      `execute()` ends a `busy` wait first
 - `tests/integration/` — drives `./example/build/example` through `PtyProcessTransport`
     - `conftest.py` — `ShellSession` keyboard-level helper, `spawn_adapter()` factory,
       module-scoped `adapter` and function-scoped `session` fixtures
@@ -22,6 +25,8 @@ itself, driven through the example binary over a PTY.
     - `test_session.py` — `wsh --keep`: arming, restore across reboots, budget
       exhaustion, clearing, logout, corrupted store
     - `test_promptwait.py` — prompt-wait hint budget, per-wait reset, silent Ctrl+C escape
+    - `test_shell_state.py` — the state line on the real binary: ENQ in every state, login and
+      logout announcements, a tagged `stream` wait surviving ENQ, session restore at boot
 
 ## Prerequisites
 

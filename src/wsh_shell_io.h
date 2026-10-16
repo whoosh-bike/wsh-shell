@@ -33,6 +33,7 @@ extern "C" {
 #define WSH_SHELL_SYM_CANCEL    0x03 /**< Ctrl + C (cancel / interrupt) */
 #define WSH_SHELL_SYM_EXIT      0x04 /**< Ctrl + D (EOF signal) */
 #define WSH_SHELL_SYM_SOUND     0x07 /**< Bell character (alert) */
+#define WSH_SHELL_SYM_ENQ       0x05 /**< Ctrl + E, ASCII Enquiry: ask for the shell state line */
 ///@}
 
 /** @name Formatting and PS1 */

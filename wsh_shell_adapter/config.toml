@@ -11,7 +11,10 @@ command_timeout_s = 3.0
 retries = 1
 read_chunk_size = 4096
 auto_recover = true
+# Older firmware only: probe used when the shell doesn't answer ENQ.
 ping_command_and_response = ["wsh --ping", "pong"]
+state_query = true
+state_query_timeout_s = 1.0
 prompt_regex = "^(?:[^\\r\\n>]+@[^\\r\\n>]+\\s*>|wsh-shell>)"
 sync_enter_interval_s = 0.2
 sync_idle_enter_interval_s = 0.6

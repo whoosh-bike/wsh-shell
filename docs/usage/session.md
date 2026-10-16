@@ -114,6 +114,23 @@ armed) if the application wants to show it somewhere of its own.
 
 ---
 
+## What a host sees
+
+A restored session needs nothing from a host — no Enter, no login. The restore
+drops the "Press <Enter> to log in" gate, prints the prompt and announces itself
+on the [shell state line](shell-state.md), already counting the reboot just spent:
+
+```json
+{"evt":"shell","state":"ready","user":"root","busy":null,"keepLeft":2}
+```
+
+A host that reconnects after the reboot reads that line (or asks for it with
+ENQ) and leaves the shell alone. If the application started a stream at boot —
+a sniffer kept along with the session — the line says `busy` instead, and the
+host must not write anything that would stop it.
+
+---
+
 ## Command reference
 
 | Command        | Effect                                                           |

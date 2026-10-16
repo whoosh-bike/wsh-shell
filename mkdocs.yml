@@ -84,6 +84,7 @@ nav:
       - Writing Commands: usage/writing-commands.md
       - Subcommands: usage/subcommands.md
       - Persistent Session: usage/session.md
+      - Shell State Line: usage/shell-state.md
       - Permission Rules: usage/permission-rules.md
   - API:
       - General: 
