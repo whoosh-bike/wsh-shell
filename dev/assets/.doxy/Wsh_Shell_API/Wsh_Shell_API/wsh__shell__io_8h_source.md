@@ -25,6 +25,7 @@ extern "C" {
 #define WSH_SHELL_SYM_CANCEL    0x03 
 #define WSH_SHELL_SYM_EXIT      0x04 
 #define WSH_SHELL_SYM_SOUND     0x07 
+#define WSH_SHELL_SYM_ENQ       0x05 
 
 #define WSH_SHELL_CHAR_CR  '\r'   
 #define WSH_SHELL_CHAR_LF  '\n'   

@@ -132,6 +132,7 @@
 | define  | [**WSH\_SHELL\_SALT\_PASS\_HASH\_LEN**](wsh__shell__cfg__def_8h.md#define-wsh_shell_salt_pass_hash_len)  `64`<br> |
 | define  | [**WSH\_SHELL\_SESSION**](wsh__shell__cfg__def_8h.md#define-wsh_shell_session)  `1`<br> |
 | define  | [**WSH\_SHELL\_SNPRINTF**](wsh__shell__cfg__def_8h.md#define-wsh_shell_snprintf) (buf, size, ...) `snprintf((buf), (size), \_\_VA\_ARGS\_\_)`<br> |
+| define  | [**WSH\_SHELL\_STATE\_LINE**](wsh__shell__cfg__def_8h.md#define-wsh_shell_state_line)  `1`<br> |
 | define  | [**WSH\_SHELL\_STRCMP**](wsh__shell__cfg__def_8h.md#define-wsh_shell_strcmp) (pS1, pS2) `strcmp((pS1), (pS2))`<br> |
 | define  | [**WSH\_SHELL\_STRCPY**](wsh__shell__cfg__def_8h.md#define-wsh_shell_strcpy) (pD, pS) `strcpy((pD), (pS))`<br> |
 | define  | [**WSH\_SHELL\_STRLEN**](wsh__shell__cfg__def_8h.md#define-wsh_shell_strlen) (pS) `strlen((pS))`<br> |
@@ -759,6 +760,19 @@ static inline bool WshShellRetState_TranslateToProject (
     size,
     ...
 ) `snprintf((buf), (size), __VA_ARGS__)`
+```
+
+
+
+
+<hr>
+
+
+
+### define WSH\_SHELL\_STATE\_LINE 
+
+```C++
+#define WSH_SHELL_STATE_LINE `1`
 ```
 
 

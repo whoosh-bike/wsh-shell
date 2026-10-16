@@ -16,7 +16,7 @@
         <link rel="prev" href="../subcommands/">
       
       
-        <link rel="next" href="../permission-rules/">
+        <link rel="next" href="../shell-state/">
       
       
         
@@ -571,6 +571,8 @@
       
         
       
+        
+      
     
     
     
@@ -857,6 +859,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#what-a-host-sees" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What a host sees
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#command-reference" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -893,6 +906,34 @@
   
 </nav>
       
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../shell-state/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Shell State Line
+  
+
+    
+  </span>
+  
+  
+
+      </a>
     </li>
   
 
@@ -2798,6 +2839,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#what-a-host-sees" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What a host sees
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#command-reference" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -3023,6 +3075,17 @@ them:</p>
 <p><code>WshShell_SessionRebootsLeft()</code> returns the remaining budget (0 when nothing is
 armed) if the application wants to show it somewhere of its own.</p>
 <hr />
+<h2 id="what-a-host-sees">What a host sees</h2>
+<p>A restored session needs nothing from a host — no Enter, no login. The restore
+drops the "Press <Enter> to log in" gate, prints the prompt and announces itself
+on the <a href="../shell-state/">shell state line</a>, already counting the reboot just spent:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-5-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1"></a><span class="p">{</span><span class="nt">"evt"</span><span class="p">:</span><span class="s2">"shell"</span><span class="p">,</span><span class="nt">"state"</span><span class="p">:</span><span class="s2">"ready"</span><span class="p">,</span><span class="nt">"user"</span><span class="p">:</span><span class="s2">"root"</span><span class="p">,</span><span class="nt">"busy"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="nt">"keepLeft"</span><span class="p">:</span><span class="mi">2</span><span class="p">}</span>
+</span></code></pre></div></td></tr></table></div>
+<p>A host that reconnects after the reboot reads that line (or asks for it with
+ENQ) and leaves the shell alone. If the application started a stream at boot —
+a sniffer kept along with the session — the line says <code>busy</code> instead, and the
+host must not write anything that would stop it.</p>
+<hr />
 <h2 id="command-reference">Command reference</h2>
 <table>
 <thead>
@@ -3095,13 +3158,13 @@ does not need its own <code>#if</code> guards.</p>
 <h2 id="trying-it-on-the-pc-example">Trying it on the PC example</h2>
 <p>The PC example has no no-init RAM, so it takes an optional file that plays the same
 role — restarting the process with the same path models a reboot:</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-5-1">1</a></span>
-<span class="normal"><a href="#__codelineno-5-2">2</a></span>
-<span class="normal"><a href="#__codelineno-5-3">3</a></span>
-<span class="normal"><a href="#__codelineno-5-4">4</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1"></a>./example/build/example<span class="w"> </span>--session<span class="w"> </span>/tmp/wsh-session.bin<span class="w"> </span>-l<span class="w"> </span>root<span class="w"> </span>-p<span class="w"> </span><span class="m">1234</span>
-</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2"></a><span class="c1"># wsh --keep 2</span>
-</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3"></a><span class="c1"># exit          (quits the process and restores the terminal)</span>
-</span><span id="__span-5-4"><a id="__codelineno-5-4" name="__codelineno-5-4"></a>./example/build/example<span class="w"> </span>--session<span class="w"> </span>/tmp/wsh-session.bin
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-6-1">1</a></span>
+<span class="normal"><a href="#__codelineno-6-2">2</a></span>
+<span class="normal"><a href="#__codelineno-6-3">3</a></span>
+<span class="normal"><a href="#__codelineno-6-4">4</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1"></a>./example/build/example<span class="w"> </span>--session<span class="w"> </span>/tmp/wsh-session.bin<span class="w"> </span>-l<span class="w"> </span>root<span class="w"> </span>-p<span class="w"> </span><span class="m">1234</span>
+</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2"></a><span class="c1"># wsh --keep 2</span>
+</span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3"></a><span class="c1"># exit          (quits the process and restores the terminal)</span>
+</span><span id="__span-6-4"><a id="__codelineno-6-4" name="__codelineno-6-4"></a>./example/build/example<span class="w"> </span>--session<span class="w"> </span>/tmp/wsh-session.bin
 </span></code></pre></div></td></tr></table></div>
 <p>The second run comes up logged in as <code>root</code>. Without <code>--session</code> the store is
 plain process RAM and nothing survives the restart.</p>
@@ -3157,13 +3220,13 @@ plain process RAM and nothing survives the restart.</p>
         
         
           
-          <a href="../permission-rules/" class="md-footer__link md-footer__link--next" aria-label="Next: Permission Rules">
+          <a href="../shell-state/" class="md-footer__link md-footer__link--next" aria-label="Next: Shell State Line">
             <div class="md-footer__title">
               <span class="md-footer__direction">
                 Next
               </span>
               <div class="md-ellipsis">
-                Permission Rules
+                Shell State Line
               </div>
             </div>
             <div class="md-footer__button md-icon">

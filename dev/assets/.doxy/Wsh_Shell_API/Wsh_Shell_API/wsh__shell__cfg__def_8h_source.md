@@ -90,6 +90,15 @@
 
 /*
  * ─────────────────────────────────────────────
+ * Shell state line for host tools (docs/usage/shell-state.md)
+ * ─────────────────────────────────────────────
+ * Prints {"evt":"shell","state":"login|ready|busy",...} on every state change
+ * and in answer to ENQ (0x05), so a host never has to probe with Enter.
+ */
+#define WSH_SHELL_STATE_LINE 1
+
+/*
+ * ─────────────────────────────────────────────
  * Default shell command (executed at startup)
  * ─────────────────────────────────────────────
  */

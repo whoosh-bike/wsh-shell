@@ -139,6 +139,7 @@ _Terminal input/output definitions and interaction buffer API for WshShell._ [Mo
 | define  | [**WSH\_SHELL\_SYM\_BACKSPACE**](wsh__shell__io_8h.md#define-wsh_shell_sym_backspace)  `'\b'`<br> |
 | define  | [**WSH\_SHELL\_SYM\_CANCEL**](wsh__shell__io_8h.md#define-wsh_shell_sym_cancel)  `0x03`<br> |
 | define  | [**WSH\_SHELL\_SYM\_DELETE**](wsh__shell__io_8h.md#define-wsh_shell_sym_delete)  `0x7f`<br> |
+| define  | [**WSH\_SHELL\_SYM\_ENQ**](wsh__shell__io_8h.md#define-wsh_shell_sym_enq)  `0x05`<br> |
 | define  | [**WSH\_SHELL\_SYM\_EXIT**](wsh__shell__io_8h.md#define-wsh_shell_sym_exit)  `0x04`<br> |
 | define  | [**WSH\_SHELL\_SYM\_SOUND**](wsh__shell__io_8h.md#define-wsh_shell_sym_sound)  `0x07`<br> |
 | define  | [**WSH\_SHELL\_SYM\_TAB**](wsh__shell__io_8h.md#define-wsh_shell_sym_tab)  `'\t'`<br> |
@@ -981,6 +982,23 @@ Ctrl + C (cancel / interrupt)
 
 
 Delete (DEL) character 
+
+
+        
+
+<hr>
+
+
+
+### define WSH\_SHELL\_SYM\_ENQ 
+
+```C++
+#define WSH_SHELL_SYM_ENQ `0x05`
+```
+
+
+
+Ctrl + E, ASCII Enquiry: ask for the shell state line 
 
 
         

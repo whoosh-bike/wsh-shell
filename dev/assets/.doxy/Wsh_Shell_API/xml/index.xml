@@ -21,6 +21,9 @@
     <member refid="structWshShell__t_1a8667413f25fe83318731ad1529ab7bea" kind="variable"><name>Interact</name></member>
     <member refid="structWshShell__t_1a5e770f7b99c713ef8992aa92babb98bd" kind="variable"><name>PromptWait</name></member>
     <member refid="structWshShell__t_1a306d31e5a26bdbb7f37d93203c0a7512" kind="variable"><name>ExtCallbacks</name></member>
+    <member refid="structWshShell__t_1a5152322ffda437be3e80dfdca15ec7d7" kind="variable"><name>LastState</name></member>
+    <member refid="structWshShell__t_1a15bd84faf4477d093def64ded77a9c6f" kind="variable"><name>LastTag</name></member>
+    <member refid="structWshShell__t_1a03dd180a344049e1358914e7584a5991" kind="variable"><name>LastUser</name></member>
   </compound>
   <compound refid="structWshShellAuthCtx__t" kind="struct"><name>WshShellAuthCtx_t</name>
     <member refid="structWshShellAuthCtx__t_1a0f520dc995e5c5d3620711c86d8d0c08" kind="variable"><name>Login</name></member>
@@ -99,6 +102,9 @@
     <member refid="structWshShellPromptWait_1ae4e0cb05436cf97715fec8238a910e38" kind="variable"><name>Handler</name></member>
     <member refid="structWshShellPromptWait_1ae5f7d28b53ad5e104c9e5902b0c117b0" kind="variable"><name>Ctx</name></member>
     <member refid="structWshShellPromptWait_1a732bd191a1a12968b49f65e68aebbd61" kind="variable"><name>RejectedNum</name></member>
+    <member refid="structWshShellPromptWait_1a971bacabc8def9ae2c998bb06192f300" kind="variable"><name>Tag</name></member>
+    <member refid="structWshShellPromptWait_1a5e78220ae0a9627fe10cf9249bdd92ca" kind="variable"><name>Notify</name></member>
+    <member refid="structWshShellPromptWait_1ad682618cbfa60eb28dfe73353785599d" kind="variable"><name>NotifyOwner</name></member>
   </compound>
   <compound refid="structWshShellSession__t" kind="struct"><name>WshShellSession_t</name>
     <member refid="structWshShellSession__t_1a9040d2cd714d8d298cfef6090701e2b4" kind="variable"><name>Hash</name></member>
@@ -127,7 +133,16 @@
     <member refid="wsh__shell_8c_1a0fbe0bc711cf7a22c6d3910ecee1120f" kind="define"><name>WSH_SHELL_TMP_PASS_IS_EMPTY</name></member>
     <member refid="wsh__shell_8c_1a447a154c2e4d0f555ecc86e7085726e4" kind="define"><name>WSH_SHELL_INTER_CMD_EXISTS</name></member>
     <member refid="wsh__shell_8c_1ae4b7726ad12587f1c9e9405f09474a4a" kind="define"><name>SHELL_SAVE_PREV_AND_RETURN</name></member>
+    <member refid="wsh__shell_8c_1ac97ab829e01321ae23283c80b9a3e366" kind="enum"><name>WSH_SHELL_STATE_t</name></member>
+    <member refid="wsh__shell_8c_1ac97ab829e01321ae23283c80b9a3e366ae81cffd344643306f495c7e96c5108cd" kind="enumvalue"><name>WSH_SHELL_STATE_LOGIN</name></member>
+    <member refid="wsh__shell_8c_1ac97ab829e01321ae23283c80b9a3e366ae6155d73dfd203e2e137b4eb6e7f99cf" kind="enumvalue"><name>WSH_SHELL_STATE_READY</name></member>
+    <member refid="wsh__shell_8c_1ac97ab829e01321ae23283c80b9a3e366a5beb980397ea85b950c73f65b97a578d" kind="enumvalue"><name>WSH_SHELL_STATE_BUSY</name></member>
     <member refid="wsh__shell_8c_1adbee794f60de843d3667797710dd8fa1" kind="function"><name>WshShell_Stub_ExtClbk</name></member>
+    <member refid="wsh__shell_8c_1af9527643d46613ccf9478ef78f85dab5" kind="function"><name>WshShell_StateGet</name></member>
+    <member refid="wsh__shell_8c_1a0e1719c9762b4b966ad6e90031adecbc" kind="function"><name>WshShell_StateLinePrint</name></member>
+    <member refid="wsh__shell_8c_1ac548584b343bd1777363328408d8377b" kind="function"><name>WshShell_StateAnnounce</name></member>
+    <member refid="wsh__shell_8c_1a35577f7036695659995f677848b9cbd4" kind="function"><name>WshShell_PromptWaitNotify</name></member>
+    <member refid="wsh__shell_8c_1aeb644a95507f1c8cb79b3fccec90a6a4" kind="function"><name>WshShell_StatePrint</name></member>
     <member refid="wsh__shell_8c_1ac4186826147f2274aa85db2a4057f6b4" kind="function"><name>WshShell_InvitationPrint</name></member>
     <member refid="wsh__shell_8c_1ace93190d4e79908dfce01a2bdea32b01" kind="function"><name>WshShell_Init</name></member>
     <member refid="wsh__shell_8c_1ab27020809267df0016455a90c03d6f63" kind="function"><name>WshShell_Auth</name></member>
@@ -148,6 +163,7 @@
     <member refid="wsh__shell_8h_1a28102cfb12a549d1139ad1430fc21b73" kind="define"><name>OS_NAME</name></member>
     <member refid="wsh__shell_8h_1a63f2e19ce36089fbdd99a7a46c62afbe" kind="define"><name>COMPILER</name></member>
     <member refid="wsh__shell_8h_1a6ac0e771f2e842dcc668a0635228cee3" kind="define"><name>WSH_SHELL_HEADER</name></member>
+    <member refid="wsh__shell_8h_1ac6cae67c30e29e6216a999562c33a675" kind="define"><name>WSH_SHELL_STATE_LINE</name></member>
     <member refid="wsh__shell_8h_1a31ac89f2d478911c46e3e6c2142c1ac1" kind="typedef"><name>WshShell_ExtClbk_t</name></member>
     <member refid="wsh__shell_8h_1ace93190d4e79908dfce01a2bdea32b01" kind="function"><name>WshShell_Init</name></member>
     <member refid="wsh__shell_8h_1ab27020809267df0016455a90c03d6f63" kind="function"><name>WshShell_Auth</name></member>
@@ -158,6 +174,7 @@
     <member refid="wsh__shell_8h_1a7bc19555e3e08a01a962f020a8b18fbc" kind="function"><name>WshShell_SessionIsKeepActive</name></member>
     <member refid="wsh__shell_8h_1a293e3b2aa56322915a194ea305e7d243" kind="function"><name>WshShell_SessionRebootsLeft</name></member>
     <member refid="wsh__shell_8h_1a3e1b413a08637a56173ae77a25899226" kind="function"><name>WshShell_InsertChar</name></member>
+    <member refid="wsh__shell_8h_1aeb644a95507f1c8cb79b3fccec90a6a4" kind="function"><name>WshShell_StatePrint</name></member>
   </compound>
   <compound refid="wsh__shell__autocomplete_8c" kind="file"><name>wsh_shell_autocomplete.c</name>
     <member refid="wsh__shell__autocomplete_8c_1a2b567af19b443dce83e7f15406b4459d" kind="function"><name>WshShellAutocomplete_Try</name></member>
@@ -183,6 +200,7 @@
     <member refid="wsh__shell__cfg__def_8h_1a01654c8758d856de9ad5a6c90218c5e8" kind="define"><name>WSH_SHELL_PS1_MAX_LEN</name></member>
     <member refid="wsh__shell__cfg__def_8h_1a7af31e564fe835d55aa74b7bc684eae0" kind="define"><name>WSH_SHELL_PROMPT_WAIT</name></member>
     <member refid="wsh__shell__cfg__def_8h_1acdd6e940885e4e5d9a59450574806c59" kind="define"><name>WSH_SHELL_PROMPT_WAIT_HINT_RETRIES</name></member>
+    <member refid="wsh__shell__cfg__def_8h_1ac6cae67c30e29e6216a999562c33a675" kind="define"><name>WSH_SHELL_STATE_LINE</name></member>
     <member refid="wsh__shell__cfg__def_8h_1a195ecfaaa46050c35ea3ab9eb9628da3" kind="define"><name>WSH_SHELL_DEF_COMMAND</name></member>
     <member refid="wsh__shell__cfg__def_8h_1af95f0c2f4708a1bcfedf723ba2009c03" kind="define"><name>WSH_SHELL_SESSION</name></member>
     <member refid="wsh__shell__cfg__def_8h_1a719c7faefbd3f11c647d51e649d041ed" kind="define"><name>WSH_SHELL_SUBCOMMANDS</name></member>
@@ -328,6 +346,7 @@
     <member refid="wsh__shell__io_8h_1a76a41f5653fdf6d83a38b99677cb4747" kind="define"><name>WSH_SHELL_SYM_CANCEL</name></member>
     <member refid="wsh__shell__io_8h_1a6017e38274918863cc206eda77a21d06" kind="define"><name>WSH_SHELL_SYM_EXIT</name></member>
     <member refid="wsh__shell__io_8h_1aada0009e1c61c8108bc32ad2755d9337" kind="define"><name>WSH_SHELL_SYM_SOUND</name></member>
+    <member refid="wsh__shell__io_8h_1a9adeaa0ba9bcf68d94a689198752d399" kind="define"><name>WSH_SHELL_SYM_ENQ</name></member>
     <member refid="wsh__shell__io_8h_1a15503df83f204f0f678487a0dfa580a3" kind="define"><name>WSH_SHELL_CHAR_CR</name></member>
     <member refid="wsh__shell__io_8h_1aec016682590697d0bb64bbf49558c234" kind="define"><name>WSH_SHELL_CHAR_LF</name></member>
     <member refid="wsh__shell__io_8h_1a714fb5eb74817250a9d30193dd82eda1" kind="define"><name>WSH_SHELL_END_LINE</name></member>
@@ -415,8 +434,11 @@
     <member refid="wsh__shell__option_8h_1aac069d6491f74a1192298bb78cbfb466" kind="function"><name>WshShell_OptTypeStr_Get</name></member>
   </compound>
   <compound refid="wsh__shell__promptwait_8c" kind="file"><name>wsh_shell_promptwait.c</name>
+    <member refid="wsh__shell__promptwait_8c_1ac9c9367b28667053c8f369b8dbbddcd0" kind="function"><name>WshShellPromptWait_Notify</name></member>
+    <member refid="wsh__shell__promptwait_8c_1ace154c5fdc065b0382c9a83af71f7c7d" kind="function"><name>WshShellPromptWait_SetNotify</name></member>
     <member refid="wsh__shell__promptwait_8c_1a8a617ef8d2ec336720ab8efe34c2a279" kind="function"><name>WshShellPromptWait_Flush</name></member>
     <member refid="wsh__shell__promptwait_8c_1a43d800c65924a700804695ce86f08fb0" kind="function"><name>WshShellPromptWait_Attach</name></member>
+    <member refid="wsh__shell__promptwait_8c_1a7767b19628b8fec53fb1f3389fb88646" kind="function"><name>WshShellPromptWait_AttachTagged</name></member>
     <member refid="wsh__shell__promptwait_8c_1a77a4f37e3ae313fe5291c5e28addd451" kind="function"><name>WshShellPromptWait_Handle</name></member>
     <member refid="wsh__shell__promptwait_8c_1a99b79f24add7ec6e2f404a6888373b6f" kind="function"><name>WshShellPromptWait_Enter</name></member>
     <member refid="wsh__shell__promptwait_8c_1a2550871112305c516bab1d2de9f5de05" kind="function"><name>WshShellPromptWait_YesNo</name></member>
@@ -425,9 +447,12 @@
   <compound refid="wsh__shell__promptwait_8h" kind="file"><name>wsh_shell_promptwait.h</name>
     <member refid="wsh__shell__promptwait_8h_1acdd6e940885e4e5d9a59450574806c59" kind="define"><name>WSH_SHELL_PROMPT_WAIT_HINT_RETRIES</name></member>
     <member refid="wsh__shell__promptwait_8h_1a8b7d52c5773fc4c4bf95494df837cac0" kind="typedef"><name>WshShellPromptWait_Handler_t</name></member>
+    <member refid="wsh__shell__promptwait_8h_1a6876378fb95662f885c7e8d63bd66e4b" kind="typedef"><name>WshShellPromptWait_Notify_t</name></member>
     <member refid="wsh__shell__promptwait_8h_1ae016420bafdc2a872eff41aa9a95d110" kind="typedef"><name>WshShellPromptWait_t</name></member>
     <member refid="wsh__shell__promptwait_8h_1a8a617ef8d2ec336720ab8efe34c2a279" kind="function"><name>WshShellPromptWait_Flush</name></member>
     <member refid="wsh__shell__promptwait_8h_1a43d800c65924a700804695ce86f08fb0" kind="function"><name>WshShellPromptWait_Attach</name></member>
+    <member refid="wsh__shell__promptwait_8h_1a7767b19628b8fec53fb1f3389fb88646" kind="function"><name>WshShellPromptWait_AttachTagged</name></member>
+    <member refid="wsh__shell__promptwait_8h_1ace154c5fdc065b0382c9a83af71f7c7d" kind="function"><name>WshShellPromptWait_SetNotify</name></member>
     <member refid="wsh__shell__promptwait_8h_1a77a4f37e3ae313fe5291c5e28addd451" kind="function"><name>WshShellPromptWait_Handle</name></member>
     <member refid="wsh__shell__promptwait_8h_1a99b79f24add7ec6e2f404a6888373b6f" kind="function"><name>WshShellPromptWait_Enter</name></member>
     <member refid="wsh__shell__promptwait_8h_1a2550871112305c516bab1d2de9f5de05" kind="function"><name>WshShellPromptWait_YesNo</name></member>

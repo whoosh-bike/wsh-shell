@@ -569,6 +569,8 @@
       
         
       
+        
+      
     
     
     
@@ -767,6 +769,34 @@
     
   
     Persistent Session
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../usage/shell-state/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Shell State Line
   
 
     
@@ -2844,6 +2874,17 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#function-wshshell_stateprint" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function WshShell_StatePrint
+      
+    </span>
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -2888,6 +2929,17 @@
     <span class="md-ellipsis">
       
         define WSH_SHELL_HEADER
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#define-wsh_shell_state_line" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        define WSH_SHELL_STATE_LINE
       
     </span>
   </a>
@@ -3143,6 +3195,17 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#function-wshshell_stateprint" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function WshShell_StatePrint
+      
+    </span>
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -3187,6 +3250,17 @@
     <span class="md-ellipsis">
       
         define WSH_SHELL_HEADER
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#define-wsh_shell_state_line" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        define WSH_SHELL_STATE_LINE
       
     </span>
   </a>
@@ -3410,6 +3484,10 @@
 <td style="text-align: right;">WshShell_Bool_t</td>
 <td style="text-align: left;"><a href="#function-wshshell_sessionrestore"><strong>WshShell_SessionRestore</strong></a> (<a href="../structWshShell__t/"><strong>WshShell_t</strong></a> * pShell) <br><em>Restore a previously armed login without a password prompt.</em></td>
 </tr>
+<tr>
+<td style="text-align: right;">void</td>
+<td style="text-align: left;"><a href="#function-wshshell_stateprint"><strong>WshShell_StatePrint</strong></a> (<a href="../structWshShell__t/"><strong>WshShell_t</strong></a> * pShell) <br><em>Print the shell state line now, changed or not: {"evt":"shell","state":"login|ready|busy","user":"&lt;login&gt;"|null,"busy":"&lt;tag&gt;"|null,"keepLeft":N}.</em></td>
+</tr>
 </tbody>
 </table>
 <h2 id="macros">Macros</h2>
@@ -3432,6 +3510,10 @@
 <tr>
 <td style="text-align: right;">define</td>
 <td style="text-align: left;"><a href="./#define-wsh_shell_header"><strong>WSH_SHELL_HEADER</strong></a>  <code>"\                \_\_               \_\_         \_\_\_\_  \r\n\ \_      \_\_\_\_\_\_\_/ /\_        \_\_\_\_\_/ /\_  \_\_\_  / / /  \r\n\\| \| /\| / / \_\_\_/ \_\_ \\\_\_\_\_\_\_/ \_\_\_/ \_\_ \\/ \_ \\/ / /\r\n\\| \|/ \|/ (\_\_  ) / / /\_\_\_\_\_(\_\_  ) / / /  \_\_/ / /    \r\n\\|\_\_/\|\_\_/\_\_\_\_/\_/ /\_/     /\_\_\_\_/\_/ /\_/\\\_\_\_/\_/\_/    \r\n\\r\n"</code><br></td>
+</tr>
+<tr>
+<td style="text-align: right;">define</td>
+<td style="text-align: left;"><a href="./#define-wsh_shell_state_line"><strong>WSH_SHELL_STATE_LINE</strong></a>  <code>1</code><br></td>
 </tr>
 </tbody>
 </table>
@@ -3618,19 +3700,35 @@
 <p><strong>Returns:</strong></p>
 <p><code>true</code> if a valid session was restored. </p>
 <hr>
+
+<h3 id="function-wshshell_stateprint">function WshShell_StatePrint</h3>
+<p><em>Print the shell state line now, changed or not: {"evt":"shell","state":"login|ready|busy","user":"&lt;login&gt;"|null,"busy":"&lt;tag&gt;"|null,"keepLeft":N}.</em> 
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-10-1">1</a></span>
+<span class="normal"><a href="#__codelineno-10-2">2</a></span>
+<span class="normal"><a href="#__codelineno-10-3">3</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1"></a><span class="kt">void</span><span class="w"> </span><span class="n">WshShell_StatePrint</span><span class="w"> </span><span class="p">(</span>
+</span><span id="__span-10-2"><a id="__codelineno-10-2" name="__codelineno-10-2"></a><span class="w">    </span><span class="n">WshShell_t</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">pShell</span>
+</span><span id="__span-10-3"><a id="__codelineno-10-3" name="__codelineno-10-3"></a><span class="p">)</span><span class="w"> </span>
+</span></code></pre></div></td></tr></table></div></p>
+<p>The shell prints it by itself on every change (login, logout, session restore, a prompt-wait starting or ending) and in answer to ENQ (0x05); an application rarely needs this. See docs/usage/shell-state.md. </p>
+<hr>
 <h2 id="macro-definition-documentation">Macro Definition Documentation</h2>
 <h3 id="define-compiler">define COMPILER</h3>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-10-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1"></a><span class="cp">#define COMPILER `"Unknown Compiler"`</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-11-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1"></a><span class="cp">#define COMPILER `"Unknown Compiler"`</span>
 </span></code></pre></div></td></tr></table></div>
 <hr>
 
 <h3 id="define-os_name">define OS_NAME</h3>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-11-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1"></a><span class="cp">#define OS_NAME `WSH_SHELL_TARGET_OS`</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-12-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1"></a><span class="cp">#define OS_NAME `WSH_SHELL_TARGET_OS`</span>
 </span></code></pre></div></td></tr></table></div>
 <hr>
 
 <h3 id="define-wsh_shell_header">define WSH_SHELL_HEADER</h3>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-12-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1"></a><span class="cp">#define WSH_SHELL_HEADER `"\                __               __         ____  \r\n\ _      _______/ /_        _____/ /_  ___  / / /  \r\n\| | /| / / ___/ __ \\______/ ___/ __ \\/ _ \\/ / /\r\n\| |/ |/ (__  ) / / /_____(__  ) / / /  __/ / /    \r\n\|__/|__/____/_/ /_/     /____/_/ /_/\\___/_/_/    \r\n\\r\n"`</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-13-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1"></a><span class="cp">#define WSH_SHELL_HEADER `"\                __               __         ____  \r\n\ _      _______/ /_        _____/ /_  ___  / / /  \r\n\| | /| / / ___/ __ \\______/ ___/ __ \\/ _ \\/ / /\r\n\| |/ |/ (__  ) / / /_____(__  ) / / /  __/ / /    \r\n\|__/|__/____/_/ /_/     /____/_/ /_/\\___/_/_/    \r\n\\r\n"`</span>
+</span></code></pre></div></td></tr></table></div>
+<hr>
+
+<h3 id="define-wsh_shell_state_line">define WSH_SHELL_STATE_LINE</h3>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-14-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-14-1"><a id="__codelineno-14-1" name="__codelineno-14-1"></a><span class="cp">#define WSH_SHELL_STATE_LINE `1`</span>
 </span></code></pre></div></td></tr></table></div>
 <hr>
 

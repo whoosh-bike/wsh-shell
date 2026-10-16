@@ -107,6 +107,10 @@ typedef struct {
     WshShellPromptWait_t PromptWait;
 
     WshShellExtCallbacks_t ExtCallbacks; 
+    /* Last state line printed, so only changes are announced. */
+    WshShell_U32_t LastState;          
+    const WshShell_Char_t* LastTag;    
+    const WshShellUser_t* LastUser;    
 } WshShell_t;
 
 WSH_SHELL_RET_STATE_t WshShell_Init(WshShell_t* pShell, const WshShell_Char_t* pcDevName,
@@ -127,6 +131,12 @@ WshShell_Bool_t WshShell_SessionIsKeepActive(WshShell_t* pShell);
 WshShell_U32_t WshShell_SessionRebootsLeft(WshShell_t* pShell);
 
 void WshShell_InsertChar(WshShell_t* pShell, const WshShell_Char_t symbol);
+
+#ifndef WSH_SHELL_STATE_LINE
+#define WSH_SHELL_STATE_LINE 1
+#endif
+
+void WshShell_StatePrint(WshShell_t* pShell);
 
 #ifdef __cplusplus
 }

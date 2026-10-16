@@ -88,6 +88,7 @@ _Core shell interface for command parsing, user authentication, and terminal int
 |  WshShell\_Bool\_t | [**WshShell\_SessionIsKeepActive**](#function-wshshell_sessioniskeepactive) ([**WshShell\_t**](structWshShell__t.md) \* pShell) <br>_Whether an armed keep-session is currently active (budget remaining)._  |
 |  WshShell\_U32\_t | [**WshShell\_SessionRebootsLeft**](#function-wshshell_sessionrebootsleft) ([**WshShell\_t**](structWshShell__t.md) \* pShell) <br>_Remaining reboot budget of the armed session, or 0 if none._  |
 |  WshShell\_Bool\_t | [**WshShell\_SessionRestore**](#function-wshshell_sessionrestore) ([**WshShell\_t**](structWshShell__t.md) \* pShell) <br>_Restore a previously armed login without a password prompt._  |
+|  void | [**WshShell\_StatePrint**](#function-wshshell_stateprint) ([**WshShell\_t**](structWshShell__t.md) \* pShell) <br>_Print the shell state line now, changed or not: {"evt":"shell","state":"login\|ready\|busy","user":"&lt;login&gt;"\|null,"busy":"&lt;tag&gt;"\|null,"keepLeft":N}._  |
 
 
 
@@ -122,6 +123,7 @@ _Core shell interface for command parsing, user authentication, and terminal int
 | define  | [**COMPILER**](wsh__shell_8h.md#define-compiler)  `"Unknown Compiler"`<br> |
 | define  | [**OS\_NAME**](wsh__shell_8h.md#define-os_name)  `WSH\_SHELL\_TARGET\_OS`<br> |
 | define  | [**WSH\_SHELL\_HEADER**](wsh__shell_8h.md#define-wsh_shell_header)  `"\                \_\_               \_\_         \_\_\_\_  \r\n\ \_      \_\_\_\_\_\_\_/ /\_        \_\_\_\_\_/ /\_  \_\_\_  / / /  \r\n\\| \| /\| / / \_\_\_/ \_\_ \\\_\_\_\_\_\_/ \_\_\_/ \_\_ \\/ \_ \\/ / /\r\n\\| \|/ \|/ (\_\_  ) / / /\_\_\_\_\_(\_\_  ) / / /  \_\_/ / /    \r\n\\|\_\_/\|\_\_/\_\_\_\_/\_/ /\_/     /\_\_\_\_/\_/ /\_/\\\_\_\_/\_/\_/    \r\n\\r\n"`<br> |
+| define  | [**WSH\_SHELL\_STATE\_LINE**](wsh__shell_8h.md#define-wsh_shell_state_line)  `1`<br> |
 
 ## Detailed Description
 
@@ -494,6 +496,26 @@ Intended to be called once at start-up, after the user table is attached. On suc
         
 
 <hr>
+
+
+
+### function WshShell\_StatePrint 
+
+_Print the shell state line now, changed or not: {"evt":"shell","state":"login\|ready\|busy","user":"&lt;login&gt;"\|null,"busy":"&lt;tag&gt;"\|null,"keepLeft":N}._ 
+```C++
+void WshShell_StatePrint (
+    WshShell_t * pShell
+) 
+```
+
+
+
+The shell prints it by itself on every change (login, logout, session restore, a prompt-wait starting or ending) and in answer to ENQ (0x05); an application rarely needs this. See docs/usage/shell-state.md. 
+
+
+        
+
+<hr>
 ## Macro Definition Documentation
 
 
@@ -530,6 +552,19 @@ Intended to be called once at start-up, after the user table is attached. On suc
 
 ```C++
 #define WSH_SHELL_HEADER `"\                __               __         ____  \r\n\ _      _______/ /_        _____/ /_  ___  / / /  \r\n\| | /| / / ___/ __ \\______/ ___/ __ \\/ _ \\/ / /\r\n\| |/ |/ (__  ) / / /_____(__  ) / / /  __/ / /    \r\n\|__/|__/____/_/ /_/     /____/_/ /_/\\___/_/_/    \r\n\\r\n"`
+```
+
+
+
+
+<hr>
+
+
+
+### define WSH\_SHELL\_STATE\_LINE 
+
+```C++
+#define WSH_SHELL_STATE_LINE `1`
 ```
 
 

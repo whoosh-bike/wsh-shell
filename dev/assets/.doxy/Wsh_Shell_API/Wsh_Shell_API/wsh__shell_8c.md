@@ -28,6 +28,11 @@
 
 
 
+## Public Types
+
+| Type | Name |
+| ---: | :--- |
+| enum  | [**WSH\_SHELL\_STATE\_t**](#enum-wsh_shell_state_t)  <br> |
 
 
 
@@ -61,6 +66,7 @@
 |  WshShell\_Bool\_t | [**WshShell\_SessionIsKeepActive**](#function-wshshell_sessioniskeepactive) ([**WshShell\_t**](structWshShell__t.md) \* pShell) <br>_Whether an armed keep-session is currently active (budget remaining)._  |
 |  WshShell\_U32\_t | [**WshShell\_SessionRebootsLeft**](#function-wshshell_sessionrebootsleft) ([**WshShell\_t**](structWshShell__t.md) \* pShell) <br>_Remaining reboot budget of the armed session, or 0 if none._  |
 |  WshShell\_Bool\_t | [**WshShell\_SessionRestore**](#function-wshshell_sessionrestore) ([**WshShell\_t**](structWshShell__t.md) \* pShell) <br>_Restore a previously armed login without a password prompt._  |
+|  void | [**WshShell\_StatePrint**](#function-wshshell_stateprint) ([**WshShell\_t**](structWshShell__t.md) \* pShell) <br>_Print the shell state line now, changed or not: {"evt":"shell","state":"login\|ready\|busy","user":"&lt;login&gt;"\|null,"busy":"&lt;tag&gt;"\|null,"keepLeft":N}._  |
 
 
 ## Public Static Functions
@@ -70,6 +76,10 @@
 |  void | [**WshShell\_AuthHandler**](#function-wshshell_authhandler) ([**WshShell\_t**](structWshShell__t.md) \* pShell) <br> |
 |  void | [**WshShell\_ExitInteractive**](#function-wshshell_exitinteractive) ([**WshShell\_t**](structWshShell__t.md) \* pShell) <br> |
 |  void | [**WshShell\_InvitationPrint**](#function-wshshell_invitationprint) (const [**WshShell\_t**](structWshShell__t.md) \* pcShell) <br> |
+|  void | [**WshShell\_PromptWaitNotify**](#function-wshshell_promptwaitnotify) (void \* pOwner) <br> |
+|  void | [**WshShell\_StateAnnounce**](#function-wshshell_stateannounce) ([**WshShell\_t**](structWshShell__t.md) \* pShell) <br> |
+|  WSH\_SHELL\_STATE\_t | [**WshShell\_StateGet**](#function-wshshell_stateget) (const [**WshShell\_t**](structWshShell__t.md) \* pcShell) <br> |
+|  void | [**WshShell\_StateLinePrint**](#function-wshshell_statelineprint) ([**WshShell\_t**](structWshShell__t.md) \* pShell, WSH\_SHELL\_STATE\_t state) <br> |
 |  void | [**WshShell\_StringHandler**](#function-wshshell_stringhandler) ([**WshShell\_t**](structWshShell__t.md) \* pShell) <br> |
 |  void | [**WshShell\_StringInteractHandler**](#function-wshshell_stringinteracthandler) ([**WshShell\_t**](structWshShell__t.md) \* pShell) <br> |
 |  void | [**WshShell\_Stub\_ExtClbk**](#function-wshshell_stub_extclbk) (void \* pCtx) <br> |
@@ -109,6 +119,25 @@
 | define  | [**WSH\_SHELL\_TMP\_PASS\_IS\_EMPTY**](wsh__shell_8c.md#define-wsh_shell_tmp_pass_is_empty) (\_sh\_) `((\_sh\_)-&gt;TmpAuth.Pass[0] == 0)`<br> |
 | define  | [**WSH\_SHELL\_USER\_IS\_AUTH**](wsh__shell_8c.md#define-wsh_shell_user_is_auth) (\_sh\_) `((\_sh\_)-&gt;CurrUser != NULL)`<br> |
 
+## Public Types Documentation
+
+
+
+
+### enum WSH\_SHELL\_STATE\_t 
+
+```C++
+enum WSH_SHELL_STATE_t {
+    WSH_SHELL_STATE_LOGIN,
+    WSH_SHELL_STATE_READY,
+    WSH_SHELL_STATE_BUSY
+};
+```
+
+
+
+
+<hr>
 ## Public Functions Documentation
 
 
@@ -440,6 +469,26 @@ Intended to be called once at start-up, after the user table is attached. On suc
         
 
 <hr>
+
+
+
+### function WshShell\_StatePrint 
+
+_Print the shell state line now, changed or not: {"evt":"shell","state":"login\|ready\|busy","user":"&lt;login&gt;"\|null,"busy":"&lt;tag&gt;"\|null,"keepLeft":N}._ 
+```C++
+void WshShell_StatePrint (
+    WshShell_t * pShell
+) 
+```
+
+
+
+The shell prints it by itself on every change (login, logout, session restore, a prompt-wait starting or ending) and in answer to ENQ (0x05); an application rarely needs this. See docs/usage/shell-state.md. 
+
+
+        
+
+<hr>
 ## Public Static Functions Documentation
 
 
@@ -480,6 +529,67 @@ static void WshShell_ExitInteractive (
 ```C++
 static void WshShell_InvitationPrint (
     const WshShell_t * pcShell
+) 
+```
+
+
+
+
+<hr>
+
+
+
+### function WshShell\_PromptWaitNotify 
+
+```C++
+static void WshShell_PromptWaitNotify (
+    void * pOwner
+) 
+```
+
+
+
+
+<hr>
+
+
+
+### function WshShell\_StateAnnounce 
+
+```C++
+static void WshShell_StateAnnounce (
+    WshShell_t * pShell
+) 
+```
+
+
+
+
+<hr>
+
+
+
+### function WshShell\_StateGet 
+
+```C++
+static WSH_SHELL_STATE_t WshShell_StateGet (
+    const WshShell_t * pcShell
+) 
+```
+
+
+
+
+<hr>
+
+
+
+### function WshShell\_StateLinePrint 
+
+```C++
+static void WshShell_StateLinePrint (
+    WshShell_t * pShell,
+    WSH_SHELL_STATE_t state
 ) 
 ```
 

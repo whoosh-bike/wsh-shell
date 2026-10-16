@@ -571,6 +571,8 @@
       
         
       
+        
+      
     
     
     
@@ -924,6 +926,34 @@
     
   
     Persistent Session
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../shell-state/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Shell State Line
   
 
     
@@ -3005,8 +3035,10 @@ so all serial access goes through a single layer without importing <code>pyseria
 <h2 id="features">Features</h2>
 <ul>
 <li>connect by fixed <code>port</code> or auto-discover by <code>vid/pid</code></li>
+<li>read the <a href="../shell-state/">shell state line</a> first (ENQ): a <code>ready</code> shell gets no Enter and no ping,
+  a <code>busy</code> one (a stream holding the input) gets nothing written at all</li>
 <li>synchronize/authenticate with shell (<code>Press &lt;Enter&gt;</code> -&gt; <code>Login</code> -&gt; <code>Password</code> -&gt; prompt)</li>
-<li>optionally verify sync by <code>ping_command_and_response</code></li>
+<li>on firmware without the state line, verify sync by <code>ping_command_and_response</code></li>
 <li>execute commands with timeout and retry logic</li>
 <li>parse command output into structured <code>dict</code> (<code>json</code> or <code>key: value</code>)</li>
 <li>recover on failures with optional fallback ping</li>
@@ -3076,7 +3108,9 @@ so all serial access goes through a single layer without importing <code>pyseria
 <span class="normal"><a href="#__codelineno-2-14">14</a></span>
 <span class="normal"><a href="#__codelineno-2-15">15</a></span>
 <span class="normal"><a href="#__codelineno-2-16">16</a></span>
-<span class="normal"><a href="#__codelineno-2-17">17</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1"></a><span class="k">[adapter]</span>
+<span class="normal"><a href="#__codelineno-2-17">17</a></span>
+<span class="normal"><a href="#__codelineno-2-18">18</a></span>
+<span class="normal"><a href="#__codelineno-2-19">19</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1"></a><span class="k">[adapter]</span>
 </span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2"></a><span class="n">port</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">""</span>
 </span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3"></a><span class="n">vid</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mh">0x0483</span>
 </span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4"></a><span class="n">pid</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mh">0x5740</span>
@@ -3088,13 +3122,21 @@ so all serial access goes through a single layer without importing <code>pyseria
 </span><span id="__span-2-10"><a id="__codelineno-2-10" name="__codelineno-2-10"></a><span class="n">retries</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span>
 </span><span id="__span-2-11"><a id="__codelineno-2-11" name="__codelineno-2-11"></a><span class="n">auto_recover</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">true</span>
 </span><span id="__span-2-12"><a id="__codelineno-2-12" name="__codelineno-2-12"></a><span class="n">ping_command_and_response</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="s2">"wsh --ping"</span><span class="p">,</span><span class="w"> </span><span class="s2">"pong"</span><span class="p">]</span>
-</span><span id="__span-2-13"><a id="__codelineno-2-13" name="__codelineno-2-13"></a><span class="n">prompt_regex</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"^(?:[^</span><span class="se">\\</span><span class="s2">r</span><span class="se">\\</span><span class="s2">n&gt;]+@[^</span><span class="se">\\</span><span class="s2">r</span><span class="se">\\</span><span class="s2">n&gt;]+</span><span class="se">\\</span><span class="s2">s*&gt;|wsh-shell&gt;)"</span>
-</span><span id="__span-2-14"><a id="__codelineno-2-14" name="__codelineno-2-14"></a>
-</span><span id="__span-2-15"><a id="__codelineno-2-15" name="__codelineno-2-15"></a><span class="k">[local_shell]</span>
-</span><span id="__span-2-16"><a id="__codelineno-2-16" name="__codelineno-2-16"></a><span class="n">binary</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"example/build/example"</span>
-</span><span id="__span-2-17"><a id="__codelineno-2-17" name="__codelineno-2-17"></a><span class="n">cwd</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"."</span>
+</span><span id="__span-2-13"><a id="__codelineno-2-13" name="__codelineno-2-13"></a><span class="n">state_query</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">true</span>
+</span><span id="__span-2-14"><a id="__codelineno-2-14" name="__codelineno-2-14"></a><span class="n">state_query_timeout_s</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">1.0</span>
+</span><span id="__span-2-15"><a id="__codelineno-2-15" name="__codelineno-2-15"></a><span class="n">prompt_regex</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"^(?:[^</span><span class="se">\\</span><span class="s2">r</span><span class="se">\\</span><span class="s2">n&gt;]+@[^</span><span class="se">\\</span><span class="s2">r</span><span class="se">\\</span><span class="s2">n&gt;]+</span><span class="se">\\</span><span class="s2">s*&gt;|wsh-shell&gt;)"</span>
+</span><span id="__span-2-16"><a id="__codelineno-2-16" name="__codelineno-2-16"></a>
+</span><span id="__span-2-17"><a id="__codelineno-2-17" name="__codelineno-2-17"></a><span class="k">[local_shell]</span>
+</span><span id="__span-2-18"><a id="__codelineno-2-18" name="__codelineno-2-18"></a><span class="n">binary</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"example/build/example"</span>
+</span><span id="__span-2-19"><a id="__codelineno-2-19" name="__codelineno-2-19"></a><span class="n">cwd</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"."</span>
 </span></code></pre></div></td></tr></table></div>
-<p>If <code>ping_command_and_response</code> is set, <code>sync()</code> sends the command after prompt detection and
+<p><code>sync()</code> starts by sending ENQ (<code>0x05</code>) and reading the <a href="../shell-state/">shell state line</a>: <code>ready</code>
+completes sync with nothing else written, <code>busy</code> sets the adapter state to <code>busy</code> and writes nothing
+(<code>execute()</code> ends the wait with Enter before a command), <code>login</code> logs in and is completed by the
+<code>ready</code> line the shell prints on login. <code>adapter.shell_state</code> keeps the last line seen;
+<code>adapter.query_state()</code> asks on demand. <code>state_query = false</code> skips all of it.</p>
+<p>The probe below is for firmware <strong>without</strong> the state line (no answer to ENQ):
+if <code>ping_command_and_response</code> is set, <code>sync()</code> sends the command after prompt detection and
 expects the configured response as the full cleaned output or as one full output line before marking
 the adapter as synced.
 If <code>ping_command_and_response</code> is missing or <code>[]</code>, <code>sync()</code> sends a fixed probe command and treats

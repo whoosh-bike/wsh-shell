@@ -571,6 +571,8 @@
       
         
       
+        
+      
     
     
     
@@ -769,6 +771,34 @@
     
   
     Persistent Session
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../usage/shell-state/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Shell State Line
   
 
     
@@ -1870,6 +1900,17 @@
     <span class="md-ellipsis">
       
         define WSH_SHELL_SNPRINTF
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#define-wsh_shell_state_line" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        define WSH_SHELL_STATE_LINE
       
     </span>
   </a>
@@ -3999,6 +4040,17 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#define-wsh_shell_state_line" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        define WSH_SHELL_STATE_LINE
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#define-wsh_shell_strcmp" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -4472,6 +4524,10 @@
 </tr>
 <tr>
 <td style="text-align: right;">define</td>
+<td style="text-align: left;"><a href="./#define-wsh_shell_state_line"><strong>WSH_SHELL_STATE_LINE</strong></a>  <code>1</code><br></td>
+</tr>
+<tr>
+<td style="text-align: right;">define</td>
 <td style="text-align: left;"><a href="./#define-wsh_shell_strcmp"><strong>WSH_SHELL_STRCMP</strong></a> (pS1, pS2) <code>strcmp((pS1), (pS2))</code><br></td>
 </tr>
 <tr>
@@ -4804,132 +4860,137 @@
 </span></code></pre></div></td></tr></table></div>
 <hr>
 
+<h3 id="define-wsh_shell_state_line">define WSH_SHELL_STATE_LINE</h3>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-45-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-45-1"><a id="__codelineno-45-1" name="__codelineno-45-1"></a><span class="cp">#define WSH_SHELL_STATE_LINE `1`</span>
+</span></code></pre></div></td></tr></table></div>
+<hr>
+
 <h3 id="define-wsh_shell_strcmp">define WSH_SHELL_STRCMP</h3>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-45-1">1</a></span>
-<span class="normal"><a href="#__codelineno-45-2">2</a></span>
-<span class="normal"><a href="#__codelineno-45-3">3</a></span>
-<span class="normal"><a href="#__codelineno-45-4">4</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-45-1"><a id="__codelineno-45-1" name="__codelineno-45-1"></a><span class="cp">#define WSH_SHELL_STRCMP (</span>
-</span><span id="__span-45-2"><a id="__codelineno-45-2" name="__codelineno-45-2"></a><span class="w">    </span><span class="n">pS1</span><span class="p">,</span>
-</span><span id="__span-45-3"><a id="__codelineno-45-3" name="__codelineno-45-3"></a><span class="w">    </span><span class="n">pS2</span>
-</span><span id="__span-45-4"><a id="__codelineno-45-4" name="__codelineno-45-4"></a><span class="p">)</span><span class="w"> </span><span class="err">`</span><span class="n">strcmp</span><span class="p">((</span><span class="n">pS1</span><span class="p">),</span><span class="w"> </span><span class="p">(</span><span class="n">pS2</span><span class="p">))</span><span class="err">`</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-46-1">1</a></span>
+<span class="normal"><a href="#__codelineno-46-2">2</a></span>
+<span class="normal"><a href="#__codelineno-46-3">3</a></span>
+<span class="normal"><a href="#__codelineno-46-4">4</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-46-1"><a id="__codelineno-46-1" name="__codelineno-46-1"></a><span class="cp">#define WSH_SHELL_STRCMP (</span>
+</span><span id="__span-46-2"><a id="__codelineno-46-2" name="__codelineno-46-2"></a><span class="w">    </span><span class="n">pS1</span><span class="p">,</span>
+</span><span id="__span-46-3"><a id="__codelineno-46-3" name="__codelineno-46-3"></a><span class="w">    </span><span class="n">pS2</span>
+</span><span id="__span-46-4"><a id="__codelineno-46-4" name="__codelineno-46-4"></a><span class="p">)</span><span class="w"> </span><span class="err">`</span><span class="n">strcmp</span><span class="p">((</span><span class="n">pS1</span><span class="p">),</span><span class="w"> </span><span class="p">(</span><span class="n">pS2</span><span class="p">))</span><span class="err">`</span>
 </span></code></pre></div></td></tr></table></div>
 <hr>
 
 <h3 id="define-wsh_shell_strcpy">define WSH_SHELL_STRCPY</h3>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-46-1">1</a></span>
-<span class="normal"><a href="#__codelineno-46-2">2</a></span>
-<span class="normal"><a href="#__codelineno-46-3">3</a></span>
-<span class="normal"><a href="#__codelineno-46-4">4</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-46-1"><a id="__codelineno-46-1" name="__codelineno-46-1"></a><span class="cp">#define WSH_SHELL_STRCPY (</span>
-</span><span id="__span-46-2"><a id="__codelineno-46-2" name="__codelineno-46-2"></a><span class="w">    </span><span class="n">pD</span><span class="p">,</span>
-</span><span id="__span-46-3"><a id="__codelineno-46-3" name="__codelineno-46-3"></a><span class="w">    </span><span class="n">pS</span>
-</span><span id="__span-46-4"><a id="__codelineno-46-4" name="__codelineno-46-4"></a><span class="p">)</span><span class="w"> </span><span class="err">`</span><span class="n">strcpy</span><span class="p">((</span><span class="n">pD</span><span class="p">),</span><span class="w"> </span><span class="p">(</span><span class="n">pS</span><span class="p">))</span><span class="err">`</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-47-1">1</a></span>
+<span class="normal"><a href="#__codelineno-47-2">2</a></span>
+<span class="normal"><a href="#__codelineno-47-3">3</a></span>
+<span class="normal"><a href="#__codelineno-47-4">4</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-47-1"><a id="__codelineno-47-1" name="__codelineno-47-1"></a><span class="cp">#define WSH_SHELL_STRCPY (</span>
+</span><span id="__span-47-2"><a id="__codelineno-47-2" name="__codelineno-47-2"></a><span class="w">    </span><span class="n">pD</span><span class="p">,</span>
+</span><span id="__span-47-3"><a id="__codelineno-47-3" name="__codelineno-47-3"></a><span class="w">    </span><span class="n">pS</span>
+</span><span id="__span-47-4"><a id="__codelineno-47-4" name="__codelineno-47-4"></a><span class="p">)</span><span class="w"> </span><span class="err">`</span><span class="n">strcpy</span><span class="p">((</span><span class="n">pD</span><span class="p">),</span><span class="w"> </span><span class="p">(</span><span class="n">pS</span><span class="p">))</span><span class="err">`</span>
 </span></code></pre></div></td></tr></table></div>
 <hr>
 
 <h3 id="define-wsh_shell_strlen">define WSH_SHELL_STRLEN</h3>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-47-1">1</a></span>
-<span class="normal"><a href="#__codelineno-47-2">2</a></span>
-<span class="normal"><a href="#__codelineno-47-3">3</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-47-1"><a id="__codelineno-47-1" name="__codelineno-47-1"></a><span class="cp">#define WSH_SHELL_STRLEN (</span>
-</span><span id="__span-47-2"><a id="__codelineno-47-2" name="__codelineno-47-2"></a><span class="w">    </span><span class="n">pS</span>
-</span><span id="__span-47-3"><a id="__codelineno-47-3" name="__codelineno-47-3"></a><span class="p">)</span><span class="w"> </span><span class="err">`</span><span class="n">strlen</span><span class="p">((</span><span class="n">pS</span><span class="p">))</span><span class="err">`</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-48-1">1</a></span>
+<span class="normal"><a href="#__codelineno-48-2">2</a></span>
+<span class="normal"><a href="#__codelineno-48-3">3</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-48-1"><a id="__codelineno-48-1" name="__codelineno-48-1"></a><span class="cp">#define WSH_SHELL_STRLEN (</span>
+</span><span id="__span-48-2"><a id="__codelineno-48-2" name="__codelineno-48-2"></a><span class="w">    </span><span class="n">pS</span>
+</span><span id="__span-48-3"><a id="__codelineno-48-3" name="__codelineno-48-3"></a><span class="p">)</span><span class="w"> </span><span class="err">`</span><span class="n">strlen</span><span class="p">((</span><span class="n">pS</span><span class="p">))</span><span class="err">`</span>
 </span></code></pre></div></td></tr></table></div>
 <hr>
 
 <h3 id="define-wsh_shell_strncmp">define WSH_SHELL_STRNCMP</h3>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-48-1">1</a></span>
-<span class="normal"><a href="#__codelineno-48-2">2</a></span>
-<span class="normal"><a href="#__codelineno-48-3">3</a></span>
-<span class="normal"><a href="#__codelineno-48-4">4</a></span>
-<span class="normal"><a href="#__codelineno-48-5">5</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-48-1"><a id="__codelineno-48-1" name="__codelineno-48-1"></a><span class="cp">#define WSH_SHELL_STRNCMP (</span>
-</span><span id="__span-48-2"><a id="__codelineno-48-2" name="__codelineno-48-2"></a><span class="w">    </span><span class="n">pS1</span><span class="p">,</span>
-</span><span id="__span-48-3"><a id="__codelineno-48-3" name="__codelineno-48-3"></a><span class="w">    </span><span class="n">pS2</span><span class="p">,</span>
-</span><span id="__span-48-4"><a id="__codelineno-48-4" name="__codelineno-48-4"></a><span class="w">    </span><span class="n">len</span>
-</span><span id="__span-48-5"><a id="__codelineno-48-5" name="__codelineno-48-5"></a><span class="p">)</span><span class="w"> </span><span class="err">`</span><span class="n">strncmp</span><span class="p">((</span><span class="n">pS1</span><span class="p">),</span><span class="w"> </span><span class="p">(</span><span class="n">pS2</span><span class="p">),</span><span class="w"> </span><span class="p">(</span><span class="n">len</span><span class="p">))</span><span class="err">`</span>
-</span></code></pre></div></td></tr></table></div>
-<hr>
-
-<h3 id="define-wsh_shell_strncpy">define WSH_SHELL_STRNCPY</h3>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-49-1">1</a></span>
 <span class="normal"><a href="#__codelineno-49-2">2</a></span>
 <span class="normal"><a href="#__codelineno-49-3">3</a></span>
 <span class="normal"><a href="#__codelineno-49-4">4</a></span>
-<span class="normal"><a href="#__codelineno-49-5">5</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-49-1"><a id="__codelineno-49-1" name="__codelineno-49-1"></a><span class="cp">#define WSH_SHELL_STRNCPY (</span>
-</span><span id="__span-49-2"><a id="__codelineno-49-2" name="__codelineno-49-2"></a><span class="w">    </span><span class="n">pD</span><span class="p">,</span>
-</span><span id="__span-49-3"><a id="__codelineno-49-3" name="__codelineno-49-3"></a><span class="w">    </span><span class="n">pS</span><span class="p">,</span>
-</span><span id="__span-49-4"><a id="__codelineno-49-4" name="__codelineno-49-4"></a><span class="w">    </span><span class="n">sz</span>
-</span><span id="__span-49-5"><a id="__codelineno-49-5" name="__codelineno-49-5"></a><span class="p">)</span><span class="w"> </span><span class="err">`</span><span class="n">strncpy</span><span class="p">((</span><span class="n">pD</span><span class="p">),</span><span class="w"> </span><span class="p">(</span><span class="n">pS</span><span class="p">),</span><span class="w"> </span><span class="p">(</span><span class="n">sz</span><span class="p">))</span><span class="err">`</span>
+<span class="normal"><a href="#__codelineno-49-5">5</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-49-1"><a id="__codelineno-49-1" name="__codelineno-49-1"></a><span class="cp">#define WSH_SHELL_STRNCMP (</span>
+</span><span id="__span-49-2"><a id="__codelineno-49-2" name="__codelineno-49-2"></a><span class="w">    </span><span class="n">pS1</span><span class="p">,</span>
+</span><span id="__span-49-3"><a id="__codelineno-49-3" name="__codelineno-49-3"></a><span class="w">    </span><span class="n">pS2</span><span class="p">,</span>
+</span><span id="__span-49-4"><a id="__codelineno-49-4" name="__codelineno-49-4"></a><span class="w">    </span><span class="n">len</span>
+</span><span id="__span-49-5"><a id="__codelineno-49-5" name="__codelineno-49-5"></a><span class="p">)</span><span class="w"> </span><span class="err">`</span><span class="n">strncmp</span><span class="p">((</span><span class="n">pS1</span><span class="p">),</span><span class="w"> </span><span class="p">(</span><span class="n">pS2</span><span class="p">),</span><span class="w"> </span><span class="p">(</span><span class="n">len</span><span class="p">))</span><span class="err">`</span>
+</span></code></pre></div></td></tr></table></div>
+<hr>
+
+<h3 id="define-wsh_shell_strncpy">define WSH_SHELL_STRNCPY</h3>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-50-1">1</a></span>
+<span class="normal"><a href="#__codelineno-50-2">2</a></span>
+<span class="normal"><a href="#__codelineno-50-3">3</a></span>
+<span class="normal"><a href="#__codelineno-50-4">4</a></span>
+<span class="normal"><a href="#__codelineno-50-5">5</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-50-1"><a id="__codelineno-50-1" name="__codelineno-50-1"></a><span class="cp">#define WSH_SHELL_STRNCPY (</span>
+</span><span id="__span-50-2"><a id="__codelineno-50-2" name="__codelineno-50-2"></a><span class="w">    </span><span class="n">pD</span><span class="p">,</span>
+</span><span id="__span-50-3"><a id="__codelineno-50-3" name="__codelineno-50-3"></a><span class="w">    </span><span class="n">pS</span><span class="p">,</span>
+</span><span id="__span-50-4"><a id="__codelineno-50-4" name="__codelineno-50-4"></a><span class="w">    </span><span class="n">sz</span>
+</span><span id="__span-50-5"><a id="__codelineno-50-5" name="__codelineno-50-5"></a><span class="p">)</span><span class="w"> </span><span class="err">`</span><span class="n">strncpy</span><span class="p">((</span><span class="n">pD</span><span class="p">),</span><span class="w"> </span><span class="p">(</span><span class="n">pS</span><span class="p">),</span><span class="w"> </span><span class="p">(</span><span class="n">sz</span><span class="p">))</span><span class="err">`</span>
 </span></code></pre></div></td></tr></table></div>
 <hr>
 
 <h3 id="define-wsh_shell_strnlen">define WSH_SHELL_STRNLEN</h3>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-50-1">1</a></span>
-<span class="normal"><a href="#__codelineno-50-2">2</a></span>
-<span class="normal"><a href="#__codelineno-50-3">3</a></span>
-<span class="normal"><a href="#__codelineno-50-4">4</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-50-1"><a id="__codelineno-50-1" name="__codelineno-50-1"></a><span class="cp">#define WSH_SHELL_STRNLEN (</span>
-</span><span id="__span-50-2"><a id="__codelineno-50-2" name="__codelineno-50-2"></a><span class="w">    </span><span class="n">pS</span><span class="p">,</span>
-</span><span id="__span-50-3"><a id="__codelineno-50-3" name="__codelineno-50-3"></a><span class="w">    </span><span class="n">len</span>
-</span><span id="__span-50-4"><a id="__codelineno-50-4" name="__codelineno-50-4"></a><span class="p">)</span><span class="w"> </span><span class="err">`</span><span class="n">strnlen</span><span class="p">((</span><span class="n">pS</span><span class="p">),</span><span class="w"> </span><span class="p">(</span><span class="n">len</span><span class="p">))</span><span class="err">`</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-51-1">1</a></span>
+<span class="normal"><a href="#__codelineno-51-2">2</a></span>
+<span class="normal"><a href="#__codelineno-51-3">3</a></span>
+<span class="normal"><a href="#__codelineno-51-4">4</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-51-1"><a id="__codelineno-51-1" name="__codelineno-51-1"></a><span class="cp">#define WSH_SHELL_STRNLEN (</span>
+</span><span id="__span-51-2"><a id="__codelineno-51-2" name="__codelineno-51-2"></a><span class="w">    </span><span class="n">pS</span><span class="p">,</span>
+</span><span id="__span-51-3"><a id="__codelineno-51-3" name="__codelineno-51-3"></a><span class="w">    </span><span class="n">len</span>
+</span><span id="__span-51-4"><a id="__codelineno-51-4" name="__codelineno-51-4"></a><span class="p">)</span><span class="w"> </span><span class="err">`</span><span class="n">strnlen</span><span class="p">((</span><span class="n">pS</span><span class="p">),</span><span class="w"> </span><span class="p">(</span><span class="n">len</span><span class="p">))</span><span class="err">`</span>
 </span></code></pre></div></td></tr></table></div>
 <hr>
 
 <h3 id="define-wsh_shell_strtof">define WSH_SHELL_STRTOF</h3>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-51-1">1</a></span>
-<span class="normal"><a href="#__codelineno-51-2">2</a></span>
-<span class="normal"><a href="#__codelineno-51-3">3</a></span>
-<span class="normal"><a href="#__codelineno-51-4">4</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-51-1"><a id="__codelineno-51-1" name="__codelineno-51-1"></a><span class="cp">#define WSH_SHELL_STRTOF (</span>
-</span><span id="__span-51-2"><a id="__codelineno-51-2" name="__codelineno-51-2"></a><span class="w">    </span><span class="n">pN</span><span class="p">,</span>
-</span><span id="__span-51-3"><a id="__codelineno-51-3" name="__codelineno-51-3"></a><span class="w">    </span><span class="n">pE</span>
-</span><span id="__span-51-4"><a id="__codelineno-51-4" name="__codelineno-51-4"></a><span class="p">)</span><span class="w"> </span><span class="err">`</span><span class="n">strtof</span><span class="p">((</span><span class="n">pN</span><span class="p">),</span><span class="w"> </span><span class="p">(</span><span class="n">pE</span><span class="p">))</span><span class="err">`</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-52-1">1</a></span>
+<span class="normal"><a href="#__codelineno-52-2">2</a></span>
+<span class="normal"><a href="#__codelineno-52-3">3</a></span>
+<span class="normal"><a href="#__codelineno-52-4">4</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-52-1"><a id="__codelineno-52-1" name="__codelineno-52-1"></a><span class="cp">#define WSH_SHELL_STRTOF (</span>
+</span><span id="__span-52-2"><a id="__codelineno-52-2" name="__codelineno-52-2"></a><span class="w">    </span><span class="n">pN</span><span class="p">,</span>
+</span><span id="__span-52-3"><a id="__codelineno-52-3" name="__codelineno-52-3"></a><span class="w">    </span><span class="n">pE</span>
+</span><span id="__span-52-4"><a id="__codelineno-52-4" name="__codelineno-52-4"></a><span class="p">)</span><span class="w"> </span><span class="err">`</span><span class="n">strtof</span><span class="p">((</span><span class="n">pN</span><span class="p">),</span><span class="w"> </span><span class="p">(</span><span class="n">pE</span><span class="p">))</span><span class="err">`</span>
 </span></code></pre></div></td></tr></table></div>
 <hr>
 
 <h3 id="define-wsh_shell_strtol">define WSH_SHELL_STRTOL</h3>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-52-1">1</a></span>
-<span class="normal"><a href="#__codelineno-52-2">2</a></span>
-<span class="normal"><a href="#__codelineno-52-3">3</a></span>
-<span class="normal"><a href="#__codelineno-52-4">4</a></span>
-<span class="normal"><a href="#__codelineno-52-5">5</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-52-1"><a id="__codelineno-52-1" name="__codelineno-52-1"></a><span class="cp">#define WSH_SHELL_STRTOL (</span>
-</span><span id="__span-52-2"><a id="__codelineno-52-2" name="__codelineno-52-2"></a><span class="w">    </span><span class="n">pS</span><span class="p">,</span>
-</span><span id="__span-52-3"><a id="__codelineno-52-3" name="__codelineno-52-3"></a><span class="w">    </span><span class="n">pE</span><span class="p">,</span>
-</span><span id="__span-52-4"><a id="__codelineno-52-4" name="__codelineno-52-4"></a><span class="w">    </span><span class="n">radix</span>
-</span><span id="__span-52-5"><a id="__codelineno-52-5" name="__codelineno-52-5"></a><span class="p">)</span><span class="w"> </span><span class="err">`</span><span class="n">strtol</span><span class="p">((</span><span class="n">pS</span><span class="p">),</span><span class="w"> </span><span class="p">(</span><span class="n">pE</span><span class="p">),</span><span class="w"> </span><span class="p">(</span><span class="n">radix</span><span class="p">))</span><span class="err">`</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-53-1">1</a></span>
+<span class="normal"><a href="#__codelineno-53-2">2</a></span>
+<span class="normal"><a href="#__codelineno-53-3">3</a></span>
+<span class="normal"><a href="#__codelineno-53-4">4</a></span>
+<span class="normal"><a href="#__codelineno-53-5">5</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-53-1"><a id="__codelineno-53-1" name="__codelineno-53-1"></a><span class="cp">#define WSH_SHELL_STRTOL (</span>
+</span><span id="__span-53-2"><a id="__codelineno-53-2" name="__codelineno-53-2"></a><span class="w">    </span><span class="n">pS</span><span class="p">,</span>
+</span><span id="__span-53-3"><a id="__codelineno-53-3" name="__codelineno-53-3"></a><span class="w">    </span><span class="n">pE</span><span class="p">,</span>
+</span><span id="__span-53-4"><a id="__codelineno-53-4" name="__codelineno-53-4"></a><span class="w">    </span><span class="n">radix</span>
+</span><span id="__span-53-5"><a id="__codelineno-53-5" name="__codelineno-53-5"></a><span class="p">)</span><span class="w"> </span><span class="err">`</span><span class="n">strtol</span><span class="p">((</span><span class="n">pS</span><span class="p">),</span><span class="w"> </span><span class="p">(</span><span class="n">pE</span><span class="p">),</span><span class="w"> </span><span class="p">(</span><span class="n">radix</span><span class="p">))</span><span class="err">`</span>
 </span></code></pre></div></td></tr></table></div>
 <hr>
 
 <h3 id="define-wsh_shell_subcommands">define WSH_SHELL_SUBCOMMANDS</h3>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-53-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-53-1"><a id="__codelineno-53-1" name="__codelineno-53-1"></a><span class="cp">#define WSH_SHELL_SUBCOMMANDS `1`</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-54-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-54-1"><a id="__codelineno-54-1" name="__codelineno-54-1"></a><span class="cp">#define WSH_SHELL_SUBCOMMANDS `1`</span>
 </span></code></pre></div></td></tr></table></div>
 <hr>
 
 <h3 id="define-wsh_shell_subcommands_max_depth">define WSH_SHELL_SUBCOMMANDS_MAX_DEPTH</h3>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-54-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-54-1"><a id="__codelineno-54-1" name="__codelineno-54-1"></a><span class="cp">#define WSH_SHELL_SUBCOMMANDS_MAX_DEPTH `3`</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-55-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-55-1"><a id="__codelineno-55-1" name="__codelineno-55-1"></a><span class="cp">#define WSH_SHELL_SUBCOMMANDS_MAX_DEPTH `3`</span>
 </span></code></pre></div></td></tr></table></div>
 <hr>
 
 <h3 id="define-wsh_shell_target_os">define WSH_SHELL_TARGET_OS</h3>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-55-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-55-1"><a id="__codelineno-55-1" name="__codelineno-55-1"></a><span class="cp">#define WSH_SHELL_TARGET_OS `"Bare-metal"`</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-56-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-56-1"><a id="__codelineno-56-1" name="__codelineno-56-1"></a><span class="cp">#define WSH_SHELL_TARGET_OS `"Bare-metal"`</span>
 </span></code></pre></div></td></tr></table></div>
 <hr>
 
 <h3 id="define-x_entry">define X_ENTRY</h3>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-56-1">1</a></span>
-<span class="normal"><a href="#__codelineno-56-2">2</a></span>
-<span class="normal"><a href="#__codelineno-56-3">3</a></span>
-<span class="normal"><a href="#__codelineno-56-4">4</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-56-1"><a id="__codelineno-56-1" name="__codelineno-56-1"></a><span class="cp">#define X_ENTRY (</span>
-</span><span id="__span-56-2"><a id="__codelineno-56-2" name="__codelineno-56-2"></a><span class="w">    </span><span class="n">name</span><span class="p">,</span>
-</span><span id="__span-56-3"><a id="__codelineno-56-3" name="__codelineno-56-3"></a><span class="w">    </span><span class="n">value</span>
-</span><span id="__span-56-4"><a id="__codelineno-56-4" name="__codelineno-56-4"></a><span class="p">)</span><span class="w"> </span><span class="err">`</span><span class="n">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">value</span><span class="p">,</span><span class="err">`</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-57-1">1</a></span>
+<span class="normal"><a href="#__codelineno-57-2">2</a></span>
+<span class="normal"><a href="#__codelineno-57-3">3</a></span>
+<span class="normal"><a href="#__codelineno-57-4">4</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-57-1"><a id="__codelineno-57-1" name="__codelineno-57-1"></a><span class="cp">#define X_ENTRY (</span>
+</span><span id="__span-57-2"><a id="__codelineno-57-2" name="__codelineno-57-2"></a><span class="w">    </span><span class="n">name</span><span class="p">,</span>
+</span><span id="__span-57-3"><a id="__codelineno-57-3" name="__codelineno-57-3"></a><span class="w">    </span><span class="n">value</span>
+</span><span id="__span-57-4"><a id="__codelineno-57-4" name="__codelineno-57-4"></a><span class="p">)</span><span class="w"> </span><span class="err">`</span><span class="n">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">value</span><span class="p">,</span><span class="err">`</span>
 </span></code></pre></div></td></tr></table></div>
 <hr>
 
 <h3 id="define-x_map_entry">define X_MAP_ENTRY</h3>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-57-1">1</a></span>
-<span class="normal"><a href="#__codelineno-57-2">2</a></span>
-<span class="normal"><a href="#__codelineno-57-3">3</a></span>
-<span class="normal"><a href="#__codelineno-57-4">4</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-57-1"><a id="__codelineno-57-1" name="__codelineno-57-1"></a><span class="cp">#define X_MAP_ENTRY (</span>
-</span><span id="__span-57-2"><a id="__codelineno-57-2" name="__codelineno-57-2"></a><span class="w">    </span><span class="n">proj</span><span class="p">,</span>
-</span><span id="__span-57-3"><a id="__codelineno-57-3" name="__codelineno-57-3"></a><span class="w">    </span><span class="n">shell</span>
-</span><span id="__span-57-4"><a id="__codelineno-57-4" name="__codelineno-57-4"></a><span class="p">)</span><span class="w"> </span><span class="err">`</span><span class="cm">/* multi line expression */</span><span class="err">`</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-58-1">1</a></span>
+<span class="normal"><a href="#__codelineno-58-2">2</a></span>
+<span class="normal"><a href="#__codelineno-58-3">3</a></span>
+<span class="normal"><a href="#__codelineno-58-4">4</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-58-1"><a id="__codelineno-58-1" name="__codelineno-58-1"></a><span class="cp">#define X_MAP_ENTRY (</span>
+</span><span id="__span-58-2"><a id="__codelineno-58-2" name="__codelineno-58-2"></a><span class="w">    </span><span class="n">proj</span><span class="p">,</span>
+</span><span id="__span-58-3"><a id="__codelineno-58-3" name="__codelineno-58-3"></a><span class="w">    </span><span class="n">shell</span>
+</span><span id="__span-58-4"><a id="__codelineno-58-4" name="__codelineno-58-4"></a><span class="p">)</span><span class="w"> </span><span class="err">`</span><span class="cm">/* multi line expression */</span><span class="err">`</span>
 </span></code></pre></div></td></tr></table></div>
 <hr>
 

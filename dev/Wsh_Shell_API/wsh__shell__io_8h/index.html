@@ -571,6 +571,8 @@
       
         
       
+        
+      
     
     
     
@@ -769,6 +771,34 @@
     
   
     Persistent Session
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../usage/shell-state/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Shell State Line
   
 
     
@@ -2450,6 +2480,17 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#define-wsh_shell_sym_enq" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        define WSH_SHELL_SYM_ENQ
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#define-wsh_shell_sym_exit" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -3955,6 +3996,17 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#define-wsh_shell_sym_enq" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        define WSH_SHELL_SYM_ENQ
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#define-wsh_shell_sym_exit" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -4336,6 +4388,10 @@
 <tr>
 <td style="text-align: right;">define</td>
 <td style="text-align: left;"><a href="./#define-wsh_shell_sym_delete"><strong>WSH_SHELL_SYM_DELETE</strong></a>  <code>0x7f</code><br></td>
+</tr>
+<tr>
+<td style="text-align: right;">define</td>
+<td style="text-align: left;"><a href="./#define-wsh_shell_sym_enq"><strong>WSH_SHELL_SYM_ENQ</strong></a>  <code>0x05</code><br></td>
 </tr>
 <tr>
 <td style="text-align: right;">define</td>
@@ -4740,20 +4796,26 @@
 <p>Delete (DEL) character </p>
 <hr>
 
+<h3 id="define-wsh_shell_sym_enq">define WSH_SHELL_SYM_ENQ</h3>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-47-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-47-1"><a id="__codelineno-47-1" name="__codelineno-47-1"></a><span class="cp">#define WSH_SHELL_SYM_ENQ `0x05`</span>
+</span></code></pre></div></td></tr></table></div>
+<p>Ctrl + E, ASCII Enquiry: ask for the shell state line </p>
+<hr>
+
 <h3 id="define-wsh_shell_sym_exit">define WSH_SHELL_SYM_EXIT</h3>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-47-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-47-1"><a id="__codelineno-47-1" name="__codelineno-47-1"></a><span class="cp">#define WSH_SHELL_SYM_EXIT `0x04`</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-48-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-48-1"><a id="__codelineno-48-1" name="__codelineno-48-1"></a><span class="cp">#define WSH_SHELL_SYM_EXIT `0x04`</span>
 </span></code></pre></div></td></tr></table></div>
 <p>Ctrl + D (EOF signal) </p>
 <hr>
 
 <h3 id="define-wsh_shell_sym_sound">define WSH_SHELL_SYM_SOUND</h3>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-48-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-48-1"><a id="__codelineno-48-1" name="__codelineno-48-1"></a><span class="cp">#define WSH_SHELL_SYM_SOUND `0x07`</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-49-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-49-1"><a id="__codelineno-49-1" name="__codelineno-49-1"></a><span class="cp">#define WSH_SHELL_SYM_SOUND `0x07`</span>
 </span></code></pre></div></td></tr></table></div>
 <p>Bell character (alert) </p>
 <hr>
 
 <h3 id="define-wsh_shell_sym_tab">define WSH_SHELL_SYM_TAB</h3>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-49-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-49-1"><a id="__codelineno-49-1" name="__codelineno-49-1"></a><span class="cp">#define WSH_SHELL_SYM_TAB `'\t'`</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-50-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-50-1"><a id="__codelineno-50-1" name="__codelineno-50-1"></a><span class="cp">#define WSH_SHELL_SYM_TAB `'\t'`</span>
 </span></code></pre></div></td></tr></table></div>
 <p>Tab character </p>
 <hr>

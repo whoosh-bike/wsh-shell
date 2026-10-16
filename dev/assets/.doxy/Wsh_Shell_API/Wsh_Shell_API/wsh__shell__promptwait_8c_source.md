@@ -10,26 +10,54 @@
 ```C++
 #include "wsh_shell_promptwait.h"
 
+static void WshShellPromptWait_Notify(const WshShellPromptWait_t* pcWait) {
+    if (pcWait->Notify)
+        pcWait->Notify(pcWait->NotifyOwner);
+}
+
+void WshShellPromptWait_SetNotify(WshShellPromptWait_t* pWait, WshShellPromptWait_Notify_t notify, void* pOwner) {
+    WSH_SHELL_ASSERT(pWait);
+    if (!pWait)
+        return;
+
+    pWait->Notify      = notify;
+    pWait->NotifyOwner = pOwner;
+}
+
 void WshShellPromptWait_Flush(WshShellPromptWait_t* pWait) {
     WSH_SHELL_ASSERT(pWait);
     if (!pWait)
         return;
 
+    WshShell_Bool_t wasWaiting = pWait->Handler != NULL;
+
     pWait->Handler     = NULL;
     pWait->Ctx         = NULL;
     pWait->RejectedNum = 0;
+    pWait->Tag         = NULL;
+
+    if (wasWaiting)
+        WshShellPromptWait_Notify(pWait);
 }
 
 #if WSH_SHELL_PROMPT_WAIT
-void WshShellPromptWait_Attach(WshShellPromptWait_t* pWait, WshShellPromptWait_Handler_t handler, void* pCtx) {
+void WshShellPromptWait_AttachTagged(WshShellPromptWait_t* pWait, WshShellPromptWait_Handler_t handler, void* pCtx,
+                                     const WshShell_Char_t* pcTag) {
     WSH_SHELL_ASSERT(pWait && handler);
     if (!pWait || !handler)
         return;
 
     pWait->Handler     = handler;
     pWait->Ctx         = pCtx;
+    pWait->Tag         = pcTag;
     /* Every wait starts with a fresh hint budget. */
     pWait->RejectedNum = 0;
+
+    WshShellPromptWait_Notify(pWait);
+}
+
+void WshShellPromptWait_Attach(WshShellPromptWait_t* pWait, WshShellPromptWait_Handler_t handler, void* pCtx) {
+    WshShellPromptWait_AttachTagged(pWait, handler, pCtx, NULL);
 }
 
 WshShell_Bool_t WshShellPromptWait_HintIsNeeded(const WshShellPromptWait_t* pcWait) {
@@ -118,6 +146,11 @@ WshShell_Bool_t WshShellPromptWait_YesNo(WshShell_Char_t symbol, WshShellPromptW
 #else /* WSH_SHELL_PROMPT_WAIT */
 
 void WshShellPromptWait_Attach(WshShellPromptWait_t* pWait, WshShellPromptWait_Handler_t handler, void* pCtx) {
+    return;
+}
+
+void WshShellPromptWait_AttachTagged(WshShellPromptWait_t* pWait, WshShellPromptWait_Handler_t handler, void* pCtx,
+                                     const WshShell_Char_t* pcTag) {
     return;
 }
 

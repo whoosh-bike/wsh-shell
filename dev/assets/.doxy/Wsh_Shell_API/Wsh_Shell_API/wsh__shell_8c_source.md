@@ -21,6 +21,79 @@ static void WshShell_Stub_ExtClbk(void* pCtx) {
 #define WSH_SHELL_TMP_PASS_IS_EMPTY(_sh_)  ((_sh_)->TmpAuth.Pass[0] == 0)
 #define WSH_SHELL_INTER_CMD_EXISTS(_sh_)   ((_sh_)->Interact.Handler != NULL)
 
+/* ── Shell state line (docs/usage/shell-state.md) ─────────────────────────── */
+
+typedef enum {
+    WSH_SHELL_STATE_LOGIN, 
+    WSH_SHELL_STATE_READY, 
+    WSH_SHELL_STATE_BUSY,  
+} WSH_SHELL_STATE_t;
+
+static WSH_SHELL_STATE_t WshShell_StateGet(const WshShell_t* pcShell) {
+    WshShell_Bool_t auth = WSH_SHELL_USER_IS_AUTH(pcShell);
+
+    /* The "Press <Enter> to log in" gate is a prompt-wait too, but untagged
+     * and before a login: that is still the login state, not busy. */
+    if (pcShell->PromptWait.Handler != NULL && (auth || pcShell->PromptWait.Tag != NULL))
+        return WSH_SHELL_STATE_BUSY;
+
+    return auth ? WSH_SHELL_STATE_READY : WSH_SHELL_STATE_LOGIN;
+}
+
+#if WSH_SHELL_STATE_LINE
+
+static void WshShell_StateLinePrint(WshShell_t* pShell, WSH_SHELL_STATE_t state) {
+    static const WshShell_Char_t* const pcStateNames[] = {"login", "ready", "busy"};
+
+    const WshShell_Char_t* pcUser = WSH_SHELL_USER_IS_AUTH(pShell) ? pShell->CurrUser->Login : NULL;
+    const WshShell_Char_t* pcTag  = state == WSH_SHELL_STATE_BUSY ? pShell->PromptWait.Tag : NULL;
+
+    /* One printf for the whole line: async output from other tasks may land
+     * around it, but not inside it. Quotes only where there is a string. */
+    WSH_SHELL_PRINT("\r\n{\"evt\":\"shell\",\"state\":\"%s\",\"user\":%s%s%s,\"busy\":%s%s%s,\"keepLeft\":%lu}\r\n",
+                    pcStateNames[state], pcUser ? "\"" : "", pcUser ? pcUser : "null", pcUser ? "\"" : "",
+                    pcTag ? "\"" : "", pcTag ? pcTag : "null", pcTag ? "\"" : "",
+                    (unsigned long)WshShell_SessionRebootsLeft(pShell));
+
+    pShell->LastState = (WshShell_U32_t)state + 1;
+    pShell->LastTag   = pShell->PromptWait.Tag;
+    pShell->LastUser  = pShell->CurrUser;
+}
+
+/* Print only when something a host acts on has changed. */
+static void WshShell_StateAnnounce(WshShell_t* pShell) {
+    WSH_SHELL_STATE_t state = WshShell_StateGet(pShell);
+    if (pShell->LastState == (WshShell_U32_t)state + 1 && pShell->LastTag == pShell->PromptWait.Tag &&
+        pShell->LastUser == pShell->CurrUser)
+        return;
+
+    WshShell_StateLinePrint(pShell, state);
+}
+
+static void WshShell_PromptWaitNotify(void* pOwner) {
+    WshShell_StateAnnounce((WshShell_t*)pOwner);
+}
+
+void WshShell_StatePrint(WshShell_t* pShell) {
+    WSH_SHELL_ASSERT(pShell);
+    if (!pShell)
+        return;
+
+    WshShell_StateLinePrint(pShell, WshShell_StateGet(pShell));
+}
+
+#else /* WSH_SHELL_STATE_LINE */
+
+static void WshShell_StateAnnounce(WshShell_t* pShell) {
+    (void)pShell;
+}
+
+void WshShell_StatePrint(WshShell_t* pShell) {
+    (void)pShell;
+}
+
+#endif /* WSH_SHELL_STATE_LINE */
+
 static void WshShell_InvitationPrint(const WshShell_t* pcShell) {
     if (!WSH_SHELL_USER_IS_AUTH(pcShell)) {
         if (WSH_SHELL_TMP_LOGIN_IS_EMPTY(pcShell)) {
@@ -86,6 +159,15 @@ WSH_SHELL_RET_STATE_t WshShell_Init(WshShell_t* pShell, const WshShell_Char_t* p
 
     WshShellPromptWait_Attach(&(pShell->PromptWait), WshShellPromptWait_Enter, NULL);
 
+    /* Not announced here: right after Init the application usually restores
+     * a session or starts a wait, and a host acting on a "login" that is
+     * about to change would only do harm. A host that missed the lines asks
+     * with ENQ. Remember "login" as the baseline so changes still print. */
+#if WSH_SHELL_STATE_LINE
+    pShell->LastState = (WshShell_U32_t)WSH_SHELL_STATE_LOGIN + 1;
+    WshShellPromptWait_SetNotify(&(pShell->PromptWait), WshShell_PromptWaitNotify, pShell);
+#endif /* WSH_SHELL_STATE_LINE */
+
     return WSH_SHELL_RET_STATE_SUCCESS;
 }
 
@@ -104,6 +186,7 @@ WshShell_Bool_t WshShell_Auth(WshShell_t* pShell, const WshShell_Char_t* pcLogin
         WshShell_GeneratePS1(pShell->PS1, &data);
         pShell->ExtCallbacks.Auth(NULL);
         WSH_SHELL_PRINT("%c", WSH_SHELL_SYM_SOUND);
+        WshShell_StateAnnounce(pShell);
     }
 
     return WSH_SHELL_USER_IS_AUTH(pShell);
@@ -200,6 +283,15 @@ WshShell_Bool_t WshShell_SessionRestore(WshShell_t* pShell) {
     WshShell_GeneratePS1(pShell->PS1, &ps1Data);
 
     pShell->ExtCallbacks.Auth(NULL);
+
+    /* Init left the "Press <Enter> to log in" gate up; a restored login has
+     * nothing to wait for, so drop it and show the prompt — otherwise the
+     * shell would sit logged in yet demanding an Enter first. */
+    if (pShell->PromptWait.Handler == WshShellPromptWait_Enter && pShell->PromptWait.Tag == NULL) {
+        WshShellPromptWait_Flush(&(pShell->PromptWait));
+        WshShell_InvitationPrint(pShell);
+    }
+    WshShell_StateAnnounce(pShell);
 
     return true;
 }
@@ -494,6 +586,17 @@ void WshShell_InsertChar(WshShell_t* pShell, const WshShell_Char_t symbol) {
     WSH_SHELL_ASSERT(pShell);
     if (!pShell)
         return;
+
+#if WSH_SHELL_STATE_LINE
+    /* A host asking for the state line. Taken before everything else — before
+     * a prompt-wait could see it (a sniffer wait would stop on nothing but
+     * Enter/Ctrl+C, yet still hint and beep) and before the idle callback (a
+     * host polling must not keep a session alive). Never enters the line. */
+    if (symbol == WSH_SHELL_SYM_ENQ) {
+        WshShell_StatePrint(pShell);
+        return;
+    }
+#endif /* WSH_SHELL_STATE_LINE */
 
     pShell->ExtCallbacks.SymbolIn(NULL);
 

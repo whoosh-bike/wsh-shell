@@ -571,6 +571,8 @@
       
         
       
+        
+      
     
     
     
@@ -769,6 +771,34 @@
     
   
     Persistent Session
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../usage/shell-state/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Shell State Line
   
 
     
@@ -2191,6 +2221,17 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#typedef-wshshellpromptwait_notify_t" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        typedef WshShellPromptWait_Notify_t
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#typedef-wshshellpromptwait_t" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -2223,6 +2264,17 @@
     <span class="md-ellipsis">
       
         function WshShellPromptWait_Attach
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-wshshellpromptwait_attachtagged" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function WshShellPromptWait_AttachTagged
       
     </span>
   </a>
@@ -2267,6 +2319,17 @@
     <span class="md-ellipsis">
       
         function WshShellPromptWait_HintIsNeeded
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-wshshellpromptwait_setnotify" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function WshShellPromptWait_SetNotify
       
     </span>
   </a>
@@ -2986,6 +3049,17 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#typedef-wshshellpromptwait_notify_t" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        typedef WshShellPromptWait_Notify_t
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#typedef-wshshellpromptwait_t" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -3018,6 +3092,17 @@
     <span class="md-ellipsis">
       
         function WshShellPromptWait_Attach
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-wshshellpromptwait_attachtagged" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function WshShellPromptWait_AttachTagged
       
     </span>
   </a>
@@ -3062,6 +3147,17 @@
     <span class="md-ellipsis">
       
         function WshShellPromptWait_HintIsNeeded
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-wshshellpromptwait_setnotify" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function WshShellPromptWait_SetNotify
       
     </span>
   </a>
@@ -3238,7 +3334,7 @@
 <tbody>
 <tr>
 <td style="text-align: right;">struct</td>
-<td style="text-align: left;"><a href="../structWshShellPromptWait/"><strong>WshShellPromptWait</strong></a> <br><em>Prompt-wait control structure.</em></td>
+<td style="text-align: left;"><a href="../structWshShellPromptWait/"><strong>WshShellPromptWait</strong></a> <br></td>
 </tr>
 </tbody>
 </table>
@@ -3256,8 +3352,12 @@
 <td style="text-align: left;"><a href="#typedef-wshshellpromptwait_handler_t"><strong>WshShellPromptWait_Handler_t</strong></a>  <br><em>Function pointer type for prompt-wait callbacks.</em></td>
 </tr>
 <tr>
+<td style="text-align: right;">typedef void(*</td>
+<td style="text-align: left;"><a href="#typedef-wshshellpromptwait_notify_t"><strong>WshShellPromptWait_Notify_t</strong></a>  <br><em>Prompt-wait control structure.</em></td>
+</tr>
+<tr>
 <td style="text-align: right;">typedef struct <a href="../structWshShellPromptWait/"><strong>WshShellPromptWait</strong></a></td>
-<td style="text-align: left;"><a href="#typedef-wshshellpromptwait_t"><strong>WshShellPromptWait_t</strong></a>  <br><em>Prompt-wait control structure.</em></td>
+<td style="text-align: left;"><a href="#typedef-wshshellpromptwait_t"><strong>WshShellPromptWait_t</strong></a>  <br></td>
 </tr>
 </tbody>
 </table>
@@ -3272,27 +3372,35 @@
 <tbody>
 <tr>
 <td style="text-align: right;">void</td>
-<td style="text-align: left;"><a href="#function-wshshellpromptwait_attach"><strong>WshShellPromptWait_Attach</strong></a> (<a href="./#typedef-wshshellpromptwait_t"><strong>WshShellPromptWait_t</strong></a> * pWait, <a href="./#typedef-wshshellpromptwait_handler_t"><strong>WshShellPromptWait_Handler_t</strong></a> handler, void * pCtx) <br><em>Attach a one-time input handler.</em></td>
-</tr>
-<tr>
-<td style="text-align: right;">WshShell_Bool_t</td>
-<td style="text-align: left;"><a href="#function-wshshellpromptwait_enter"><strong>WshShellPromptWait_Enter</strong></a> (WshShell_Char_t symbol, <a href="./#typedef-wshshellpromptwait_t"><strong>WshShellPromptWait_t</strong></a> * pWait) <br><em>User input handler for prompt-wait mode.</em></td>
+<td style="text-align: left;"><a href="#function-wshshellpromptwait_attach"><strong>WshShellPromptWait_Attach</strong></a> (<a href="../structWshShellPromptWait/"><strong>WshShellPromptWait_t</strong></a> * pWait, <a href="./#typedef-wshshellpromptwait_handler_t"><strong>WshShellPromptWait_Handler_t</strong></a> handler, void * pCtx) <br><em>Attach a one-time input handler.</em></td>
 </tr>
 <tr>
 <td style="text-align: right;">void</td>
-<td style="text-align: left;"><a href="#function-wshshellpromptwait_flush"><strong>WshShellPromptWait_Flush</strong></a> (<a href="./#typedef-wshshellpromptwait_t"><strong>WshShellPromptWait_t</strong></a> * pWait) <br><em>Flush the current prompt-wait mode.</em></td>
+<td style="text-align: left;"><a href="#function-wshshellpromptwait_attachtagged"><strong>WshShellPromptWait_AttachTagged</strong></a> (<a href="../structWshShellPromptWait/"><strong>WshShellPromptWait_t</strong></a> * pWait, <a href="./#typedef-wshshellpromptwait_handler_t"><strong>WshShellPromptWait_Handler_t</strong></a> handler, void * pCtx, const WshShell_Char_t * pcTag) <br><em>Attach a wait and say what it is for. A host reads</em> <code>pcTag</code> <em>from the shell state line ("busy":"&lt;tag&gt;") to tell e.g. a running sniffer from a yes/no question. The string must outlive the wait.</em></td>
+</tr>
+<tr>
+<td style="text-align: right;">WshShell_Bool_t</td>
+<td style="text-align: left;"><a href="#function-wshshellpromptwait_enter"><strong>WshShellPromptWait_Enter</strong></a> (WshShell_Char_t symbol, <a href="../structWshShellPromptWait/"><strong>WshShellPromptWait_t</strong></a> * pWait) <br><em>User input handler for prompt-wait mode.</em></td>
+</tr>
+<tr>
+<td style="text-align: right;">void</td>
+<td style="text-align: left;"><a href="#function-wshshellpromptwait_flush"><strong>WshShellPromptWait_Flush</strong></a> (<a href="../structWshShellPromptWait/"><strong>WshShellPromptWait_t</strong></a> * pWait) <br><em>Flush the current prompt-wait mode.</em></td>
 </tr>
 <tr>
 <td style="text-align: right;">WSH_SHELL_RET_STATE_t</td>
-<td style="text-align: left;"><a href="#function-wshshellpromptwait_handle"><strong>WshShellPromptWait_Handle</strong></a> (<a href="./#typedef-wshshellpromptwait_t"><strong>WshShellPromptWait_t</strong></a> * pWait, WshShell_Char_t symbol) <br><em>Handle a symbol when in prompt-wait mode.</em></td>
+<td style="text-align: left;"><a href="#function-wshshellpromptwait_handle"><strong>WshShellPromptWait_Handle</strong></a> (<a href="../structWshShellPromptWait/"><strong>WshShellPromptWait_t</strong></a> * pWait, WshShell_Char_t symbol) <br><em>Handle a symbol when in prompt-wait mode.</em></td>
 </tr>
 <tr>
 <td style="text-align: right;">WshShell_Bool_t</td>
-<td style="text-align: left;"><a href="#function-wshshellpromptwait_hintisneeded"><strong>WshShellPromptWait_HintIsNeeded</strong></a> (const <a href="./#typedef-wshshellpromptwait_t"><strong>WshShellPromptWait_t</strong></a> * pcWait) <br><em>Whether a handler should still print its hint on a rejected keystroke.</em></td>
+<td style="text-align: left;"><a href="#function-wshshellpromptwait_hintisneeded"><strong>WshShellPromptWait_HintIsNeeded</strong></a> (const <a href="../structWshShellPromptWait/"><strong>WshShellPromptWait_t</strong></a> * pcWait) <br><em>Whether a handler should still print its hint on a rejected keystroke.</em></td>
+</tr>
+<tr>
+<td style="text-align: right;">void</td>
+<td style="text-align: left;"><a href="#function-wshshellpromptwait_setnotify"><strong>WshShellPromptWait_SetNotify</strong></a> (<a href="../structWshShellPromptWait/"><strong>WshShellPromptWait_t</strong></a> * pWait, <a href="./#typedef-wshshellpromptwait_notify_t"><strong>WshShellPromptWait_Notify_t</strong></a> notify, void * pOwner) <br><em>Set by the shell itself; applications don't call it.</em></td>
 </tr>
 <tr>
 <td style="text-align: right;">WshShell_Bool_t</td>
-<td style="text-align: left;"><a href="#function-wshshellpromptwait_yesno"><strong>WshShellPromptWait_YesNo</strong></a> (WshShell_Char_t symbol, <a href="./#typedef-wshshellpromptwait_t"><strong>WshShellPromptWait_t</strong></a> * pWait) <br></td>
+<td style="text-align: left;"><a href="#function-wshshellpromptwait_yesno"><strong>WshShellPromptWait_YesNo</strong></a> (WshShell_Char_t symbol, <a href="../structWshShellPromptWait/"><strong>WshShellPromptWait_t</strong></a> * pWait) <br></td>
 </tr>
 </tbody>
 </table>
@@ -3330,24 +3438,29 @@
 </ul>
 <hr>
 
-<h3 id="typedef-wshshellpromptwait_t">typedef WshShellPromptWait_t</h3>
+<h3 id="typedef-wshshellpromptwait_notify_t">typedef WshShellPromptWait_Notify_t</h3>
 <p><em>Prompt-wait control structure.</em> 
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-1-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1"></a><span class="k">typedef</span><span class="w"> </span><span class="k">struct</span><span class="w"> </span><span class="nc">WshShellPromptWait</span><span class="w"> </span><span class="n">WshShellPromptWait_t</span><span class="p">;</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-1-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1"></a><span class="k">typedef</span><span class="w"> </span><span class="kt">void</span><span class="p">(</span><span class="o">*</span><span class="w"> </span><span class="n">WshShellPromptWait_Notify_t</span><span class="p">)</span><span class="w"> </span><span class="p">(</span><span class="kt">void</span><span class="w"> </span><span class="o">*</span><span class="n">pOwner</span><span class="p">);</span>
 </span></code></pre></div></td></tr></table></div></p>
-<p>Holds the active handler and optional context pointer. If Handler is NULL, no prompt-wait is active. </p>
+<p>Holds the active handler and optional context pointer. If Handler is NULL, no prompt-wait is active. Called whenever a wait starts or ends; the shell reports its state from it. </p>
+<hr>
+
+<h3 id="typedef-wshshellpromptwait_t">typedef WshShellPromptWait_t</h3>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-2-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1"></a><span class="k">typedef</span><span class="w"> </span><span class="k">struct</span><span class="w"> </span><span class="nc">WshShellPromptWait</span><span class="w"> </span><span class="n">WshShellPromptWait_t</span><span class="p">;</span>
+</span></code></pre></div></td></tr></table></div>
 <hr>
 <h2 id="public-functions-documentation">Public Functions Documentation</h2>
 <h3 id="function-wshshellpromptwait_attach">function WshShellPromptWait_Attach</h3>
 <p><em>Attach a one-time input handler.</em> 
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-2-1">1</a></span>
-<span class="normal"><a href="#__codelineno-2-2">2</a></span>
-<span class="normal"><a href="#__codelineno-2-3">3</a></span>
-<span class="normal"><a href="#__codelineno-2-4">4</a></span>
-<span class="normal"><a href="#__codelineno-2-5">5</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1"></a><span class="kt">void</span><span class="w"> </span><span class="n">WshShellPromptWait_Attach</span><span class="w"> </span><span class="p">(</span>
-</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2"></a><span class="w">    </span><span class="n">WshShellPromptWait_t</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">pWait</span><span class="p">,</span>
-</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3"></a><span class="w">    </span><span class="n">WshShellPromptWait_Handler_t</span><span class="w"> </span><span class="n">handler</span><span class="p">,</span>
-</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4"></a><span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">pCtx</span>
-</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5"></a><span class="p">)</span><span class="w"> </span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-3-1">1</a></span>
+<span class="normal"><a href="#__codelineno-3-2">2</a></span>
+<span class="normal"><a href="#__codelineno-3-3">3</a></span>
+<span class="normal"><a href="#__codelineno-3-4">4</a></span>
+<span class="normal"><a href="#__codelineno-3-5">5</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1"></a><span class="kt">void</span><span class="w"> </span><span class="n">WshShellPromptWait_Attach</span><span class="w"> </span><span class="p">(</span>
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2"></a><span class="w">    </span><span class="n">WshShellPromptWait_t</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">pWait</span><span class="p">,</span>
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3"></a><span class="w">    </span><span class="n">WshShellPromptWait_Handler_t</span><span class="w"> </span><span class="n">handler</span><span class="p">,</span>
+</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4"></a><span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">pCtx</span>
+</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5"></a><span class="p">)</span><span class="w"> </span>
 </span></code></pre></div></td></tr></table></div></p>
 <p>Replaces normal shell input handling with a temporary callback. The callback will receive the first character entered by the user, after which it should typically disable itself by calling <code>WshShellPromptWait_Flush()</code>.</p>
 <p><strong>Parameters:</strong></p>
@@ -3358,15 +3471,31 @@
 </ul>
 <hr>
 
+<h3 id="function-wshshellpromptwait_attachtagged">function WshShellPromptWait_AttachTagged</h3>
+<p><em>Attach a wait and say what it is for. A host reads</em> <code>pcTag</code> <em>from the shell state line ("busy":"&lt;tag&gt;") to tell e.g. a running sniffer from a yes/no question. The string must outlive the wait.</em>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-4-1">1</a></span>
+<span class="normal"><a href="#__codelineno-4-2">2</a></span>
+<span class="normal"><a href="#__codelineno-4-3">3</a></span>
+<span class="normal"><a href="#__codelineno-4-4">4</a></span>
+<span class="normal"><a href="#__codelineno-4-5">5</a></span>
+<span class="normal"><a href="#__codelineno-4-6">6</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1"></a><span class="kt">void</span><span class="w"> </span><span class="n">WshShellPromptWait_AttachTagged</span><span class="w"> </span><span class="p">(</span>
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2"></a><span class="w">    </span><span class="n">WshShellPromptWait_t</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">pWait</span><span class="p">,</span>
+</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3"></a><span class="w">    </span><span class="n">WshShellPromptWait_Handler_t</span><span class="w"> </span><span class="n">handler</span><span class="p">,</span>
+</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4"></a><span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">pCtx</span><span class="p">,</span>
+</span><span id="__span-4-5"><a id="__codelineno-4-5" name="__codelineno-4-5"></a><span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="n">WshShell_Char_t</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">pcTag</span>
+</span><span id="__span-4-6"><a id="__codelineno-4-6" name="__codelineno-4-6"></a><span class="p">)</span><span class="w"> </span>
+</span></code></pre></div></td></tr></table></div></p>
+<hr>
+
 <h3 id="function-wshshellpromptwait_enter">function WshShellPromptWait_Enter</h3>
 <p><em>User input handler for prompt-wait mode.</em> 
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-3-1">1</a></span>
-<span class="normal"><a href="#__codelineno-3-2">2</a></span>
-<span class="normal"><a href="#__codelineno-3-3">3</a></span>
-<span class="normal"><a href="#__codelineno-3-4">4</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1"></a><span class="n">WshShell_Bool_t</span><span class="w"> </span><span class="n">WshShellPromptWait_Enter</span><span class="w"> </span><span class="p">(</span>
-</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2"></a><span class="w">    </span><span class="n">WshShell_Char_t</span><span class="w"> </span><span class="n">symbol</span><span class="p">,</span>
-</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3"></a><span class="w">    </span><span class="n">WshShellPromptWait_t</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">pWait</span>
-</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4"></a><span class="p">)</span><span class="w"> </span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-5-1">1</a></span>
+<span class="normal"><a href="#__codelineno-5-2">2</a></span>
+<span class="normal"><a href="#__codelineno-5-3">3</a></span>
+<span class="normal"><a href="#__codelineno-5-4">4</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1"></a><span class="n">WshShell_Bool_t</span><span class="w"> </span><span class="n">WshShellPromptWait_Enter</span><span class="w"> </span><span class="p">(</span>
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2"></a><span class="w">    </span><span class="n">WshShell_Char_t</span><span class="w"> </span><span class="n">symbol</span><span class="p">,</span>
+</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3"></a><span class="w">    </span><span class="n">WshShellPromptWait_t</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">pWait</span>
+</span><span id="__span-5-4"><a id="__codelineno-5-4" name="__codelineno-5-4"></a><span class="p">)</span><span class="w"> </span>
 </span></code></pre></div></td></tr></table></div></p>
 <p>Processes a character entered by the user while waiting for specific input (e.g., Enter key, Y/N confirmation, etc.).</p>
 <p><strong>Parameters:</strong></p>
@@ -3382,11 +3511,11 @@
 
 <h3 id="function-wshshellpromptwait_flush">function WshShellPromptWait_Flush</h3>
 <p><em>Flush the current prompt-wait mode.</em> 
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-4-1">1</a></span>
-<span class="normal"><a href="#__codelineno-4-2">2</a></span>
-<span class="normal"><a href="#__codelineno-4-3">3</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1"></a><span class="kt">void</span><span class="w"> </span><span class="n">WshShellPromptWait_Flush</span><span class="w"> </span><span class="p">(</span>
-</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2"></a><span class="w">    </span><span class="n">WshShellPromptWait_t</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">pWait</span>
-</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3"></a><span class="p">)</span><span class="w"> </span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-6-1">1</a></span>
+<span class="normal"><a href="#__codelineno-6-2">2</a></span>
+<span class="normal"><a href="#__codelineno-6-3">3</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1"></a><span class="kt">void</span><span class="w"> </span><span class="n">WshShellPromptWait_Flush</span><span class="w"> </span><span class="p">(</span>
+</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2"></a><span class="w">    </span><span class="n">WshShellPromptWait_t</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">pWait</span>
+</span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3"></a><span class="p">)</span><span class="w"> </span>
 </span></code></pre></div></td></tr></table></div></p>
 <p>Resets the handler to NULL so that normal shell input is processed.</p>
 <p><strong>Parameters:</strong></p>
@@ -3397,13 +3526,13 @@
 
 <h3 id="function-wshshellpromptwait_handle">function WshShellPromptWait_Handle</h3>
 <p><em>Handle a symbol when in prompt-wait mode.</em> 
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-5-1">1</a></span>
-<span class="normal"><a href="#__codelineno-5-2">2</a></span>
-<span class="normal"><a href="#__codelineno-5-3">3</a></span>
-<span class="normal"><a href="#__codelineno-5-4">4</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1"></a><span class="n">WSH_SHELL_RET_STATE_t</span><span class="w"> </span><span class="n">WshShellPromptWait_Handle</span><span class="w"> </span><span class="p">(</span>
-</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2"></a><span class="w">    </span><span class="n">WshShellPromptWait_t</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">pWait</span><span class="p">,</span>
-</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3"></a><span class="w">    </span><span class="n">WshShell_Char_t</span><span class="w"> </span><span class="n">symbol</span>
-</span><span id="__span-5-4"><a id="__codelineno-5-4" name="__codelineno-5-4"></a><span class="p">)</span><span class="w"> </span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-7-1">1</a></span>
+<span class="normal"><a href="#__codelineno-7-2">2</a></span>
+<span class="normal"><a href="#__codelineno-7-3">3</a></span>
+<span class="normal"><a href="#__codelineno-7-4">4</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1"></a><span class="n">WSH_SHELL_RET_STATE_t</span><span class="w"> </span><span class="n">WshShellPromptWait_Handle</span><span class="w"> </span><span class="p">(</span>
+</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2"></a><span class="w">    </span><span class="n">WshShellPromptWait_t</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">pWait</span><span class="p">,</span>
+</span><span id="__span-7-3"><a id="__codelineno-7-3" name="__codelineno-7-3"></a><span class="w">    </span><span class="n">WshShell_Char_t</span><span class="w"> </span><span class="n">symbol</span>
+</span><span id="__span-7-4"><a id="__codelineno-7-4" name="__codelineno-7-4"></a><span class="p">)</span><span class="w"> </span>
 </span></code></pre></div></td></tr></table></div></p>
 <p>If a handler is set, it is called with the given symbol and context.</p>
 <p><strong>Parameters:</strong></p>
@@ -3417,11 +3546,11 @@
 
 <h3 id="function-wshshellpromptwait_hintisneeded">function WshShellPromptWait_HintIsNeeded</h3>
 <p><em>Whether a handler should still print its hint on a rejected keystroke.</em> 
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-6-1">1</a></span>
-<span class="normal"><a href="#__codelineno-6-2">2</a></span>
-<span class="normal"><a href="#__codelineno-6-3">3</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1"></a><span class="n">WshShell_Bool_t</span><span class="w"> </span><span class="n">WshShellPromptWait_HintIsNeeded</span><span class="w"> </span><span class="p">(</span>
-</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2"></a><span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="n">WshShellPromptWait_t</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">pcWait</span>
-</span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3"></a><span class="p">)</span><span class="w"> </span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-8-1">1</a></span>
+<span class="normal"><a href="#__codelineno-8-2">2</a></span>
+<span class="normal"><a href="#__codelineno-8-3">3</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1"></a><span class="n">WshShell_Bool_t</span><span class="w"> </span><span class="n">WshShellPromptWait_HintIsNeeded</span><span class="w"> </span><span class="p">(</span>
+</span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2"></a><span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="n">WshShellPromptWait_t</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">pcWait</span>
+</span><span id="__span-8-3"><a id="__codelineno-8-3" name="__codelineno-8-3"></a><span class="p">)</span><span class="w"> </span>
 </span></code></pre></div></td></tr></table></div></p>
 <p>Call it from a prompt-wait handler before printing "press ..." so the hint stops after <a href="./#define-wsh_shell_prompt_wait_hint_retries"><strong>WSH_SHELL_PROMPT_WAIT_HINT_RETRIES</strong></a> rejections instead of repeating for every key.</p>
 <p><strong>Parameters:</strong></p>
@@ -3432,20 +3561,34 @@
 <p>true while the hint is still worth printing. </p>
 <hr>
 
+<h3 id="function-wshshellpromptwait_setnotify">function WshShellPromptWait_SetNotify</h3>
+<p><em>Set by the shell itself; applications don't call it.</em> 
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-9-1">1</a></span>
+<span class="normal"><a href="#__codelineno-9-2">2</a></span>
+<span class="normal"><a href="#__codelineno-9-3">3</a></span>
+<span class="normal"><a href="#__codelineno-9-4">4</a></span>
+<span class="normal"><a href="#__codelineno-9-5">5</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1"></a><span class="kt">void</span><span class="w"> </span><span class="n">WshShellPromptWait_SetNotify</span><span class="w"> </span><span class="p">(</span>
+</span><span id="__span-9-2"><a id="__codelineno-9-2" name="__codelineno-9-2"></a><span class="w">    </span><span class="n">WshShellPromptWait_t</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">pWait</span><span class="p">,</span>
+</span><span id="__span-9-3"><a id="__codelineno-9-3" name="__codelineno-9-3"></a><span class="w">    </span><span class="n">WshShellPromptWait_Notify_t</span><span class="w"> </span><span class="n">notify</span><span class="p">,</span>
+</span><span id="__span-9-4"><a id="__codelineno-9-4" name="__codelineno-9-4"></a><span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">pOwner</span>
+</span><span id="__span-9-5"><a id="__codelineno-9-5" name="__codelineno-9-5"></a><span class="p">)</span><span class="w"> </span>
+</span></code></pre></div></td></tr></table></div></p>
+<hr>
+
 <h3 id="function-wshshellpromptwait_yesno">function WshShellPromptWait_YesNo</h3>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-7-1">1</a></span>
-<span class="normal"><a href="#__codelineno-7-2">2</a></span>
-<span class="normal"><a href="#__codelineno-7-3">3</a></span>
-<span class="normal"><a href="#__codelineno-7-4">4</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1"></a><span class="n">WshShell_Bool_t</span><span class="w"> </span><span class="n">WshShellPromptWait_YesNo</span><span class="w"> </span><span class="p">(</span>
-</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2"></a><span class="w">    </span><span class="n">WshShell_Char_t</span><span class="w"> </span><span class="n">symbol</span><span class="p">,</span>
-</span><span id="__span-7-3"><a id="__codelineno-7-3" name="__codelineno-7-3"></a><span class="w">    </span><span class="n">WshShellPromptWait_t</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">pWait</span>
-</span><span id="__span-7-4"><a id="__codelineno-7-4" name="__codelineno-7-4"></a><span class="p">)</span><span class="w"> </span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-10-1">1</a></span>
+<span class="normal"><a href="#__codelineno-10-2">2</a></span>
+<span class="normal"><a href="#__codelineno-10-3">3</a></span>
+<span class="normal"><a href="#__codelineno-10-4">4</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1"></a><span class="n">WshShell_Bool_t</span><span class="w"> </span><span class="n">WshShellPromptWait_YesNo</span><span class="w"> </span><span class="p">(</span>
+</span><span id="__span-10-2"><a id="__codelineno-10-2" name="__codelineno-10-2"></a><span class="w">    </span><span class="n">WshShell_Char_t</span><span class="w"> </span><span class="n">symbol</span><span class="p">,</span>
+</span><span id="__span-10-3"><a id="__codelineno-10-3" name="__codelineno-10-3"></a><span class="w">    </span><span class="n">WshShellPromptWait_t</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">pWait</span>
+</span><span id="__span-10-4"><a id="__codelineno-10-4" name="__codelineno-10-4"></a><span class="p">)</span><span class="w"> </span>
 </span></code></pre></div></td></tr></table></div>
 <hr>
 <h2 id="macro-definition-documentation">Macro Definition Documentation</h2>
 <h3 id="define-wsh_shell_prompt_wait_hint_retries">define WSH_SHELL_PROMPT_WAIT_HINT_RETRIES</h3>
 <p><em>How many rejected keystrokes still reprint the prompt hint.</em> 
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-8-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1"></a><span class="cp">#define WSH_SHELL_PROMPT_WAIT_HINT_RETRIES `3`</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-11-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1"></a><span class="cp">#define WSH_SHELL_PROMPT_WAIT_HINT_RETRIES `3`</span>
 </span></code></pre></div></td></tr></table></div></p>
 <p>A prompt-wait is modal: nothing the user types reaches the command line, so the hint is the only explanation. Repeating it on every keystroke floods whatever else is streaming, so it is repeated a few times and then the wait goes quiet. The bell keeps sounding on every rejection regardless. </p>
 <hr>

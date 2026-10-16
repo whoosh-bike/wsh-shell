@@ -44,9 +44,12 @@ _Main shell structure containing state, configuration, user context, and subsyst
 |  [**WshShellExtCallbacks\_t**](structWshShellExtCallbacks__t.md) | [**ExtCallbacks**](#variable-extcallbacks)  <br> |
 |  [**WshShellHistoryIO\_t**](structWshShellHistoryIO__t.md) | [**HistoryIO**](#variable-historyio)  <br> |
 |  [**WshShellInteract\_t**](structWshShellInteract__t.md) | [**Interact**](#variable-interact)  <br> |
+|  WshShell\_U32\_t | [**LastState**](#variable-laststate)  <br> |
+|  const WshShell\_Char\_t \* | [**LastTag**](#variable-lasttag)  <br> |
+|  const [**WshShellUser\_t**](structWshShellUser__t.md) \* | [**LastUser**](#variable-lastuser)  <br> |
 |  WshShell\_Char\_t | [**PS1**](#variable-ps1)  <br> |
 |  WshShell\_Char\_t | [**PrevSym**](#variable-prevsym)  <br> |
-|  [**WshShellPromptWait\_t**](wsh__shell__promptwait_8h.md#typedef-wshshellpromptwait_t) | [**PromptWait**](#variable-promptwait)  <br> |
+|  [**WshShellPromptWait\_t**](structWshShellPromptWait.md) | [**PromptWait**](#variable-promptwait)  <br> |
 |  [**WshShellSessionIO\_t**](structWshShellSessionIO__t.md) | [**SessionIO**](#variable-sessionio)  <br> |
 |  [**WshShellAuthCtx\_t**](structWshShellAuthCtx__t.md) | [**TmpAuth**](#variable-tmpauth)  <br> |
 |  [**WshShellUser\_Table\_t**](structWshShellUser__Table__t.md) | [**Users**](#variable-users)  <br> |
@@ -228,6 +231,57 @@ WshShellInteract_t WshShell_t::Interact;
 
 
 Interactive command interface. 
+
+
+        
+
+<hr>
+
+
+
+### variable LastState 
+
+```C++
+WshShell_U32_t WshShell_t::LastState;
+```
+
+
+
+0 — none yet, then WSH\_SHELL\_STATE\_\* + 1. 
+
+
+        
+
+<hr>
+
+
+
+### variable LastTag 
+
+```C++
+const WshShell_Char_t* WshShell_t::LastTag;
+```
+
+
+
+PromptWait.Tag at that time. 
+
+
+        
+
+<hr>
+
+
+
+### variable LastUser 
+
+```C++
+const WshShellUser_t* WshShell_t::LastUser;
+```
+
+
+
+CurrUser at that time. 
 
 
         

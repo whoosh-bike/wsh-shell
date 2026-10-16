@@ -10,6 +10,7 @@
 
 ## w
 
+* **WSH\_SHELL\_STATE\_t** ([**wsh\_shell.c**](wsh__shell_8c.md))
 * **WshShell\_ExtClbk\_t** ([**wsh\_shell.h**](wsh__shell_8h.md))
 * **WSH\_SHELL\_CMD\_GROUP\_t** ([**wsh\_shell\_cfg\_def.h**](wsh__shell__cfg__def_8h.md))
 * **WshShellCmdHandler\_t** ([**wsh\_shell\_cmd.h**](wsh__shell__cmd_8h.md))
@@ -26,6 +27,7 @@
 * **WSH\_SHELL\_OPTION\_TYPE\_t** ([**wsh\_shell\_option.h**](wsh__shell__option_8h.md))
 * **WshShell\_OptionTypeNames** ([**wsh\_shell\_option.h**](wsh__shell__option_8h.md))
 * **WshShellPromptWait\_Handler\_t** ([**wsh\_shell\_promptwait.h**](wsh__shell__promptwait_8h.md))
+* **WshShellPromptWait\_Notify\_t** ([**wsh\_shell\_promptwait.h**](wsh__shell__promptwait_8h.md))
 * **WshShellPromptWait\_t** ([**wsh\_shell\_promptwait.h**](wsh__shell__promptwait_8h.md))
 * **WshShellSession\_ReadHandler\_t** ([**wsh\_shell\_session.h**](wsh__shell__session_8h.md))
 * **WshShellSession\_WriteHandler\_t** ([**wsh\_shell\_session.h**](wsh__shell__session_8h.md))

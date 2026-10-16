@@ -28,15 +28,25 @@ struct WshShellPromptWait;
 
 typedef WshShell_Bool_t (*WshShellPromptWait_Handler_t)(WshShell_Char_t symbol, struct WshShellPromptWait* pWait);
 
+typedef void (*WshShellPromptWait_Notify_t)(void* pOwner);
+
 typedef struct WshShellPromptWait {
     WshShellPromptWait_Handler_t Handler;
     void* Ctx;
     WshShell_Size_t RejectedNum; 
+    const WshShell_Char_t* Tag;  
+    WshShellPromptWait_Notify_t Notify; 
+    void* NotifyOwner;
 } WshShellPromptWait_t;
 
 void WshShellPromptWait_Flush(WshShellPromptWait_t* pWait);
 
 void WshShellPromptWait_Attach(WshShellPromptWait_t* pWait, WshShellPromptWait_Handler_t handler, void* pCtx);
+
+void WshShellPromptWait_AttachTagged(WshShellPromptWait_t* pWait, WshShellPromptWait_Handler_t handler, void* pCtx,
+                                     const WshShell_Char_t* pcTag);
+
+void WshShellPromptWait_SetNotify(WshShellPromptWait_t* pWait, WshShellPromptWait_Notify_t notify, void* pOwner);
 
 WSH_SHELL_RET_STATE_t WshShellPromptWait_Handle(WshShellPromptWait_t* pWait, WshShell_Char_t symbol);
 

@@ -71,12 +71,17 @@
 * **LimitIsReached** ([**WshShellHistory\_Data\_t**](structWshShellHistory__Data__t.md))
 * **Len** ([**WshShellIO\_CommandLine\_t**](structWshShellIO__CommandLine__t.md))
 * **LongName** ([**WshShellOption\_t**](structWshShellOption__t.md))
+* **LastState** ([**WshShell\_t**](structWshShell__t.md))
+* **LastTag** ([**WshShell\_t**](structWshShell__t.md))
+* **LastUser** ([**WshShell\_t**](structWshShell__t.md))
 
 
 ## n
 
 * **Name** ([**WshShellCmd**](structWshShellCmd.md))
 * **Num** ([**WshShellCmd\_Table\_t**](structWshShellCmd__Table__t.md), [**WshShellUser\_Table\_t**](structWshShellUser__Table__t.md))
+* **Notify** ([**WshShellPromptWait**](structWshShellPromptWait.md))
+* **NotifyOwner** ([**WshShellPromptWait**](structWshShellPromptWait.md))
 
 
 ## o
@@ -119,6 +124,7 @@
 * **TailIdx** ([**WshShellHistory\_Data\_t**](structWshShellHistory__Data__t.md))
 * **TokenPos** ([**WshShellOption\_Ctx\_t**](structWshShellOption__Ctx__t.md))
 * **Type** ([**WshShellOption\_t**](structWshShellOption__t.md))
+* **Tag** ([**WshShellPromptWait**](structWshShellPromptWait.md))
 * **TmpAuth** ([**WshShell\_t**](structWshShell__t.md))
 
 

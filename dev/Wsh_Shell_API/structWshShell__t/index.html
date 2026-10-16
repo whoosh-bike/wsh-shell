@@ -563,6 +563,8 @@
       
         
       
+        
+      
     
     
     
@@ -761,6 +763,34 @@
     
   
     Persistent Session
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../usage/shell-state/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Shell State Line
   
 
     
@@ -2752,6 +2782,39 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#variable-laststate" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        variable LastState
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#variable-lasttag" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        variable LastTag
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#variable-lastuser" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        variable LastUser
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#variable-ps1" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -2922,6 +2985,18 @@
 <td style="text-align: left;"><a href="#variable-interact"><strong>Interact</strong></a>  <br></td>
 </tr>
 <tr>
+<td style="text-align: right;">WshShell_U32_t</td>
+<td style="text-align: left;"><a href="#variable-laststate"><strong>LastState</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">const WshShell_Char_t *</td>
+<td style="text-align: left;"><a href="#variable-lasttag"><strong>LastTag</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">const <a href="../structWshShellUser__t/"><strong>WshShellUser_t</strong></a> *</td>
+<td style="text-align: left;"><a href="#variable-lastuser"><strong>LastUser</strong></a>  <br></td>
+</tr>
+<tr>
 <td style="text-align: right;">WshShell_Char_t</td>
 <td style="text-align: left;"><a href="#variable-ps1"><strong>PS1</strong></a>  <br></td>
 </tr>
@@ -2930,7 +3005,7 @@
 <td style="text-align: left;"><a href="#variable-prevsym"><strong>PrevSym</strong></a>  <br></td>
 </tr>
 <tr>
-<td style="text-align: right;"><a href="../wsh__shell__promptwait_8h/#typedef-wshshellpromptwait_t"><strong>WshShellPromptWait_t</strong></a></td>
+<td style="text-align: right;"><a href="../structWshShellPromptWait/"><strong>WshShellPromptWait_t</strong></a></td>
 <td style="text-align: left;"><a href="#variable-promptwait"><strong>PromptWait</strong></a>  <br></td>
 </tr>
 <tr>
@@ -3000,43 +3075,61 @@
 <p>Interactive command interface. </p>
 <hr>
 
+<h3 id="variable-laststate">variable LastState</h3>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-8-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1"></a><span class="n">WshShell_U32_t</span><span class="w"> </span><span class="n">WshShell_t</span><span class="o">::</span><span class="n">LastState</span><span class="p">;</span>
+</span></code></pre></div></td></tr></table></div>
+<p>0 — none yet, then WSH_SHELL_STATE_* + 1. </p>
+<hr>
+
+<h3 id="variable-lasttag">variable LastTag</h3>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-9-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1"></a><span class="k">const</span><span class="w"> </span><span class="n">WshShell_Char_t</span><span class="o">*</span><span class="w"> </span><span class="n">WshShell_t</span><span class="o">::</span><span class="n">LastTag</span><span class="p">;</span>
+</span></code></pre></div></td></tr></table></div>
+<p>PromptWait.Tag at that time. </p>
+<hr>
+
+<h3 id="variable-lastuser">variable LastUser</h3>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-10-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1"></a><span class="k">const</span><span class="w"> </span><span class="n">WshShellUser_t</span><span class="o">*</span><span class="w"> </span><span class="n">WshShell_t</span><span class="o">::</span><span class="n">LastUser</span><span class="p">;</span>
+</span></code></pre></div></td></tr></table></div>
+<p>CurrUser at that time. </p>
+<hr>
+
 <h3 id="variable-ps1">variable PS1</h3>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-8-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1"></a><span class="n">WshShell_Char_t</span><span class="w"> </span><span class="n">WshShell_t</span><span class="o">::</span><span class="n">PS1</span><span class="p">[</span><span class="n">WSH_SHELL_PS1_MAX_LEN</span><span class="p">];</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-11-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1"></a><span class="n">WshShell_Char_t</span><span class="w"> </span><span class="n">WshShell_t</span><span class="o">::</span><span class="n">PS1</span><span class="p">[</span><span class="n">WSH_SHELL_PS1_MAX_LEN</span><span class="p">];</span>
 </span></code></pre></div></td></tr></table></div>
 <p>Cached PS1 string. </p>
 <hr>
 
 <h3 id="variable-prevsym">variable PrevSym</h3>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-9-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1"></a><span class="n">WshShell_Char_t</span><span class="w"> </span><span class="n">WshShell_t</span><span class="o">::</span><span class="n">PrevSym</span><span class="p">;</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-12-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1"></a><span class="n">WshShell_Char_t</span><span class="w"> </span><span class="n">WshShell_t</span><span class="o">::</span><span class="n">PrevSym</span><span class="p">;</span>
 </span></code></pre></div></td></tr></table></div>
 <p>Previous symbol inserted in. </p>
 <hr>
 
 <h3 id="variable-promptwait">variable PromptWait</h3>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-10-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1"></a><span class="n">WshShellPromptWait_t</span><span class="w"> </span><span class="n">WshShell_t</span><span class="o">::</span><span class="n">PromptWait</span><span class="p">;</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-13-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1"></a><span class="n">WshShellPromptWait_t</span><span class="w"> </span><span class="n">WshShell_t</span><span class="o">::</span><span class="n">PromptWait</span><span class="p">;</span>
 </span></code></pre></div></td></tr></table></div>
 <hr>
 
 <h3 id="variable-sessionio">variable SessionIO</h3>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-11-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1"></a><span class="n">WshShellSessionIO_t</span><span class="w"> </span><span class="n">WshShell_t</span><span class="o">::</span><span class="n">SessionIO</span><span class="p">;</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-14-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-14-1"><a id="__codelineno-14-1" name="__codelineno-14-1"></a><span class="n">WshShellSessionIO_t</span><span class="w"> </span><span class="n">WshShell_t</span><span class="o">::</span><span class="n">SessionIO</span><span class="p">;</span>
 </span></code></pre></div></td></tr></table></div>
 <p>Persistent login session storage ops. </p>
 <hr>
 
 <h3 id="variable-tmpauth">variable TmpAuth</h3>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-12-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1"></a><span class="n">WshShellAuthCtx_t</span><span class="w"> </span><span class="n">WshShell_t</span><span class="o">::</span><span class="n">TmpAuth</span><span class="p">;</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-15-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-15-1"><a id="__codelineno-15-1" name="__codelineno-15-1"></a><span class="n">WshShellAuthCtx_t</span><span class="w"> </span><span class="n">WshShell_t</span><span class="o">::</span><span class="n">TmpAuth</span><span class="p">;</span>
 </span></code></pre></div></td></tr></table></div>
 <p>Temporary auth input storage. </p>
 <hr>
 
 <h3 id="variable-users">variable Users</h3>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-13-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1"></a><span class="n">WshShellUser_Table_t</span><span class="w"> </span><span class="n">WshShell_t</span><span class="o">::</span><span class="n">Users</span><span class="p">;</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-16-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-16-1"><a id="__codelineno-16-1" name="__codelineno-16-1"></a><span class="n">WshShellUser_Table_t</span><span class="w"> </span><span class="n">WshShell_t</span><span class="o">::</span><span class="n">Users</span><span class="p">;</span>
 </span></code></pre></div></td></tr></table></div>
 <p>Table of available users. </p>
 <hr>
 
 <h3 id="variable-version">variable Version</h3>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-14-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-14-1"><a id="__codelineno-14-1" name="__codelineno-14-1"></a><span class="n">WshShell_Char_t</span><span class="o">*</span><span class="w"> </span><span class="n">WshShell_t</span><span class="o">::</span><span class="n">Version</span><span class="p">;</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-17-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-17-1"><a id="__codelineno-17-1" name="__codelineno-17-1"></a><span class="n">WshShell_Char_t</span><span class="o">*</span><span class="w"> </span><span class="n">WshShell_t</span><span class="o">::</span><span class="n">Version</span><span class="p">;</span>
 </span></code></pre></div></td></tr></table></div>
 <p>Version string. </p>
 <hr>

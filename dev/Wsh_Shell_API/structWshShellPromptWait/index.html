@@ -563,6 +563,8 @@
       
         
       
+        
+      
     
     
     
@@ -761,6 +763,34 @@
     
   
     Persistent Session
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../usage/shell-state/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Shell State Line
   
 
     
@@ -2652,17 +2682,6 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#detailed-description" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Detailed Description
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#public-attributes-documentation" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -2697,10 +2716,43 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#variable-notify" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        variable Notify
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#variable-notifyowner" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        variable NotifyOwner
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#variable-rejectednum" class="md-nav__link">
     <span class="md-ellipsis">
       
         variable RejectedNum
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#variable-tag" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        variable Tag
       
     </span>
   </a>
@@ -2755,10 +2807,6 @@
 
 <h1 id="struct-wshshellpromptwait">Struct WshShellPromptWait</h1>
 <p><a href="../annotated/"><strong>ClassList</strong></a> <strong>&gt;</strong> <a href="./"><strong>WshShellPromptWait</strong></a></p>
-<p><em>Prompt-wait control structure.</em> <a href="#detailed-description">More...</a></p>
-<ul>
-<li><code>#include &lt;wsh_shell_promptwait.h&gt;</code></li>
-</ul>
 <h2 id="public-attributes">Public Attributes</h2>
 <table>
 <thead>
@@ -2777,13 +2825,23 @@
 <td style="text-align: left;"><a href="#variable-handler"><strong>Handler</strong></a>  <br></td>
 </tr>
 <tr>
+<td style="text-align: right;"><a href="../wsh__shell__promptwait_8h/#typedef-wshshellpromptwait_notify_t"><strong>WshShellPromptWait_Notify_t</strong></a></td>
+<td style="text-align: left;"><a href="#variable-notify"><strong>Notify</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">void *</td>
+<td style="text-align: left;"><a href="#variable-notifyowner"><strong>NotifyOwner</strong></a>  <br></td>
+</tr>
+<tr>
 <td style="text-align: right;">WshShell_Size_t</td>
 <td style="text-align: left;"><a href="#variable-rejectednum"><strong>RejectedNum</strong></a>  <br></td>
 </tr>
+<tr>
+<td style="text-align: right;">const WshShell_Char_t *</td>
+<td style="text-align: left;"><a href="#variable-tag"><strong>Tag</strong></a>  <br></td>
+</tr>
 </tbody>
 </table>
-<h2 id="detailed-description">Detailed Description</h2>
-<p>Holds the active handler and optional context pointer. If Handler is NULL, no prompt-wait is active. </p>
 <h2 id="public-attributes-documentation">Public Attributes Documentation</h2>
 <h3 id="variable-ctx">variable Ctx</h3>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="kt">void</span><span class="o">*</span><span class="w"> </span><span class="n">WshShellPromptWait</span><span class="o">::</span><span class="n">Ctx</span><span class="p">;</span>
@@ -2795,10 +2853,27 @@
 </span></code></pre></div></td></tr></table></div>
 <hr>
 
+<h3 id="variable-notify">variable Notify</h3>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-2-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1"></a><span class="n">WshShellPromptWait_Notify_t</span><span class="w"> </span><span class="n">WshShellPromptWait</span><span class="o">::</span><span class="n">Notify</span><span class="p">;</span>
+</span></code></pre></div></td></tr></table></div>
+<p>Set by the shell, survives Flush/Attach. </p>
+<hr>
+
+<h3 id="variable-notifyowner">variable NotifyOwner</h3>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-3-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1"></a><span class="kt">void</span><span class="o">*</span><span class="w"> </span><span class="n">WshShellPromptWait</span><span class="o">::</span><span class="n">NotifyOwner</span><span class="p">;</span>
+</span></code></pre></div></td></tr></table></div>
+<hr>
+
 <h3 id="variable-rejectednum">variable RejectedNum</h3>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-2-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1"></a><span class="n">WshShell_Size_t</span><span class="w"> </span><span class="n">WshShellPromptWait</span><span class="o">::</span><span class="n">RejectedNum</span><span class="p">;</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-4-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1"></a><span class="n">WshShell_Size_t</span><span class="w"> </span><span class="n">WshShellPromptWait</span><span class="o">::</span><span class="n">RejectedNum</span><span class="p">;</span>
 </span></code></pre></div></td></tr></table></div>
 <p>Keystrokes refused by the handler since attach. </p>
+<hr>
+
+<h3 id="variable-tag">variable Tag</h3>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-5-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1"></a><span class="k">const</span><span class="w"> </span><span class="n">WshShell_Char_t</span><span class="o">*</span><span class="w"> </span><span class="n">WshShellPromptWait</span><span class="o">::</span><span class="n">Tag</span><span class="p">;</span>
+</span></code></pre></div></td></tr></table></div>
+<p>What the shell is busy with, e.g. "sniff:cell"; NULL if not said. </p>
 <hr>
 
 <hr />
