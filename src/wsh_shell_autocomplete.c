@@ -518,7 +518,7 @@ WshShell_Bool_t WshShellAutocomplete_Try(WshShell_Char_t* pInBuff, WshShell_Size
         /* Append into pInBuff, not into candidates[0]: the candidate row is only
          * WSH_SHELL_CMD_NAME_LEN long, so writing the space there overruns it for
          * a name that fills the row, while the guard above bounds pInBuff. */
-        WSH_SHELL_STRNCPY(pInBuff, candidates[0], candLen);
+        WSH_SHELL_MEMCPY(pInBuff, candidates[0], candLen);
         pInBuff[candLen]     = ' ';  //add extra space if command found
         pInBuff[candLen + 1] = '\0';
         return true;
